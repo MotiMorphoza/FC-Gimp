@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111111">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hebrew with MotiVation</title>
+
+<style>
+
+.hidden{
+  display:none;
+}
+
+body{
+  margin:0;
+  font-family:system-ui, sans-serif;
+  background:#111;
+  color:#fff;
+
+  font-size:17px;
+  line-height:1.55;
+  letter-spacing:0.3px;
+
+}
+
+/* ---------- SCREENS ---------- */
+.screen{
+  display:none;
+  padding:18px;
+  max-width:420px;
+  margin:auto;
+  min-height:100vh;
+  box-sizing:border-box;
+}
+.screen.active{display:block}
+
+/* ---------- HOME ---------- */
+.welcome{
+  font-size:40px;
+  font-weight:800;
+  text-align:center;
+  margin-top:35px;
+}
+.instructions{
+  text-align:center;
+  font-size:25px;
+  margin:20px 0 30px;
+  color:#bbb;
+}
+.title-bottom{
+  text-align:center;
+  font-size:30px;
+  margin-top:28px;
+  opacity:0.85;
+}
+
+/* ---------- BUTTONS ---------- */
+button{
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  font-size:17px;
+font-weight:600;
+letter-spacing:0.3px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  background:linear-gradient(180deg,#f1f4f8,#dfe7f1);
+  color:#222;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
+  transition:transform .1s, box-shadow .1s, background .2s;
+}
+button:hover{
+  background:linear-gradient(180deg,#ffffff,#e6eef8);
+}
+button:active{
+  transform:translateY(2px);
+  box-shadow:0 2px 4px rgba(0,0,0,0.35);
+}
+.good{
+  background:linear-gradient(180deg,#b7e4c7,#95d5b2);
+}
+.bad{
+  background:linear-gradient(180deg,#f7b2ad,#ee938c);
+}
+.back{
+  background:linear-gradient(180deg,#e0e0e0,#cfcfcf);
+}
+.delete{
+  background:linear-gradient(180deg,#ff9aa2,#ff6f6f);
+  color:#300;
+}
+
+.button-primary{
+  background:linear-gradient(180deg,#9fc5ff,#6fa8ff);
+  color:#002b5c;
+}
+
+.button-success{
+  background:linear-gradient(180deg,#b7e4c7,#95d5b2);
+  color:#103b24;
+}
+
+.button-danger{
+  background:linear-gradient(180deg,#ff9aa2,#ff6f6f);
+  color:#300;
+}
+.button-bank{
+  background:linear-gradient(180deg,#b7e4c7,#95d5b2);
+  color:#103b24;
+}
+
+.peach{
+  background:linear-gradient(180deg,#ffe5d9,#ffb4a2);
+  color:#5a1f14;
+}
+.sunset{
+  background:linear-gradient(180deg,#ffedd5,#fb923c);
+  color:#4a1d00;
+}
+.forest{
+  background:linear-gradient(180deg,#bbf7d0,#22c55e);
+  color:#052e16;
+}
+.lavender{
+  background:linear-gradient(180deg,#ede9fe,#c4b5fd);
+  color:#2e1065;
+}
+
+/* ---------- FORM ---------- */
+select,input,textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  font-size:17px;
+  border-radius:10px;
+  border:none;
+  box-sizing:border-box;
+}
+
+/* ---------- SESSION ---------- */
+
+.flip-hint{
+  text-align:center;
+  font-family:"Comic Sans MS","Trebuchet MS",cursive;
+  font-size:30px;
+  margin-bottom:10px;
+  color:#ffd966;
+}
+
+.card-frame{
+  border:5px solid #6fa8dc;
+  border-radius:18px;
+  padding:14px;
+  background:#2a2a2a;
+  box-shadow:
+    0 10px 18px rgba(0,0,0,0.6),
+    inset 0 0 0 2px rgba(255,255,255,0.08);
+}
+
+.card{
+  background:#111;
+  height:220px;            /* כרטיס קבוע */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:102px;         /* פי 3 */
+  line-height:1.15;
+  text-align:center;
+  border-radius:12px;
+  padding:20px;
+  user-select:none;
+
+  overflow:hidden;         /* הכרטיס לא גדל */
+  white-space:normal;      /* מותר לשבור שורה */
+  word-break:normal;       /* ❌ לא שוברים מילה */
+  overflow-wrap:normal;    /* ❌ לא שוברים מילה */
+}
+
+
+
+.remaining{
+  text-align:center;
+  font-size:20px;
+  margin-top:10px;
+  color:#cfe2f3;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.row button{width:50%}
+
+
+
+/* ---------- BANK ---------- */
+
+.word-files-invite{
+  border:2px solid #ffd966;
+  border-radius:18px;
+  padding:16px;
+  margin:16px 0;
+  background:linear-gradient(180deg,#1f1f1f,#151515);
+  box-shadow:0 0 18px rgba(255,217,102,0.25);
+}
+.word-files-invite h3{
+  text-align:center;
+  font-size:22px;
+  color:#ffe599;
+  margin-bottom:6px;
+}
+.invite-main{
+  text-align:center;
+  font-size:15px;
+  margin-bottom:10px;
+}
+.invite-cta{
+  text-align:center;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.3px;
+  padding:12px;
+  border-radius:14px;
+  background:linear-gradient(180deg,#9fc5ff,#6fa8ff);
+  color:#002b5c;
+  cursor:pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.invite-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  opacity:0.95;
+}
+
+.invite-cta:active{
+  transform:translateY(1px);
+  box-shadow:0 3px 6px rgba(0,0,0,0.35);
+}
+
+
+/* ---------- DOWNLOAD ---------- */
+
+#download select{
+  margin-bottom:14px;
+  background:#1c1c1c;
+  color:#fff;
+}
+
+#download h2{
+  text-align:center;
+  margin-bottom:14px;
+}
+
+#downloadAccordions li{
+  cursor:pointer;
+  padding:8px 6px;
+  border-radius:8px;
+  transition:background .15s, color .15s;
+}
+
+#downloadAccordions li:hover{
+  background:#2a2a2a;
+  color:#ffe5d9; /* peach tone */
+}
+
+#downloadAccordions li:active{
+  background:#333;
+}
+
+/* --- Download language visual state --- */
+
+#downloadLangSelect{
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+/* סימון עדין לפי שפה */
+#downloadLangSelect.lang-he-en{
+  box-shadow: 0 0 0 2px rgba(187,247,208,0.5); /* forest */
+}
+#downloadLangSelect.lang-pl-en{
+  box-shadow: 0 0 0 2px rgba(255,229,217,0.55); /* peach */
+}
+#downloadLangSelect.lang-ar-he{
+  box-shadow: 0 0 0 2px rgba(255,237,213,0.55); /* sunset */
+}
+#downloadLangSelect.lang-es-he{
+  box-shadow: 0 0 0 2px rgba(187,247,208,0.35); /* forest soft */
+}
+
+/* ---------- DOWNLOAD SCREEN THEME ---------- */
+
+#adminUpload{
+  background:#0f172a;
+}
+
+#adminUpload h2{
+  text-align:center;
+  margin-bottom:14px;
+}
+
+
+#download{
+  background:linear-gradient(180deg,#0f1f16,#111);
+}
+
+/* ---------- ACCORDION ---------- */
+
+.accordion{
+  border-radius:14px;
+  background:#1c1c1c;
+  margin-bottom:10px;
+  overflow:hidden;
+}
+
+.accordion-header{
+  padding:14px;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.accordion-header span{
+  transition:transform .25s ease;
+}
+
+.accordion.open .accordion-header span{
+  transform:rotate(90deg);
+}
+
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(-4px);
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.accordion.open .accordion-content{
+  max-height:1000px;
+  opacity:1;
+  transform:translateY(0);
+  padding-bottom:12px;
+}
+
+.accordion-content ul{
+  margin:0;
+  padding-left:18px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+
+.accordion.has-content .accordion-header {
+  color: #86efac;
+}
+.accordion.has-content .accordion-header::before {
+  content: "● ";
+  color: #22c55e;
+}
+
+
+/* ---------- LIST ---------- */
+
+
+#bankListTopicSelect{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  font-size:16px;
+  border-radius:10px;
+  border:none;
+  box-sizing:border-box;
+
+  position:relative;
+  z-index:10;              /* 🔥 קריטי */
+}
+
+.list-item{
+  background:#222;
+  padding:17px;
+  margin:8px 0;
+  border-radius:10px;
+}
+
+.word-line{
+  font-size:33px;
+  font-weight:600;
+  line-height:1.3;
+}
+
+
+.actions{
+  display:flex;
+  gap:8px;
+}
+
+.actions button{width:50%}
+
+
+/* ---------- CONTACT ---------- */
+.contact button{
+  background:linear-gradient(180deg,#e6e6e6,#cfcfcf);
+  color:#222;
+  font-weight:700;
+}
+
+.about-box{
+  border:2px solid #6fa8dc;
+  border-radius:18px;
+  padding:16px;
+  margin-top:20px;
+  background:#1c1c1c;
+  text-align:center;
+}
+
+.about-title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:10px;
+  color:#9fc5ff;
+}
+
+.about-box p{
+  margin:10px 0;
+  font-size:15px;
+  line-height:1.4;
+}
+
+
+
+.stat-block{
+  background:#1c1c1c;
+  padding:10px;
+  margin:8px 0;
+  border-radius:10px;
+}
+
+/* ---------- CONTACT LINKS ---------- */
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:16px 0;
+}
+
+.contact-links a{
+  display:block;
+  text-align:center;
+  padding:14px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
+  transition:opacity .2s, transform .1s;
+}
+
+.contact-links a:hover{
+  opacity:0.9;
+}
+
+.contact-links a:active{
+  transform:translateY(2px);
+}
+
+/* Colors */
+.contact-links a.facebook{
+  background:#1877f2;
+}
+
+.contact-links a.instagram{
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);
+}
+
+.contact-links a.whatsapp{
+  background:#25d366;
+}
+
+.contact-links a.email{
+  background:#6b7280;
+}
+
+
+
+/* --- HARD WORDS TABLE --- */
+.hard-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+.hard-table th{
+  text-align:left;
+  padding:8px;
+  border-bottom:2px solid #555;
+  font-size:16px;
+}
+.hard-table td{
+  padding:10px 8px;
+  border-bottom:1px solid #333;
+  vertical-align:top;
+}
+.hard-word{
+  font-size:20px;
+  font-weight:600;
+}
+.hard-count{
+  text-align:center;
+  font-size:18px;
+}
+
+.sound-toggle{
+  text-align:center;
+  font-size:22px;
+  margin:10px 0 6px;
+  cursor:pointer;
+  user-select:none;
+  opacity:0.85;
+}
+.sound-toggle:hover{
+  opacity:1;
+}
+
+#sessionEnd.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.session-end-box{
+  text-align:center;
+  max-width:320px;
+}
+
+.session-end-box h1{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.session-end-sub{
+  font-size:18px;
+  opacity:0.85;
+  margin-bottom:24px;
+}
+
+/* ---------- ADMIN UPLOAD ---------- */
+#adminUpload{
+  background:#0f172a;
+}
+
+#adminUpload h2{
+  text-align:center;
+  margin-bottom:14px;
+}
+
+#downloadAccordions li.loaded {
+  color: #86efac;              /* ירוק */
+  font-weight: 600;
+}
+
+#downloadAccordions li.loaded::before {
+  content: "● ";
+  color: #22c55e;
+}
+
+
+/* ---------- DOWNLOAD LANGUAGE BOX ---------- */
+
+.download-lang-box{
+  background: linear-gradient(180deg,#f8fafc,#e5e7eb);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:20px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(0,0,0,0.06);
+}
+
+.download-lang-box select{
+  background:#ffffff;
+  color:#111;
+  font-weight:700;
+  border-radius:14px;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.15);
+}
+
+}
+
+#downloadAccordions{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+#download .download-lang-box select{
+  background:#ffffff;
+  color:#111;
+  font-weight:700;
+  border-radius:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div class="screen active" id="home">
+  <div class="welcome">WELCOME</div><br>
+
+
+  <div id="instructions" class="instructions">
+    To start, add words OR load a file in the Word Bank
+  </div>
+
+  <select id="topicSelect"></select>
+  <button class="button-primary" onclick="startSession()">Start A sessioN</button>
+  <button class="peach" onclick="showBank()">Word Bank</button>
+  <button class="lavender" onclick="showStats()">Statistics</button>
+  <button class="forest" onclick="showContact()">Contact</button>
+  <button onclick="exitApp()" class="back">Exit</button>
+
+  <div class="title-bottom" id="adminTrigger">Hebrew with MotiVation
+</div>
+
+
+  <div id="cacheVersion" style="
+  text-align:center;
+  font-size:13px;
+  opacity:0.5;
+  margin-top:20px;
+">
+</div>
+
+</div>
+
+<!-- BANK -->
+<div class="screen" id="bank">
+  <h2>Word Bank</h2>
+  <select id="bankTopicSelect"></select>
+  <button class="sunset" onclick="showAdd()">Add words / topic</button>
+
+<div class="word-files-invite">
+<button class="invite-cta" onclick="showDownload()">
+  Word library
+</button>
+
+</div>
+
+  <button class="peach" onclick="triggerImport()">Import word file</button>
+
+<button onclick="showHome()" class="back">Back</button>
+</div>
+
+
+<!-- DOWNLOAD -->
+<div class="screen" id="download">
+
+  <h2>Download</h2>
+
+  <!-- Language selector (UI בלבד) -->
+<div class="download-lang-box">
+<select id="downloadLangSelect">
+  <option value="" hidden>Choose language pair</option>
+  <option value="he-en">Hebrew → English</option>
+  <option value="pl-en">Polish → English</option>
+  <option value="ar-he">Arabic → Hebrew</option>
+  <option value="es-he">Spanish → Hebrew</option>
+</select>
+  </div>
+
+
+  <!-- ACCORDIONS  -->
+  <div id="downloadAccordions">
+    
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Grammar & Structure <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="verb_infinitives" onclick="onDownloadTopic(this)">Verb infinitives</li>
+      <li data-topic-id="verb_conjugations" onclick="onDownloadTopic(this)">Verb conjugations</li>
+      <li data-topic-id="tenses" onclick="onDownloadTopic(this)">Past / Present / Future</li>
+      <li data-topic-id="nouns" onclick="onDownloadTopic(this)">Nouns</li>
+      <li data-topic-id="adjectives" onclick="onDownloadTopic(this)">Adjectives</li>
+      <li data-topic-id="adverbs" onclick="onDownloadTopic(this)">Adverbs</li>
+      <li data-topic-id="pronouns" onclick="onDownloadTopic(this)">Pronouns</li>
+      <li data-topic-id="prepositions" onclick="onDownloadTopic(this)">Prepositions</li>
+      <li data-topic-id="connectors" onclick="onDownloadTopic(this)">Connectors</li>
+      <li data-topic-id="singular_plural" onclick="onDownloadTopic(this)">Singular / Plural</li>
+      <li data-topic-id="gender" onclick="onDownloadTopic(this)">Masculine / Feminine</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Vocabulary & Meaning <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="opposites" onclick="onDownloadTopic(this)">Opposites</li>
+      <li data-topic-id="confusing_words" onclick="onDownloadTopic(this)">Confusing words</li>
+      <li data-topic-id="false_friends" onclick="onDownloadTopic(this)">False friends</li>
+      <li data-topic-id="collocations" onclick="onDownloadTopic(this)">Collocations</li>
+      <li data-topic-id="idioms" onclick="onDownloadTopic(this)">Idioms</li>
+      <li data-topic-id="slang" onclick="onDownloadTopic(this)">Slang</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Daily Life <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="daily_use" onclick="onDownloadTopic(this)">Daily use</li>
+      <li data-topic-id="food_shopping" onclick="onDownloadTopic(this)">Food & Shopping</li>
+      <li data-topic-id="home_family" onclick="onDownloadTopic(this)">Home & Family</li>
+      <li data-topic-id="work_professions" onclick="onDownloadTopic(this)">Work & Professions</li>
+      <li data-topic-id="transport" onclick="onDownloadTopic(this)">Transport & Navigation</li>
+      <li data-topic-id="studies" onclick="onDownloadTopic(this)">Studies</li>
+      <li data-topic-id="time_dates" onclick="onDownloadTopic(this)">Time & Dates</li>
+      <li data-topic-id="emotions" onclick="onDownloadTopic(this)">Emotions</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Communication <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="sentences" onclick="onDownloadTopic(this)">Sentences</li>
+      <li data-topic-id="questions_answers" onclick="onDownloadTopic(this)">Questions & Answers</li>
+      <li data-topic-id="politeness" onclick="onDownloadTopic(this)">Requests & Politeness</li>
+      <li data-topic-id="phone_messages" onclick="onDownloadTopic(this)">Phone calls & Messages</li>
+      <li data-topic-id="short_conversations" onclick="onDownloadTopic(this)">Short conversations</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Advanced & Fluency <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="advanced_control" onclick="onDownloadTopic(this)">Advanced control</li>
+      <li data-topic-id="functional_language" onclick="onDownloadTopic(this)">Functional language</li>
+      <li data-topic-id="phrasal_verbs" onclick="onDownloadTopic(this)">Phrasal verbs</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    Others <span>▶</span>
+  </div>
+  <div class="accordion-content">
+    <ul>
+      <li data-topic-id="emergency" onclick="onDownloadTopic(this)">Emergency situations</li>
+      <li data-topic-id="custom" onclick="onDownloadTopic(this)">Custom topics by request</li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+
+  <button class="back" onclick="showHome()">Back</button>
+</div>
+
+<!-- ADMIN UPLOAD -->
+<div class="screen" id="adminUpload">
+  <h2>Admin · Upload CSV</h2>
+
+  <select id="adminLangSelect">
+    <option value="" hidden>Select language pair</option>
+    <option value="he-en">Hebrew → English</option>
+    <option value="pl-en">Polish → English</option>
+    <option value="ar-he">Arabic → Hebrew</option>
+  </select>
+<select id="adminTopicSelect">
+  <option value="" hidden>Select topic</option>
+
+  <option value="verb_infinitives">Verb infinitives</option>
+  <option value="verb_conjugations">Verb conjugations</option>
+  <option value="tenses">Past / Present / Future</option>
+
+  <option value="daily_use">Daily use</option>
+  <option value="food_shopping">Food & Shopping</option>
+</select>
+
+
+
+  <input type="file" id="adminCsvFile" accept=".csv">
+
+  <div id="adminFileList" style="margin-top:14px;font-size:14px;"></div>
+
+
+  <button class="forest" onclick="adminUploadCsv()">
+    Upload & Register
+  </button>
+
+  <button class="back" onclick="showHome()">Back</button>
+</div>
+
+
+<!-- BANK LIST -->
+
+<div class="screen" id="bankList">
+<select id="bankListTopicSelect" onchange="switchBankListTopic()"></select>
+
+
+<button onclick="addWordToCurrentTopic()" class="good">+ Add word</button>
+
+<button class="lavender" onclick="exportCurrentTopic()">Export word file</button>
+
+<div style="display:flex; gap:8px;">
+  <button class="button-primary" style="flex:1;" onclick="renameCurrentTopic()">Rename</button>
+  <button id="deleteTopicBtn" class="delete hidden" style="flex:1;" onclick="deleteCurrentTopic()">Delete</button>
+</div>
+
+<button class="button-primary" style="font-weight:700;" onclick="showHome()">Back</button>
+
+<input id="searchInput" placeholder="Search..." oninput="renderWordList()">
+  <select id="sortSelect" onchange="renderWordList()">
+    <option value="">No sorting</option>
+    <option value="learn">By learning language</option>
+    <option value="tr">By translation</option>
+  </select>
+
+  <div id="wordList"></div>
+
+  <button onclick="showBank()" class="back">Back</button>
+</div>
+
+<!-- ADD -->
+<div class="screen" id="add">
+  <h2>Add word</h2>
+  <select id="addTopicSelect" onchange="onAddTopicChange()"></select>
+  <input id="newTopicInput" class="hidden" placeholder="New topic name">
+  <textarea id="learnInput" placeholder="Learning language"></textarea>
+  <textarea id="translationInput" placeholder="Translation"></textarea>
+  <button class="forest" onclick="saveWord()">Save</button>
+  <button onclick="goHome()" class="back">Back</button>
+
+</div>
+
+<!-- SESSION -->
+<div class="screen" id="session">
+
+  <div class="flip-hint">CLICK TO FLIP</div>
+
+  <div class="card-frame">
+    <div class="card" id="card" onclick="flipCard()"></div>
+  </div>
+
+  <div class="remaining">
+    Remaining: <span id="remainingCount"></span>
+  </div>
+
+  <div class="sound-toggle" onclick="toggleSound()" id="soundIcon">🔊</div>
+
+  <div class="row">
+    <button class="good" onclick="markKnown()">I knew it</button>
+    <button class="bad" onclick="markUnknown()">Ooooopsi</button>
+  </div>
+
+  <button class="lavender" id="shuffleBtn" onclick="shuffleSession()">Shuffle</button>
+  <button class="sunset" onclick="flipDirection()">Flip Direction</button>
+  <button onclick="goHome()" class="back">Exit</button>
+</div>
+
+<!-- SESSION END -->
+<div class="screen" id="sessionEnd">
+
+  <div class="session-end-box">
+    <h1>🎉 Well done 🎉</h1>
+    <p class="session-end-sub">You’ve completed the session</p>
+
+    <button class="forest" id="restartSessionBtn">
+      Start again
+    </button>
+
+    <button class="back" id="backHomeBtn">
+      Back to Home
+    </button>
+  </div>
+
+</div>
+
+
+<!-- STATS -->
+<div class="screen" id="stats">
+  <h2>Statistics</h2>
+  <button onclick="resetStats()" class="delete">Reset statistics</button>
+  <div id="statsContent"></div>
+  <button onclick="showHome()" class="back">Back</button>
+</div>
+
+
+<!-- CONTACT -->
+<div class="screen contact" id="contact">
+  <h2>Contact</h2>
+
+  <div class="about-box">
+  <div class="about-title">Hebrew with Moti Vation</div>
+
+  <p>I'm here – No Fear<br>
+  Hebrew will become so clear</p>
+
+  <p>Online sessions from the comfort of your home<br>
+  Beginners / Advanced / Individuals / Groups</p>
+
+  <p>Fun & Interesting lessons<br>
+  I love languages and I love teaching</p>
+
+  <p>Lets go on adventure..<br>
+  Cake Eat Easy<br>
+  Take care – Take air</p>
+</div>
+
+
+<div class="contact-links">
+  <a class="facebook" href="https://www.facebook.com/share/1D6uJLL5nK/" target="_blank">
+    Facebook
+  </a>
+
+  <a class="instagram" href="https://www.instagram.com/hebrew_with_motivation" target="_blank">
+    Instagram
+  </a>
+
+  <a class="email" href="mailto:mottex@gmail.com">
+    Email
+  </a>
+
+  <a class="whatsapp" href="https://wa.me/48604726360" target="_blank">
+    WhatsApp
+  </a>
+</div>
+
+
+
+ <button onclick="showHome()" class="back">Back</button>
+</div>
+
+<input type="file" id="importFile" accept=".csv" class="hidden">
+
+<script>
+
+/* ===== SOUND ===== */
+
+let soundOn = JSON.parse(localStorage.getItem("soundOn") ?? "true");
+// very soft sounds
+
+const flipSound = new Audio("https://actions.google.com/sounds/v1/impacts/metal_parts_cling.ogg");
+const correctSound = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
+
+flipSound.volume = 0.2;
+correctSound.volume = 0.07;
+
+
+function toggleSound(){
+  soundOn = !soundOn;
+  localStorage.setItem("soundOn", JSON.stringify(soundOn));
+  updateSoundIcon();
+}
+
+function updateSoundIcon(){
+  const el = document.getElementById("soundIcon");
+  if(el) el.textContent = soundOn ? "🔊" : "🔇";
+}
+
+
+/* ===== DATA ===== */
+let data = JSON.parse(localStorage.getItem("flashData_v76")) || { topics:{} };
+let stats = JSON.parse(localStorage.getItem("stats_v76")) || {
+  sessions:0, history:[], perTopic:{}, hardWords:{}
+};
+
+let session=[], current=null;
+let sessionDefaultDirection="A";
+let cardFlipped=false;
+let shuffleUsed=false;
+let currentTopic=null;
+let lastAddTopic="";
+let returnToBankListAfterSave = false;
+
+
+/* ===== UTIL ===== */
+function save(){
+  localStorage.setItem("flashData_v76",JSON.stringify(data));
+  localStorage.setItem("stats_v76",JSON.stringify(stats));
+}
+function allWords(){
+  let a=[];
+  Object.keys(data.topics).forEach(t=>{
+    if(t!=="All words") a.push(...data.topics[t]);
+  });
+  return a;
+}
+
+/* ===== NAV ===== */
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function showHome(){
+  loadTopics();
+  updateInstructions();
+  show("home");
+}
+
+function showBank(){
+  loadTopics();
+  show("bank");
+}
+
+function showStats(){
+  renderStats();
+  show("stats");
+}
+
+function showContact(){
+  show("contact");
+}
+
+function showDownload(){
+
+  // ✅ סנכרון ה־select לערך האחרון (אם קיים)
+  if (currentDownloadLang && downloadLangSelect) {
+    downloadLangSelect.value = currentDownloadLang;
+  }
+
+  markActiveDownloadLang();
+  markLoadedDownloadTopics();
+  closeAllAccordions();
+  show("download");
+}
+
+function goHome(){
+  if(stats.current){
+    finishSessionIfActive();
+  }
+
+  importFile.value = "";
+  showHome();
+}
+
+function showAdminUpload(){
+  show("adminUpload");
+}
+
+
+/* ===== HOME LOGIC ===== */
+function updateInstructions(){
+  document.getElementById("instructions")
+    .classList.toggle("hidden", allWords().length>0);
+}
+
+/* ===== TOPICS ===== */
+
+function loadTopics(){
+  data.topics["All words"] = allWords();
+
+  const hardLabel = "Hard Words";
+  const topics = Object.keys(data.topics);
+
+  /* ---------- HOME ---------- */
+  topicSelect.innerHTML = '<option value="">Select topic</option>';
+  topicSelect.innerHTML += `<option>${hardLabel}</option>`;
+  topics.forEach(t=>{
+    topicSelect.innerHTML += `<option>${t}</option>`;
+  });
+
+  /* ---------- BANK ---------- */
+  bankTopicSelect.innerHTML = '<option value="">Select topic</option>';
+  bankTopicSelect.innerHTML += `<option>${hardLabel}</option>`;
+  topics.forEach(t=>{
+    bankTopicSelect.innerHTML += `<option>${t}</option>`;
+  });
+
+  /* ---------- BANK LIST ---------- */
+  bankListTopicSelect.innerHTML = "";
+  topics.forEach(t=>{
+    bankListTopicSelect.innerHTML += `<option>${t}</option>`;
+  });
+
+  if(currentTopic){
+    bankListTopicSelect.value = currentTopic;
+  }
+}
+
+
+
+/* ===== BANK ===== */
+
+function switchBankListTopic(){
+  const t = bankListTopicSelect.value;
+  if(!t) return;
+  currentTopic = t;
+  deleteTopicBtn.classList.toggle("hidden", currentTopic === "All words");
+  renderWordList();
+}
+
+
+function renameCurrentTopic(){
+  if(!currentTopic || currentTopic === "All words") return;
+
+  let newName = prompt("New topic name:", currentTopic);
+  if(!newName || newName === currentTopic) return;
+
+  if(data.topics[newName]){
+    alert("Topic already exists");
+    return;
+  }
+
+  data.topics[newName] = data.topics[currentTopic];
+  delete data.topics[currentTopic];
+
+  currentTopic = newName;
+  lastAddTopic = newName;
+
+  save();
+  loadTopics();
+  renderWordList();
+}
+
+
+function addWordToCurrentTopic(){
+  if(!currentTopic) return;
+
+  lastAddTopic = currentTopic;
+  showAdd();
+}
+
+bankTopicSelect.onchange = () => {
+  if (!bankTopicSelect.value) return;
+  currentTopic = bankTopicSelect.value;
+  deleteTopicBtn.classList.toggle("hidden", currentTopic === "All words");
+  renderWordList();
+  show("bankList");
+};
+
+function renderWordList(){
+  let q = searchInput.value.toLowerCase();
+  let sort = sortSelect.value;
+  wordList.innerHTML = "";
+
+  let arr = [...data.topics[currentTopic]];
+  if (q) arr = arr.filter(w => w.learn.toLowerCase().includes(q) || w.tr.toLowerCase().includes(q));
+  if (sort === "learn") arr.sort((a, b) => a.learn.localeCompare(b.learn));
+  if (sort === "tr") arr.sort((a, b) => a.tr.localeCompare(b.tr));
+
+  arr.forEach((w, i) => {
+    wordList.innerHTML += `
+      <div class="list-item">
+        <div class="word-line">
+          ${i + 1}. ${w.learn} – ${w.tr}
+        </div>
+        <div class="actions">
+          <button style="font-size:12px;padding:6px;" onclick="editWord(${w.id})">Edit</button>
+          <button style="font-size:12px;padding:6px;" onclick="deleteWord(${w.id})">Delete</button>
+        </div>
+      </div>`;
+  });
+
+}
+
+function exportCurrentTopic(){
+  let rows = ["Learning language,Translation"];
+  data.topics[currentTopic].forEach(w => rows.push(`"${w.learn}","${w.tr}"`));
+  let blob = new Blob([rows.join("\n")], {type: "text/csv"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`${currentTopic}.csv`;
+  a.click();
+}
+
+function deleteCurrentTopic(){
+  if(confirm("Delete this topic and all its words?")){
+    delete data.topics[currentTopic];
+    save();
+    showBank();
+  }
+}
+
+function deleteWord(id){
+  data.topics[currentTopic]=data.topics[currentTopic].filter(w=>w.id!==id);
+  save();
+  renderWordList();
+}
+
+function editWord(id){
+returnToBankListAfterSave = true;
+  const w=data.topics[currentTopic].find(x=>x.id===id);
+  deleteWord(id);
+  showAdd();
+  addTopicSelect.value=currentTopic;
+  onAddTopicChange();
+  learnInput.value=w.learn;
+  translationInput.value=w.tr;
+}
+/* ===== ADD WORD ===== */
+
+function showAdd(){
+  learnInput.value = "";
+  translationInput.value = "";
+  newTopicInput.value = "";
+  newTopicInput.disabled = true;
+  newTopicInput.classList.add("hidden");
+
+  loadAddTopics();
+  show("add");
+}
+
+function loadAddTopics(){
+  addTopicSelect.innerHTML = "";
+
+  addTopicSelect.innerHTML += `<option value="">Select topic</option>`;
+  addTopicSelect.innerHTML += `<option value="_new">+ New topic</option>`;
+
+  Object.keys(data.topics).forEach(t=>{
+    if(t !== "All words"){
+      addTopicSelect.innerHTML += `<option value="${t}">${t}</option>`;
+    }
+  });
+
+  if(lastAddTopic && data.topics[lastAddTopic]){
+    addTopicSelect.value = lastAddTopic;
+  } else {
+    addTopicSelect.value = "";
+  }
+
+  onAddTopicChange();
+}
+
+function onAddTopicChange(){
+  const isNew = addTopicSelect.value === "_new";
+
+  newTopicInput.disabled = !isNew;
+  newTopicInput.classList.toggle("hidden", !isNew);
+
+  if(!isNew){
+    newTopicInput.value = "";
+  }
+}
+
+function saveWord(){
+  const isNew = addTopicSelect.value === "_new";
+
+  const topic = isNew
+    ? newTopicInput.value.trim()
+    : addTopicSelect.value;
+
+  if(!topic || !learnInput.value || !translationInput.value) return;
+
+  if(!data.topics[topic]){
+    data.topics[topic] = [];
+  }
+
+  data.topics[topic].push({
+    id: Date.now(),
+    learn: learnInput.value,
+    tr: translationInput.value
+  });
+
+  lastAddTopic = topic;
+  currentTopic = topic;
+
+  save();
+
+  learnInput.value = "";
+  translationInput.value = "";
+  newTopicInput.value = "";
+  newTopicInput.disabled = true;
+  newTopicInput.classList.add("hidden");
+
+  loadTopics();
+  loadAddTopics();
+
+  addTopicSelect.value = topic;
+  onAddTopicChange();
+
+  updateInstructions();
+
+if(returnToBankListAfterSave){
+  returnToBankListAfterSave = false;
+  show("bankList");
+  renderWordList();
+  return;
+}
+
+}
+
+
+/* ===== IMPORT ===== */
+
+
+function triggerImport(){
+  importFile.click();
+}
+
+importFile.onchange = e => {
+  const file = e.target.files[0];
+  if(!file){
+    importFile.value = "";
+    return;
+  }
+
+  // 🔥 שם הנושא = שם הקובץ בלי סיומת
+  const topic = file.name.replace(/\.[^/.]+$/, "");
+
+  // יצירת נושא חדש (או ניקוי קיים)
+  data.topics[topic] = [];
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    ev.target.result.split(/\r?\n/).forEach((line,i)=>{
+      if(i === 0) return;
+
+      const p = line.split(",");
+      if(p.length >= 2){
+        data.topics[topic].push({
+          id: Date.now() + Math.random(),
+          learn: p[0].replace(/"/g,""),
+          tr: p.slice(1).join(",").replace(/"/g,"")
+        });
+      }
+    });
+
+    // 🔥 שמירה ועדכון
+    save();
+    loadTopics();
+    updateInstructions();
+
+    // 🔥 בחירת הנושא ופתיחת סשן אוטומטית
+    currentTopic = topic;
+    topicSelect.value = topic;
+
+    importFile.value = "";
+
+    startSession();   // 🔥 פותח סשן מייד
+  };
+
+  reader.readAsText(file, "UTF-8");
+};
+
+
+/* ===== SESSION ===== */
+function startSession(){
+  currentTopic = topicSelect.value;
+  if(!currentTopic) return;
+
+  if(currentTopic === "Hard Words"){
+    session = Object.entries(stats.hardWords)
+      .filter(e => e[1] >= 2)
+      .map(e => {
+        let [learn, tr] = e[0].split("||");
+        return { learn, tr };
+      });
+  } else {
+    session = [...data.topics[currentTopic]];
+
+    // 🔥 החלת מיון הרשימה גם על הסשן
+    const sort = sortSelect.value;
+    if(sort === "learn"){
+      session.sort((a,b)=>a.learn.localeCompare(b.learn));
+    }
+    if(sort === "tr"){
+      session.sort((a,b)=>a.tr.localeCompare(b.tr));
+    }
+  }
+
+  if(session.length === 0){
+    stats.current = null;
+    showBank();
+    return;
+  }
+
+
+
+  sessionDefaultDirection = "A";
+  cardFlipped = false;
+  shuffleUsed = false;
+  shuffleBtn.classList.remove("hidden");
+
+
+  stats.sessions++;
+  stats.current = { topic: currentTopic, correct: 0, wrong: 0 };
+  nextCard();
+}
+
+function nextCard(){
+  if(session.length === 0){
+    stats.history.push(stats.current);
+    stats.history = stats.history.slice(-10);
+
+    let t = stats.current.topic;
+    if(!stats.perTopic[t]) stats.perTopic[t] = { correct: 0, wrong: 0 };
+    stats.perTopic[t].correct += stats.current.correct;
+    stats.perTopic[t].wrong += stats.current.wrong;
+
+    save();
+    show("sessionEnd");
+    return;
+  }
+  current = session[0];
+  cardFlipped = false;
+  renderCard();
+  show("session");
+}
+
+function renderCard(){
+  let side = cardFlipped
+    ? (sessionDefaultDirection === "A" ? "B" : "A")
+    : sessionDefaultDirection;
+
+  const text = side === "A" ? current.learn : current.tr;
+  card.textContent = text;
+
+
+  requestAnimationFrame(() => {
+    autoFitCardText();
+  });
+
+  document.getElementById("remainingCount").textContent = session.length;
+}
+
+
+
+function autoFitCardText(){
+  const maxFont = 102;   // פי 3
+  const minFont = 18;
+
+  let size = maxFont;
+  card.style.fontSize = size + "px";
+
+  while(size > minFont){
+    card.style.fontSize = size + "px";
+
+    // אם יש גלישה – מקטינים
+    if(
+      card.scrollHeight > card.clientHeight ||
+      card.scrollWidth  > card.clientWidth
+    ){
+      size -= 2;
+    } else {
+      break;
+    }
+  }
+}
+
+
+function flipCard(){
+  cardFlipped = !cardFlipped;
+  if(soundOn){
+    flipSound.currentTime = 0;
+    flipSound.play();
+  }
+  renderCard();
+}
+
+
+
+function flipDirection(){
+  sessionDefaultDirection = sessionDefaultDirection === "A" ? "B" : "A";
+  cardFlipped = false;
+  renderCard();
+}
+
+function shuffleSession(){
+  if(shuffleUsed) return;
+
+  shuffleUsed = true;
+  shuffleBtn.classList.add("hidden");
+
+  session.sort(() => Math.random() - 0.5);
+
+  current = session[0];
+  cardFlipped = false;
+  renderCard();
+}
+
+
+function markKnown(){
+  if(soundOn){
+    correctSound.currentTime = 0;
+    correctSound.play();
+  }
+  stats.current.correct++;
+  session.shift();
+  nextCard();
+}
+
+
+
+function markUnknown(){
+  stats.current.wrong++;
+  let key = current.learn + "||" + current.tr;
+  stats.hardWords[key] = (stats.hardWords[key] || 0) + 1;
+  session.push(session.shift());
+  nextCard();
+}
+
+
+function finishSessionIfActive(){
+  if(!stats.current) return;
+
+  stats.history.push(stats.current);
+  stats.history = stats.history.slice(-10);
+
+  const t = stats.current.topic;
+  if(!stats.perTopic[t]){
+    stats.perTopic[t] = { correct: 0, wrong: 0 };
+  }
+
+  stats.perTopic[t].correct += stats.current.correct;
+  stats.perTopic[t].wrong += stats.current.wrong;
+
+  stats.current = null;
+  save();
+}
+
+function exitSession(){
+  finishSessionIfActive();
+  showHome();
+}
+
+
+
+
+/* ===== STATS ===== */
+function renderStats(){
+  let topics=Object.keys(data.topics).length-1;
+  let words=allWords().length;
+
+  let topicStats="";
+  Object.keys(stats.perTopic).forEach(t=>{
+    let c=stats.perTopic[t].correct;
+    let w=stats.perTopic[t].wrong;
+    let acc=c+w>0?Math.round(c/(c+w)*100):0;
+    topicStats+=`
+      <div class="stat-block">
+        <strong>Topic: ${t}</strong><br>
+        Correct: ${c}<br>
+        Wrong: ${w}<br>
+        Accuracy: ${acc}%
+      </div>`;
+  });
+
+  let hardEntries = Object.entries(stats.hardWords)
+    .filter(e => e[1] >= 2)
+    .sort((a,b)=>b[1]-a[1]);
+
+  let hardTable = hardEntries.length ? `
+    <button onclick="goHome()" class="back">Back</button>
+
+    <table class="hard-table">
+      <thead>
+        <tr>
+          <th>Hard Words</th>
+          <th>Times Wrong</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${hardEntries.map(e=>{
+          let [learn,tr] = e[0].split("||");
+          return `
+            <tr>
+              <td class="hard-word">${learn} – ${tr}</td>
+              <td class="hard-count">${e[1]}</td>
+            </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+  ` : "<p>No hard words yet</p>";
+
+  statsContent.innerHTML=`
+    <p>Topics: ${topics}</p>
+    <p>Words: ${words}</p>
+    <p>Sessions started: ${stats.sessions}</p>
+    <hr>
+    <h3>By topic</h3>
+    ${topicStats||"<p>No data</p>"}
+    <hr>
+    <h3>Hard Words</h3>
+    ${hardTable}
+  `;
+}
+
+function resetStats(){
+  if(!confirm("Reset ALL statistics?")) return;
+
+  stats = {
+    sessions: 0,
+    history: [],
+    perTopic: {},
+    hardWords: {}
+  };
+
+  localStorage.setItem("stats_v76", JSON.stringify(stats));
+  renderStats();
+}
+
+/* ===== DOWNLOAD: INDEX.JSON ===== */
+
+let HUB_INDEX = null;
+
+/* טעינת index.json */
+async function loadHubIndex() {
+  const res = await fetch("index.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("Failed to load index.json");
+  HUB_INDEX = await res.json();
+  return HUB_INDEX;
+}
+
+/* בניית אקורדיונים לפי שפה */
+function buildDownloadAccordions(lang) {
+  if (!HUB_INDEX || !lang) return;
+
+  const container = document.getElementById("downloadAccordions");
+  container.innerHTML = "";
+
+  /* מיפוי קבוצות */
+  const groupsMap = {};
+  HUB_INDEX.groups.forEach(g => {
+    groupsMap[g.id] = g;
+  });
+
+  /* קיבוץ נושאים לפי קבוצה */
+  const topicsByGroup = {};
+  HUB_INDEX.topics.forEach(t => {
+    if (!t.languages.includes(lang)) return;
+    if (!topicsByGroup[t.group]) topicsByGroup[t.group] = [];
+    topicsByGroup[t.group].push(t);
+  });
+
+  /* בניית ה־UI */
+  Object.keys(topicsByGroup).forEach(groupId => {
+    const group = groupsMap[groupId];
+    if (!group) return;
+
+    const acc = document.createElement("div");
+    acc.className = "accordion";
+
+    const header = document.createElement("div");
+    header.className = "accordion-header";
+    header.innerHTML = `${group.title} <span>▶</span>`;
+    header.onclick = () => toggleAccordion(header);
+
+    const content = document.createElement("div");
+    content.className = "accordion-content";
+
+    const ul = document.createElement("ul");
+
+    topicsByGroup[groupId].forEach(topic => {
+      const li = document.createElement("li");
+      li.textContent = topic.title;
+      li.dataset.topicId = topic.id;
+
+      const files = topic.files || [];
+
+      /* אין קבצים */
+      if (files.length === 0) {
+        li.style.opacity = "0.45";
+        li.style.cursor = "not-allowed";
+        li.onclick = () => {
+          alert("This topic is not available yet");
+        };
+      }
+
+      /* קובץ אחד */
+      if (files.length === 1) {
+        li.classList.add("loaded");
+        li.onclick = async () => {
+          try {
+            const nnn = files[0]; // למשל "001"
+            const csvText = await fetchCsvFromHub(lang, topic.id, nnn);
+            const words = parseCsv(csvText);
+
+            if (!words.length) {
+              alert("File is empty");
+              return;
+            }
+
+            const topicName = `${topic.title} (${lang})`;
+            data.topics[topicName] = words.map(w => ({
+              id: Date.now() + Math.random(),
+              learn: w.learn,
+              tr: w.tr
+            }));
+
+            save();
+            loadTopics();
+            topicSelect.value = topicName;
+            startSession();
+
+          } catch (err) {
+            alert("Failed to load this topic");
+            console.error(err);
+          }
+        };
+      }
+
+      /* יותר מקובץ אחד – בהמשך */
+      if (files.length > 1) {
+        li.classList.add("loaded");
+        li.onclick = () => {
+          alert("Multiple files – selection coming later");
+        };
+      }
+
+      ul.appendChild(li);
+    });
+
+    content.appendChild(ul);
+    acc.appendChild(header);
+    acc.appendChild(content);
+    container.appendChild(acc);
+  });
+}
+
+/* טעינת CSV מה־Hub */
+async function fetchCsvFromHub(lang, topic, nnn = "001") {
+  const fileName = `${lang}_${topic}_${nnn}.csv`;
+  const url = `hub/${lang}/${topic}/${fileName}`;
+
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`CSV not found: ${url}`);
+
+  return await res.text();
+}
+
+/* ===== END DOWNLOAD: INDEX.JSON ===== */
+
+function onDownloadTopic(el){
+  const topicId = el.dataset.topicId;
+
+  if(!currentDownloadLang){
+    alert("Please choose a language pair first");
+    return;
+  }
+
+  loadFromHubAndStart(currentDownloadLang, topicId);
+}
+
+function parseCsv(text){
+  const lines = text.split(/\r?\n/);
+  const out = [];
+
+  lines.forEach((line, i) => {
+    if(i === 0) return; // header
+    if(!line.trim()) return;
+
+    const parts = line.split(",");
+    if(parts.length < 2) return;
+
+    out.push({
+      learn: parts[0].replace(/"/g, "").trim(),
+      tr: parts.slice(1).join(",").replace(/"/g, "").trim()
+    });
+  });
+
+  return out;
+}
+
+
+/* ===== ADMIN UPLOAD ===== */
+
+
+
+/* ===== ADMIN ACCESS (7 TAPS) ===== */
+
+let adminTapCount = 0;
+let adminTapTimer = null;
+
+const adminTrigger = document.getElementById("adminTrigger");
+
+if(adminTrigger){
+  adminTrigger.addEventListener("click", () => {
+    adminTapCount++;
+
+    if(adminTapCount === 1){
+      adminTapTimer = setTimeout(() => {
+        adminTapCount = 0;
+      }, 5000);
+    }
+
+    if(adminTapCount >= 7){
+      clearTimeout(adminTapTimer);
+      adminTapCount = 0;
+      showAdminUpload();
+    }
+  });
+}
+
+
+
+/* ===== HUB DB ===== */
+
+let hubDB = null;
+
+function openHubDB(){
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open("hubDB", 1);
+
+    req.onupgradeneeded = e => {
+      const db = e.target.result;
+      if(!db.objectStoreNames.contains("files")){
+        db.createObjectStore("files", { keyPath: "key" });
+      }
+    };
+
+    req.onsuccess = e => {
+      hubDB = e.target.result;
+      resolve(hubDB);
+    };
+
+    req.onerror = () => reject();
+  });
+}
+
+function hubKey(lang, topic, resource){
+  return `${lang}|${topic}|${resource}`;
+}
+
+/* ===== HUB DB HELPERS ===== */
+
+function saveHubFile(lang, topic, resource, csvText){
+  return new Promise(resolve => {
+    const tx = hubDB.transaction("files", "readwrite");
+    const store = tx.objectStore("files");
+
+    store.put({
+      key: hubKey(lang, topic, resource),
+      lang,
+      topic,
+      resource,
+      csvText
+    });
+
+    tx.oncomplete = resolve;
+  });
+}
+
+function listHubFiles(lang, topic){
+  return new Promise(resolve => {
+    const tx = hubDB.transaction("files", "readonly");
+    const store = tx.objectStore("files");
+    const req = store.getAll();
+
+    req.onsuccess = () => {
+      const list = req.result
+        .filter(r => r.lang === lang && r.topic === topic)
+        .map(r => r.resource);
+      resolve(list);
+    };
+  });
+}
+
+async function renderAdminFileList(lang, topic){
+  const box = document.getElementById("adminFileList");
+  if(!lang || !topic){
+    box.innerHTML = "";
+    return;
+  }
+
+  const files = await listHubFiles(lang, topic);
+
+  if(!files.length){
+    box.innerHTML = "<em>No files yet</em>";
+    return;
+  }
+
+  box.innerHTML = `
+    <strong>Resources:</strong><br>
+    ${files.map(f => `• ${f}.csv`).join("<br>")}
+  `;
+}
+
+
+if (window.adminLangSelect && window.adminTopicSelect) {
+  adminLangSelect.onchange =
+  adminTopicSelect.onchange = () => {
+    renderAdminFileList(
+      adminLangSelect.value,
+      adminTopicSelect.value
+    );
+  };
+}
+
+
+function loadFromHubAndStart(lang, topic){
+  const tx = hubDB.transaction("files", "readonly");
+  const store = tx.objectStore("files");
+  const req = store.getAll();
+
+  req.onsuccess = () => {
+    const matches = req.result.filter(
+      r => r.lang === lang && r.topic === topic
+    );
+
+    if(!matches.length){
+      alert("This topic is not available yet");
+      return;
+    }
+
+    // כרגע: לוקחים קובץ ראשון
+    const csvText = matches[0].csvText;
+    const words = parseCsv(csvText);
+
+    if(!words.length){
+      alert("No data in file");
+      return;
+    }
+
+    const topicName = `${topic} (${lang})`;
+
+    data.topics[topicName] = words.map(w => ({
+      id: Date.now() + Math.random(),
+      learn: w.learn,
+      tr: w.tr
+    }));
+
+    save();
+    loadTopics();
+    topicSelect.value = topicName;
+    startSession();
+  };
+}
+
+
+function updateAccordionHasContent(){
+  document.querySelectorAll("#downloadAccordions .accordion").forEach(acc => {
+    const hasLoaded = acc.querySelector("li.loaded");
+    acc.classList.toggle("has-content", !!hasLoaded);
+  });
+}
+
+
+/* ===== MISC ===== */
+function openLink(u){ window.open(u,"_blank"); }
+function exitApp(){ window.close(); }
+
+
+function toggleAccordion(header){
+  const acc = header.parentElement;
+  const container = acc.parentElement; // #downloadAccordions או #bank (אם בעתיד)
+
+  // סגירת כל האקורדיונים באותו מסך
+  container.querySelectorAll(".accordion.open")
+    .forEach(a => {
+      if (a !== acc) a.classList.remove("open");
+    });
+
+  // toggle רק של הנוכחי
+  acc.classList.toggle("open");
+}
+
+
+document.getElementById("restartSessionBtn").onclick = () => {
+  // התחלה מחדש של אותו נושא
+  shuffleUsed = false;
+  startSession();
+};
+
+document.getElementById("backHomeBtn").onclick = () => {
+  showHome();
+};
+
+
+
+const HUB_TOPICS = [
+  {
+    id: "grammar",
+    title: "Grammar & Structure",
+    items: [
+      { id: "verb_infinitives", label: "Verb infinitives" },
+      { id: "verb_conjugations", label: "Verb conjugations" },
+      { id: "tenses", label: "Past / Present / Future" },
+    ]
+  },
+  {
+    id: "daily",
+    title: "Daily Life",
+    items: [
+      { id: "daily_use", label: "Daily use" },
+      { id: "food_shopping", label: "Food & Shopping" },
+    ]
+  }
+];
+
+/* ===== DOWNLOAD LANGUAGE SELECTION ===== */
+
+let currentDownloadLang = null;
+const downloadLangSelect = document.getElementById("downloadLangSelect");
+
+
+function markActiveDownloadLang(){
+  downloadLangSelect.classList.remove(
+    "lang-he-en",
+    "lang-pl-en",
+    "lang-ar-he",
+    "lang-es-he"
+  );
+
+  if(currentDownloadLang){
+    downloadLangSelect.classList.add("lang-" + currentDownloadLang);
+  }
+}
+
+function closeAllAccordions(){
+  document.querySelectorAll("#download .accordion.open")
+    .forEach(acc => acc.classList.remove("open"));
+}
+
+async function markLoadedDownloadTopics(){
+  if(!currentDownloadLang) return;
+
+  const tx = hubDB.transaction("files", "readonly");
+  const store = tx.objectStore("files");
+  const req = store.getAll();
+
+  req.onsuccess = () => {
+    const loadedTopics = new Set(
+      req.result
+        .filter(r => r.lang === currentDownloadLang)
+        .map(r => r.topic)
+    );
+
+    document
+      .querySelectorAll("#downloadAccordions li")
+      .forEach(li => {
+        li.classList.toggle(
+          "loaded",
+          loadedTopics.has(li.dataset.topicId)
+        );
+      });
+updateAccordionHasContent();
+  };
+
+}
+
+
+downloadLangSelect.addEventListener("change", async () => {
+  currentDownloadLang = downloadLangSelect.value || null;
+  markActiveDownloadLang();
+
+  if (!currentDownloadLang) {
+    document.getElementById("downloadAccordions").innerHTML = "";
+    return;
+  }
+
+  if (!HUB_INDEX) {
+    await loadHubIndex();
+  }
+
+  buildDownloadAccordions(currentDownloadLang);
+});
+
+
+
+document.querySelectorAll("#downloadAccordions .accordion").forEach(acc => {
+  const hasLoaded = acc.querySelector("li.loaded");
+  acc.classList.toggle("has-content", !!hasLoaded);
+});
+
+
+/* INIT */
+
+
+(async () => {
+  await openHubDB();
+  loadTopics();
+  updateInstructions();
+})();
+
+</script>
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+  navigator.serviceWorker.register("sw.js").then(reg => {
+    reg.update();
+  });
+
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    window.location.reload();
+  });
+
+  navigator.serviceWorker.ready.then(reg => {
+    if (reg.active) {
+      const channel = new MessageChannel();
+
+      channel.port1.onmessage = e => {
+        const el = document.getElementById("cacheVersion");
+        if (el) el.textContent = e.data;
+      };
+
+      reg.active.postMessage("GET_CACHE_NAME", [channel.port2]);
+    }
+  });
+
+}
+
+
+</script>
+
+
+</body>
+</html>
