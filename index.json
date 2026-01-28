@@ -17,12 +17,12 @@
 
   "topics": [
     {
-      "id": "verb_infinitives",
-      "title": "Verb infinitives",
-      "group": "grammar",
-      "languages": ["he-en", "pl-en", "ar-he", "es-he"],
-      "files": []
-    },
+  "id": "verb_infinitives",
+  "title": "Verb infinitives",
+  "group": "grammar",
+  "languages": ["he-en"],
+  "files": ["001"]
+},
     {
       "id": "verb_conjugations",
       "title": "Verb conjugations / בניינים",
