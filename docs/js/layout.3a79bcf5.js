@@ -7,10 +7,22 @@ async function loadSidebar() {
     if (!res.ok) throw new Error('Sidebar load failed');
     const html = await res.text();
     placeholder.innerHTML = html;
+
+    // ===== MENU TOGGLE FIX =====
+    const toggle = placeholder.querySelector('.menu-toggle');
+    const menu = placeholder.querySelector('.menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+      });
+    }
+
   } catch (err) {
     console.error('Sidebar error:', err);
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   loadSidebar();
@@ -65,12 +77,3 @@ document.addEventListener("DOMContentLoaded", () => {
   images.forEach(img => bgObserver.observe(img));
 });
 
-
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
-
-if (toggle && menu) {
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
-}
