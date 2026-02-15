@@ -36,8 +36,8 @@ window.__MANIFEST__ = {
         "projects/demon_stration/demon08.jpg",
         "projects/demon_stration/demon09.jpg",
         "projects/demon_stration/demon10.jpg",
-        "projects/demon_stration/demon11.JPG",
-        "projects/demon_stration/demon12.JPG",
+        "projects/demon_stration/demon11.jpg",
+        "projects/demon_stration/demon12.jpg",
         "projects/demon_stration/demon13.jpg"
       ]
     },
