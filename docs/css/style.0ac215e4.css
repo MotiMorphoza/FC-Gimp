@@ -353,14 +353,29 @@ body {
 
 /* ===== ABOUT Vertical Layout Only ===== */
 
-.project-gallery {
+.about-pane .about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+
+/* אזור התוכן של פרויקט */
+.content-pane .project-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* הגלריה */
+.content-pane .project-gallery {
   display: flex;
   flex-direction: column;
   gap: 160px;              /* מרווח נשימה גדול */
   padding: 140px 0;
 }
 
-.project-gallery img {
+.content-pane .project-gallery img {
   width: 72%;
   margin: 0 auto;
   display: block;
