@@ -3,7 +3,7 @@ async function loadSidebar() {
   if (!placeholder) return;
 
   try {
-    const res = await fetch('/MotoSynteza/partials/sidebar.html');
+    const res = await fetch('MotoSynteza/partials/sidebar.html');
     if (!res.ok) throw new Error('Sidebar load failed');
     const html = await res.text();
     placeholder.innerHTML = html;
