@@ -214,6 +214,10 @@ body {
   color: #d4d4d4;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .content-pane {
   min-height: 100%;
   position: relative;
@@ -427,10 +431,6 @@ width: clamp(260px, 70vw, 820px);
   .content-pane .project-gallery img {
     width: 92%;
   }
-
-.menu-toggle {
-  display: none;
-}
 }
 
 /* ===== MOBILE ===== */
