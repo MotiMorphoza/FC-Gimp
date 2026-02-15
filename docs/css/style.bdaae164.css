@@ -370,9 +370,10 @@ body {
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
-  gap: clamp(60px, 12vw, 180px);
-  padding: clamp(40px, 10vw, 160px) 0;
+  gap: clamp(60px, 10vw, 160px);
+  padding: clamp(40px, 8vw, 140px) 0;
 }
+
 
 /* ===== IMAGES ===== */
 .content-pane .project-gallery img {
@@ -399,40 +400,6 @@ width: clamp(260px, 70vw, 820px);
   transform: translateY(0);
 }
 
-/* ===== DYNAMIC BACKGROUND LAYER ===== */
-.dynamic-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background: #000;
-}
-
-
-
-.dynamic-bg-layer {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.dynamic-bg-layer.active {
-  opacity: 1;
-}
-
-.shell-layout,
-.page-landing,
-.content-pane {
-  position: relative;
-  z-index: 1;
-}
-
 /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
 .project-gallery img:nth-child(3n) {
   width: clamp(240px, 55vw, 700px);
@@ -449,35 +416,20 @@ width: clamp(260px, 70vw, 820px);
 
 
 /* ===== LARGE SCREENS (Desktop) ===== */
-@media (min-width: 1400px) {
-  .content-pane .project-gallery img {
-    width: 58%;
-  }
-}
+
 
 /* ===== TABLET ===== */
 @media (max-width: 1100px) {
-  .project-gallery img:nth-child(3n) {
-    width: 65%;
-  }
-
-  .project-gallery img:nth-child(3n+1) {
-    width: 95%;
+  .content-pane .project-gallery img {
+    width: 92%;
   }
 }
-
-
 
 /* ===== MOBILE ===== */
 @media (max-width: 700px) {
   .content-pane .project-content {
     padding: 20px 14px;
   }
-
-.project-gallery img:nth-child(even).visible {
-  transform: none;
-}
-
 
   .content-pane .project-gallery {
     gap: 60px;
