@@ -448,16 +448,42 @@ width: clamp(260px, 70vw, 820px);
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 .shell-layout {
-    display: block;
-    min-height: auto;
-  }
+  display: block;
+  min-height: auto;
+}
 
-  .sidebar {
-    position: relative;
-    height: auto;
-  }
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: auto;
+  width: 100%;
+  padding: 10px 12px;
+  background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  .content-pane {
-    min-height: auto;
-  }
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.tagline {
+  display: none;
+}
+
+.menu {
+  flex-direction: row;
+  gap: 14px;
+  margin: 0;
+}
+
+.menu a {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 }
