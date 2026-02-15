@@ -13,9 +13,13 @@ async function loadSidebar() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".project-gallery img");
+  loadSidebar();
 
-  const observer = new IntersectionObserver((entries) => {
+  const images = document.querySelectorAll(".project-gallery img");
+  if (!images.length) return;
+
+  /* ===== IMAGE ENTRANCE ANIMATION ===== */
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
@@ -25,7 +29,38 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.15
   });
 
-  images.forEach(img => observer.observe(img));
-});
+  images.forEach(img => revealObserver.observe(img));
 
-document.addEventListener('DOMContentLoaded', loadSidebar);
+  /* ===== DYNAMIC BACKGROUND FADE ===== */
+  const bg1 = document.getElementById('bg1');
+  const bg2 = document.getElementById('bg2');
+  if (!bg1 || !bg2) return;
+
+  let active = bg1;
+  let inactive = bg2;
+
+  function setBackground(src) {
+    inactive.style.backgroundImage = `url(${src})`;
+    inactive.classList.add('active');
+    active.classList.remove('active');
+
+    const temp = active;
+    active = inactive;
+    inactive = temp;
+  }
+
+  const bgObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setBackground(entry.target.src);
+        }
+      });
+    },
+    {
+      threshold: 0.6
+    }
+  );
+
+  images.forEach(img => bgObserver.observe(img));
+});
