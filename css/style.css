@@ -214,6 +214,10 @@ body {
   color: #d4d4d4;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .content-pane {
   min-height: 100%;
   position: relative;
