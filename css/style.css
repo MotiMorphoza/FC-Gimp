@@ -493,13 +493,14 @@ width: clamp(260px, 70vw, 820px);
   }
 
   /* ===== MENU BUTTON ===== */
-  .menu-toggle {
-    display: block;
-    font-size: 1.2rem;
-    cursor: pointer;
-    user-select: none;
-    padding: 6px 8px;
-  }
+.menu-toggle {
+  display: block;
+  font-size: 0.5rem;     /* אייקון קטן יותר */
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 6px;
+}
 
   /* ===== DROPDOWN MENU ===== */
   .menu {
