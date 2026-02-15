@@ -467,20 +467,22 @@ width: clamp(260px, 70vw, 820px);
 
   /* ===== TOP BAR ===== */
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    padding: 0 14px;
-    background: #000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  padding: 0 12px;
+  background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 100;
-  }
+  display: flex;
+  flex-direction: row;          /* קריטי */
+  align-items: center;
+  justify-content: space-between; /* לוגו שמאל, תפריט ימין */
+
+  z-index: 100;
+}
 
   /* לוגו קטן ויציב */
   .logo {
