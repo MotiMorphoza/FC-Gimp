@@ -430,9 +430,10 @@ width: clamp(260px, 70vw, 820px);
     width: 92%;
   }
 }
-
 /* ===== MOBILE ===== */
 @media (max-width: 700px) {
+
+  /* מבנה כללי */
   .shell-layout {
     display: block;
     min-height: auto;
@@ -457,78 +458,81 @@ width: clamp(260px, 70vw, 820px);
     transform: none;
     opacity: 1;
     transition: none;
-
     box-shadow:
       0 20px 60px rgba(0, 0, 0, 0.8),
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  padding: 0 14px;
-  background: #000;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  /* ===== TOP BAR ===== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 14px;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 100;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+  }
 
-/* לוגו קטן יותר */
-.logo {
-  font-size: 1.2rem;
-  margin: 0;
-}
+  /* לוגו קטן ויציב */
+  .logo {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+  }
 
-/* הסתרת tagline לגמרי */
-.tagline {
-  display: none !important;
-}
+  /* הסתרת שורת משנה */
+  .tagline {
+    display: none !important;
+  }
 
+  /* ===== MENU BUTTON ===== */
+  .menu-toggle {
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 6px 8px;
+  }
 
-/* כפתור המבורגר */
-.menu-toggle {
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  user-select: none;
-}
+  /* ===== DROPDOWN MENU ===== */
+  .menu {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
 
-/* תפריט נפתח */
-.menu {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  right: 0;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  background: #000;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  padding: 20px 0;
+    margin: 0;
 
-  transform: translateY(-120%);
-  transition: transform 0.3s ease;
-  z-index: 90;
-}
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: 90;
+  }
 
+  .menu.open {
+    transform: translateY(0);
+  }
 
-/* מצב פתוח */
-.menu.open {
-  transform: translateY(0);
-}
+  .menu a {
+    font-size: 1.1rem;
+  }
 
-.menu a {
-  font-size: 1.1rem;
-}
+  /* ===== SOCIAL BAR ===== */
   .social {
     position: fixed;
     bottom: 0;
@@ -543,9 +547,4 @@ width: clamp(260px, 70vw, 820px);
     justify-content: center;
     z-index: 50;
   }
-
-  .menu-toggle {
-    display: block;
-  }
-
 }
