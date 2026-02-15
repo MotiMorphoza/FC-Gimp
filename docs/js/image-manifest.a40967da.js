@@ -29,17 +29,16 @@ window.__MANIFEST__ = {
         "projects/demon_stration/demon01.jpg",
         "projects/demon_stration/demon02.jpg",
         "projects/demon_stration/demon03.jpg",
-        "projects/demon_stration/demon04.jpg",
-        "projects/demon_stration/demon05.jpg",
-        "projects/demon_stration/demon06.jpg",
+        "projects/demon_stration/demon04.JPG",
+        "projects/demon_stration/demon05.JPG",
+        "projects/demon_stration/demon06.JPG",
         "projects/demon_stration/demon07.jpg",
         "projects/demon_stration/demon08.jpg",
-        "projects/demon_stration/demon09.jpg",
-        "projects/demon_stration/demon10.jpg",
-        "projects/demon_stration/demon11.jpg",
-        "projects/demon_stration/demon12.jpg",
-        "projects/demon_stration/demon13.jpg",
-        "projects/demon_stration/demon14.jpg"
+        "projects/demon_stration/demon09.JPG",
+        "projects/demon_stration/demon10.JPG",
+        "projects/demon_stration/demon11.JPG",
+        "projects/demon_stration/demon12.JPG",
+        "projects/demon_stration/demon13.jpg"
       ]
     },
     {
