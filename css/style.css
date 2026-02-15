@@ -508,12 +508,12 @@ width: clamp(260px, 70vw, 820px);
 }
 
 .menu-label {
-  font-size: 0.35rem;   /* טקסט קטן */
+  font-size: 0.77rem;   /* טקסט קטן */
   letter-spacing: 0.08em;
 }
 
 .menu-icon {
-  font-size: 0.7rem;      /* אייקון מעט גדול יותר */
+  font-size: 0.77rem;      /* אייקון מעט גדול יותר */
   line-height: 1;
 }
 
