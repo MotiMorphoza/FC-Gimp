@@ -397,10 +397,6 @@ body {
   transform: translateY(0);
 }
 
-
-
-}
-
 /* ===== MOBILE PROJECT CARDS ===== */
 @media (max-width: 900px) {
   .shell-layout {
