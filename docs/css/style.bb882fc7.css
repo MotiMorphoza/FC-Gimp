@@ -175,6 +175,7 @@ body {
   text-align: center;
 }
 
+
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
   font-weight: 500;
@@ -216,6 +217,8 @@ body {
 .content-pane {
   min-height: 100%;
   position: relative;
+  padding-top: 60px;
+  padding-bottom: 70px;
 }
 
 .about-pane {
@@ -428,6 +431,16 @@ width: clamp(260px, 70vw, 820px);
 
 /* ===== MOBILE ===== */
 @media (max-width: 700px) {
+  .shell-layout {
+    display: block;
+    min-height: auto;
+  }
+
+  .content-pane {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
   .content-pane .project-content {
     padding: 20px 14px;
   }
@@ -447,43 +460,59 @@ width: clamp(260px, 70vw, 820px);
       0 20px 60px rgba(0, 0, 0, 0.8),
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
-.shell-layout {
-  display: block;
-  min-height: auto;
-}
 
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: auto;
-  width: 100%;
-  padding: 10px 12px;
-  background: #000;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    padding: 10px 12px;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 50;
+  }
 
-.logo {
-  font-size: 1.3rem;
-  margin: 0;
-}
+  .logo {
+    font-size: 1.3rem;
+    margin: 0;
+  }
 
-.tagline {
-  display: none;
-}
+  .tagline {
+    display: none;
+  }
 
-.menu {
-  flex-direction: row;
-  gap: 14px;
-  margin: 0;
-}
+  .menu {
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
-.menu a {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
+  .menu a {
+    font-size: 0.85rem;
+    padding: 6px 4px;
+  }
 
+  .social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 10px 0;
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    justify-content: center;
+    z-index: 50;
+  }
 }
