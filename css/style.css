@@ -214,7 +214,7 @@ body {
 }
 
 .content-pane {
-  min-height: 100dvh;
+  min-height: 100%;
   position: relative;
 }
 
@@ -446,5 +446,18 @@ width: clamp(260px, 70vw, 820px);
     box-shadow:
       0 20px 60px rgba(0, 0, 0, 0.8),
       0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+.shell-layout {
+    display: block;
+    min-height: auto;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+  }
+
+  .content-pane {
+    min-height: auto;
   }
 }
