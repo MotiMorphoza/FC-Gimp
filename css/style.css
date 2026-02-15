@@ -139,10 +139,11 @@ body {
 /* Shell pages */
 
 .shell-layout {
-  min-height: 100dvh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(280px, 320px) 1fr;
 }
+
 
 .enter-btn {
   margin-top: 1rem;
