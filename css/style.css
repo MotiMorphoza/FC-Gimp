@@ -431,10 +431,6 @@ width: clamp(260px, 70vw, 820px);
   .content-pane .project-gallery img {
     width: 92%;
   }
-
-.menu-toggle {
-  display: none;
-}
 }
 
 /* ===== MOBILE ===== */
