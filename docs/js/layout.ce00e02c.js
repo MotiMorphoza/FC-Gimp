@@ -12,21 +12,4 @@ async function loadSidebar() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".project-gallery img");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  images.forEach(img => observer.observe(img));
-});
-
-
 document.addEventListener('DOMContentLoaded', loadSidebar);
