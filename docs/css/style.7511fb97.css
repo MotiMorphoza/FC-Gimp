@@ -360,32 +360,35 @@ body {
 }
 
 
-/* אזור התוכן של פרויקט */
+/* ===== PROJECT CONTENT WRAPPER ===== */
 .content-pane .project-content {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: clamp(20px, 4vw, 60px);
 }
 
-/* הגלריה */
+/* ===== PROJECT GALLERY ===== */
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
-  gap: 160px;              /* מרווח נשימה גדול */
-  padding: 140px 0;
+  gap: clamp(60px, 12vw, 180px);
+  padding: clamp(40px, 10vw, 160px) 0;
 }
 
+/* ===== IMAGES ===== */
 .content-pane .project-gallery img {
-  width: 72%;
-  margin: 0 auto;
   display: block;
+  width: clamp(75%, 68vw, 820px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 
-  /* תנועה עדינה */
+  /* אנימציה עדינה */
   opacity: 0;
   transform: translateY(60px);
   transition: opacity 1s ease, transform 1s ease;
 
-  /* תאורה סביב התמונה */
+  /* תאורה */
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -397,72 +400,79 @@ body {
   transform: translateY(0);
 }
 
-/* ===== MOBILE PROJECT CARDS ===== */
-@media (max-width: 900px) {
-  .shell-layout {
-    display: flex;
-    flex-direction: column;
+/* ===== DYNAMIC BACKGROUND LAYER ===== */
+.dynamic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+
+.dynamic-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.dynamic-bg-layer.active {
+  opacity: 1;
+}
+
+.shell-layout,
+.page-landing,
+.content-pane {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ===== LARGE SCREENS (Desktop) ===== */
+@media (min-width: 1400px) {
+  .content-pane .project-gallery img {
+    width: 58%;
+  }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1100px) {
+  .content-pane .project-gallery {
+    gap: 110px;
+    padding: 100px 0;
   }
 
-  .sidebar {
-    position: relative;
+  .content-pane .project-gallery img {
+    width: 82%;
+    transform: translateY(40px);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 700px) {
+  .content-pane .project-content {
+    padding: 20px 14px;
+  }
+
+  .content-pane .project-gallery {
+    gap: 60px;
+    padding: 40px 0;
+  }
+
+  .content-pane .project-gallery img {
     width: 100%;
-    height: auto;
-    padding: 2rem 1rem;
-  }
+    transform: none;
+    opacity: 1;
+    transition: none;
 
-  .content-pane {
-    width: 100%;
-    margin: 0;
-    height: auto;
-    overflow: visible;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.8),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
   }
-
-  .projects-list {
-    padding: 1rem;
-    gap: 1.2rem;
-  }
-
-  .project-item {
-    padding: 0;
-    background: none !important;
-  }
-
-  .project-grid,
-  .project-item.reverse .project-grid {
-    display: block;
-  }
-
-  .project-item {
-    background: #111;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
-
-  .project-media {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    display: block;
-  }
-
-  .project-text {
-    border: none;
-    padding: 18px;
-    max-width: 100%;
-  }
-
-  .project-text h2 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .project-text p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .separator {
-    display: none;
-  }
+}
