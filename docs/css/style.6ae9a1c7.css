@@ -141,7 +141,7 @@ body {
 .shell-layout {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(280px, 320px) 1fr;
+  grid-template-columns: minmax(220px, 260px) 1fr;
 }
 
 
