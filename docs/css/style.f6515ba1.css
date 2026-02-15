@@ -222,7 +222,7 @@ body {
   min-height: 100%;
   position: relative;
   padding-top: 60px;
-  padding-bottom: 70px;
+  padding-bottom: 90px; /* במקום 70px */
 }
 
 .about-pane {
@@ -441,10 +441,12 @@ width: clamp(260px, 70vw, 820px);
     min-height: auto;
   }
 
-  .content-pane {
-    padding-top: 60px;
-    padding-bottom: 70px;
-  }
+.content-pane {
+  min-height: 100%;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 90px; /* במקום 70px */
+}
 
   .content-pane .project-content {
     padding: 20px 14px;
@@ -498,14 +500,16 @@ width: clamp(260px, 70vw, 820px);
   }
 
   /* ===== MENU BUTTON ===== */
+
 .menu-toggle {
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 0.8rem;
   padding: 4px 6px;
-  flex: 0 0 auto;   /* שלא ירד שורה */
+  margin-left: auto;   /* דוחף לימין */
 }
+
 
 .menu-label {
   font-size: 0.77rem;   /* טקסט קטן */
@@ -549,18 +553,20 @@ width: clamp(260px, 70vw, 820px);
   }
 
   /* ===== SOCIAL BAR ===== */
-  .social {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  
+.social {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    margin: 0;
-    padding: 10px 0;
-    background: #000;
-    border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 0;
+  padding: 12px 0;
+  background: #000;
+  border-top: 1px solid rgba(255,255,255,0.1);
 
-    justify-content: center;
-    z-index: 50;
-  }
+  justify-content: center;
+  z-index: 50;
+}
+
 }
