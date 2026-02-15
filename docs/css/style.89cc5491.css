@@ -479,14 +479,17 @@ width: clamp(260px, 70vw, 820px);
   z-index: 100;
 }
 
+/* לוגו קטן יותר */
 .logo {
   font-size: 1.2rem;
   margin: 0;
 }
 
+/* הסתרת tagline לגמרי */
 .tagline {
-  display: none;
+  display: none !important;
 }
+
 
 /* כפתור המבורגר */
 .menu-toggle {
@@ -506,6 +509,7 @@ width: clamp(260px, 70vw, 820px);
   background: #000;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
@@ -513,7 +517,9 @@ width: clamp(260px, 70vw, 820px);
 
   transform: translateY(-120%);
   transition: transform 0.3s ease;
+  z-index: 90;
 }
+
 
 /* מצב פתוח */
 .menu.open {
