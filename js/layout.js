@@ -64,3 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach(img => bgObserver.observe(img));
 });
+
+
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+if (toggle && menu) {
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+}
