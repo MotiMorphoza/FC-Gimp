@@ -485,11 +485,12 @@ width: clamp(260px, 70vw, 820px);
 }
 
   /* לוגו קטן ויציב */
-  .logo {
-    font-size: 1rem;
-    margin: 0;
-    white-space: nowrap;
-  }
+.logo {
+  font-size: 1rem;
+  margin: 0;
+  white-space: nowrap;
+  flex: 0 0 auto;   /* שלא יישבר שורה */
+}
 
   /* הסתרת שורת משנה */
   .tagline {
@@ -500,10 +501,10 @@ width: clamp(260px, 70vw, 820px);
 .menu-toggle {
   display: flex;
   align-items: center;
-  gap: 2px;
-  cursor: pointer;
-  user-select: none;
-  padding: 2px 3px;
+  gap: 4px;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  flex: 0 0 auto;   /* שלא ירד שורה */
 }
 
 .menu-label {
