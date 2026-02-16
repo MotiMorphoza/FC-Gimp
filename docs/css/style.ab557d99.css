@@ -255,7 +255,7 @@ body {
   margin-top: auto;
   margin-bottom: 2.5rem;
   list-style: none;
-  padding: 0;
+  padding: 1;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
@@ -271,8 +271,8 @@ body {
 }
 
 .social img {
-  width: 27px;
-  height: 27px;
+  width: 23px;
+  height: 23px;
   object-fit: contain;
 }
 
