@@ -164,8 +164,8 @@ body {
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;
-
+  min-height: 100vh;   /* במקום height */
+  
   background: #000;
   display: flex;
   flex-direction: column;
@@ -175,6 +175,7 @@ body {
   padding-left: 13px;
   text-align: center;
 }
+
 
 
 .logo {
@@ -251,15 +252,16 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.social {
+.social {.social {
   margin-top: auto;
   margin-bottom: 2.5rem;
   list-style: none;
-  padding: 1;
+  padding: 0;   /* היה בטעות 1 */
   display: flex;
   gap: 1.2rem;
   justify-content: center;
 }
+
 
 .social a {
   display: inline-flex;
