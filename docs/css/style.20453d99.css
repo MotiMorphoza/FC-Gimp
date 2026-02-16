@@ -552,6 +552,19 @@ width: clamp(260px, 70vw, 820px);
     font-size: 1.1rem;
   }
 
+/* ===== FIX HOME SLIDE HEIGHT ON MOBILE ===== */
+.slide-viewport {
+  height: calc(100dvh - 126px); /* 56px header + 70px social */
+  padding: 0;
+  align-items: flex-start; /* מצמיד למעלה */
+}
+
+.slide {
+  max-height: 100%;
+  margin-top: 0;
+}
+
+
   /* ===== SOCIAL BAR ===== */
   
 .social {
