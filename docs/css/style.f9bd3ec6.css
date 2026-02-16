@@ -423,15 +423,22 @@ width: clamp(260px, 70vw, 820px);
 }
 
 /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
-.page-landing .slide-viewport {
+.page-landing,
+.page-landing .landing {
   height: 100vh;
-  padding: 0;
+  overflow: hidden;
+}
+
+.page-landing .slide-viewport {
+  height: 100%;
+  padding: 0;              /* מבטל את ה־2rem */
   align-items: center;
 }
 
 .page-landing .slide {
   max-height: 100%;
 }
+
 
 
 /* ===== TABLET ===== */
