@@ -303,18 +303,18 @@ body {
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;              /* פחות רווח */
+  gap: 20px;
   align-items: center;
 }
 
-.project-item.reverse .project-grid {
-  direction: rtl;         /* הופך סדר בלי לשנות מרווחים */
+/* זיגזג אמיתי */
+.project-item.reverse .project-media {
+  order: 2;
 }
 
-.project-item.reverse .project-grid > * {
-  direction: ltr;
+.project-item.reverse .project-text {
+  order: 1;
 }
-
 
 .project-media {
   display: block;
