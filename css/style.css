@@ -422,6 +422,16 @@ width: clamp(260px, 70vw, 820px);
   transform: translateY(0) translateX(20px);
 }
 
+/* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
+.page-landing .slide-viewport {
+  height: 100vh;
+  padding: 0;
+  align-items: center;
+}
+
+.page-landing .slide {
+  max-height: 100%;
+}
 
 
 /* ===== TABLET ===== */
