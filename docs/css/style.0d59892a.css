@@ -603,18 +603,20 @@ width: clamp(260px, 70vw, 820px);
   margin-top: 0;
 }
 
-  .project-grid,
+ .project-grid,
   .project-item.reverse .project-grid {
     display: block;
   }
 
   .project-media {
     width: 100%;
-    margin-top: 16px;
+    max-width: none;
+    margin-top: 12px;
   }
 
   .project-text {
-    max-width: 100%;
+    max-width: none;
+    width: 100%;
   }
 
 
