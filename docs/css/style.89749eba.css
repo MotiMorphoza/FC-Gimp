@@ -469,8 +469,6 @@ width: clamp(260px, 70vw, 820px);
     width: 92%;
   }
 }
-
-
 /* ===== MOBILE ===== */
 @media (max-width: 700px) {
 
@@ -480,85 +478,61 @@ width: clamp(260px, 70vw, 820px);
     min-height: auto;
   }
 
-.content-pane {
-  min-height: 100%;
-  position: relative;
-  padding-top: 60px;
-  padding-bottom: 90px; /* במקום 70px */
-}
-
-  .content-pane .project-content {
-    padding: 20px 14px;
-  }
-
-  .content-pane .project-gallery {
-    gap: 60px;
-    padding: 40px 0;
-  }
-
-  .content-pane .project-gallery img {
-    width: 100%;
-    transform: none;
-    opacity: 1;
-    transition: none;
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.8),
-      0 0 0 1px rgba(255, 255, 255, 0.05);
+  .content-pane {
+    min-height: 100%;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 100px; /* מרווח מה-social bar */
   }
 
   /* ===== TOP BAR ===== */
   .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  padding: 0 12px;
-  background: #000;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 12px;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 
-  display: flex;
-  flex-direction: row;          /* קריטי */
-  align-items: center;
-  justify-content: space-between; /* לוגו שמאל, תפריט ימין */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  z-index: 100;
-}
+    z-index: 100;
+  }
 
-  /* לוגו קטן ויציב */
-.logo {
-  font-size: 1rem;
-  margin: 0;
-  white-space: nowrap;
-  flex: 0 0 auto;   /* שלא יישבר שורה */
-}
+  .logo {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
 
-  /* הסתרת שורת משנה */
   .tagline {
     display: none !important;
   }
 
   /* ===== MENU BUTTON ===== */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    margin-left: auto;
+  }
 
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.8rem;
-  padding: 4px 6px;
-  margin-left: auto;   /* דוחף לימין */
-}
+  .menu-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
 
-
-.menu-label {
-  font-size: 0.77rem;   /* טקסט קטן */
-  letter-spacing: 0.08em;
-}
-
-.menu-icon {
-  font-size: 0.77rem;      /* אייקון מעט גדול יותר */
-  line-height: 1;
-}
+  .menu-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
 
   /* ===== DROPDOWN MENU ===== */
   .menu {
@@ -591,33 +565,67 @@ width: clamp(260px, 70vw, 820px);
     font-size: 1.1rem;
   }
 
-/* ===== FIX HOME SLIDE HEIGHT ON MOBILE ===== */
-.slide-viewport {
-  height: calc(100dvh - 126px); /* 56px header + 70px social */
-  padding: 0;
-  align-items: flex-start; /* מצמיד למעלה */
-}
-
-.slide {
-  max-height: 100%;
-  margin-top: 0;
-}
-
- .project-grid,
-  .project-item.reverse .project-grid {
-    display: block;
+  /* ===== HOME SLIDE FIX ===== */
+  .slide-viewport {
+    height: calc(100dvh - 126px); /* header + social */
+    padding: 0;
+    align-items: flex-start;
   }
 
-  .project-media {
-    width: 100%;
-    max-width: none;
-    margin-top: 12px;
+  .slide {
+    max-height: 100%;
+    margin-top: 0;
+  }
+
+  /* ===== PROJECTS MOBILE LAYOUT ===== */
+  .projects-list {
+    padding: 0 14px 100px;
+  }
+
+  .project-item {
+    margin-bottom: 40px;
+    padding: 0;
+    background: none !important;
+  }
+
+  .project-grid,
+  .project-item.reverse .project-grid {
+    display: block;
   }
 
   .project-text {
     max-width: none;
     width: 100%;
+    margin-bottom: 14px;
+    border: none;
+    padding: 0;
   }
+
+  .project-media {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: block;
+  }
+
+  /* ===== SOCIAL BAR ===== */
+  .social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 12px 0;
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    justify-content: center;
+    z-index: 50;
+  }
+
+}
+
 
 
   /* ===== SOCIAL BAR ===== */
