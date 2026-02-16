@@ -164,19 +164,18 @@ body {
 .sidebar {
   position: sticky;
   top: 0;
-  min-height: 100vh;   /* במקום height */
-  
+  height: 100vh;          /* חזרה לגובה קבוע */
   background: #000;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
   padding-top: 3rem;
   padding-left: 13px;
   text-align: center;
 }
-
-
 
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
@@ -252,14 +251,22 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.social {.social {
+/* מדיה תמיד בתחתית הסיידבר */
+.social {
   margin-top: auto;
   margin-bottom: 2.5rem;
   list-style: none;
-  padding: 0;   /* היה בטעות 1 */
+  padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
+}
+
+/* גודל אייקונים קבוע */
+.social img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 
@@ -270,12 +277,6 @@ body {
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
-}
-
-.social img {
-  width: 23px;
-  height: 23px;
-  object-fit: contain;
 }
 
 .social a:hover {
@@ -625,26 +626,5 @@ width: clamp(260px, 70vw, 820px);
     justify-content: center;
     z-index: 50;
   }
-
-}
-
-
-
-  /* ===== SOCIAL BAR ===== */
-  
-.social {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  margin: 0;
-  padding: 12px 0;
-  background: #000;
-  border-top: 1px solid rgba(255,255,255,0.1);
-
-  justify-content: center;
-  z-index: 50;
-}
 
 }
