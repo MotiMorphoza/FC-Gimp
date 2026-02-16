@@ -302,23 +302,28 @@ body {
 
 .project-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   align-items: center;
+  justify-items: center;
 }
 
-.project-item.reverse .project-grid {
-  grid-template-columns: 1fr 1.15fr;
+/* זיגזג אמיתי לפי סדר בלבד */
+.project-item.reverse .project-media {
+  order: 2;
 }
+
+.project-item.reverse .project-text {
+  order: 1;
+}
+
 .project-media {
   display: block;
-  max-width: 100%;
-  max-height: 420px;   /* הגובה הקבוע שאתה רוצה */
-  width: auto;
+  width: 100%;
+  max-width: 520px;
   height: auto;
   object-fit: contain;
 }
-
 
 .project-media.placeholder {
   background: linear-gradient(135deg, #232323, #111111);
@@ -328,7 +333,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.75);
   padding: 24px;
   max-width: 520px;
-  justify-self: start;
+  width: 100%;
+  text-align: left;
 }
 
 .project-text h2 {
