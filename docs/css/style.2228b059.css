@@ -302,20 +302,14 @@ body {
 
 .project-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
   align-items: center;
 }
 
-/* זיגזג אמיתי */
-.project-item.reverse .project-media {
-  order: 2;
+.project-item.reverse .project-grid {
+  grid-template-columns: 1fr 1.15fr;
 }
-
-.project-item.reverse .project-text {
-  order: 1;
-}
-
 .project-media {
   display: block;
   max-width: 100%;
@@ -334,9 +328,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.75);
   padding: 24px;
   max-width: 520px;
-  justify-self: start;   /* במקום center */
+  justify-self: start;
 }
-
 
 .project-text h2 {
   margin: 0 0 12px;
