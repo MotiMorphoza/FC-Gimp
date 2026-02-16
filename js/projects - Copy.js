@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.createElement("div");
     grid.className = "project-grid";
 
-    // ===== IMAGE LINK =====
+    // לינק רגיל לדף הפרויקט
     const link = document.createElement("a");
     link.href = `project-${project.slug}.html`;
     link.className = "project-link";
@@ -45,37 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     link.appendChild(media);
 
-    // ===== TEXT LINK =====
-    const textLink = document.createElement("a");
-    textLink.href = `project-${project.slug}.html`;
-    textLink.className = "project-text";
+    const text = document.createElement("div");
+    text.className = "project-text";
 
     const h2 = document.createElement("h2");
     h2.textContent = project.title;
 
     const p = document.createElement("p");
-    p.innerHTML = `
-      ${project.description || ""}
-      <br><br>
-      <strong>ENTER →</strong>
-    `;
+    p.textContent = project.description || "";
 
-    textLink.appendChild(h2);
-    textLink.appendChild(p);
+    text.appendChild(h2);
+    text.appendChild(p);
 
-    // ===== ZIGZAG ORDER =====
     if (index % 2 === 0) {
       grid.appendChild(link);
-      grid.appendChild(textLink);
+      grid.appendChild(text);
     } else {
-      grid.appendChild(textLink);
+      grid.appendChild(text);
       grid.appendChild(link);
     }
 
     section.appendChild(grid);
     listEl.appendChild(section);
 
-    // separator
     if (index < manifest.length - 1) {
       const sep = document.createElement("div");
       sep.className = "separator";
