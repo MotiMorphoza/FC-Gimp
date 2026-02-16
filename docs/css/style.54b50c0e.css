@@ -440,6 +440,22 @@ width: clamp(260px, 70vw, 820px);
   max-height: 100%;
 }
 
+/* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
+.page-main .shell-layout {
+  height: 100dvh;
+  min-height: 100dvh;
+}
+
+.page-main .content-pane {
+  padding: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.page-main .slide-viewport {
+  height: 100%;
+  padding: 0;
+}
 
 
 /* ===== TABLET ===== */
