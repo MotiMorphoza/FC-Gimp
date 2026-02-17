@@ -8,7 +8,7 @@ async function loadSidebar() {
     const html = await res.text();
     placeholder.innerHTML = html;
 
-    // ===== MENU TOGGLE FIX =====
+    // ===== MENU TOGGLE =====
     const toggle = placeholder.querySelector('.menu-toggle');
     const menu = placeholder.querySelector('.menu');
 
@@ -23,36 +23,31 @@ async function loadSidebar() {
   }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   loadSidebar();
 
   const images = document.querySelectorAll(".project-gallery img");
   if (!images.length) return;
 
-  /* ===== IMAGE ENTRANCE ANIMATION ===== */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-     const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    } else {
-      entry.target.classList.remove("visible");
+  /* ===== IMAGE ENTRANCE ANIMATION (LOOPING) ===== */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.6
     }
-  });
-}, {
-  threshold: 0.15
-});
-
-    });
-  }, {
-    threshold: 0.15
-  });
+  );
 
   images.forEach(img => revealObserver.observe(img));
 
-  /* ===== DYNAMIC BACKGROUND FADE ===== */
+  /* ===== DYNAMIC BACKGROUND FADE (אם קיים) ===== */
   const bg1 = document.getElementById('bg1');
   const bg2 = document.getElementById('bg2');
   if (!bg1 || !bg2) return;
@@ -85,4 +80,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach(img => bgObserver.observe(img));
 });
-
