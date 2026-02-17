@@ -383,43 +383,50 @@ body {
   padding: clamp(20px, 4vw, 60px);
 }
 
-/* ===== PROJECT GALLERY ===== */
+/* ===== FULLSCREEN SNAP GALLERY ===== */
+
 .content-pane .project-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 0;
+  height: 100vh;
+  overflow-y: auto;
+
+  display: block;
+
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 
 /* ===== IMAGES ===== */
+
+/* כל תמונה = מסך אחד */
 .content-pane .project-gallery img {
   display: block;
 
-  max-height: calc(100dvh - 160px); /* גובה מסך עם מרווח לנשימה */
+  height: 100vh;
   width: auto;
   max-width: 100%;
+  object-fit: contain;
 
-  margin: clamp(60px, 10vh, 140px) auto;
+  margin: 0 auto;
 
-  /* אנימציה נשארת */
+  scroll-snap-align: center;
+
+  /* אנימציה */
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 0.9s ease, transform 0.9s ease;
 
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-
-  object-fit: contain;
 }
-
 
 /* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
 .project-gallery img:nth-child(3n) {
