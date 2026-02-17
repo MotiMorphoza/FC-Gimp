@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.35 }
   );
 
   images.forEach(img => bgObserver.observe(img));
