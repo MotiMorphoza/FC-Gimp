@@ -383,43 +383,42 @@ body {
   padding: clamp(20px, 4vw, 60px);
 }
 
-/* ===== FULLSCREEN SNAP GALLERY ===== */
-
+/* ===== PROJECT GALLERY ===== */
 .content-pane .project-gallery {
-  height: 100vh;
-  overflow-y: auto;
-
-  display: block;
-
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
+  padding: clamp(40px, 8vh, 120px) 0;
 }
 
-
 /* ===== IMAGES ===== */
-
-/* כל תמונה = מסך אחד */
 .content-pane .project-gallery img {
   display: block;
 
-  height: 100vh;
+  max-height: calc(100dvh - 160px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
 
   margin: 0 auto;
 
-  scroll-snap-align: center;
-
-  /* אנימציה */
-  opacity: 1;                  /* במקום 0 */
-  transform: translateY(0);    /* במקום 60px */
+  /* אנימציית כניסה */
+  opacity: 0;
+  transform: translateY(60px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+
+/* מצב גלוי */
+.project-gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 /* מצב גלוי */
 
