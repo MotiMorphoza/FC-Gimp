@@ -54,11 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.textContent = project.title;
 
     const p = document.createElement("p");
-    p.innerHTML = `
-      ${project.description || ""}
-      <br><br>
-      <strong>ENTER →</strong>
-    `;
+p.innerHTML = `
+  ${project.description || ""}
+  <br><br>
+  <span class="enter">ENTER →</span>
+`;
+
 
     textLink.appendChild(h2);
     textLink.appendChild(p);
