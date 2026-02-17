@@ -486,16 +486,20 @@ transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 
-.project-text a {
+a.project-text {
   color: #fff;
   text-decoration: none;
+}
+
+.project-text .enter {
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
 
-.project-text a:hover {
+.project-text:hover .enter {
   border-bottom: 1px solid rgba(255,255,255,0.6);
 }
+
 
 
 /* ===== TABLET ===== */
