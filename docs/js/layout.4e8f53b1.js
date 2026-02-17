@@ -8,7 +8,7 @@ async function loadSidebar() {
     const html = await res.text();
     placeholder.innerHTML = html;
 
-    // ===== MENU TOGGLE =====
+    // MENU TOGGLE
     const toggle = placeholder.querySelector('.menu-toggle');
     const menu = placeholder.querySelector('.menu');
 
@@ -26,6 +26,7 @@ async function loadSidebar() {
 document.addEventListener("DOMContentLoaded", () => {
   loadSidebar();
 
+  const gallery = document.querySelector('.project-gallery');
   const images = document.querySelectorAll(".project-gallery img");
   if (!images.length) return;
 
@@ -40,12 +41,61 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    {
-      threshold: 0.6
-    }
+    { threshold: 0.6 }
   );
 
   images.forEach(img => revealObserver.observe(img));
+
+  /* ===== SNAP NAVIGATION ===== */
+  let current = 0;
+
+  function scrollToSlide(index) {
+    if (index < 0 || index >= images.length) return;
+    images[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    current = index;
+    updateIndicator();
+  }
+
+  /* Keyboard arrows */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      scrollToSlide(current + 1);
+    }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      scrollToSlide(current - 1);
+    }
+  });
+
+  /* Swipe for mobile */
+  let startY = 0;
+
+  gallery?.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  });
+
+  gallery?.addEventListener('touchend', (e) => {
+    const endY = e.changedTouches[0].clientY;
+    const diff = startY - endY;
+
+    if (Math.abs(diff) < 40) return;
+
+    if (diff > 0) {
+      scrollToSlide(current + 1);
+    } else {
+      scrollToSlide(current - 1);
+    }
+  });
+
+  /* ===== SLIDE INDICATOR ===== */
+  const indicator = document.getElementById('slideIndicator');
+
+  function updateIndicator() {
+    if (indicator) {
+      indicator.textContent = (current + 1) + " / " + images.length;
+    }
+  }
+
+  updateIndicator();
 
   /* ===== DYNAMIC BACKGROUND FADE (אם קיים) ===== */
   const bg1 = document.getElementById('bg1');
@@ -73,9 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    {
-      threshold: 0.6
-    }
+    { threshold: 0.6 }
   );
 
   images.forEach(img => bgObserver.observe(img));
