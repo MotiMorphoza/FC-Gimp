@@ -387,18 +387,18 @@ body {
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
-  gap: clamp(60px, 10vw, 160px);
-  padding: clamp(40px, 8vw, 140px) 0;
+  gap: 0;
+  padding: 0;
 }
 
 
 /* ===== IMAGES ===== */
 .content-pane .project-gallery img {
-  display: block;
-width: clamp(260px, 70vw, 820px);
-  max-width: 100%;
-  height: auto;
+  height: 100dvh;
+  width: 100%;
+  object-fit: contain;
   margin: 0 auto;
+}
 
   /* אנימציה עדינה */
   opacity: 0;
