@@ -46,46 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach(img => revealObserver.observe(img));
 
-  /* ===== SNAP NAVIGATION ===== */
-  let current = 0;
-
-  function scrollToSlide(index) {
-    if (index < 0 || index >= images.length) return;
-    images[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
-    current = index;
-    updateIndicator();
-  }
-
-  /* Keyboard arrows */
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-      scrollToSlide(current + 1);
-    }
-    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-      scrollToSlide(current - 1);
-    }
-  });
-
-  /* Swipe for mobile */
-  let startY = 0;
-
-  gallery?.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-  });
-
-  gallery?.addEventListener('touchend', (e) => {
-    const endY = e.changedTouches[0].clientY;
-    const diff = startY - endY;
-
-    if (Math.abs(diff) < 40) return;
-
-    if (diff > 0) {
-      scrollToSlide(current + 1);
-    } else {
-      scrollToSlide(current - 1);
-    }
-  });
-
+  
   /* ===== SLIDE INDICATOR ===== */
   const indicator = document.getElementById('slideIndicator');
 
