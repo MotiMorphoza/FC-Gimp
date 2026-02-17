@@ -400,7 +400,7 @@ body {
   width: auto;
   max-width: 100%;
 
-  margin: 0 auto;
+  margin: clamp(60px, 10vh, 140px) auto;
 
   /* אנימציה נשארת */
   opacity: 0;
