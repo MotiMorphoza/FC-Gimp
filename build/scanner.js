@@ -108,10 +108,20 @@ class Scanner {
     if (fs.existsSync(imagesDir)) {
       const landingDir = path.join(imagesDir, 'landing');
       const mainDir = path.join(imagesDir, 'main');
+if (fs.existsSync(landingDir)) {
+  const desktopDir = path.join(landingDir, 'desktop');
+  const mobileDir = path.join(landingDir, 'mobile');
 
-      if (fs.existsSync(landingDir)) {
-        manifest.landing = this.getImageFiles(landingDir, imagesDir);
-      }
+  manifest.landing = {
+    desktop: fs.existsSync(desktopDir)
+      ? this.getImageFiles(desktopDir, imagesDir)
+      : [],
+    mobile: fs.existsSync(mobileDir)
+      ? this.getImageFiles(mobileDir, imagesDir)
+      : []
+  };
+}
+
 
       if (fs.existsSync(mainDir)) {
         manifest.main = this.getImageFiles(mainDir, imagesDir);

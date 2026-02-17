@@ -1,10 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bg = document.getElementById("landingBg");
-  if (!bg) return;
+  const landing = window.__MANIFEST__?.landing;
+  if (!bg || !landing) return;
 
-  const images = window.__MANIFEST__?.landing || [];
-  if (!images.length) return;
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const pool = isPortrait ? landing.portrait : landing.landscape;
 
-  const index = Math.floor(Math.random() * images.length);
-  bg.style.backgroundImage = `url(${images[index]})`;
+  if (!Array.isArray(pool) || pool.length === 0) return;
+
+  const random = pool[Math.floor(Math.random() * pool.length)];
+
+  // preload
+  const img = new Image();
+  img.src = random;
+  img.onload = () => {
+    bg.style.backgroundImage = `url(${random})`;
+  };
 });
