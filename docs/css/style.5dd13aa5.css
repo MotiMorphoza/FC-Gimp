@@ -615,9 +615,10 @@ body {
     display: block;
   }
 
-  .content-pane .project-gallery img {
-    max-height: calc(100dvh - 126px);
-  }
+.content-pane .project-gallery img {
+  max-height: calc(100dvh - 140px);
+}
+
 
   /* ===== SOCIAL BAR ===== */
   .social {
