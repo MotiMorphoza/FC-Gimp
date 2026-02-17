@@ -26,7 +26,6 @@ async function loadSidebar() {
 document.addEventListener("DOMContentLoaded", () => {
   loadSidebar();
 
-  const gallery = document.querySelector('.project-gallery');
   const images = document.querySelectorAll(".project-gallery img");
   if (!images.length) return;
 
@@ -46,17 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach(img => revealObserver.observe(img));
 
-  
   /* ===== SLIDE INDICATOR ===== */
   const indicator = document.getElementById('slideIndicator');
 
-  function updateIndicator() {
-    if (indicator) {
-      indicator.textContent = (current + 1) + " / " + images.length;
-    }
-  }
+  if (indicator) {
+    const indexObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = [...images].indexOf(entry.target) + 1;
+            indicator.textContent = index + " / " + images.length;
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-  updateIndicator();
+    images.forEach(img => indexObserver.observe(img));
+  }
 
   /* ===== DYNAMIC BACKGROUND FADE (אם קיים) ===== */
   const bg1 = document.getElementById('bg1');
@@ -77,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const bgObserver = new IntersectionObserver(
-    entries => {
+    (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setBackground(entry.target.src);
