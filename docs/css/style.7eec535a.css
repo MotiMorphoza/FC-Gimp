@@ -437,11 +437,6 @@ body {
   width: clamp(260px, 80vw, 950px);
 }
 
-/* תנועה אופקית עדינה */
-.project-gallery img:nth-child(even).visible {
-  transform: translateY(0) translateX(20px);
-}
-
 /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
 .page-landing,
 .page-landing .landing {
