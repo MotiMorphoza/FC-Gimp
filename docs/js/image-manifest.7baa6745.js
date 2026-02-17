@@ -46,6 +46,7 @@ window.__MANIFEST__ = {
       "title": "Ohhhhh Your God",
       "description": "A visual commentary on religious spectacle, mass emotion, and the tension between faith, identity, and modern performance.",
       "images": [
+        "projects/ohhhhh_your_god/00 cover.jpg",
         "projects/ohhhhh_your_god/01.jpg",
         "projects/ohhhhh_your_god/02.jpg",
         "projects/ohhhhh_your_god/03.jpg",
@@ -60,8 +61,7 @@ window.__MANIFEST__ = {
         "projects/ohhhhh_your_god/12.jpg",
         "projects/ohhhhh_your_god/13.jpg",
         "projects/ohhhhh_your_god/14.jpg",
-        "projects/ohhhhh_your_god/15.jpg",
-        "projects/ohhhhh_your_god/cover.jpg"
+        "projects/ohhhhh_your_god/15.jpg"
       ]
     },
     {
