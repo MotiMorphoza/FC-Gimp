@@ -361,8 +361,6 @@ min-height: 100dvh;
 }
 .page-main .content-pane {
   padding: 0;
-  height: 100dvh;
-  overflow: hidden;
 }
 .page-main .slide-viewport {
   height: 100%;
