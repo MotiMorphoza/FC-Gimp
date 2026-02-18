@@ -17,16 +17,18 @@ body {
   background: var(--bg);
   color: var(--fg);
 }
+
 body {
   overflow-x: hidden;
-} /* Shared slideshow */
+}
+
 .slide-viewport {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 2rem 0;
 }
+
 .slide {
   position: absolute;
   inset: 0;
@@ -186,10 +188,8 @@ body {
 .content-pane {
   overflow-y: auto;
   height: 100%;
-  min-height: 100%;
   position: relative;
   padding-top: 60px;
-  padding-bottom: 90px; /* במקום 70px */
 }
 
 .about-pane {
@@ -363,18 +363,22 @@ body {
 }
 .page-landing .slide {
   max-height: 100%;
-} /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
+} 
+
+/* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
 .page-main .shell-layout {
   height: 100dvh;
   min-height: 100dvh;
 }
+
 .page-main .content-pane {
+  display: flex;
+  flex-direction: column;
   padding: 0;
 }
-.page-main .slide-viewport {
-  height: 100%;
-  padding: 0;
-} /* ===== slide-indicator ===== */
+
+
+===== slide-indicator ===== */
 .slide-indicator {
   position: fixed;
   bottom: 18px;
@@ -513,12 +517,15 @@ a.project-text {
   }
   .menu a {
     font-size: 1.1rem;
-  } /* ===== HOME SLIDE FIX ===== */
+  }
+
+
   .slide-viewport {
     height: calc(100dvh - 126px);
     padding: 0;
     align-items: flex-start;
   }
+
   .slide {
     max-height: 100%;
     margin-top: 0;
