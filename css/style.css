@@ -437,11 +437,14 @@ transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
+
 .page-landing,
 .page-landing .landing {
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
+  position: relative;
 }
+
 
 .page-landing .slide-viewport {
   height: 100%;
@@ -562,13 +565,6 @@ a.project-text {
     background-color: #000;
   }
 
-  /* ===== ENABLE PULL TO REFRESH ===== */
-  .page-landing,
-  .page-landing .landing {
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
 
   /* ===== SHELL STRUCTURE ===== */
   .shell-layout {
