@@ -68,6 +68,8 @@ body {
 .landing {
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .landing .slide-viewport {
