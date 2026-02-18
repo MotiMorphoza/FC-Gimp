@@ -1,1 +1,560 @@
-:root { --bg: #000; --fg: #fff; --muted: rgba(255, 255, 255, 0.7); --overlay: rgba(0, 0, 0, 0.45); --sidebar-width: 320px; } * { box-sizing: border-box; } html, body { margin: 0; min-height: 100%; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg); } body { overflow-x: hidden; } /* Shared slideshow */ .slide-viewport { display: flex; justify-content: center; align-items: center; height: 100dvh; padding: 2rem; } .slide { position: absolute; inset: 0; margin: auto; background: #000; max-width: 100%; max-height: calc(100% - 8rem); width: auto; height: auto; object-fit: contain; opacity: 0; z-index: 1; transition: opacity 1s ease, outline 0.2s ease; } .slide.active { opacity: 1; z-index: 2; } .slide:hover { outline: 2px solid #fff; outline-offset: 4px; } /* ===== LANDING ===== */ .page-landing, .landing { min-height: 100vh; overflow-x: hidden; position: relative; width: 100%; } .landing .slide-viewport { position: absolute; inset: 0; z-index: 1; } .landing-overlay { position: absolute; inset: 0; background: transparent; z-index: 2; pointer-events: none; } .landing-content { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; padding: 1rem; transform: translateY(21vh); } .landing-bg { position: absolute; inset: 0; background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #000; z-index: 1; } .landing-content h1, .landing-content p { text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; } .landing-content h1 { font-size: clamp(3.1rem, 6vw, 5rem); font-weight: 500; letter-spacing: 0.07em; margin: 0; } .landing-content p { font-size: 1.7rem; opacity: 0.9; margin-top: 0.3rem; } /* Shell pages */ .shell-layout { min-height: 100vh; display: grid; grid-template-columns: minmax(220px, 260px) 1fr; } .enter-btn { margin-top: 1rem; padding: 0.7rem 1.6rem; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 0.1em; background: rgba(0, 0, 0, 0.3); transition: 0.2s; } .enter-btn:hover { background: #fff; color: #000; } .sidebar { position: sticky; top: 0; height: 100vh; /* חזרה לגובה קבוע */ background: #000; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 3rem; padding-left: 13px; text-align: center; } .logo { font-size: clamp(2.3rem, 2.7vw, 2.7rem); font-weight: 500; letter-spacing: 0.04em; margin: 1rem; } .tagline { margin-top: 0.4rem; font-size: 1rem; opacity: 0.85; } .menu { list-style: none; padding: 0; margin: 3rem 0; display: flex; flex-direction: column; gap: 1.1rem; } .menu a { color: #fff; text-decoration: none; font-size: 1.5rem; letter-spacing: 0.03em; transition: opacity 0.2s ease; } .menu a:hover { opacity: 0.65; } .menu a[aria-current="page"] { color: #d4d4d4; } .menu-toggle { display: none; } .content-pane { min-height: 100%; position: relative; padding-top: 60px; padding-bottom: 90px; /* במקום 70px */ } .about-pane { padding: clamp(1rem, 3vw, 2.6rem); } .about-text h1 { margin-top: 0; font-size: clamp(1.8rem, 3.2vw, 2.6rem); } .about-text p { line-height: 1.6; color: rgba(255, 255, 255, 0.9); } .about-image-wrap { margin: 0; } .about-image-wrap img { width: 100%; height: auto; display: block; border: 1px solid rgba(255, 255, 255, 0.1); } /* מדיה תמיד בתחתית הסיידבר */ .social { margin-top: auto; margin-bottom: 2.5rem; list-style: none; padding: 0; display: flex; gap: 1.2rem; justify-content: center; } /* גודל אייקונים קבוע */ .social img { width: 24px; height: 24px; object-fit: contain; } .social a { display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s ease, opacity 0.2s ease; } .social a:hover { transform: scale(1.15); opacity: 0.9; } /* ===== PROJECTS PAGE ===== */ .projects-list { display: flex; flex-direction: column; } .project-item { padding: 36px 34px; } .project-item.bg-1 { background: #101010; } .project-item.bg-2 { background: #151515; } .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; justify-items: center; } /* זיגזג אמיתי לפי סדר בלבד */ .project-item.reverse .project-media { order: 2; } .project-item.reverse .project-text { order: 1; } .project-media { display: block; width: 100%; max-width: 520px; height: auto; object-fit: contain; } .project-media.placeholder { background: linear-gradient(135deg, #232323, #111111); } .project-text { border: 1px solid rgba(255, 255, 255, 0.75); padding: 24px; max-width: 520px; width: 100%; text-align: left; } .project-text h2 { margin: 0 0 12px; font-size: 1.35rem; letter-spacing: 0.03em; } .project-text p { margin: 0; color: #c9c9c9; line-height: 1.6; } .separator { display: flex; justify-content: center; background: #0d0d0d; } .separator::before { content: ""; width: 1px; height: 60px; background: rgba(255, 255, 255, 0.35); margin: 6px 0; } /* ===== ABOUT Vertical Layout Only ===== */ .about-pane .about-grid { display: flex; flex-direction: column; gap: 2.5rem; } /* ===== PROJECT CONTENT WRAPPER ===== */ .content-pane .project-content { max-width: 1200px; margin: 0 auto; padding: clamp(20px, 4vw, 60px); } /* ===== PROJECT GALLERY ===== */ .content-pane .project-gallery { display: flex; flex-direction: column; gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */ padding: clamp(40px, 8vh, 120px) 0; } /* ===== IMAGES ===== */ .content-pane .project-gallery img { display: block; max-height: calc(100dvh - 160px); width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; /* אנימציית כניסה */ opacity: 0; transform: translateY(35px); transition: opacity 1s ease-out, transform 1s ease-out; box-shadow: 0 40px 140px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06); } /* מצב גלוי */ .project-gallery img.visible { opacity: 1; transform: translateY(0); } /* מצב גלוי */ .project-gallery img.visible { opacity: 1; transform: translateY(0); } /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */ .project-gallery img:nth-child(3n) { width: clamp(240px, 55vw, 700px); } .project-gallery img:nth-child(3n+1) { width: clamp(260px, 80vw, 950px); } /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */ .page-landing, .page-landing .landing { height: 100vh; overflow: hidden; position: auto; } .page-landing .slide-viewport { height: 100%; padding: 0; /* מבטל את ה־2rem */ align-items: center; } .page-landing .slide { max-height: 100%; } /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */ .page-main .shell-layout { height: 100dvh; min-height: 100dvh; } .page-main .content-pane { padding: 0; height: 100dvh; overflow: hidden; } .page-main .slide-viewport { height: 100%; padding: 0; } /* ===== slide-indicator ===== */ .slide-indicator { position: fixed; bottom: 18px; right: 22px; font-size: 0.85rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); z-index: 120; pointer-events: none; } a.project-text { color: #fff; text-decoration: none; } .project-text .enter { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; } .project-text:hover .enter { border-bottom: 1px solid rgba(255,255,255,0.6); } /* ===== TABLET ===== */ @media (max-width: 1100px) { .content-pane .project-gallery img { max-height: calc(100dvh - 140px); } } /* ===== MOBILE ===== */ @media (max-width: 700px) { /* ===== LANDING TEXT ===== */ .landing { position: relative; min-height: 100vh; overflow-x: hidden; overflow-y: auto; } .landing-bg { background-size: contain; background-position: center top; background-repeat: no-repeat; background-color: #000; } .landing-content { position: absolute; bottom: 12vh; /* מצמיד לטקסט לתחתית */ left: 0; right: 0; top: auto; transform: none; /* מבטל הזזה למעלה */ gap: 0.25rem; padding: 0 1rem; } .landing-content h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); } .landing-content p { font-size: 0.9rem; } .enter-btn { margin-top: 0.1rem; padding: 0.45rem 1rem; font-size: 0.8rem; } /* ===== LANDING IMAGE (no stretch) ===== */ .landing-bg { background-size: contain; background-position: center top; background-repeat: no-repeat; background-color: #000; } /* ===== SHELL STRUCTURE ===== */ .shell-layout { display: block; min-height: auto; } .content-pane { min-height: 100%; position: relative; padding-top: 60px; padding-bottom: 100px; } /* ===== TOP BAR ===== */ .sidebar { position: fixed; top: 0; left: 0; right: 0; height: 56px; padding: 0 12px; background: #000; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; z-index: 100; } .logo { font-size: 1rem; margin: 0; white-space: nowrap; flex: 0 0 auto; } .tagline { display: none !important; } /* ===== MENU BUTTON ===== */ .menu-toggle { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; padding: 4px 6px; margin-left: auto; } .menu-label { font-size: 0.7rem; letter-spacing: 0.08em; } .menu-icon { font-size: 0.9rem; line-height: 1; } /* ===== DROPDOWN MENU ===== */ .menu { position: fixed; top: 56px; left: 0; right: 0; background: #000; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px 0; margin: 0; transform: translateY(-120%); transition: transform 0.3s ease; z-index: 90; } .menu.open { transform: translateY(0); } .menu a { font-size: 1.1rem; } /* ===== HOME SLIDE FIX ===== */ .slide-viewport { height: calc(100dvh - 126px); padding: 0; align-items: flex-start; } .slide { max-height: 100%; margin-top: 0; } /* ===== PROJECTS MOBILE LAYOUT ===== */ .projects-list { padding: 0 14px 100px; } .project-item { margin-bottom: 40px; padding: 0; background: none !important; } .project-grid, .project-item.reverse .project-grid { display: block; } .project-text { max-width: none; width: 100%; margin-bottom: 14px; border: none; padding: 0; } .project-media { width: 100%; max-width: none; margin: 0; display: block; } .content-pane .project-gallery img { max-height: calc(100dvh - 130px); width: auto; max-width: 100%; } /* ===== SOCIAL BAR ===== */ .social { position: fixed; bottom: 0; left: 0; right: 0; margin: 0; padding: 12px 0; background: #000; border-top: 1px solid rgba(255,255,255,0.1); justify-content: center; z-index: 50; } }
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --muted: rgba(255, 255, 255, 0.7);
+  --overlay: rgba(0, 0, 0, 0.45);
+  --sidebar-width: 320px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+body {
+  overflow-x: hidden;
+} /* Shared slideshow */
+.slide-viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  padding: 2rem;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #000;
+  max-width: 100%;
+  max-height: calc(100% - 8rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 1;
+  transition:
+    opacity 1s ease,
+    outline 0.2s ease;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+.slide:hover {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+} /* ===== LANDING ===== */
+.page-landing,
+.landing {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+.landing .slide-viewport {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 2;
+  pointer-events: none;
+}
+.landing-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  transform: translateY(21vh);
+}
+.landing-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  z-index: 1;
+}
+.landing-content h1,
+.landing-content p {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.landing-content h1 {
+  font-size: clamp(3.1rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+.landing-content p {
+  font-size: 1.7rem;
+  opacity: 0.9;
+  margin-top: 0.3rem;
+} /* Shell pages */
+.shell-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) 1fr;
+}
+.enter-btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+}
+.enter-btn:hover {
+  background: #fff;
+  color: #000;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh; /* חזרה לגובה קבוע */
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  padding-left: 13px;
+  text-align: center;
+}
+.logo {
+  font-size: clamp(2.3rem, 2.7vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 1rem;
+}
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease;
+}
+.menu a:hover {
+  opacity: 0.65;
+}
+.menu a[aria-current="page"] {
+  color: #d4d4d4;
+}
+.menu-toggle {
+  display: none;
+}
+.content-pane {
+  min-height: 100%;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 90px; /* במקום 70px */
+}
+.about-pane {
+  padding: clamp(1rem, 3vw, 2.6rem);
+}
+.about-text h1 {
+  margin-top: 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+}
+.about-text p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+.about-image-wrap {
+  margin: 0;
+}
+.about-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+} /* מדיה תמיד בתחתית הסיידבר */
+.social {
+  margin-top: auto;
+  margin-bottom: 2.5rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+} /* גודל אייקונים קבוע */
+.social img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.social a:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+} /* ===== PROJECTS PAGE ===== */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+.project-item {
+  padding: 36px 34px;
+}
+.project-item.bg-1 {
+  background: #101010;
+}
+.project-item.bg-2 {
+  background: #151515;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+} /* זיגזג אמיתי לפי סדר בלבד */
+.project-item.reverse .project-media {
+  order: 2;
+}
+.project-item.reverse .project-text {
+  order: 1;
+}
+.project-media {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+.project-media.placeholder {
+  background: linear-gradient(135deg, #232323, #111111);
+}
+.project-text {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  padding: 24px;
+  max-width: 520px;
+  width: 100%;
+  text-align: left;
+}
+.project-text h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+}
+.project-text p {
+  margin: 0;
+  color: #c9c9c9;
+  line-height: 1.6;
+}
+.separator {
+  display: flex;
+  justify-content: center;
+  background: #0d0d0d;
+}
+.separator::before {
+  content: "";
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 6px 0;
+} /* ===== ABOUT Vertical Layout Only ===== */
+.about-pane .about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+} /* ===== PROJECT CONTENT WRAPPER ===== */
+.content-pane .project-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 60px);
+} /* ===== PROJECT GALLERY ===== */
+.content-pane .project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
+  padding: clamp(40px, 8vh, 120px) 0;
+} /* ===== IMAGES ===== */
+.content-pane .project-gallery img {
+  display: block;
+  max-height: calc(100dvh - 160px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto; /* אנימציית כניסה */
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+  box-shadow:
+    0 40px 140px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+} /* מצב גלוי */
+.project-gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+} /* מצב גלוי */
+.project-gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+} /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+.project-gallery img:nth-child(3n) {
+  width: clamp(240px, 55vw, 700px);
+}
+.project-gallery img:nth-child(3n + 1) {
+  width: clamp(260px, 80vw, 950px);
+} /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
+.page-landing,
+.page-landing .landing {
+  height: 100vh;
+  overflow: hidden;
+  position: auto;
+}
+.page-landing .slide-viewport {
+  height: 100%;
+  padding: 0; /* מבטל את ה־2rem */
+  align-items: center;
+}
+.page-landing .slide {
+  max-height: 100%;
+} /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
+.page-main .shell-layout {
+  height: 100dvh;
+  min-height: 100dvh;
+}
+.page-main .content-pane {
+  padding: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+.page-main .slide-viewport {
+  height: 100%;
+  padding: 0;
+} /* ===== slide-indicator ===== */
+.slide-indicator {
+  position: fixed;
+  bottom: 18px;
+  right: 22px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 120;
+  pointer-events: none;
+}
+a.project-text {
+  color: #fff;
+  text-decoration: none;
+}
+.project-text .enter {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.project-text:hover .enter {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+} /* ===== TABLET ===== */
+@media (max-width: 1100px) {
+  .content-pane .project-gallery img {
+    max-height: calc(100dvh - 140px);
+  }
+} /* ===== MOBILE ===== */
+@media (max-width: 700px) {
+  /* ===== LANDING TEXT ===== */
+  .landing {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .landing-bg {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+  .landing-content {
+    position: absolute;
+    bottom: 12vh; /* מצמיד לטקסט לתחתית */
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none; /* מבטל הזזה למעלה */
+    gap: 0.25rem;
+    padding: 0 1rem;
+  }
+  .landing-content h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .landing-content p {
+    font-size: 0.9rem;
+  }
+  .enter-btn {
+    margin-top: 0.1rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  } /* ===== LANDING IMAGE (no stretch) ===== */
+  .landing-bg {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000;
+  } /* ===== SHELL STRUCTURE ===== */
+  .shell-layout {
+    display: block;
+    min-height: auto;
+  }
+  .content-pane {
+    min-height: 100%;
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 100px;
+  } /* ===== TOP BAR ===== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 12px;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+  }
+  .logo {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .tagline {
+    display: none !important;
+  } /* ===== MENU BUTTON ===== */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    margin-left: auto;
+  }
+  .menu-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+  .menu-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  } /* ===== DROPDOWN MENU ===== */
+  .menu {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
+    margin: 0;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: 90;
+  }
+  .menu.open {
+    transform: translateY(0);
+  }
+  .menu a {
+    font-size: 1.1rem;
+  } /* ===== HOME SLIDE FIX ===== */
+  .slide-viewport {
+    height: calc(100dvh - 126px);
+    padding: 0;
+    align-items: flex-start;
+  }
+  .slide {
+    max-height: 100%;
+    margin-top: 0;
+  } /* ===== PROJECTS MOBILE LAYOUT ===== */
+  .projects-list {
+    padding: 0 14px 100px;
+  }
+  .project-item {
+    margin-bottom: 40px;
+    padding: 0;
+    background: none !important;
+  }
+  .project-grid,
+  .project-item.reverse .project-grid {
+    display: block;
+  }
+  .project-text {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 14px;
+    border: none;
+    padding: 0;
+  }
+  .project-media {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: block;
+  }
+  .content-pane .project-gallery img {
+    max-height: calc(100dvh - 130px);
+    width: auto;
+    max-width: 100%;
+  } /* ===== SOCIAL BAR ===== */
+  .social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 12px 0;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    z-index: 50;
+  }
+}
