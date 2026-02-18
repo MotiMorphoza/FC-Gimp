@@ -335,26 +335,29 @@ body {
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-} /* מצב גלוי */
+} 
+
+/* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
 } /* מצב גלוי */
-.project-gallery img.visible {
-  opacity: 1;
-  transform: translateY(0);
-} /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+
+
+/* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
 .project-gallery img:nth-child(3n) {
   width: clamp(240px, 55vw, 700px);
 }
 .project-gallery img:nth-child(3n + 1) {
   width: clamp(260px, 80vw, 950px);
-} /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
+} 
+
+
+/* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
 .page-landing,
 .page-landing .landing {
   height: 100vh;
   overflow: hidden;
-  position: auto;
 }
 .page-landing .slide-viewport {
   height: 100%;
@@ -368,7 +371,6 @@ body {
 /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
 .page-main .shell-layout {
   height: 100dvh;
-  min-height: 100dvh;
 }
 
 .page-main .content-pane {
@@ -378,7 +380,8 @@ body {
 }
 
 
-===== slide-indicator ===== */
+/* ===== slide-indicator ===== */
+
 .slide-indicator {
   position: fixed;
   bottom: 18px;
