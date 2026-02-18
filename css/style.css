@@ -440,11 +440,11 @@ transition: opacity 1s ease-out, transform 1s ease-out;
 
 .page-landing,
 .page-landing .landing {
-  height: 100vh;
-  overflow: hidden;
-  position: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
 }
-
 
 .page-landing .slide-viewport {
   height: 100%;
