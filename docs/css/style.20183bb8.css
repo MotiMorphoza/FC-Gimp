@@ -442,7 +442,7 @@ transition: opacity 1s ease-out, transform 1s ease-out;
 .page-landing .landing {
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  position: auto;
 }
 
 
