@@ -132,20 +132,23 @@ body {
   background: #fff;
   color: #000;
 }
+
 .sidebar {
   position: relative;
-  top: 0;
   height: 100%;
-min-height: 100dvh;
+  min-height: 100dvh;
   background: #000;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
   padding-top: 3rem;
   padding-left: 13px;
   text-align: center;
 }
+
 
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
@@ -190,6 +193,7 @@ min-height: 100dvh;
   padding-top: 60px;
   padding-bottom: 90px; /* במקום 70px */
 }
+
 .about-pane {
   padding: clamp(1rem, 3vw, 2.6rem);
 }
