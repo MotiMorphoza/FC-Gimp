@@ -100,7 +100,10 @@ class Scanner {
     if (!rootDir) rootDir = process.cwd();
 
     const manifest = {
-      landing: [],
+      landing: {
+        desktop: [],
+        mobile: []
+      },
       main: [],
       projects: []
     };
@@ -108,26 +111,34 @@ class Scanner {
     if (fs.existsSync(imagesDir)) {
       const landingDir = path.join(imagesDir, 'landing');
       const mainDir = path.join(imagesDir, 'main');
-if (fs.existsSync(landingDir)) {
-  const desktopDir = path.join(landingDir, 'desktop');
-  const mobileDir = path.join(landingDir, 'mobile');
 
-  manifest.landing = {
-    desktop: fs.existsSync(desktopDir)
-      ? this.getImageFiles(desktopDir, imagesDir)
-      : [],
-    mobile: fs.existsSync(mobileDir)
-      ? this.getImageFiles(mobileDir, imagesDir)
-      : []
-  };
-}
+      // ===== LANDING IMAGES =====
+      if (fs.existsSync(landingDir)) {
+        const desktopDir = path.join(landingDir, 'desktop');
+        const mobileDir = path.join(landingDir, 'mobile');
 
+        // new structure
+        if (fs.existsSync(desktopDir) || fs.existsSync(mobileDir)) {
+          manifest.landing.desktop = fs.existsSync(desktopDir)
+            ? this.getImageFiles(desktopDir, imagesDir)
+            : [];
 
+          manifest.landing.mobile = fs.existsSync(mobileDir)
+            ? this.getImageFiles(mobileDir, imagesDir)
+            : [];
+        } else {
+          // fallback: old structure (images directly in landing/)
+          manifest.landing.desktop = this.getImageFiles(landingDir, imagesDir);
+        }
+      }
+
+      // ===== MAIN IMAGES =====
       if (fs.existsSync(mainDir)) {
         manifest.main = this.getImageFiles(mainDir, imagesDir);
       }
     }
 
+    // ===== PROJECTS =====
     const projectsDir = path.join(rootDir, 'projects');
     if (fs.existsSync(projectsDir)) {
       manifest.projects = this.scanProjects(projectsDir);
