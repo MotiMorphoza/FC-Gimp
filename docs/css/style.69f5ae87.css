@@ -531,7 +531,7 @@ a.project-text {
 
   .landing-content {
     position: absolute;
-    bottom: 8vh;        /* מצמיד לטקסט לתחתית */
+    bottom: 12vh;        /* מצמיד לטקסט לתחתית */
     left: 0;
     right: 0;
     top: auto;
@@ -549,7 +549,7 @@ a.project-text {
   }
 
   .enter-btn {
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
     padding: 0.45rem 1rem;
     font-size: 0.8rem;
   }
