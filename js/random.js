@@ -1,3 +1,11 @@
+קובץ `random.js` מתוקן ומלא, עם:
+
+* בחירה לפי mobile / desktop
+* preload לפני הצגת התמונה
+* בדיקת orientation בנוסף לרוחב
+* קוד נקי וללא מצבים ריקים
+
+```js
 document.addEventListener("DOMContentLoaded", () => {
   const bg = document.querySelector(".landing-bg");
   if (!bg) return;
@@ -5,11 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const manifest = window.__MANIFEST__?.landing;
   if (!manifest) return;
 
-  const isMobile = window.innerWidth < 700;
+  const isNarrow = window.innerWidth < 700;
+  const isPortrait = window.innerHeight > window.innerWidth;
 
   let images = [];
 
-  if (isMobile && Array.isArray(manifest.mobile) && manifest.mobile.length) {
+  // בחירה לפי orientation ורוחב
+  if ((isNarrow || isPortrait) && Array.isArray(manifest.mobile) && manifest.mobile.length) {
     images = manifest.mobile;
   } else if (Array.isArray(manifest.desktop) && manifest.desktop.length) {
     images = manifest.desktop;
@@ -19,12 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
-  bg.style.backgroundImage = `url(${randomImage})`;
-
-  /* preload image */
+  // preload לפני הצגה
   const link = document.createElement("link");
   link.rel = "preload";
   link.as = "image";
   link.href = randomImage;
   document.head.appendChild(link);
+
+  // הצגת התמונה
+  const img = new Image();
+  img.src = randomImage;
+  img.onload = () => {
+    bg.style.backgroundImage = `url(${randomImage})`;
+  };
 });
+```
