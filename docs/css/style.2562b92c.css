@@ -24,8 +24,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
-  padding: 2rem;
+  height: 100%;
+  padding: 2rem 0;
 }
 .slide {
   position: absolute;
@@ -136,7 +136,6 @@ body {
 .sidebar {
   position: relative;
   height: 100%;
-  min-height: 100dvh;
   background: #000;
 
   display: flex;
@@ -148,7 +147,6 @@ body {
   padding-left: 13px;
   text-align: center;
 }
-
 
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
@@ -216,13 +214,14 @@ body {
 } /* מדיה תמיד בתחתית הסיידבר */
 .social {
   margin-top: auto;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.0rem;
   list-style: none;
   padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-} /* גודל אייקונים קבוע */
+} 
+
 .social img {
   width: 24px;
   height: 24px;
