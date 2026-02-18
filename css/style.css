@@ -116,10 +116,13 @@ body {
 } /* Shell pages */
 
 .shell-layout {
-  height: 100vh;
+.shell-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 260px) 1fr;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
 }
+
+
 .enter-btn {
   margin-top: 1rem;
   padding: 0.7rem 1.6rem;
@@ -136,19 +139,20 @@ body {
 }
 
 .sidebar {
-  position: relative;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
   background: #000;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 
-  padding-top: 3rem;
-  padding-left: 13px;
-  text-align: center;
+  padding: 3rem 13px 0 13px;
 }
+
 
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
@@ -303,17 +307,26 @@ body {
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-} /* ===== ABOUT Vertical Layout Only ===== */
+} 
+
+/* ===== ABOUT Vertical Layout Only ===== */
+
 .about-pane .about-grid {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-} /* ===== PROJECT CONTENT WRAPPER ===== */
+} 
+
+/* ===== PROJECT CONTENT WRAPPER ===== */
+
 .content-pane .project-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(20px, 4vw, 60px);
-} /* ===== PROJECT GALLERY ===== */
+} 
+
+/* ===== PROJECT GALLERY ===== */
+
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
@@ -344,10 +357,11 @@ body {
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
-} /* מצב גלוי */
+}
 
 
 /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+
 .project-gallery img:nth-child(3n) {
   width: clamp(240px, 55vw, 700px);
 }
@@ -357,6 +371,7 @@ body {
 
 
 /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
+
 .page-landing,
 .page-landing .landing {
   height: 100vh;
@@ -372,6 +387,7 @@ body {
 } 
 
 /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
+
 .page-main .shell-layout {
   height: 100vh;
 }
@@ -453,13 +469,19 @@ a.project-text {
     margin-top: 0.1rem;
     padding: 0.45rem 1rem;
     font-size: 0.8rem;
-  } /* ===== LANDING IMAGE (no stretch) ===== */
+  } 
+
+/* ===== LANDING IMAGE (no stretch) ===== */
+
   .landing-bg {
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     background-color: #000;
-  } /* ===== SHELL STRUCTURE ===== */
+  } 
+
+/* ===== SHELL STRUCTURE ===== */
+
   .shell-layout {
     display: block;
     min-height: auto;
@@ -469,7 +491,10 @@ a.project-text {
     position: relative;
     padding-top: 60px;
     padding-bottom: 100px;
-  } /* ===== TOP BAR ===== */
+  } 
+
+/* ===== TOP BAR ===== */
+
   .sidebar {
     position: fixed;
     top: 0;
