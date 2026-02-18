@@ -1,7 +1,21 @@
 window.__MANIFEST__ = {
   "landing": {
-    "desktop": [],
-    "mobile": []
+    "desktop": [
+      "images/landing/desktop/01.fc88691b.jpg",
+      "images/landing/desktop/02.9963fcb7.jpg",
+      "images/landing/desktop/03.f44110d4.jpg",
+      "images/landing/desktop/04.e0cc527c.jpg",
+      "images/landing/desktop/05.30bb8bf5.jpg",
+      "images/landing/desktop/06.273518e4.jpg"
+    ],
+    "mobile": [
+      "images/landing/mobile/01.eb7e050f.jpg",
+      "images/landing/mobile/02.cb7f01eb.jpg",
+      "images/landing/mobile/03.89614ce7.jpg",
+      "images/landing/mobile/04.5046c91a.jpg",
+      "images/landing/mobile/05.173e39a5.jpg",
+      "images/landing/mobile/06.78d162b5.jpg"
+    ]
   },
   "main": [
     "images/main/slide1.3d9d56ef.jpg",
