@@ -64,15 +64,10 @@ body {
 
 /* ===== LANDING ===== */
 
-.page-landing {
-  height: 100vh;
-}
-
+.page-landing,
 .landing {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .landing .slide-viewport {
@@ -516,25 +511,42 @@ a.project-text {
 @media (max-width: 700px) {
 
   /* ===== LANDING TEXT ===== */
+.landing {
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .landing-bg {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+
   .landing-content {
-    transform: translateY(10vh);
-    padding: 0.8rem;
-    gap: 0.5rem;
+    position: absolute;
+    bottom: 6vh;
+    left: 0;
+    right: 0;
+
+    transform: none;
+    padding: 0 1.2rem;
+    gap: 0.4rem;
   }
 
   .landing-content h1 {
-    font-size: clamp(1.8rem, 7vw, 2.6rem);
-    letter-spacing: 0.05em;
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+    letter-spacing: 0.04em;
   }
 
   .landing-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .enter-btn {
-    margin-top: 0.6rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.8rem;
   }
 
   /* ===== LANDING IMAGE (no stretch) ===== */
