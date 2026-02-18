@@ -1,19 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const bg = document.getElementById("landingBg");
-  const landing = window.__MANIFEST__?.landing;
-  if (!bg || !landing) return;
+  const bg = document.querySelector(".landing-bg");
+  if (!bg) return;
 
-  const isPortrait = window.innerHeight > window.innerWidth;
-  const pool = isPortrait ? landing.portrait : landing.landscape;
+  const manifest = window.__MANIFEST__?.landing;
+  if (!manifest) return;
 
-  if (!Array.isArray(pool) || pool.length === 0) return;
+  const isMobile = window.innerWidth < 700;
 
-  const random = pool[Math.floor(Math.random() * pool.length)];
+  let images = [];
 
-  // preload
-  const img = new Image();
-  img.src = random;
-  img.onload = () => {
-    bg.style.backgroundImage = `url(${random})`;
-  };
+  if (isMobile && Array.isArray(manifest.mobile) && manifest.mobile.length) {
+    images = manifest.mobile;
+  } else if (Array.isArray(manifest.desktop) && manifest.desktop.length) {
+    images = manifest.desktop;
+  }
+
+  if (!images.length) return;
+
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+
+  bg.style.backgroundImage = `url(${randomImage})`;
+
+  /* preload image */
+  const link = document.createElement("link");
+  link.rel = "preload";
+  link.as = "image";
+  link.href = randomImage;
+  document.head.appendChild(link);
 });
