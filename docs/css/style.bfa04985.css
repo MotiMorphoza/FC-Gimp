@@ -8,19 +8,20 @@
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   margin: 0;
-  min-height: 100%;
+  height: 100%;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--fg);
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
+
 
 /* Shared slideshow */
 
@@ -94,7 +95,7 @@ body {
   text-align: center;
   gap: 0.8rem;
   padding: 1rem;
-  transform: translateY(21vh);
+  transform: none;
 }
 
 .landing-bg {
@@ -132,10 +133,10 @@ body {
 /* Shell pages */
 
 .shell-layout {
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
+  min-height: 0;
   display: grid;
-  grid-template-columns: minmax(220px, 260px) 1fr;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   overflow: hidden;
 }
 
@@ -157,14 +158,15 @@ body {
 }
 
 .sidebar {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
   background: #000;
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   align-content: start;
   justify-items: center;
-  min-height: 0;
-  height: 100%;
-  padding: 3rem 13px 2.5rem;
+  padding: 2.5rem 13px max(1rem, env(safe-area-inset-bottom));
   text-align: center;
 }
 
@@ -184,12 +186,12 @@ body {
 
 .menu {
   list-style: none;
-  padding: 0;
+  padding: 0 0.25rem;
   margin: 3rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
-  max-height: 100%;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -220,9 +222,11 @@ body {
 }
 
 .content-pane {
+  height: 100%;
   min-height: 0;
   position: relative;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-top: 60px;
   padding-bottom: 90px;
 }
@@ -399,7 +403,7 @@ body {
 .content-pane .project-gallery img {
   display: block;
   max-height: calc(100vh - 160px);
-  width: auto;
+  width: min(100%, 1100px);;
   max-width: 100%;
   object-fit: contain;
   margin: 0 auto; /* אנימציית כניסה */
