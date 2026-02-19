@@ -311,7 +311,7 @@ body {
   margin: 0 auto;
 }
 
-} /* מצב גלוי */
+ /* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
