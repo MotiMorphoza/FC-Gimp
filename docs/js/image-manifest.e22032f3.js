@@ -76,8 +76,8 @@ window.__MANIFEST__ = {
     },
     {
       "slug": "unusuall_usual",
-      "title": "Unusuall_usual",
-      "description": "",
+      "title": "Unusual Usual",
+      "description": "Everyday scenes transformed into quiet visual paradoxes, where normality reveals its hidden strangeness.",
       "images": [
         "projects/unusuall_usual/00.jpg",
         "projects/unusuall_usual/01.jpg",
