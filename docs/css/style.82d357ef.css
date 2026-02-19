@@ -8,28 +8,24 @@
 * {
   box-sizing: border-box;
 }
-html,body {
+html,
+body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--fg);
 }
-
 body {
   overflow-x: hidden;
-}
-
+} /* Shared slideshow */
 .slide-viewport {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  height: 100dvh;
+  padding: 2rem;
 }
-
-
 .slide {
   position: absolute;
   inset: 0;
@@ -53,11 +49,10 @@ body {
 .slide:hover {
   outline: 2px solid #fff;
   outline-offset: 4px;
-} 
-
-/* ===== LANDING ===== */
+} /* ===== LANDING ===== */
 .page-landing,
 .landing {
+  min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -114,16 +109,12 @@ body {
   font-size: 1.7rem;
   opacity: 0.9;
   margin-top: 0.3rem;
-
 } /* Shell pages */
-
 .shell-layout {
+  min-height: 100vh;
   display: grid;
-  grid-template-columns: 260px 1fr;
-  height: 100vh;
+  grid-template-columns: minmax(220px, 260px) 1fr;
 }
-
-
 .enter-btn {
   margin-top: 1rem;
   padding: 0.7rem 1.6rem;
@@ -138,23 +129,19 @@ body {
   background: #fff;
   color: #000;
 }
-
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
+  height: 100vh; /* חזרה לגובה קבוע */
   background: #000;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 3rem 13px 0 13px;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  padding-left: 13px;
+  text-align: center;
 }
-
-
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
   font-weight: 500;
@@ -190,14 +177,12 @@ body {
 .menu-toggle {
   display: none;
 }
-
 .content-pane {
-  overflow-y: auto;
-  height: 100%;
+  min-height: 100%;
   position: relative;
   padding-top: 60px;
+  padding-bottom: 90px; /* במקום 70px */
 }
-
 .about-pane {
   padding: clamp(1rem, 3vw, 2.6rem);
 }
@@ -217,21 +202,16 @@ body {
   height: auto;
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.1);
-} 
-
-/* מדיה תמיד בתחתית הסיידבר */
-
+} /* מדיה תמיד בתחתית הסיידבר */
 .social {
   margin-top: auto;
-  padding-bottom: 2rem;
-
+  margin-bottom: 2.5rem;
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-}
-
+} /* גודל אייקונים קבוע */
 .social img {
   width: 24px;
   height: 24px;
@@ -248,10 +228,7 @@ body {
 .social a:hover {
   transform: scale(1.15);
   opacity: 0.9;
-} 
-
-/* ===== PROJECTS PAGE ===== */
-
+} /* ===== PROJECTS PAGE ===== */
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -316,38 +293,26 @@ body {
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-} 
-
-/* ===== ABOUT Vertical Layout Only ===== */
-
+} /* ===== ABOUT Vertical Layout Only ===== */
 .about-pane .about-grid {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-} 
-
-/* ===== PROJECT CONTENT WRAPPER ===== */
-
+} /* ===== PROJECT CONTENT WRAPPER ===== */
 .content-pane .project-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(20px, 4vw, 60px);
-} 
-
-/* ===== PROJECT GALLERY ===== */
-
+} /* ===== PROJECT GALLERY ===== */
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
   gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
   padding: clamp(40px, 8vh, 120px) 0;
-} 
-
-/* ===== IMAGES ===== */
-
+} /* ===== IMAGES ===== */
 .content-pane .project-gallery img {
   display: block;
-  max-height: calc(100vh - 160px);
+  max-height: calc(100dvh - 160px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -360,31 +325,26 @@ body {
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-} 
-
-/* מצב גלוי */
+} /* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-
-/* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
-
+} /* מצב גלוי */
+.project-gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+} /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
 .project-gallery img:nth-child(3n) {
   width: clamp(240px, 55vw, 700px);
 }
 .project-gallery img:nth-child(3n + 1) {
   width: clamp(260px, 80vw, 950px);
-} 
-
-
-/* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
-
+} /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
 .page-landing,
 .page-landing .landing {
   height: 100vh;
   overflow: hidden;
+  position: auto;
 }
 .page-landing .slide-viewport {
   height: 100%;
@@ -393,23 +353,20 @@ body {
 }
 .page-landing .slide {
   max-height: 100%;
-} 
-
-/* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
-
+} /* ===== REMOVE SCROLL ON MAIN SLIDE PAGE ===== */
 .page-main .shell-layout {
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
 }
-
 .page-main .content-pane {
-  display: flex;
-  flex-direction: column;
   padding: 0;
+  height: 100dvh;
+  overflow: hidden;
 }
-
-
-/* ===== slide-indicator ===== */
-
+.page-main .slide-viewport {
+  height: 100%;
+  padding: 0;
+} /* ===== slide-indicator ===== */
 .slide-indicator {
   position: fixed;
   bottom: 18px;
@@ -430,22 +387,14 @@ a.project-text {
 }
 .project-text:hover .enter {
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-} 
-
-/* ===== TABLET ===== */
-
+} /* ===== TABLET ===== */
 @media (max-width: 1100px) {
   .content-pane .project-gallery img {
     max-height: calc(100dvh - 140px);
   }
-} 
-
-/* ===== MOBILE ===== */
-
+} /* ===== MOBILE ===== */
 @media (max-width: 700px) {
-
   /* ===== LANDING TEXT ===== */
-
   .landing {
     position: relative;
     min-height: 100vh;
@@ -478,19 +427,13 @@ a.project-text {
     margin-top: 0.1rem;
     padding: 0.45rem 1rem;
     font-size: 0.8rem;
-  } 
-
-/* ===== LANDING IMAGE (no stretch) ===== */
-
+  } /* ===== LANDING IMAGE (no stretch) ===== */
   .landing-bg {
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     background-color: #000;
-  } 
-
-/* ===== SHELL STRUCTURE ===== */
-
+  } /* ===== SHELL STRUCTURE ===== */
   .shell-layout {
     display: block;
     min-height: auto;
@@ -500,26 +443,21 @@ a.project-text {
     position: relative;
     padding-top: 60px;
     padding-bottom: 100px;
-  } 
-
-/* ===== TOP BAR ===== */
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background: #000;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 3rem 13px 80px 13px; /* מקום קבוע לסושיאל */
-}
-
-
+  } /* ===== TOP BAR ===== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 12px;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+  }
   .logo {
     font-size: 1rem;
     margin: 0;
@@ -567,14 +505,12 @@ a.project-text {
   }
   .menu a {
     font-size: 1.1rem;
-  }
-
+  } /* ===== HOME SLIDE FIX ===== */
   .slide-viewport {
     height: calc(100dvh - 126px);
     padding: 0;
     align-items: flex-start;
   }
-
   .slide {
     max-height: 100%;
     margin-top: 0;
@@ -608,21 +544,17 @@ a.project-text {
     max-height: calc(100dvh - 130px);
     width: auto;
     max-width: 100%;
- } 
-
-/* ===== SOCIAL BAR ===== */
-
-.social {
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-}
-
+  } /* ===== SOCIAL BAR ===== */
+  .social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 12px 0;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    z-index: 50;
+  }
 }
