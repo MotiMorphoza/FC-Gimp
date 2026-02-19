@@ -49,9 +49,9 @@ window.__MANIFEST__ = {
         "projects/demon_stration/11.jpg",
         "projects/demon_stration/12.jpg",
         "projects/demon_stration/13.jpg",
-        "projects/demon_stration/pEOPLE DSC_6906 protest super rainbow flag zbawi 0479.jpg",
-        "projects/demon_stration/urban DSC_8357 protest 0385.JPG",
-        "projects/demon_stration/urban DSC_8404 protest 0390.JPG"
+        "projects/demon_stration/14.jpg",
+        "projects/demon_stration/a16.jpg",
+        "projects/demon_stration/s.jpg"
       ]
     },
     {
