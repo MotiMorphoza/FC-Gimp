@@ -16,16 +16,17 @@ body {
   background: var(--bg);
   color: var(--fg);
 }
-
 body {
   overflow: hidden;
 }
-
-
-
-/* Shared slideshow */
-
+.page-shell,
+.page-landing {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+} /* Shared slideshow */
 .slide-viewport {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,14 +34,13 @@ body {
   min-height: 0;
   padding: 2rem;
 }
-
 .slide {
   position: absolute;
   inset: 0;
   margin: auto;
   background: #000;
   max-width: 100%;
-  max-height: calc(100% - 6rem);
+  max-height: calc(100% - 8rem);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -50,33 +50,26 @@ body {
     opacity 1s ease,
     outline 0.2s ease;
 }
-
 .slide.active {
   opacity: 1;
   z-index: 2;
 }
-
 .slide:hover {
   outline: 2px solid #fff;
   outline-offset: 4px;
-}
-
-/* ===== LANDING ===== */
-
+} /* ===== LANDING ===== */
 .page-landing,
 .landing {
-  min-height: 100vh;
-  overflow-x: hidden;
   position: relative;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-
 .landing .slide-viewport {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
-
 .landing-overlay {
   position: absolute;
   inset: 0;
@@ -84,21 +77,19 @@ body {
   z-index: 2;
   pointer-events: none;
 }
-
 .landing-content {
   position: absolute;
   inset: 0;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  gap: 0.8rem;
-  padding: 1rem;
+  gap: 0.25rem;
+  padding: 0 1rem 8vh;
   transform: none;
 }
-
 .landing-bg {
   position: absolute;
   inset: 0;
@@ -108,7 +99,6 @@ body {
   background-color: #000;
   z-index: 1;
 }
-
 .landing-content h1,
 .landing-content p {
   text-shadow:
@@ -117,22 +107,17 @@ body {
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
-
 .landing-content h1 {
-  font-size: clamp(3.1rem, 6vw, 5rem);
+  font-size: clamp(2.6rem, 5.1vw, 4.2rem);
   font-weight: 500;
   letter-spacing: 0.07em;
   margin: 0;
 }
-
 .landing-content p {
-  font-size: 1.7rem;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
   opacity: 0.9;
   margin-top: 0.3rem;
-}
-
-/* Shell pages */
-
+} /* Shell pages */
 .shell-layout {
   height: 100%;
   min-height: 0;
@@ -140,10 +125,11 @@ body {
   grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   overflow: hidden;
 }
-
-
+[data-sidebar] {
+  min-height: 0;
+}
 .enter-btn {
-  margin-top: 1rem;
+  margin-top: 0.55rem;
   padding: 0.7rem 1.6rem;
   border: 1px solid #fff;
   color: #fff;
@@ -152,12 +138,10 @@ body {
   background: rgba(0, 0, 0, 0.3);
   transition: 0.2s;
 }
-
 .enter-btn:hover {
   background: #fff;
   color: #000;
 }
-
 .sidebar {
   height: 100%;
   min-height: 0;
@@ -167,24 +151,20 @@ body {
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   align-content: start;
   justify-items: center;
-  padding: 1.5rem 13px 2rem;
+  padding: 2.5rem 13px max(1rem, env(safe-area-inset-bottom));
   text-align: center;
 }
-
-
 .logo {
   font-size: clamp(2.3rem, 2.7vw, 2.7rem);
   font-weight: 500;
   letter-spacing: 0.04em;
   margin: 1rem;
 }
-
 .tagline {
   margin-top: 0.4rem;
   font-size: 1rem;
   opacity: 0.85;
 }
-
 .menu {
   list-style: none;
   padding: 0 0.25rem;
@@ -195,8 +175,6 @@ body {
   height: 100%;
   overflow-y: auto;
 }
-
-
 .menu a {
   color: #fff;
   text-decoration: none;
@@ -204,81 +182,64 @@ body {
   letter-spacing: 0.03em;
   transition: opacity 0.2s ease;
 }
-
 .menu a:hover {
   opacity: 0.65;
 }
-
 .menu a[aria-current="page"] {
   color: #d4d4d4;
 }
-
 .menu-toggle {
   display: none;
 }
-
 .sidebar nav {
   width: 100%;
   min-height: 0;
+  overflow: hidden;
 }
-
 .content-pane {
   height: 100%;
   min-height: 0;
   position: relative;
   overflow-y: auto;
-  overscroll-behavior: contain;
   padding-top: 60px;
   padding-bottom: 90px;
 }
-
-
 .about-pane {
   padding: clamp(1rem, 3vw, 2.6rem);
 }
-
 .about-text h1 {
   margin-top: 0;
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
 }
-
 .about-text p {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
 }
-
 .about-image-wrap {
   margin: 0;
 }
 .about-image-wrap img {
   width: 100%;
+  max-width: 560px;
   height: auto;
   display: block;
+  margin-inline: auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* מדיה תמיד בתחתית הסיידבר */
-
+} /* מדיה תמיד בתחתית הסיידבר */
 .social {
+  margin: 1.5rem 0 0;
   list-style: none;
   padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-  align-self: end;
-  margin-bottom: 1.8rem;
-}
-
-
-
-/* גודל אייקונים קבוע */
-
+  align-self: stretch;
+} /* גודל אייקונים קבוע */
 .social img {
   width: 24px;
   height: 24px;
   object-fit: contain;
 }
-
 .social a {
   display: inline-flex;
   align-items: center;
@@ -287,61 +248,51 @@ body {
     transform 0.2s ease,
     opacity 0.2s ease;
 }
-
 .social a:hover {
   transform: scale(1.15);
   opacity: 0.9;
-}
-
-/* ===== PROJECTS PAGE ===== */
-
+} /* ===== PROJECTS PAGE ===== */
 .projects-list {
   display: flex;
   flex-direction: column;
 }
-
 .project-item {
-  padding: 36px 34px;
+  min-height: 100dvh;
+  padding: clamp(18px, 3vh, 36px) 34px;
+  display: flex;
+  align-items: center;
 }
-
 .project-item.bg-1 {
   background: #101010;
 }
-
 .project-item.bg-2 {
   background: #151515;
 }
-
 .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: clamp(18px, 3vw, 40px);
   align-items: center;
   justify-items: center;
-}
-
-/* זיגזג אמיתי לפי סדר בלבד */
-
+  width: 100%;
+} /* זיגזג אמיתי לפי סדר בלבד */
 .project-item.reverse .project-media {
   order: 2;
 }
-
 .project-item.reverse .project-text {
   order: 1;
 }
-
 .project-media {
   display: block;
   width: 100%;
   max-width: 520px;
+  max-height: min(68dvh, 760px);
   height: auto;
   object-fit: contain;
 }
-
 .project-media.placeholder {
   background: linear-gradient(135deg, #232323, #111111);
 }
-
 .project-text {
   border: 1px solid rgba(255, 255, 255, 0.75);
   padding: 24px;
@@ -349,66 +300,53 @@ body {
   width: 100%;
   text-align: left;
 }
-
 .project-text h2 {
   margin: 0 0 12px;
   font-size: 1.35rem;
   letter-spacing: 0.03em;
 }
-
 .project-text p {
   margin: 0;
   color: #c9c9c9;
   line-height: 1.6;
 }
-
 .separator {
   display: flex;
   justify-content: center;
   background: #0d0d0d;
 }
-
 .separator::before {
   content: "";
   width: 1px;
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-}
-
-/* ===== ABOUT Vertical Layout Only ===== */
-
+} /* ===== ABOUT Vertical Layout Only ===== */
 .about-pane .about-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-/* ===== PROJECT CONTENT WRAPPER ===== */
-
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 0.9fr);
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  align-items: start;
+} /* ===== PROJECT CONTENT WRAPPER ===== */
 .content-pane .project-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(20px, 4vw, 60px);
-}
-
-/* ===== PROJECT GALLERY ===== */
-
+} /* ===== PROJECT GALLERY ===== */
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
   gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
   padding: clamp(40px, 8vh, 120px) 0;
-}
-
-/* ===== IMAGES ===== */
+} /* ===== IMAGES ===== */
 .content-pane .project-gallery img {
   display: block;
-  width: 100%;
-  max-width: 900px;
-  max-height: 85vh;
+  width: min(100%, 1100px);
+  height: auto;
+  max-width: 100%;
+  max-height: min(78svh, calc(100dvh - 180px));
   object-fit: contain;
-  margin: 0 auto;
+  margin: 0 auto; /* אנימציית כניסה */
   opacity: 0;
   transform: translateY(35px);
   transition:
@@ -417,44 +355,34 @@ body {
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-
-
-/* מצב גלוי */
+} /* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
+} /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+.project-gallery img:nth-child(3n) {
+  width: clamp(240px, 55vw, 700px);
 }
-
-
-
-/* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
-
-.page-landing,
-.page-landing .landing {
-  height: 100vh;
+.project-gallery img:nth-child(3n + 1) {
+  width: clamp(260px, 80vw, 950px);
+} /* ===== HOME SHELL (NO PAGE SCROLL) ===== */
+.page-main .content-pane {
+  display: grid;
+  place-items: center;
+  padding: 0;
   overflow: hidden;
 }
-
-.page-landing .slide-viewport {
+.page-main .slide-viewport {
+  width: 100%;
   height: 100%;
-  padding: 0; /* מבטל את ה־2rem */
+  padding: 2rem;
   align-items: center;
 }
-
-.page-landing .slide {
+.page-main .slide {
   max-height: 100%;
 }
 
-.page-main .content-pane {
-  padding: 3rem 2rem;
-  overflow: hidden;
-}
-
-
 /* ===== slide-indicator ===== */
-
 .slide-indicator {
   position: fixed;
   bottom: 18px;
@@ -465,39 +393,60 @@ body {
   z-index: 120;
   pointer-events: none;
 }
-
 a.project-text {
   color: #fff;
   text-decoration: none;
 }
-
 .project-text .enter {
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
-
 .project-text:hover .enter {
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-/* ===== TABLET ===== */
+.project-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
 
+.project-caption {
+  max-width: 900px;
+  width: 100%;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  text-align: left;
+}
+
+
+ /* ===== TABLET ===== */
 @media (max-width: 1100px) {
+  .about-pane .about-grid {
+    grid-template-columns: 1fr;
+  }
   .content-pane .project-gallery img {
-    }
-}
-
-/* ===== MOBILE ===== */
-
+    width: min(100%, 900px);
+    max-height: min(76svh, calc(100dvh - 140px));
+  }
+} /* ===== MOBILE ===== */
 @media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .page-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
   /* ===== LANDING TEXT ===== */
-
-.landing {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-}
-
+  .landing {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
   .landing-bg {
     background-size: contain;
     background-position: center top;
@@ -533,11 +482,14 @@ a.project-text {
   } /* ===== SHELL STRUCTURE ===== */
   .shell-layout {
     display: block;
-    min-height: auto;
+    min-height: 100dvh;
   }
   .content-pane {
-    min-height: 100%;
+    min-height: 100dvh;
+    height: auto;
     position: relative;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
     padding-top: 60px;
     padding-bottom: 100px;
   } /* ===== TOP BAR ===== */
@@ -552,25 +504,34 @@ a.project-text {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     z-index: 100;
+  }
+  .sidebar nav {
+    width: 0;
+    min-width: 0;
   }
   .logo {
     font-size: 1rem;
     margin: 0;
     white-space: nowrap;
     flex: 0 0 auto;
+    margin-right: auto;
   }
   .tagline {
     display: none !important;
   } /* ===== MENU BUTTON ===== */
   .menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 4px;
     font-size: 0.75rem;
     padding: 4px 6px;
-    margin-left: auto;
+    margin-left: 0;
   }
   .menu-label {
     font-size: 0.7rem;
@@ -602,14 +563,11 @@ a.project-text {
   }
   .menu a {
     font-size: 1.1rem;
-  }
-
-  /* ===== HOME SLIDE FIX ===== */
-
+  } /* ===== HOME SLIDE FIX ===== */
   .slide-viewport {
-    height: calc(100vh - 126px);
+    height: calc(100dvh - 126px);
     padding: 0;
-    align-items: flex-start;
+    align-items: center;
   }
   .slide {
     max-height: 100%;
@@ -619,9 +577,11 @@ a.project-text {
     padding: 0 14px 100px;
   }
   .project-item {
+    min-height: auto;
     margin-bottom: 40px;
     padding: 0;
     background: none !important;
+    display: block;
   }
   .project-grid,
   .project-item.reverse .project-grid {
@@ -641,22 +601,20 @@ a.project-text {
     display: block;
   }
   .content-pane .project-gallery img {
-    width: auto;
+    width: 100%;
     max-width: 100%;
-  }
-
-  /* ===== SOCIAL BAR ===== */
-
+    height: auto;
+  } /* ===== SOCIAL BAR ===== */
   .social {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     margin: 0;
-    padding: 12px 0;
+    padding: 12px 0 max(12px, env(safe-area-inset-bottom));
     background: #000;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     justify-content: center;
-    z-index: 50;
+    z-index: 160;
   }
 }
