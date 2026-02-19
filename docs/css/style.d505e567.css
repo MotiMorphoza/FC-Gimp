@@ -30,8 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  min-height: 0;
-  padding: 2rem;
+  padding: 2rem 2rem 4rem 2rem;
 }
 
 .slide {
@@ -134,13 +133,12 @@ body {
 /* Shell pages */
 
 .shell-layout {
-  height: 100%;
+  height: 100dvh;
   min-height: 0;
   display: grid;
   grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
   overflow: hidden;
 }
-
 
 .enter-btn {
   margin-top: 1rem;
@@ -398,26 +396,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
-  padding: clamp(40px, 8vh, 120px) 0;
+  padding: 60px 0;
 }
 
 /* ===== IMAGES ===== */
+
 .content-pane .project-gallery img {
   display: block;
   width: auto;
-  max-width: 100%;
-  max-height: 420px;
+  max-width: min(90%, 900px);
+  max-height: 75vh;
+  height: auto;
   object-fit: contain;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 1s ease-out,
-    transform 1s ease-out;
-  box-shadow:
-    0 40px 140px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+
 
 
 
