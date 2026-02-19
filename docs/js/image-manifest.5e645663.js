@@ -118,8 +118,8 @@ window.__MANIFEST__ = {
     },
     {
       "slug": "windows_eyes_of_the_modern_soul",
-      "title": "Windows_eyes_of_the_modern_soul",
-      "description": "",
+      "title": "Windows: Eyes of the Modern Soul",
+      "description": "Architectural fragments turned into portraits of contemporary life, reflecting the emotions and contradictions of modern society.",
       "images": [
         "projects/windows_eyes_of_the_modern_soul/cover.jpg"
       ]
