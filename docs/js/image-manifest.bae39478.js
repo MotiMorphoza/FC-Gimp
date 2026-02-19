@@ -76,8 +76,8 @@ window.__MANIFEST__ = {
     },
     {
       "slug": "unusuall_usual",
-      "title": "Unusuall_usual",
-      "description": "",
+      "title": "Unusual Usual",
+      "description": "Everyday scenes transformed into quiet visual paradoxes, where normality reveals its hidden strangeness.",
       "images": [
         "projects/unusuall_usual/Still visit sisters DSC_0113 olimpia Legs resized.jpg",
         "projects/unusuall_usual/Urban DSC_0573 Statue Bird 0238.jpg",
@@ -93,8 +93,8 @@ window.__MANIFEST__ = {
     },
     {
       "slug": "window_to_redemption",
-      "title": "Window_to_redemption",
-      "description": "",
+      "title": "Window to Redemption",
+      "description": "Urban windows as metaphors for hope, isolation, and the fragile possibility of personal and social transformation.",
       "images": [
         "projects/window_to_redemption/00cover.jpg",
         "projects/window_to_redemption/01.jpg",
