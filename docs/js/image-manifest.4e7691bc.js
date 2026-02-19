@@ -106,6 +106,8 @@ window.__MANIFEST__ = {
         "projects/window_to_redemption/07.jpg",
         "projects/window_to_redemption/08.jpg",
         "projects/window_to_redemption/09.jpg",
+        "projects/window_to_redemption/10.jpg",
+        "projects/window_to_redemption/11.jpg",
         "projects/window_to_redemption/12.jpg",
         "projects/window_to_redemption/13.jpg",
         "projects/window_to_redemption/14.jpg",
