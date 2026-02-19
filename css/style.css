@@ -26,7 +26,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0;
 }
+
 
 .slide {
   position: absolute;
@@ -220,14 +222,18 @@ body {
 /* מדיה תמיד בתחתית הסיידבר */
 
 .social {
-  margin-top: auto;
-  margin-bottom: 2.0rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+
   list-style: none;
   padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-} 
+}
+
 
 .social img {
   width: 24px;
