@@ -40,7 +40,7 @@ body {
   margin: auto;
   background: #000;
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100% - 4rem);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -260,13 +260,15 @@ body {
 /* מדיה תמיד בתחתית הסיידבר */
 
 .social {
-  margin: 2rem 0 0;
   list-style: none;
   padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
+  align-self: end;
+  margin-bottom: 1.8rem;
 }
+
 
 
 /* גודל אייקונים קבוע */
@@ -400,12 +402,11 @@ body {
 }
 
 /* ===== IMAGES ===== */
-
 .content-pane .project-gallery img {
   display: block;
-  width: min(100%, 1100px);
+  width: 100%;
+  max-width: 900px;
   height: auto;
-  max-width: 100%;
   object-fit: contain;
   margin: 0 auto;
   opacity: 0;
@@ -419,21 +420,14 @@ body {
 }
 
 
+
 /* מצב גלוי */
 .project-gallery img.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
 
-.project-gallery img:nth-child(3n) {
-  width: clamp(240px, 55vw, 700px);
-}
-
-.project-gallery img:nth-child(3n + 1) {
-  width: clamp(260px, 80vw, 950px);
-}
 
 /* ===== FIX HOME SLIDE HEIGHT DESKTOP ===== */
 
@@ -454,7 +448,7 @@ body {
 }
 
 .page-main .content-pane {
-  padding: 0;
+  padding: 2rem;
   overflow: hidden;
 }
 
