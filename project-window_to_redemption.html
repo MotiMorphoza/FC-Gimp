@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="images/media/favicon-512.png" />
+  <title>MotoSynteza – Window to Redemption</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-shell" data-page="project" data-project="window_to_redemption">
+
+
+  <!-- Dynamic background -->
+  <div class="dynamic-bg">
+    <div class="dynamic-bg-layer active" id="bg1"></div>
+    <div class="dynamic-bg-layer" id="bg2"></div>
+  </div>
+
+  <div class="shell-layout">
+
+    <!-- Sidebar injected dynamically -->
+    <div data-sidebar></div>
+
+    <main class="content-pane">
+      <div class="project-content">
+
+        <!-- Gallery built from project.json -->
+        <div class="project-gallery"></div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">BACK</button>
+    <img src="" alt="">
+  </div>
+
+  <!-- Optional slide indicator -->
+  <div id="slideIndicator" class="slide-indicator"></div>
+
+  <script src="js/layout.js"></script>
+
+</body>
+</html>
