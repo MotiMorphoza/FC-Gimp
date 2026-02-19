@@ -48,7 +48,10 @@ window.__MANIFEST__ = {
         "projects/demon_stration/10.jpg",
         "projects/demon_stration/11.jpg",
         "projects/demon_stration/12.jpg",
-        "projects/demon_stration/13.jpg"
+        "projects/demon_stration/13.jpg",
+        "projects/demon_stration/pEOPLE DSC_6906 protest super rainbow flag zbawi 0479.jpg",
+        "projects/demon_stration/urban DSC_8357 protest 0385.JPG",
+        "projects/demon_stration/urban DSC_8404 protest 0390.JPG"
       ]
     },
     {
@@ -73,24 +76,41 @@ window.__MANIFEST__ = {
     },
     {
       "slug": "unusuall_usual",
-      "title": "Unusual Usual",
-      "description": "Everyday scenes transformed into quiet visual paradoxes, where normality reveals its hidden strangeness.",
+      "title": "Unusuall_usual",
+      "description": "",
       "images": [
         "projects/unusuall_usual/cover.jpg"
       ]
     },
     {
       "slug": "window_to_redemption",
-      "title": "Window to Redemption",
-      "description": "Urban windows as metaphors for hope, isolation, and the fragile possibility of personal and social transformation.",
+      "title": "Window_to_redemption",
+      "description": "",
       "images": [
-        "projects/window_to_redemption/cover.jpg"
+        "projects/window_to_redemption/00cover.jpg",
+        "projects/window_to_redemption/01.jpg",
+        "projects/window_to_redemption/02.jpg",
+        "projects/window_to_redemption/03.jpg",
+        "projects/window_to_redemption/04.jpg",
+        "projects/window_to_redemption/05.jpg",
+        "projects/window_to_redemption/06.jpg",
+        "projects/window_to_redemption/07.jpg",
+        "projects/window_to_redemption/08.jpg",
+        "projects/window_to_redemption/09.jpg",
+        "projects/window_to_redemption/10.JPG",
+        "projects/window_to_redemption/11.JPG",
+        "projects/window_to_redemption/12.jpg",
+        "projects/window_to_redemption/13.jpg",
+        "projects/window_to_redemption/14.jpg",
+        "projects/window_to_redemption/15.jpg",
+        "projects/window_to_redemption/16.jpg",
+        "projects/window_to_redemption/17.jpg"
       ]
     },
     {
       "slug": "windows_eyes_of_the_modern_soul",
-      "title": "Windows: Eyes of the Modern Soul",
-      "description": "Architectural fragments turned into portraits of contemporary life, reflecting the emotions and contradictions of modern society.",
+      "title": "Windows_eyes_of_the_modern_soul",
+      "description": "",
       "images": [
         "projects/windows_eyes_of_the_modern_soul/cover.jpg"
       ]
