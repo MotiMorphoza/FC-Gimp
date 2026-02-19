@@ -516,9 +516,7 @@ a.project-text {
   flex-direction: column;
   align-items: center;
 
-  padding: 3rem 13px 2rem 13px;
-
-  overflow-y: auto;
+  padding: 3rem 13px 80px 13px; /* מקום קבוע לסושיאל */
 }
 
 
