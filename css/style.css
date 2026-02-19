@@ -403,7 +403,25 @@ a.project-text {
 }
 .project-text:hover .enter {
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-} /* ===== TABLET ===== */
+}
+
+.project-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.project-caption {
+  max-width: 900px;
+  width: 100%;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  text-align: left;
+}
+
+
+ /* ===== TABLET ===== */
 @media (max-width: 1100px) {
   .about-pane .about-grid {
     grid-template-columns: 1fr;
