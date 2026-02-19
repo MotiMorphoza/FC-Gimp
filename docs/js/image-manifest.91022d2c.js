@@ -79,16 +79,16 @@ window.__MANIFEST__ = {
       "title": "Unusual Usual",
       "description": "Everyday scenes transformed into quiet visual paradoxes, where normality reveals its hidden strangeness.",
       "images": [
-        "projects/unusuall_usual/Still visit sisters DSC_0113 olimpia Legs resized.jpg",
-        "projects/unusuall_usual/Urban DSC_0573 Statue Bird 0238.jpg",
-        "projects/unusuall_usual/cover.jpg",
-        "projects/unusuall_usual/jin jang  eople plac 280 B jin jang.jpg",
-        "projects/unusuall_usual/shadow bike 5th wheel DSC_6050.jpg",
-        "projects/unusuall_usual/urban DSC_0629 frozen sun 0444.JPG",
-        "projects/unusuall_usual/urban DSC_1053 umbrela orange.jpg",
-        "projects/unusuall_usual/urban DSC_2921 police 007 0412.JPG",
-        "projects/unusuall_usual/urban DSC_8701 wisla 0269.jpg",
-        "projects/unusuall_usual/visit sisters DSC_0051  boots marijuana.jpg"
+        "projects/unusuall_usual/00.jpg",
+        "projects/unusuall_usual/01.jpg",
+        "projects/unusuall_usual/02.jpg",
+        "projects/unusuall_usual/03.jpg",
+        "projects/unusuall_usual/04.jpg",
+        "projects/unusuall_usual/05.JPG",
+        "projects/unusuall_usual/06.jpg",
+        "projects/unusuall_usual/07.JPG",
+        "projects/unusuall_usual/08.jpg",
+        "projects/unusuall_usual/09.jpg"
       ]
     },
     {
