@@ -29,7 +29,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  min-height: 0;
   padding: 2rem;
 }
 
@@ -491,12 +492,12 @@ a.project-text {
 @media (max-width: 700px) {
   /* ===== LANDING TEXT ===== */
 
-  .landing {
-    position: relative;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+.landing {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
   .landing-bg {
     background-size: contain;
     background-position: center top;
