@@ -1,4 +1,19 @@
 {
   "title": "Demon Stration",
-  "description": "A staged confrontation between symbols of authority and resistance, examining how political theatre shapes public perception."
+  "description": "A staged confrontation between symbols of authority and resistance, examining how political theatre shapes public perception.",
+  "images": [
+    { "src": "01.jpg", "caption": "טקסט 01" },
+    { "src": "02.jpg", "caption": "טקסט 02" },
+    { "src": "03.jpg", "caption": "טקסט 03" },
+    { "src": "04.jpg", "caption": "טקסט 04" },
+    { "src": "05.jpg", "caption": "טקסט 05" },
+    { "src": "06.jpg", "caption": "טקסט 06" },
+    { "src": "07.jpg", "caption": "טקסט 07" },
+    { "src": "08.jpg", "caption": "טקסט 08" },
+    { "src": "09.jpg", "caption": "טקסט 09" },
+    { "src": "10.jpg", "caption": "טקסט 10" },
+    { "src": "11.jpg", "caption": "טקסט 11" },
+    { "src": "12.jpg", "caption": "טקסט 12" },
+    { "src": "13.jpg", "caption": "טקסט 13" }
+  ]
 }
