@@ -189,6 +189,7 @@ body {
 .menu-toggle {
   display: none;
 }
+
 .content-pane {
   overflow-y: auto;
   height: 100%;
@@ -215,16 +216,23 @@ body {
   height: auto;
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.1);
-} /* מדיה תמיד בתחתית הסיידבר */
+} 
+
+/* מדיה תמיד בתחתית הסיידבר */
+
 .social {
-  margin-top: auto;
-  margin-bottom: 2.0rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+
   list-style: none;
   padding: 0;
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-} 
+}
+
 
 .social img {
   width: 24px;
