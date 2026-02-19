@@ -163,6 +163,7 @@ body {
   align-content: start;
   justify-items: center;
   min-height: 0;
+  height: 100%;
   padding: 3rem 13px 2.5rem;
   text-align: center;
 }
