@@ -451,6 +451,16 @@ a.project-text {
   cursor: pointer;
 }
 
+.project-gallery img {
+  cursor: pointer;
+}
+
+.project-gallery img:hover {
+  opacity: 0.92;
+  transform: scale(0.995);
+  transition: 0.2s ease;
+}
+
 
  /* ===== TABLET ===== */
 @media (max-width: 1100px) {
