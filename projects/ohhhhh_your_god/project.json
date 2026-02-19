@@ -1,4 +1,19 @@
 {
   "title": "Ohhhhh Your God",
   "description": "A visual commentary on religious spectacle, mass emotion, and the tension between faith, identity, and modern performance."
+  "images": [
+    { "src": "01.jpg", "caption": "Suspicious reflection" },
+    { "src": "02.jpg", "caption": "" },
+    { "src": "03.jpg", "caption": "it's not the 2nd world war.." },
+    { "src": "04.jpg", "caption": "Phony flag" },
+    { "src": "05.jpg", "caption": "Is real" },
+    { "src": "06.jpg", "caption": "" },
+    { "src": "07.jpg", "caption": "" },
+    { "src": "08.jpg", "caption": "independent for all" },
+    { "src": "09.jpg", "caption": "I'm going for my son" },
+    { "src": "10.jpg", "caption": "Cash will not replace BREAD" },
+    { "src": "11.jpg", "caption": "HEIL" },
+    { "src": "12.jpg", "caption": "" },
+    { "src": "13.jpg", "caption": "Take it Easy" }
+  ]
 }
