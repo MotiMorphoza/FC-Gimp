@@ -82,8 +82,9 @@ window.__MANIFEST__ = {
         "projects/unusuall_usual/00.jpg",
         "projects/unusuall_usual/01.jpg",
         "projects/unusuall_usual/02.jpg",
-        "projects/unusuall_usual/04.jpg",
-        "projects/unusuall_usual/05.JPG",
+        "projects/unusuall_usual/03.jpg",
+        "projects/unusuall_usual/044.jpg",
+        "projects/unusuall_usual/055.jpg",
         "projects/unusuall_usual/06.jpg",
         "projects/unusuall_usual/07.JPG",
         "projects/unusuall_usual/08.jpg",
@@ -111,8 +112,7 @@ window.__MANIFEST__ = {
         "projects/unusuall_usual/30.jpg",
         "projects/unusuall_usual/31.jpg",
         "projects/unusuall_usual/32.jpg",
-        "projects/unusuall_usual/33.jpg",
-        "projects/unusuall_usual/34.jpg"
+        "projects/unusuall_usual/33.jpg"
       ]
     },
     {
