@@ -75,7 +75,8 @@ async function loadProject() {
 document.addEventListener("DOMContentLoaded", async () => {
 
   await loadSidebar();
-  await loadProjectFromJSON();
+  await loadProject();
+
 
   const images = document.querySelectorAll(".project-gallery img");
   if (!images.length) return;
