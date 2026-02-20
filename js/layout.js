@@ -1,4 +1,10 @@
 /* =========================
+   GLOBAL OBSERVER CLEANUP
+========================= */
+
+let __projectObservers = [];
+
+/* =========================
    SIDEBAR LOADER
 ========================= */
 
@@ -10,8 +16,7 @@ async function loadSidebar() {
     const res = await fetch("/MotoSynteza/partials/sidebar.html", { credentials: "same-origin" });
     if (!res.ok) throw new Error("Sidebar load failed");
 
-    const html = await res.text();
-    placeholder.innerHTML = html;
+    placeholder.innerHTML = await res.text();
 
     const toggle = placeholder.querySelector(".menu-toggle");
     const menu = placeholder.querySelector(".menu");
@@ -33,6 +38,10 @@ async function loadSidebar() {
 async function initProjectPage() {
   const gallery = document.querySelector(".project-gallery");
   if (!gallery) return;
+
+  // ניקוי observers קודמים
+  __projectObservers.forEach(o => o.disconnect());
+  __projectObservers = [];
 
   gallery.innerHTML = "";
 
@@ -61,41 +70,60 @@ async function initProjectPage() {
       figure.appendChild(img);
       gallery.appendChild(figure);
     });
+
   } catch (err) {
     console.error(err);
+    return;
   }
 
-  const images = document.querySelectorAll(".project-gallery img");
-  if (!images.length) return;
+  const figures = [...document.querySelectorAll(".project-figure")];
+  if (!figures.length) return;
+
+  /* ===== REVEAL OBSERVER (יציב לחלוטין) ===== */
 
   const revealObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("visible", entry.isIntersecting);
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
       });
     },
-    { threshold: 0.6 }
+    {
+      root: null,
+      rootMargin: "0px 0px -15% 0px",
+      threshold: 0.2
+    }
   );
 
-  images.forEach((img) => revealObserver.observe(img));
+  figures.forEach(f => revealObserver.observe(f));
+  __projectObservers.push(revealObserver);
+
+  /* ===== SLIDE INDICATOR ===== */
 
   const indicator = document.getElementById("slideIndicator");
 
   if (indicator) {
     const indexObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const index = [...images].indexOf(entry.target) + 1;
-            indicator.textContent = `${index} / ${images.length}`;
+            const index = figures.indexOf(entry.target) + 1;
+            indicator.textContent = `${index} / ${figures.length}`;
           }
         });
       },
-      { threshold: 0.6 }
+      {
+        root: null,
+        threshold: 0.5
+      }
     );
 
-    images.forEach((img) => indexObserver.observe(img));
+    figures.forEach(f => indexObserver.observe(f));
+    __projectObservers.push(indexObserver);
   }
+
+  /* ===== BACKGROUND OBSERVER ===== */
 
   const bg1 = document.getElementById("bg1");
   const bg2 = document.getElementById("bg2");
@@ -113,25 +141,33 @@ async function initProjectPage() {
 
     const bgObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            setBackground(entry.target.src);
+            const img = entry.target.querySelector("img");
+            if (img) setBackground(img.src);
           }
         });
       },
-      { threshold: 0.35 }
+      {
+        root: null,
+        threshold: 0.35
+      }
     );
 
-    images.forEach((img) => bgObserver.observe(img));
+    figures.forEach(f => bgObserver.observe(f));
+    __projectObservers.push(bgObserver);
   }
+
+  /* ===== LIGHTBOX ===== */
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const closeBtn = lightbox?.querySelector(".lightbox-close");
 
   if (lightbox && lightboxImg) {
-    images.forEach((img) => {
-      img.addEventListener("click", () => {
+    figures.forEach(f => {
+      const img = f.querySelector("img");
+      img?.addEventListener("click", () => {
         lightboxImg.src = img.src;
         lightbox.classList.add("active");
       });
@@ -148,6 +184,10 @@ async function initProjectPage() {
   }
 }
 
+/* =========================
+   INIT WRAPPERS
+========================= */
+
 function runProjectsInit() {
   if (typeof window.initProjectsPage === "function") {
     window.initProjectsPage();
@@ -160,23 +200,29 @@ function runSlideshowInit() {
   }
 }
 
+/* =========================
+   FADE
+========================= */
+
 function ensureFadeOverlay() {
   let fade = document.getElementById("pageFade");
-
   if (!fade) {
     fade = document.createElement("div");
     fade.id = "pageFade";
     document.body.appendChild(fade);
   }
-
   return fade;
 }
 
+/* =========================
+   PJAX
+========================= */
+
 async function ensurePageScripts(doc) {
   const scripts = [...doc.querySelectorAll("script[src]")]
-    .map((script) => script.getAttribute("src"))
+    .map(s => s.getAttribute("src"))
     .filter(Boolean)
-    .filter((src) => !src.includes("layout.js"));
+    .filter(src => !src.includes("layout.js"));
 
   for (const src of scripts) {
     if (document.querySelector(`script[src="${src}"]`)) continue;
@@ -192,23 +238,9 @@ async function ensurePageScripts(doc) {
 }
 
 function syncBodyState(doc) {
-  if (!doc?.body) return;
-
   document.body.className = doc.body.className;
-
-  const { page, project } = doc.body.dataset;
-
-  if (page) {
-    document.body.dataset.page = page;
-  } else {
-    delete document.body.dataset.page;
-  }
-
-  if (project) {
-    document.body.dataset.project = project;
-  } else {
-    delete document.body.dataset.project;
-  }
+  document.body.dataset.page = doc.body.dataset.page || "";
+  document.body.dataset.project = doc.body.dataset.project || "";
 }
 
 async function loadPage(url, push = true) {
@@ -216,10 +248,10 @@ async function loadPage(url, push = true) {
 
   try {
     fade.classList.add("active");
-    await new Promise((r) => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 250));
 
     const res = await fetch(url, { credentials: "same-origin" });
-    if (!res.ok) throw new Error("PJAX fetch failed");
+    if (!res.ok) throw new Error("Fetch failed");
 
     const html = await res.text();
     const parser = new DOMParser();
@@ -231,17 +263,13 @@ async function loadPage(url, push = true) {
     const currentSidebar = document.querySelector("[data-sidebar]");
 
     if (!newContent || !currentContent || !newSidebar || !currentSidebar) {
-      throw new Error("PJAX shell missing");
+      throw new Error("Shell mismatch");
     }
 
     syncBodyState(doc);
+
     currentSidebar.replaceWith(newSidebar);
     currentContent.replaceWith(newContent);
-
-    const landingOverlay = document.getElementById("landing-overlay");
-    if (landingOverlay && doc.getElementById("landing-overlay") === null) {
-      landingOverlay.remove();
-    }
 
     if (doc.title) document.title = doc.title;
     if (push) history.pushState({}, "", url);
@@ -249,12 +277,17 @@ async function loadPage(url, push = true) {
     await ensurePageScripts(doc);
     await initPage();
 
-    await new Promise((r) => setTimeout(r, 50));
+    await new Promise(r => setTimeout(r, 40));
     fade.classList.remove("active");
+
   } catch (err) {
     window.location.href = url;
   }
 }
+
+/* =========================
+   NAVIGATION
+========================= */
 
 function initPjaxNavigation() {
   if (window.__PJAX_READY__) return;
@@ -271,8 +304,7 @@ function initPjaxNavigation() {
     const rawHref = link.getAttribute("href");
     if (!rawHref || rawHref.startsWith("#")) return;
 
-    const url = new URL(link.href, window.location.href);
-
+    const url = new URL(link.href, location.href);
     if (url.origin !== location.origin) return;
     if (url.pathname === location.pathname && url.search === location.search) return;
 
@@ -284,6 +316,10 @@ function initPjaxNavigation() {
     loadPage(`${location.pathname}${location.search}${location.hash}`, false);
   });
 }
+
+/* =========================
+   INIT
+========================= */
 
 async function initPage() {
   ensureFadeOverlay();
