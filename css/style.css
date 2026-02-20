@@ -515,17 +515,23 @@ body.app-active .shell-layout {
 }
 
 /* ===== TABLET ===== */
+
 @media (max-width: 1100px) {
+
   .about-pane .about-grid {
     grid-template-columns: 1fr;
   }
-  .content-pane .project-gallery img {
+  
+.content-pane .project-gallery img {
     width: min(100%, 900px);
     max-height: min(76svh, calc(100dvh - 140px));
   }
+}
 
   /* ===== MOBILE ===== */
+
   @media (max-width: 700px) {
+
     body {
       overflow-x: hidden;
       overflow-y: auto;
@@ -534,7 +540,10 @@ body.app-active .shell-layout {
       height: auto;
       min-height: 100dvh;
       overflow: visible;
-    } /* ===== LANDING TEXT ===== */
+    } 
+
+/* ===== LANDING TEXT ===== */
+
     .landing {
       position: relative;
       height: 100%;
@@ -566,13 +575,19 @@ body.app-active .shell-layout {
       margin-top: 0.1rem;
       padding: 0.45rem 1rem;
       font-size: 0.8rem;
-    } /* ===== LANDING IMAGE (no stretch) ===== */
+    }
+
+ /* ===== LANDING IMAGE (no stretch) ===== */
+
     .landing-bg {
       background-size: contain;
       background-position: center top;
       background-repeat: no-repeat;
       background-color: #000;
-    } /* ===== SHELL STRUCTURE ===== */
+    }
+
+ /* ===== SHELL STRUCTURE ===== */
+
     .shell-layout {
       display: block;
       min-height: 100dvh;
@@ -585,7 +600,10 @@ body.app-active .shell-layout {
       overscroll-behavior-y: auto;
       padding-top: 60px;
       padding-bottom: 100px;
-    } /* ===== TOP BAR ===== */
+    }
+
+ /* ===== TOP BAR ===== */
+
     .sidebar {
       position: fixed;
       top: 0;
@@ -613,7 +631,9 @@ body.app-active .shell-layout {
     }
     .tagline {
       display: none !important;
-    } /* ===== MENU BUTTON ===== */
+    }
+ /* ===== MENU BUTTON ===== */
+
     .menu-toggle {
       position: absolute;
       top: 50%;
@@ -633,7 +653,10 @@ body.app-active .shell-layout {
     .menu-icon {
       font-size: 0.9rem;
       line-height: 1;
-    } /* ===== DROPDOWN MENU ===== */
+    }
+
+ /* ===== DROPDOWN MENU ===== */
+
     .menu {
       position: fixed;
       top: 56px;
@@ -743,4 +766,3 @@ body.app-active .shell-layout {
     justify-content: center;
     z-index: 160;
   }
-}
