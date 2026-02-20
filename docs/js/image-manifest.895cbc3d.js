@@ -18,16 +18,15 @@ window.__MANIFEST__ = {
     ]
   },
   "main": [
-    "images/main/slide1.3d9d56ef.jpg",
-    "images/main/slide10.52b5b68c.jpg",
-    "images/main/slide2.40740ea4.jpg",
-    "images/main/slide3.dd0d9b7a.jpg",
-    "images/main/slide4.ebce094e.jpg",
-    "images/main/slide5.9158b35b.jpg",
-    "images/main/slide6.73da2ca8.jpg",
-    "images/main/slide7.efb29bc0.jpg",
-    "images/main/slide8.db6187c2.jpg",
-    "images/main/slide9.e3b542e3.jpg"
+    "images/main/slide1.8d1797f3.jpg",
+    "images/main/slide2.a781702f.jpg",
+    "images/main/slide3.d6d31360.jpg",
+    "images/main/slide4.2ee9b043.jpg",
+    "images/main/slide5.752a44d6.jpg",
+    "images/main/slide6.a4bf00be.jpg",
+    "images/main/slide7.2e1e885e.jpg",
+    "images/main/slide8.056cb963.jpg",
+    "images/main/slide9.bb3f0839.jpg"
   ],
   "projects": [
     {
