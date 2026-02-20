@@ -157,12 +157,6 @@ async function initProjectPage() {
   }
 }
 
-function initSlideshow() {
-  if (typeof window.initSlideshow === "function") {
-    window.initSlideshow();
-  }
-}
-
 function runProjectsInit() {
   if (typeof window.initProjectsPage === "function") {
     window.initProjectsPage();
@@ -301,7 +295,11 @@ async function initPage() {
   }
 
   await initProjectPage();
-  initSlideshow();
+
+  if (typeof window.initSlideshow === "function") {
+    window.initSlideshow();
+  }
+
   initPjaxNavigation();
 }
 
