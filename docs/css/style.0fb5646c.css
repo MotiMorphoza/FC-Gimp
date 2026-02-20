@@ -1,3 +1,5 @@
+בוא נבדוק את זה
+
 :root {
   --bg: #000;
   --fg: #fff;
@@ -24,10 +26,7 @@ body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-}
-
- /* Shared slideshow */
-
+} /* Shared slideshow */
 .slide-viewport {
   position: relative;
   display: flex;
@@ -60,10 +59,7 @@ body {
 .slide:hover {
   outline: 2px solid #fff;
   outline-offset: 4px;
-}
-
- /* ===== LANDING ===== */
-
+} /* ===== LANDING ===== */
 .page-landing,
 .landing {
   position: relative;
@@ -231,10 +227,7 @@ body {
   display: block;
   margin-inline: auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
- /* מדיה תמיד בתחתית הסיידבר */
-
+} /* מדיה תמיד בתחתית הסיידבר */
 .social {
   margin: 1.5rem 0 0;
   list-style: none;
@@ -260,10 +253,7 @@ body {
 .social a:hover {
   transform: scale(1.15);
   opacity: 0.9;
-}
-
- /* ===== PROJECTS PAGE ===== */
-
+} /* ===== PROJECTS PAGE ===== */
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -333,19 +323,13 @@ body {
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-}
-
- /* ===== ABOUT Vertical Layout Only ===== */
-
+} /* ===== ABOUT Vertical Layout Only ===== */
 .about-pane .about-grid {
   display: grid;
   grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 0.9fr);
   gap: clamp(1.25rem, 2.5vw, 3rem);
   align-items: start;
-}
-
- /* ===== PROJECT CONTENT WRAPPER ===== */
-
+} /* ===== PROJECT CONTENT WRAPPER ===== */
 .content-pane .project-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -388,7 +372,6 @@ body {
 }
 
 /* ===== HOME SHELL (NO PAGE SCROLL) ===== */
-
 .page-main .content-pane {
   display: grid;
   place-items: center;
@@ -406,7 +389,6 @@ body {
 }
 
 /* ===== slide-indicator ===== */
-
 .slide-indicator {
   position: fixed;
   bottom: 18px;
@@ -454,7 +436,7 @@ a.project-text {
   max-width: 900px;
   width: 100%;
   font-size: 1.33rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,333,0.75);
   text-align: center;
 }
 
@@ -498,6 +480,8 @@ a.project-text {
   transition: 0.2s ease;
 }
 
+
+
 #pageFade {
   position: fixed;
   inset: 0;
@@ -511,6 +495,7 @@ a.project-text {
 #pageFade.active {
   opacity: 1;
 }
+
 
 #landing-overlay {
   position: fixed;
@@ -528,9 +513,7 @@ body.app-active .shell-layout {
 }
 
  /* ===== TABLET ===== */
-
 @media (max-width: 1100px) {
-
   .about-pane .about-grid {
     grid-template-columns: 1fr;
   }
@@ -538,12 +521,8 @@ body.app-active .shell-layout {
     width: min(100%, 900px);
     max-height: min(76svh, calc(100dvh - 140px));
   }
-}
-
- /* ===== MOBILE ===== */
-
+} /* ===== MOBILE ===== */
 @media (max-width: 700px) {
-
   body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -553,10 +532,8 @@ body.app-active .shell-layout {
     min-height: 100dvh;
     overflow: visible;
   }
-
   /* ===== LANDING TEXT ===== */
- 
- .landing {
+  .landing {
     position: relative;
     height: 100%;
     overflow: hidden;
@@ -587,19 +564,13 @@ body.app-active .shell-layout {
     margin-top: 0.1rem;
     padding: 0.45rem 1rem;
     font-size: 0.8rem;
-  }
-
- /* ===== LANDING IMAGE (no stretch) ===== */
-
+  } /* ===== LANDING IMAGE (no stretch) ===== */
   .landing-bg {
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     background-color: #000;
-  }
-
- /* ===== SHELL STRUCTURE ===== */
-
+  } /* ===== SHELL STRUCTURE ===== */
   .shell-layout {
     display: block;
     min-height: 100dvh;
@@ -612,10 +583,7 @@ body.app-active .shell-layout {
     overscroll-behavior-y: auto;
     padding-top: 60px;
     padding-bottom: 100px;
-  }
-
- /* ===== TOP BAR ===== */
-
+  } /* ===== TOP BAR ===== */
   .sidebar {
     position: fixed;
     top: 0;
@@ -643,10 +611,7 @@ body.app-active .shell-layout {
   }
   .tagline {
     display: none !important;
-  }
-
- /* ===== MENU BUTTON ===== */
-
+  } /* ===== MENU BUTTON ===== */
   .menu-toggle {
     position: absolute;
     top: 50%;
@@ -666,10 +631,7 @@ body.app-active .shell-layout {
   .menu-icon {
     font-size: 0.9rem;
     line-height: 1;
-  }
-
- /* ===== DROPDOWN MENU ===== */
-
+  } /* ===== DROPDOWN MENU ===== */
   .menu {
     position: fixed;
     top: 56px;
@@ -692,10 +654,7 @@ body.app-active .shell-layout {
   }
   .menu a {
     font-size: 1.1rem;
-  }
-
- /* ===== HOME SLIDE FIX ===== */
-
+  } /* ===== HOME SLIDE FIX ===== */
   .slide-viewport {
     height: calc(100dvh - 126px);
     padding: 0;
@@ -704,10 +663,7 @@ body.app-active .shell-layout {
   .slide {
     max-height: 100%;
     margin-top: 0;
-  }
-
- /* ===== PROJECTS MOBILE LAYOUT ===== */
-
+  } /* ===== PROJECTS MOBILE LAYOUT ===== */
   .projects-list {
     padding: 0 14px 100px;
   }
@@ -735,27 +691,11 @@ body.app-active .shell-layout {
     margin: 0;
     display: block;
   }
-
   .content-pane .project-gallery img {
     width: 100%;
     max-width: 100%;
-    max-height: 90vh;      /* מבטל הגבלת גובה */
     height: auto;
-  }
-
-  .project-figure {
-    min-height: auto;      /* שלא יכריח מסך מלא במובייל */
-    padding: 40px 0;
-  }
-
-  .project-caption {
-    font-size: 1rem;
-  }
-
-}
-
- /* ===== SOCIAL BAR ===== */
-
+  } /* ===== SOCIAL BAR ===== */
   .social {
     position: fixed;
     bottom: 0;
