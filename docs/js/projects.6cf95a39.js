@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initProjectsPage() {
   const listEl = document.getElementById("projects-list");
-  if (!listEl) return;
+  if (!listEl || listEl.dataset.initialized === "true") return;
 
   const manifest = window.__MANIFEST__?.projects;
 
@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("Projects manifest is missing or empty.");
     return;
   }
+
+  listEl.dataset.initialized = "true";
 
   manifest.forEach((project, index) => {
     if (!project?.slug || !project?.title) return;
@@ -21,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.createElement("div");
     grid.className = "project-grid";
 
-    // ===== IMAGE LINK =====
     const link = document.createElement("a");
     link.href = `project-${project.slug}.html`;
     link.className = "project-link";
@@ -45,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     link.appendChild(media);
 
-    // ===== TEXT LINK =====
     const textLink = document.createElement("a");
     textLink.href = `project-${project.slug}.html`;
     textLink.className = "project-text";
@@ -54,17 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
     h2.textContent = project.title;
 
     const p = document.createElement("p");
-p.innerHTML = `
+    p.innerHTML = `
   ${project.description || ""}
   <br><br>
   <span class="enter">ENTER →</span>
 `;
 
-
     textLink.appendChild(h2);
     textLink.appendChild(p);
 
-    // ===== ZIGZAG ORDER =====
     if (index % 2 === 0) {
       grid.appendChild(link);
       grid.appendChild(textLink);
@@ -76,11 +74,13 @@ p.innerHTML = `
     section.appendChild(grid);
     listEl.appendChild(section);
 
-    // separator
     if (index < manifest.length - 1) {
       const sep = document.createElement("div");
       sep.className = "separator";
       listEl.appendChild(sep);
     }
   });
-});
+}
+
+window.initProjectsPage = initProjectsPage;
+document.addEventListener("DOMContentLoaded", initProjectsPage);
