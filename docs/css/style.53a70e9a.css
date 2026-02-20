@@ -413,6 +413,7 @@ a.project-text {
 .project-figure.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: opacity, transform;
 }
 
 .project-caption {
