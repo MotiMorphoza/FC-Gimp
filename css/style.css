@@ -731,12 +731,6 @@ body.app-active .shell-layout {
       display: block;
     }
 
-    .content-pane .project-gallery img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-
     .project-caption {
       font-size: 0.5rem;
     }
@@ -751,7 +745,6 @@ body.app-active .shell-layout {
       min-height: auto; /* שלא יכריח מסך מלא */
       padding: 40px 0;
     }
-  }
 
   /* ===== SOCIAL BAR ===== */
   .social {
@@ -766,3 +759,4 @@ body.app-active .shell-layout {
     justify-content: center;
     z-index: 160;
   }
+}
