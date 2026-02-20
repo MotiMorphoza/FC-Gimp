@@ -415,7 +415,7 @@ a.project-text {
   align-items: center;
   justify-content: center;
 
-  min-height: calcmin-height: calc(100dvh - 150px); /* מתאים ל-padding של content-pane */
+  min-height: calc(100vh - 150px); /* מתאים ל-padding של content-pane */
 
   gap: 14px;
 
