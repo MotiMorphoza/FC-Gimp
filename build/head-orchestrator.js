@@ -1,167 +1,126 @@
-// build/head-orchestrator.js
-
-/**
- * HeadOrchestrator - Pure <head> controller (NO I/O)
- * Deterministic | Non-destructive | No filesystem access
- */
 class HeadOrchestrator {
   constructor({ logger, renameMap, manifestData, version, assets, htmlFile }) {
-    this.htmlFile = htmlFile;
     this.logger = logger;
     this.renameMap = renameMap;
     this.manifestData = manifestData;
     this.version = version;
     this.assets = assets || {};
+    this.htmlFile = htmlFile;
   }
 
   buildHead(html) {
     const headMatch = html.match(/(<head[^>]*>)([\s\S]*?)(<\/head>)/i);
-    if (!headMatch) {
-      throw new Error('No <head> tag found');
-    }
+    if (!headMatch) throw new Error('No <head> tag found');
 
     const [fullHead, openTag, innerContent, closeTag] = headMatch;
 
-    const managedTags = this.buildManagedTags(innerContent);
-    const preservedContent = this.removeManagedTags(innerContent);
-
-    const newHead =
-      openTag +
-      '\n' +
-      managedTags.map(t => `  ${t}`).join('\n') +
-      (preservedContent.trim() ? '\n' + preservedContent.trim() + '\n' : '\n') +
-      closeTag;
-
-    return html.replace(fullHead, newHead);
-  }
-
-  buildManagedTags(existingContent) {
     const tags = [];
 
-    // Charset (preserve existing or fallback)
-    const charset = this.extractFirst(existingContent, /<meta[^>]*charset[^>]*>/i);
-    tags.push(charset || '<meta charset="UTF-8" />');
+    // --- BASE META ---
+    tags.push('<meta charset="UTF-8">');
+    tags.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
+    tags.push('<meta name="theme-color" content="#000000">');
 
-    // Viewport (preserve)
-    const viewport = this.extractFirst(existingContent, /<meta[^>]*name=["']viewport["'][^>]*>/i);
-    if (viewport) tags.push(viewport);
+    // --- TITLE (preserve only title) ---
+    const titleMatch = innerContent.match(/<title>[\s\S]*?<\/title>/i);
+    if (titleMatch) tags.push(titleMatch[0]);
 
-    // Theme color (preserve)
-    const theme = this.extractFirst(existingContent, /<meta[^>]*name=["']theme-color["'][^>]*>/i);
-    if (theme) tags.push(theme);
+    // --- STYLESHEET ---
+    const cssPath = this.getHashedCss();
+    if (cssPath) {
+      tags.push(`<link rel="stylesheet" href="${cssPath}">`);
+      tags.push(`<link rel="preload" href="${cssPath}" as="style">`);
+    }
 
-    // Title (preserve)
-    const title = this.extractFirst(existingContent, /<title>[\s\S]*?<\/title>/i);
-    if (title) tags.push(title);
+    // --- FAVICONS (auto from renameMap) ---
+    tags.push(...this.buildFavicons());
 
-    // Canonical (preserve only, do not create)
-    const canonical = this.extractFirst(existingContent, /<link[^>]*rel=["']canonical["'][^>]*>/i);
-    if (canonical) tags.push(canonical);
+    // --- PRELOAD IMAGE only on landing/main ---
+    if (this.isLanding() || this.isMain()) {
+      const preload = this.getLandingPreload();
+      if (preload) tags.push(preload);
+    }
 
-    // Stylesheets (preserve order)
-    tags.push(...this.extractAll(existingContent, /<link[^>]*rel=["']stylesheet["'][^>]*>/gi));
-
-    // Preload CSS (deterministic from renameMap)
-    const fileName = this.htmlFile.split(/[\\/]/).pop();
-
-if (fileName !== 'projects.html') {
-
-  const cssPreload = this.getCssPreload();
-  if (cssPreload) tags.push(cssPreload);
-
-  const imagePreload = this.getImagePreload();
-  if (imagePreload) tags.push(imagePreload);
-}
-
-    // Version script
+    // --- VERSION SCRIPT ---
     if (this.assets.versionScriptPath) {
       tags.push(`<script src="${this.assets.versionScriptPath}"></script>`);
     }
 
-    // Other scripts (preserve, exclude version script)
-    const scripts = this.extractAll(
-      existingContent,
-      /<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi
-    ).filter(s => !/build-version\.[a-f0-9]{8}\.js/i.test(s));
+    // --- OTHER SCRIPTS (preserve layout.js etc) ---
+    const scripts = innerContent.match(/<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi) || [];
+    scripts
+      .filter(s => !/build-version\./i.test(s))
+      .forEach(s => tags.push(s));
 
-    tags.push(...scripts);
-
-    // CSP (preserve existing or inject from assets)
-    const existingCsp = this.extractFirst(
-      existingContent,
-      /<meta[^>]*http-equiv=["']Content-Security-Policy["'][^>]*>/i
-    );
-
-    if (existingCsp) {
-      tags.push(existingCsp);
-    } else if (this.assets.cspPolicy) {
+    // --- CSP ---
+    if (this.assets.cspPolicy) {
       tags.push(
         `<meta http-equiv="Content-Security-Policy" content="${this.assets.cspPolicy}">`
       );
     }
 
-    return tags;
+    const newHead =
+      openTag +
+      '\n' +
+      tags.map(t => `  ${t}`).join('\n') +
+      '\n' +
+      closeTag;
+
+    return html.replace(fullHead, newHead);
   }
 
-  removeManagedTags(content) {
-    const patterns = [
-      /<meta[^>]*charset[^>]*>/gi,
-      /<meta[^>]*name=["']viewport["'][^>]*>/gi,
-      /<meta[^>]*name=["']theme-color["'][^>]*>/gi,
-      /<title>[\s\S]*?<\/title>/gi,
-      /<link[^>]*rel=["']canonical["'][^>]*>/gi,
-      /<link[^>]*rel=["']stylesheet["'][^>]*>/gi,
-      /<link[^>]*rel=["']preload["'][^>]*>/gi,
-      /<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi,
-      /<meta[^>]*http-equiv=["']Content-Security-Policy["'][^>]*>/gi
-    ];
+  // --------------------------------------------------
 
-    let cleaned = content;
-    for (const pattern of patterns) {
-      cleaned = cleaned.replace(pattern, '');
-    }
-
-    return cleaned;
-  }
-
-  getCssPreload() {
-    const sortedEntries = Array.from(this.renameMap.entries())
-      .sort((a, b) => a[0].localeCompare(b[0]));
-
-    for (const [oldPath, newPath] of sortedEntries) {
+  getHashedCss() {
+    for (const [oldPath, newPath] of this.renameMap.entries()) {
       if (oldPath.startsWith('css/') && oldPath.endsWith('.css')) {
-        return `<link rel="preload" href="${newPath}" as="style">`;
+        return newPath;
       }
     }
-
     return null;
   }
 
-  getImagePreload() {
-    if (!this.manifestData) return null;
+  buildFavicons() {
+    const tags = [];
 
-    const firstImage =
-      (this.manifestData.landing && this.manifestData.landing[0]) ||
-      (this.manifestData.main && this.manifestData.main[0]);
+    for (const [oldPath, newPath] of this.renameMap.entries()) {
+      if (!oldPath.includes('favicon')) continue;
 
-    if (!firstImage) return null;
+      if (oldPath.includes('32')) {
+        tags.push(`<link rel="icon" type="image/png" sizes="32x32" href="${newPath}">`);
+      }
 
-    const resolved = this.renameMap.get(firstImage) || firstImage;
+      if (oldPath.includes('180')) {
+        tags.push(`<link rel="apple-touch-icon" sizes="180x180" href="${newPath}">`);
+      }
+
+      if (oldPath.includes('512')) {
+        tags.push(`<link rel="icon" type="image/png" sizes="512x512" href="${newPath}">`);
+      }
+
+      if (/favicon\.png$/i.test(oldPath)) {
+        tags.push(`<link rel="icon" href="${newPath}">`);
+      }
+    }
+
+    return tags;
+  }
+
+  getLandingPreload() {
+    if (!this.manifestData?.landing?.length) return null;
+
+    const first = this.manifestData.landing[0];
+    const resolved = this.renameMap.get(first) || first;
+
     return `<link rel="preload" href="${resolved}" as="image">`;
   }
 
-  extractFirst(content, regex) {
-    const match = content.match(regex);
-    return match ? match[0] : null;
+  isLanding() {
+    return this.htmlFile.endsWith('index.html');
   }
 
-  extractAll(content, regex) {
-    const matches = [];
-    let match;
-    while ((match = regex.exec(content)) !== null) {
-      matches.push(match[0]);
-    }
-    return matches;
+  isMain() {
+    return this.htmlFile.endsWith('main.html');
   }
 }
 
