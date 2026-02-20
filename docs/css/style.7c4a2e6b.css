@@ -24,7 +24,10 @@ body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-} /* Shared slideshow */
+}
+
+ /* Shared slideshow */
+
 .slide-viewport {
   position: relative;
   display: flex;
@@ -57,7 +60,10 @@ body {
 .slide:hover {
   outline: 2px solid #fff;
   outline-offset: 4px;
-} /* ===== LANDING ===== */
+}
+
+ /* ===== LANDING ===== */
+
 .page-landing,
 .landing {
   position: relative;
@@ -225,7 +231,10 @@ body {
   display: block;
   margin-inline: auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
-} /* מדיה תמיד בתחתית הסיידבר */
+}
+
+ /* מדיה תמיד בתחתית הסיידבר */
+
 .social {
   margin: 1.5rem 0 0;
   list-style: none;
@@ -251,7 +260,10 @@ body {
 .social a:hover {
   transform: scale(1.15);
   opacity: 0.9;
-} /* ===== PROJECTS PAGE ===== */
+}
+
+ /* ===== PROJECTS PAGE ===== */
+
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -321,13 +333,19 @@ body {
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-} /* ===== ABOUT Vertical Layout Only ===== */
+}
+
+ /* ===== ABOUT Vertical Layout Only ===== */
+
 .about-pane .about-grid {
   display: grid;
   grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 0.9fr);
   gap: clamp(1.25rem, 2.5vw, 3rem);
   align-items: start;
-} /* ===== PROJECT CONTENT WRAPPER ===== */
+}
+
+ /* ===== PROJECT CONTENT WRAPPER ===== */
+
 .content-pane .project-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -370,6 +388,7 @@ body {
 }
 
 /* ===== HOME SHELL (NO PAGE SCROLL) ===== */
+
 .page-main .content-pane {
   display: grid;
   place-items: center;
@@ -387,6 +406,7 @@ body {
 }
 
 /* ===== slide-indicator ===== */
+
 .slide-indicator {
   position: fixed;
   bottom: 18px;
@@ -478,8 +498,6 @@ a.project-text {
   transition: 0.2s ease;
 }
 
-
-
 #pageFade {
   position: fixed;
   inset: 0;
@@ -493,7 +511,6 @@ a.project-text {
 #pageFade.active {
   opacity: 1;
 }
-
 
 #landing-overlay {
   position: fixed;
@@ -511,7 +528,9 @@ body.app-active .shell-layout {
 }
 
  /* ===== TABLET ===== */
+
 @media (max-width: 1100px) {
+
   .about-pane .about-grid {
     grid-template-columns: 1fr;
   }
