@@ -56,10 +56,12 @@ function initSlideshow() {
     }
   }
 
+if (window.matchMedia("(hover: hover)").matches) {
   slideA.addEventListener("mouseenter", stop);
   slideA.addEventListener("mouseleave", start);
   slideB.addEventListener("mouseenter", stop);
   slideB.addEventListener("mouseleave", start);
+}
 
   viewport.addEventListener("click", () => {
     change();
