@@ -92,7 +92,7 @@ const revealObserver = new IntersectionObserver(
   },
   {
     root: null,
-    threshold: 0.6
+    threshold: 0.15
   }
 );
 
