@@ -44,7 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // User agent can reject fullscreen; fallback to navigation anyway.
       }
 
-      window.location.href = enter.href;
+      if (window.loadPage) {
+  loadPage(enter.getAttribute("href"));
+} else {
+  window.location.href = enter.href;
+}
     });
-  }
-});
