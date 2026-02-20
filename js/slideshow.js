@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+function initSlideshow() {
   const viewport = document.querySelector("[data-slideshow]");
-  if (!viewport) return;
+  if (!viewport || viewport.dataset.initialized === "true") return;
 
   const manifest = window.__MANIFEST__?.main || [];
   if (!manifest.length) return;
+
+  viewport.dataset.initialized = "true";
 
   const slideA = document.createElement("img");
   const slideB = document.createElement("img");
@@ -56,12 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3333);
   }
 
-  slideA.addEventListener("mouseenter", stop);
-  slideA.addEventListener("mouseleave", start);
-
-  slideB.addEventListener("mouseenter", stop);
-  slideB.addEventListener("mouseleave", start);
-
   function start() {
     if (running) return;
     running = true;
@@ -76,6 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  slideA.addEventListener("mouseenter", stop);
+  slideA.addEventListener("mouseleave", start);
+
+  slideB.addEventListener("mouseenter", stop);
+  slideB.addEventListener("mouseleave", start);
+
   viewport.addEventListener("click", () => {
     stop();
     change();
@@ -86,4 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   start();
-});
+}
+
+window.initSlideshow = initSlideshow;
+document.addEventListener("DOMContentLoaded", initSlideshow);
