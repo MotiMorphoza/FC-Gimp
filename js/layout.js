@@ -76,7 +76,7 @@ async function initProjectPage() {
     return;
   }
 
-  const figures = [...document.querySelectorAll(".project-figure")];
+  const figures = [...gallery.querySelectorAll(".project-figure")];
   if (!figures.length) return;
 
   /* ===== REVEAL OBSERVER (יציב לחלוטין) ===== */
@@ -115,7 +115,7 @@ async function initProjectPage() {
       },
       {
         root: null,
-        threshold: 0.5
+        threshold: 0.6
       }
     );
 
