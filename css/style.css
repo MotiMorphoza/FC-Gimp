@@ -731,7 +731,7 @@ body.app-active .shell-layout {
     max-width: 100%;
     max-height: none; /* מבטל את ההגבלה הבעייתית */
     height: auto;
-  }
+  
 
   .project-figure {
     min-height: auto; /* שלא יכריח מסך מלא */
