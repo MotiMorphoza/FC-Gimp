@@ -735,13 +735,12 @@ body.app-active .shell-layout {
       font-size: 0.5rem;
     }
 
-.content-pane .project-gallery img {
-  width: 100%;
-  max-width: 100%;
+/* מבטל scaling אמנותי במובייל */
+.project-gallery .project-figure img {
+  width: 100vw !important;
+  max-width: 94vw !important;
   height: auto;
   max-height: none;
-  display: block;
-  margin: 0 auto;
 }
 
     .project-figure {
