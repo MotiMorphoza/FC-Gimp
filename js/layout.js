@@ -68,8 +68,6 @@ async function initProjectPage() {
   const images = document.querySelectorAll(".project-gallery img");
   if (!images.length) return;
 
-  /* ===== ENTRANCE ANIMATION ===== */
-
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -80,8 +78,6 @@ async function initProjectPage() {
   );
 
   images.forEach((img) => revealObserver.observe(img));
-
-  /* ===== SLIDE INDICATOR ===== */
 
   const indicator = document.getElementById("slideIndicator");
 
@@ -101,8 +97,6 @@ async function initProjectPage() {
     images.forEach((img) => indexObserver.observe(img));
   }
 
-  /* ===== DYNAMIC BACKGROUND ===== */
-
   const bg1 = document.getElementById("bg1");
   const bg2 = document.getElementById("bg2");
 
@@ -114,7 +108,6 @@ async function initProjectPage() {
       inactive.style.backgroundImage = `url(${src})`;
       inactive.classList.add("active");
       active.classList.remove("active");
-
       [active, inactive] = [inactive, active];
     }
 
@@ -131,8 +124,6 @@ async function initProjectPage() {
 
     images.forEach((img) => bgObserver.observe(img));
   }
-
-  /* ===== LIGHTBOX ===== */
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
@@ -160,6 +151,12 @@ async function initProjectPage() {
 function runProjectsInit() {
   if (typeof window.initProjectsPage === "function") {
     window.initProjectsPage();
+  }
+}
+
+function runSlideshowInit() {
+  if (typeof window.initSlideshow === "function") {
+    window.initSlideshow();
   }
 }
 
@@ -214,6 +211,20 @@ function syncBodyState(doc) {
   }
 }
 
+function swapBodyContent(doc, fade) {
+  const tempContainer = document.createElement("div");
+  tempContainer.innerHTML = doc.body.innerHTML;
+
+  document.body.innerHTML = "";
+  while (tempContainer.firstChild) {
+    document.body.appendChild(tempContainer.firstChild);
+  }
+
+  if (!document.getElementById("pageFade")) {
+    document.body.appendChild(fade);
+  }
+}
+
 async function loadPage(url, push = true) {
   const fade = ensureFadeOverlay();
 
@@ -231,18 +242,18 @@ async function loadPage(url, push = true) {
     const newContent = doc.querySelector(".content-pane");
     const currentContent = document.querySelector(".content-pane");
 
-    if (!newContent || !currentContent) {
-      window.location.href = url;
-      return;
-    }
-
     syncBodyState(doc);
-    currentContent.replaceWith(newContent);
 
-    const currentSidebar = document.querySelector("[data-sidebar]");
-    const newSidebar = doc.querySelector("[data-sidebar]");
-    if (currentSidebar && newSidebar) {
-      currentSidebar.replaceWith(newSidebar);
+    if (newContent && currentContent) {
+      currentContent.replaceWith(newContent);
+
+      const currentSidebar = document.querySelector("[data-sidebar]");
+      const newSidebar = doc.querySelector("[data-sidebar]");
+      if (currentSidebar && newSidebar) {
+        currentSidebar.replaceWith(newSidebar);
+      }
+    } else {
+      swapBodyContent(doc, fade);
     }
 
     if (doc.title) document.title = doc.title;
@@ -289,18 +300,11 @@ function initPjaxNavigation() {
 async function initPage() {
   ensureFadeOverlay();
   await loadSidebar();
-
-  if (typeof window.initProjectsPage === "function") {
-    window.initProjectsPage();
-  }
-
+  runProjectsInit();
   await initProjectPage();
-
-  if (typeof window.initSlideshow === "function") {
-    window.initSlideshow();
-  }
-
+  runSlideshowInit();
   initPjaxNavigation();
 }
 
+window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
