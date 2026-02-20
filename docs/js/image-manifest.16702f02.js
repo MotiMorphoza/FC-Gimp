@@ -1,20 +1,20 @@
 window.__MANIFEST__ = {
   "landing": {
     "desktop": [
-      "images/landing/desktop/01.fc88691b.jpg",
-      "images/landing/desktop/02.9963fcb7.jpg",
-      "images/landing/desktop/03.f44110d4.jpg",
-      "images/landing/desktop/04.e0cc527c.jpg",
-      "images/landing/desktop/05.30bb8bf5.jpg",
-      "images/landing/desktop/06.273518e4.jpg"
+      "images/landing/desktop/01.d2fff736.jpg",
+      "images/landing/desktop/02.59b036d4.jpg",
+      "images/landing/desktop/03.03f59baf.jpg",
+      "images/landing/desktop/04.61d3a37e.jpg",
+      "images/landing/desktop/05.e230a610.jpg",
+      "images/landing/desktop/06.e6ffa842.jpg"
     ],
     "mobile": [
-      "images/landing/mobile/01.eb7e050f.jpg",
-      "images/landing/mobile/02.cb7f01eb.jpg",
-      "images/landing/mobile/03.89614ce7.jpg",
-      "images/landing/mobile/04.5046c91a.jpg",
-      "images/landing/mobile/05.173e39a5.jpg",
-      "images/landing/mobile/06.78d162b5.jpg"
+      "images/landing/mobile/01.e6c2853d.jpg",
+      "images/landing/mobile/02.902e383d.jpg",
+      "images/landing/mobile/03.9f2cdab1.jpg",
+      "images/landing/mobile/04.b40fc8db.jpg",
+      "images/landing/mobile/05.6993ade7.jpg",
+      "images/landing/mobile/06.f614aab0.jpg"
     ]
   },
   "main": [
