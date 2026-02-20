@@ -688,14 +688,14 @@ body.app-active .shell-layout {
 
     /* ===== HOME SLIDE FIX ===== */
 
-    .slide-viewport {
-  height: 100dvh;
-  padding: 0;
-}
+    .slide-viewport { 
+    height: calc(100dvh - 126px); 
+    padding: 0; align-items: center;
+    } 
 
-.slide {
-  max-height: 92dvh;
-}
+    .slide { 
+    max-height: 100%; 
+    margin-top: 0; }
 
     /* ===== PROJECTS MOBILE LAYOUT ===== */
 
@@ -759,4 +759,12 @@ body.app-active .shell-layout {
     justify-content: center;
     z-index: 160;
   }
+
+/* מבטל scaling אמנותי במובייל */
+.project-gallery .project-figure img {
+  width: 94vw !important;
+  max-width: 94vw !important;
+  height: auto;
+  max-height: none;
+}
 }
