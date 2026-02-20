@@ -23,6 +23,8 @@ function initSlideshow() {
   let running = false;
 
   current.src = manifest[0];
+  prefetchNext();
+  start();
 
   function change() {
     index = (index + 1) % manifest.length;
