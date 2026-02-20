@@ -689,11 +689,24 @@ body.app-active .shell-layout {
     margin: 0;
     display: block;
   }
+@media (max-width: 700px) {
+
   .content-pane .project-gallery img {
     width: 100%;
     max-width: 100%;
+    max-height: none;      /* מבטל הגבלת גובה */
     height: auto;
-  } /* ===== SOCIAL BAR ===== */
+  }
+
+  .project-figure {
+    min-height: auto;      /* שלא יכריח מסך מלא במובייל */
+    padding: 40px 0;
+  }
+
+}
+
+ /* ===== SOCIAL BAR ===== */
+
   .social {
     position: fixed;
     bottom: 0;
