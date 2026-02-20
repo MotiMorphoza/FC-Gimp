@@ -347,19 +347,14 @@ body {
   max-height: min(78svh, calc(100dvh - 180px));
   object-fit: contain;
   margin: 0 auto; /* אנימציית כניסה */
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 1s ease-out,
-    transform 1s ease-out;
   box-shadow:
     0 40px 140px rgba(0, 0, 0, 0.9),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-} /* מצב גלוי */
-.project-gallery img.visible {
-  opacity: 1;
-  transform: translateY(0);
-} /* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+} 
+
+
+/* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
+
 .project-gallery img:nth-child(3n) {
   width: clamp(240px, 55vw, 700px);
 }
@@ -410,6 +405,14 @@ a.project-text {
   flex-direction: column;
   align-items: center;
   gap: 14px;
+    opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.project-figure.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-caption {
