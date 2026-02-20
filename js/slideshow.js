@@ -1,6 +1,11 @@
 function initSlideshow() {
   const viewport = document.querySelector("[data-slideshow]");
-  if (!viewport || viewport.dataset.initialized === "true") return;
+  if (!viewport) return;
+
+  viewport.innerHTML = "";
+  viewport.dataset.initialized = "false";
+
+  if (viewport.dataset.initialized === "true") return;
 
   const manifest = window.__MANIFEST__?.main || [];
   if (!manifest.length) return;
