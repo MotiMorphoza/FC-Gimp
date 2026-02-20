@@ -81,20 +81,20 @@ async function initProjectPage() {
 
   /* ===== REVEAL OBSERVER (יציב לחלוטין) ===== */
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    {
-      root: null,
-      rootMargin: "0px 0px -15% 0px",
-      threshold: 0.35
-    }
-  );
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        figures.forEach(f => f.classList.remove("visible"));
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  {
+    root: null,
+    threshold: 0.6
+  }
+);
 
   figures.forEach(f => revealObserver.observe(f));
   __projectObservers.push(revealObserver);
