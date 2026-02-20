@@ -22,9 +22,12 @@ function initSlideshow() {
   let timer = null;
   let running = false;
 
-  current.src = manifest[0];
-  prefetchNext();
+current.src = manifest[0];
+prefetchNext();
+
+setTimeout(() => {
   start();
+}, 100);
 
   function change() {
     index = (index + 1) % manifest.length;
