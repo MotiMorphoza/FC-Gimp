@@ -720,6 +720,7 @@ body.app-active .shell-layout {
     width: 100%;
     max-width: 100%;
     height: auto;
+  }
 
   .project-caption {
     font-size: 0.5rem;
