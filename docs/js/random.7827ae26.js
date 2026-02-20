@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (images.length) {
-        const randomImage =
-          images[Math.floor(Math.random() * images.length)];
+        const randomImage = images[Math.floor(Math.random() * images.length)];
 
         bg.style.backgroundImage = `url(${randomImage})`;
 
@@ -31,21 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-const enter = document.getElementById("enterBtn");
+  const enter = document.getElementById("enterBtn");
 
-if (enter) {
-  enter.addEventListener("click", async (e) => {
-    e.preventDefault();
+  if (enter) {
+    enter.addEventListener("click", async (e) => {
+      e.preventDefault();
 
-    try {
-      await document.documentElement.requestFullscreen();
-    } catch (err) {}
+      try {
+        await document.documentElement.requestFullscreen();
+      } catch (err) {}
 
-    if (typeof loadPage === "function") {
-      loadPage(enter.getAttribute("href"));
-    } else {
-      window.location.href = enter.getAttribute("href");
-    }
-  });
-}
+      if (typeof loadPage === "function") {
+        loadPage(enter.getAttribute("href"));
+      } else {
+        window.location.href = enter.getAttribute("href");
+      }
+    });
+  }
 });
