@@ -433,8 +433,8 @@ a.project-text {
 .project-caption {
   max-width: 900px;
   width: 100%;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
+  font-size: 1.33rem;
+  color: rgba(255,255,333,0.75);
   text-align: center;
 }
 
