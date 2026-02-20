@@ -167,29 +167,37 @@ class HeadOrchestrator {
 
   // ================= OG IMAGE LOGIC =================
 
-  getOgImage() {
-    // --- If project page → use first image from manifestData.projects ---
-    if (this.isProject() && this.manifestData?.projects) {
-      const fileName = this.htmlFile.split(/[\\/]/).pop();
-      const projectKey = fileName.replace('project-', '').replace('.html', '');
+getOgImage() {
+  const base = 'https://motimorphoza.github.io/MotoSynteza/';
 
-      const projectImages = this.manifestData.projects[projectKey];
-      if (projectImages && projectImages.length) {
-        const first = projectImages[0];
-        const resolved = this.renameMap.get(first) || first;
-        return 'https://motimorphoza.github.io/MotoSynteza/' + resolved;
-      }
+  // ===== PROJECT PAGE =====
+  if (this.isProject() && Array.isArray(this.manifestData?.projects)) {
+    const fileName = this.htmlFile.split(/[\\/]/).pop();
+    const projectKey = fileName
+      .replace('project-', '')
+      .replace('.html', '');
+
+    const project = this.manifestData.projects.find(
+      p => p.slug === projectKey
+    );
+
+    if (project && project.images && project.images.length) {
+      const first = project.images[0];
+      const resolved = this.renameMap.get(first) || first;
+      return base + resolved;
     }
-
-    // --- Otherwise use og-cover ---
-    for (const [oldPath, newPath] of this.renameMap.entries()) {
-      if (oldPath.includes('og-cover')) {
-        return 'https://motimorphoza.github.io/MotoSynteza/' + newPath;
-      }
-    }
-
-    return null;
   }
+
+  // ===== FALLBACK og-cover =====
+  for (const [oldPath, newPath] of this.renameMap.entries()) {
+    if (oldPath.includes('og-cover')) {
+      return base + newPath;
+    }
+  }
+
+  return null;
+}
+
 
   getLandingPreload() {
     if (!this.manifestData?.landing?.length) return null;
