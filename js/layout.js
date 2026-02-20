@@ -66,8 +66,8 @@ async function initProjectPage() {
       img.src = `projects/${projectSlug}/${imgData.src}`;
       img.loading = "lazy";
 
-      figure.appendChild(caption);
       figure.appendChild(img);
+      figure.appendChild(caption);
       gallery.appendChild(figure);
     });
 
