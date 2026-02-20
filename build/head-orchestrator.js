@@ -1,3 +1,5 @@
+// build/head-orchestrator.js
+
 class HeadOrchestrator {
   constructor({ logger, renameMap, manifestData, version, assets, htmlFile }) {
     this.logger = logger;
@@ -16,43 +18,86 @@ class HeadOrchestrator {
 
     const tags = [];
 
-    // --- BASE META ---
+    // ================= BASE META =================
     tags.push('<meta charset="UTF-8">');
     tags.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
     tags.push('<meta name="theme-color" content="#000000">');
 
-    // --- TITLE (preserve only title) ---
+    // ================= TITLE =================
     const titleMatch = innerContent.match(/<title>[\s\S]*?<\/title>/i);
-    if (titleMatch) tags.push(titleMatch[0]);
+    const title = titleMatch ? titleMatch[0] : '<title>MotoSynteza</title>';
+    tags.push(title);
 
-    // --- STYLESHEET ---
+    const cleanTitle = title.replace(/<\/?title>/gi, '').trim();
+
+    // ================= DESCRIPTION =================
+    const description =
+      this.extractMeta(innerContent, 'description') ||
+      'MotoSynteza – conceptual photography and visual storytelling.';
+
+    tags.push(`<meta name="description" content="${description}">`);
+
+    // ================= CANONICAL =================
+    const canonicalUrl = this.buildCanonical();
+    if (canonicalUrl) {
+      tags.push(`<link rel="canonical" href="${canonicalUrl}">`);
+    }
+
+    // ================= OPEN GRAPH =================
+    tags.push(`<meta property="og:title" content="${cleanTitle}">`);
+    tags.push(`<meta property="og:description" content="${description}">`);
+    tags.push('<meta property="og:type" content="website">');
+
+    if (canonicalUrl) {
+      tags.push(`<meta property="og:url" content="${canonicalUrl}">`);
+    }
+
+    const ogImage = this.getOgImage();
+    if (ogImage) {
+      tags.push(`<meta property="og:image" content="${ogImage}">`);
+    }
+
+    // ================= TWITTER =================
+    tags.push('<meta name="twitter:card" content="summary_large_image">');
+    tags.push(`<meta name="twitter:title" content="${cleanTitle}">`);
+    tags.push(`<meta name="twitter:description" content="${description}">`);
+
+    if (ogImage) {
+      tags.push(`<meta name="twitter:image" content="${ogImage}">`);
+    }
+
+    // ================= CSS =================
     const cssPath = this.getHashedCss();
     if (cssPath) {
       tags.push(`<link rel="stylesheet" href="${cssPath}">`);
       tags.push(`<link rel="preload" href="${cssPath}" as="style">`);
     }
 
-    // --- FAVICONS (auto from renameMap) ---
+    // ================= FAVICONS =================
     tags.push(...this.buildFavicons());
 
-    // --- PRELOAD IMAGE only on landing/main ---
+    // ================= PRELOAD LANDING IMAGE ONLY =================
     if (this.isLanding() || this.isMain()) {
       const preload = this.getLandingPreload();
       if (preload) tags.push(preload);
     }
 
-    // --- VERSION SCRIPT ---
+    // ================= VERSION SCRIPT =================
     if (this.assets.versionScriptPath) {
       tags.push(`<script src="${this.assets.versionScriptPath}"></script>`);
     }
 
-    // --- OTHER SCRIPTS (preserve layout.js etc) ---
-    const scripts = innerContent.match(/<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi) || [];
+    // ================= OTHER SCRIPTS =================
+    const scripts =
+      innerContent.match(
+        /<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi
+      ) || [];
+
     scripts
       .filter(s => !/build-version\./i.test(s))
       .forEach(s => tags.push(s));
 
-    // --- CSP ---
+    // ================= CSP =================
     if (this.assets.cspPolicy) {
       tags.push(
         `<meta http-equiv="Content-Security-Policy" content="${this.assets.cspPolicy}">`
@@ -69,7 +114,32 @@ class HeadOrchestrator {
     return html.replace(fullHead, newHead);
   }
 
-  // --------------------------------------------------
+  // =================================================
+
+  extractMeta(content, name) {
+    const match = content.match(
+      new RegExp(
+        `<meta[^>]*name=["']${name}["'][^>]*content=["']([^"']+)["'][^>]*>`,
+        'i'
+      )
+    );
+    return match ? match[1] : null;
+  }
+
+  buildCanonical() {
+    const base = 'https://motimorphoza.github.io/MotoSynteza/';
+    const fileName = this.htmlFile.split(/[\\/]/).pop();
+    return base + fileName;
+  }
+
+  getOgImage() {
+    for (const [oldPath, newPath] of this.renameMap.entries()) {
+      if (oldPath.includes('og-cover')) {
+        return 'https://motimorphoza.github.io/MotoSynteza/' + newPath;
+      }
+    }
+    return null;
+  }
 
   getHashedCss() {
     for (const [oldPath, newPath] of this.renameMap.entries()) {
