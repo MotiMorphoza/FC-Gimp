@@ -332,13 +332,19 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(20px, 4vw, 60px);
-} /* ===== PROJECT GALLERY ===== */
+} 
+
+/* ===== PROJECT GALLERY ===== */
+
 .content-pane .project-gallery {
   display: flex;
   flex-direction: column;
   gap: clamp(60px, 10vh, 140px); /* רווח טבעי בין תמונות */
-  padding: clamp(40px, 8vh, 120px) 0;
-} /* ===== IMAGES ===== */
+  padding: clamp(20px, 4vh, 60px) 0;
+} 
+
+/* ===== IMAGES ===== */
+
 .content-pane .project-gallery img {
   display: block;
   width: min(100%, 1100px);
