@@ -57,9 +57,12 @@ body {
   opacity: 1;
   z-index: 2;
 }
-.slide:hover {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
+
+@media (hover: hover) {
+  .slide:hover {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+  }
 }
 
 /* ===== LANDING ===== */
