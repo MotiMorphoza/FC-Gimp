@@ -33,16 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const enter = document.getElementById("enterBtn");
 
-  if (enter) {
-    enter.addEventListener("click", async (e) => {
-      e.preventDefault();
+if (enter) {
+  enter.addEventListener("click", async (e) => {
+    e.preventDefault();
 
-      try {
-        await document.documentElement.requestFullscreen();
-      } catch (err) {}
+    try {
+      await document.documentElement.requestFullscreen();
+    } catch (err) {}
 
-      // תמיד ניווט רגיל מה-landing
+    if (typeof loadPage === "function") {
+      loadPage(enter.getAttribute("href"));
+    } else {
       window.location.href = enter.getAttribute("href");
-    });
-  }
-});
+    }
+  });
+}
