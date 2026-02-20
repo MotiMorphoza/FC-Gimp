@@ -693,7 +693,15 @@ body.app-active .shell-layout {
     width: 100%;
     max-width: 100%;
     height: auto;
-  } /* ===== SOCIAL BAR ===== */
+
+  .project-caption {
+    font-size: 1rem;
+  }
+
+  }
+
+ /* ===== SOCIAL BAR ===== */
+
   .social {
     position: fixed;
     bottom: 0;
