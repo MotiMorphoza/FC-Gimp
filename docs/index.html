@@ -16,8 +16,8 @@
   <meta name="twitter:title" content="MotoSynteza - Landing">
   <meta name="twitter:description" content="MotoSynteza – conceptual photography and visual storytelling.">
   <meta name="twitter:image" content="https://motimorphoza.github.io/MotoSynteza/images/media/og-cover.9e86748a.jpg">
-  <link rel="stylesheet" href="css/style.04e2f4be.css">
-  <link rel="preload" href="css/style.04e2f4be.css" as="style">
+  <link rel="stylesheet" href="css/style.e6c58857.css">
+  <link rel="preload" href="css/style.e6c58857.css" as="style">
   <link rel="apple-touch-icon" sizes="180x180" href="images/media/favicon-180.844f311e.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/media/favicon-32.5dbc44d0.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/media/favicon-512.c222b6fb.png">
@@ -26,20 +26,33 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self'; style-src 'self'; font-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
 </head>
 
-<body class="page-landing">
-  <main class="landing">
-    <div class="landing-bg" id="landingBg"></div>
-    <div class="landing-overlay"></div>
+<body class="page-shell page-landing" data-page="landing">
+  <div id="landing-overlay">
+    <main class="landing">
+      <div class="landing-bg" id="landingBg"></div>
+      <div class="landing-overlay"></div>
 
-    <section class="landing-content">
-      <h1>MotoSynteza</h1>
-      <p>Art at the speed of light</p>
-      <a id="enterBtn" class="enter-btn" href="main.html">ENTER</a>
-    </section>
-  </main>
+      <section class="landing-content">
+        <h1>MotoSynteza</h1>
+        <p>Art at the speed of light</p>
+        <a id="enterBtn" class="enter-btn" href="main.html">ENTER</a>
+      </section>
+    </main>
+  </div>
+
+  <div class="shell-layout">
+    <div data-sidebar></div>
+    <main class="content-pane" aria-label="Main content area"></main>
+  </div>
+
+  <noscript>
+    <style>
+      #landing-overlay { display: none; }
+    </style>
+  </noscript>
 
   <script src="js/image-manifest.3f36b29e.js"></script>
-  <script src="js/random.9a8cda81.js"></script>
-  <script src="js/layout.99b2a3e2.js"></script>
+  <script src="js/random.2d1adbe6.js"></script>
+  <script src="js/layout.7733687d.js"></script>
 </body>
 </html>

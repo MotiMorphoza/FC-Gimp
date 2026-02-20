@@ -34,11 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (enter) {
     enter.addEventListener("click", async (e) => {
       e.preventDefault();
+      e.stopPropagation();
 
       try {
         await document.documentElement.requestFullscreen();
       } catch (err) {
         // Browser can reject fullscreen; continue with navigation.
+      }
+
+      const landingOverlay = document.getElementById("landing-overlay");
+      if (landingOverlay) {
+        landingOverlay.remove();
       }
 
       if (typeof window.loadPage === "function") {
@@ -49,4 +55,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-js/slideshow.jsjs/slideshow.js

@@ -211,20 +211,6 @@ function syncBodyState(doc) {
   }
 }
 
-function swapBodyContent(doc, fade) {
-  const tempContainer = document.createElement("div");
-  tempContainer.innerHTML = doc.body.innerHTML;
-
-  document.body.innerHTML = "";
-  while (tempContainer.firstChild) {
-    document.body.appendChild(tempContainer.firstChild);
-  }
-
-  if (!document.getElementById("pageFade")) {
-    document.body.appendChild(fade);
-  }
-}
-
 async function loadPage(url, push = true) {
   const fade = ensureFadeOverlay();
 
@@ -241,19 +227,20 @@ async function loadPage(url, push = true) {
 
     const newContent = doc.querySelector(".content-pane");
     const currentContent = document.querySelector(".content-pane");
+    const newSidebar = doc.querySelector("[data-sidebar]");
+    const currentSidebar = document.querySelector("[data-sidebar]");
+
+    if (!newContent || !currentContent || !newSidebar || !currentSidebar) {
+      throw new Error("PJAX shell missing");
+    }
 
     syncBodyState(doc);
+    currentSidebar.replaceWith(newSidebar);
+    currentContent.replaceWith(newContent);
 
-    if (newContent && currentContent) {
-      currentContent.replaceWith(newContent);
-
-      const currentSidebar = document.querySelector("[data-sidebar]");
-      const newSidebar = doc.querySelector("[data-sidebar]");
-      if (currentSidebar && newSidebar) {
-        currentSidebar.replaceWith(newSidebar);
-      }
-    } else {
-      swapBodyContent(doc, fade);
+    const landingOverlay = document.getElementById("landing-overlay");
+    if (landingOverlay && doc.getElementById("landing-overlay") === null) {
+      landingOverlay.remove();
     }
 
     if (doc.title) document.title = doc.title;
@@ -276,6 +263,7 @@ function initPjaxNavigation() {
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a");
     if (!link) return;
+    if (link.id === "enterBtn") return;
     if (link.target === "_blank") return;
     if (link.hasAttribute("download")) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
