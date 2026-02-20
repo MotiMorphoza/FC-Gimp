@@ -19,71 +19,49 @@ function initSlideshow() {
   let current = slideA;
   let next = slideB;
   let index = 0;
-  let timer = null;
-  let running = false;
+  let interval = null;
+  const DURATION = 3333; // שליטה בזמן תצוגה
 
-current.src = manifest[0];
-prefetchNext();
-
-setTimeout(() => {
-  start();
-}, 100);
+  current.src = manifest[0];
+  preload(1);
 
   function change() {
     index = (index + 1) % manifest.length;
-
     const newSrc = manifest[index];
-    const img = new Image();
 
-    img.onload = () => {
-      next.src = newSrc;
+    next.src = newSrc;
 
-      current.classList.remove("active");
-      next.classList.add("active");
+    current.classList.remove("active");
+    next.classList.add("active");
 
-      [current, next] = [next, current];
+    [current, next] = [next, current];
 
-      prefetchNext();
-    };
-
-    img.src = newSrc;
+    preload(index + 1);
   }
 
-  function prefetchNext() {
-    const nextIndex = (index + 1) % manifest.length;
+  function preload(i) {
     const img = new Image();
-    img.src = manifest[nextIndex];
-  }
-
-  function loop() {
-    timer = setTimeout(() => {
-      change();
-      if (running) loop();
-    }, 3333);
+    img.src = manifest[i % manifest.length];
   }
 
   function start() {
-    if (running) return;
-    running = true;
-    loop();
+    if (interval) return;
+    interval = setInterval(change, DURATION);
   }
 
   function stop() {
-    running = false;
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
     }
   }
 
   slideA.addEventListener("mouseenter", stop);
   slideA.addEventListener("mouseleave", start);
-
   slideB.addEventListener("mouseenter", stop);
   slideB.addEventListener("mouseleave", start);
 
   viewport.addEventListener("click", () => {
-    stop();
     change();
   });
 
