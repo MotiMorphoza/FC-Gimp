@@ -694,7 +694,7 @@ body.app-active .shell-layout {
   .content-pane .project-gallery img {
     width: 100%;
     max-width: 100%;
-    max-height: none;      /* מבטל הגבלת גובה */
+    max-height: 90vh;      /* מבטל הגבלת גובה */
     height: auto;
   }
 
