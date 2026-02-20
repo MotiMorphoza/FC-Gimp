@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const enter = document.getElementById("enterBtn");
+const enter = document.getElementById("enterBtn");
 
 if (enter) {
   enter.addEventListener("click", async (e) => {
@@ -48,3 +48,4 @@ if (enter) {
     }
   });
 }
+});
