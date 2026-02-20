@@ -726,13 +726,6 @@ body.app-active .shell-layout {
     font-size: 0.5rem;
   }
 
-  .content-pane .project-gallery img {
-    width: 100%;
-    max-width: 100%;
-    max-height: none;   /* מבטל את ההגבלה הבעייתית */
-    height: auto;
-  }
-
   .project-figure {
     min-height: auto;   /* שלא יכריח מסך מלא */
     padding: 40px 0;
