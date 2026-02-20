@@ -689,16 +689,13 @@ body.app-active .shell-layout {
     /* ===== HOME SLIDE FIX ===== */
 
     .slide-viewport {
-      height: calc(100dvh - 126px);
+  height: 100dvh;
+  padding: 0;
+}
 
-      padding: 0;
-      align-items: center;
-    }
-
-    .slide {
-      max-height: 100%;
-      margin-top: 0;
-    }
+.slide {
+  max-height: 92dvh;
+}
 
     /* ===== PROJECTS MOBILE LAYOUT ===== */
 
