@@ -163,7 +163,7 @@ function initSlideshow() {
   }
 }
 
-function initProjectsPage() {
+function runProjectsInit() {
   if (typeof window.initProjectsPage === "function") {
     window.initProjectsPage();
   }
@@ -295,7 +295,7 @@ function initPjaxNavigation() {
 async function initPage() {
   ensureFadeOverlay();
   await loadSidebar();
-  initProjectsPage();
+  initProjectsInit();
   await initProjectPage();
   initSlideshow();
   initPjaxNavigation();
