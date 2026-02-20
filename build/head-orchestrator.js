@@ -18,7 +18,7 @@ class HeadOrchestrator {
 
     const tags = [];
 
-    // ================= BASE META =================
+    // ================= BASE =================
     tags.push('<meta charset="UTF-8">');
     tags.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
     tags.push('<meta name="theme-color" content="#000000">');
@@ -38,18 +38,18 @@ class HeadOrchestrator {
     tags.push(`<meta name="description" content="${description}">`);
 
     // ================= CANONICAL =================
-    const canonicalUrl = this.buildCanonical();
-    if (canonicalUrl) {
-      tags.push(`<link rel="canonical" href="${canonicalUrl}">`);
+    const canonical = this.buildCanonical();
+    if (canonical) {
+      tags.push(`<link rel="canonical" href="${canonical}">`);
     }
 
-    // ================= OPEN GRAPH =================
+    // ================= OG =================
     tags.push(`<meta property="og:title" content="${cleanTitle}">`);
     tags.push(`<meta property="og:description" content="${description}">`);
     tags.push('<meta property="og:type" content="website">');
 
-    if (canonicalUrl) {
-      tags.push(`<meta property="og:url" content="${canonicalUrl}">`);
+    if (canonical) {
+      tags.push(`<meta property="og:url" content="${canonical}">`);
     }
 
     const ogImage = this.getOgImage();
@@ -76,7 +76,7 @@ class HeadOrchestrator {
     // ================= FAVICONS =================
     tags.push(...this.buildFavicons());
 
-    // ================= PRELOAD LANDING IMAGE ONLY =================
+    // ================= PRELOAD LANDING IMAGE =================
     if (this.isLanding() || this.isMain()) {
       const preload = this.getLandingPreload();
       if (preload) tags.push(preload);
@@ -89,9 +89,7 @@ class HeadOrchestrator {
 
     // ================= OTHER SCRIPTS =================
     const scripts =
-      innerContent.match(
-        /<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi
-      ) || [];
+      innerContent.match(/<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi) || [];
 
     scripts
       .filter(s => !/build-version\./i.test(s))
@@ -114,7 +112,7 @@ class HeadOrchestrator {
     return html.replace(fullHead, newHead);
   }
 
-  // =================================================
+  // =========================================================
 
   extractMeta(content, name) {
     const match = content.match(
@@ -130,15 +128,6 @@ class HeadOrchestrator {
     const base = 'https://motimorphoza.github.io/MotoSynteza/';
     const fileName = this.htmlFile.split(/[\\/]/).pop();
     return base + fileName;
-  }
-
-  getOgImage() {
-    for (const [oldPath, newPath] of this.renameMap.entries()) {
-      if (oldPath.includes('og-cover')) {
-        return 'https://motimorphoza.github.io/MotoSynteza/' + newPath;
-      }
-    }
-    return null;
   }
 
   getHashedCss() {
@@ -176,6 +165,32 @@ class HeadOrchestrator {
     return tags;
   }
 
+  // ================= OG IMAGE LOGIC =================
+
+  getOgImage() {
+    // --- If project page → use first image from manifestData.projects ---
+    if (this.isProject() && this.manifestData?.projects) {
+      const fileName = this.htmlFile.split(/[\\/]/).pop();
+      const projectKey = fileName.replace('project-', '').replace('.html', '');
+
+      const projectImages = this.manifestData.projects[projectKey];
+      if (projectImages && projectImages.length) {
+        const first = projectImages[0];
+        const resolved = this.renameMap.get(first) || first;
+        return 'https://motimorphoza.github.io/MotoSynteza/' + resolved;
+      }
+    }
+
+    // --- Otherwise use og-cover ---
+    for (const [oldPath, newPath] of this.renameMap.entries()) {
+      if (oldPath.includes('og-cover')) {
+        return 'https://motimorphoza.github.io/MotoSynteza/' + newPath;
+      }
+    }
+
+    return null;
+  }
+
   getLandingPreload() {
     if (!this.manifestData?.landing?.length) return null;
 
@@ -191,6 +206,10 @@ class HeadOrchestrator {
 
   isMain() {
     return this.htmlFile.endsWith('main.html');
+  }
+
+  isProject() {
+    return this.htmlFile.includes('project-');
   }
 }
 
