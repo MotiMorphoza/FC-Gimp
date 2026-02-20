@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bg = document.querySelector(".landing-bg");
-
   if (bg) {
     const manifest = window.__MANIFEST__?.landing;
 
@@ -38,13 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         await document.documentElement.requestFullscreen();
-      } catch (err) {}
+      } catch (err) {
+        // Browser can reject fullscreen; continue with navigation.
+      }
 
-      if (typeof loadPage === "function") {
-        loadPage(enter.getAttribute("href"));
+      if (typeof window.loadPage === "function") {
+        window.loadPage(enter.getAttribute("href"));
       } else {
         window.location.href = enter.getAttribute("href");
       }
     });
   }
 });
+js/slideshow.jsjs/slideshow.js
