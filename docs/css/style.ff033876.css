@@ -428,17 +428,9 @@ a.project-text {
 
   margin-inline: auto;
   transform-origin: center top;
-
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 0.9s ease-out,
-    transform 0.9s ease-out;
 }
 
 .project-figure.visible {
-  opacity: 1;
-  transform: translateY(0);
   will-change: opacity, transform;
 }
 
