@@ -185,8 +185,6 @@ async function initProjectPage() {
     return;
   }
 
-  configureProjectSlideIndicator(images);
-
   const preloadedProjectImages = new Set();
 
   const preloadNextTwoProjectImages = (currentIndex) => {
@@ -231,11 +229,6 @@ async function initProjectPage() {
   }
 }
 
-function runProjectsInit() {
-  if (typeof window.initProjectsPage === "function") {
-    window.initProjectsPage();
-  }
-}
 
 function runSlideshowInit() {
   if (typeof window.initSlideshow === "function") {
