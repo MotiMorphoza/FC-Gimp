@@ -521,7 +521,32 @@ body.app-active .shell-layout {
 
 
 
+/* ===== PROJECT COUNTER POSITION ===== */
 
+/* Desktop */
+@media (min-width:701px){
+  body[data-page="project"] .slide-indicator{
+    position:fixed;
+    top:22px;
+    right:30px;
+    left:auto;
+    bottom:auto;
+    transform:none;
+  }
+}
+
+/* Mobile */
+@media (max-width:700px){
+  body[data-page="project"] .slide-indicator{
+    position:fixed;
+    top:28px; /* חצי מ-56px */
+    left:50%;
+    transform:translate(-50%, -50%);
+    right:auto;
+    bottom:auto;
+    font-size:0.75rem;
+  }
+}
 
 
 
@@ -765,14 +790,6 @@ body.app-active .shell-layout {
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
-  /* === PROJECT COUNTER – MOBILE ONLY === */
-  body[data-page="project"] .slide-indicator{
-    position:fixed;
-    top:22px;
-    right:30px;
-    left:auto;
-    transform:none;
-  }
 
   /* ===== SOCIAL BAR ===== */
   .social {
@@ -788,28 +805,4 @@ body.app-active .shell-layout {
     z-index: 160;
   }
 
-/* ===== PROJECT COUNTER POSITION ===== */
-
-/* MOBILE */
-@media (max-width:700px){
-  body[data-page="project"] .slide-indicator{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-size:0.75rem;
-  }
-}
-
-/* DESKTOP */
-@media (min-width:701px){
-  body[data-page="project"] .slide-indicator{
-    position:fixed;
-    top:22px;
-    right:30px;
-    left:auto;
-    bottom:auto;
-    transform:none;
-  }
-}
 }
