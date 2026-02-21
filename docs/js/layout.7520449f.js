@@ -86,34 +86,7 @@ async function initProjectPage() {
     images.forEach((img) => indexObserver.observe(img));
   }
 
-  const bg1 = document.getElementById("bg1");
-  const bg2 = document.getElementById("bg2");
-
-  if (bg1 && bg2) {
-    let active = bg1;
-    let inactive = bg2;
-
-    function setBackground(src) {
-      inactive.style.backgroundImage = `url(${src})`;
-      inactive.classList.add("active");
-      active.classList.remove("active");
-      [active, inactive] = [inactive, active];
-    }
-
-    const bgObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setBackground(entry.target.src);
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
-
-    images.forEach((img) => bgObserver.observe(img));
-  }
-
+ 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const closeBtn = lightbox?.querySelector(".lightbox-close");
