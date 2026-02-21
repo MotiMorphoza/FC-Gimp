@@ -737,7 +737,7 @@ body.app-active .shell-layout {
 
 /* מבטל scaling אמנותי במובייל */
 .project-gallery .project-figure img {
-  align-items: center;
+  align-items: left;
   width: 94vw !important;
   max-width: 94vw !important;
   height: auto;
