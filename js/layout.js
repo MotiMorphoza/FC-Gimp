@@ -53,11 +53,11 @@ function ensureSlideIndicator() {
   return indicator;
 }
 
-<<<<<<< ours
+
 function configureProjectSlideIndicator(images) {
-=======
+
 function configureProjectSlideIndicator(images, onActiveIndexChange) {
->>>>>>> theirs
+
   const indicator = ensureSlideIndicator();
   const total = images.length;
 
@@ -76,13 +76,11 @@ function configureProjectSlideIndicator(images, onActiveIndexChange) {
     const safeIndex = Math.max(1, Math.min(total, index));
     indicator.textContent = `${safeIndex} / ${total}`;
     indicator.classList.add("is-visible");
-<<<<<<< ours
-=======
 
     if (typeof onActiveIndexChange === "function") {
       onActiveIndexChange(safeIndex - 1);
     }
->>>>>>> theirs
+
   };
 
   const pane = document.querySelector(".content-pane");
@@ -190,9 +188,8 @@ async function initProjectPage() {
     return;
   }
 
-<<<<<<< ours
   configureProjectSlideIndicator(images);
-=======
+
   const preloadedProjectImages = new Set();
 
   const preloadNextTwoProjectImages = (currentIndex) => {
@@ -213,7 +210,6 @@ async function initProjectPage() {
 
   preloadNextTwoProjectImages(0);
   configureProjectSlideIndicator(images, preloadNextTwoProjectImages);
->>>>>>> theirs
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
