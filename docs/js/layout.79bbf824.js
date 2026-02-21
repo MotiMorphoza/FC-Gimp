@@ -53,8 +53,7 @@ function ensureSlideIndicator() {
   return indicator;
 }
 
-function configureProjectSlideIndicator(images, onActiveIndexChange) {
-
+function configureProjectSlideIndicator(images) {
   const indicator = ensureSlideIndicator();
   const total = images.length;
 
@@ -73,11 +72,6 @@ function configureProjectSlideIndicator(images, onActiveIndexChange) {
     const safeIndex = Math.max(1, Math.min(total, index));
     indicator.textContent = `${safeIndex} / ${total}`;
     indicator.classList.add("is-visible");
-
-    if (typeof onActiveIndexChange === "function") {
-      onActiveIndexChange(safeIndex - 1);
-    }
-
   };
 
   const pane = document.querySelector(".content-pane");
@@ -185,26 +179,7 @@ async function initProjectPage() {
     return;
   }
 
-  const preloadedProjectImages = new Set();
-
-  const preloadNextTwoProjectImages = (currentIndex) => {
-    const firstNext = images[currentIndex + 1];
-    const secondNext = images[currentIndex + 2];
-
-    [firstNext, secondNext].forEach((img) => {
-      if (!img) return;
-
-      const src = img.currentSrc || img.src;
-      if (!src || preloadedProjectImages.has(src)) return;
-
-      const preloader = new Image();
-      preloader.src = src;
-      preloadedProjectImages.add(src);
-    });
-  };
-
-  preloadNextTwoProjectImages(0);
-  configureProjectSlideIndicator(images, preloadNextTwoProjectImages);
+  configureProjectSlideIndicator(images);
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
@@ -229,6 +204,11 @@ async function initProjectPage() {
   }
 }
 
+function runProjectsInit() {
+  if (typeof window.initProjectsPage === "function") {
+    window.initProjectsPage();
+  }
+}
 
 function runSlideshowInit() {
   if (typeof window.initSlideshow === "function") {
@@ -364,6 +344,7 @@ function initPjaxNavigation() {
 async function initPage() {
   ensureFadeOverlay();
   await loadSidebar();
+  runProjectsInit();
   await initProjectPage();
   runSlideshowInit();
   initPjaxNavigation();

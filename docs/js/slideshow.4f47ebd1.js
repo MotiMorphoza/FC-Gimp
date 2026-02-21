@@ -23,18 +23,10 @@ function initSlideshow() {
   let next = slideB;
   let index = 0;
   let interval = null;
-  const DURATION = 2222;
-
-  const preloadedSlides = new Set();
-
-  const supportsHover = window.matchMedia("(hover: hover)").matches;
-  let hasEnteredViewport = false;
-  let hasLeftViewportOnce = false;
-  let isPointerInsideViewport = false;
+  const DURATION = 3333;
 
   current.src = manifest[0];
-  preloadedSlides.add(manifest[0]);
-  preloadNextTwo(0);
+  preload(1);
 
   function change() {
     index = (index + 1) % manifest.length;
@@ -47,21 +39,12 @@ function initSlideshow() {
 
     [current, next] = [next, current];
 
-    preloadNextTwo(index);
+    preload(index + 1);
   }
 
-  function preloadByIndex(i) {
-    const src = manifest[i % manifest.length];
-    if (!src || preloadedSlides.has(src)) return;
-
+  function preload(i) {
     const img = new Image();
-    img.src = src;
-    preloadedSlides.add(src);
-  }
-
-  function preloadNextTwo(fromIndex) {
-    preloadByIndex(fromIndex + 1);
-    preloadByIndex(fromIndex + 2);
+    img.src = manifest[i % manifest.length];
   }
 
   function start() {
@@ -75,45 +58,8 @@ function initSlideshow() {
     interval = null;
   }
 
-  if (supportsHover) {
-    viewport.addEventListener("mouseenter", () => {
-      isPointerInsideViewport = true;
-      hasEnteredViewport = true;
-
-      if (!hasLeftViewportOnce) {
-        return;
-      }
-
-      stop();
-    });
-
-    viewport.addEventListener("mouseleave", () => {
-      isPointerInsideViewport = false;
-
-      if (!hasEnteredViewport) {
-        return;
-      }
-
-      hasLeftViewportOnce = true;
-      start();
-    });
-  }
-
   viewport.addEventListener("click", () => {
     change();
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      stop();
-      return;
-    }
-
-    if (supportsHover && hasLeftViewportOnce && isPointerInsideViewport) {
-      return;
-    }
-
-    start();
   });
 
   start();

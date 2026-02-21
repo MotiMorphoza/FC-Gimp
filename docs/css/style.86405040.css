@@ -726,16 +726,6 @@ body.app-active .shell-layout {
     font-size: 1rem;
   }
 
-  /* ===== ABOUT MOBILE LAYOUT ===== */
-
-  .about-pane .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image-wrap {
-    margin-top: 1rem;
-  }
-
   /* === CLEAN MOBILE GALLERY FIX === */
 
   .content-pane .project-content {
