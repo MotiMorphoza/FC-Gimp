@@ -58,8 +58,8 @@ async function initProjectPage() {
       img.loading = "lazy";
 
       figure.appendChild(caption);
-      figure.appendChild(img);
       gallery.appendChild(figure);
+      figure.appendChild(img);
     });
   } catch (err) {
     console.error(err);
