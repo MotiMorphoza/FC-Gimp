@@ -427,10 +427,6 @@ a.project-text {
   transform-origin: center top;
 }
 
-.project-figure.visible {
-  will-change: opacity, transform;
-}
-
 .project-caption {
   max-width: 900px;
   width: 100%;
