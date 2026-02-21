@@ -1,3 +1,89 @@
+You are refactoring the mobile layout and reveal behavior of a photography portfolio site.
+Context
+The site has:
+Desktop artistic scaling using:
+.project-gallery .project-figure:nth-child(3n)
+.project-gallery .project-figure:nth-child(3n + 1)
+A base desktop rule:
+.content-pane .project-gallery img {
+  width: min(100%, 1100px);
+  max-height: min(78svh, calc(100dvh - 180px));
+}
+Mobile overrides inside:
+@media (max-width: 700px) { ... }
+There is also an IntersectionObserver used to reveal .project-figure elements by adding .visible.
+
+PROBLEMS
+1) Mobile image sizing is inconsistent
+Symptoms:
+Images are sometimes small and centered.
+Sometimes they align too far right.
+Multiple override attempts caused cascade conflicts.
+What was tried:
+Forcing 94vw
+Forcing width: 100%
+Overriding nth-child scaling with !important
+Removing scaling blocks
+Attempting to override desktop min(100%,1100px)
+None produced a stable clean result.
+Likely cause:
+Conflicting specificity between:
+Desktop .content-pane .project-gallery img
+nth-child artistic scaling
+Mobile overrides
+Padding on .content-pane
+Box-shadow overflow
+
+2) First project image sometimes does not appear on mobile
+Symptoms:
+First image is invisible until scrolling slightly.
+After scroll, it appears.
+Sometimes requires refresh.
+Reveal is controlled by IntersectionObserver with a threshold around 0.6 previously.
+Likely cause:
+First element does not cross threshold due to:
+fixed top bar
+padding-top on .content-pane
+element height near viewport height
+Observer threshold too high
+Or reveal triggered before layout stabilizes
+
+REQUIREMENTS
+You must:
+1. Clean the mobile CSS.
+2. Remove unnecessary overrides.
+3. Eliminate vw hacks.
+4. Eliminate !important if possible.
+5. Ensure mobile images:
+Fill available width
+Are perfectly centered
+Never overflow horizontally
+Preserve desktop artistic scaling
+6. Ensure reveal logic:
+Always reveals first image on load (mobile + desktop)
+Does not require scroll to trigger
+Does not rely on arbitrary delays
+Remains performant
+
+CONSTRAINTS
+Do not break desktop layout.
+Do not remove artistic nth-child scaling on desktop.
+Do not remove box-shadow aesthetic unless absolutely required.
+Do not introduce layout shift.
+Keep structure clean and minimal.
+
+OUTPUT FORMAT
+Return:
+1. Cleaned mobile CSS block (final version).
+2. Revised IntersectionObserver block.
+3. Short explanation of why this solution works.
+4. List of old code that can now be safely deleted.
+Focus on correctness, specificity control, and minimal overrides.
+
+
+-------------------------------------
+
+
 :root {
   --bg: #000;
   --fg: #fff;
