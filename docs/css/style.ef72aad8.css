@@ -373,9 +373,6 @@ body {
   width: clamp(240px, 55vw, 700px);
 }
 
-.project-gallery .project-figure:nth-child(3n + 1) img {
-  width: clamp(260px, 80vw, 950px);
-}
 
 /* ===== HOME SHELL (NO PAGE SCROLL) ===== */
 .page-main .content-pane {
