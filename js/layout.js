@@ -364,7 +364,6 @@ function initPjaxNavigation() {
 async function initPage() {
   ensureFadeOverlay();
   await loadSidebar();
-  runProjectsInit();
   await initProjectPage();
   runSlideshowInit();
   initPjaxNavigation();
