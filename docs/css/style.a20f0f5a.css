@@ -367,12 +367,6 @@ body {
     0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-/* ===== VARIED IMAGE SCALE FOR ARTISTIC RHYTHM ===== */
-
-.project-gallery .project-figure:nth-child(3n) img {
-  width: clamp(240px, 55vw, 700px);
-}
-
 
 /* ===== HOME SHELL (NO PAGE SCROLL) ===== */
 .page-main .content-pane {
@@ -419,10 +413,7 @@ a.project-text {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  min-height: calc(100vh - 150px);
-  gap: 14px;
-
+  gap: 10px;
   margin-inline: auto;
   transform-origin: center top;
 }
