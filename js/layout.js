@@ -165,9 +165,9 @@ async function initProjectPage() {
       img.src = `projects/${projectSlug}/${imgData.src}`;
       img.loading = "lazy";
 
-      figure.appendChild(caption);
       gallery.appendChild(figure);
       figure.appendChild(img);
+      figure.appendChild(caption);
     });
   } catch (err) {
     console.error(err);
