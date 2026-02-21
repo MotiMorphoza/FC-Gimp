@@ -23,16 +23,14 @@ function initSlideshow() {
   let next = slideB;
   let index = 0;
   let interval = null;
-  const DURATION = 3333;
-<<<<<<< ours
-=======
+  const DURATION = 2222;
+
   const preloadedSlides = new Set();
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
   let hasEnteredViewport = false;
   let hasLeftViewportOnce = false;
   let isPointerInsideViewport = false;
->>>>>>> theirs
 
   current.src = manifest[0];
   preloadedSlides.add(manifest[0]);
@@ -77,8 +75,6 @@ function initSlideshow() {
     interval = null;
   }
 
-<<<<<<< ours
-=======
   if (supportsHover) {
     viewport.addEventListener("mouseenter", () => {
       isPointerInsideViewport = true;
@@ -103,13 +99,10 @@ function initSlideshow() {
     });
   }
 
->>>>>>> theirs
   viewport.addEventListener("click", () => {
     change();
   });
 
-<<<<<<< ours
-=======
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stop();
@@ -123,7 +116,6 @@ function initSlideshow() {
     start();
   });
 
->>>>>>> theirs
   start();
 }
 
