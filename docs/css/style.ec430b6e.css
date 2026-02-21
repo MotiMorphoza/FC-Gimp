@@ -388,13 +388,16 @@ body {
 /* ===== slide-indicator ===== */
 .slide-indicator {
   position: fixed;
-  bottom: 18px;
-  right: 22px;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.7);
   z-index: 120;
   pointer-events: none;
+  display: none;
+}
+
+body[data-page="project"] .slide-indicator.is-visible {
+  display: block;
 }
 a.project-text {
   color: #fff;
@@ -416,7 +419,6 @@ a.project-text {
   gap: 10px;
   margin-inline: auto;
   transform-origin: center top;
-  padding: 140px;
 }
 
 .project-caption {
