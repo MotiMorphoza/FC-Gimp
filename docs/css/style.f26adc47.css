@@ -786,15 +786,15 @@ body[data-page="project"] .slide-indicator{
 
 /* === PROJECT COUNTER – MOBILE ONLY === */
 
- body[data-page="project"] .slide-indicator{
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    bottom:auto;
-    right:auto;
-    font-size:0.75rem;
-    z-index:150;
-  }
+body[data-page="project"] .slide-indicator{
+  top:28px;                 /* חצי מגובה ה־top bar */
+  left:50%;
+  transform:translateX(-50%);
+  bottom:auto;
+  right:auto;
+  font-size:0.75rem;
+  z-index:150;
+}
 
 
   /* ===== SOCIAL BAR ===== */
