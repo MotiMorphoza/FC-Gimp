@@ -30,14 +30,122 @@ async function loadSidebar() {
    PROJECT LOADER (JSON)
 ========================= */
 
+function removeSlideIndicator() {
+  if (window.__PROJECT_COUNTER_CLEANUP__) {
+    window.__PROJECT_COUNTER_CLEANUP__();
+    window.__PROJECT_COUNTER_CLEANUP__ = null;
+  }
+
+  const indicator = document.getElementById("slideIndicator");
+  if (indicator) indicator.remove();
+}
+
+function ensureSlideIndicator() {
+  let indicator = document.getElementById("slideIndicator");
+
+  if (!indicator) {
+    indicator = document.createElement("div");
+    indicator.id = "slideIndicator";
+    indicator.className = "slide-indicator";
+    document.body.appendChild(indicator);
+  }
+
+  return indicator;
+}
+
+function configureProjectSlideIndicator(images) {
+  const indicator = ensureSlideIndicator();
+  const total = images.length;
+
+  if (window.__PROJECT_COUNTER_CLEANUP__) {
+    window.__PROJECT_COUNTER_CLEANUP__();
+    window.__PROJECT_COUNTER_CLEANUP__ = null;
+  }
+
+  if (total <= 1) {
+    indicator.textContent = "";
+    indicator.classList.remove("is-visible");
+    return;
+  }
+
+  const updateIndicator = (index) => {
+    const safeIndex = Math.max(1, Math.min(total, index));
+    indicator.textContent = `${safeIndex} / ${total}`;
+    indicator.classList.add("is-visible");
+  };
+
+  const pane = document.querySelector(".content-pane");
+  const scrollRoot = pane && pane.scrollHeight > pane.clientHeight + 1 ? pane : null;
+  const getBounds = scrollRoot
+    ? () => scrollRoot.getBoundingClientRect()
+    : () => ({ top: 0, bottom: window.innerHeight });
+
+  let ticking = false;
+
+  const updateByScroll = () => {
+    ticking = false;
+
+    const bounds = getBounds();
+    const viewportCenter = bounds.top + (bounds.bottom - bounds.top) / 2;
+
+    let closestIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    images.forEach((img, index) => {
+      const rect = img.getBoundingClientRect();
+      const imgCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(imgCenter - viewportCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    updateIndicator(closestIndex + 1);
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateByScroll);
+  };
+
+  const target = scrollRoot || window;
+  target.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+
+  updateIndicator(1);
+
+  window.__PROJECT_COUNTER_CLEANUP__ = () => {
+    target.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}
+
 async function initProjectPage() {
+  if (document.body.dataset.page !== "project") {
+    if (window.__PROJECT_COUNTER_CLEANUP__) {
+      window.__PROJECT_COUNTER_CLEANUP__();
+      window.__PROJECT_COUNTER_CLEANUP__ = null;
+    }
+    removeSlideIndicator();
+    return;
+  }
+
   const gallery = document.querySelector(".project-gallery");
-  if (!gallery) return;
+  if (!gallery) {
+    removeSlideIndicator();
+    return;
+  }
 
   gallery.innerHTML = "";
 
   const projectSlug = document.body.dataset.project;
-  if (!projectSlug) return;
+  if (!projectSlug) {
+    removeSlideIndicator();
+    return;
+  }
 
   try {
     const res = await fetch(`projects/${projectSlug}/project.json`, { credentials: "same-origin" });
@@ -66,12 +174,12 @@ async function initProjectPage() {
   }
 
   const images = [...document.querySelectorAll(".project-gallery img")];
-  if (!images.length) return;
-
-  const indicator = document.getElementById("slideIndicator");
-  if (indicator) {
-    indicator.textContent = `1 / ${images.length}`;
+  if (!images.length) {
+    removeSlideIndicator();
+    return;
   }
+
+  configureProjectSlideIndicator(images);
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
