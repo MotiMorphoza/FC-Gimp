@@ -1,6 +1,3 @@
-גרסה מפושטת, בלי state מיותר, אותה התנהגות:
-
-```js
 function initSlideshow() {
   const viewport = document.querySelector("[data-slideshow]");
   if (!viewport) return;
@@ -26,19 +23,21 @@ function initSlideshow() {
   let next = slideB;
   let index = 0;
   let interval = null;
-
   const DURATION = 3333;
-  const supportsHover = window.matchMedia("(hover: hover)").matches;
 
-  let hasLeftOnce = false;
-  let pointerInside = false;
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+  let hasEnteredViewport = false;
+  let hasLeftViewportOnce = false;
+  let isPointerInsideViewport = false;
 
   current.src = manifest[0];
   preload(1);
 
   function change() {
     index = (index + 1) % manifest.length;
-    next.src = manifest[index];
+    const newSrc = manifest[index];
+
+    next.src = newSrc;
 
     current.classList.remove("active");
     next.classList.add("active");
@@ -54,41 +53,55 @@ function initSlideshow() {
   }
 
   function start() {
-    if (!interval) {
-      interval = setInterval(change, DURATION);
-    }
+    if (interval) return;
+    interval = setInterval(change, DURATION);
   }
 
   function stop() {
-    if (interval) {
-      clearInterval(interval);
-      interval = null;
-    }
+    if (!interval) return;
+    clearInterval(interval);
+    interval = null;
   }
 
   if (supportsHover) {
     viewport.addEventListener("mouseenter", () => {
-      pointerInside = true;
-      if (hasLeftOnce) stop();
+      isPointerInsideViewport = true;
+      hasEnteredViewport = true;
+
+      if (!hasLeftViewportOnce) {
+        return;
+      }
+
+      stop();
     });
 
     viewport.addEventListener("mouseleave", () => {
-      pointerInside = false;
-      hasLeftOnce = true;
+      isPointerInsideViewport = false;
+
+      if (!hasEnteredViewport) {
+        return;
+      }
+
+      hasLeftViewportOnce = true;
       start();
     });
   }
 
-  viewport.addEventListener("click", change);
+  viewport.addEventListener("click", () => {
+    change();
+  });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stop();
-    } else {
-      if (!(supportsHover && hasLeftOnce && pointerInside)) {
-        start();
-      }
+      return;
     }
+
+    if (supportsHover && hasLeftViewportOnce && isPointerInsideViewport) {
+      return;
+    }
+
+    start();
   });
 
   start();
@@ -96,4 +109,3 @@ function initSlideshow() {
 
 window.initSlideshow = initSlideshow;
 document.addEventListener("DOMContentLoaded", initSlideshow);
-```
