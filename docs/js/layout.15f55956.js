@@ -55,7 +55,6 @@ async function initProjectPage() {
 
       const img = document.createElement("img");
       img.src = `projects/${projectSlug}/${imgData.src}`;
-      img.loading = "lazy";
 
       figure.appendChild(caption);
       figure.appendChild(img);
