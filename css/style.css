@@ -751,6 +751,7 @@ body.app-active .shell-layout {
 .content-pane .project-gallery {
   gap: clamp(36px, 8vh, 72px);
   padding: 20px 0;
+  overflow-x: clip;   /* זה היה חסר */
 }
 
 .project-gallery .project-figure {
