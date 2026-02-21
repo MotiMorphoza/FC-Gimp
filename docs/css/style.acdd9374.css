@@ -767,6 +767,14 @@ body.app-active .shell-layout {
   margin-inline: auto;
 }
 
+/* === REMOVE DESKTOP SHADOW DRIFT ON MOBILE === */
+
+.content-pane .project-gallery img {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
 
   /* ===== SOCIAL BAR ===== */
   .social {
