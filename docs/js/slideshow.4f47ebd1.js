@@ -62,13 +62,6 @@ function initSlideshow() {
     change();
   });
 
-    if (supportsHover && hasLeftViewportOnce && isPointerInsideViewport) {
-      return;
-    }
-
-    start();
-  });
-
   start();
 }
 
