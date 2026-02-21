@@ -359,7 +359,7 @@ body {
   width: min(100%, 1100px);
   height: auto;
   max-width: 100%;
-  max-height: min(78svh, calc(100dvh - 180px));
+  max-height: calc(100dvh - 120px);
   object-fit: contain;
   margin: 0 auto; /* אנימציית כניסה */
   box-shadow:
