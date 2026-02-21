@@ -416,6 +416,7 @@ a.project-text {
   gap: 10px;
   margin-inline: auto;
   transform-origin: center top;
+  padding: 140px;
 }
 
 .project-caption {
