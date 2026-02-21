@@ -535,6 +535,13 @@ body.app-active .shell-layout {
 
 
 
+/* === PROJECT COUNTER – DESKTOP === */
+
+body[data-page="project"] .slide-indicator{
+  top:22px;
+  right:30px;
+  bottom:auto;
+}
 
 
 
@@ -776,6 +783,18 @@ body.app-active .shell-layout {
     0 20px 60px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(255, 255, 255, 0.05);
 }
+
+/* === PROJECT COUNTER – MOBILE ONLY === */
+
+ body[data-page="project"] .slide-indicator{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    bottom:auto;
+    right:auto;
+    font-size:0.75rem;
+    z-index:150;
+  }
 
 
   /* ===== SOCIAL BAR ===== */
