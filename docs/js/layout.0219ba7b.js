@@ -68,32 +68,6 @@ async function initProjectPage() {
   const images = [...document.querySelectorAll(".project-gallery img")];
   if (!images.length) return;
 
-  const galleryScroller = document.querySelector(".content-pane");
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      root: galleryScroller,
-      threshold: 0.01,
-      rootMargin: "0px 0px -12% 0px"
-    }
-  );
-
-  figures.forEach((figure) => {
-    const rect = figure.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      figure.classList.add("visible");
-      return;
-    }
-
-    revealObserver.observe(figure);
-  });
-
   const indicator = document.getElementById("slideIndicator");
 
   if (indicator) {
