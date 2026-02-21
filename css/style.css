@@ -51,18 +51,10 @@ body {
   z-index: 1;
   transition:
     opacity 1s ease,
-    outline 0.2s ease;
 }
 .slide.active {
   opacity: 1;
   z-index: 2;
-}
-
-@media (hover: hover) {
-  .slide:hover {
-    outline: 2px solid #fff;
-    outline-offset: 4px;
-  }
 }
 
 /* ===== LANDING ===== */
@@ -732,16 +724,6 @@ body.app-active .shell-layout {
 
   .project-caption {
     font-size: 1rem;
-  }
-
-  /* ===== ABOUT MOBILE LAYOUT ===== */
-
-  .about-pane .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image-wrap {
-    margin-top: 1rem;
   }
 
   /* === CLEAN MOBILE GALLERY FIX === */

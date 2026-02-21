@@ -25,11 +25,6 @@ function initSlideshow() {
   let interval = null;
   const DURATION = 3333;
 
-  const supportsHover = window.matchMedia("(hover: hover)").matches;
-  let hasEnteredViewport = false;
-  let hasLeftViewportOnce = false;
-  let isPointerInsideViewport = false;
-
   current.src = manifest[0];
   preload(1);
 
@@ -63,39 +58,9 @@ function initSlideshow() {
     interval = null;
   }
 
-  if (supportsHover) {
-    viewport.addEventListener("mouseenter", () => {
-      isPointerInsideViewport = true;
-      hasEnteredViewport = true;
-
-      if (!hasLeftViewportOnce) {
-        return;
-      }
-
-      stop();
-    });
-
-    viewport.addEventListener("mouseleave", () => {
-      isPointerInsideViewport = false;
-
-      if (!hasEnteredViewport) {
-        return;
-      }
-
-      hasLeftViewportOnce = true;
-      start();
-    });
-  }
-
   viewport.addEventListener("click", () => {
     change();
   });
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      stop();
-      return;
-    }
 
     if (supportsHover && hasLeftViewportOnce && isPointerInsideViewport) {
       return;
