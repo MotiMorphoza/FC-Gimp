@@ -53,9 +53,6 @@ function ensureSlideIndicator() {
   return indicator;
 }
 
-
-function configureProjectSlideIndicator(images) {
-
 function configureProjectSlideIndicator(images, onActiveIndexChange) {
 
   const indicator = ensureSlideIndicator();
