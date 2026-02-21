@@ -62,10 +62,36 @@ function initSlideshow() {
   }
 
 if (window.matchMedia("(hover: hover)").matches) {
-  slideA.addEventListener("mouseenter", stop);
-  slideA.addEventListener("mouseleave", start);
-  slideB.addEventListener("mouseenter", stop);
-  slideB.addEventListener("mouseleave", start);
+
+  let hoverCount = 0;
+  let isInside = false;
+
+  function handleEnter() {
+    if (isInside) return;
+    isInside = true;
+
+    hoverCount++;
+
+    // רק מה-hover השני עוצרים
+    if (hoverCount >= 2) {
+      stop();
+    }
+  }
+
+  function handleLeave() {
+    if (!isInside) return;
+    isInside = false;
+
+    // אחרי שעצרנו, יציאה תחזיר לפעולה
+    if (hoverCount >= 2) {
+      start();
+    }
+  }
+
+  slideA.addEventListener("mouseenter", handleEnter);
+  slideA.addEventListener("mouseleave", handleLeave);
+  slideB.addEventListener("mouseenter", handleEnter);
+  slideB.addEventListener("mouseleave", handleLeave);
 }
 
   viewport.addEventListener("click", () => {
