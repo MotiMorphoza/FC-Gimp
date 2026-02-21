@@ -25,7 +25,7 @@ function initSlideshow() {
   let next = slideB;
   let index = 0;
   let interval = null;
-  const DURATION = 3333; // שליטה בזמן תצוגה
+  const DURATION = 2222; // שליטה בזמן תצוגה
 
   current.src = manifest[0];
   preload(1);
