@@ -531,6 +531,11 @@ body.app-active .shell-layout {
   }
 }
 
+
+
+
+
+
   /* ===== MOBILE ===== */
 
   @media (max-width: 700px) {
@@ -735,19 +740,17 @@ body.app-active .shell-layout {
       font-size: 0.5rem;
     }
 
-/* מבטל scaling אמנותי במובייל */
-.project-gallery .project-figure img {
-  align-items: left;
-  width: 94vw !important;
-  max-width: 94vw !important;
-  height: auto;
-  max-height: none;
-}
-
     .project-figure {
       min-height: auto; /* שלא יכריח מסך מלא */
       padding: 40px 0;
     }
+
+/* מבטל scaling אמנותי במובייל */
+.project-gallery .project-figure:nth-child(3n) img,
+.project-gallery .project-figure:nth-child(3n + 1) img {
+  width: 100% !important;
+  max-width: 100% !important;
+}
 
   /* ===== SOCIAL BAR ===== */
   .social {
