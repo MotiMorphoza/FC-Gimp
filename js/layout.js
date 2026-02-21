@@ -1,10 +1,4 @@
 /* =========================
-   GLOBAL OBSERVER CLEANUP
-========================= */
-
-let __projectObservers = [];
-
-/* =========================
    SIDEBAR LOADER
 ========================= */
 
@@ -16,7 +10,8 @@ async function loadSidebar() {
     const res = await fetch("/MotoSynteza/partials/sidebar.html", { credentials: "same-origin" });
     if (!res.ok) throw new Error("Sidebar load failed");
 
-    placeholder.innerHTML = await res.text();
+    const html = await res.text();
+    placeholder.innerHTML = html;
 
     const toggle = placeholder.querySelector(".menu-toggle");
     const menu = placeholder.querySelector(".menu");
@@ -38,10 +33,6 @@ async function loadSidebar() {
 async function initProjectPage() {
   const gallery = document.querySelector(".project-gallery");
   if (!gallery) return;
-
-  // ניקוי observers קודמים
-  __projectObservers.forEach(o => o.disconnect());
-  __projectObservers = [];
 
   gallery.innerHTML = "";
 
@@ -66,64 +57,61 @@ async function initProjectPage() {
       img.src = `projects/${projectSlug}/${imgData.src}`;
       img.loading = "lazy";
 
-      figure.appendChild(img);
       figure.appendChild(caption);
+      figure.appendChild(img);
       gallery.appendChild(figure);
     });
-
   } catch (err) {
     console.error(err);
-    return;
   }
 
-  const figures = [...gallery.querySelectorAll(".project-figure")];
-  if (!figures.length) return;
+  const figures = [...document.querySelectorAll(".project-gallery .project-figure")];
+  const images = [...document.querySelectorAll(".project-gallery img")];
+  if (!images.length) return;
 
-  /* ===== REVEAL OBSERVER (יציב לחלוטין) ===== */
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        figures.forEach(f => f.classList.remove("visible"));
+  const galleryScroller = document.querySelector(".content-pane");
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
         entry.target.classList.add("visible");
-      }
-    });
-  },
-  {
-    root: null,
-    threshold: 0.15
-  }
-);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      root: galleryScroller,
+      threshold: 0.01,
+      rootMargin: "0px 0px -12% 0px"
+    }
+  );
 
-  figures.forEach(f => revealObserver.observe(f));
-  __projectObservers.push(revealObserver);
+  figures.forEach((figure) => {
+    const rect = figure.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      figure.classList.add("visible");
+      return;
+    }
 
-  /* ===== SLIDE INDICATOR ===== */
+    revealObserver.observe(figure);
+  });
 
   const indicator = document.getElementById("slideIndicator");
 
   if (indicator) {
     const indexObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = figures.indexOf(entry.target) + 1;
-            indicator.textContent = `${index} / ${figures.length}`;
+            const index = [...images].indexOf(entry.target) + 1;
+            indicator.textContent = `${index} / ${images.length}`;
           }
         });
       },
-      {
-        root: null,
-        threshold: 0.6
-      }
+      { threshold: 0.6 }
     );
 
-    figures.forEach(f => indexObserver.observe(f));
-    __projectObservers.push(indexObserver);
+    images.forEach((img) => indexObserver.observe(img));
   }
-
-  /* ===== BACKGROUND OBSERVER ===== */
 
   const bg1 = document.getElementById("bg1");
   const bg2 = document.getElementById("bg2");
@@ -141,33 +129,25 @@ const revealObserver = new IntersectionObserver(
 
     const bgObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const img = entry.target.querySelector("img");
-            if (img) setBackground(img.src);
+            setBackground(entry.target.src);
           }
         });
       },
-      {
-        root: null,
-        threshold: 0.35
-      }
+      { threshold: 0.35 }
     );
 
-    figures.forEach(f => bgObserver.observe(f));
-    __projectObservers.push(bgObserver);
+    images.forEach((img) => bgObserver.observe(img));
   }
-
-  /* ===== LIGHTBOX ===== */
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const closeBtn = lightbox?.querySelector(".lightbox-close");
 
   if (lightbox && lightboxImg) {
-    figures.forEach(f => {
-      const img = f.querySelector("img");
-      img?.addEventListener("click", () => {
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
         lightboxImg.src = img.src;
         lightbox.classList.add("active");
       });
@@ -184,10 +164,6 @@ const revealObserver = new IntersectionObserver(
   }
 }
 
-/* =========================
-   INIT WRAPPERS
-========================= */
-
 function runProjectsInit() {
   if (typeof window.initProjectsPage === "function") {
     window.initProjectsPage();
@@ -200,29 +176,23 @@ function runSlideshowInit() {
   }
 }
 
-/* =========================
-   FADE
-========================= */
-
 function ensureFadeOverlay() {
   let fade = document.getElementById("pageFade");
+
   if (!fade) {
     fade = document.createElement("div");
     fade.id = "pageFade";
     document.body.appendChild(fade);
   }
+
   return fade;
 }
 
-/* =========================
-   PJAX
-========================= */
-
 async function ensurePageScripts(doc) {
   const scripts = [...doc.querySelectorAll("script[src]")]
-    .map(s => s.getAttribute("src"))
+    .map((script) => script.getAttribute("src"))
     .filter(Boolean)
-    .filter(src => !src.includes("layout.js"));
+    .filter((src) => !src.includes("layout.js"));
 
   for (const src of scripts) {
     if (document.querySelector(`script[src="${src}"]`)) continue;
@@ -238,9 +208,23 @@ async function ensurePageScripts(doc) {
 }
 
 function syncBodyState(doc) {
+  if (!doc?.body) return;
+
   document.body.className = doc.body.className;
-  document.body.dataset.page = doc.body.dataset.page || "";
-  document.body.dataset.project = doc.body.dataset.project || "";
+
+  const { page, project } = doc.body.dataset;
+
+  if (page) {
+    document.body.dataset.page = page;
+  } else {
+    delete document.body.dataset.page;
+  }
+
+  if (project) {
+    document.body.dataset.project = project;
+  } else {
+    delete document.body.dataset.project;
+  }
 }
 
 async function loadPage(url, push = true) {
@@ -248,10 +232,10 @@ async function loadPage(url, push = true) {
 
   try {
     fade.classList.add("active");
-    await new Promise(r => setTimeout(r, 250));
+    await new Promise((r) => setTimeout(r, 300));
 
     const res = await fetch(url, { credentials: "same-origin" });
-    if (!res.ok) throw new Error("Fetch failed");
+    if (!res.ok) throw new Error("PJAX fetch failed");
 
     const html = await res.text();
     const parser = new DOMParser();
@@ -263,13 +247,17 @@ async function loadPage(url, push = true) {
     const currentSidebar = document.querySelector("[data-sidebar]");
 
     if (!newContent || !currentContent || !newSidebar || !currentSidebar) {
-      throw new Error("Shell mismatch");
+      throw new Error("PJAX shell missing");
     }
 
     syncBodyState(doc);
-
     currentSidebar.replaceWith(newSidebar);
     currentContent.replaceWith(newContent);
+
+    const landingOverlay = document.getElementById("landing-overlay");
+    if (landingOverlay && doc.getElementById("landing-overlay") === null) {
+      landingOverlay.remove();
+    }
 
     if (doc.title) document.title = doc.title;
     if (push) history.pushState({}, "", url);
@@ -277,17 +265,12 @@ async function loadPage(url, push = true) {
     await ensurePageScripts(doc);
     await initPage();
 
-    await new Promise(r => setTimeout(r, 40));
+    await new Promise((r) => setTimeout(r, 50));
     fade.classList.remove("active");
-
   } catch (err) {
     window.location.href = url;
   }
 }
-
-/* =========================
-   NAVIGATION
-========================= */
 
 function initPjaxNavigation() {
   if (window.__PJAX_READY__) return;
@@ -304,7 +287,8 @@ function initPjaxNavigation() {
     const rawHref = link.getAttribute("href");
     if (!rawHref || rawHref.startsWith("#")) return;
 
-    const url = new URL(link.href, location.href);
+    const url = new URL(link.href, window.location.href);
+
     if (url.origin !== location.origin) return;
     if (url.pathname === location.pathname && url.search === location.search) return;
 
@@ -316,10 +300,6 @@ function initPjaxNavigation() {
     loadPage(`${location.pathname}${location.search}${location.hash}`, false);
   });
 }
-
-/* =========================
-   INIT
-========================= */
 
 async function initPage() {
   ensureFadeOverlay();
