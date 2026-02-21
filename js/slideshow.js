@@ -24,9 +24,19 @@ function initSlideshow() {
   let index = 0;
   let interval = null;
   const DURATION = 3333;
+<<<<<<< ours
+=======
+  const preloadedSlides = new Set();
+
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+  let hasEnteredViewport = false;
+  let hasLeftViewportOnce = false;
+  let isPointerInsideViewport = false;
+>>>>>>> theirs
 
   current.src = manifest[0];
-  preload(1);
+  preloadedSlides.add(manifest[0]);
+  preloadNextTwo(0);
 
   function change() {
     index = (index + 1) % manifest.length;
@@ -39,12 +49,21 @@ function initSlideshow() {
 
     [current, next] = [next, current];
 
-    preload(index + 1);
+    preloadNextTwo(index);
   }
 
-  function preload(i) {
+  function preloadByIndex(i) {
+    const src = manifest[i % manifest.length];
+    if (!src || preloadedSlides.has(src)) return;
+
     const img = new Image();
-    img.src = manifest[i % manifest.length];
+    img.src = src;
+    preloadedSlides.add(src);
+  }
+
+  function preloadNextTwo(fromIndex) {
+    preloadByIndex(fromIndex + 1);
+    preloadByIndex(fromIndex + 2);
   }
 
   function start() {
@@ -58,10 +77,53 @@ function initSlideshow() {
     interval = null;
   }
 
+<<<<<<< ours
+=======
+  if (supportsHover) {
+    viewport.addEventListener("mouseenter", () => {
+      isPointerInsideViewport = true;
+      hasEnteredViewport = true;
+
+      if (!hasLeftViewportOnce) {
+        return;
+      }
+
+      stop();
+    });
+
+    viewport.addEventListener("mouseleave", () => {
+      isPointerInsideViewport = false;
+
+      if (!hasEnteredViewport) {
+        return;
+      }
+
+      hasLeftViewportOnce = true;
+      start();
+    });
+  }
+
+>>>>>>> theirs
   viewport.addEventListener("click", () => {
     change();
   });
 
+<<<<<<< ours
+=======
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stop();
+      return;
+    }
+
+    if (supportsHover && hasLeftViewportOnce && isPointerInsideViewport) {
+      return;
+    }
+
+    start();
+  });
+
+>>>>>>> theirs
   start();
 }
 
