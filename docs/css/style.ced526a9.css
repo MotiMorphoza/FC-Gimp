@@ -752,6 +752,14 @@ body.app-active .shell-layout {
   max-width: 100% !important;
 }
 
+/* מבטל מגבלת desktop במובייל */
+.content-pane .project-gallery img {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  height: auto;
+  display: block;
+}
   /* ===== SOCIAL BAR ===== */
   .social {
     position: fixed;
