@@ -55,6 +55,7 @@ async function initProjectPage() {
 
       const img = document.createElement("img");
       img.src = `projects/${projectSlug}/${imgData.src}`;
+      img.loading = "lazy";
 
       figure.appendChild(caption);
       figure.appendChild(img);
@@ -64,29 +65,14 @@ async function initProjectPage() {
     console.error(err);
   }
 
-  const figures = [...document.querySelectorAll(".project-gallery .project-figure")];
   const images = [...document.querySelectorAll(".project-gallery img")];
   if (!images.length) return;
 
   const indicator = document.getElementById("slideIndicator");
-
   if (indicator) {
-    const indexObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = [...images].indexOf(entry.target) + 1;
-            indicator.textContent = `${index} / ${images.length}`;
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    images.forEach((img) => indexObserver.observe(img));
+    indicator.textContent = `1 / ${images.length}`;
   }
 
- 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const closeBtn = lightbox?.querySelector(".lightbox-close");
