@@ -1,0 +1,2256 @@
+{
+  "generatedAt": "2026-03-02T20:34:34.556Z",
+  "buildVersion": "71910bba0576",
+  "projects": [
+    {
+      "projectCode": "UU",
+      "title": "usual uNuSuAll",
+      "description": "A collection of small moments from everyday life — presented from an original perspective with a touch of humor, drama, and poetry.",
+      "folder": "projects/000 - unusuall_usual",
+      "images": [
+        {
+          "code": "UU-025",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/01.jpg"
+        },
+        {
+          "code": "UU-024",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/02.jpg"
+        },
+        {
+          "code": "UU-023",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/03.jpg"
+        },
+        {
+          "code": "UU-022",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/04.jpg"
+        },
+        {
+          "code": "UU-021",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/05.jpg"
+        },
+        {
+          "code": "UU-020",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/06.jpg"
+        },
+        {
+          "code": "UU-019",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/07.jpg"
+        },
+        {
+          "code": "UU-018",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/08.jpg"
+        },
+        {
+          "code": "UU-017",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/09.jpg"
+        },
+        {
+          "code": "UU-016",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/10.jpg"
+        },
+        {
+          "code": "UU-015",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/11.jpg"
+        },
+        {
+          "code": "UU-014",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/12.jpg"
+        },
+        {
+          "code": "UU-013",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/13.jpg"
+        },
+        {
+          "code": "UU-012",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/14.jpg"
+        },
+        {
+          "code": "UU-011",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/15.jpg"
+        },
+        {
+          "code": "UU-010",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/16.jpg"
+        },
+        {
+          "code": "UU-009",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/17.jpg"
+        },
+        {
+          "code": "UU-008",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/18.jpg"
+        },
+        {
+          "code": "UU-007",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/19.jpg"
+        },
+        {
+          "code": "UU-006",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/20.jpg"
+        },
+        {
+          "code": "UU-005",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/21.jpg"
+        },
+        {
+          "code": "UU-004",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/22.jpg"
+        },
+        {
+          "code": "UU-003",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/23.jpg"
+        },
+        {
+          "code": "UU-002",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/24.jpg"
+        },
+        {
+          "code": "UU-001",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/000 - unusuall_usual/25.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "WTR",
+      "title": "Window to Redemption",
+      "description": "A series of photographs taken from a single window overlooking Savior Square in Warsaw. Life is a theater that continues without pause, and the camera freezes moments in time.",
+      "folder": "projects/001 - window_to_redemption",
+      "images": [
+        {
+          "code": "WTR-018",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/01.jpg"
+        },
+        {
+          "code": "WTR-017",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/02.jpg"
+        },
+        {
+          "code": "WTR-016",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/03.jpg"
+        },
+        {
+          "code": "WTR-015",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/04.jpg"
+        },
+        {
+          "code": "WTR-014",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/05.jpg"
+        },
+        {
+          "code": "WTR-013",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/06.jpg"
+        },
+        {
+          "code": "WTR-012",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/07.jpg"
+        },
+        {
+          "code": "WTR-011",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/08.jpg"
+        },
+        {
+          "code": "WTR-010",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/09.jpg"
+        },
+        {
+          "code": "WTR-009",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/10.jpg"
+        },
+        {
+          "code": "WTR-008",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/11.jpg"
+        },
+        {
+          "code": "WTR-007",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/12.jpg"
+        },
+        {
+          "code": "WTR-006",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/13.jpg"
+        },
+        {
+          "code": "WTR-005",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/14.jpg"
+        },
+        {
+          "code": "WTR-004",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/15.jpg"
+        },
+        {
+          "code": "WTR-003",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/16.jpg"
+        },
+        {
+          "code": "WTR-002",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/17.jpg"
+        },
+        {
+          "code": "WTR-001",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/001 - window_to_redemption/18.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "OYG",
+      "title": "Ohhhhh Your God",
+      "description": "A visual commentary on the religious show, provoking tension between faith & identity.<\br> Believe me.. - DON'T believe nobody.",
+      "folder": "projects/002 - ohhhhh_your_god",
+      "images": [
+        {
+          "code": "OYG-018",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/01.jpg"
+        },
+        {
+          "code": "OYG-017",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/02.jpg"
+        },
+        {
+          "code": "OYG-016",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/03.jpg"
+        },
+        {
+          "code": "OYG-015",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/04.jpg"
+        },
+        {
+          "code": "OYG-014",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/05.jpg"
+        },
+        {
+          "code": "OYG-013",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/06.jpg"
+        },
+        {
+          "code": "OYG-012",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/07.jpg"
+        },
+        {
+          "code": "OYG-011",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/08.jpg"
+        },
+        {
+          "code": "OYG-010",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/09.jpg"
+        },
+        {
+          "code": "OYG-009",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/10.jpg"
+        },
+        {
+          "code": "OYG-008",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/11.jpg"
+        },
+        {
+          "code": "OYG-007",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/12.jpg"
+        },
+        {
+          "code": "OYG-006",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/13.jpg"
+        },
+        {
+          "code": "OYG-005",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/14.jpg"
+        },
+        {
+          "code": "OYG-004",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/15.jpg"
+        },
+        {
+          "code": "OYG-003",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/16.jpg"
+        },
+        {
+          "code": "OYG-002",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/17.jpg"
+        },
+        {
+          "code": "OYG-001",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/18.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "DS",
+      "title": "Demon Stration",
+      "description": "Confrontation between symbols of authority and resistance, examining how the political theatre shapes public perception.",
+      "folder": "projects/003 - demon_stration",
+      "images": [
+        {
+          "code": "DS-039",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/01.jpg"
+        },
+        {
+          "code": "DS-038",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/02.jpg"
+        },
+        {
+          "code": "DS-037",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/03.jpg"
+        },
+        {
+          "code": "DS-036",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/04.jpg"
+        },
+        {
+          "code": "DS-035",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/05.jpg"
+        },
+        {
+          "code": "DS-034",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/06.jpg"
+        },
+        {
+          "code": "DS-033",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/07.jpg"
+        },
+        {
+          "code": "DS-032",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/08.jpg"
+        },
+        {
+          "code": "DS-031",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/09.jpg"
+        },
+        {
+          "code": "DS-030",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/10.jpg"
+        },
+        {
+          "code": "DS-029",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/11.jpg"
+        },
+        {
+          "code": "DS-028",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/12.jpg"
+        },
+        {
+          "code": "DS-027",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/13.jpg"
+        },
+        {
+          "code": "DS-026",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/14.jpg"
+        },
+        {
+          "code": "DS-025",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/15.jpg"
+        },
+        {
+          "code": "DS-024",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/16.jpg"
+        },
+        {
+          "code": "DS-023",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/17.jpg"
+        },
+        {
+          "code": "DS-022",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/18.jpg"
+        },
+        {
+          "code": "DS-021",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/19.jpg"
+        },
+        {
+          "code": "DS-020",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/20.jpg"
+        },
+        {
+          "code": "DS-019",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/21.jpg"
+        },
+        {
+          "code": "DS-018",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/22.jpg"
+        },
+        {
+          "code": "DS-017",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/23.jpg"
+        },
+        {
+          "code": "DS-016",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/24.jpg"
+        },
+        {
+          "code": "DS-015",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/25.jpg"
+        },
+        {
+          "code": "DS-014",
+          "src": "26.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/26.jpg"
+        },
+        {
+          "code": "DS-013",
+          "src": "27.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/27.jpg"
+        },
+        {
+          "code": "DS-012",
+          "src": "28.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/28.jpg"
+        },
+        {
+          "code": "DS-011",
+          "src": "29.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/29.jpg"
+        },
+        {
+          "code": "DS-010",
+          "src": "30.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/30.jpg"
+        },
+        {
+          "code": "DS-009",
+          "src": "31.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/31.jpg"
+        },
+        {
+          "code": "DS-008",
+          "src": "32.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/32.jpg"
+        },
+        {
+          "code": "DS-007",
+          "src": "33.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/33.jpg"
+        },
+        {
+          "code": "DS-006",
+          "src": "34.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/34.jpg"
+        },
+        {
+          "code": "DS-005",
+          "src": "35.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/35.jpg"
+        },
+        {
+          "code": "DS-004",
+          "src": "36.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/36.jpg"
+        },
+        {
+          "code": "DS-003",
+          "src": "37.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/37.jpg"
+        },
+        {
+          "code": "DS-002",
+          "src": "38.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/38.jpg"
+        },
+        {
+          "code": "DS-001",
+          "src": "39.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/003 - demon_stration/39.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "WEMS",
+      "title": "Windows: Eyes of the Modern Soul",
+      "description": "Surrounded by frames. We see the world through them. It is our “Windows operating system.” ",
+      "folder": "projects/004 - windows_eyes_of_the_modern_soul",
+      "images": [
+        {
+          "code": "WEMS-031",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/01.jpg"
+        },
+        {
+          "code": "WEMS-030",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/02.jpg"
+        },
+        {
+          "code": "WEMS-029",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/03.jpg"
+        },
+        {
+          "code": "WEMS-028",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/04.jpg"
+        },
+        {
+          "code": "WEMS-027",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/05.jpg"
+        },
+        {
+          "code": "WEMS-026",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/06.jpg"
+        },
+        {
+          "code": "WEMS-025",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/07.jpg"
+        },
+        {
+          "code": "WEMS-024",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/08.jpg"
+        },
+        {
+          "code": "WEMS-023",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/09.jpg"
+        },
+        {
+          "code": "WEMS-022",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/10.jpg"
+        },
+        {
+          "code": "WEMS-021",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/11.jpg"
+        },
+        {
+          "code": "WEMS-020",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/12.jpg"
+        },
+        {
+          "code": "WEMS-019",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/13.jpg"
+        },
+        {
+          "code": "WEMS-018",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/14.jpg"
+        },
+        {
+          "code": "WEMS-017",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/15.jpg"
+        },
+        {
+          "code": "WEMS-016",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/16.jpg"
+        },
+        {
+          "code": "WEMS-015",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/17.jpg"
+        },
+        {
+          "code": "WEMS-014",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/18.jpg"
+        },
+        {
+          "code": "WEMS-013",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/19.jpg"
+        },
+        {
+          "code": "WEMS-012",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/20.jpg"
+        },
+        {
+          "code": "WEMS-011",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/21.jpg"
+        },
+        {
+          "code": "WEMS-010",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/22.jpg"
+        },
+        {
+          "code": "WEMS-009",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/23.jpg"
+        },
+        {
+          "code": "WEMS-008",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/24.jpg"
+        },
+        {
+          "code": "WEMS-007",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/25.jpg"
+        },
+        {
+          "code": "WEMS-006",
+          "src": "26.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/26.jpg"
+        },
+        {
+          "code": "WEMS-005",
+          "src": "27.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/27.jpg"
+        },
+        {
+          "code": "WEMS-004",
+          "src": "28.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/28.jpg"
+        },
+        {
+          "code": "WEMS-003",
+          "src": "29.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/29.jpg"
+        },
+        {
+          "code": "WEMS-002",
+          "src": "30.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/30.jpg"
+        },
+        {
+          "code": "WEMS-001",
+          "src": "31.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/31.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "DGS",
+      "title": "Dogy Style",
+      "description": "A playful photo series of man’s best friend, capturing humor, movement, and the unique personality of dogs within the urban environment.",
+      "folder": "projects/005 - dogy style",
+      "images": [
+        {
+          "code": "DGS-009",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/01.jpg"
+        },
+        {
+          "code": "DGS-008",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/02.jpg"
+        },
+        {
+          "code": "DGS-007",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/03.jpg"
+        },
+        {
+          "code": "DGS-006",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/04.jpg"
+        },
+        {
+          "code": "DGS-005",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/05.jpg"
+        },
+        {
+          "code": "DGS-004",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/06.jpg"
+        },
+        {
+          "code": "DGS-003",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/07.jpg"
+        },
+        {
+          "code": "DGS-002",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/08.jpg"
+        },
+        {
+          "code": "DGS-001",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/005 - dogy style/09.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "SMA",
+      "title": "Smashed",
+      "description": "Experiments with photographic techniques – long exposure and subject tracking.",
+      "folder": "projects/006 - smashed",
+      "images": [
+        {
+          "code": "SMA-019",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/01.jpg"
+        },
+        {
+          "code": "SMA-018",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/02.jpg"
+        },
+        {
+          "code": "SMA-017",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/03.jpg"
+        },
+        {
+          "code": "SMA-016",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/04.jpg"
+        },
+        {
+          "code": "SMA-015",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/05.jpg"
+        },
+        {
+          "code": "SMA-014",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/06.jpg"
+        },
+        {
+          "code": "SMA-013",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/07.jpg"
+        },
+        {
+          "code": "SMA-012",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/08.jpg"
+        },
+        {
+          "code": "SMA-011",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/09.jpg"
+        },
+        {
+          "code": "SMA-010",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/10.jpg"
+        },
+        {
+          "code": "SMA-009",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/11.jpg"
+        },
+        {
+          "code": "SMA-008",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/12.jpg"
+        },
+        {
+          "code": "SMA-007",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/13.jpg"
+        },
+        {
+          "code": "SMA-006",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/14.jpg"
+        },
+        {
+          "code": "SMA-005",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/15.jpg"
+        },
+        {
+          "code": "SMA-004",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/16.jpg"
+        },
+        {
+          "code": "SMA-003",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/17.jpg"
+        },
+        {
+          "code": "SMA-002",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/18.jpg"
+        },
+        {
+          "code": "SMA-001",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/006 - smashed/19.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "UMB",
+      "title": "Umbrellas :)",
+      "description": "Small moving shelters. Fragments of color drifting through rain that reveal rhythm, solitude, and fleeting encounters in the city.",
+      "folder": "projects/007 - umbrellas",
+      "images": [
+        {
+          "code": "UMB-025",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/01.jpg"
+        },
+        {
+          "code": "UMB-024",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/02.jpg"
+        },
+        {
+          "code": "UMB-023",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/03.jpg"
+        },
+        {
+          "code": "UMB-022",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/04.jpg"
+        },
+        {
+          "code": "UMB-021",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/05.jpg"
+        },
+        {
+          "code": "UMB-020",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/06.jpg"
+        },
+        {
+          "code": "UMB-019",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/07.jpg"
+        },
+        {
+          "code": "UMB-018",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/08.jpg"
+        },
+        {
+          "code": "UMB-017",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/09.jpg"
+        },
+        {
+          "code": "UMB-016",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/10.jpg"
+        },
+        {
+          "code": "UMB-015",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/11.jpg"
+        },
+        {
+          "code": "UMB-014",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/12.jpg"
+        },
+        {
+          "code": "UMB-013",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/13.jpg"
+        },
+        {
+          "code": "UMB-012",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/14.jpg"
+        },
+        {
+          "code": "UMB-011",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/15.jpg"
+        },
+        {
+          "code": "UMB-010",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/16.jpg"
+        },
+        {
+          "code": "UMB-009",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/17.jpg"
+        },
+        {
+          "code": "UMB-008",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/18.jpg"
+        },
+        {
+          "code": "UMB-007",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/19.jpg"
+        },
+        {
+          "code": "UMB-006",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/20.jpg"
+        },
+        {
+          "code": "UMB-005",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/21.jpg"
+        },
+        {
+          "code": "UMB-004",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/22.jpg"
+        },
+        {
+          "code": "UMB-003",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/23.jpg"
+        },
+        {
+          "code": "UMB-002",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/24.jpg"
+        },
+        {
+          "code": "UMB-001",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/007 - umbrellas/25.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "ART",
+      "title": "Arty facts",
+      "description": "Art hides inside ordinary facts of daily life.",
+      "folder": "projects/008 - arty",
+      "images": [
+        {
+          "code": "ART-040",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/01.jpg"
+        },
+        {
+          "code": "ART-039",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/02.jpg"
+        },
+        {
+          "code": "ART-038",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/03.jpg"
+        },
+        {
+          "code": "ART-037",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/04.jpg"
+        },
+        {
+          "code": "ART-036",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/05.jpg"
+        },
+        {
+          "code": "ART-035",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/06.jpg"
+        },
+        {
+          "code": "ART-034",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/07.jpg"
+        },
+        {
+          "code": "ART-033",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/08.jpg"
+        },
+        {
+          "code": "ART-032",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/09.jpg"
+        },
+        {
+          "code": "ART-031",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/10.jpg"
+        },
+        {
+          "code": "ART-030",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/11.jpg"
+        },
+        {
+          "code": "ART-029",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/12.jpg"
+        },
+        {
+          "code": "ART-028",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/13.jpg"
+        },
+        {
+          "code": "ART-027",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/14.jpg"
+        },
+        {
+          "code": "ART-026",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/15.jpg"
+        },
+        {
+          "code": "ART-025",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/16.jpg"
+        },
+        {
+          "code": "ART-024",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/17.jpg"
+        },
+        {
+          "code": "ART-023",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/18.jpg"
+        },
+        {
+          "code": "ART-022",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/19.jpg"
+        },
+        {
+          "code": "ART-021",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/20.jpg"
+        },
+        {
+          "code": "ART-020",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/21.jpg"
+        },
+        {
+          "code": "ART-019",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/22.jpg"
+        },
+        {
+          "code": "ART-018",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/23.jpg"
+        },
+        {
+          "code": "ART-017",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/24.jpg"
+        },
+        {
+          "code": "ART-016",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/25.jpg"
+        },
+        {
+          "code": "ART-015",
+          "src": "26.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/26.jpg"
+        },
+        {
+          "code": "ART-014",
+          "src": "27.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/27.jpg"
+        },
+        {
+          "code": "ART-013",
+          "src": "28.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/28.jpg"
+        },
+        {
+          "code": "ART-012",
+          "src": "29.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/29.jpg"
+        },
+        {
+          "code": "ART-011",
+          "src": "30.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/30.jpg"
+        },
+        {
+          "code": "ART-010",
+          "src": "31.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/31.jpg"
+        },
+        {
+          "code": "ART-009",
+          "src": "32.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/32.jpg"
+        },
+        {
+          "code": "ART-008",
+          "src": "33.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/33.jpg"
+        },
+        {
+          "code": "ART-007",
+          "src": "34.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/34.jpg"
+        },
+        {
+          "code": "ART-006",
+          "src": "35.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/35.jpg"
+        },
+        {
+          "code": "ART-005",
+          "src": "36.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/36.jpg"
+        },
+        {
+          "code": "ART-004",
+          "src": "37.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/37.jpg"
+        },
+        {
+          "code": "ART-003",
+          "src": "38.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/38.jpg"
+        },
+        {
+          "code": "ART-002",
+          "src": "39.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/39.jpg"
+        },
+        {
+          "code": "ART-001",
+          "src": "40.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/008 - arty/40.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "KNS",
+      "title": "king No Smo",
+      "description": "Human moments between inhaling to exhaling, strength and vulnerability. Smoking connecting people.",
+      "folder": "projects/009 - KING NO SMO",
+      "images": [
+        {
+          "code": "KNS-019",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/01.jpg"
+        },
+        {
+          "code": "KNS-018",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/02.jpg"
+        },
+        {
+          "code": "KNS-017",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/03.jpg"
+        },
+        {
+          "code": "KNS-016",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/04.jpg"
+        },
+        {
+          "code": "KNS-015",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/05.jpg"
+        },
+        {
+          "code": "KNS-014",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/06.jpg"
+        },
+        {
+          "code": "KNS-013",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/07.jpg"
+        },
+        {
+          "code": "KNS-012",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/08.jpg"
+        },
+        {
+          "code": "KNS-011",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/09.jpg"
+        },
+        {
+          "code": "KNS-010",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/10.jpg"
+        },
+        {
+          "code": "KNS-009",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/11.jpg"
+        },
+        {
+          "code": "KNS-008",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/12.jpg"
+        },
+        {
+          "code": "KNS-007",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/13.jpg"
+        },
+        {
+          "code": "KNS-006",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/14.jpg"
+        },
+        {
+          "code": "KNS-005",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/15.jpg"
+        },
+        {
+          "code": "KNS-004",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/16.jpg"
+        },
+        {
+          "code": "KNS-003",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/17.jpg"
+        },
+        {
+          "code": "KNS-002",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/18.jpg"
+        },
+        {
+          "code": "KNS-001",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/009 - KING NO SMO/19.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "RFL",
+      "title": "Reflections",
+      "description": "Moments where reality folds back onto itself — glass and water, turning the ordinary world into layered echoes of light, distortion, and silenced observation.",
+      "folder": "projects/010 - reflection",
+      "images": [
+        {
+          "code": "RFL-016",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/01.jpg"
+        },
+        {
+          "code": "RFL-015",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/02.jpg"
+        },
+        {
+          "code": "RFL-014",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/03.jpg"
+        },
+        {
+          "code": "RFL-013",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/04.jpg"
+        },
+        {
+          "code": "RFL-012",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/05.jpg"
+        },
+        {
+          "code": "RFL-011",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/06.jpg"
+        },
+        {
+          "code": "RFL-010",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/07.jpg"
+        },
+        {
+          "code": "RFL-009",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/08.jpg"
+        },
+        {
+          "code": "RFL-008",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/09.jpg"
+        },
+        {
+          "code": "RFL-007",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/10.jpg"
+        },
+        {
+          "code": "RFL-006",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/11.jpg"
+        },
+        {
+          "code": "RFL-005",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/12.jpg"
+        },
+        {
+          "code": "RFL-004",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/13.jpg"
+        },
+        {
+          "code": "RFL-003",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/14.jpg"
+        },
+        {
+          "code": "RFL-002",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/15.jpg"
+        },
+        {
+          "code": "RFL-001",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/010 - reflection/16.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "GLD",
+      "title": "Golden age",
+      "description": "Life is what happens before we die. (Confuse Use).",
+      "folder": "projects/011 - golden age",
+      "images": [
+        {
+          "code": "GLD-025",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/01.jpg"
+        },
+        {
+          "code": "GLD-024",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/02.jpg"
+        },
+        {
+          "code": "GLD-023",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/03.jpg"
+        },
+        {
+          "code": "GLD-022",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/04.jpg"
+        },
+        {
+          "code": "GLD-021",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/05.jpg"
+        },
+        {
+          "code": "GLD-020",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/06.jpg"
+        },
+        {
+          "code": "GLD-019",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/07.jpg"
+        },
+        {
+          "code": "GLD-018",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/08.jpg"
+        },
+        {
+          "code": "GLD-017",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/09.jpg"
+        },
+        {
+          "code": "GLD-016",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/10.jpg"
+        },
+        {
+          "code": "GLD-015",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/11.jpg"
+        },
+        {
+          "code": "GLD-014",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/12.jpg"
+        },
+        {
+          "code": "GLD-013",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/13.jpg"
+        },
+        {
+          "code": "GLD-012",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/14.jpg"
+        },
+        {
+          "code": "GLD-011",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/15.jpg"
+        },
+        {
+          "code": "GLD-010",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/16.jpg"
+        },
+        {
+          "code": "GLD-009",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/17.jpg"
+        },
+        {
+          "code": "GLD-008",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/18.jpg"
+        },
+        {
+          "code": "GLD-007",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/19.jpg"
+        },
+        {
+          "code": "GLD-006",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/20.jpg"
+        },
+        {
+          "code": "GLD-005",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/21.jpg"
+        },
+        {
+          "code": "GLD-004",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/22.jpg"
+        },
+        {
+          "code": "GLD-003",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/23.jpg"
+        },
+        {
+          "code": "GLD-002",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/24.jpg"
+        },
+        {
+          "code": "GLD-001",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/011 - golden age/25.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "ST",
+      "title": "Smart Times",
+      "description": "he sees you he knows you. he pass through the walls. !\nprocessing your data he answer your calls.\nhe listens he records he knows where you are\nwithout him my friend\nyou cannot reach so far\nhe made you addicted\nlife is pink as a gum -\nthat stucks in your pants -\nyes.. it all was a scum\nhe’s smart you are not..\nyou can’t think on your own\nohhhhhhh no !\nyou’re a victim\nof your cellular phone...",
+      "folder": "projects/012 - smart times",
+      "images": [
+        {
+          "code": "ST-013",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/01.jpg"
+        },
+        {
+          "code": "ST-012",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/02.jpg"
+        },
+        {
+          "code": "ST-011",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/03.jpg"
+        },
+        {
+          "code": "ST-010",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/04.jpg"
+        },
+        {
+          "code": "ST-009",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/05.jpg"
+        },
+        {
+          "code": "ST-008",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/06.jpg"
+        },
+        {
+          "code": "ST-007",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/07.jpg"
+        },
+        {
+          "code": "ST-006",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/08.jpg"
+        },
+        {
+          "code": "ST-005",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/09.jpg"
+        },
+        {
+          "code": "ST-004",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/10.jpg"
+        },
+        {
+          "code": "ST-003",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/11.jpg"
+        },
+        {
+          "code": "ST-002",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/12.jpg"
+        },
+        {
+          "code": "ST-001",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/012 - smart times/13.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "NT",
+      "title": "Natural Taste",
+      "description": "Beauty all around. Inspiration Satisfaction and Relaxetion.",
+      "folder": "projects/013 - natural taste",
+      "images": [
+        {
+          "code": "NT-038",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/01.jpg"
+        },
+        {
+          "code": "NT-037",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/02.jpg"
+        },
+        {
+          "code": "NT-036",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/03.jpg"
+        },
+        {
+          "code": "NT-035",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/04.jpg"
+        },
+        {
+          "code": "NT-034",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/05.jpg"
+        },
+        {
+          "code": "NT-033",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/06.jpg"
+        },
+        {
+          "code": "NT-032",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/07.jpg"
+        },
+        {
+          "code": "NT-031",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/08.jpg"
+        },
+        {
+          "code": "NT-030",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/09.jpg"
+        },
+        {
+          "code": "NT-029",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/10.jpg"
+        },
+        {
+          "code": "NT-028",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/11.jpg"
+        },
+        {
+          "code": "NT-027",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/12.jpg"
+        },
+        {
+          "code": "NT-026",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/13.jpg"
+        },
+        {
+          "code": "NT-025",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/14.jpg"
+        },
+        {
+          "code": "NT-024",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/15.jpg"
+        },
+        {
+          "code": "NT-023",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/16.jpg"
+        },
+        {
+          "code": "NT-022",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/17.jpg"
+        },
+        {
+          "code": "NT-021",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/18.jpg"
+        },
+        {
+          "code": "NT-020",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/19.jpg"
+        },
+        {
+          "code": "NT-019",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/20.jpg"
+        },
+        {
+          "code": "NT-018",
+          "src": "21.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/21.jpg"
+        },
+        {
+          "code": "NT-017",
+          "src": "22.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/22.jpg"
+        },
+        {
+          "code": "NT-016",
+          "src": "23.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/23.jpg"
+        },
+        {
+          "code": "NT-015",
+          "src": "24.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/24.jpg"
+        },
+        {
+          "code": "NT-014",
+          "src": "25.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/25.jpg"
+        },
+        {
+          "code": "NT-013",
+          "src": "26.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/26.jpg"
+        },
+        {
+          "code": "NT-012",
+          "src": "27.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/27.jpg"
+        },
+        {
+          "code": "NT-011",
+          "src": "28.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/28.jpg"
+        },
+        {
+          "code": "NT-010",
+          "src": "29.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/29.jpg"
+        },
+        {
+          "code": "NT-009",
+          "src": "30.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/30.jpg"
+        },
+        {
+          "code": "NT-008",
+          "src": "31.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/31.jpg"
+        },
+        {
+          "code": "NT-007",
+          "src": "32.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/32.jpg"
+        },
+        {
+          "code": "NT-006",
+          "src": "33.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/33.jpg"
+        },
+        {
+          "code": "NT-005",
+          "src": "34.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/34.jpg"
+        },
+        {
+          "code": "NT-004",
+          "src": "35.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/35.jpg"
+        },
+        {
+          "code": "NT-003",
+          "src": "36.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/36.jpg"
+        },
+        {
+          "code": "NT-002",
+          "src": "37.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/37.jpg"
+        },
+        {
+          "code": "NT-001",
+          "src": "38.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/013 - natural taste/38.jpg"
+        }
+      ]
+    },
+    {
+      "projectCode": "SY",
+      "title": "Stat You",
+      "description": "You shall not make for yourself an image in the form of anything in heaven above or on the earth beneath or in the waters below. 5 You shall not bow down to them or worship them; for I, the Lord your God, am a jealous God.",
+      "folder": "projects/014 - stat you",
+      "images": [
+        {
+          "code": "SY-020",
+          "src": "01.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/01.jpg"
+        },
+        {
+          "code": "SY-019",
+          "src": "02.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/02.jpg"
+        },
+        {
+          "code": "SY-018",
+          "src": "03.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/03.jpg"
+        },
+        {
+          "code": "SY-017",
+          "src": "04.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/04.jpg"
+        },
+        {
+          "code": "SY-016",
+          "src": "05.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/05.jpg"
+        },
+        {
+          "code": "SY-015",
+          "src": "06.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/06.jpg"
+        },
+        {
+          "code": "SY-014",
+          "src": "07.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/07.jpg"
+        },
+        {
+          "code": "SY-013",
+          "src": "08.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/08.jpg"
+        },
+        {
+          "code": "SY-012",
+          "src": "09.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/09.jpg"
+        },
+        {
+          "code": "SY-011",
+          "src": "10.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/10.jpg"
+        },
+        {
+          "code": "SY-010",
+          "src": "11.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/11.jpg"
+        },
+        {
+          "code": "SY-009",
+          "src": "12.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/12.jpg"
+        },
+        {
+          "code": "SY-008",
+          "src": "13.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/13.jpg"
+        },
+        {
+          "code": "SY-007",
+          "src": "14.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/14.jpg"
+        },
+        {
+          "code": "SY-006",
+          "src": "15.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/15.jpg"
+        },
+        {
+          "code": "SY-005",
+          "src": "16.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/16.jpg"
+        },
+        {
+          "code": "SY-004",
+          "src": "17.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/17.jpg"
+        },
+        {
+          "code": "SY-003",
+          "src": "18.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/18.jpg"
+        },
+        {
+          "code": "SY-002",
+          "src": "19.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/19.jpg"
+        },
+        {
+          "code": "SY-001",
+          "src": "20.jpg",
+          "caption": "",
+          "thumbnailUrl": "projects/014 - stat you/20.jpg"
+        }
+      ]
+    }
+  ]
+}
