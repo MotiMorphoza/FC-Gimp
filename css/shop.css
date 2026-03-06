@@ -1,0 +1,838 @@
+/* ============================================================
+   shop.css  –  MotoSynteza Shop
+   Dark theme, professional, minimalist.
+   ============================================================ */
+
+/* ── Reset / scope ──────────────────────────────────────────── */
+.shop-pane {
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── Shop root wrapper ──────────────────────────────────────── */
+#shop-root {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Section headings ───────────────────────────────────────── */
+.shop-section-title {
+  font-size: 0.70rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* ── Intro section ──────────────────────────────────────────── */
+.shop-intro {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.shop-intro-para {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #888;
+  margin: 0 0 0.45rem;
+}
+
+.shop-intro-price {
+  color: #bbb;
+  font-size: 0.82rem;
+}
+
+/* ── Intro pricing table ────────────────────────────────────── */
+.shop-intro-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0.75rem 0 0.5rem;
+  border: 1px solid #1e1e1e;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.shop-intro-pricing-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 0.80rem;
+}
+
+.shop-intro-pricing-row:last-child { border-bottom: none; }
+
+.shop-intro-pricing-size {
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.04em;
+}
+
+.shop-intro-pricing-dims { color: #555; }
+
+.shop-intro-pricing-price {
+  color: #aaa;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+
+/* ── Add-to-cart form ───────────────────────────────────────── */
+.shop-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.shop-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.shop-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.shop-input,
+.shop-select {
+  background: #111;
+  border: 1px solid #2e2e2e;
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-size: 0.92rem;
+  font-family: inherit;
+  padding: 0.65rem 0.85rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.shop-input::placeholder {
+  color: #444;
+}
+
+.shop-input:focus,
+.shop-select:focus {
+  outline: none;
+  border-color: #555;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.04);
+}
+
+.shop-input[aria-invalid="true"],
+.shop-select[aria-invalid="true"] {
+  border-color: #9b3a3a;
+  box-shadow: 0 0 0 2px rgba(155,58,58,0.18);
+}
+
+.shop-input[aria-invalid="false"],
+.shop-select[aria-invalid="false"] {
+  border-color: #2e6b3e;
+}
+
+.shop-validation-msg {
+  font-size: 0.72rem;
+  min-height: 1em;
+  color: #9b3a3a;
+  letter-spacing: 0.02em;
+}
+
+.shop-validation-msg.is-valid {
+  color: #4caf72;
+}
+
+/* Quantity stepper */
+.shop-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 120px;
+}
+
+.shop-qty-btn {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  user-select: none;
+}
+
+.shop-qty-btn:hover {
+  background: #252525;
+  color: #fff;
+}
+
+.shop-qty-btn:first-child {
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.shop-qty-btn:last-child {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+
+.shop-qty-display {
+  background: #111;
+  border: 1px solid #2e2e2e;
+  border-left: none;
+  border-right: none;
+  color: #e0e0e0;
+  font-size: 0.92rem;
+  text-align: center;
+  padding: 0.6rem 0;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+/* Add button */
+.shop-add-btn {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 3px;
+  color: #111;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.80rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  transition: background 0.15s, transform 0.08s;
+  align-self: flex-start;
+}
+
+.shop-add-btn:hover  { background: #fff; }
+.shop-add-btn:active { transform: scale(0.98); }
+
+.shop-add-btn:disabled {
+  background: #2a2a2a;
+  color: #555;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ── Size selector ──────────────────────────────────────────── */
+.shop-size-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shop-size-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.shop-size-btn {
+  background: #111;
+  border: 1px solid #2e2e2e;
+  border-radius: 3px;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: inherit;
+  padding: 0.5rem 0.65rem;
+  min-width: 60px;
+  min-height: 44px;          /* touch target */
+  transition: border-color 0.12s, color 0.12s, background 0.12s;
+  text-align: center;
+}
+
+.shop-size-btn:hover {
+  border-color: #555;
+  color: #ccc;
+  background: #161616;
+}
+
+.shop-size-btn.is-selected {
+  border-color: #555;
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.shop-size-btn-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.shop-size-btn-dims {
+  font-size: 0.60rem;
+  opacity: 0.6;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.shop-size-btn-price {
+  font-size: 0.70rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.shop-size-price-display {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+/* ── Size in cart table ─────────────────────────────────────── */
+.shop-cart-size-cell { white-space: nowrap; }
+
+.shop-cart-size {
+  font-size: 0.75rem;
+  color: #666;
+  letter-spacing: 0.03em;
+}
+
+/* ── Size in order summary ──────────────────────────────────── */
+.shop-summary-size {
+  font-size: 0.68rem;
+  color: #555;
+}
+
+/* ── Cart ───────────────────────────────────────────────────── */
+.shop-cart {
+  margin-bottom: 3rem;
+}
+
+.shop-cart-empty {
+  font-size: 0.85rem;
+  color: #555;
+  padding: 1rem 0;
+}
+
+.shop-cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  color: #ccc;
+}
+
+.shop-cart-table thead th {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  text-align: left;
+  padding: 0 0 0.6rem;
+  border-bottom: 1px solid #222;
+}
+
+.shop-cart-table thead th:last-child { text-align: right; }
+
+.shop-cart-table tbody tr { border-bottom: 1px solid #1c1c1c; }
+.shop-cart-table tbody tr:last-child { border-bottom: none; }
+
+.shop-cart-table tbody td {
+  padding: 0.7rem 0;
+  vertical-align: middle;
+}
+
+.shop-cart-table tbody td:last-child { text-align: right; }
+
+.shop-cart-code {
+  font-size: 0.80rem;
+  color: #aaa;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Thumbnail (updated 60 × 60) ────────────────────────────── */
+.shop-cart-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  background: #1a1a1a;
+}
+
+.shop-cart-remove-btn {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 1.0rem;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  transition: color 0.12s;
+}
+
+.shop-cart-remove-btn:hover { color: #c0392b; }
+
+/* Cart totals */
+.shop-cart-totals {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.shop-totals-row {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.shop-totals-row.is-total {
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.shop-totals-label {
+  min-width: 80px;
+  text-align: right;
+}
+
+.shop-totals-value {
+  min-width: 72px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-shipping-free { color: #4caf72; }
+
+/* ── Clear cart ─────────────────────────────────────────────── */
+.shop-clear-cart-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.shop-clear-cart-btn {
+  background: none;
+  border: none;
+  color: #4a4a4a;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.12s;
+}
+
+.shop-clear-cart-btn:hover { color: #888; }
+
+.shop-clear-confirm {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.shop-clear-confirm-text {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.shop-clear-yes-btn,
+.shop-clear-no-btn {
+  background: none;
+  border: 1px solid #2e2e2e;
+  border-radius: 2px;
+  color: #aaa;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.70rem;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.shop-clear-yes-btn:hover { border-color: #c0392b; color: #e08080; }
+.shop-clear-no-btn:hover  { border-color: #555;    color: #ddd; }
+
+/* ── Checkout form ──────────────────────────────────────────── */
+.shop-checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-address-heading {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  padding-top: 0.75rem;
+  border-top: 1px solid #1c1c1c;
+  margin-top: 0.25rem;
+}
+
+/* ── Order summary block ────────────────────────────────────── */
+.shop-order-summary {
+  background: #0d0d0d;
+  border: 1px solid #1c1c1c;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.shop-summary-title {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.shop-summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.shop-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-summary-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+  background: #1a1a1a;
+}
+
+.shop-summary-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.shop-summary-code {
+  font-size: 0.80rem;
+  color: #aaa;
+  letter-spacing: 0.04em;
+}
+
+.shop-summary-qty {
+  font-size: 0.72rem;
+  color: #555;
+}
+
+.shop-summary-price {
+  font-size: 0.82rem;
+  color: #ccc;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-summary-totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.shop-summary-row {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.82rem;
+  color: #777;
+}
+
+.shop-summary-row.is-total {
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: 0.90rem;
+}
+
+/* ── PayPal separator ───────────────────────────────────────── */
+.shop-paypal-separator {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 1.5rem 0;
+}
+
+/* ── PayPal container ───────────────────────────────────────── */
+#paypal-button-container {
+  min-height: 45px;
+  margin-top: 0.5rem;
+}
+
+.shop-paypal-wrapper {
+  position: relative;
+}
+
+.shop-paypal-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  border-radius: 3px;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.80rem;
+  color: #aaa;
+  letter-spacing: 0.05em;
+}
+
+.shop-paypal-overlay.is-visible { display: flex; }
+
+/* ── Status / notices ───────────────────────────────────────── */
+.shop-notice {
+  font-size: 0.82rem;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  border-left: 3px solid transparent;
+  line-height: 1.5;
+}
+
+.shop-notice--error   { background: rgba(155,58,58,0.12);   border-color: #9b3a3a; color: #e08080; }
+.shop-notice--success { background: rgba(40,120,60,0.12);   border-color: #2e6b3e; color: #7ec99a; }
+.shop-notice--info    { background: rgba(60,80,120,0.12);   border-color: #3a5f9b; color: #80a8e0; }
+
+/* ── Order confirmation ─────────────────────────────────────── */
+.shop-confirmation {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.shop-confirmation-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.shop-confirmation-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin: 0 0 0.5rem;
+}
+
+.shop-confirmation-greeting {
+  font-size: 0.92rem;
+  color: #ccc;
+  margin: 0 0 1.25rem;
+}
+
+.shop-confirmation-details {
+  background: #0d0d0d;
+  border: 1px solid #1c1c1c;
+  border-radius: 3px;
+  padding: 0.6rem 1rem;
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.shop-confirmation-detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.shop-confirmation-detail-row:last-child { border-bottom: none; }
+
+.shop-confirmation-detail-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555;
+}
+
+.shop-confirmation-detail-value {
+  font-size: 0.78rem;
+  color: #aaa;
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+  text-align: right;
+}
+
+.shop-confirmation-items {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.shop-confirmation-items-title {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.shop-confirmation-item-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #1c1c1c;
+  font-size: 0.82rem;
+}
+
+.shop-confirmation-item-row:last-child { border-bottom: none; }
+
+.shop-confirmation-item-code {
+  color: #aaa;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-confirmation-item-qty { color: #555; }
+
+.shop-confirmation-item-price {
+  color: #ccc;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-confirmation-total {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  text-align: left;
+  margin: 0 0 0.5rem;
+}
+
+.shop-confirmation-restart {
+  margin-top: 1.5rem;
+  background: none;
+  border: 1px solid #2e2e2e;
+  border-radius: 3px;
+  color: #aaa;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1.25rem;
+  text-transform: uppercase;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.shop-confirmation-restart:hover { border-color: #555; color: #ddd; }
+
+/* ── Loading ─────────────────────────────────────────────────── */
+.shop-loading {
+  color: #555;
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .shop-pane {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  /* ── CRITICAL iOS FIX: prevent auto-zoom on input focus ── */
+  .shop-input,
+  .shop-select {
+    font-size: 16px;
+  }
+
+  /* ── Touch targets: minimum 44px ── */
+  .shop-qty-btn {
+    padding: 0.75rem 1.1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .shop-add-btn {
+    width: 100%;
+    padding: 1rem;
+    align-self: stretch;
+    font-size: 0.85rem;
+  }
+
+  .shop-size-btn {
+    flex: 1 1 auto;
+    min-width: 54px;
+    padding: 0.65rem 0.5rem;
+  }
+
+  /* ── Cart table: collapse to block layout ── */
+  .shop-cart-table thead {
+    display: none;
+  }
+
+  .shop-cart-table tbody td {
+    display: block;
+    padding: 0.3rem 0;
+  }
+
+  .shop-cart-table tbody td:last-child {
+    text-align: left;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #1c1c1c;
+  }
+
+  .shop-cart-table tbody tr { border-bottom: none; }
+
+  /* ── Confirmation layout ── */
+  .shop-confirmation-details,
+  .shop-confirmation-items { margin-left: 0; margin-right: 0; }
+
+  .shop-confirmation-detail-row {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .shop-confirmation-detail-value { text-align: left; }
+
+  /* ── Summary item: allow wrapping ── */
+  .shop-summary-item { flex-wrap: wrap; }
+
+  /* ── Clear cart controls ── */
+  .shop-clear-cart-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  /* ── PayPal wrapper: ensure full width ── */
+  .shop-paypal-wrapper {
+    margin: 0;
+  }
+}
+}

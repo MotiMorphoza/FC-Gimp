@@ -1,0 +1,16 @@
+{
+  "title": "Dogy Style",
+  "codePrefix": "DGS",
+  "description": "A playful photo series of man’s best friend, capturing humor, movement, and the unique personality of dogs within the urban environment.",
+  "images": [
+    { "src": "01.jpg", "caption": "" },
+    { "src": "02.jpg", "caption": "" },
+    { "src": "03.jpg", "caption": "" },
+    { "src": "04.jpg", "caption": "" },
+    { "src": "05.jpg", "caption": "" },
+    { "src": "06.jpg", "caption": "" },
+    { "src": "07.jpg", "caption": "" },
+    { "src": "08.jpg", "caption": "" },
+    { "src": "09.jpg", "caption": "" }
+  ]
+}
