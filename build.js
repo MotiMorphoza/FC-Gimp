@@ -1,14 +1,4 @@
-להלן קובץ **מלא ומתוקן** עם שלב המרה ל-WebP באמצעות `sharp`, ללא שינוי בשאר הלוגיקה של ה-build.
 
-לפני שימוש יש להתקין:
-
-```bash
-npm install sharp
-```
-
----
-
-```
 'use strict';
 
 const fs   = require('fs');
@@ -365,4 +355,4 @@ if (require.main === module) {
 }
 
 module.exports = SuperBuild;
-```
+
