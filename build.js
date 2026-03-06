@@ -1,4 +1,3 @@
-
 'use strict';
 
 const fs   = require('fs');
@@ -14,7 +13,6 @@ const HeadOrchestrator  = require('./build/head-orchestrator');
 const Versioning        = require('./build/versioning');
 const AtomicDeployer    = require('./build/atomic-deployer');
 
-// ▼ SHOP PATCH
 const { generateShopIndex } = require('./build/shop-index-generator');
 
 class SuperBuild {
@@ -41,25 +39,19 @@ class SuperBuild {
       const tempDir = this.deployer.initTempDir(this.rootDir);
       this.deployer.copyToTemp(this.rootDir, tempDir);
 
-      // ─────────────────────────────────────────────
-      // Convert project images to WebP
-      // ─────────────────────────────────────────────
-      await this.convertProjectImages(tempDir);
+      // -------------------------------------------------
+      // Convert source images to WebP into build/projects
+      // -------------------------------------------------
+      await this.buildProjectsWebp(tempDir);
 
-      // ─────────────────────────────────────────────
+      // -------------------------------------------------
       // Validate projects
-      // ─────────────────────────────────────────────
+      // -------------------------------------------------
       const projects = this.scanner.scanProjectsFromRoot(tempDir);
       this.logger.info(`Validated ${projects.length} projects`);
 
-      // ─────────────────────────────────────────────
-      // Projects manifest
-      // ─────────────────────────────────────────────
       this.generateProjectsManifest(projects, tempDir);
 
-      // ─────────────────────────────────────────────
-      // Image manifest
-      // ─────────────────────────────────────────────
       const manifestData = this.manifestGenerator.createManifestData(
         this.scanner,
         path.join(tempDir, 'images'),
@@ -70,21 +62,12 @@ class SuperBuild {
       this.manifestGenerator.generate(manifestData, manifestPath);
       const manifestContent = fs.readFileSync(manifestPath, 'utf8');
 
-      // ─────────────────────────────────────────────
-      // Preliminary version
-      // ─────────────────────────────────────────────
       const prelimVersion = this.versioning.generateVersion(new Map(), manifestContent);
       this.versioning.createVersionFile(tempDir, prelimVersion);
 
-      // ─────────────────────────────────────────────
-      // Hash assets
-      // ─────────────────────────────────────────────
       this.hasher.hashAssets(tempDir, this.scanner);
       const renameMap = this.hasher.getRenameMap();
 
-      // ─────────────────────────────────────────────
-      // Final version
-      // ─────────────────────────────────────────────
       const BUILD_VERSION = this.versioning.generateVersion(renameMap, manifestContent);
 
       const jsDir = path.join(tempDir, 'js');
@@ -104,20 +87,11 @@ class SuperBuild {
 
       }
 
-      // ─────────────────────────────────────────────
-      // SHOP INDEX
-      // ─────────────────────────────────────────────
       await this.buildShopIndex(tempDir, BUILD_VERSION);
 
-      // ─────────────────────────────────────────────
-      // Rewrite HTML
-      // ─────────────────────────────────────────────
       const htmlFiles = this.scanner.findHtmlFiles(tempDir);
       this.htmlProcessor.processHtmlFiles(htmlFiles, tempDir, renameMap);
 
-      // ─────────────────────────────────────────────
-      // Rewrite partials
-      // ─────────────────────────────────────────────
       const partialsDir = path.join(tempDir, 'partials');
 
       if (fs.existsSync(partialsDir)) {
@@ -136,9 +110,6 @@ class SuperBuild {
 
       }
 
-      // ─────────────────────────────────────────────
-      // Rewrite CSS
-      // ─────────────────────────────────────────────
       const cssDir = path.join(tempDir, 'css');
 
       if (fs.existsSync(cssDir)) {
@@ -167,9 +138,6 @@ class SuperBuild {
 
       }
 
-      // ─────────────────────────────────────────────
-      // Rewrite manifest JS
-      // ─────────────────────────────────────────────
       const manifestFile = fs.readdirSync(jsDir).find(f =>
         /^image-manifest\.[a-f0-9]{8}\.js$/.test(f)
       );
@@ -177,7 +145,6 @@ class SuperBuild {
       if (!manifestFile) throw new Error('Hashed manifest file not found');
 
       const manifestFullPath = path.join(jsDir, manifestFile);
-
       let manifestJs = fs.readFileSync(manifestFullPath, 'utf8');
 
       for (const [oldPath, newPath] of renameMap.entries()) {
@@ -193,9 +160,6 @@ class SuperBuild {
 
       fs.writeFileSync(manifestFullPath, manifestJs, 'utf8');
 
-      // ─────────────────────────────────────────────
-      // HEAD orchestration
-      // ─────────────────────────────────────────────
       const assets = {
         versionScriptPath: hashedVersionFile ? `js/${hashedVersionFile}` : null,
         renameMap,
@@ -205,7 +169,6 @@ class SuperBuild {
       for (const htmlFile of htmlFiles) {
 
         const filePath = path.join(tempDir, htmlFile);
-
         let html = fs.readFileSync(filePath, 'utf8');
 
         const orchestrator = new HeadOrchestrator({
@@ -218,14 +181,10 @@ class SuperBuild {
         });
 
         html = orchestrator.buildHead(html);
-
         fs.writeFileSync(filePath, html, 'utf8');
 
       }
 
-      // ─────────────────────────────────────────────
-      // Deploy
-      // ─────────────────────────────────────────────
       this.htmlProcessor.verifyReferences(htmlFiles, tempDir);
       this.deployer.deploy(this.rootDir);
       this.logger.printSummary(path.join(this.rootDir, 'docs'));
@@ -242,54 +201,71 @@ class SuperBuild {
 
   }
 
-  // ─────────────────────────────────────────────
-  // Convert JPG/PNG project images to WebP
-  // ─────────────────────────────────────────────
-  async convertProjectImages(tempDir) {
+  // -------------------------------------------------
+  // Convert JPG → WebP for projects
+  // -------------------------------------------------
+  async buildProjectsWebp(tempDir) {
 
-    const projectsDir = path.join(tempDir, 'src', 'projects');
+    const srcProjects  = path.join(tempDir, 'src', 'projects');
+    const buildProjects = path.join(tempDir, 'projects');
 
-    if (!fs.existsSync(projectsDir)) return;
+    if (!fs.existsSync(srcProjects)) return;
 
-    const projects = fs.readdirSync(projectsDir);
+    fs.rmSync(buildProjects, { recursive: true, force: true });
+    fs.mkdirSync(buildProjects, { recursive: true });
+
+    const projects = fs.readdirSync(srcProjects);
 
     for (const project of projects) {
 
-      const projectDir = path.join(projectsDir, project);
+      const srcDir  = path.join(srcProjects, project);
+      const destDir = path.join(buildProjects, project);
 
-      if (!fs.statSync(projectDir).isDirectory()) continue;
+      if (!fs.statSync(srcDir).isDirectory()) continue;
 
-      const files = fs.readdirSync(projectDir);
+      fs.mkdirSync(destDir, { recursive: true });
+
+      const files = fs.readdirSync(srcDir);
 
       for (const file of files) {
 
+        const srcPath = path.join(srcDir, file);
+
+        if (file === 'project.json') {
+
+          const json = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+
+          json.images = json.images.map(img => ({
+            ...img,
+            src: img.src.replace(/\.(jpg|jpeg|png)$/i, '.webp')
+          }));
+
+          fs.writeFileSync(
+            path.join(destDir, 'project.json'),
+            JSON.stringify(json, null, 2)
+          );
+
+          continue;
+        }
+
         if (!file.match(/\.(jpg|jpeg|png)$/i)) continue;
 
-        const srcPath = path.join(projectDir, file);
-
-        const destPath = path.join(
-          projectDir,
-          file.replace(/\.(jpg|jpeg|png)$/i, '.webp')
-        );
+        const webpName = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        const destPath = path.join(destDir, webpName);
 
         await sharp(srcPath)
           .resize({ width: 1200, withoutEnlargement: true })
           .webp({ quality: 80 })
           .toFile(destPath);
 
-        fs.unlinkSync(srcPath);
-
       }
 
     }
 
-    this.logger.info('Project images converted to WebP');
+    this.logger.info('Projects converted to WebP');
 
   }
 
-  // ─────────────────────────────────────────────
-  // SHOP
-  // ─────────────────────────────────────────────
   async buildShopIndex(tempDir, BUILD_VERSION) {
 
     const projectsDir = path.join(tempDir, 'projects');
@@ -339,9 +315,7 @@ class SuperBuild {
     for (const item of ['index.html', 'css', 'js', 'images']) {
 
       if (!fs.existsSync(path.join(this.rootDir, item))) {
-
         throw new Error(`Missing required item: ${item}`);
-
       }
 
     }
@@ -355,4 +329,3 @@ if (require.main === module) {
 }
 
 module.exports = SuperBuild;
-
