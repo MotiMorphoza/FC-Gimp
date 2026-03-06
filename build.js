@@ -207,7 +207,7 @@ class SuperBuild {
   // ▼ SHOP PATCH FUNCTION
   async buildShopIndex(tempDir, BUILD_VERSION) {
 
-    const projectsDir = path.join(tempDir, 'src', 'projects');
+    const projectsDir = path.join(tempDir, 'projects');
     const outputDir   = path.join(tempDir, 'shop');
 
     fs.mkdirSync(outputDir, { recursive: true });
