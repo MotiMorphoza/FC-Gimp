@@ -1,6 +1,6 @@
 {
   "title": "Star Dust",
-  "codePrefix": "DS",
+  "codePrefix": "STD",
   "description": "We are planets inside a planet, fractals within fractals — each dressed in its own frock coat.",
   "images": [
     { "src": "01.jpg", "caption": "" },
