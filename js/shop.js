@@ -1,20 +1,4 @@
-/**
- * shop.js  –  MotoSynteza Shop (v4)
- *
- * Changes vs v3
- * ─────────────
- * 1. PayPal cancellation freeze fixed:
- *      – onCancel / onClose / onError all call restoreAfterCancel()
- *      – restoreAfterCancel() schedules schedulePayPalRefresh()
- *        so buttons auto-restore without page reload
- *      – _paymentApproved guard prevents double-restore on normal flow
- *      – destroyPayPal() always called before any re-render (idempotent)
- * 2. CLEAR CART always appended / visible when cart has items
- * 3. EmailJS payload carries full per-item breakdown:
- *      code, sizeId, sizeLabel, qty, unit price, line total
- *    plus subtotal / shipping / grand total as formatted strings
- *    and items_json (structured array) for richer templates
- */
+/* shop.js  –  MotoSynteza Shop (v4) */
 
 /* ============================================================
    CONFIGURATION

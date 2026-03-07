@@ -19,29 +19,21 @@ shop.html
 </body>
 </html>
 
+
+
+
+
+
+
 -----------------------------------------------
 
 
 
 
 
-/**
- * shop.js  –  MotoSynteza Shop (v4)
- *
- * Changes vs v3
- * ─────────────
- * 1. PayPal cancellation freeze fixed:
- *      – onCancel / onClose / onError all call restoreAfterCancel()
- *      – restoreAfterCancel() schedules schedulePayPalRefresh()
- *        so buttons auto-restore without page reload
- *      – _paymentApproved guard prevents double-restore on normal flow
- *      – destroyPayPal() always called before any re-render (idempotent)
- * 2. CLEAR CART always appended / visible when cart has items
- * 3. EmailJS payload carries full per-item breakdown:
- *      code, sizeId, sizeLabel, qty, unit price, line total
- *    plus subtotal / shipping / grand total as formatted strings
- *    and items_json (structured array) for richer templates
- */
+
+
+/* shop.js  –  MotoSynteza Shop (v4) */
 
 /* ============================================================
    CONFIGURATION
@@ -1518,41 +1510,25 @@ if (document.readyState === 'loading') {
 
 
 
+
+
 --------------------------------------------------------------
 
 
 
-layout.js
 
 
-/* ============================================================
+
+
+
+
+/* ==============================
    layout.js  –  MotoSynteza (v4)
+   ============================== */
 
-   Changes vs v3
-   ─────────────
-   1. Slide indicator completely removed
-        – ensureSlideIndicator(), configureProjectSlideIndicator() deleted
-        – removeSlideIndicator() deleted
-        – syncOptionalShellElements no longer manages #slideIndicator
-   2. Image protection layer (initImageProtection)
-        – contextmenu disabled on .project-gallery img and .lightbox img
-        – dragstart disabled on those images
-        – CSS-level protection added via JS (touch-callout, user-drag)
-        – Toast "MotoSynteza – Art at the Speed of Light" on right-click
-        – Transparent overlay div per figure (reduces mobile long-press save)
-   3. Floating project title (initFloatingTitle)
-        – Fixed element in top gap area; hidden inside lightbox
-        – IntersectionObserver on first image: visible once first image
-          centre scrolls out of view
-   4. Next Project section (appendNextProject)
-        – Appended to .project-content after gallery
-        – Uses window.__PROJECTS__ manifest; wraps to first when at last
-        – Navigates via existing PJAX (loadPage)
-   ============================================================ */
-
-/* =========================
-   SIDEBAR LOADER
-========================= */
+/* ========================= 
+     SIDEBAR LOADER 
+ ========================= */
 
 async function loadSidebar() {
   const placeholder = document.querySelector("[data-sidebar]");
@@ -2332,8 +2308,12 @@ document.addEventListener("DOMContentLoaded", initPage);
 
 
 
-projects.js
 
+
+
+/* =========================
+       projects.js
+========================= */
 
 
 function initProjectsPage() {
@@ -2504,846 +2484,204 @@ document.addEventListener("DOMContentLoaded", initProjectsPage);
 
 
 
-
-/* ============================================================
-   shop.css  –  MotoSynteza Shop
-   Dark theme, professional, minimalist.
-   ============================================================ */
-
-/* ── Reset / scope ──────────────────────────────────────────── */
-.shop-pane {
-  padding: 2.5rem 1.5rem 4rem;
-}
-
-/* ── Shop root wrapper ──────────────────────────────────────── */
-#shop-root {
-  max-width: 540px;
-  margin: 0 auto;
-}
-
-/* ── Section headings ───────────────────────────────────────── */
-.shop-section-title {
-  font-size: 0.70rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #888;
-  margin: 0 0 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-/* ── Intro section ──────────────────────────────────────────── */
-.shop-intro {
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.shop-intro-para {
-  font-size: 0.85rem;
-  line-height: 1.65;
-  color: #888;
-  margin: 0 0 0.45rem;
-}
-
-.shop-intro-price {
-  color: #bbb;
-  font-size: 0.82rem;
-}
-
-/* ── Intro pricing table ────────────────────────────────────── */
-.shop-intro-pricing {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 0.75rem 0 0.5rem;
-  border: 1px solid #1e1e1e;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.shop-intro-pricing-row {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr auto;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.75rem;
-  border-bottom: 1px solid #1a1a1a;
-  font-size: 0.80rem;
-}
-
-.shop-intro-pricing-row:last-child { border-bottom: none; }
-
-.shop-intro-pricing-size {
-  font-weight: 600;
-  color: #ccc;
-  letter-spacing: 0.04em;
-}
-
-.shop-intro-pricing-dims { color: #555; }
-
-.shop-intro-pricing-price {
-  color: #aaa;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-
-/* ── Add-to-cart form ───────────────────────────────────────── */
-.shop-add-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.shop-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.shop-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #aaa;
-}
-
-.shop-input,
-.shop-select {
-  background: #111;
-  border: 1px solid #2e2e2e;
-  border-radius: 3px;
-  color: #e0e0e0;
-  font-size: 0.92rem;
-  font-family: inherit;
-  padding: 0.65rem 0.85rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  width: 100%;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.shop-input::placeholder {
-  color: #444;
-}
-
-.shop-input:focus,
-.shop-select:focus {
-  outline: none;
-  border-color: #555;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.04);
-}
-
-.shop-input[aria-invalid="true"],
-.shop-select[aria-invalid="true"] {
-  border-color: #9b3a3a;
-  box-shadow: 0 0 0 2px rgba(155,58,58,0.18);
-}
-
-.shop-input[aria-invalid="false"],
-.shop-select[aria-invalid="false"] {
-  border-color: #2e6b3e;
-}
-
-.shop-validation-msg {
-  font-size: 0.72rem;
-  min-height: 1em;
-  color: #9b3a3a;
-  letter-spacing: 0.02em;
-}
-
-.shop-validation-msg.is-valid {
-  color: #4caf72;
-}
-
-/* Quantity stepper */
-.shop-qty-row {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  width: 120px;
-}
-
-.shop-qty-btn {
-  background: #1a1a1a;
-  border: 1px solid #2e2e2e;
-  color: #ccc;
-  font-size: 1.1rem;
-  line-height: 1;
-  padding: 0.6rem 0.9rem;
-  cursor: pointer;
-  transition: background 0.12s, color 0.12s;
-  user-select: none;
-}
-
-.shop-qty-btn:hover {
-  background: #252525;
-  color: #fff;
-}
-
-.shop-qty-btn:first-child {
-  border-radius: 3px 0 0 3px;
-  border-right: none;
-}
-
-.shop-qty-btn:last-child {
-  border-radius: 0 3px 3px 0;
-  border-left: none;
-}
-
-.shop-qty-display {
-  background: #111;
-  border: 1px solid #2e2e2e;
-  border-left: none;
-  border-right: none;
-  color: #e0e0e0;
-  font-size: 0.92rem;
-  text-align: center;
-  padding: 0.6rem 0;
-  width: 48px;
-  flex-shrink: 0;
-}
-
-/* Add button */
-.shop-add-btn {
-  background: #e0e0e0;
-  border: none;
-  border-radius: 3px;
-  color: #111;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.80rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 0.75rem 1.5rem;
-  text-transform: uppercase;
-  transition: background 0.15s, transform 0.08s;
-  align-self: flex-start;
-}
-
-.shop-add-btn:hover  { background: #fff; }
-.shop-add-btn:active { transform: scale(0.98); }
-
-.shop-add-btn:disabled {
-  background: #2a2a2a;
-  color: #555;
-  cursor: not-allowed;
-  transform: none;
-}
-
-
-/* ── Size selector ──────────────────────────────────────────── */
-.shop-size-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.shop-size-selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.shop-size-btn {
-  background: #111;
-  border: 1px solid #2e2e2e;
-  border-radius: 3px;
-  color: #888;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  font-family: inherit;
-  padding: 0.5rem 0.65rem;
-  min-width: 60px;
-  min-height: 44px;          /* touch target */
-  transition: border-color 0.12s, color 0.12s, background 0.12s;
-  text-align: center;
-}
-
-.shop-size-btn:hover {
-  border-color: #555;
-  color: #ccc;
-  background: #161616;
-}
-
-.shop-size-btn.is-selected {
-  border-color: #555;
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
-
-.shop-size-btn-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.shop-size-btn-dims {
-  font-size: 0.60rem;
-  opacity: 0.6;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.shop-size-btn-price {
-  font-size: 0.70rem;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.shop-size-price-display {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #e0e0e0;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.03em;
-}
-
-/* ── Size in cart table ─────────────────────────────────────── */
-.shop-cart-size-cell { white-space: nowrap; }
-
-.shop-cart-size {
-  font-size: 0.75rem;
-  color: #666;
-  letter-spacing: 0.03em;
-}
-
-/* ── Size in order summary ──────────────────────────────────── */
-.shop-summary-size {
-  font-size: 0.68rem;
-  color: #555;
-}
-
-/* ── Cart ───────────────────────────────────────────────────── */
-.shop-cart {
-  margin-bottom: 3rem;
-}
-
-.shop-cart-empty {
-  font-size: 0.85rem;
-  color: #555;
-  padding: 1rem 0;
-}
-
-.shop-cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-  color: #ccc;
-}
-
-.shop-cart-table thead th {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #666;
-  text-align: left;
-  padding: 0 0 0.6rem;
-  border-bottom: 1px solid #222;
-}
-
-.shop-cart-table thead th:last-child { text-align: right; }
-
-.shop-cart-table tbody tr { border-bottom: 1px solid #1c1c1c; }
-.shop-cart-table tbody tr:last-child { border-bottom: none; }
-
-.shop-cart-table tbody td {
-  padding: 0.7rem 0;
-  vertical-align: middle;
-}
-
-.shop-cart-table tbody td:last-child { text-align: right; }
-
-.shop-cart-code {
-  font-size: 0.80rem;
-  color: #aaa;
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-/* ── Thumbnail (updated 60 × 60) ────────────────────────────── */
-.shop-cart-thumb {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 2px;
-  display: block;
-  background: #1a1a1a;
-}
-
-.shop-cart-remove-btn {
-  background: none;
-  border: none;
-  color: #555;
-  cursor: pointer;
-  font-size: 1.0rem;
-  line-height: 1;
-  padding: 0.2rem 0.4rem;
-  transition: color 0.12s;
-}
-
-.shop-cart-remove-btn:hover { color: #c0392b; }
-
-/* Cart totals */
-.shop-cart-totals {
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid #2a2a2a;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.35rem;
-}
-
-.shop-totals-row {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.85rem;
-  color: #999;
-}
-
-.shop-totals-row.is-total {
-  color: #e0e0e0;
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-
-.shop-totals-label {
-  min-width: 80px;
-  text-align: right;
-}
-
-.shop-totals-value {
-  min-width: 72px;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.shop-shipping-free { color: #4caf72; }
-
-/* ── Clear cart ─────────────────────────────────────────────── */
-.shop-clear-cart-actions {
-  margin-top: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.shop-clear-cart-btn {
-  background: none;
-  border: none;
-  color: #4a4a4a;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color 0.12s;
-}
-
-.shop-clear-cart-btn:hover { color: #888; }
-
-.shop-clear-confirm {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.shop-clear-confirm-text {
-  font-size: 0.78rem;
-  color: #888;
-}
-
-.shop-clear-yes-btn,
-.shop-clear-no-btn {
-  background: none;
-  border: 1px solid #2e2e2e;
-  border-radius: 2px;
-  color: #aaa;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.70rem;
-  letter-spacing: 0.04em;
-  padding: 0.2rem 0.55rem;
-  transition: border-color 0.12s, color 0.12s;
-}
-
-.shop-clear-yes-btn:hover { border-color: #c0392b; color: #e08080; }
-.shop-clear-no-btn:hover  { border-color: #555;    color: #ddd; }
-
-/* ── Checkout form ──────────────────────────────────────────── */
-.shop-checkout-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.shop-address-heading {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #555;
-  padding-top: 0.75rem;
-  border-top: 1px solid #1c1c1c;
-  margin-top: 0.25rem;
-}
-
-/* ── Order summary block ────────────────────────────────────── */
-.shop-order-summary {
-  background: #0d0d0d;
-  border: 1px solid #1c1c1c;
-  border-radius: 3px;
-  padding: 1rem;
-  margin-bottom: 0;
-}
-
-.shop-summary-title {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #555;
-  margin-bottom: 0.75rem;
-}
-
-.shop-summary-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid #1c1c1c;
-}
-
-.shop-summary-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.shop-summary-thumb {
-  width: 44px;
-  height: 44px;
-  object-fit: cover;
-  border-radius: 2px;
-  flex-shrink: 0;
-  background: #1a1a1a;
-}
-
-.shop-summary-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.shop-summary-code {
-  font-size: 0.80rem;
-  color: #aaa;
-  letter-spacing: 0.04em;
-}
-
-.shop-summary-qty {
-  font-size: 0.72rem;
-  color: #555;
-}
-
-.shop-summary-price {
-  font-size: 0.82rem;
-  color: #ccc;
-  font-variant-numeric: tabular-nums;
-}
-
-.shop-summary-totals {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.3rem;
-}
-
-.shop-summary-row {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.82rem;
-  color: #777;
-}
-
-.shop-summary-row.is-total {
-  color: #e0e0e0;
-  font-weight: 600;
-  font-size: 0.90rem;
-}
-
-/* ── PayPal separator ───────────────────────────────────────── */
-.shop-paypal-separator {
-  border: none;
-  border-top: 1px solid #2a2a2a;
-  margin: 1.5rem 0;
-}
-
-/* ── PayPal container ───────────────────────────────────────── */
-#paypal-button-container {
-  min-height: 45px;
-  margin-top: 0.5rem;
-}
-
-.shop-paypal-wrapper {
-  position: relative;
-}
-
-.shop-paypal-overlay {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  border-radius: 3px;
-  z-index: 10;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.80rem;
-  color: #aaa;
-  letter-spacing: 0.05em;
-}
-
-.shop-paypal-overlay.is-visible { display: flex; }
-
-/* ── Status / notices ───────────────────────────────────────── */
-.shop-notice {
-  font-size: 0.82rem;
-  padding: 0.75rem 1rem;
-  border-radius: 3px;
-  border-left: 3px solid transparent;
-  line-height: 1.5;
-}
-
-.shop-notice--error   { background: rgba(155,58,58,0.12);   border-color: #9b3a3a; color: #e08080; }
-.shop-notice--success { background: rgba(40,120,60,0.12);   border-color: #2e6b3e; color: #7ec99a; }
-.shop-notice--info    { background: rgba(60,80,120,0.12);   border-color: #3a5f9b; color: #80a8e0; }
-
-/* ── Order confirmation ─────────────────────────────────────── */
-.shop-confirmation {
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.shop-confirmation-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.shop-confirmation-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #e0e0e0;
-  margin: 0 0 0.5rem;
-}
-
-.shop-confirmation-greeting {
-  font-size: 0.92rem;
-  color: #ccc;
-  margin: 0 0 1.25rem;
-}
-
-.shop-confirmation-details {
-  background: #0d0d0d;
-  border: 1px solid #1c1c1c;
-  border-radius: 3px;
-  padding: 0.6rem 1rem;
-  margin: 0 0 1rem;
-  text-align: left;
-}
-
-.shop-confirmation-detail-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.35rem 0;
-  border-bottom: 1px solid #1c1c1c;
-}
-
-.shop-confirmation-detail-row:last-child { border-bottom: none; }
-
-.shop-confirmation-detail-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #555;
-}
-
-.shop-confirmation-detail-value {
-  font-size: 0.78rem;
-  color: #aaa;
-  font-variant-numeric: tabular-nums;
-  word-break: break-all;
-  text-align: right;
-}
-
-.shop-confirmation-items {
-  margin: 0 0 1rem;
-  text-align: left;
-}
-
-.shop-confirmation-items-title {
-  font-size: 0.68rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-.shop-confirmation-item-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #1c1c1c;
-  font-size: 0.82rem;
-}
-
-.shop-confirmation-item-row:last-child { border-bottom: none; }
-
-.shop-confirmation-item-code {
-  color: #aaa;
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-.shop-confirmation-item-qty { color: #555; }
-
-.shop-confirmation-item-price {
-  color: #ccc;
-  font-variant-numeric: tabular-nums;
-}
-
-.shop-confirmation-total {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #e0e0e0;
-  text-align: left;
-  margin: 0 0 0.5rem;
-}
-
-.shop-confirmation-restart {
-  margin-top: 1.5rem;
-  background: none;
-  border: 1px solid #2e2e2e;
-  border-radius: 3px;
-  color: #aaa;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  padding: 0.6rem 1.25rem;
-  text-transform: uppercase;
-  transition: border-color 0.12s, color 0.12s;
-}
-
-.shop-confirmation-restart:hover { border-color: #555; color: #ddd; }
-
-/* ── Loading ─────────────────────────────────────────────────── */
-.shop-loading {
-  color: #555;
-  font-size: 0.85rem;
-  padding: 2rem 0;
-  text-align: center;
-  letter-spacing: 0.06em;
-}
-
-/* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 700px) {
-  .shop-pane {
-    padding: 1.5rem 1rem 3rem;
+'use strict';
+
+/**
+ * shop-index-generator.js
+ *
+ * Build-time module for MotoSynteza.
+ * Scans all /projects/<slug>/ directories, validates project.json files,
+ * generates descending image codes, and writes /docs/shop/index.json.
+ *
+ * Descending logic:
+ *   Given N images, image[0] gets code PREFIX-00N, image[N-1] gets PREFIX-001.
+ *   Padding width = number of digits in N (minimum 3).
+ */
+
+const fs   = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+
+// ─── Validation helpers ─────────────────────────────────────────────────────
+
+const CODE_PREFIX_RE = /^[A-Z0-9]+$/;
+
+function validateCodePrefix(prefix, slug) {
+  if (!prefix || typeof prefix !== 'string') {
+    throw new Error(`[shop-index-generator] Project "${slug}" is missing codePrefix.`);
   }
-
-  /* ── CRITICAL iOS FIX: prevent auto-zoom on input focus ── */
-  .shop-input,
-  .shop-select {
-    font-size: 16px;
-  }
-
-  /* ── Touch targets: minimum 44px ── */
-  .shop-qty-btn {
-    padding: 0.75rem 1.1rem;
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .shop-add-btn {
-    width: 100%;
-    padding: 1rem;
-    align-self: stretch;
-    font-size: 0.85rem;
-  }
-
-  .shop-size-btn {
-    flex: 1 1 auto;
-    min-width: 54px;
-    padding: 0.65rem 0.5rem;
-  }
-
-  /* ── Cart table: collapse to block layout ── */
-  .shop-cart-table thead {
-    display: none;
-  }
-
-  .shop-cart-table tbody td {
-    display: block;
-    padding: 0.3rem 0;
-  }
-
-  .shop-cart-table tbody td:last-child {
-    text-align: left;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid #1c1c1c;
-  }
-
-  .shop-cart-table tbody tr { border-bottom: none; }
-
-  /* ── Confirmation layout ── */
-  .shop-confirmation-details,
-  .shop-confirmation-items { margin-left: 0; margin-right: 0; }
-
-  .shop-confirmation-detail-row {
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-
-  .shop-confirmation-detail-value { text-align: left; }
-
-  /* ── Summary item: allow wrapping ── */
-  .shop-summary-item { flex-wrap: wrap; }
-
-  /* ── Clear cart controls ── */
-  .shop-clear-cart-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  /* ── PayPal wrapper: ensure full width ── */
-  .shop-paypal-wrapper {
-    margin: 0;
+  if (!CODE_PREFIX_RE.test(prefix)) {
+    throw new Error(
+      `[shop-index-generator] Project "${slug}" has invalid codePrefix "${prefix}". ` +
+      `Only A–Z and 0–9 are allowed (no lowercase, spaces, symbols, or unicode).`
+    );
   }
 }
+
+function validateImagesArray(images, slug) {
+  if (!Array.isArray(images) || images.length === 0) {
+    throw new Error(
+      `[shop-index-generator] Project "${slug}" has no images or images is not an array.`
+    );
+  }
 }
 
+function validateImageFilesExist(images, projectDir, slug) {
+  for (const img of images) {
+    const fullPath = path.join(projectDir, img.src);
+    if (!fs.existsSync(fullPath)) {
+      throw new Error(
+        `[shop-index-generator] Project "${slug}" references image "${img.src}" ` +
+        `which does not exist at "${fullPath}".`
+      );
+    }
+  }
+}
+
+// ─── Code generation ─────────────────────────────────────────────────────────
+
+/**
+ * Generate padded descending codes for a project's image array.
+ *
+ * @param {string} prefix   - e.g. "UU"
+ * @param {number} total    - total number of images in the project
+ * @param {number} index    - 0-based index of the image
+ * @returns {string}        - e.g. "UU-012"
+ */
+function generateImageCode(prefix, total, index) {
+  const padWidth = Math.max(3, String(total).length);
+  const number   = total - index;                     // descending
+  return `${prefix}-${String(number).padStart(padWidth, '0')}`;
+}
+
+// ─── Main export ──────────────────────────────────────────────────────────────
+
+/**
+ * generateShopIndex
+ *
+ * @param {object} opts
+ * @param {string} opts.projectsDir   - absolute path to /projects source
+ * @param {string} opts.outputDir     - absolute path to /docs/shop
+ * @param {string} [opts.buildVersion] - hash string to embed / use as filename suffix
+ * @param {boolean} [opts.hashFilename] - if true, write index.<hash>.json instead of index.json
+ *
+ * @returns {{ outputPath: string, manifest: object }}
+ */
+function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename = false }) {
+  if (!fs.existsSync(projectsDir)) {
+    throw new Error(`[shop-index-generator] projectsDir does not exist: "${projectsDir}"`);
+  }
+
+  const slugs = fs.readdirSync(projectsDir).filter(name => {
+    const full = path.join(projectsDir, name);
+    return fs.statSync(full).isDirectory();
+  });
+
+  if (slugs.length === 0) {
+    throw new Error(`[shop-index-generator] No projects found in "${projectsDir}".`);
+  }
+
+  const seenPrefixes = new Map(); // prefix → slug
+  const seenCodes    = new Set(); // full image codes across ALL projects
+  const projects     = [];
+
+  for (const slug of slugs) {
+    const projectDir  = path.join(projectsDir, slug);
+    const jsonPath    = path.join(projectDir, 'project.json');
+
+    if (!fs.existsSync(jsonPath)) {
+      console.warn(`[shop-index-generator] Skipping "${slug}" – no project.json found.`);
+      continue;
+    }
+
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    } catch (e) {
+      throw new Error(`[shop-index-generator] Failed to parse project.json for "${slug}": ${e.message}`);
+    }
+
+    const { title, codePrefix, description, images } = data;
+
+    // Validate codePrefix
+    validateCodePrefix(codePrefix, slug);
+
+    // Unique prefix check
+    if (seenPrefixes.has(codePrefix)) {
+      throw new Error(
+        `[shop-index-generator] Duplicate codePrefix "${codePrefix}" found in ` +
+        `"${slug}" and "${seenPrefixes.get(codePrefix)}". All prefixes must be unique.`
+      );
+    }
+    seenPrefixes.set(codePrefix, slug);
+
+    // Validate images
+    validateImagesArray(images, slug);
+    validateImageFilesExist(images, projectDir, slug);
+
+    // Generate codes
+    const total = images.length;
+    const imageEntries = images.map((img, index) => {
+      const code = generateImageCode(codePrefix, total, index);
+
+      if (seenCodes.has(code)) {
+        // Should never happen as prefixes are unique, but guard anyway
+        throw new Error(
+          `[shop-index-generator] Duplicate image code "${code}" generated. ` +
+          `This indicates a logic error – please report.`
+        );
+      }
+      seenCodes.add(code);
+
+      return {
+        code,
+        src: img.src,
+        caption: img.caption || '',
+        thumbnailUrl: `projects/${slug}/${img.src}`
+      };
+    });
+
+    projects.push({
+      projectCode: codePrefix,
+      title: title || slug,
+      description: description || '',
+      folder: `projects/${slug}`,
+      images: imageEntries
+    });
+  }
+
+  // ── Write output ──────────────────────────────────────────────────────────
+
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    buildVersion: buildVersion || null,
+    projects
+  };
+
+  const json = JSON.stringify(manifest, null, 2);
+
+  // Determine filename
+  let filename;
+  if (hashFilename) {
+    const hash = crypto.createHash('sha256').update(json).digest('hex').slice(0, 12);
+    filename = `index.${hash}.json`;
+  } else {
+    filename = 'index.json';
+  }
+
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  const outputPath = path.join(outputDir, filename);
+  fs.writeFileSync(outputPath, json, 'utf8');
+
+  console.log(`[shop-index-generator] Wrote ${projects.length} project(s) → "${outputPath}"`);
+
+  return { outputPath, filename, manifest };
+}
+
+module.exports = { generateShopIndex, generateImageCode };
 
 
 
@@ -3351,13 +2689,25 @@ document.addEventListener("DOMContentLoaded", initProjectsPage);
 
 
 
--------------------------------------------------------
 
 
 
 
 
-style.css
+--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+//   CSS/STYLE.CSS
+
+
 
 :root {
   --bg: #000;
@@ -3669,6 +3019,7 @@ body {
   margin: 0;
   color: #c9c9c9;
   line-height: 1.6;
+  white-space: pre-line;
 }
 .separator {
   display: flex;
@@ -4168,6 +3519,7 @@ body:has(.lightbox.active) .project-floating-title {
     left: 260px;
   }
 }
+
 
 /* ===================================================================
    MOBILE  (≤ 700px)
@@ -5215,15 +4567,16 @@ body:has(.lightbox.active) .project-floating-title {
 
 
 
+--------------------------------------------------------------------------------
 
 
 
----------------------------------------------------------
 
 
 
 
-sidebar.html
+
+//   sidebar.html
 
 
 
@@ -5284,10 +4637,23 @@ sidebar.html
 
 
 
+
+
+
+
+
 ------------------------------------------------------------
 
 
-build.js
+
+
+
+
+
+
+
+
+//   build.js
 
 
 
@@ -5305,8 +4671,8 @@ const HeadOrchestrator  = require('./build/head-orchestrator');
 const Versioning        = require('./build/versioning');
 const AtomicDeployer    = require('./build/atomic-deployer');
 
-// ▼ SHOP PATCH: correct functional import
-const { generateShopIndex } = require('./build/shop-index-generator');
+const { generateShopIndex }      = require('./build/shop-index-generator');
+const { convertProjectImages }   = require('./build/image-converter');
 
 class SuperBuild {
 
@@ -5331,20 +4697,34 @@ class SuperBuild {
       const tempDir = this.deployer.initTempDir(this.rootDir);
       this.deployer.copyToTemp(this.rootDir, tempDir);
 
-      // ─────────────────────────────────────────────
-      // Validate projects (source inside temp)
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Convert project images  JPG/PNG → WebP
+      //
+      // Must run AFTER copyToTemp (works on the temp copy, never touches src/)
+      // and BEFORE scanProjectsFromRoot (scanner must see .webp + updated JSON)
+      //
+      // Handles both layouts:
+      //   src/projects/  (standard)  → writes to tempDir/projects/, removes
+      //                                tempDir/src/projects/ so the scanner's
+      //                                getProjectsSourceDir() falls back to
+      //                                tempDir/projects/ (which gets deployed
+      //                                to docs/projects/).
+      //   projects/      (flat)      → converts in-place inside tempDir/projects/
+      // ─────────────────────────────────────────────────────────────────────
+      await convertProjectImages(tempDir, this.logger);
+
+      // ─────────────────────────────────────────────────────────────────────
+      // Validate projects
+      // Scanner now finds tempDir/projects/ with .webp images and updated JSON
+      // ─────────────────────────────────────────────────────────────────────
       const projects = this.scanner.scanProjectsFromRoot(tempDir);
       this.logger.info(`Validated ${projects.length} projects`);
 
-      // ─────────────────────────────────────────────
-      // Generate projects manifest
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Generate manifests
+      // ─────────────────────────────────────────────────────────────────────
       this.generateProjectsManifest(projects, tempDir);
 
-      // ─────────────────────────────────────────────
-      // Image manifest
-      // ─────────────────────────────────────────────
       const manifestData = this.manifestGenerator.createManifestData(
         this.scanner,
         path.join(tempDir, 'images'),
@@ -5355,21 +4735,21 @@ class SuperBuild {
       this.manifestGenerator.generate(manifestData, manifestPath);
       const manifestContent = fs.readFileSync(manifestPath, 'utf8');
 
-      // ─────────────────────────────────────────────
-      // Preliminary version
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Versioning (preliminary pass – before asset hashing)
+      // ─────────────────────────────────────────────────────────────────────
       const prelimVersion = this.versioning.generateVersion(new Map(), manifestContent);
       this.versioning.createVersionFile(tempDir, prelimVersion);
 
-      // ─────────────────────────────────────────────
-      // Hash assets
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Hash CSS / JS / images in tempDir/images  (NOT project images)
+      // ─────────────────────────────────────────────────────────────────────
       this.hasher.hashAssets(tempDir, this.scanner);
       const renameMap = this.hasher.getRenameMap();
 
-      // ─────────────────────────────────────────────
-      // Final BUILD_VERSION
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Final BUILD_VERSION (incorporates rename map)
+      // ─────────────────────────────────────────────────────────────────────
       const BUILD_VERSION = this.versioning.generateVersion(renameMap, manifestContent);
 
       const jsDir = path.join(tempDir, 'js');
@@ -5386,21 +4766,20 @@ class SuperBuild {
         );
       }
 
-      // ─────────────────────────────────────────────
-      // ▼ SHOP PATCH – generate shop/index.json
-      // Must be BEFORE deploy
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Generate shop/index.json (reads tempDir/projects/*.json – already webp)
+      // ─────────────────────────────────────────────────────────────────────
       await this.buildShopIndex(tempDir, BUILD_VERSION);
 
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       // Rewrite HTML
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       const htmlFiles = this.scanner.findHtmlFiles(tempDir);
       this.htmlProcessor.processHtmlFiles(htmlFiles, tempDir, renameMap);
 
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       // Rewrite partials
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       const partialsDir = path.join(tempDir, 'partials');
       if (fs.existsSync(partialsDir)) {
         fs.readdirSync(partialsDir)
@@ -5414,9 +4793,9 @@ class SuperBuild {
           });
       }
 
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       // Rewrite CSS url()
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       const cssDir = path.join(tempDir, 'css');
       if (fs.existsSync(cssDir)) {
         fs.readdirSync(cssDir)
@@ -5435,9 +4814,9 @@ class SuperBuild {
           });
       }
 
-      // ─────────────────────────────────────────────
-      // Rewrite manifest JS
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
+      // Rewrite image-manifest JS
+      // ─────────────────────────────────────────────────────────────────────
       const manifestFile = fs.readdirSync(jsDir).find(f =>
         /^image-manifest\.[a-f0-9]{8}\.js$/.test(f)
       );
@@ -5457,9 +4836,9 @@ class SuperBuild {
 
       fs.writeFileSync(manifestFullPath, manifestJs, 'utf8');
 
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       // HEAD orchestration
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       const assets = {
         versionScriptPath: hashedVersionFile ? `js/${hashedVersionFile}` : null,
         renameMap,
@@ -5483,9 +4862,9 @@ class SuperBuild {
         fs.writeFileSync(filePath, html, 'utf8');
       }
 
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       // Verify & Deploy
-      // ─────────────────────────────────────────────
+      // ─────────────────────────────────────────────────────────────────────
       this.htmlProcessor.verifyReferences(htmlFiles, tempDir);
       this.deployer.deploy(this.rootDir);
       this.logger.printSummary(path.join(this.rootDir, 'docs'));
@@ -5497,9 +4876,10 @@ class SuperBuild {
     }
   }
 
-  // ▼ SHOP PATCH FUNCTION
+  // ─────────────────────────────────────────────────────────────────────────
+  // Shop index
+  // ─────────────────────────────────────────────────────────────────────────
   async buildShopIndex(tempDir, BUILD_VERSION) {
-
     const projectsDir = path.join(tempDir, 'projects');
     const outputDir   = path.join(tempDir, 'shop');
 
@@ -5517,14 +4897,18 @@ class SuperBuild {
     );
   }
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // Projects manifest  (window.__PROJECTS__)
+  // ─────────────────────────────────────────────────────────────────────────
   generateProjectsManifest(projects, tempDir) {
     const outputPath = path.join(tempDir, 'js', 'projects-manifest.js');
+
     const payload = projects.map(p => ({
-      slug: p.slug,
-      title: p.title,
+      slug:        p.slug,
+      title:       p.title,
       description: p.description || '',
-      cover: p.images[0]?.src || '',
-      imageCount: p.images.length
+      cover:       p.images[0]?.src || '',
+      imageCount:  p.images.length
     }));
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -5537,6 +4921,9 @@ class SuperBuild {
     this.logger.info('Generated projects manifest');
   }
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // Source validation
+  // ─────────────────────────────────────────────────────────────────────────
   validateSource() {
     for (const item of ['index.html', 'css', 'js', 'images']) {
       if (!fs.existsSync(path.join(this.rootDir, item))) {
@@ -5556,225 +4943,29 @@ module.exports = SuperBuild;
 
 
 
+
+
+
+
+
 ---------------------------------------------------------
 
 
 
 
-shop-index-generator.js
-
-
-'use strict';
-
-/**
- * shop-index-generator.js
- *
- * Build-time module for MotoSynteza.
- * Scans all /projects/<slug>/ directories, validates project.json files,
- * generates descending image codes, and writes /docs/shop/index.json.
- *
- * Descending logic:
- *   Given N images, image[0] gets code PREFIX-00N, image[N-1] gets PREFIX-001.
- *   Padding width = number of digits in N (minimum 3).
- */
-
-const fs   = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-
-// ─── Validation helpers ─────────────────────────────────────────────────────
-
-const CODE_PREFIX_RE = /^[A-Z0-9]+$/;
-
-function validateCodePrefix(prefix, slug) {
-  if (!prefix || typeof prefix !== 'string') {
-    throw new Error(`[shop-index-generator] Project "${slug}" is missing codePrefix.`);
-  }
-  if (!CODE_PREFIX_RE.test(prefix)) {
-    throw new Error(
-      `[shop-index-generator] Project "${slug}" has invalid codePrefix "${prefix}". ` +
-      `Only A–Z and 0–9 are allowed (no lowercase, spaces, symbols, or unicode).`
-    );
-  }
-}
-
-function validateImagesArray(images, slug) {
-  if (!Array.isArray(images) || images.length === 0) {
-    throw new Error(
-      `[shop-index-generator] Project "${slug}" has no images or images is not an array.`
-    );
-  }
-}
-
-function validateImageFilesExist(images, projectDir, slug) {
-  for (const img of images) {
-    const fullPath = path.join(projectDir, img.src);
-    if (!fs.existsSync(fullPath)) {
-      throw new Error(
-        `[shop-index-generator] Project "${slug}" references image "${img.src}" ` +
-        `which does not exist at "${fullPath}".`
-      );
-    }
-  }
-}
-
-// ─── Code generation ─────────────────────────────────────────────────────────
-
-/**
- * Generate padded descending codes for a project's image array.
- *
- * @param {string} prefix   - e.g. "UU"
- * @param {number} total    - total number of images in the project
- * @param {number} index    - 0-based index of the image
- * @returns {string}        - e.g. "UU-012"
- */
-function generateImageCode(prefix, total, index) {
-  const padWidth = Math.max(3, String(total).length);
-  const number   = total - index;                     // descending
-  return `${prefix}-${String(number).padStart(padWidth, '0')}`;
-}
-
-// ─── Main export ──────────────────────────────────────────────────────────────
-
-/**
- * generateShopIndex
- *
- * @param {object} opts
- * @param {string} opts.projectsDir   - absolute path to /projects source
- * @param {string} opts.outputDir     - absolute path to /docs/shop
- * @param {string} [opts.buildVersion] - hash string to embed / use as filename suffix
- * @param {boolean} [opts.hashFilename] - if true, write index.<hash>.json instead of index.json
- *
- * @returns {{ outputPath: string, manifest: object }}
- */
-function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename = false }) {
-  if (!fs.existsSync(projectsDir)) {
-    throw new Error(`[shop-index-generator] projectsDir does not exist: "${projectsDir}"`);
-  }
-
-  const slugs = fs.readdirSync(projectsDir).filter(name => {
-    const full = path.join(projectsDir, name);
-    return fs.statSync(full).isDirectory();
-  });
-
-  if (slugs.length === 0) {
-    throw new Error(`[shop-index-generator] No projects found in "${projectsDir}".`);
-  }
-
-  const seenPrefixes = new Map(); // prefix → slug
-  const seenCodes    = new Set(); // full image codes across ALL projects
-  const projects     = [];
-
-  for (const slug of slugs) {
-    const projectDir  = path.join(projectsDir, slug);
-    const jsonPath    = path.join(projectDir, 'project.json');
-
-    if (!fs.existsSync(jsonPath)) {
-      console.warn(`[shop-index-generator] Skipping "${slug}" – no project.json found.`);
-      continue;
-    }
-
-    let data;
-    try {
-      data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-    } catch (e) {
-      throw new Error(`[shop-index-generator] Failed to parse project.json for "${slug}": ${e.message}`);
-    }
-
-    const { title, codePrefix, description, images } = data;
-
-    // Validate codePrefix
-    validateCodePrefix(codePrefix, slug);
-
-    // Unique prefix check
-    if (seenPrefixes.has(codePrefix)) {
-      throw new Error(
-        `[shop-index-generator] Duplicate codePrefix "${codePrefix}" found in ` +
-        `"${slug}" and "${seenPrefixes.get(codePrefix)}". All prefixes must be unique.`
-      );
-    }
-    seenPrefixes.set(codePrefix, slug);
-
-    // Validate images
-    validateImagesArray(images, slug);
-    validateImageFilesExist(images, projectDir, slug);
-
-    // Generate codes
-    const total = images.length;
-    const imageEntries = images.map((img, index) => {
-      const code = generateImageCode(codePrefix, total, index);
-
-      if (seenCodes.has(code)) {
-        // Should never happen as prefixes are unique, but guard anyway
-        throw new Error(
-          `[shop-index-generator] Duplicate image code "${code}" generated. ` +
-          `This indicates a logic error – please report.`
-        );
-      }
-      seenCodes.add(code);
-
-      return {
-        code,
-        src: img.src,
-        caption: img.caption || '',
-        thumbnailUrl: `projects/${slug}/${img.src}`
-      };
-    });
-
-    projects.push({
-      projectCode: codePrefix,
-      title: title || slug,
-      description: description || '',
-      folder: `projects/${slug}`,
-      images: imageEntries
-    });
-  }
-
-  // ── Write output ──────────────────────────────────────────────────────────
-
-  const manifest = {
-    generatedAt: new Date().toISOString(),
-    buildVersion: buildVersion || null,
-    projects
-  };
-
-  const json = JSON.stringify(manifest, null, 2);
-
-  // Determine filename
-  let filename;
-  if (hashFilename) {
-    const hash = crypto.createHash('sha256').update(json).digest('hex').slice(0, 12);
-    filename = `index.${hash}.json`;
-  } else {
-    filename = 'index.json';
-  }
-
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-  }
-
-  const outputPath = path.join(outputDir, filename);
-  fs.writeFileSync(outputPath, json, 'utf8');
-
-  console.log(`[shop-index-generator] Wrote ${projects.length} project(s) → "${outputPath}"`);
-
-  return { outputPath, filename, manifest };
-}
-
-module.exports = { generateShopIndex, generateImageCode };
 
 
 
 
 
 
------------------------------------------------------------
+
+//   build/head-orchestrator.js
 
 
 
 
 
-// build/head-orchestrator.js
 'use strict';
 
 class HeadOrchestrator {
@@ -5997,7 +5188,18 @@ module.exports = HeadOrchestrator;
 
 ------------------------------------------------------------------
 
-scanner.js
+
+
+
+
+
+
+
+
+
+//   build/scanner.js
+
+
 
 
 const fs = require('fs');
@@ -6283,9 +5485,16 @@ module.exports = Scanner;
 
 
 
-manifest-generator.js
+
+
+
+
 
 // build/manifest-generator.js
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 
@@ -6341,9 +5550,13 @@ module.exports = ManifestGenerator;
 
 
 
-atomic-deployer.js
+
 
 // build/atomic-deployer.js
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 const Scanner = require('./scanner');
@@ -6491,9 +5704,14 @@ module.exports = AtomicDeployer;
 
 
 
-html-processor.js
+
+
 
 // build/html-processor.js
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 
@@ -6756,11 +5974,17 @@ module.exports = HtmlProcessor;
 ---------------------------------------------------------------
 
 
-hasher.js
+
+
 
 
 
 // build/hasher.js
+
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -6899,13 +6123,26 @@ module.exports = Hasher;
 
 
 
+
+
+
+
+
+
 -----------------------------------------------------------
 
 
-csp-injector.js
+
+
+
+
 
 
 // build/logger.js
+
+
+
+
 const fs = require('fs');
 const path = require('path');
 
@@ -6997,9 +6234,20 @@ class Logger {
 module.exports = Logger;
 
 
+
+
+
+
+
+
 -----------------------------------------------
 
-project.html
+
+
+
+
+
+//   project.html
 
 
 <!doctype html>
@@ -7036,9 +6284,24 @@ project.html
 </html>
 
 
+
+
+
+
+
+
 -------------------------------------------------------
 
-projects.html
+
+
+
+
+
+//   projects.html
+
+
+
+
 
 <!doctype html>
 <html lang="en">
@@ -7060,10 +6323,21 @@ projects.html
 </html>
 
 
+
+
+
+
+
 ---------------------------------------------------------------
 
 
-main.html
+
+
+
+//  main.html
+
+
+
 
 <!doctype html>
 <html lang="en">
@@ -7090,10 +6364,18 @@ main.html
 </html>
 
 
+
+
+
+
 ---------------------------------------------------------
 
 
-projects.json
+
+
+
+
+//  projects.json
 
 
 {

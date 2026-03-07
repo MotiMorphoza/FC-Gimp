@@ -1,31 +1,10 @@
-/* ============================================================
+/* ==============================
    layout.js  –  MotoSynteza (v4)
+   ============================== */
 
-   Changes vs v3
-   ─────────────
-   1. Slide indicator completely removed
-        – ensureSlideIndicator(), configureProjectSlideIndicator() deleted
-        – removeSlideIndicator() deleted
-        – syncOptionalShellElements no longer manages #slideIndicator
-   2. Image protection layer (initImageProtection)
-        – contextmenu disabled on .project-gallery img and .lightbox img
-        – dragstart disabled on those images
-        – CSS-level protection added via JS (touch-callout, user-drag)
-        – Toast "MotoSynteza – Art at the Speed of Light" on right-click
-        – Transparent overlay div per figure (reduces mobile long-press save)
-   3. Floating project title (initFloatingTitle)
-        – Fixed element in top gap area; hidden inside lightbox
-        – IntersectionObserver on first image: visible once first image
-          centre scrolls out of view
-   4. Next Project section (appendNextProject)
-        – Appended to .project-content after gallery
-        – Uses window.__PROJECTS__ manifest; wraps to first when at last
-        – Navigates via existing PJAX (loadPage)
-   ============================================================ */
-
-/* =========================
-   SIDEBAR LOADER
-========================= */
+/* ========================= 
+     SIDEBAR LOADER 
+ ========================= */
 
 async function loadSidebar() {
   const placeholder = document.querySelector("[data-sidebar]");
