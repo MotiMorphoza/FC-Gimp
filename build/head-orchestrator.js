@@ -185,19 +185,6 @@ class HeadOrchestrator {
   }
 
   getHeroPreload() {
-    if (this.isLanding()) {
-      const landing = this.manifestData?.landing;
-      if (!landing) return null;
-
-      const images = Array.isArray(landing)
-        ? landing
-        : (landing.desktop || landing.mobile || []);
-
-      if (!images.length) return null;
-      const resolved = this.renameMap.get(images[0]) || images[0];
-      return `<link rel="preload" href="${resolved}" as="image" fetchpriority="high">`;
-    }
-
     if (this.isMain()) {
       const main = this.manifestData?.main;
       if (!Array.isArray(main) || !main.length) return null;

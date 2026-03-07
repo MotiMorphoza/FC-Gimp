@@ -453,6 +453,8 @@ async function initProjectPage() {
     }
   }
 
+  let projectTitle = "";
+
   try {
     const version = window.__BUILD_VERSION__ || Date.now();
     const res = await fetch(
