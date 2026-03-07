@@ -15,6 +15,8 @@ function initSlideshow() {
 
   slideA.className = "slide active";
   slideB.className = "slide";
+  slideA.alt = "MotoSynteza featured image";
+  slideB.alt = "MotoSynteza featured image";
   slideA.loading = "eager";
   slideA.setAttribute("fetchpriority", "high");
   slideB.loading = "lazy";
