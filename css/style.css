@@ -1990,4 +1990,8 @@ body:has(.lightbox.active) .project-floating-title {
   border: 1px solid rgba(255, 255, 255, 0.55);
   padding: 6px 18px;
   display: inline-block;
+
+.project-gallery img {
+  transform: translateZ(0);
+}
 }
