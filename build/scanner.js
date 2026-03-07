@@ -218,6 +218,23 @@ class Scanner {
     return projects;
   }
 
+  getProjectImageFiles(projectPath) {
+    const allowed = new Set(['.webp', '.jpg', '.jpeg', '.png']);
+    let files = [];
+
+    try {
+      files = fs.readdirSync(projectPath, { withFileTypes: true });
+    } catch (err) {
+      return [];
+    }
+
+    return files
+      .filter(entry => entry.isFile())
+      .map(entry => entry.name)
+      .filter(name => allowed.has(path.extname(name).toLowerCase()))
+      .sort((a, b) => a.localeCompare(b));
+  }
+
   parseProject(projectPath, slug, rootDir = process.cwd()) {
     const projectJsonPath = path.join(projectPath, 'project.json');
 
@@ -236,25 +253,19 @@ class Scanner {
       throw new Error(`Missing required "title" in ${path.relative(rootDir, projectJsonPath)}`);
     }
 
-    if (!Array.isArray(metadata.images)) {
-      throw new Error(`Missing required "images" array in ${path.relative(rootDir, projectJsonPath)}`);
+    const imageFiles = this.getProjectImageFiles(projectPath);
+    if (!imageFiles.length) {
+      throw new Error(`No image files found in ${path.relative(rootDir, projectPath)}`);
     }
 
-    const images = metadata.images.map((image, index) => {
-      if (!image || typeof image.src !== 'string' || !image.src.trim()) {
-        throw new Error(`Invalid images[${index}] in ${path.relative(rootDir, projectJsonPath)} (missing src)`);
-      }
+    const metadataImages = Array.isArray(metadata.images) ? metadata.images : [];
 
-      const imagePath = path.join(projectPath, image.src);
-      if (!fs.existsSync(imagePath)) {
-        throw new Error(`Image not found for ${path.relative(rootDir, projectJsonPath)}: ${image.src}`);
-      }
-
-      return {
-        src: image.src,
-        caption: typeof image.caption === 'string' ? image.caption : ''
-      };
-    });
+    const images = imageFiles.map((filename, index) => ({
+      src: filename,
+      caption: typeof metadataImages[index]?.caption === 'string'
+        ? metadataImages[index].caption
+        : ''
+    }));
 
     const description = typeof metadata.description === 'string' ? metadata.description : '';
 

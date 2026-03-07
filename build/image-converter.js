@@ -5,6 +5,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 const CONVERT_EXT = new Set(['.jpg', '.jpeg', '.png']);
+const PROJECT_IMAGE_EXT = new Set(['.webp', '.jpg', '.jpeg', '.png']);
 
 async function convertProjectImages(tempDir, logger) {
 
@@ -57,22 +58,14 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
     fs.mkdirSync(projectDest, { recursive: true });
 
     const files = fs.readdirSync(projectSrc);
+    const srcJsonPath = path.join(projectSrc, 'project.json');
 
     for (const file of files) {
 
       const srcFile = path.join(projectSrc, file);
       const ext = path.extname(file).toLowerCase();
 
-      if (file === 'project.json') {
-
-        rewriteProjectJson(
-          srcFile,
-          path.join(projectDest, 'project.json')
-        );
-
-        continue;
-
-      }
+      if (file === 'project.json') continue;
 
       if (CONVERT_EXT.has(ext)) {
 
@@ -90,6 +83,14 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 
       fs.copyFileSync(srcFile, path.join(projectDest, file));
 
+    }
+
+    if (fs.existsSync(srcJsonPath)) {
+      rewriteProjectJson(
+        srcJsonPath,
+        path.join(projectDest, 'project.json'),
+        projectDest
+      );
     }
 
   }
@@ -136,7 +137,7 @@ async function convertInPlace(projectsDir, logger) {
     const jsonPath = path.join(projectDir, 'project.json');
 
     if (fs.existsSync(jsonPath)) {
-      rewriteProjectJson(jsonPath, jsonPath);
+      rewriteProjectJson(jsonPath, jsonPath, projectDir);
     }
 
   }
@@ -156,24 +157,25 @@ async function convertImage(src, dest) {
 
 }
 
-function rewriteProjectJson(srcPath, destPath) {
+function listProjectImagesSorted(projectDir) {
+  return fs.readdirSync(projectDir)
+    .filter((name) => PROJECT_IMAGE_EXT.has(path.extname(name).toLowerCase()))
+    .sort((a, b) => a.localeCompare(b));
+}
+
+function rewriteProjectJson(srcPath, destPath, projectDir) {
 
   const json = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
+  const existingImages = Array.isArray(json.images) ? json.images : [];
 
-  if (Array.isArray(json.images)) {
+  const imageFiles = listProjectImagesSorted(projectDir);
 
-    json.images = json.images.map(img => {
-
-      if (typeof img.src !== 'string') return img;
-
-      return {
-        ...img,
-        src: img.src.replace(/\.(jpg|jpeg|png)$/i, '.webp')
-      };
-
-    });
-
-  }
+  json.images = imageFiles.map((filename, index) => ({
+    src: filename,
+    caption: typeof existingImages[index]?.caption === 'string'
+      ? existingImages[index].caption
+      : ''
+  }));
 
   fs.writeFileSync(destPath, JSON.stringify(json, null, 2), 'utf8');
 
