@@ -19,7 +19,9 @@ function initSlideshow() {
   slideB.alt = "MotoSynteza featured image";
   slideA.loading = "eager";
   slideA.setAttribute("fetchpriority", "high");
+  slideA.decoding = "async";
   slideB.loading = "lazy";
+  slideB.decoding = "async";
 
   viewport.appendChild(slideA);
   viewport.appendChild(slideB);
@@ -49,6 +51,7 @@ function initSlideshow() {
 
   function preload(i) {
     const img = new Image();
+    img.decoding = "async";
     img.src = manifest[i % manifest.length];
   }
 

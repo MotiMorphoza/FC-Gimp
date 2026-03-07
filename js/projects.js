@@ -34,6 +34,7 @@
     media.alt = project.title;
     media.loading = index === 0 ? "eager" : "lazy";
     if (index === 0) media.setAttribute("fetchpriority", "high");
+    media.decoding = "async";
 
     if (project.cover) {
       media.src = `projects/${project.slug}/${project.cover}`;
@@ -106,6 +107,7 @@ function enableProjectsForwardPreload(images) {
     if (!src) return;
 
     const img = new Image();
+    img.decoding = "async";
     img.src = src;
 
     preloaded.add(index);

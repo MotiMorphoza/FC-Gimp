@@ -368,6 +368,7 @@ const img = document.createElement("img");
 img.className = "next-project-media";
 img.alt = next.title || "";
 img.loading = "lazy";
+img.decoding = "async";
 
 if (next.cover) {
   img.src = `projects/${next.slug}/${next.cover}`;
@@ -487,6 +488,7 @@ async function initProjectPage() {
       img.alt         = imgData.caption || `${projectTitle} â€“ image ${index + 1}`;
       img.loading     = index === 0 ? "eager" : "lazy";
       if (index === 0) img.setAttribute("fetchpriority", "high");
+      img.decoding    = "async";
       img.decode?.().then(() => img.classList.add("is-visible"))
                    .catch(() => img.classList.add("is-visible"));
 
@@ -767,6 +769,7 @@ function enableForwardPreload(images, projectSlug) {
     if (!src) return;
 
     const img = new Image();
+    img.decoding = "async";
     img.src   = src;
 
     preloaded.add(index);
