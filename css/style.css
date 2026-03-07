@@ -808,6 +808,10 @@ body:has(.lightbox.active) .project-floating-title {
   }
 }
 
+.project-description {
+  white-space: pre-line;
+}
+
 /* ===================================================================
    MOBILE  (≤ 700px)
 =================================================================== */
