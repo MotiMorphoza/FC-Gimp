@@ -20,11 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         bg.style.backgroundImage = `url(${randomImage})`;
 
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
-        link.href = randomImage;
-        document.head.appendChild(link);
+        const existingPreload = document.querySelector(
+          `link[rel="preload"][as="image"][href="${randomImage}"]`
+        );
+        if (!existingPreload) {
+          const link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = randomImage;
+          link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        }
       }
     }
   }

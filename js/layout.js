@@ -1,4 +1,4 @@
-
+﻿
 
 
 
@@ -7,7 +7,7 @@
 
 
 /* ==============================
-   layout.js  –  MotoSynteza (v4)
+   layout.js  â€“  MotoSynteza (v4)
    ============================== */
 
 /* ========================= 
@@ -192,18 +192,18 @@ function bindProjectLightbox() {
 
 /* =========================
    IMAGE PROTECTION
-   – Right-click disabled on gallery/lightbox images
-   – Drag disabled
-   – Toast on contextmenu
-   – Transparent overlay per figure (mobile long-press reduction)
-   – PJAX-safe: listeners attached once, globally
+   â€“ Right-click disabled on gallery/lightbox images
+   â€“ Drag disabled
+   â€“ Toast on contextmenu
+   â€“ Transparent overlay per figure (mobile long-press reduction)
+   â€“ PJAX-safe: listeners attached once, globally
 ========================= */
 
 function initImageProtection() {
   if (window.__IMAGE_PROTECTION_READY__) return;
   window.__IMAGE_PROTECTION_READY__ = true;
 
-  /* ── Toast element ──────────────────────────────────────── */
+  /* â”€â”€ Toast element â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   let toastEl = document.getElementById("ms-img-toast");
   if (!toastEl) {
     toastEl           = document.createElement("div");
@@ -221,7 +221,7 @@ function initImageProtection() {
     toastTimer = setTimeout(() => toastEl.classList.remove("is-visible"), 2200);
   }
 
-  /* ── Right-click / contextmenu ──────────────────────────── */
+  /* â”€â”€ Right-click / contextmenu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   document.addEventListener("contextmenu", (e) => {
     const img = e.target.closest(".project-gallery img, .lightbox img");
     if (!img) return;
@@ -229,7 +229,7 @@ function initImageProtection() {
     showToast();
   });
 
-  /* ── Drag prevention ────────────────────────────────────── */
+  /* â”€â”€ Drag prevention â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   document.addEventListener("dragstart", (e) => {
     const img = e.target.closest(".project-gallery img, .lightbox img");
     if (!img) return;
@@ -256,9 +256,9 @@ function addImageProtectionOverlays(gallery) {
 
 /* =========================
    FLOATING PROJECT TITLE
-   – Fixed element positioned in the top gap area
-   – Visible after the first image's centre scrolls out of view
-   – Cleaned up on navigation away from project page
+   â€“ Fixed element positioned in the top gap area
+   â€“ Visible after the first image's centre scrolls out of view
+   â€“ Cleaned up on navigation away from project page
 ========================= */
 
 function initFloatingTitle(title, images) {
@@ -286,7 +286,7 @@ function initFloatingTitle(title, images) {
   const pane     = document.querySelector(".content-pane");
 
   /*
-   * On mobile (≤700px), the body/page scrolls — .content-pane has height:auto
+   * On mobile (â‰¤700px), the body/page scrolls â€” .content-pane has height:auto
    * and is not the real scroll container. Using it as IntersectionObserver root
    * means the observer never fires correctly on mobile.
    * Use null (viewport) on mobile, the pane on desktop where pane clips/scrolls.
@@ -329,9 +329,9 @@ function initFloatingTitle(title, images) {
 
 /* =========================
    NEXT PROJECT SECTION
-   – Appended to .project-content below the gallery
-   – Uses window.__PROJECTS__ manifest; wraps last → first
-   – Navigates via PJAX (window.loadPage)
+   â€“ Appended to .project-content below the gallery
+   â€“ Uses window.__PROJECTS__ manifest; wraps last â†’ first
+   â€“ Navigates via PJAX (window.loadPage)
 ========================= */
 
 function appendNextProject(contentEl, currentSlug) {
@@ -413,7 +413,7 @@ enableDecodeFade([img]);
 ========================= */
 
 async function initProjectPage() {
-  /* ── Not a project page → clean up transient elements ────── */
+  /* â”€â”€ Not a project page â†’ clean up transient elements â”€â”€â”€â”€â”€â”€ */
   if (document.body.dataset.page !== "project") {
     if (window.__FLOATING_TITLE_CLEANUP__) {
       window.__FLOATING_TITLE_CLEANUP__();
@@ -431,7 +431,7 @@ async function initProjectPage() {
   if (projectSlug) document.body.dataset.project = projectSlug;
   if (!projectSlug) return;
 
-  /* ── Ensure projects manifest is available ────────────────── *
+  /* â”€â”€ Ensure projects manifest is available â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *
    * When project.html is loaded directly (not via PJAX from    *
    * projects.html), window.__PROJECTS__ may be undefined if     *
    * projects-manifest.js was not yet executed. Fetch it now.   */
@@ -482,8 +482,9 @@ async function initProjectPage() {
 
       const img       = document.createElement("img");
       img.src         = `projects/${projectSlug}/${imgData.src}`;
-      img.alt         = imgData.caption || `${projectTitle} – image ${index + 1}`;
-      img.loading     = "lazy";
+      img.alt         = imgData.caption || `${projectTitle} â€“ image ${index + 1}`;
+      img.loading     = index === 0 ? "eager" : "lazy";
+      if (index === 0) img.setAttribute("fetchpriority", "high");
       img.decode?.().then(() => img.classList.add("is-visible"))
                    .catch(() => img.classList.add("is-visible"));
 
@@ -513,13 +514,13 @@ async function initProjectPage() {
   const images = [...document.querySelectorAll(".project-gallery img")];
   if (!images.length) return;
 
-  /* ── Transparent protection overlays ─────────────────────── */
+  /* â”€â”€ Transparent protection overlays â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   addImageProtectionOverlays(gallery);
 
-  /* ── Floating project title ───────────────────────────────── */
+  /* â”€â”€ Floating project title â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   initFloatingTitle(projectTitle, images);
 
-  /* ── Next project section ─────────────────────────────────── */
+  /* â”€â”€ Next project section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const contentEl = document.querySelector(".project-content");
   if (contentEl) appendNextProject(contentEl, projectSlug);
 
@@ -813,6 +814,7 @@ function enableDecodeFade(images) {
 
 window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
+
 
 
 

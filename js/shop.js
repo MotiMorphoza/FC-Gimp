@@ -10,6 +10,15 @@
    NOTE: SHOP_CONFIG, PRINT_SIZES and DEFAULT_SIZE_IDX are
    defined in js/config.js which must be loaded first.
    ============================================================ */
+var SHOP_CONFIG = (typeof globalThis !== 'undefined' && globalThis.SHOP_CONFIG)
+  ? globalThis.SHOP_CONFIG
+  : null;
+var PRINT_SIZES = (typeof globalThis !== 'undefined' && globalThis.PRINT_SIZES)
+  ? globalThis.PRINT_SIZES
+  : null;
+var DEFAULT_SIZE_IDX = (typeof globalThis !== 'undefined' && typeof globalThis.DEFAULT_SIZE_IDX !== 'undefined')
+  ? globalThis.DEFAULT_SIZE_IDX
+  : 2;
 
 /* ============================================================
    COUNTRY DATA  â€“  ISO 3166-1 (195 entries)
@@ -1611,6 +1620,10 @@ function initShopPage() {
   var root = document.getElementById('shop-root');
   if (!root) return;
   if (_shopLoading) return;
+  if (!SHOP_CONFIG || !Array.isArray(PRINT_SIZES)) {
+    console.error('[shop] Missing configuration (config.js)');
+    return;
+  }
 
   destroyPayPal();
   _shopLoading = true;

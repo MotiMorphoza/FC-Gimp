@@ -40,3 +40,9 @@ var PRINT_SIZES = [
 ];
 
 var DEFAULT_SIZE_IDX = 2; // A3
+
+if (typeof window !== 'undefined') {
+  window.SHOP_CONFIG = SHOP_CONFIG;
+  window.PRINT_SIZES = PRINT_SIZES;
+  window.DEFAULT_SIZE_IDX = DEFAULT_SIZE_IDX;
+}

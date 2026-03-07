@@ -15,6 +15,9 @@ function initSlideshow() {
 
   slideA.className = "slide active";
   slideB.className = "slide";
+  slideA.loading = "eager";
+  slideA.setAttribute("fetchpriority", "high");
+  slideB.loading = "lazy";
 
   viewport.appendChild(slideA);
   viewport.appendChild(slideB);

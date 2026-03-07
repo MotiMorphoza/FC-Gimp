@@ -33,6 +33,7 @@
     media.className = "project-media";
     media.alt = project.title;
     media.loading = index === 0 ? "eager" : "lazy";
+    if (index === 0) media.setAttribute("fetchpriority", "high");
 
     if (project.cover) {
       media.src = `projects/${project.slug}/${project.cover}`;

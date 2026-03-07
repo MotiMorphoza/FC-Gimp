@@ -71,6 +71,11 @@ class HeadOrchestrator {
     const heroPreload = this.getHeroPreload();
     if (heroPreload) tags.push(heroPreload);
 
+    const jsonLd = this.getJsonLd(projectMeta);
+    if (jsonLd) {
+      tags.push(`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`);
+    }
+
     if (this.assets.versionScriptPath) {
       tags.push(`<script src="${this.assets.versionScriptPath}"></script>`);
     }
@@ -81,10 +86,9 @@ class HeadOrchestrator {
       .filter(s => !/build-version\./i.test(s))
       .forEach(s => tags.push(s));
 
-    if (this.assets.cspPolicy) {
-      tags.push(
-        `<meta http-equiv="Content-Security-Policy" content="${this.assets.cspPolicy}">`
-      );
+    const cspPolicy = this.assets.cspPolicy || this.getDefaultCspPolicy();
+    if (cspPolicy) {
+      tags.push(`<meta http-equiv="Content-Security-Policy" content="${cspPolicy}">`);
     }
 
     const newHead =
@@ -191,17 +195,68 @@ class HeadOrchestrator {
 
       if (!images.length) return null;
       const resolved = this.renameMap.get(images[0]) || images[0];
-      return `<link rel="preload" href="${resolved}" as="image">`;
+      return `<link rel="preload" href="${resolved}" as="image" fetchpriority="high">`;
     }
 
     if (this.isMain()) {
       const main = this.manifestData?.main;
       if (!Array.isArray(main) || !main.length) return null;
       const resolved = this.renameMap.get(main[0]) || main[0];
-      return `<link rel="preload" href="${resolved}" as="image">`;
+      return `<link rel="preload" href="${resolved}" as="image" fetchpriority="high">`;
+    }
+
+    if (this.isProject()) {
+      const projectMeta = this.getProjectMeta();
+      if (projectMeta?.slug && Array.isArray(projectMeta.images) && projectMeta.images.length) {
+        const firstImage = projectMeta.images[0];
+        const firstSrc = typeof firstImage === 'string' ? firstImage : firstImage.src;
+        if (firstSrc) {
+          const rawPath = `projects/${projectMeta.slug}/${firstSrc}`;
+          const resolved = this.renameMap.get(rawPath) || rawPath;
+          return `<link rel="preload" href="${resolved}" as="image" fetchpriority="high">`;
+        }
+      }
     }
 
     return null;
+  }
+
+  getJsonLd(projectMeta) {
+    if (this.isProject() && projectMeta?.slug) {
+      const firstImage = Array.isArray(projectMeta.images) ? projectMeta.images[0] : null;
+      const firstSrc = firstImage ? (typeof firstImage === 'string' ? firstImage : firstImage.src) : null;
+      const imagePath = firstSrc
+        ? (this.renameMap.get(`projects/${projectMeta.slug}/${firstSrc}`) || `projects/${projectMeta.slug}/${firstSrc}`)
+        : null;
+
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'ImageObject',
+        name: projectMeta.title || 'MotoSynteza Project',
+        description: projectMeta.description || 'MotoSynteza photography project',
+        contentUrl: imagePath ? `https://motimorphoza.github.io/MotoSynteza/${imagePath}` : undefined,
+        creator: {
+          '@type': 'Person',
+          name: 'Moti Morphoza'
+        }
+      };
+    }
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'MotoSynteza',
+      url: 'https://motimorphoza.github.io/MotoSynteza/'
+    };
+  }
+
+  getDefaultCspPolicy() {
+    return [
+      "default-src 'self'",
+      "img-src 'self' data: https:",
+      "script-src 'self' 'unsafe-inline' https://www.paypal.com https://www.paypalobjects.com https://cdn.emailjs.com https://cdn.jsdelivr.net",
+      "style-src 'self' 'unsafe-inline'"
+    ].join('; ');
   }
 
   getFileName() {

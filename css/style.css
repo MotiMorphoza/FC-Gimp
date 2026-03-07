@@ -1993,5 +1993,7 @@ body:has(.lightbox.active) .project-floating-title {
 }
 
 .project-gallery img {
+  image-rendering: auto;
+  backface-visibility: hidden;
   transform: translateZ(0);
 }
