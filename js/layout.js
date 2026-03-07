@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 /* ==============================
    layout.js  –  MotoSynteza (v4)
    ============================== */
@@ -11,7 +19,7 @@ async function loadSidebar() {
   if (!placeholder) return;
 
   try {
-    const res = await fetch("/MotoSynteza/partials/sidebar.html", {
+    const res = await fetch("partials/sidebar.html", {
       credentials: "same-origin",
     });
     if (!res.ok) throw new Error("Sidebar load failed");
@@ -278,6 +286,15 @@ function initFloatingTitle(title, images) {
   const pane     = document.querySelector(".content-pane");
 
   /*
+   * On mobile (≤700px), the body/page scrolls — .content-pane has height:auto
+   * and is not the real scroll container. Using it as IntersectionObserver root
+   * means the observer never fires correctly on mobile.
+   * Use null (viewport) on mobile, the pane on desktop where pane clips/scrolls.
+   */
+  const isMobile    = () => window.matchMedia("(max-width: 700px)").matches;
+  const observerRoot = isMobile() ? null : (pane || null);
+
+  /*
    * Show the title once less than 50 % of the first image is visible.
    * Threshold 0.5 fires when exactly half the image crosses the root boundary.
    */
@@ -297,7 +314,7 @@ function initFloatingTitle(title, images) {
       });
     },
     {
-      root:      pane || null,
+      root:      observerRoot,
       threshold: [0.5],
     }
   );
@@ -411,7 +428,27 @@ async function initProjectPage() {
   if (projectSlug) document.body.dataset.project = projectSlug;
   if (!projectSlug) return;
 
-  let projectTitle = "";
+  /* ── Ensure projects manifest is available ────────────────── *
+   * When project.html is loaded directly (not via PJAX from    *
+   * projects.html), window.__PROJECTS__ may be undefined if     *
+   * projects-manifest.js was not yet executed. Fetch it now.   */
+  if (!Array.isArray(window.__PROJECTS__)) {
+    try {
+      const version = window.__BUILD_VERSION__ || Date.now();
+      const res = await fetch(
+        `js/projects-manifest.js?v=${version}`,
+        { credentials: "same-origin" }
+      );
+      if (res.ok) {
+        const scriptText = await res.text();
+        // Execute the manifest script in the global scope
+        // eslint-disable-next-line no-new-func
+        new Function(scriptText)();
+      }
+    } catch (_e) {
+      // Manifest not critical for project display; Next Project just won't appear
+    }
+  }
 
   try {
     const version = window.__BUILD_VERSION__ || Date.now();
@@ -442,6 +479,7 @@ async function initProjectPage() {
 
       const img       = document.createElement("img");
       img.src         = `projects/${projectSlug}/${imgData.src}`;
+      img.alt         = imgData.caption || `${projectTitle} – image ${index + 1}`;
       img.loading     = "lazy";
       img.decode?.().then(() => img.classList.add("is-visible"))
                    .catch(() => img.classList.add("is-visible"));
@@ -460,6 +498,13 @@ async function initProjectPage() {
     });
   } catch (err) {
     console.error(err);
+    const errEl       = document.createElement("div");
+    errEl.className   = "project-load-error";
+    errEl.setAttribute("role", "alert");
+    errEl.innerHTML   =
+      "<p>This project could not be loaded.</p>" +
+      "<p>Please <button class=\"project-reload-btn\" onclick=\"window.location.reload()\">reload the page</button> or return to <a href=\"projects.html\">Projects</a>.</p>";
+    gallery.appendChild(errEl);
   }
 
   const images = [...document.querySelectorAll(".project-gallery img")];
@@ -765,3 +810,15 @@ function enableDecodeFade(images) {
 
 window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
+
+
+
+
+
+
+
+
+
+
+
+

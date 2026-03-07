@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+//   CSS/STYLE.CSS
+
+
+
 :root {
   --bg: #000;
   --fg: #fff;
@@ -1850,3 +1863,147 @@ body:has(.lightbox.active) .project-floating-title {
     margin: 0;
   }
 }
+
+
+/* ===================================================================
+   AUTOCOMPLETE DROPDOWN  –  shop code input
+=================================================================== */
+
+/* Wrapper must be relative so dropdown positions against it */
+.shop-code-field {
+  position: relative;
+}
+
+.shop-code-suggestions {
+  position: absolute;
+  top: calc(100% - 1.2rem); /* overlap codeMsg area; repositioned below input visually */
+  left: 0;
+  right: 0;
+  z-index: 200;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #111;
+  border: 1px solid #333;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.shop-code-suggestion-item {
+  padding: 9px 12px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  cursor: pointer;
+  border-bottom: 1px solid #1e1e1e;
+  transition: background 0.1s, color 0.1s;
+  /* Larger touch target on mobile */
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.shop-code-suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.shop-code-suggestion-item:hover,
+.shop-code-suggestion-item.is-active {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+.shop-code-suggestion-item mark {
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   PROJECT LOAD ERROR STATE
+=================================================================== */
+
+.project-load-error {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.project-load-error p {
+  margin: 0 0 0.5rem;
+}
+
+.project-reload-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.project-reload-btn:hover {
+  color: #fff;
+}
+
+.project-load-error a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.project-load-error a:hover {
+  color: #fff;
+}
+
+/* ===================================================================
+   KEYBOARD FOCUS STATES  –  accessibility baseline
+=================================================================== */
+
+/* Visible focus for all interactive elements */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* Gallery image keyboard focus (lightbox trigger) */
+.project-gallery img:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Sidebar nav focus */
+.sidebar nav a:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Shop button focus */
+.shop-add-btn:focus-visible,
+.shop-size-btn:focus-visible,
+.shop-clear-cart-btn:focus-visible,
+.shop-clear-yes-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+}
+
+/* Lightbox close and nav buttons */
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+
+
+
+
+
+
+

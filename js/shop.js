@@ -1,40 +1,15 @@
+
+
+
+
+
+
 /* shop.js  –  MotoSynteza Shop (v4) */
 
 /* ============================================================
-   CONFIGURATION
+   NOTE: SHOP_CONFIG, PRINT_SIZES and DEFAULT_SIZE_IDX are
+   defined in js/config.js which must be loaded first.
    ============================================================ */
-var SHOP_CONFIG = {
-  currency:     'EUR',
-  storeCountry: 'PL',
-
-  printPrice: 20.00,   // fallback for legacy items without explicit price
-
-  shipping: {
-    local:         { base: 7.00,  freeAbove: 77.00  },
-    international: { base: 27.00, freeAbove: 222.00 }
-  },
-
-  paypalClientId:          'ARxRd7iNprUdgAfIialpz8CTQu9H8kMP5RN8rlHlnxtUQEeiURoj4nZrkNX1NqgJDn34wGA0zUMxTvxM',
-  emailjsServiceId:        'service_a5a988a',
-  emailjsTemplateCustomer: 'template_lnqp67u',
-  emailjsTemplateSeller:   'template_wmram69',
-  emailjsPublicKey:        '4TVmDiBgB9ej8IlZ2',
-
-  shopIndexUrl: 'shop/index.json'
-};
-
-/* ============================================================
-   PRINT SIZES
-   ============================================================ */
-var PRINT_SIZES = [
-  { id: 'A6', label: 'A6', dims: '10.5 \u00d7 14.8 cm', price:  2.50 },
-  { id: 'A4', label: 'A4', dims: '21 \u00d7 29.7 cm',   price: 10.00 },
-  { id: 'A3', label: 'A3', dims: '29.7 \u00d7 42 cm',   price: 20.00 },
-  { id: 'A2', label: 'A2', dims: '42 \u00d7 59.4 cm',   price: 40.00 },
-  { id: 'A1', label: 'A1', dims: '59.4 \u00d7 84.1 cm', price: 70.00 }
-];
-
-var DEFAULT_SIZE_IDX = 2; // A3
 
 /* ============================================================
    COUNTRY DATA  –  ISO 3166-1 (195 entries)
@@ -789,26 +764,171 @@ function buildShopUI(root, indexData) {
   setText(addTitle, 'Add Print');
   addSection.appendChild(addTitle);
 
-  var datalistId = 'shop-codes-list';
-
-  var codeField = el('div', { className: 'shop-field' });
+  var codeField = el('div', { className: 'shop-field shop-code-field' });
   var codeLabel = el('label', { className: 'shop-label', 'for': 'shop-code-input' });
   setText(codeLabel, 'Print Code');
   var codeInput = el('input', {
     type: 'text', id: 'shop-code-input', className: 'shop-input',
-    list: datalistId, autocomplete: 'off', placeholder: 'e.g. UU-025',
-    'aria-describedby': 'shop-code-msg'
-  });
-  var datalist = el('datalist', { id: datalistId });
-  getAllCodes().forEach(function (code) {
-    var opt = document.createElement('option'); opt.value = code; datalist.appendChild(opt);
+    autocomplete: 'off', placeholder: 'e.g. UU-025',
+    'aria-describedby': 'shop-code-msg',
+    'aria-autocomplete': 'list',
+    'aria-controls': 'shop-code-suggestions',
+    'aria-haspopup': 'listbox'
   });
   var codeMsg = el('span', {
     id: 'shop-code-msg', className: 'shop-validation-msg', role: 'status', 'aria-live': 'polite'
   });
+
+  /* ── Custom autocomplete dropdown ──────────────────────────── */
+  var suggestEl = el('ul', {
+    id: 'shop-code-suggestions',
+    className: 'shop-code-suggestions',
+    role: 'listbox',
+    'aria-label': 'Image code suggestions'
+  });
+  suggestEl.style.display = 'none';
+
+  var _activeSugIdx = -1;
+
+  function _getSugItems() {
+    return suggestEl.querySelectorAll('.shop-code-suggestion-item');
+  }
+
+  function _closeSuggestions() {
+    suggestEl.style.display = 'none';
+    _activeSugIdx = -1;
+    codeInput.removeAttribute('aria-activedescendant');
+  }
+
+  function _setActiveSuggestion(idx) {
+    var items = _getSugItems();
+    items.forEach(function (item, i) {
+      if (i === idx) {
+        item.classList.add('is-active');
+        item.setAttribute('aria-selected', 'true');
+        item.id = 'shop-sug-active';
+        codeInput.setAttribute('aria-activedescendant', 'shop-sug-active');
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.classList.remove('is-active');
+        item.setAttribute('aria-selected', 'false');
+        item.removeAttribute('id');
+      }
+    });
+    _activeSugIdx = idx;
+  }
+
+  function _selectSuggestion(code) {
+    codeInput.value = code;
+    _closeSuggestions();
+    /* Trigger validation feedback */
+    var found = lookupCode(code);
+    if (found) {
+      setText(codeMsg, '\u2713 ' + found.title);
+      codeMsg.className = 'shop-validation-msg is-valid';
+      codeInput.setAttribute('aria-invalid', 'false');
+    }
+    codeInput.focus();
+  }
+
+  function _renderSuggestions(query) {
+    while (suggestEl.firstChild) suggestEl.removeChild(suggestEl.firstChild);
+    _activeSugIdx = -1;
+    codeInput.removeAttribute('aria-activedescendant');
+
+    var q = (query || '').trim().toUpperCase();
+    if (!q) { suggestEl.style.display = 'none'; return; }
+
+    var allCodes = getAllCodes();
+    /* Prefix matches first, then contains matches */
+    var prefixMatches   = allCodes.filter(function (c) { return c.startsWith(q); });
+    var containsMatches = allCodes.filter(function (c) { return !c.startsWith(q) && c.indexOf(q) !== -1; });
+    var matches = prefixMatches.concat(containsMatches).slice(0, 12);
+
+    if (!matches.length) { suggestEl.style.display = 'none'; return; }
+
+    matches.forEach(function (code) {
+      var li = document.createElement('li');
+      li.className = 'shop-code-suggestion-item';
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', 'false');
+      li.textContent = code;
+
+      /* Highlight matching portion */
+      var idx = code.indexOf(q);
+      if (idx !== -1) {
+        li.innerHTML =
+          escapeHtml(code.slice(0, idx)) +
+          '<mark>' + escapeHtml(code.slice(idx, idx + q.length)) + '</mark>' +
+          escapeHtml(code.slice(idx + q.length));
+      }
+
+      /* mousedown prevents blur on input; click selects */
+      li.addEventListener('mousedown', function (e) { e.preventDefault(); });
+      li.addEventListener('click',     function ()  { _selectSuggestion(code); });
+
+      /* Touch: same as click */
+      li.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        _selectSuggestion(code);
+      });
+
+      suggestEl.appendChild(li);
+    });
+
+    suggestEl.style.display = '';
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  codeInput.addEventListener('input', function () {
+    _renderSuggestions(codeInput.value);
+  });
+
+  codeInput.addEventListener('keydown', function (e) {
+    var items = _getSugItems();
+    var isOpen = suggestEl.style.display !== 'none' && items.length;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!isOpen) { _renderSuggestions(codeInput.value); return; }
+      _setActiveSuggestion(Math.min(_activeSugIdx + 1, items.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!isOpen) return;
+      var next = _activeSugIdx - 1;
+      if (next < 0) {
+        _setActiveSuggestion(-1);
+        codeInput.focus();
+      } else {
+        _setActiveSuggestion(next);
+      }
+    } else if (e.key === 'Enter' && _activeSugIdx >= 0 && isOpen) {
+      e.preventDefault();
+      var active = items[_activeSugIdx];
+      if (active) _selectSuggestion(active.textContent.replace(/<[^>]+>/g, ''));
+    } else if (e.key === 'Escape') {
+      _closeSuggestions();
+    }
+  });
+
+  codeInput.addEventListener('blur', function () {
+    /* Delay allows click/touchend on suggestion items to fire first */
+    setTimeout(_closeSuggestions, 160);
+  });
+
+  codeInput.addEventListener('focus', function () {
+    if (codeInput.value.trim()) _renderSuggestions(codeInput.value);
+  });
+
   codeField.appendChild(codeLabel);
   codeField.appendChild(codeInput);
-  codeField.appendChild(datalist);
+  codeField.appendChild(suggestEl);
   codeField.appendChild(codeMsg);
 
   /* Size selector */
@@ -1464,3 +1584,16 @@ if (document.readyState === 'loading') {
 } else {
   if (document.querySelector('[data-page="shop"]')) initShopPage();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
