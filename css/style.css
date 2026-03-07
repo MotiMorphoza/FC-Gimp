@@ -2002,7 +2002,22 @@ body:has(.lightbox.active) .project-floating-title {
 }
 
 
+/* --- Background consistency fix --- */
 
+.content-pane,
+.project-content,
+.project-gallery {
+  background: #000;
+}
+
+
+/* --- Landing title frame restore --- */
+
+.landing-content h1 {
+  border: 1px solid rgba(255,255,255,0.55);
+  padding: 6px 16px;
+  display: inline-block;
+}
 
 
 
