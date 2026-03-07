@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-//   CSS/STYLE.CSS
-
-
-
 :root {
   --bg: #000;
   --fg: #fff;
@@ -1869,14 +1856,13 @@ body:has(.lightbox.active) .project-floating-title {
    AUTOCOMPLETE DROPDOWN  –  shop code input
 =================================================================== */
 
-/* Wrapper must be relative so dropdown positions against it */
 .shop-code-field {
   position: relative;
 }
 
 .shop-code-suggestions {
   position: absolute;
-  top: calc(100% - 1.2rem); /* overlap codeMsg area; repositioned below input visually */
+  top: calc(100% - 1.2rem);
   left: 0;
   right: 0;
   z-index: 200;
@@ -1901,7 +1887,6 @@ body:has(.lightbox.active) .project-floating-title {
   cursor: pointer;
   border-bottom: 1px solid #1e1e1e;
   transition: background 0.1s, color 0.1s;
-  /* Larger touch target on mobile */
   min-height: 40px;
   display: flex;
   align-items: center;
@@ -1965,27 +1950,23 @@ body:has(.lightbox.active) .project-floating-title {
    KEYBOARD FOCUS STATES  –  accessibility baseline
 =================================================================== */
 
-/* Visible focus for all interactive elements */
 :focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.6);
   outline-offset: 2px;
 }
 
-/* Gallery image keyboard focus (lightbox trigger) */
 .project-gallery img:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 4px;
   cursor: pointer;
 }
 
-/* Sidebar nav focus */
 .sidebar nav a:focus-visible {
   outline: 1px solid rgba(255, 255, 255, 0.5);
   outline-offset: 4px;
   border-radius: 2px;
 }
 
-/* Shop button focus */
 .shop-add-btn:focus-visible,
 .shop-size-btn:focus-visible,
 .shop-clear-cart-btn:focus-visible,
@@ -1994,31 +1975,19 @@ body:has(.lightbox.active) .project-floating-title {
   outline-offset: 3px;
 }
 
-/* Lightbox close and nav buttons */
 .lightbox-close:focus-visible,
 .lightbox-nav:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.7);
   outline-offset: 2px;
 }
 
-
-/* --- Background consistency fix --- */
-
-.content-pane,
-.project-content,
-.project-gallery {
-  background: #000;
-}
-
-
-/* --- Landing title frame restore --- */
+/* ===================================================================
+   LANDING PAGE TITLE  –  white frame
+=================================================================== */
 
 .landing-content h1 {
-  border: 1px solid rgba(255,255,255,0.55);
-  padding: 6px 16px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 6px 18px;
   display: inline-block;
 }
-
-
-
-
