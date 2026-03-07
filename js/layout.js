@@ -394,8 +394,11 @@ enableDecodeFade([img]);
 
   if (next.description) {
     const p    = document.createElement("p");
-    p.innerHTML =
-      next.description + ' <span class="enter">ENTER \u2192</span>';
+    p.appendChild(document.createTextNode(next.description + " "));
+    const enter = document.createElement("span");
+    enter.className = "enter";
+    enter.textContent = "ENTER \u2192";
+    p.appendChild(enter);
     text.appendChild(p);
   }
 
@@ -810,7 +813,6 @@ function enableDecodeFade(images) {
 
 window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
-
 
 
 

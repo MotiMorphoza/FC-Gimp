@@ -23,6 +23,7 @@ var SHOP_CONFIG = {
   emailjsTemplateCustomer: 'template_lnqp67u',
   emailjsTemplateSeller:   'template_wmram69',
   emailjsPublicKey:        '4TVmDiBgB9ej8IlZ2',
+  emailjsAllowedDomains:   ['motimorphoza.github.io', 'localhost', '127.0.0.1'],
 
   shopIndexUrl: 'shop/index.json'
 };

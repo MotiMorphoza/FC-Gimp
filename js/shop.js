@@ -1,10 +1,10 @@
+﻿
 
 
 
 
 
-
-/* shop.js  –  MotoSynteza Shop (v4) */
+/* shop.js  â€“  MotoSynteza Shop (v4) */
 
 /* ============================================================
    NOTE: SHOP_CONFIG, PRINT_SIZES and DEFAULT_SIZE_IDX are
@@ -12,7 +12,7 @@
    ============================================================ */
 
 /* ============================================================
-   COUNTRY DATA  –  ISO 3166-1 (195 entries)
+   COUNTRY DATA  â€“  ISO 3166-1 (195 entries)
    ============================================================ */
 var COUNTRY_LIST = [
   { code: 'AF', name: 'Afghanistan' },           { code: 'AL', name: 'Albania' },
@@ -147,7 +147,7 @@ var Storage = (function () {
       localStorage.removeItem(k);
       return true;
     } catch (e) {
-      console.warn('[shop] localStorage unavailable – using in-memory cart.');
+      console.warn('[shop] localStorage unavailable â€“ using in-memory cart.');
       return false;
     }
   }());
@@ -186,7 +186,7 @@ function saveCart(cart) {
 }
 
 /* ============================================================
-   CONFIRMATION STORAGE  (sessionStorage – survives refresh)
+   CONFIRMATION STORAGE  (sessionStorage â€“ survives refresh)
    ============================================================ */
 var CONFIRMATION_KEY = 'moto_confirmation_v1';
 
@@ -374,14 +374,14 @@ function destroyPayPal() {
  *
  * @param {Array}    cart
  * @param {object}   addressData  { name, email, street, city, postal, country, phone }
- * @param {Function} onSuccess    – called after capture
- * @param {Function} onCancelled  – called after user cancel / error; shop can re-render
+ * @param {Function} onSuccess    â€“ called after capture
+ * @param {Function} onCancelled  â€“ called after user cancel / error; shop can re-render
  */
 function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
   var container = document.getElementById('paypal-button-container');
   if (!container) return;
 
-  // Always destroy before re-render – prevents duplicate button injection
+  // Always destroy before re-render â€“ prevents duplicate button injection
   destroyPayPal();
 
   var sdkSrc = 'https://www.paypal.com/sdk/js?client-id='
@@ -397,7 +397,7 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
     // Bail if container was removed during async load (e.g. PJAX navigation)
     if (!document.getElementById('paypal-button-container')) return;
 
-    /* ── shared cancel / error recovery ───────────────────────── */
+    /* â”€â”€ shared cancel / error recovery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function restoreAfterCancel(delayMs) {
       _orderInFlight   = false;
       _paymentApproved = false;
@@ -485,13 +485,13 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
         });
       },
 
-      /* ── User closed PayPal popup without completing payment ── */
+      /* â”€â”€ User closed PayPal popup without completing payment â”€â”€ */
       onCancel: function () {
         restoreAfterCancel(400);
       },
 
-      /* ── Fires after popup closes (both approve and cancel).
-            Only act when payment was NOT approved. ── */
+      /* â”€â”€ Fires after popup closes (both approve and cancel).
+            Only act when payment was NOT approved. â”€â”€ */
       onClose: function () {
         if (!_paymentApproved) {
           restoreAfterCancel(400);
@@ -519,18 +519,76 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
 }
 
 /* ============================================================
-   EMAILJS  –  full size + price breakdown per item
+   EMAILJS  -  full size + price breakdown per item
    ============================================================ */
+function isEmailJsDomainAllowed() {
+  var allowList = SHOP_CONFIG.emailjsAllowedDomains;
+  if (!Array.isArray(allowList) || !allowList.length) return true;
+
+  var host = (window.location.hostname || '').toLowerCase();
+  if (!host) return false;
+
+  return allowList.some(function (entry) {
+    var domain = String(entry || '').trim().toLowerCase();
+    if (!domain) return false;
+    if (domain === host) return true;
+    if (domain.indexOf('*.') === 0) {
+      var suffix = domain.slice(2);
+      return host === suffix || host.endsWith('.' + suffix);
+    }
+    return false;
+  });
+}
+
+function showEmailStatus(message, type) {
+  var root = document.getElementById('shop-root');
+  var confirmation = root ? root.querySelector('#shop-confirmation') : null;
+  if (!confirmation) return;
+
+  var existing = confirmation.querySelector('.shop-email-status');
+  if (existing) existing.remove();
+
+  var notice = el('p', {
+    className: 'shop-notice shop-notice--' + (type || 'info') + ' shop-email-status'
+  });
+  setText(notice, message);
+  confirmation.appendChild(notice);
+}
+
 function sendEmailReceipt(opts) {
+  if (
+    !SHOP_CONFIG.emailjsServiceId ||
+    !SHOP_CONFIG.emailjsTemplateCustomer ||
+    !SHOP_CONFIG.emailjsTemplateSeller ||
+    !SHOP_CONFIG.emailjsPublicKey
+  ) {
+    console.warn('[shop] EmailJS configuration is incomplete; skipping receipt email.');
+    showEmailStatus('Payment succeeded. Receipt email is temporarily unavailable.', 'info');
+    return;
+  }
+
+  if (!isEmailJsDomainAllowed()) {
+    console.warn('[shop] EmailJS disabled on this host:', window.location.hostname);
+    showEmailStatus('Payment succeeded. Receipt email is unavailable on this domain.', 'info');
+    return;
+  }
+
   var sdkSrc = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
 
   loadScript(sdkSrc).then(function () {
     if (typeof window.emailjs === 'undefined') {
       console.error('[shop] emailjs SDK not available');
+      showEmailStatus('Payment succeeded. Could not initialize receipt email service.', 'info');
       return;
     }
 
-    window.emailjs.init(SHOP_CONFIG.emailjsPublicKey);
+    try {
+      window.emailjs.init(SHOP_CONFIG.emailjsPublicKey);
+    } catch (initErr) {
+      console.error('[shop] EmailJS init failed:', initErr);
+      showEmailStatus('Payment succeeded. Receipt email service failed to initialize.', 'info');
+      return;
+    }
 
     var subtotal = calculateSubtotal(opts.cart);
     var shipping = calculateShipping(opts.cart, opts.country);
@@ -543,7 +601,6 @@ function sendEmailReceipt(opts) {
       timeZone: 'Europe/Warsaw'
     });
 
-    /* ── Per-item text breakdown (one line per item) ── */
     var itemsBreakdown = opts.cart.map(function (item) {
       var unit      = item.price || SHOP_CONFIG.printPrice;
       var lineTotal = unit * (item.qty || 1);
@@ -557,7 +614,6 @@ function sendEmailReceipt(opts) {
       ].filter(Boolean).join(' ');
     }).join('\n');
 
-    /* ── Structured JSON for richer template rendering ── */
     var itemsJson = JSON.stringify(
       opts.cart.map(function (item) {
         var unit      = item.price || SHOP_CONFIG.printPrice;
@@ -589,27 +645,34 @@ function sendEmailReceipt(opts) {
       customer_email:   opts.email   || '',
       customer_phone:   opts.phone   || '',
       customer_address: fullAddress,
-      items_breakdown:  itemsBreakdown,   // plain-text one line per item
-      items_json:       itemsJson,        // structured JSON array
+      items_breakdown:  itemsBreakdown,
+      items_json:       itemsJson,
       item_count:       String(opts.cart.length),
       subtotal:         formatMoney(subtotal),
       shipping:         shipping === 0 ? 'Free' : formatMoney(shipping),
       total:            formatMoney(total)
     };
 
-    window.emailjs.send(
+    var customerSend = window.emailjs.send(
       SHOP_CONFIG.emailjsServiceId,
       SHOP_CONFIG.emailjsTemplateCustomer,
       params
     );
-    window.emailjs.send(
+
+    var sellerSend = window.emailjs.send(
       SHOP_CONFIG.emailjsServiceId,
       SHOP_CONFIG.emailjsTemplateSeller,
       params
     );
 
+    Promise.all([customerSend, sellerSend]).catch(function (sendErr) {
+      console.error('[shop] EmailJS send failed:', sendErr);
+      showEmailStatus('Payment succeeded. Receipt email could not be delivered automatically.', 'info');
+    });
+
   }).catch(function (err) {
     console.error('[shop] EmailJS load failed:', err);
+    showEmailStatus('Payment succeeded. Could not load receipt email service.', 'info');
   });
 }
 
@@ -706,7 +769,7 @@ function renderConfirmation(root, confData, indexData) {
 }
 
 /* ============================================================
-   UI  –  buildShopUI
+   UI  â€“  buildShopUI
    ============================================================ */
 function buildShopUI(root, indexData) {
   while (root.firstChild) root.removeChild(root.firstChild);
@@ -718,7 +781,7 @@ function buildShopUI(root, indexData) {
   var cart     = loadCart();
   var quantity = 1;
 
-  /* ── Intro ────────────────────────────────────────────────── */
+  /* â”€â”€ Intro â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var introSection = el('section', { className: 'shop-intro' });
   var introHdr     = el('h2', { className: 'shop-section-title' });
   setText(introHdr, 'Fine Art Prints');
@@ -758,7 +821,7 @@ function buildShopUI(root, indexData) {
 
   root.appendChild(introSection);
 
-  /* ── Add-to-cart ──────────────────────────────────────────── */
+  /* â”€â”€ Add-to-cart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var addSection = el('section', { className: 'shop-add-section' });
   var addTitle   = el('h2', { className: 'shop-section-title' });
   setText(addTitle, 'Add Print');
@@ -779,7 +842,7 @@ function buildShopUI(root, indexData) {
     id: 'shop-code-msg', className: 'shop-validation-msg', role: 'status', 'aria-live': 'polite'
   });
 
-  /* ── Custom autocomplete dropdown ──────────────────────────── */
+  /* â”€â”€ Custom autocomplete dropdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var suggestEl = el('ul', {
     id: 'shop-code-suggestions',
     className: 'shop-code-suggestions',
@@ -1002,7 +1065,7 @@ function buildShopUI(root, indexData) {
   addSection.appendChild(addForm);
   root.appendChild(addSection);
 
-  /* ── Cart ─────────────────────────────────────────────────── */
+  /* â”€â”€ Cart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var cartSection = el('section', { className: 'shop-cart' });
   var cartTitle   = el('h2', { className: 'shop-section-title' });
   setText(cartTitle, 'Cart');
@@ -1010,7 +1073,7 @@ function buildShopUI(root, indexData) {
   var cartBody = el('div', { className: 'shop-cart-body' });
   cartSection.appendChild(cartBody);
 
-  /* Clear-cart controls – created once; re-appended by renderCart */
+  /* Clear-cart controls â€“ created once; re-appended by renderCart */
   var clearCartActions = el('div', { className: 'shop-clear-cart-actions' });
   var clearBtn         = el('button', { type: 'button', className: 'shop-clear-cart-btn' });
   setText(clearBtn, 'Clear cart');
@@ -1045,7 +1108,7 @@ function buildShopUI(root, indexData) {
 
   root.appendChild(cartSection);
 
-  /* ── Checkout ─────────────────────────────────────────────── */
+  /* â”€â”€ Checkout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var checkoutSection = el('section', { className: 'shop-checkout', id: 'shop-checkout' });
   var checkoutTitle   = el('h2', { className: 'shop-section-title' });
   setText(checkoutTitle, 'Checkout');
@@ -1140,7 +1203,7 @@ function buildShopUI(root, indexData) {
 
   root.appendChild(checkoutSection);
 
-  /* ── State helpers ────────────────────────────────────────── */
+  /* â”€â”€ State helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function getEmail()   { return emailInput.value.trim(); }
   function getCountry() { return countryInput.value.trim(); }
 
@@ -1169,7 +1232,7 @@ function buildShopUI(root, indexData) {
     return !!(country && lookupCountry(country));
   }
 
-  /* ── Order summary ────────────────────────────────────────── */
+  /* â”€â”€ Order summary â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function renderOrderSummary() {
     while (orderSummaryDiv.firstChild) orderSummaryDiv.removeChild(orderSummaryDiv.firstChild);
     if (!cart.length) return;
@@ -1232,7 +1295,7 @@ function buildShopUI(root, indexData) {
     orderSummaryDiv.appendChild(totals);
   }
 
-  /* ── Cart render ──────────────────────────────────────────── */
+  /* â”€â”€ Cart render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function renderCart() {
     while (cartBody.firstChild) cartBody.removeChild(cartBody.firstChild);
 
@@ -1324,7 +1387,7 @@ function buildShopUI(root, indexData) {
     cartTotalRow('Total',    formatMoney(total), ' is-total');
     cartBody.appendChild(totalsDiv);
 
-    /* CLEAR CART – always visible when cart has items */
+    /* CLEAR CART â€“ always visible when cart has items */
     clearConfirmRow.style.display = 'none';
     clearBtn.style.display        = '';
     cartBody.appendChild(clearCartActions);
@@ -1333,7 +1396,7 @@ function buildShopUI(root, indexData) {
     renderOrderSummary();
   }
 
-  /* ── PayPal refresh with automatic cancel recovery ─────────── */
+  /* â”€â”€ PayPal refresh with automatic cancel recovery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var paypalRenderTimer = null;
 
   function schedulePayPalRefresh() {
@@ -1345,7 +1408,7 @@ function buildShopUI(root, indexData) {
         cart,
         collectAddressData(),
         onPaymentSuccess,
-        /* onCancelled – auto-restore PayPal buttons after cancel / error */
+        /* onCancelled â€“ auto-restore PayPal buttons after cancel / error */
         function () {
           if (checkoutIsValid()) schedulePayPalRefresh();
         }
@@ -1353,7 +1416,7 @@ function buildShopUI(root, indexData) {
     }, 800);
   }
 
-  /* ── Country validation ───────────────────────────────────── */
+  /* â”€â”€ Country validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function applyCountryValidation(showErrorIfEmpty) {
     var v     = countryInput.value.trim();
     var found = v ? lookupCountry(v) : null;
@@ -1388,7 +1451,7 @@ function buildShopUI(root, indexData) {
     }
   }
 
-  /* ── Input event handlers ─────────────────────────────────── */
+  /* â”€â”€ Input event handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   qtyMinus.addEventListener('click', function () {
     if (quantity > 1) quantity--;
     setText(qtyDisplay, String(quantity));
@@ -1514,7 +1577,7 @@ function buildShopUI(root, indexData) {
     renderCart();
   });
 
-  /* ── Payment success ──────────────────────────────────────── */
+  /* â”€â”€ Payment success â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function onPaymentSuccess(result) {
     var confData = {
       orderId:       result.orderId,

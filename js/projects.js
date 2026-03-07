@@ -1,4 +1,4 @@
-function initProjectsPage() {
+﻿function initProjectsPage() {
   const listEl = document.getElementById("projects-list");
   if (!listEl || listEl.dataset.initialized === "true") return;
 
@@ -55,10 +55,13 @@ function initProjectsPage() {
     h2.textContent = project.title;
 
     const p = document.createElement("p");
-    p.innerHTML = `
-      ${project.description || ""}
-      <span class="enter">ENTER →</span>
-    `;
+    if (project.description) {
+      p.appendChild(document.createTextNode(project.description + " "));
+    }
+    const enter = document.createElement("span");
+    enter.className = "enter";
+    enter.textContent = "ENTER \u2192";
+    p.appendChild(enter);
 
     textLink.appendChild(h2);
     textLink.appendChild(p);
@@ -81,13 +84,13 @@ function initProjectsPage() {
     }
   });
 
-  /* אחרי שכל ה-DOM נבנה */
+  /* ××—×¨×™ ×©×›×œ ×”-DOM × ×‘× ×” */
   const covers = [...document.querySelectorAll(".project-media")];
   enableProjectsForwardPreload(covers);
   enableDecodeFade(covers);
 }
 
-/* ===== Preload 2 קדימה ===== */
+/* ===== Preload 2 ×§×“×™×ž×” ===== */
 
 function enableProjectsForwardPreload(images) {
   if (!images.length) return;

@@ -1,4 +1,4 @@
-// build/head-orchestrator.js
+﻿// build/head-orchestrator.js
 'use strict';
 
 class HeadOrchestrator {
@@ -19,75 +19,68 @@ class HeadOrchestrator {
 
     const tags = [];
 
-    // ── BASE META ──────────────────────────────────────────
     tags.push('<meta charset="UTF-8">');
     tags.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
     tags.push('<meta name="theme-color" content="#000000">');
 
-    // ── TITLE ─────────────────────────────────────────────
     const titleMatch = innerContent.match(/<title>[\s\S]*?<\/title>/i);
     const titleTag   = titleMatch ? titleMatch[0] : '<title>MotoSynteza</title>';
     tags.push(titleTag);
-    const cleanTitle = titleTag.replace(/<\/?title>/gi, '').trim();
 
-    // ── DESCRIPTION ───────────────────────────────────────
+    const cleanTitle = titleTag.replace(/<\/?title>/gi, '').trim();
+    const projectMeta = this.getProjectMeta();
+    const effectiveTitle = projectMeta?.title
+      ? `${projectMeta.title} - MotoSynteza`
+      : cleanTitle;
+
     const description =
+      (projectMeta?.description && String(projectMeta.description).trim()) ||
       this.extractMeta(innerContent, 'description') ||
-      'MotoSynteza – conceptual photography and visual storytelling.';
+      'MotoSynteza - conceptual photography and visual storytelling.';
     tags.push(`<meta name="description" content="${description}">`);
 
-    // ── CANONICAL ─────────────────────────────────────────
     const canonical = this.buildCanonical();
     if (canonical) tags.push(`<link rel="canonical" href="${canonical}">`);
 
-    // ── OPEN GRAPH ────────────────────────────────────────
-    tags.push(`<meta property="og:title" content="${cleanTitle}">`);
+    tags.push(`<meta property="og:title" content="${effectiveTitle}">`);
     tags.push(`<meta property="og:description" content="${description}">`);
     tags.push('<meta property="og:type" content="website">');
     if (canonical) tags.push(`<meta property="og:url" content="${canonical}">`);
 
-    const ogImage = this.getOgImage();
+    const ogImage = this.getOgImage(projectMeta);
     if (ogImage) tags.push(`<meta property="og:image" content="${ogImage}">`);
 
-    // ── TWITTER CARD ──────────────────────────────────────
     tags.push('<meta name="twitter:card" content="summary_large_image">');
-    tags.push(`<meta name="twitter:title" content="${cleanTitle}">`);
+    tags.push(`<meta name="twitter:title" content="${effectiveTitle}">`);
     tags.push(`<meta name="twitter:description" content="${description}">`);
     if (ogImage) tags.push(`<meta name="twitter:image" content="${ogImage}">`);
 
-    // ── CSS ───────────────────────────────────────────────
     const mainCss = this.getMainCss();
     if (mainCss) {
       tags.push(`<link rel="stylesheet" href="${mainCss}">`);
       tags.push(`<link rel="preload" href="${mainCss}" as="style">`);
     }
 
-    // Shop-specific CSS (only injected on shop.html)
     const shopCss = this.getShopCss();
     if (shopCss) {
       tags.push(`<link rel="stylesheet" href="${shopCss}">`);
     }
 
-    // ── FAVICONS ──────────────────────────────────────────
     tags.push(...this.buildFavicons());
 
-    // ── HERO IMAGE PRELOAD ────────────────────────────────
     const heroPreload = this.getHeroPreload();
     if (heroPreload) tags.push(heroPreload);
 
-    // ── VERSION SCRIPT ───────────────────────────────────
     if (this.assets.versionScriptPath) {
       tags.push(`<script src="${this.assets.versionScriptPath}"></script>`);
     }
 
-    // ── OTHER HEAD SCRIPTS ───────────────────────────────
     const headScripts =
       innerContent.match(/<script[^>]*src=["'][^"']+["'][^>]*><\/script>/gi) || [];
     headScripts
       .filter(s => !/build-version\./i.test(s))
       .forEach(s => tags.push(s));
 
-    // ── CSP ───────────────────────────────────────────────
     if (this.assets.cspPolicy) {
       tags.push(
         `<meta http-equiv="Content-Security-Policy" content="${this.assets.cspPolicy}">`
@@ -102,8 +95,6 @@ class HeadOrchestrator {
     return html.replace(fullHead, newHead);
   }
 
-  // ── HELPERS ───────────────────────────────────────────────
-
   extractMeta(content, name) {
     const match = content.match(
       new RegExp(
@@ -115,11 +106,10 @@ class HeadOrchestrator {
 
   buildCanonical() {
     const base     = 'https://motimorphoza.github.io/MotoSynteza/';
-    const fileName = this.htmlFile.split(/[\\/]/).pop();
+    const fileName = this.getFileName();
     return base + fileName;
   }
 
-  // Returns the single hashed main CSS (style.*)
   getMainCss() {
     for (const [oldPath, newPath] of this.renameMap.entries()) {
       if (
@@ -133,7 +123,6 @@ class HeadOrchestrator {
     return null;
   }
 
-  // Returns the hashed shop CSS – only for shop.html
   getShopCss() {
     if (!this.isShop()) return null;
     for (const [oldPath, newPath] of this.renameMap.entries()) {
@@ -148,30 +137,42 @@ class HeadOrchestrator {
     const tags = [];
     for (const [oldPath, newPath] of this.renameMap.entries()) {
       if (!oldPath.toLowerCase().includes('favicon')) continue;
-      if (oldPath.includes('32'))              tags.push(`<link rel="icon" type="image/png" sizes="32x32" href="${newPath}">`);
-      if (oldPath.includes('180'))             tags.push(`<link rel="apple-touch-icon" sizes="180x180" href="${newPath}">`);
-      if (oldPath.includes('512'))             tags.push(`<link rel="icon" type="image/png" sizes="512x512" href="${newPath}">`);
-      if (/favicon\.png$/i.test(oldPath))      tags.push(`<link rel="icon" href="${newPath}">`);
+      if (oldPath.includes('32'))         tags.push(`<link rel="icon" type="image/png" sizes="32x32" href="${newPath}">`);
+      if (oldPath.includes('180'))        tags.push(`<link rel="apple-touch-icon" sizes="180x180" href="${newPath}">`);
+      if (oldPath.includes('512'))        tags.push(`<link rel="icon" type="image/png" sizes="512x512" href="${newPath}">`);
+      if (/favicon\.png$/i.test(oldPath)) tags.push(`<link rel="icon" href="${newPath}">`);
     }
     return tags;
   }
 
-  // ── OG IMAGE ─────────────────────────────────────────────
-  getOgImage() {
+  getProjectMeta() {
+    if (!this.isProject() || !Array.isArray(this.manifestData?.projects)) {
+      return null;
+    }
+
+    const fileName = this.getFileName();
+
+    if (fileName.startsWith('project-')) {
+      const slug = fileName.replace(/^project-/, '').replace(/\.html$/i, '');
+      return this.manifestData.projects.find(p => p.slug === slug) || null;
+    }
+
+    return this.manifestData.projects[0] || null;
+  }
+
+  getOgImage(projectMeta) {
     const base = 'https://motimorphoza.github.io/MotoSynteza/';
 
-    // Project page: use first image of that project
-    if (this.isProject() && Array.isArray(this.manifestData?.projects)) {
-      const key     = this.htmlFile.split(/[\\/]/).pop().replace('project-', '').replace('.html', '');
-      const project = this.manifestData.projects.find(p => p.slug === key);
-      if (project?.images?.length) {
-        const first    = project.images[0];
-        const resolved = this.renameMap.get(first) || first;
+    if (projectMeta?.slug && Array.isArray(projectMeta.images) && projectMeta.images.length) {
+      const firstImage = projectMeta.images[0];
+      const firstSrc = typeof firstImage === 'string' ? firstImage : firstImage.src;
+      if (firstSrc) {
+        const rawPath = `projects/${projectMeta.slug}/${firstSrc}`;
+        const resolved = this.renameMap.get(rawPath) || rawPath;
         return base + resolved;
       }
     }
 
-    // Fallback: any og-cover image
     for (const [oldPath, newPath] of this.renameMap.entries()) {
       if (oldPath.includes('og-cover')) return base + newPath;
     }
@@ -179,8 +180,6 @@ class HeadOrchestrator {
     return null;
   }
 
-  // ── HERO PRELOAD ─────────────────────────────────────────
-  // Handles both old (flat array) and new { desktop, mobile } manifest structure
   getHeroPreload() {
     if (this.isLanding()) {
       const landing = this.manifestData?.landing;
@@ -205,11 +204,17 @@ class HeadOrchestrator {
     return null;
   }
 
-  // ── PAGE DETECTORS ────────────────────────────────────────
-  isLanding()  { return this.htmlFile.endsWith('index.html'); }
-  isMain()     { return this.htmlFile.endsWith('main.html'); }
-  isProject()  { return this.htmlFile.includes('project-'); }
-  isShop()     { return this.htmlFile.endsWith('shop.html'); }
+  getFileName() {
+    return this.htmlFile.split(/[\\/]/).pop();
+  }
+
+  isLanding()  { return this.getFileName() === 'index.html'; }
+  isMain()     { return this.getFileName() === 'main.html'; }
+  isProject()  {
+    const fileName = this.getFileName();
+    return fileName === 'project.html' || fileName.startsWith('project-');
+  }
+  isShop()     { return this.getFileName() === 'shop.html'; }
 }
 
 module.exports = HeadOrchestrator;
