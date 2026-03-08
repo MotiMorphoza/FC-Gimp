@@ -1572,6 +1572,16 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-cart-remove-btn:hover { color: #c07070; }
 
+.cart-remove {
+  color: #ff4d4d;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-remove:hover {
+  color: #ff0000;
+}
+
 .shop-cart-empty {
   color: #555;
   font-size: 0.85rem;

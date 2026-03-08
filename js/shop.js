@@ -232,6 +232,14 @@ function getDefaultA3SizeIdx() {
   return 0;
 }
 
+function getSizeSortIdx(sizeId) {
+  if (!Array.isArray(PRINT_SIZES)) return 999;
+  for (var i = 0; i < PRINT_SIZES.length; i++) {
+    if (PRINT_SIZES[i].id === sizeId) return i;
+  }
+  return 999;
+}
+
 function addToCartByCode(rawCode, opts) {
   var code = String(rawCode || '').trim().toUpperCase();
   if (!code) return { ok: false, reason: 'missing-code' };
@@ -269,14 +277,18 @@ function addToCartByCode(rawCode, opts) {
   }
 
   if (existing) {
-    existing.qty = Math.min(99, (existing.qty || 1) + qty);
-    if (!existing.thumbnailUrl && thumb) existing.thumbnailUrl = thumb;
+    if (!existing.thumbnailUrl && thumb) {
+      existing.thumbnailUrl = thumb;
+      saveCart(cart);
+      return { ok: true, cart: cart };
+    }
+    return { ok: true, cart: cart };
   } else {
     cart.push({
       code:         code,
       sizeId:       selectedSize.id,
       sizeLabel:    selectedSize.label + ' \u2013 ' + selectedSize.dims,
-      qty:          qty,
+      qty:          1,
       price:        selectedSize.price,
       thumbnailUrl: thumb
     });
@@ -1468,6 +1480,19 @@ function buildShopUI(root, indexData) {
       });
       if (cartWasNormalized) saveCart(cart);
     }
+    var sortBefore = JSON.stringify(cart.map(function (item) {
+      return [item.code, item.sizeId];
+    }));
+    cart.sort(function (a, b) {
+      var codeCmp = String(a.code || '').localeCompare(String(b.code || ''));
+      if (codeCmp !== 0) return codeCmp;
+      return getSizeSortIdx(a.sizeId) - getSizeSortIdx(b.sizeId);
+    });
+    var sortAfter = JSON.stringify(cart.map(function (item) {
+      return [item.code, item.sizeId];
+    }));
+    if (sortBefore !== sortAfter) saveCart(cart);
+
     while (cartBody.firstChild) cartBody.removeChild(cartBody.firstChild);
 
     if (!cart.length) {
@@ -1569,7 +1594,7 @@ function buildShopUI(root, indexData) {
       var tdQty = el('td', {});
       tdQty.setAttribute('data-label', 'Qty');
       var qtySelect = el('select', {
-        className: 'shop-cart-qty-selector',
+        className: 'shop-cart-qty-selector cart-qty',
         'aria-label': 'Select quantity for ' + item.code,
         'data-idx': String(idx)
       });
@@ -1618,7 +1643,7 @@ function buildShopUI(root, indexData) {
       var tdRemove  = el('td', {});
       tdRemove.setAttribute('data-label', 'Remove');
       var removeBtn = el('button', {
-        type: 'button', className: 'shop-cart-remove-btn',
+        type: 'button', className: 'shop-cart-remove-btn cart-remove',
         'aria-label': 'Remove ' + item.code + ' from cart',
         'data-idx': String(idx)
       });

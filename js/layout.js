@@ -578,7 +578,15 @@ async function initProjectPage() {
         const addToCart = window.motoAddToCartByCode;
         if (typeof addToCart !== "function") return;
 
-        const result = addToCart(codeTag.dataset.code);
+        const thumb = codeTag
+          .closest(".project-image-wrapper")
+          ?.querySelector("img")
+          ?.getAttribute("src") || "";
+        const result = addToCart(codeTag.dataset.code, {
+          sizeIdx: window.DEFAULT_SIZE_IDX,
+          qty: 1,
+          thumbnailUrl: thumb
+        });
         if (!result?.ok) return;
 
         codeTag.classList.add("added");
