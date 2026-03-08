@@ -495,9 +495,29 @@ async function initProjectPage() {
       const number   = String(total - index).padStart(padWidth, "0");
       const code     = `${prefix}-${number}`;
 
-      const codeTag        = document.createElement("span");
-      codeTag.className    = "image-code";
-      codeTag.textContent  = code;
+      const codeTag        = document.createElement("div");
+      codeTag.className    = "image-code project-image-code";
+      codeTag.dataset.code = code;
+      codeTag.appendChild(document.createTextNode(code));
+
+      const addHint = document.createElement("span");
+      addHint.className = "add-to-cart-hint";
+      addHint.textContent = "ADD TO CART";
+      codeTag.appendChild(addHint);
+
+      codeTag.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const addToCart = window.motoAddToCartByCode;
+        if (typeof addToCart !== "function") return;
+
+        const result = addToCart(codeTag.dataset.code);
+        if (!result?.ok) return;
+
+        codeTag.classList.add("added");
+        setTimeout(() => codeTag.classList.remove("added"), 800);
+      });
 
       figure.appendChild(img);
       figure.appendChild(codeTag);

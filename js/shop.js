@@ -194,6 +194,62 @@ function saveCart(cart) {
   catch (e) { console.warn('[shop] Could not persist cart:', e); }
 }
 
+function addToCartByCode(rawCode, opts) {
+  var code = String(rawCode || '').trim().toUpperCase();
+  if (!code) return { ok: false, reason: 'missing-code' };
+  if (!Array.isArray(PRINT_SIZES) || !PRINT_SIZES.length) {
+    return { ok: false, reason: 'missing-sizes' };
+  }
+
+  var options = opts || {};
+  var qty = parseInt(options.qty, 10);
+  if (!qty || qty < 1) qty = 1;
+  if (qty > 99) qty = 99;
+
+  var sizeIdx = parseInt(options.sizeIdx, 10);
+  if (isNaN(sizeIdx) || sizeIdx < 0 || sizeIdx >= PRINT_SIZES.length) {
+    sizeIdx = DEFAULT_SIZE_IDX;
+  }
+  if (sizeIdx < 0 || sizeIdx >= PRINT_SIZES.length) sizeIdx = 0;
+
+  var selectedSize = PRINT_SIZES[sizeIdx];
+  if (!selectedSize) return { ok: false, reason: 'invalid-size' };
+
+  var cart = loadCart();
+  var existing = null;
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].code === code && cart[i].sizeId === selectedSize.id) {
+      existing = cart[i];
+      break;
+    }
+  }
+
+  var thumb = options.thumbnailUrl || '';
+  if (!thumb) {
+    var info = lookupCode(code);
+    if (info && info.thumbnailUrl) thumb = info.thumbnailUrl;
+  }
+
+  if (existing) {
+    existing.qty = Math.min(99, (existing.qty || 1) + qty);
+    if (!existing.thumbnailUrl && thumb) existing.thumbnailUrl = thumb;
+  } else {
+    cart.push({
+      code:         code,
+      sizeId:       selectedSize.id,
+      sizeLabel:    selectedSize.label + ' \u2013 ' + selectedSize.dims,
+      qty:          qty,
+      price:        selectedSize.price,
+      thumbnailUrl: thumb
+    });
+  }
+
+  saveCart(cart);
+  return { ok: true, cart: cart };
+}
+
+window.motoAddToCartByCode = addToCartByCode;
+
 /* ============================================================
    CONFIRMATION STORAGE  (sessionStorage â€“ survives refresh)
    ============================================================ */
@@ -1512,28 +1568,13 @@ function buildShopUI(root, indexData) {
       return;
     }
 
-    var selectedSize = PRINT_SIZES[selectedSizeIdx];
-    var existing     = null;
-    for (var i = 0; i < cart.length; i++) {
-      if (cart[i].code === rawCode && cart[i].sizeId === selectedSize.id) {
-        existing = cart[i]; break;
-      }
-    }
-
-    if (existing) {
-      existing.qty = Math.min(99, existing.qty + quantity);
-    } else {
-      cart.push({
-        code:         rawCode,
-        sizeId:       selectedSize.id,
-        sizeLabel:    selectedSize.label + ' \u2013 ' + selectedSize.dims,
-        qty:          quantity,
-        price:        selectedSize.price,
-        thumbnailUrl: imageInfo.thumbnailUrl
-      });
-    }
-
-    saveCart(cart);
+    var addResult = addToCartByCode(rawCode, {
+      qty: quantity,
+      sizeIdx: selectedSizeIdx,
+      thumbnailUrl: imageInfo.thumbnailUrl
+    });
+    if (!addResult.ok) return;
+    cart = addResult.cart;
     destroyPayPal();
     renderCart();
 

@@ -551,6 +551,47 @@ body.app-active .shell-layout {
   pointer-events: none;
 }
 
+.project-image-code {
+  pointer-events: auto;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.project-image-code:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.project-image-code .add-to-cart-hint {
+  display: block;
+  font-size: 10px;
+  opacity: 0.6;
+  letter-spacing: 0.12em;
+  margin-top: 2px;
+  transition: opacity 0.25s ease;
+}
+
+.project-image-code:hover .add-to-cart-hint {
+  opacity: 1;
+}
+
+.project-image-code.added {
+  color: #6cff9a;
+  transform: translateY(-3px);
+}
+
+.project-image-code:hover::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin: 4px auto 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
 /* ===================================================================
    IMAGE PROTECTION LAYER
    – Transparent overlay covers each figure (above the img, below
