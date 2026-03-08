@@ -1454,6 +1454,20 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-cart-size-cell { color: #777; }
 .shop-cart-size      { font-size: 0.75rem; }
+.shop-cart-size-selector {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 3px;
+  color: #ddd;
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.45rem;
+  min-height: 32px;
+}
+.shop-cart-size-selector:focus {
+  outline: none;
+  border-color: #555;
+}
 
 .shop-cart-thumb {
   display: block;
@@ -1882,6 +1896,13 @@ body:has(.lightbox.active) .project-floating-title {
     flex: 1 1 auto;
     min-width: 54px;
     padding: 0.65rem 0.5rem;
+  }
+
+  .shop-cart-size-selector {
+    font-size: 16px;
+    min-height: 44px;
+    width: auto;
+    max-width: 100%;
   }
 
   /* Cart table: collapse to block layout */

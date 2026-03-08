@@ -198,6 +198,18 @@ function clearCartStorage() {
   try { Storage.remove(CART_KEY); } catch (e) {}
 }
 
+function getDefaultA3SizeIdx() {
+  if (!Array.isArray(PRINT_SIZES) || !PRINT_SIZES.length) return 0;
+  for (var i = 0; i < PRINT_SIZES.length; i++) {
+    var s = PRINT_SIZES[i];
+    if (String(s.id || '').toUpperCase() === 'A3') return i;
+    if (String(s.label || '').toUpperCase() === 'A3') return i;
+  }
+  var fallback = parseInt(DEFAULT_SIZE_IDX, 10);
+  if (!isNaN(fallback) && fallback >= 0 && fallback < PRINT_SIZES.length) return fallback;
+  return 0;
+}
+
 function addToCartByCode(rawCode, opts) {
   var code = String(rawCode || '').trim().toUpperCase();
   if (!code) return { ok: false, reason: 'missing-code' };
@@ -212,7 +224,7 @@ function addToCartByCode(rawCode, opts) {
 
   var sizeIdx = parseInt(options.sizeIdx, 10);
   if (isNaN(sizeIdx) || sizeIdx < 0 || sizeIdx >= PRINT_SIZES.length) {
-    sizeIdx = DEFAULT_SIZE_IDX;
+    sizeIdx = getDefaultA3SizeIdx();
   }
   if (sizeIdx < 0 || sizeIdx >= PRINT_SIZES.length) sizeIdx = 0;
 
@@ -1139,7 +1151,6 @@ function buildShopUI(root, indexData) {
   addForm.appendChild(qtyField);
   addForm.appendChild(addBtn);
   addSection.appendChild(addForm);
-  root.appendChild(addSection);
 
   /* â”€â”€ Cart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var cartSection = el('section', { className: 'shop-cart' });
@@ -1374,6 +1385,19 @@ function buildShopUI(root, indexData) {
   /* â”€â”€ Cart render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function renderCart() {
     cart = loadCart();
+    var cartWasNormalized = false;
+    var defaultSize = PRINT_SIZES[getDefaultA3SizeIdx()];
+    if (defaultSize) {
+      cart.forEach(function (item) {
+        if (!item.sizeId) {
+          item.sizeId = defaultSize.id;
+          item.sizeLabel = defaultSize.label + ' \u2013 ' + defaultSize.dims;
+          item.price = defaultSize.price;
+          cartWasNormalized = true;
+        }
+      });
+      if (cartWasNormalized) saveCart(cart);
+    }
     while (cartBody.firstChild) cartBody.removeChild(cartBody.firstChild);
 
     if (!cart.length) {
@@ -1403,10 +1427,55 @@ function buildShopUI(root, indexData) {
       var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, item.code);
       tdCode.appendChild(codeSpan);
 
-      var tdSize   = el('td', { className: 'shop-cart-size-cell' });
-      var sizeSpan = el('span', { className: 'shop-cart-size' });
-      setText(sizeSpan, item.sizeLabel || item.sizeId || '\u2014');
-      tdSize.appendChild(sizeSpan);
+      var tdSize     = el('td', { className: 'shop-cart-size-cell' });
+      var sizeSelect = el('select', {
+        className: 'shop-cart-size-selector',
+        'aria-label': 'Select size for ' + item.code,
+        'data-idx': String(idx)
+      });
+      PRINT_SIZES.forEach(function (size) {
+        var opt = document.createElement('option');
+        opt.value = size.id;
+        opt.textContent = size.label;
+        if (size.id === item.sizeId) opt.selected = true;
+        sizeSelect.appendChild(opt);
+      });
+      sizeSelect.addEventListener('change', function () {
+        var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
+        if (isNaN(rowIdx) || !cart[rowIdx]) return;
+        var nextSizeId = this.value;
+        var nextSize = PRINT_SIZES.find(function (s) { return s.id === nextSizeId; });
+        if (!nextSize) return;
+
+        var current = cart[rowIdx];
+        if (current.sizeId === nextSize.id) return;
+
+        var mergeIdx = -1;
+        for (var mi = 0; mi < cart.length; mi++) {
+          if (mi === rowIdx) continue;
+          if (cart[mi].code === current.code && cart[mi].sizeId === nextSize.id) {
+            mergeIdx = mi;
+            break;
+          }
+        }
+
+        if (mergeIdx !== -1) {
+          cart[mergeIdx].qty = Math.min(99, (cart[mergeIdx].qty || 1) + (current.qty || 1));
+          if (!cart[mergeIdx].thumbnailUrl && current.thumbnailUrl) {
+            cart[mergeIdx].thumbnailUrl = current.thumbnailUrl;
+          }
+          cart.splice(rowIdx, 1);
+        } else {
+          current.sizeId = nextSize.id;
+          current.sizeLabel = nextSize.label + ' \u2013 ' + nextSize.dims;
+          current.price = nextSize.price;
+        }
+
+        saveCart(cart);
+        destroyPayPal();
+        renderCart();
+      });
+      tdSize.appendChild(sizeSelect);
 
       var tdThumb = el('td', {});
       if (item.thumbnailUrl) {
