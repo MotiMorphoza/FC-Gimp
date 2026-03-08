@@ -389,6 +389,10 @@ function destroyPayPal() {
 function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
   var container = document.getElementById('paypal-button-container');
   if (!container) return;
+  if (!Array.isArray(cart) || cart.length === 0) {
+    destroyPayPal();
+    return;
+  }
 
   // Always destroy before re-render â€“ prevents duplicate button injection
   destroyPayPal();
@@ -1306,6 +1310,7 @@ function buildShopUI(root, indexData) {
 
   /* â”€â”€ Cart render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function renderCart() {
+    cart = loadCart();
     while (cartBody.firstChild) cartBody.removeChild(cartBody.firstChild);
 
     if (!cart.length) {
@@ -1313,6 +1318,7 @@ function buildShopUI(root, indexData) {
       setText(empty, 'Your cart is empty.');
       cartBody.appendChild(empty);
       checkoutSection.style.display = 'none';
+      clearTimeout(paypalRenderTimer);
       destroyPayPal();
       return;
     }
