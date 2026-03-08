@@ -2100,6 +2100,28 @@ function buildShopUIV5(root, indexData) {
   selectSection.appendChild(selectSub);
   var selectBody = el('div', { className: 'shop-cart-body' });
   selectSection.appendChild(selectBody);
+
+  var countrySelectField = el('div', { className: 'shop-field' });
+  var countrySelectLabel = el('label', { className: 'shop-label', 'for': 'shop-country-v5' });
+  setText(countrySelectLabel, 'Country');
+  var countryInput = el('input', {
+    id: 'shop-country-v5',
+    type: 'text',
+    className: 'shop-input',
+    list: 'shop-country-v5-list',
+    autocomplete: 'country-name',
+    placeholder: 'e.g. Poland'
+  });
+  var countryList = el('datalist', { id: 'shop-country-v5-list' });
+  COUNTRY_LIST.forEach(function (c) {
+    var opt = document.createElement('option');
+    opt.value = c.name;
+    countryList.appendChild(opt);
+  });
+  countrySelectField.appendChild(countrySelectLabel);
+  countrySelectField.appendChild(countryInput);
+  countrySelectField.appendChild(countryList);
+  selectSection.appendChild(countrySelectField);
   root.appendChild(selectSection);
 
   var cartSection = el('section', { className: 'shop-cart' });
@@ -2127,22 +2149,6 @@ function buildShopUIV5(root, indexData) {
   setText(checkoutTitle, 'Checkout');
   checkoutSection.appendChild(checkoutTitle);
 
-  var shippingModeField = el('div', { className: 'shop-field' });
-  var shippingModeLabel = el('label', { className: 'shop-label', 'for': 'shop-shipping-mode-v5' });
-  setText(shippingModeLabel, 'Shipping Zone');
-  var shippingModeSelect = el('select', { id: 'shop-shipping-mode-v5', className: 'shop-input shop-cart-size-selector' });
-  var shippingLocalOpt = document.createElement('option');
-  shippingLocalOpt.value = 'LOCAL';
-  shippingLocalOpt.textContent = 'LOCAL';
-  var shippingIntlOpt = document.createElement('option');
-  shippingIntlOpt.value = 'INTERNATIONAL';
-  shippingIntlOpt.textContent = 'INTERNATIONAL';
-  shippingModeSelect.appendChild(shippingLocalOpt);
-  shippingModeSelect.appendChild(shippingIntlOpt);
-  shippingModeField.appendChild(shippingModeLabel);
-  shippingModeField.appendChild(shippingModeSelect);
-  checkoutSection.appendChild(shippingModeField);
-
   var checkoutForm = el('div', { className: 'shop-checkout-form' });
   function field(id, label, type, placeholder) {
     var wrap = el('div', { className: 'shop-field' });
@@ -2157,7 +2163,6 @@ function buildShopUIV5(root, indexData) {
   var streetInput = field('shop-street-v5', 'Street Address', 'text', 'Street and number');
   var cityInput = field('shop-city-v5', 'City', 'text', 'City');
   var postalInput = field('shop-postal-v5', 'Postal Code', 'text', 'Postal / ZIP code');
-  var countryInput = field('shop-country-v5', 'Country', 'text', 'e.g. Poland');
   var phoneInput = field('shop-phone-v5', 'Phone (optional)', 'tel', '+1 555 000 0000');
   var notesWrap = el('div', { className: 'shop-field' });
   var notesLbl = el('label', { className: 'shop-label', 'for': 'shop-notes-v5' });
@@ -2211,21 +2216,17 @@ function buildShopUIV5(root, indexData) {
     return !!(a.name && a.street && a.city && a.postal && a.country);
   }
 
-  function getShippingTierByMode() {
-    return shippingModeSelect.value === 'LOCAL'
-      ? SHOP_CONFIG.shipping.local
-      : SHOP_CONFIG.shipping.international;
-  }
-
-  function getShippingCountryToken() {
-    return shippingModeSelect.value === 'LOCAL' ? SHOP_CONFIG.storeCountry : 'US';
+  function getShippingTierByCountry() {
+    var country = lookupCountry(countryInput.value.trim());
+    var isLocal = country && country.code === SHOP_CONFIG.storeCountry;
+    return isLocal ? SHOP_CONFIG.shipping.local : SHOP_CONFIG.shipping.international;
   }
 
   function renderTotals() {
     while (totalsDiv.firstChild) totalsDiv.removeChild(totalsDiv.firstChild);
     var rows = collectCartRows();
     var subtotal = calculateSubtotal(rows);
-    var shippingTier = getShippingTierByMode();
+    var shippingTier = getShippingTierByCountry();
     var shipping = subtotal >= shippingTier.freeAbove ? 0 : shippingTier.base;
     var total = subtotal + shipping;
 
@@ -2456,7 +2457,7 @@ function buildShopUIV5(root, indexData) {
         },
         createOrder: function (data, actions) {
           var rows = collectCartRows();
-          var shippingCountry = getShippingCountryToken();
+          var shippingCountry = countryInput.value.trim();
           var subtotal = calculateSubtotal(rows);
           var shipping = calculateShipping(rows, shippingCountry);
           var total = subtotal + shipping;
@@ -2511,8 +2512,12 @@ function buildShopUIV5(root, indexData) {
                 return { code: i.code, sizeId: i.sizeId || '', sizeLabel: i.sizeLabel || '', qty: i.qty, price: i.price || SHOP_CONFIG.printPrice };
               })
             };
+            state.store.select = {};
             state.store.cart = {};
             state.store = saveShopStore(state.store);
+            state.paypalReady = false;
+            state.paypalInstance = null;
+            while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
             saveConfirmation(confData);
             renderConfirmation(root, confData, indexData);
             sendEmailReceipt({
@@ -2576,7 +2581,7 @@ function buildShopUIV5(root, indexData) {
     render();
   });
 
-  [emailInput, nameInput, streetInput, cityInput, postalInput, countryInput, shippingModeSelect].forEach(function (inp) {
+  [emailInput, nameInput, streetInput, cityInput, postalInput, countryInput].forEach(function (inp) {
     inp.addEventListener('input', renderTotals);
     inp.addEventListener('change', renderTotals);
   });
