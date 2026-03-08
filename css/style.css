@@ -432,7 +432,16 @@ a.project-text {
 .project-caption p + p,
 .project-description p + p {
   margin-top: 1.8em;
-  color: rgba(255, 255, 255, 0.85);
+  color: #4da3ff;
+  display: inline-block;
+  border-bottom: 1px solid rgba(77, 163, 255, 0.6);
+  padding-bottom: 0.05em;
+  transition: border-color 0.2s ease;
+}
+
+.project-caption p + p:hover,
+.project-description p + p:hover {
+  border-bottom-color: #4da3ff;
 }
 
 /* ===== LIGHTBOX ===== */
