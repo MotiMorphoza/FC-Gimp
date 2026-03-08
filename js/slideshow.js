@@ -60,12 +60,6 @@ function initSlideshow() {
     interval = setInterval(change, DURATION);
   }
 
-  function stop() {
-    if (!interval) return;
-    clearInterval(interval);
-    interval = null;
-  }
-
   viewport.addEventListener("click", () => {
     change();
   });

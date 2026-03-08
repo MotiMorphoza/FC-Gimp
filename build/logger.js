@@ -14,7 +14,6 @@ class Logger {
   }
 
   log(level, message) {
-    const timestamp = new Date().toISOString();
     console.log(`${this.prefix}[${level}] ${message}`);
   }
 
