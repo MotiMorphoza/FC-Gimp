@@ -1125,11 +1125,6 @@ body:has(.lightbox.active) .project-floating-title {
   margin: 0 0 0.45rem;
 }
 
-.shop-intro-price {
-  color: #bbb;
-  font-size: 0.82rem;
-}
-
 /* Intro pricing table */
 .shop-intro-pricing {
   display: flex;
@@ -1186,8 +1181,7 @@ body:has(.lightbox.active) .project-floating-title {
   color: #666;
 }
 
-.shop-input,
-.shop-select {
+.shop-input {
   background: #0d0d0d;
   border: 1px solid #2a2a2a;
   border-radius: 3px;
@@ -1199,8 +1193,7 @@ body:has(.lightbox.active) .project-floating-title {
   transition: border-color 0.12s;
 }
 
-.shop-input:focus,
-.shop-select:focus {
+.shop-input:focus {
   outline: none;
   border-color: #555;
 }
@@ -1785,8 +1778,7 @@ body:has(.lightbox.active) .project-floating-title {
   }
 
   /* Prevent auto-zoom on input focus (iOS) */
-  .shop-input,
-  .shop-select {
+  .shop-input {
     font-size: 16px;
   }
 
