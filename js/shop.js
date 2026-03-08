@@ -533,20 +533,27 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
         if (_orderInFlight) return Promise.reject(new Error('Order already in progress'));
         _orderInFlight   = true;
         _paymentApproved = false;
+        var currencyCode = String(SHOP_CONFIG.currency || 'EUR').toUpperCase();
+        var subtotalValue = calculateSubtotal(cart);
+        var shippingValue = calculateShipping(cart, addressData.country);
+        var totalValue = subtotalValue + shippingValue;
+        if (!isFinite(totalValue) || totalValue <= 0) {
+          return Promise.reject(new Error('Invalid cart total'));
+        }
 
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value:         calculateTotal(cart, addressData.country).toFixed(2),
-              currency_code: SHOP_CONFIG.currency,
+              value:         totalValue.toFixed(2),
+              currency_code: currencyCode,
               breakdown: {
                 item_total: {
-                  currency_code: SHOP_CONFIG.currency,
-                  value: calculateSubtotal(cart).toFixed(2)
+                  currency_code: currencyCode,
+                  value: subtotalValue.toFixed(2)
                 },
                 shipping: {
-                  currency_code: SHOP_CONFIG.currency,
-                  value: calculateShipping(cart, addressData.country).toFixed(2)
+                  currency_code: currencyCode,
+                  value: shippingValue.toFixed(2)
                 }
               }
             },
@@ -554,7 +561,7 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
               return {
                 name:        item.code + (item.sizeId ? ' (' + item.sizeId + ')' : ''),
                 unit_amount: {
-                  currency_code: SHOP_CONFIG.currency,
+                  currency_code: currencyCode,
                   value: (item.price || SHOP_CONFIG.printPrice).toFixed(2)
                 },
                 quantity: String(item.qty || 1)
@@ -905,7 +912,7 @@ function buildShopUI(root, indexData) {
 
   /* â”€â”€ Intro â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   var introSection = el('section', { className: 'shop-intro' });
-  var introHdr     = el('h2', { className: 'shop-section-title' });
+  var introHdr     = el('h2', { className: 'shop-section-title shop-title' });
   setText(introHdr, 'Fine Art Prints');
   introSection.appendChild(introHdr);
 
@@ -926,32 +933,41 @@ function buildShopUI(root, indexData) {
   });
   introSection.appendChild(pricingTable);
 
-  var introShipping = el('p', { className: 'shop-intro-para' });
-  setText(introShipping,
-    'Shipping: ' + formatMoney(SHOP_CONFIG.shipping.local.base) +
-    ' local (free over ' + formatMoney(SHOP_CONFIG.shipping.local.freeAbove) + ')' +
-    ' \u00b7 ' + formatMoney(SHOP_CONFIG.shipping.international.base) +
-    ' international (free over ' + formatMoney(SHOP_CONFIG.shipping.international.freeAbove) + ').'
+  var shippingTitle = el('div', { className: 'shipping-title' });
+  setText(shippingTitle, 'SHIPPING');
+  introSection.appendChild(shippingTitle);
+
+  var shippingLocal = el('div', { className: 'shipping-section' });
+  var shippingLocalHdr = el('div', { className: 'shipping-subtitle' });
+  setText(shippingLocalHdr, 'LOCAL');
+  var shippingLocalTxt = el('p', { className: 'shop-intro-para' });
+  setText(
+    shippingLocalTxt,
+    formatMoney(SHOP_CONFIG.shipping.local.base) +
+      ' shipping (free over ' + formatMoney(SHOP_CONFIG.shipping.local.freeAbove) + ').'
   );
-  introSection.appendChild(introShipping);
+  shippingLocal.appendChild(shippingLocalHdr);
+  shippingLocal.appendChild(shippingLocalTxt);
+  introSection.appendChild(shippingLocal);
+
+  var shippingIntl = el('div', { className: 'shipping-section' });
+  var shippingIntlHdr = el('div', { className: 'shipping-subtitle' });
+  setText(shippingIntlHdr, 'INTERNATIONAL');
+  var shippingIntlTxt = el('p', { className: 'shop-intro-para' });
+  setText(
+    shippingIntlTxt,
+    formatMoney(SHOP_CONFIG.shipping.international.base) +
+      ' shipping (free over ' + formatMoney(SHOP_CONFIG.shipping.international.freeAbove) + ').'
+  );
+  shippingIntl.appendChild(shippingIntlHdr);
+  shippingIntl.appendChild(shippingIntlTxt);
+  introSection.appendChild(shippingIntl);
 
   var introP3 = el('p', { className: 'shop-intro-para' });
   setText(introP3,
     'To order: Browse project galleries and click the image code to add prints to your cart.'
   );
   introSection.appendChild(introP3);
-
-  var sizeGuide = el('p', { className: 'shop-intro-para shop-size-guide' });
-  setText(
-    sizeGuide,
-    'A6 — 105 × 148 mm (Postcard) · ' +
-    'A5 — 148 × 210 mm (Small print) · ' +
-    'A4 — 210 × 297 mm (Standard print) · ' +
-    'A3 — 297 × 420 mm (Recommended poster) · ' +
-    'A2 — 420 × 594 mm (Large poster) · ' +
-    'A1 — 594 × 841 mm (Exhibition poster)'
-  );
-  introSection.appendChild(sizeGuide);
 
   root.appendChild(introSection);
 
@@ -1448,12 +1464,22 @@ function buildShopUI(root, indexData) {
     table.appendChild(thead);
 
     var tbody = el('tbody', {});
+    var groupCode = null;
     cart.forEach(function (item, idx) {
+      if (item.code !== groupCode) {
+        groupCode = item.code;
+        var groupTr = el('tr', { className: 'shop-cart-group-row' });
+        var groupTd = el('td', { colspan: '6', className: 'shop-cart-group-cell' });
+        setText(groupTd, item.code);
+        groupTr.appendChild(groupTd);
+        tbody.appendChild(groupTr);
+      }
+
       var tr = el('tr', {});
 
       var tdCode   = el('td', {});
       tdCode.setAttribute('data-label', 'Code');
-      var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, item.code);
+      var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, '↳');
       tdCode.appendChild(codeSpan);
 
       var tdSize     = el('td', { className: 'shop-cart-size-cell' });
@@ -1466,7 +1492,14 @@ function buildShopUI(root, indexData) {
       PRINT_SIZES.forEach(function (size) {
         var opt = document.createElement('option');
         opt.value = size.id;
-        opt.textContent = size.label;
+        var desc = '';
+        if (size.id === 'A6') desc = 'Postcard';
+        else if (size.id === 'A5') desc = 'Small print';
+        else if (size.id === 'A4') desc = 'Printer page';
+        else if (size.id === 'A3') desc = 'Recommended';
+        else if (size.id === 'A2') desc = 'Poster';
+        else if (size.id === 'A1') desc = 'Exhibition poster';
+        opt.textContent = size.label + ' — ' + desc;
         if (size.id === item.sizeId) opt.selected = true;
         sizeSelect.appendChild(opt);
       });
@@ -1504,6 +1537,7 @@ function buildShopUI(root, indexData) {
         saveCart(cart);
         destroyPayPal();
         renderCart();
+        schedulePayPalRefresh();
       });
       tdSize.appendChild(sizeSelect);
 
@@ -1566,6 +1600,7 @@ function buildShopUI(root, indexData) {
         saveCart(cart);
         destroyPayPal();
         renderCart();
+        schedulePayPalRefresh();
       });
       tdQty.appendChild(qtySelect);
       var tdPrice = el('td', {});
@@ -1586,6 +1621,7 @@ function buildShopUI(root, indexData) {
         saveCart(cart);
         destroyPayPal();
         renderCart();
+        schedulePayPalRefresh();
       });
       tdRemove.appendChild(removeBtn);
 
@@ -1633,6 +1669,7 @@ function buildShopUI(root, indexData) {
     destroyPayPal();
     clearTimeout(paypalRenderTimer);
     paypalRenderTimer = setTimeout(function () {
+      cart = loadCart();
       if (!checkoutIsValid()) return;
       renderPayPalButton(
         cart,
@@ -1757,6 +1794,7 @@ function buildShopUI(root, indexData) {
       emailMsg.className = 'shop-validation-msg';
       emailInput.removeAttribute('aria-invalid');
     }
+    schedulePayPalRefresh();
   });
 
   emailInput.addEventListener('input', function () { schedulePayPalRefresh(); });
@@ -1777,6 +1815,7 @@ function buildShopUI(root, indexData) {
         f.msg.className = 'shop-validation-msg';
         f.inp.removeAttribute('aria-invalid');
       }
+      schedulePayPalRefresh();
     });
     f.inp.addEventListener('input', function () { schedulePayPalRefresh(); });
   });
@@ -1790,6 +1829,7 @@ function buildShopUI(root, indexData) {
   countryInput.addEventListener('blur', function () {
     applyCountryValidation(true);
     renderCart();
+    schedulePayPalRefresh();
   });
 
   /* â”€â”€ Payment success â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */

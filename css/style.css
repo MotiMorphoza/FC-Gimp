@@ -1238,10 +1238,21 @@ body:has(.lightbox.active) .project-floating-title {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #888;
+  color: #d2d2d2;
   margin: 0 0 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #2a2a2a;
+}
+
+.shop-title {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  text-transform: none;
+  color: #fff;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 /* Intro section */
@@ -1256,6 +1267,26 @@ body:has(.lightbox.active) .project-floating-title {
   line-height: 1.65;
   color: #cfcfcf;
   margin: 0 0 0.45rem;
+}
+
+.shipping-title {
+  margin-top: 18px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.shipping-section {
+  margin-top: 10px;
+}
+
+.shipping-subtitle {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 0.2rem;
 }
 
 .shop-size-guide {
@@ -1508,6 +1539,19 @@ body:has(.lightbox.active) .project-floating-title {
   color: #ccc;
 }
 
+.shop-cart-group-row {
+  border-top: 1px solid #2b2b2b;
+}
+
+.shop-cart-group-cell {
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #f0f0f0;
+  padding-top: 0.9rem;
+  padding-bottom: 0.45rem;
+}
+
 .shop-cart-size-cell { color: #777; }
 .shop-cart-size      { font-size: 0.75rem; }
 .shop-cart-size-selector {
@@ -1595,13 +1639,13 @@ body:has(.lightbox.active) .project-floating-title {
 .shop-cart-remove-btn:hover { color: #c07070; }
 
 .cart-remove {
-  color: #ff4d4d;
+  color: #c44;
   cursor: pointer;
   font-weight: bold;
 }
 
 .cart-remove:hover {
-  color: #ff0000;
+  color: #e33;
 }
 
 .shop-cart-empty {
