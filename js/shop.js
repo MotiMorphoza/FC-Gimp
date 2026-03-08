@@ -2063,13 +2063,13 @@ function buildShopUIV5(root, indexData) {
     };
   }
 
-  function getAvailableSizesForCode(code, currentSize) {
+  function getAvailableSizesForCode(code) {
     var used = [];
     if (state.store.cart[code] && state.store.cart[code].sizes) {
       used = Object.keys(state.store.cart[code].sizes);
     }
     return PRINT_SIZES.filter(function (size) {
-      return used.indexOf(size.id) === -1 || size.id === currentSize;
+      return used.indexOf(size.id) === -1;
     });
   }
 
@@ -2102,8 +2102,8 @@ function buildShopUIV5(root, indexData) {
   selectSection.appendChild(selectBody);
 
   var countrySelectField = el('div', { className: 'shop-field' });
-  var countrySelectLabel = el('label', { className: 'shop-label', 'for': 'shop-country-v5' });
-  setText(countrySelectLabel, 'Country');
+  var countrySelectLabel = el('label', { className: 'shop-label shipping-country-label', 'for': 'shop-country-v5' });
+  setText(countrySelectLabel, 'Shipping country');
   var countryInput = el('input', {
     id: 'shop-country-v5',
     type: 'text',
@@ -2159,6 +2159,8 @@ function buildShopUIV5(root, indexData) {
     return inp;
   }
   var emailInput = field('shop-email-v5', 'Email Address', 'email', 'your@email.com');
+  var emailMsg = el('span', { className: 'shop-validation-msg', id: 'shop-email-v5-msg' });
+  checkoutForm.appendChild(emailMsg);
   var nameInput = field('shop-name-v5', 'Full Name', 'text', 'Full name');
   var streetInput = field('shop-street-v5', 'Street Address', 'text', 'Street and number');
   var cityInput = field('shop-city-v5', 'City', 'text', 'City');
@@ -2212,8 +2214,30 @@ function buildShopUIV5(root, indexData) {
   function checkoutIsValid() {
     var a = getAddressData();
     if (!collectCartRows().length) return false;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email)) return false;
+    if (!isValidEmail(a.email)) return false;
     return !!(a.name && a.street && a.city && a.postal && a.country);
+  }
+
+  function isValidEmail(v) {
+    var s = String(v || '').trim();
+    if (s.length < 6) return false;
+    if (s.indexOf('@') === -1) return false;
+    if (s.indexOf('.') === -1) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+  }
+
+  function validateEmailField(showMessage) {
+    var ok = isValidEmail(emailInput.value);
+    if (!ok) {
+      emailInput.setAttribute('aria-invalid', 'true');
+      if (showMessage || emailInput.value.trim()) {
+        setText(emailMsg, 'Please enter a valid email address');
+      }
+    } else {
+      emailInput.removeAttribute('aria-invalid');
+      setText(emailMsg, '');
+    }
+    return ok;
   }
 
   function getShippingTierByCountry() {
@@ -2240,7 +2264,7 @@ function buildShopUIV5(root, indexData) {
     row('Shipping', shipping === 0 ? 'Free' : formatMoney(shipping));
     row('Total', formatMoney(total), ' is-total');
     checkoutSection.style.display = rows.length ? '' : 'none';
-    paypalWrapper.style.display = rows.length ? '' : 'none';
+    paypalWrapper.style.display = (rows.length && checkoutIsValid()) ? '' : 'none';
   }
 
   function renderSelect() {
@@ -2283,12 +2307,17 @@ function buildShopUIV5(root, indexData) {
       tdCode.appendChild(cSpan); tr.appendChild(tdCode);
 
       var tdSize = el('td', { 'data-label': 'Size' });
-      var options = getAvailableSizesForCode(code, sel.size);
+      var options = getAvailableSizesForCode(code);
       var isAllSizesInCart = !options.length;
       if (!options.length) {
-        var no = el('span', { className: 'shop-cart-size' }); setText(no, 'All sizes in cart');
+        var no = el('span', { className: 'shop-cart-size' }); setText(no, 'All sizes already in cart');
         tdSize.appendChild(no);
       } else {
+        var isCurrentAllowed = false;
+        for (var oi = 0; oi < options.length; oi++) {
+          if (options[oi].id === sel.size) { isCurrentAllowed = true; break; }
+        }
+        if (!isCurrentAllowed) sel.size = options[0].id;
         var sSel = el('select', { className: 'shop-cart-size-selector' });
         options.forEach(function (sz) {
           var o = document.createElement('option');
@@ -2308,12 +2337,12 @@ function buildShopUIV5(root, indexData) {
 
       var tdAdd = el('td', { 'data-label': 'Add' });
       var addBtn = el('button', { type: 'button', className: 'shop-add-btn' });
-      setText(addBtn, isAllSizesInCart ? 'All sizes in cart' : 'ADD');
+      setText(addBtn, isAllSizesInCart ? 'All sizes already in cart' : 'ADD');
       if (isAllSizesInCart) addBtn.setAttribute('disabled', 'disabled');
       addBtn.addEventListener('click', function () {
         var entry = state.store.select[code];
         if (!entry) return;
-        var available = getAvailableSizesForCode(code, entry.size);
+        var available = getAvailableSizesForCode(code);
         if (!available.length) return;
         var sizeId = entry.size || available[0].id;
         var stillAvailable = false;
@@ -2326,7 +2355,7 @@ function buildShopUIV5(root, indexData) {
         state.store.cart[code].thumb = state.store.cart[code].thumb || entry.thumb || '';
         state.store.cart[code].title = state.store.cart[code].title || entry.title || '';
         state.store.cart[code].sizes[sizeId] = (state.store.cart[code].sizes[sizeId] || 0) + 1;
-        var nextOptions = getAvailableSizesForCode(code, sizeId).filter(function (s) { return s.id !== sizeId; });
+        var nextOptions = getAvailableSizesForCode(code).filter(function (s) { return s.id !== sizeId; });
         if (nextOptions.length) {
           state.store.select[code].size = nextOptions[0].id;
         } else {
@@ -2429,6 +2458,7 @@ function buildShopUIV5(root, indexData) {
   function ensurePayPalButtons() {
     if (state.paypalReady || state.paypalLoading) return;
     if (!collectCartRows().length) return;
+    if (!checkoutIsValid()) return;
 
     state.paypalLoading = true;
     var sdkSrc = 'https://www.paypal.com/sdk/js?client-id='
@@ -2571,7 +2601,8 @@ function buildShopUIV5(root, indexData) {
     renderSelect();
     renderCart();
     renderTotals();
-    ensurePayPalButtons();
+    validateEmailField(false);
+    if (checkoutIsValid()) ensurePayPalButtons();
   }
 
   clearBtn.addEventListener('click', function () {
@@ -2585,6 +2616,8 @@ function buildShopUIV5(root, indexData) {
     inp.addEventListener('input', renderTotals);
     inp.addEventListener('change', renderTotals);
   });
+  emailInput.addEventListener('input', function () { validateEmailField(false); });
+  emailInput.addEventListener('blur', function () { validateEmailField(true); });
 
   if (window.__SHOP_STORE_LISTENER__) {
     window.removeEventListener('moto:shop-store-updated', window.__SHOP_STORE_LISTENER__);
