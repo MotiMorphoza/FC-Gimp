@@ -2264,7 +2264,7 @@ function buildShopUIV5(root, indexData) {
     row('Shipping', shipping === 0 ? 'Free' : formatMoney(shipping));
     row('Total', formatMoney(total), ' is-total');
     checkoutSection.style.display = rows.length ? '' : 'none';
-    paypalWrapper.style.display = (rows.length && checkoutIsValid()) ? '' : 'none';
+    paypalWrapper.style.display = rows.length ? '' : 'none';
   }
 
   function renderSelect() {
@@ -2602,7 +2602,15 @@ function buildShopUIV5(root, indexData) {
     renderCart();
     renderTotals();
     validateEmailField(false);
-    if (checkoutIsValid()) ensurePayPalButtons();
+    if (!collectCartRows().length) {
+      while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
+      return;
+    }
+    if (checkoutIsValid()) {
+      ensurePayPalButtons();
+    } else if (!state.paypalReady) {
+      renderNotice(paypalContainer, 'Complete checkout details to enable PayPal.', 'info');
+    }
   }
 
   clearBtn.addEventListener('click', function () {
