@@ -483,6 +483,9 @@ async function initProjectPage() {
       caption.className     = "project-caption";
       caption.textContent   = imgData.caption || "";
 
+      const imageWrap = document.createElement("div");
+      imageWrap.className = "project-image-wrapper";
+
       const img       = document.createElement("img");
       img.src         = `projects/${projectSlug}/${imgData.src}`;
       img.alt         = imgData.caption || `${projectTitle} â€“ image ${index + 1}`;
@@ -519,8 +522,10 @@ async function initProjectPage() {
         setTimeout(() => codeTag.classList.remove("added"), 800);
       });
 
-      figure.appendChild(img);
-      figure.appendChild(codeTag);
+      imageWrap.appendChild(codeTag);
+      imageWrap.appendChild(img);
+
+      figure.appendChild(imageWrap);
       figure.appendChild(caption);
       gallery.appendChild(figure);
     });

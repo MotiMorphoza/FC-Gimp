@@ -543,18 +543,25 @@ body.app-active .shell-layout {
   position: relative;
 }
 
+.project-image-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
 .image-code {
   position: absolute;
-  bottom: 14px;
-  right: 16px;
-  font-size: 0.7rem;
+  top: 10px;
+  right: 12px;
+  font-size: 12px;
   letter-spacing: 0.08em;
-  opacity: 0.6;
-  background: rgba(0, 0, 0, 0.4);
+  opacity: 0.85;
+  background: rgba(0, 0, 0, 0.45);
   padding: 4px 8px;
+  border-radius: 3px;
   /* Sits above the protect overlay in z-stack */
-  z-index: 3;
-  pointer-events: none;
+  z-index: 5;
+  pointer-events: auto;
 }
 
 .project-image-code {
@@ -573,9 +580,9 @@ body.app-active .shell-layout {
 
 .project-image-code .add-to-cart-hint {
   display: block;
-  font-size: 10px;
-  opacity: 0.6;
-  letter-spacing: 0.12em;
+  font-size: 9px;
+  opacity: 0.7;
+  letter-spacing: 0.15em;
   margin-top: 2px;
   transition: opacity 0.25s ease;
 }
@@ -1066,6 +1073,9 @@ body:has(.lightbox.active) .project-floating-title {
     min-height: auto;
     padding: 40px 0;
     align-items: stretch;
+  }
+  .project-image-wrapper {
+    width: 100%;
   }
   .content-pane .project-gallery img {
     width: 100%;
