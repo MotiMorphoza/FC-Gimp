@@ -521,7 +521,7 @@ function buildPayPalRenderKey(cart, addressData) {
  * @param {Function} onSuccess    â€“ called after capture
  * @param {Function} onCancelled  â€“ called after user cancel / error; shop can re-render
  */
-function renderPayPalButton(cart, getAddressData, onSuccess, onCancelled, renderKey, renderCycle) {
+function renderPayPalButton(cart, getAddressData, isCheckoutValid, onSuccess, onCancelled, renderKey, renderCycle) {
   var container = document.getElementById('paypal-button-container');
   if (!container) return;
   if (!Array.isArray(cart) || cart.length === 0) {
@@ -563,6 +563,13 @@ function renderPayPalButton(cart, getAddressData, onSuccess, onCancelled, render
     }
 
     _paypalInstance = window.paypal.Buttons({
+      onClick: function (data, actions) {
+        if (typeof isCheckoutValid === 'function' && !isCheckoutValid()) {
+          renderNotice(container, 'Please complete all required checkout fields before payment.', 'error');
+          return actions.reject();
+        }
+        return actions.resolve();
+      },
 
       createOrder: function (data, actions) {
         if (_orderInFlight) return Promise.reject(new Error('Order already in progress'));
@@ -1711,7 +1718,7 @@ function buildShopUI(root, indexData) {
     clearTimeout(paypalRenderTimer);
     paypalRenderTimer = setTimeout(function () {
       cart = loadCart();
-      if (!checkoutIsValid()) return;
+      if (!Array.isArray(cart) || !cart.length) return;
       var addressData = collectAddressData();
       var renderKey = buildPayPalRenderKey(cart, addressData);
       _paypalRenderCycle += 1;
@@ -1719,10 +1726,11 @@ function buildShopUI(root, indexData) {
       renderPayPalButton(
         cart,
         collectAddressData,
+        checkoutIsValid,
         onPaymentSuccess,
         /* onCancelled â€“ auto-restore PayPal buttons after cancel / error */
         function () {
-          if (checkoutIsValid()) schedulePayPalRefresh();
+          if (Array.isArray(loadCart()) && loadCart().length) schedulePayPalRefresh();
         },
         renderKey,
         renderCycle
