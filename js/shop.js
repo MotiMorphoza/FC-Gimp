@@ -479,19 +479,38 @@ function loadScript(src) {
 var _paypalInstance  = null;
 var _orderInFlight   = false;
 var _paymentApproved = false;
+var _paypalLastRenderKey = '';
+var _paypalRenderCycle = 0;
 
 /**
  * Fully tear down any existing PayPal render.
  * Safe to call multiple times.
  */
-function destroyPayPal() {
+function destroyPayPal(resetRenderKey) {
   _paypalInstance  = null;
   _orderInFlight   = false;
   _paymentApproved = false;
+  if (resetRenderKey !== false) _paypalLastRenderKey = '';
   var container = document.getElementById('paypal-button-container');
   if (container) {
     while (container.firstChild) container.removeChild(container.firstChild);
   }
+}
+
+function buildPayPalRenderKey(cart, addressData) {
+  var normalizedItems = (cart || []).map(function (item) {
+    return {
+      code: item.code || '',
+      sizeId: item.sizeId || '',
+      qty: Number(item.qty) || 0,
+      price: Number(item.price) || 0
+    };
+  });
+  return JSON.stringify({
+    currency: String(SHOP_CONFIG.currency || 'EUR').toUpperCase(),
+    country: (addressData && addressData.country) ? String(addressData.country) : '',
+    items: normalizedItems
+  });
 }
 
 /**
@@ -502,22 +521,23 @@ function destroyPayPal() {
  * @param {Function} onSuccess    â€“ called after capture
  * @param {Function} onCancelled  â€“ called after user cancel / error; shop can re-render
  */
-function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
+function renderPayPalButton(cart, getAddressData, onSuccess, onCancelled, renderKey, renderCycle) {
   var container = document.getElementById('paypal-button-container');
   if (!container) return;
   if (!Array.isArray(cart) || cart.length === 0) {
     destroyPayPal();
     return;
   }
-
-  // Always destroy before re-render â€“ prevents duplicate button injection
-  destroyPayPal();
+  if (_paypalInstance && _paypalLastRenderKey && _paypalLastRenderKey === renderKey) {
+    return;
+  }
 
   var sdkSrc = 'https://www.paypal.com/sdk/js?client-id='
     + encodeURIComponent(SHOP_CONFIG.paypalClientId)
     + '&currency=' + encodeURIComponent(SHOP_CONFIG.currency);
 
   loadScript(sdkSrc).then(function () {
+    if (renderCycle !== _paypalRenderCycle) return;
     if (typeof window.paypal === 'undefined') {
       renderNotice(container, 'PayPal failed to load. Please refresh and try again.', 'error');
       return;
@@ -525,6 +545,11 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
 
     // Bail if container was removed during async load (e.g. PJAX navigation)
     if (!document.getElementById('paypal-button-container')) return;
+    // Keep stable if another render completed while SDK was loading.
+    if (_paypalInstance && _paypalLastRenderKey && _paypalLastRenderKey === renderKey) return;
+
+    // Destroy only right before creating a fresh button instance.
+    destroyPayPal(false);
 
     /* â”€â”€ shared cancel / error recovery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     function restoreAfterCancel(delayMs) {
@@ -543,6 +568,7 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
         if (_orderInFlight) return Promise.reject(new Error('Order already in progress'));
         _orderInFlight   = true;
         _paymentApproved = false;
+        var addressData = (typeof getAddressData === 'function') ? getAddressData() : {};
         var currencyCode = String(SHOP_CONFIG.currency || 'EUR').toUpperCase();
         var subtotalValue = calculateSubtotal(cart);
         var shippingValue = calculateShipping(cart, addressData.country);
@@ -589,6 +615,7 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
         return actions.order.capture().then(function (details) {
           if (overlay) overlay.classList.remove('is-visible');
           _orderInFlight = false;
+          var addressData = (typeof getAddressData === 'function') ? getAddressData() : {};
 
           var orderId       = generateOrderId();
           var transactionId = details.id;
@@ -643,8 +670,10 @@ function renderPayPalButton(cart, addressData, onSuccess, onCancelled) {
     });
 
     if (_paypalInstance.isEligible()) {
+      _paypalLastRenderKey = renderKey || '';
       _paypalInstance.render('#paypal-button-container');
     } else {
+      _paypalLastRenderKey = '';
       renderNotice(container, 'PayPal is not available in your region.', 'error');
     }
 
@@ -1679,19 +1708,24 @@ function buildShopUI(root, indexData) {
   var paypalRenderTimer = null;
 
   function schedulePayPalRefresh() {
-    destroyPayPal();
     clearTimeout(paypalRenderTimer);
     paypalRenderTimer = setTimeout(function () {
       cart = loadCart();
       if (!checkoutIsValid()) return;
+      var addressData = collectAddressData();
+      var renderKey = buildPayPalRenderKey(cart, addressData);
+      _paypalRenderCycle += 1;
+      var renderCycle = _paypalRenderCycle;
       renderPayPalButton(
         cart,
-        collectAddressData(),
+        collectAddressData,
         onPaymentSuccess,
         /* onCancelled â€“ auto-restore PayPal buttons after cancel / error */
         function () {
           if (checkoutIsValid()) schedulePayPalRefresh();
-        }
+        },
+        renderKey,
+        renderCycle
       );
     }, 800);
   }

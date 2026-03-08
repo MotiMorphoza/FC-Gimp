@@ -240,8 +240,10 @@ class HeadOrchestrator {
   getDefaultCspPolicy() {
     return [
       "default-src 'self'",
-      "img-src 'self' data: https:",
-      "script-src 'self' 'unsafe-inline' https://www.paypal.com https://www.paypalobjects.com https://cdn.emailjs.com https://cdn.jsdelivr.net",
+      "script-src 'self' 'unsafe-inline' https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://www.paypalobjects.com https://cdn.emailjs.com https://cdn.jsdelivr.net",
+      "frame-src https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com",
+      "connect-src 'self' https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://api.emailjs.com",
+      "img-src 'self' data: https://www.paypal.com https://paypal.com https://www.paypalobjects.com",
       "style-src 'self' 'unsafe-inline'"
     ].join('; ');
   }
