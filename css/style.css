@@ -415,6 +415,18 @@ a.project-text {
   font-size: 1.33rem;
   color: rgba(255, 255, 255, 0.75);
   text-align: center;
+  white-space: pre-line;
+}
+
+.project-caption p,
+.project-description p {
+  margin-bottom: 1.4em;
+}
+
+.project-caption p + p,
+.project-description p + p {
+  margin-top: 1.8em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ===== LIGHTBOX ===== */
