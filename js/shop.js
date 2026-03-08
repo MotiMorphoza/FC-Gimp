@@ -2127,6 +2127,22 @@ function buildShopUIV5(root, indexData) {
   setText(checkoutTitle, 'Checkout');
   checkoutSection.appendChild(checkoutTitle);
 
+  var shippingModeField = el('div', { className: 'shop-field' });
+  var shippingModeLabel = el('label', { className: 'shop-label', 'for': 'shop-shipping-mode-v5' });
+  setText(shippingModeLabel, 'Shipping Zone');
+  var shippingModeSelect = el('select', { id: 'shop-shipping-mode-v5', className: 'shop-input shop-cart-size-selector' });
+  var shippingLocalOpt = document.createElement('option');
+  shippingLocalOpt.value = 'LOCAL';
+  shippingLocalOpt.textContent = 'LOCAL';
+  var shippingIntlOpt = document.createElement('option');
+  shippingIntlOpt.value = 'INTERNATIONAL';
+  shippingIntlOpt.textContent = 'INTERNATIONAL';
+  shippingModeSelect.appendChild(shippingLocalOpt);
+  shippingModeSelect.appendChild(shippingIntlOpt);
+  shippingModeField.appendChild(shippingModeLabel);
+  shippingModeField.appendChild(shippingModeSelect);
+  checkoutSection.appendChild(shippingModeField);
+
   var checkoutForm = el('div', { className: 'shop-checkout-form' });
   function field(id, label, type, placeholder) {
     var wrap = el('div', { className: 'shop-field' });
@@ -2195,12 +2211,22 @@ function buildShopUIV5(root, indexData) {
     return !!(a.name && a.street && a.city && a.postal && a.country);
   }
 
+  function getShippingTierByMode() {
+    return shippingModeSelect.value === 'LOCAL'
+      ? SHOP_CONFIG.shipping.local
+      : SHOP_CONFIG.shipping.international;
+  }
+
+  function getShippingCountryToken() {
+    return shippingModeSelect.value === 'LOCAL' ? SHOP_CONFIG.storeCountry : 'US';
+  }
+
   function renderTotals() {
     while (totalsDiv.firstChild) totalsDiv.removeChild(totalsDiv.firstChild);
     var rows = collectCartRows();
-    var country = countryInput.value.trim();
     var subtotal = calculateSubtotal(rows);
-    var shipping = calculateShipping(rows, country);
+    var shippingTier = getShippingTierByMode();
+    var shipping = subtotal >= shippingTier.freeAbove ? 0 : shippingTier.base;
     var total = subtotal + shipping;
 
     function row(lbl, val, cls) {
@@ -2257,6 +2283,7 @@ function buildShopUIV5(root, indexData) {
 
       var tdSize = el('td', { 'data-label': 'Size' });
       var options = getAvailableSizesForCode(code, sel.size);
+      var isAllSizesInCart = !options.length;
       if (!options.length) {
         var no = el('span', { className: 'shop-cart-size' }); setText(no, 'All sizes in cart');
         tdSize.appendChild(no);
@@ -2280,16 +2307,30 @@ function buildShopUIV5(root, indexData) {
 
       var tdAdd = el('td', { 'data-label': 'Add' });
       var addBtn = el('button', { type: 'button', className: 'shop-add-btn' });
-      setText(addBtn, 'ADD');
+      setText(addBtn, isAllSizesInCart ? 'All sizes in cart' : 'ADD');
+      if (isAllSizesInCart) addBtn.setAttribute('disabled', 'disabled');
       addBtn.addEventListener('click', function () {
         var entry = state.store.select[code];
         if (!entry) return;
-        var sizeId = entry.size || 'A3';
+        var available = getAvailableSizesForCode(code, entry.size);
+        if (!available.length) return;
+        var sizeId = entry.size || available[0].id;
+        var stillAvailable = false;
+        for (var ai = 0; ai < available.length; ai++) {
+          if (available[ai].id === sizeId) { stillAvailable = true; break; }
+        }
+        if (!stillAvailable) sizeId = available[0].id;
+
         if (!state.store.cart[code]) state.store.cart[code] = { thumb: entry.thumb || '', title: entry.title || '', sizes: {} };
         state.store.cart[code].thumb = state.store.cart[code].thumb || entry.thumb || '';
         state.store.cart[code].title = state.store.cart[code].title || entry.title || '';
         state.store.cart[code].sizes[sizeId] = (state.store.cart[code].sizes[sizeId] || 0) + 1;
-        delete state.store.select[code];
+        var nextOptions = getAvailableSizesForCode(code, sizeId).filter(function (s) { return s.id !== sizeId; });
+        if (nextOptions.length) {
+          state.store.select[code].size = nextOptions[0].id;
+        } else {
+          state.store.select[code].size = sizeId;
+        }
         state.store = saveShopStore(state.store);
         render();
       });
@@ -2325,9 +2366,15 @@ function buildShopUIV5(root, indexData) {
     var codes = Object.keys(state.store.cart).sort();
     codes.forEach(function (code) {
       var group = el('div', { className: 'shop-cart-group' });
+      var head = el('div', { className: 'shop-cart-group-head' });
+      var thumbSrc = (state.store.cart[code] && state.store.cart[code].thumb) || (lookupCode(code) && lookupCode(code).thumbnailUrl) || getPlaceholderThumb();
+      var thumb = el('img', { src: thumbSrc, alt: code, className: 'shop-cart-thumb', loading: 'lazy' });
+      thumb.addEventListener('click', function () { openPreview(thumbSrc, code); });
+      head.appendChild(thumb);
       var title = el('div', { className: 'shop-cart-group-cell' });
       setText(title, code);
-      group.appendChild(title);
+      head.appendChild(title);
+      group.appendChild(head);
 
       PRINT_SIZES.forEach(function (sz) {
         var qty = state.store.cart[code] && state.store.cart[code].sizes
@@ -2409,9 +2456,9 @@ function buildShopUIV5(root, indexData) {
         },
         createOrder: function (data, actions) {
           var rows = collectCartRows();
-          var addressData = getAddressData();
+          var shippingCountry = getShippingCountryToken();
           var subtotal = calculateSubtotal(rows);
-          var shipping = calculateShipping(rows, addressData.country);
+          var shipping = calculateShipping(rows, shippingCountry);
           var total = subtotal + shipping;
           return actions.order.create({
             purchase_units: [{
@@ -2439,13 +2486,27 @@ function buildShopUIV5(root, indexData) {
           var addrSnapshot = getAddressData();
           return actions.order.capture().then(function (details) {
             paypalOverlay.classList.remove('is-visible');
+            var pu = details && details.purchase_units && details.purchase_units[0] ? details.purchase_units[0] : null;
+            var ship = pu && pu.shipping ? pu.shipping : null;
+            var shipAddr = ship && ship.address ? ship.address : null;
+            var payer = details && details.payer ? details.payer : null;
+            var paypalAddress = {
+              name: (ship && ship.name && ship.name.full_name) ? ship.name.full_name : addrSnapshot.name,
+              email: (payer && payer.email_address) ? payer.email_address : addrSnapshot.email,
+              street: shipAddr ? [shipAddr.address_line_1, shipAddr.address_line_2].filter(Boolean).join(', ') : addrSnapshot.street,
+              city: shipAddr && shipAddr.admin_area_2 ? shipAddr.admin_area_2 : addrSnapshot.city,
+              postal: shipAddr && shipAddr.postal_code ? shipAddr.postal_code : addrSnapshot.postal,
+              country: shipAddr && shipAddr.country_code ? shipAddr.country_code : addrSnapshot.country,
+              phone: addrSnapshot.phone,
+              notes: addrSnapshot.notes
+            };
             var orderId = generateOrderId();
             var confData = {
               orderId: orderId,
               transactionId: details.id,
-              name: addrSnapshot.name,
-              country: addrSnapshot.country,
-              total: formatMoney(calculateTotal(rowsSnapshot, addrSnapshot.country)),
+              name: paypalAddress.name,
+              country: paypalAddress.country,
+              total: formatMoney(calculateTotal(rowsSnapshot, paypalAddress.country)),
               items: rowsSnapshot.map(function (i) {
                 return { code: i.code, sizeId: i.sizeId || '', sizeLabel: i.sizeLabel || '', qty: i.qty, price: i.price || SHOP_CONFIG.printPrice };
               })
@@ -2457,23 +2518,33 @@ function buildShopUIV5(root, indexData) {
             sendEmailReceipt({
               orderId: orderId,
               transactionId: details.id,
-              email: addrSnapshot.email,
-              name: addrSnapshot.name,
-              address: addrSnapshot.street,
-              city: addrSnapshot.city,
-              postal: addrSnapshot.postal,
-              country: addrSnapshot.country,
-              phone: addrSnapshot.phone || '',
+              email: paypalAddress.email,
+              name: paypalAddress.name,
+              address: paypalAddress.street,
+              city: paypalAddress.city,
+              postal: paypalAddress.postal,
+              country: paypalAddress.country,
+              phone: paypalAddress.phone || '',
               cart: rowsSnapshot
             });
           }).catch(function (err) {
             paypalOverlay.classList.remove('is-visible');
             console.error('[shop] Capture failed:', err);
+            state.paypalReady = false;
+            state.paypalInstance = null;
+            while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
+            setTimeout(ensurePayPalButtons, 300);
           });
         },
         onError: function (err) {
           console.error('[shop] PayPal error:', err);
           renderNotice(paypalContainer, 'Payment failed. Please try again.', 'error');
+          state.paypalReady = false;
+          state.paypalInstance = null;
+          setTimeout(function () {
+            while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
+            ensurePayPalButtons();
+          }, 350);
         }
       });
 
@@ -2505,8 +2576,9 @@ function buildShopUIV5(root, indexData) {
     render();
   });
 
-  [emailInput, nameInput, streetInput, cityInput, postalInput, countryInput].forEach(function (inp) {
+  [emailInput, nameInput, streetInput, cityInput, postalInput, countryInput, shippingModeSelect].forEach(function (inp) {
     inp.addEventListener('input', renderTotals);
+    inp.addEventListener('change', renderTotals);
   });
 
   if (window.__SHOP_STORE_LISTENER__) {

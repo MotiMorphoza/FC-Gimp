@@ -1704,6 +1704,13 @@ body:has(.lightbox.active) .project-floating-title {
   margin-top: 0.5rem;
 }
 
+.shop-cart-group-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
 .shop-cart-table tr.added {
   animation: shopRowFlash 0.8s ease;
 }
