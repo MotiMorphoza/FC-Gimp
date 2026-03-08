@@ -240,6 +240,16 @@ function getSizeSortIdx(sizeId) {
   return 999;
 }
 
+function getSizeDescription(sizeId) {
+  if (sizeId === 'A6') return 'POSTCARD';
+  if (sizeId === 'A5') return 'SMALL PRINT';
+  if (sizeId === 'A4') return 'STANDARD PRINT';
+  if (sizeId === 'A3') return 'RECOMMENDED';
+  if (sizeId === 'A2') return 'LARGE POSTER';
+  if (sizeId === 'A1') return 'POSTER';
+  return '';
+}
+
 function addToCartByCode(rawCode, opts) {
   var code = String(rawCode || '').trim().toUpperCase();
   if (!code) return { ok: false, reason: 'missing-code' };
@@ -916,6 +926,12 @@ function buildShopUI(root, indexData) {
   setText(introHdr, 'Fine Art Prints');
   introSection.appendChild(introHdr);
 
+  var introPOrder = el('p', { className: 'shop-intro-para' });
+  setText(introPOrder,
+    'To order: Browse project galleries and click the image code to add prints to your cart.'
+  );
+  introSection.appendChild(introPOrder);
+
   var introP1 = el('p', { className: 'shop-intro-para' });
   setText(introP1,
     'Prints on premium art paper. Ships in protective packaging, ready to frame.'
@@ -923,51 +939,39 @@ function buildShopUI(root, indexData) {
   introSection.appendChild(introP1);
 
   var pricingTable = el('div', { className: 'shop-intro-pricing' });
+  var pricingHead = el('div', { className: 'shop-intro-pricing-row shop-intro-pricing-row--head' });
+  ['Size', 'Physical Size', 'Description', 'Price'].forEach(function (h) {
+    var col = el('span', { className: 'shop-intro-pricing-head' });
+    setText(col, h);
+    pricingHead.appendChild(col);
+  });
+  pricingTable.appendChild(pricingHead);
   PRINT_SIZES.forEach(function (size) {
     var row = el('div', { className: 'shop-intro-pricing-row' });
     var s   = el('span', { className: 'shop-intro-pricing-size' });  setText(s, size.label);
     var d   = el('span', { className: 'shop-intro-pricing-dims' });  setText(d, size.dims);
+    var x   = el('span', { className: 'shop-intro-pricing-desc' });  setText(x, getSizeDescription(size.id));
     var p   = el('span', { className: 'shop-intro-pricing-price' }); setText(p, formatMoney(size.price));
-    row.appendChild(s); row.appendChild(d); row.appendChild(p);
+    row.appendChild(s); row.appendChild(d); row.appendChild(x); row.appendChild(p);
     pricingTable.appendChild(row);
   });
   introSection.appendChild(pricingTable);
 
-  var shippingTitle = el('div', { className: 'shipping-title' });
-  setText(shippingTitle, 'SHIPPING');
-  introSection.appendChild(shippingTitle);
-
-  var shippingLocal = el('div', { className: 'shipping-section' });
-  var shippingLocalHdr = el('div', { className: 'shipping-subtitle' });
-  setText(shippingLocalHdr, 'LOCAL');
-  var shippingLocalTxt = el('p', { className: 'shop-intro-para' });
+  var shippingLocalLine = el('p', { className: 'shop-intro-para shipping-line' });
   setText(
-    shippingLocalTxt,
-    formatMoney(SHOP_CONFIG.shipping.local.base) +
+    shippingLocalLine,
+    'LOCAL: ' + formatMoney(SHOP_CONFIG.shipping.local.base) +
       ' shipping (free over ' + formatMoney(SHOP_CONFIG.shipping.local.freeAbove) + ').'
   );
-  shippingLocal.appendChild(shippingLocalHdr);
-  shippingLocal.appendChild(shippingLocalTxt);
-  introSection.appendChild(shippingLocal);
+  introSection.appendChild(shippingLocalLine);
 
-  var shippingIntl = el('div', { className: 'shipping-section' });
-  var shippingIntlHdr = el('div', { className: 'shipping-subtitle' });
-  setText(shippingIntlHdr, 'INTERNATIONAL');
-  var shippingIntlTxt = el('p', { className: 'shop-intro-para' });
+  var shippingIntlLine = el('p', { className: 'shop-intro-para shipping-line' });
   setText(
-    shippingIntlTxt,
-    formatMoney(SHOP_CONFIG.shipping.international.base) +
+    shippingIntlLine,
+    'INTERNATIONAL: ' + formatMoney(SHOP_CONFIG.shipping.international.base) +
       ' shipping (free over ' + formatMoney(SHOP_CONFIG.shipping.international.freeAbove) + ').'
   );
-  shippingIntl.appendChild(shippingIntlHdr);
-  shippingIntl.appendChild(shippingIntlTxt);
-  introSection.appendChild(shippingIntl);
-
-  var introP3 = el('p', { className: 'shop-intro-para' });
-  setText(introP3,
-    'To order: Browse project galleries and click the image code to add prints to your cart.'
-  );
-  introSection.appendChild(introP3);
+  introSection.appendChild(shippingIntlLine);
 
   root.appendChild(introSection);
 
@@ -1464,170 +1468,179 @@ function buildShopUI(root, indexData) {
     table.appendChild(thead);
 
     var tbody = el('tbody', {});
-    var groupCode = null;
+    var groups = {};
     cart.forEach(function (item, idx) {
-      if (item.code !== groupCode) {
-        groupCode = item.code;
-        var groupTr = el('tr', { className: 'shop-cart-group-row' });
-        var groupTd = el('td', { colspan: '6', className: 'shop-cart-group-cell' });
-        setText(groupTd, item.code);
-        groupTr.appendChild(groupTd);
-        tbody.appendChild(groupTr);
-      }
+      if (!groups[item.code]) groups[item.code] = [];
+      groups[item.code].push({ item: item, idx: idx });
+    });
+    Object.keys(groups).forEach(function (code) {
+      var entries = groups[code];
+      var usedSizeIds = entries.map(function (entry) { return entry.item.sizeId; });
 
-      var tr = el('tr', {});
+      entries.forEach(function (entry, localIdx) {
+        var item = entry.item;
+        var idx = entry.idx;
+        var tr = el('tr', {});
 
-      var tdCode   = el('td', {});
-      tdCode.setAttribute('data-label', 'Code');
-      var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, '↳');
-      tdCode.appendChild(codeSpan);
-
-      var tdSize     = el('td', { className: 'shop-cart-size-cell' });
-      tdSize.setAttribute('data-label', 'Size');
-      var sizeSelect = el('select', {
-        className: 'shop-cart-size-selector',
-        'aria-label': 'Select size for ' + item.code,
-        'data-idx': String(idx)
-      });
-      PRINT_SIZES.forEach(function (size) {
-        var opt = document.createElement('option');
-        opt.value = size.id;
-        var desc = '';
-        if (size.id === 'A6') desc = 'Postcard';
-        else if (size.id === 'A5') desc = 'Small print';
-        else if (size.id === 'A4') desc = 'Printer page';
-        else if (size.id === 'A3') desc = 'Recommended';
-        else if (size.id === 'A2') desc = 'Poster';
-        else if (size.id === 'A1') desc = 'Exhibition poster';
-        opt.textContent = size.label + ' — ' + desc;
-        if (size.id === item.sizeId) opt.selected = true;
-        sizeSelect.appendChild(opt);
-      });
-      sizeSelect.addEventListener('change', function () {
-        var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
-        if (isNaN(rowIdx) || !cart[rowIdx]) return;
-        var nextSizeId = this.value;
-        var nextSize = PRINT_SIZES.find(function (s) { return s.id === nextSizeId; });
-        if (!nextSize) return;
-
-        var current = cart[rowIdx];
-        if (current.sizeId === nextSize.id) return;
-
-        var mergeIdx = -1;
-        for (var mi = 0; mi < cart.length; mi++) {
-          if (mi === rowIdx) continue;
-          if (cart[mi].code === current.code && cart[mi].sizeId === nextSize.id) {
-            mergeIdx = mi;
-            break;
-          }
+        if (localIdx === 0) {
+          var tdCode   = el('td', {});
+          tdCode.setAttribute('data-label', 'Code');
+          tdCode.setAttribute('rowspan', String(entries.length));
+          var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, code);
+          tdCode.appendChild(codeSpan);
+          tr.appendChild(tdCode);
         }
 
-        if (mergeIdx !== -1) {
-          cart[mergeIdx].qty = Math.min(99, (cart[mergeIdx].qty || 1) + (current.qty || 1));
-          if (!cart[mergeIdx].thumbnailUrl && current.thumbnailUrl) {
-            cart[mergeIdx].thumbnailUrl = current.thumbnailUrl;
+        var tdSize     = el('td', { className: 'shop-cart-size-cell' });
+        tdSize.setAttribute('data-label', 'Size');
+        var sizeSelect = el('select', {
+          className: 'shop-cart-size-selector',
+          'aria-label': 'Select size for ' + item.code,
+          'data-idx': String(idx)
+        });
+        PRINT_SIZES.forEach(function (size) {
+          var opt = document.createElement('option');
+          opt.value = size.id;
+          opt.textContent = size.label + ' — ' + getSizeDescription(size.id);
+          if (size.id === item.sizeId) opt.selected = true;
+          if (usedSizeIds.indexOf(size.id) !== -1 && size.id !== item.sizeId) {
+            opt.disabled = true;
           }
-          cart.splice(rowIdx, 1);
-        } else {
-          current.sizeId = nextSize.id;
-          current.sizeLabel = nextSize.label + ' \u2013 ' + nextSize.dims;
-          current.price = nextSize.price;
+          sizeSelect.appendChild(opt);
+        });
+        sizeSelect.addEventListener('change', function () {
+          var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
+          if (isNaN(rowIdx) || !cart[rowIdx]) return;
+          var nextSizeId = this.value;
+          var nextSize = PRINT_SIZES.find(function (s) { return s.id === nextSizeId; });
+          if (!nextSize) return;
+
+          var current = cart[rowIdx];
+          if (current.sizeId === nextSize.id) return;
+
+          var mergeIdx = -1;
+          for (var mi = 0; mi < cart.length; mi++) {
+            if (mi === rowIdx) continue;
+            if (cart[mi].code === current.code && cart[mi].sizeId === nextSize.id) {
+              mergeIdx = mi;
+              break;
+            }
+          }
+
+          if (mergeIdx !== -1) {
+            cart[mergeIdx].qty = Math.min(99, (cart[mergeIdx].qty || 1) + (current.qty || 1));
+            if (!cart[mergeIdx].thumbnailUrl && current.thumbnailUrl) {
+              cart[mergeIdx].thumbnailUrl = current.thumbnailUrl;
+            }
+            cart.splice(rowIdx, 1);
+          } else {
+            current.sizeId = nextSize.id;
+            current.sizeLabel = nextSize.label + ' \u2013 ' + nextSize.dims;
+            current.price = nextSize.price;
+          }
+
+          saveCart(cart);
+          destroyPayPal();
+          renderCart();
+          schedulePayPalRefresh();
+        });
+        tdSize.appendChild(sizeSelect);
+        tr.appendChild(tdSize);
+
+        if (localIdx === 0) {
+          var tdThumb = el('td', {});
+          tdThumb.setAttribute('data-label', 'Image');
+          tdThumb.setAttribute('rowspan', String(entries.length));
+          if (item.thumbnailUrl) {
+            var imgEl = el('img', {
+              src: item.thumbnailUrl, alt: item.code,
+              className: 'shop-cart-thumb', loading: 'lazy'
+            });
+            imgEl.style.cursor = 'pointer';
+            imgEl.addEventListener('click', function () {
+              var lb = document.getElementById('shop-preview-lightbox');
+              var lbImg = lb ? lb.querySelector('img') : null;
+              if (!lb || !lbImg) return;
+              lbImg.src = item.thumbnailUrl;
+              lbImg.alt = item.code;
+              lb.classList.add('active');
+            });
+            tdThumb.appendChild(imgEl);
+
+            var thumbPreview = el('button', {
+              type: 'button',
+              className: 'shop-thumb-preview-link cart-preview',
+              'aria-label': 'Preview ' + item.code
+            });
+            setText(thumbPreview, 'Preview');
+            thumbPreview.addEventListener('click', function () {
+              var lb = document.getElementById('shop-preview-lightbox');
+              var lbImg = lb ? lb.querySelector('img') : null;
+              if (!lb || !lbImg) return;
+              lbImg.src = item.thumbnailUrl;
+              lbImg.alt = item.code;
+              lb.classList.add('active');
+            });
+            tdThumb.appendChild(thumbPreview);
+          }
+          tr.appendChild(tdThumb);
         }
 
-        saveCart(cart);
-        destroyPayPal();
-        renderCart();
-        schedulePayPalRefresh();
-      });
-      tdSize.appendChild(sizeSelect);
-
-      var tdThumb = el('td', {});
-      tdThumb.setAttribute('data-label', 'Image');
-      if (item.thumbnailUrl) {
-        var imgEl = el('img', {
-          src: item.thumbnailUrl, alt: item.code,
-          className: 'shop-cart-thumb', loading: 'lazy'
+        var tdQty = el('td', {});
+        tdQty.setAttribute('data-label', 'Qty');
+        var qtySelect = el('select', {
+          className: 'shop-cart-qty-selector cart-qty',
+          'aria-label': 'Select quantity for ' + item.code,
+          'data-idx': String(idx)
         });
-        imgEl.style.cursor = 'pointer';
-        imgEl.addEventListener('click', function () {
-          var lb = document.getElementById('shop-preview-lightbox');
-          var lbImg = lb ? lb.querySelector('img') : null;
-          if (!lb || !lbImg) return;
-          lbImg.src = item.thumbnailUrl;
-          lbImg.alt = item.code;
-          lb.classList.add('active');
+        [1, 2, 3, 4, 5].forEach(function (q) {
+          var optQ = document.createElement('option');
+          optQ.value = String(q);
+          optQ.textContent = String(q);
+          if (Number(item.qty) === q) optQ.selected = true;
+          qtySelect.appendChild(optQ);
         });
-        tdThumb.appendChild(imgEl);
-
-        var thumbPreview = el('button', {
-          type: 'button',
-          className: 'shop-thumb-preview-link',
-          'aria-label': 'Preview ' + item.code
+        qtySelect.addEventListener('change', function () {
+          var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
+          if (isNaN(rowIdx) || !cart[rowIdx]) return;
+          var nextQty = parseInt(this.value, 10);
+          if (!nextQty || nextQty < 1) nextQty = 1;
+          if (nextQty > 5) nextQty = 5;
+          cart[rowIdx].qty = nextQty;
+          saveCart(cart);
+          destroyPayPal();
+          renderCart();
+          schedulePayPalRefresh();
         });
-        setText(thumbPreview, 'Preview');
-        thumbPreview.addEventListener('click', function () {
-          var lb = document.getElementById('shop-preview-lightbox');
-          var lbImg = lb ? lb.querySelector('img') : null;
-          if (!lb || !lbImg) return;
-          lbImg.src = item.thumbnailUrl;
-          lbImg.alt = item.code;
-          lb.classList.add('active');
+        tdQty.appendChild(qtySelect);
+        tr.appendChild(tdQty);
+
+        var tdPrice = el('td', {});
+        tdPrice.setAttribute('data-label', 'Price');
+        setText(tdPrice, formatMoney((item.price || SHOP_CONFIG.printPrice) * item.qty));
+        tr.appendChild(tdPrice);
+
+        var tdRemove  = el('td', {});
+        tdRemove.setAttribute('data-label', 'Remove');
+        var removeBtn = el('button', {
+          type: 'button', className: 'shop-cart-remove-btn cart-remove',
+          'aria-label': 'Remove ' + item.code + ' from cart',
+          'data-idx': String(idx)
         });
-        tdThumb.appendChild(thumbPreview);
-      }
+        setText(removeBtn, '\u00d7');
+        removeBtn.addEventListener('click', function () {
+          var i = parseInt(this.getAttribute('data-idx'), 10);
+          cart.splice(i, 1);
+          saveCart(cart);
+          destroyPayPal();
+          renderCart();
+          schedulePayPalRefresh();
+        });
+        tdRemove.appendChild(removeBtn);
+        tr.appendChild(tdRemove);
 
-      var tdQty = el('td', {});
-      tdQty.setAttribute('data-label', 'Qty');
-      var qtySelect = el('select', {
-        className: 'shop-cart-qty-selector cart-qty',
-        'aria-label': 'Select quantity for ' + item.code,
-        'data-idx': String(idx)
+        tbody.appendChild(tr);
       });
-      [1, 2, 3, 4, 5].forEach(function (q) {
-        var optQ = document.createElement('option');
-        optQ.value = String(q);
-        optQ.textContent = String(q);
-        if (Number(item.qty) === q) optQ.selected = true;
-        qtySelect.appendChild(optQ);
-      });
-      qtySelect.addEventListener('change', function () {
-        var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
-        if (isNaN(rowIdx) || !cart[rowIdx]) return;
-        var nextQty = parseInt(this.value, 10);
-        if (!nextQty || nextQty < 1) nextQty = 1;
-        if (nextQty > 5) nextQty = 5;
-        cart[rowIdx].qty = nextQty;
-        saveCart(cart);
-        destroyPayPal();
-        renderCart();
-        schedulePayPalRefresh();
-      });
-      tdQty.appendChild(qtySelect);
-      var tdPrice = el('td', {});
-      tdPrice.setAttribute('data-label', 'Price');
-      setText(tdPrice, formatMoney((item.price || SHOP_CONFIG.printPrice) * item.qty));
-
-      var tdRemove  = el('td', {});
-      tdRemove.setAttribute('data-label', 'Remove');
-      var removeBtn = el('button', {
-        type: 'button', className: 'shop-cart-remove-btn cart-remove',
-        'aria-label': 'Remove ' + item.code + ' from cart',
-        'data-idx': String(idx)
-      });
-      setText(removeBtn, '\u00d7');
-      removeBtn.addEventListener('click', function () {
-        var i = parseInt(this.getAttribute('data-idx'), 10);
-        cart.splice(i, 1);
-        saveCart(cart);
-        destroyPayPal();
-        renderCart();
-        schedulePayPalRefresh();
-      });
-      tdRemove.appendChild(removeBtn);
-
-      tr.appendChild(tdCode); tr.appendChild(tdSize); tr.appendChild(tdThumb);
-      tr.appendChild(tdQty);  tr.appendChild(tdPrice); tr.appendChild(tdRemove);
-      tbody.appendChild(tr);
     });
     table.appendChild(tbody);
     cartBody.appendChild(table);

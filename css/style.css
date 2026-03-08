@@ -1307,7 +1307,7 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-intro-pricing-row {
   display: grid;
-  grid-template-columns: 2.5rem 1fr auto;
+  grid-template-columns: 2.5rem 1.2fr 1fr auto;
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 0.75rem;
@@ -1316,12 +1316,30 @@ body:has(.lightbox.active) .project-floating-title {
 }
 .shop-intro-pricing-row:last-child { border-bottom: none; }
 
+.shop-intro-pricing-row--head {
+  background: #101010;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.shop-intro-pricing-head {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+  font-weight: 600;
+}
+
 .shop-intro-pricing-size {
   font-weight: 600;
   color: #ccc;
   letter-spacing: 0.04em;
 }
 .shop-intro-pricing-dims  { color: #555; }
+.shop-intro-pricing-desc {
+  color: #b7b7b7;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
 .shop-intro-pricing-price {
   color: #aaa;
   font-variant-numeric: tabular-nums;
@@ -1533,6 +1551,15 @@ body:has(.lightbox.active) .project-floating-title {
   color: #e1e1e1;
 }
 
+.shop-cart-table td[data-label="Code"],
+.shop-cart-table td[data-label="Image"] {
+  vertical-align: top;
+}
+
+.shop-cart-table td[data-label="Image"] {
+  text-align: center;
+}
+
 .shop-cart-code {
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
@@ -1608,9 +1635,13 @@ body:has(.lightbox.active) .project-floating-title {
   object-fit: cover;
   border: 1px solid #1e1e1e;
   border-radius: 2px;
+  margin: 0 auto;
 }
 
 .shop-thumb-preview-link {
+  display: block;
+  width: 100%;
+  text-align: center;
   margin-top: 6px;
   background: none;
   border: none;
@@ -1623,6 +1654,10 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-thumb-preview-link:hover {
   color: #fff;
+}
+
+.cart-preview {
+  text-align: center;
 }
 
 .shop-cart-remove-btn {
