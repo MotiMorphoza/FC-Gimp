@@ -243,10 +243,10 @@ function getSizeSortIdx(sizeId) {
 function getSizeDescription(sizeId) {
   if (sizeId === 'A6') return 'POSTCARD';
   if (sizeId === 'A5') return 'SMALL PRINT';
-  if (sizeId === 'A4') return 'STANDARD PRINT';
+  if (sizeId === 'A4') return 'PRINRER PAGE';
   if (sizeId === 'A3') return 'RECOMMENDED';
-  if (sizeId === 'A2') return 'LARGE POSTER';
-  if (sizeId === 'A1') return 'POSTER';
+  if (sizeId === 'A2') return 'POSTER';
+  if (sizeId === 'A1') return 'LARGE POSTER';
   return '';
 }
 

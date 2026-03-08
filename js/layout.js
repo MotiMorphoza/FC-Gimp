@@ -542,9 +542,22 @@ async function initProjectPage() {
       const figure      = document.createElement("figure");
       figure.className  = "project-figure";
 
-      const caption         = document.createElement("div");
-      caption.className     = "project-caption";
-      caption.textContent   = imgData.caption || "";
+      const caption = document.createElement("div");
+      caption.className = "project-caption";
+      const rawCaption = String(imgData.caption || "");
+      const captionLines = rawCaption.split(/\r?\n/);
+      let hasCaptionLine = false;
+      captionLines.forEach((lineText, lineIndex) => {
+        if (!lineText.trim()) return;
+        const p = document.createElement("p");
+        p.className = lineIndex > 0 ? "project-caption-line project-caption-line--enter" : "project-caption-line";
+        p.textContent = lineText;
+        caption.appendChild(p);
+        hasCaptionLine = true;
+      });
+      if (!hasCaptionLine && rawCaption) {
+        caption.textContent = rawCaption;
+      }
 
       const imageWrap = document.createElement("div");
       imageWrap.className = "project-image-wrapper";
