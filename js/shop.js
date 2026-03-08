@@ -941,6 +941,18 @@ function buildShopUI(root, indexData) {
   );
   introSection.appendChild(introP3);
 
+  var sizeGuide = el('p', { className: 'shop-intro-para shop-size-guide' });
+  setText(
+    sizeGuide,
+    'A6 — 105 × 148 mm (Postcard) · ' +
+    'A5 — 148 × 210 mm (Small print) · ' +
+    'A4 — 210 × 297 mm (Standard print) · ' +
+    'A3 — 297 × 420 mm (Recommended poster) · ' +
+    'A2 — 420 × 594 mm (Large poster) · ' +
+    'A1 — 594 × 841 mm (Exhibition poster)'
+  );
+  introSection.appendChild(sizeGuide);
+
   root.appendChild(introSection);
 
   /* â”€â”€ Add-to-cart â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -1222,6 +1234,7 @@ function buildShopUI(root, indexData) {
   });
   clearYesBtn.addEventListener('click', function () {
     cart.length = 0;
+    clearCartStorage();
     saveCart(cart);
     destroyPayPal();
     renderCart();
@@ -1322,9 +1335,6 @@ function buildShopUI(root, indexData) {
 
   checkoutSection.appendChild(checkoutForm);
 
-  var orderSummaryDiv = el('div', { className: 'shop-order-summary' });
-  checkoutSection.appendChild(orderSummaryDiv);
-
   var paypalSep       = el('div', { className: 'shop-paypal-separator', 'aria-hidden': 'true' });
   var paypalWrapper   = el('div', { className: 'shop-paypal-wrapper' });
   var paypalContainer = el('div', { id: 'paypal-button-container' });
@@ -1384,84 +1394,7 @@ function buildShopUI(root, indexData) {
 
   /* â”€â”€ Order summary â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function renderOrderSummary() {
-    while (orderSummaryDiv.firstChild) orderSummaryDiv.removeChild(orderSummaryDiv.firstChild);
-    if (!cart.length) return;
-
-    var selectedPrints = countCartItems(cart);
-    var preCountry = getCountry();
-    var preTotal = calculateTotal(cart, preCountry);
-
-    var mini = el('div', { className: 'shop-precheckout-summary' });
-    var miniTitle = el('div', { className: 'shop-summary-title' });
-    setText(miniTitle, 'Selected Prints');
-    var miniCount = el('div', { className: 'shop-summary-line' });
-    setText(miniCount, String(selectedPrints) + ' prints');
-    var miniTotal = el('div', { className: 'shop-summary-line shop-summary-line--total' });
-    setText(miniTotal, 'Total: ' + formatMoney(preTotal));
-    var miniTrust = el('div', { className: 'shop-summary-trust' });
-    setText(miniTrust, 'Secure PayPal Checkout');
-    mini.appendChild(miniTitle);
-    mini.appendChild(miniCount);
-    mini.appendChild(miniTotal);
-    mini.appendChild(miniTrust);
-    orderSummaryDiv.appendChild(mini);
-
-    var hdr = el('div', { className: 'shop-summary-title' });
-    setText(hdr, 'Order Summary');
-    orderSummaryDiv.appendChild(hdr);
-
-    var itemsList = el('div', { className: 'shop-summary-items' });
-    cart.forEach(function (item) {
-      var row = el('div', { className: 'shop-summary-item' });
-
-      if (item.thumbnailUrl) {
-        var thumb = el('img', {
-          src: item.thumbnailUrl, alt: item.code,
-          className: 'shop-summary-thumb', loading: 'lazy'
-        });
-        row.appendChild(thumb);
-      }
-
-      var info     = el('div', { className: 'shop-summary-info' });
-      var codeSpan = el('span', { className: 'shop-summary-code' }); setText(codeSpan, item.code);
-      info.appendChild(codeSpan);
-
-      if (item.sizeLabel) {
-        var sizeSpan = el('span', { className: 'shop-summary-size' }); setText(sizeSpan, item.sizeLabel);
-        info.appendChild(sizeSpan);
-      }
-
-      var qtySpan = el('span', { className: 'shop-summary-qty' }); setText(qtySpan, '\u00d7' + (item.qty || 1));
-      info.appendChild(qtySpan);
-      row.appendChild(info);
-
-      var priceSpan = el('span', { className: 'shop-summary-price' });
-      setText(priceSpan, formatMoney((item.price || SHOP_CONFIG.printPrice) * (item.qty || 1)));
-      row.appendChild(priceSpan);
-
-      itemsList.appendChild(row);
-    });
-    orderSummaryDiv.appendChild(itemsList);
-
-    var country  = getCountry();
-    var subtotal = calculateSubtotal(cart);
-    var shipping = calculateShipping(cart, country);
-    var total    = subtotal + shipping;
-    var totals   = el('div', { className: 'shop-summary-totals' });
-
-    function summaryRow(label, valueText, extraClass) {
-      var row = el('div', { className: 'shop-summary-row' + (extraClass ? ' ' + extraClass : '') });
-      var l = el('span', {}); setText(l, label);
-      var v = el('span', {}); setText(v, valueText);
-      row.appendChild(l); row.appendChild(v);
-      totals.appendChild(row);
-    }
-
-    summaryRow('Subtotal', formatMoney(subtotal));
-    summaryRow('Shipping', shipping === 0 ? 'Free' : formatMoney(shipping));
-    summaryRow('Total',    formatMoney(total), 'is-total');
-
-    orderSummaryDiv.appendChild(totals);
+    return;
   }
 
   /* â”€â”€ Cart render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -1508,7 +1441,7 @@ function buildShopUI(root, indexData) {
     var table = el('table', { className: 'shop-cart-table' });
     var thead  = el('thead', {});
     var hRow   = el('tr', {});
-    ['Code', 'Size', 'Image', 'Qty', 'Price', 'Preview', ''].forEach(function (h) {
+    ['Code', 'Size', 'Image', 'Qty', 'Price', ''].forEach(function (h) {
       var th = el('th', {}); setText(th, h); hRow.appendChild(th);
     });
     thead.appendChild(hRow);
@@ -1533,14 +1466,7 @@ function buildShopUI(root, indexData) {
       PRINT_SIZES.forEach(function (size) {
         var opt = document.createElement('option');
         opt.value = size.id;
-        var hint = '';
-        if (size.id === 'A6') hint = ' (Postcard)';
-        else if (size.id === 'A5') hint = ' (Small print)';
-        else if (size.id === 'A4') hint = ' (Standard print)';
-        else if (size.id === 'A3') hint = ' (Recommended poster)';
-        else if (size.id === 'A2') hint = ' (Large poster)';
-        else if (size.id === 'A1') hint = ' (Exhibition size)';
-        opt.textContent = size.label + ' — ' + size.dims + hint;
+        opt.textContent = size.label;
         if (size.id === item.sizeId) opt.selected = true;
         sizeSelect.appendChild(opt);
       });
@@ -1588,7 +1514,32 @@ function buildShopUI(root, indexData) {
           src: item.thumbnailUrl, alt: item.code,
           className: 'shop-cart-thumb', loading: 'lazy'
         });
+        imgEl.style.cursor = 'pointer';
+        imgEl.addEventListener('click', function () {
+          var lb = document.getElementById('shop-preview-lightbox');
+          var lbImg = lb ? lb.querySelector('img') : null;
+          if (!lb || !lbImg) return;
+          lbImg.src = item.thumbnailUrl;
+          lbImg.alt = item.code;
+          lb.classList.add('active');
+        });
         tdThumb.appendChild(imgEl);
+
+        var thumbPreview = el('button', {
+          type: 'button',
+          className: 'shop-thumb-preview-link',
+          'aria-label': 'Preview ' + item.code
+        });
+        setText(thumbPreview, 'Preview');
+        thumbPreview.addEventListener('click', function () {
+          var lb = document.getElementById('shop-preview-lightbox');
+          var lbImg = lb ? lb.querySelector('img') : null;
+          if (!lb || !lbImg) return;
+          lbImg.src = item.thumbnailUrl;
+          lbImg.alt = item.code;
+          lb.classList.add('active');
+        });
+        tdThumb.appendChild(thumbPreview);
       }
 
       var tdQty = el('td', {});
@@ -1621,25 +1572,6 @@ function buildShopUI(root, indexData) {
       tdPrice.setAttribute('data-label', 'Price');
       setText(tdPrice, formatMoney((item.price || SHOP_CONFIG.printPrice) * item.qty));
 
-      var tdPreview = el('td', {});
-      tdPreview.setAttribute('data-label', 'Preview');
-      var previewBtn = el('button', {
-        type: 'button',
-        className: 'shop-cart-preview-btn',
-        'aria-label': 'Preview ' + item.code
-      });
-      setText(previewBtn, 'Preview');
-      previewBtn.addEventListener('click', function () {
-        if (!item.thumbnailUrl) return;
-        var lb = document.getElementById('shop-preview-lightbox');
-        var lbImg = lb ? lb.querySelector('img') : null;
-        if (!lb || !lbImg) return;
-        lbImg.src = item.thumbnailUrl;
-        lbImg.alt = item.code;
-        lb.classList.add('active');
-      });
-      tdPreview.appendChild(previewBtn);
-
       var tdRemove  = el('td', {});
       tdRemove.setAttribute('data-label', 'Remove');
       var removeBtn = el('button', {
@@ -1658,7 +1590,7 @@ function buildShopUI(root, indexData) {
       tdRemove.appendChild(removeBtn);
 
       tr.appendChild(tdCode); tr.appendChild(tdSize); tr.appendChild(tdThumb);
-      tr.appendChild(tdQty);  tr.appendChild(tdPrice); tr.appendChild(tdPreview); tr.appendChild(tdRemove);
+      tr.appendChild(tdQty);  tr.appendChild(tdPrice); tr.appendChild(tdRemove);
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
@@ -1691,7 +1623,7 @@ function buildShopUI(root, indexData) {
     cartBody.appendChild(clearCartActions);
 
     checkoutSection.style.display = '';
-    renderOrderSummary();
+    schedulePayPalRefresh();
   }
 
   /* â”€â”€ PayPal refresh with automatic cancel recovery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */

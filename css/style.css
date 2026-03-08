@@ -1228,6 +1228,8 @@ body:has(.lightbox.active) .project-floating-title {
 #shop-root {
   max-width: 540px;
   margin: 0 auto;
+  color: #f2f2f2;
+  font-weight: 450;
 }
 
 /* Section headings */
@@ -1252,8 +1254,13 @@ body:has(.lightbox.active) .project-floating-title {
 .shop-intro-para {
   font-size: 0.85rem;
   line-height: 1.65;
-  color: #888;
+  color: #cfcfcf;
   margin: 0 0 0.45rem;
+}
+
+.shop-size-guide {
+  color: #dfdfdf;
+  font-size: 0.8rem;
 }
 
 /* Intro pricing table */
@@ -1306,10 +1313,10 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-label {
   font-size: 0.68rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #666;
+  color: #c7c7c7;
 }
 
 .shop-input {
@@ -1479,7 +1486,7 @@ body:has(.lightbox.active) .project-floating-title {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #555;
+  color: #d0d0d0;
   padding: 0.3rem 0.4rem 0.5rem;
   text-align: left;
   border-bottom: 1px solid #1e1e1e;
@@ -1492,7 +1499,7 @@ body:has(.lightbox.active) .project-floating-title {
 .shop-cart-table tbody td {
   padding: 0.45rem 0.4rem;
   vertical-align: middle;
-  color: #aaa;
+  color: #e1e1e1;
 }
 
 .shop-cart-code {
@@ -1552,11 +1559,26 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-cart-thumb {
   display: block;
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
   border: 1px solid #1e1e1e;
   border-radius: 2px;
+}
+
+.shop-thumb-preview-link {
+  margin-top: 6px;
+  background: none;
+  border: none;
+  color: #d9d9d9;
+  font-size: 0.72rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.shop-thumb-preview-link:hover {
+  color: #fff;
 }
 
 .shop-cart-remove-btn {
@@ -1624,21 +1646,21 @@ body:has(.lightbox.active) .project-floating-title {
 }
 
 .shop-clear-cart-btn {
-  background: none;
-  border: 1px solid #2a2a2a;
+  background: #b30000;
+  border: none;
   border-radius: 3px;
-  color: #555;
+  color: #fff;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
-  padding: 0.45rem 0.9rem;
+  padding: 0.5rem 0.95rem;
   text-transform: uppercase;
-  transition: border-color 0.12s, color 0.12s;
+  transition: background 0.12s;
   align-self: flex-start;
 }
 
-.shop-clear-cart-btn:hover { border-color: #555; color: #aaa; }
+.shop-clear-cart-btn:hover { background: #ff0000; }
 
 .shop-clear-confirm {
   display: flex;
