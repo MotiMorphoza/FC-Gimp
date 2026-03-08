@@ -573,6 +573,19 @@ body.app-active .shell-layout {
   transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
 }
 
+.project-image-wrapper .project-image-code {
+  top: 10px;
+  right: 12px;
+  bottom: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
 .project-image-code:hover {
   opacity: 1;
   transform: translateY(-2px);
