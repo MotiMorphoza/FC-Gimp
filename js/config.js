@@ -33,6 +33,7 @@ var SHOP_CONFIG = {
    ============================================================ */
 var PRINT_SIZES = [
   { id: 'A6', label: 'A6', dims: '10.5 \u00d7 14.8 cm', price:  2.50 },
+  { id: 'A5', label: 'A5', dims: '14.8 \u00d7 21 cm',   price:  5.00 },
   { id: 'A4', label: 'A4', dims: '21 \u00d7 29.7 cm',   price: 10.00 },
   { id: 'A3', label: 'A3', dims: '29.7 \u00d7 42 cm',   price: 20.00 },
   { id: 'A2', label: 'A2', dims: '42 \u00d7 59.4 cm',   price: 40.00 },

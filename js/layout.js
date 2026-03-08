@@ -254,6 +254,69 @@ function addImageProtectionOverlays(gallery) {
   });
 }
 
+function getCartCount() {
+  try {
+    const raw = localStorage.getItem("moto_cart_v2");
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(parsed)) return 0;
+    return parsed.reduce((sum, item) => sum + Math.max(0, Number(item?.qty) || 0), 0);
+  } catch (_e) {
+    return 0;
+  }
+}
+
+function updateFloatingCartIndicator() {
+  const indicator = document.getElementById("floating-cart-indicator");
+  if (!indicator) return;
+  const count = getCartCount();
+  indicator.textContent = `🛒 ${count}`;
+}
+
+function ensureFloatingCartIndicator() {
+  let indicator = document.getElementById("floating-cart-indicator");
+  if (!indicator) {
+    indicator = document.createElement("button");
+    indicator.id = "floating-cart-indicator";
+    indicator.className = "floating-cart-indicator";
+    indicator.type = "button";
+    indicator.setAttribute("aria-label", "Open cart");
+    indicator.addEventListener("click", () => {
+      if (typeof window.loadPage === "function") {
+        window.loadPage("shop.html");
+      } else {
+        window.location.href = "shop.html";
+      }
+    });
+    document.body.appendChild(indicator);
+  }
+
+  if (!window.__FLOATING_CART_BOUND__) {
+    window.__FLOATING_CART_BOUND__ = true;
+    window.addEventListener("storage", (e) => {
+      if (!e || e.key === "moto_cart_v2") updateFloatingCartIndicator();
+    });
+    window.addEventListener("moto:cart-updated", () => updateFloatingCartIndicator());
+  }
+
+  updateFloatingCartIndicator();
+}
+
+function showAddedToCartToast() {
+  let toast = document.getElementById("cart-add-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "cart-add-toast";
+    toast.className = "cart-add-toast";
+    toast.textContent = "Added to cart";
+    document.body.appendChild(toast);
+  }
+  toast.classList.add("is-visible");
+  clearTimeout(window.__cartAddToastTimer);
+  window.__cartAddToastTimer = setTimeout(() => {
+    toast.classList.remove("is-visible");
+  }, 1000);
+}
+
 /* =========================
    FLOATING PROJECT TITLE
    â€“ Fixed element positioned in the top gap area
@@ -520,6 +583,7 @@ async function initProjectPage() {
 
         codeTag.classList.add("added");
         setTimeout(() => codeTag.classList.remove("added"), 800);
+        showAddedToCartToast();
       });
 
       imageWrap.appendChild(codeTag);
@@ -768,6 +832,7 @@ function initPjaxNavigation() {
 async function initPage() {
   ensureFadeOverlay();
   await loadSidebar();
+  ensureFloatingCartIndicator();
   initImageProtection();    // global once; PJAX-safe
   runProjectsInit();
   await initProjectPage();

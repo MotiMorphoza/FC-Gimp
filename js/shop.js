@@ -192,10 +192,32 @@ function loadCart() {
 function saveCart(cart) {
   try { Storage.set(CART_KEY, JSON.stringify(cart)); }
   catch (e) { console.warn('[shop] Could not persist cart:', e); }
+  emitCartUpdated(cart);
 }
 
 function clearCartStorage() {
   try { Storage.remove(CART_KEY); } catch (e) {}
+  emitCartUpdated([]);
+}
+
+function countCartItems(cart) {
+  if (!Array.isArray(cart)) return 0;
+  return cart.reduce(function (sum, item) {
+    return sum + Math.max(0, parseInt(item.qty, 10) || 0);
+  }, 0);
+}
+
+function emitCartUpdated(cart) {
+  if (typeof window === 'undefined') return;
+  try {
+    var data = Array.isArray(cart) ? cart : loadCart();
+    window.dispatchEvent(new CustomEvent('moto:cart-updated', {
+      detail: {
+        rows: Array.isArray(data) ? data.length : 0,
+        count: countCartItems(data)
+      }
+    }));
+  } catch (e) {}
 }
 
 function getDefaultA3SizeIdx() {
@@ -903,7 +925,7 @@ function buildShopUI(root, indexData) {
 
   var introP3 = el('p', { className: 'shop-intro-para' });
   setText(introP3,
-    'To order: Browse galleries. Note the code beneath each photograph. Enter it below.'
+    'To order: Browse project galleries and click the image code to add prints to your cart.'
   );
   introSection.appendChild(introP3);
 
@@ -1273,6 +1295,19 @@ function buildShopUI(root, indexData) {
   checkoutForm.appendChild(phoneF.wrap);
   var phoneInput = phoneF.inp;
 
+  var notesField = el('div', { className: 'shop-field' });
+  var notesLabel = el('label', { className: 'shop-label', 'for': 'shop-notes' });
+  setText(notesLabel, 'Order Notes (optional)');
+  var notesInput = el('textarea', {
+    id: 'shop-notes',
+    className: 'shop-input shop-notes-input',
+    rows: '3',
+    placeholder: 'Special requests, delivery notes, print instructions'
+  });
+  notesField.appendChild(notesLabel);
+  notesField.appendChild(notesInput);
+  checkoutForm.appendChild(notesField);
+
   checkoutSection.appendChild(checkoutForm);
 
   var orderSummaryDiv = el('div', { className: 'shop-order-summary' });
@@ -1290,6 +1325,21 @@ function buildShopUI(root, indexData) {
 
   root.appendChild(checkoutSection);
 
+  var previewLightbox = el('div', { id: 'shop-preview-lightbox', className: 'lightbox shop-preview-lightbox' });
+  var previewClose = el('button', { type: 'button', className: 'lightbox-close' });
+  setText(previewClose, 'BACK');
+  var previewImg = el('img', { src: '', alt: '' });
+  previewClose.addEventListener('click', function (e) {
+    e.stopPropagation();
+    previewLightbox.classList.remove('active');
+  });
+  previewLightbox.addEventListener('click', function (e) {
+    if (e.target === previewLightbox) previewLightbox.classList.remove('active');
+  });
+  previewLightbox.appendChild(previewClose);
+  previewLightbox.appendChild(previewImg);
+  root.appendChild(previewLightbox);
+
   /* â”€â”€ State helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function getEmail()   { return emailInput.value.trim(); }
   function getCountry() { return countryInput.value.trim(); }
@@ -1304,7 +1354,8 @@ function buildShopUI(root, indexData) {
       city:    cityInput.value.trim(),
       postal:  postalInput.value.trim(),
       country: countryInput.value.trim(),
-      phone:   phoneInput.value.trim()
+      phone:   phoneInput.value.trim(),
+      notes:   notesInput.value.trim()
     };
   }
 
@@ -1323,6 +1374,25 @@ function buildShopUI(root, indexData) {
   function renderOrderSummary() {
     while (orderSummaryDiv.firstChild) orderSummaryDiv.removeChild(orderSummaryDiv.firstChild);
     if (!cart.length) return;
+
+    var selectedPrints = countCartItems(cart);
+    var preCountry = getCountry();
+    var preTotal = calculateTotal(cart, preCountry);
+
+    var mini = el('div', { className: 'shop-precheckout-summary' });
+    var miniTitle = el('div', { className: 'shop-summary-title' });
+    setText(miniTitle, 'Selected Prints');
+    var miniCount = el('div', { className: 'shop-summary-line' });
+    setText(miniCount, String(selectedPrints) + ' prints');
+    var miniTotal = el('div', { className: 'shop-summary-line shop-summary-line--total' });
+    setText(miniTotal, 'Total: ' + formatMoney(preTotal));
+    var miniTrust = el('div', { className: 'shop-summary-trust' });
+    setText(miniTrust, 'Secure PayPal Checkout');
+    mini.appendChild(miniTitle);
+    mini.appendChild(miniCount);
+    mini.appendChild(miniTotal);
+    mini.appendChild(miniTrust);
+    orderSummaryDiv.appendChild(mini);
 
     var hdr = el('div', { className: 'shop-summary-title' });
     setText(hdr, 'Order Summary');
@@ -1413,7 +1483,7 @@ function buildShopUI(root, indexData) {
     var table = el('table', { className: 'shop-cart-table' });
     var thead  = el('thead', {});
     var hRow   = el('tr', {});
-    ['Code', 'Size', 'Image', 'Qty', 'Price', ''].forEach(function (h) {
+    ['Code', 'Size', 'Image', 'Qty', 'Price', 'Preview', ''].forEach(function (h) {
       var th = el('th', {}); setText(th, h); hRow.appendChild(th);
     });
     thead.appendChild(hRow);
@@ -1424,10 +1494,12 @@ function buildShopUI(root, indexData) {
       var tr = el('tr', {});
 
       var tdCode   = el('td', {});
+      tdCode.setAttribute('data-label', 'Code');
       var codeSpan = el('span', { className: 'shop-cart-code' }); setText(codeSpan, item.code);
       tdCode.appendChild(codeSpan);
 
       var tdSize     = el('td', { className: 'shop-cart-size-cell' });
+      tdSize.setAttribute('data-label', 'Size');
       var sizeSelect = el('select', {
         className: 'shop-cart-size-selector',
         'aria-label': 'Select size for ' + item.code,
@@ -1436,7 +1508,14 @@ function buildShopUI(root, indexData) {
       PRINT_SIZES.forEach(function (size) {
         var opt = document.createElement('option');
         opt.value = size.id;
-        opt.textContent = size.label;
+        var hint = '';
+        if (size.id === 'A6') hint = ' (Postcard)';
+        else if (size.id === 'A5') hint = ' (Small print)';
+        else if (size.id === 'A4') hint = ' (Standard print)';
+        else if (size.id === 'A3') hint = ' (Recommended poster)';
+        else if (size.id === 'A2') hint = ' (Large poster)';
+        else if (size.id === 'A1') hint = ' (Exhibition size)';
+        opt.textContent = size.label + ' — ' + size.dims + hint;
         if (size.id === item.sizeId) opt.selected = true;
         sizeSelect.appendChild(opt);
       });
@@ -1478,6 +1557,7 @@ function buildShopUI(root, indexData) {
       tdSize.appendChild(sizeSelect);
 
       var tdThumb = el('td', {});
+      tdThumb.setAttribute('data-label', 'Image');
       if (item.thumbnailUrl) {
         var imgEl = el('img', {
           src: item.thumbnailUrl, alt: item.code,
@@ -1486,11 +1566,57 @@ function buildShopUI(root, indexData) {
         tdThumb.appendChild(imgEl);
       }
 
-      var tdQty   = el('td', {}); setText(tdQty, String(item.qty));
+      var tdQty = el('td', {});
+      tdQty.setAttribute('data-label', 'Qty');
+      var qtySelect = el('select', {
+        className: 'shop-cart-qty-selector',
+        'aria-label': 'Select quantity for ' + item.code,
+        'data-idx': String(idx)
+      });
+      [1, 2, 3, 4, 5].forEach(function (q) {
+        var optQ = document.createElement('option');
+        optQ.value = String(q);
+        optQ.textContent = String(q);
+        if (Number(item.qty) === q) optQ.selected = true;
+        qtySelect.appendChild(optQ);
+      });
+      qtySelect.addEventListener('change', function () {
+        var rowIdx = parseInt(this.getAttribute('data-idx'), 10);
+        if (isNaN(rowIdx) || !cart[rowIdx]) return;
+        var nextQty = parseInt(this.value, 10);
+        if (!nextQty || nextQty < 1) nextQty = 1;
+        if (nextQty > 5) nextQty = 5;
+        cart[rowIdx].qty = nextQty;
+        saveCart(cart);
+        destroyPayPal();
+        renderCart();
+      });
+      tdQty.appendChild(qtySelect);
       var tdPrice = el('td', {});
+      tdPrice.setAttribute('data-label', 'Price');
       setText(tdPrice, formatMoney((item.price || SHOP_CONFIG.printPrice) * item.qty));
 
+      var tdPreview = el('td', {});
+      tdPreview.setAttribute('data-label', 'Preview');
+      var previewBtn = el('button', {
+        type: 'button',
+        className: 'shop-cart-preview-btn',
+        'aria-label': 'Preview ' + item.code
+      });
+      setText(previewBtn, 'Preview');
+      previewBtn.addEventListener('click', function () {
+        if (!item.thumbnailUrl) return;
+        var lb = document.getElementById('shop-preview-lightbox');
+        var lbImg = lb ? lb.querySelector('img') : null;
+        if (!lb || !lbImg) return;
+        lbImg.src = item.thumbnailUrl;
+        lbImg.alt = item.code;
+        lb.classList.add('active');
+      });
+      tdPreview.appendChild(previewBtn);
+
       var tdRemove  = el('td', {});
+      tdRemove.setAttribute('data-label', 'Remove');
       var removeBtn = el('button', {
         type: 'button', className: 'shop-cart-remove-btn',
         'aria-label': 'Remove ' + item.code + ' from cart',
@@ -1507,7 +1633,7 @@ function buildShopUI(root, indexData) {
       tdRemove.appendChild(removeBtn);
 
       tr.appendChild(tdCode); tr.appendChild(tdSize); tr.appendChild(tdThumb);
-      tr.appendChild(tdQty);  tr.appendChild(tdPrice); tr.appendChild(tdRemove);
+      tr.appendChild(tdQty);  tr.appendChild(tdPrice); tr.appendChild(tdPreview); tr.appendChild(tdRemove);
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
