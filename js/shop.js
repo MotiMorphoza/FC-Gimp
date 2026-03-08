@@ -194,6 +194,10 @@ function saveCart(cart) {
   catch (e) { console.warn('[shop] Could not persist cart:', e); }
 }
 
+function clearCartStorage() {
+  try { Storage.remove(CART_KEY); } catch (e) {}
+}
+
 function addToCartByCode(rawCode, opts) {
   var code = String(rawCode || '').trim().toUpperCase();
   if (!code) return { ok: false, reason: 'missing-code' };
@@ -827,9 +831,12 @@ function renderConfirmation(root, confData, indexData) {
   section.appendChild(msg);
 
   var restart = el('button', { type: 'button', className: 'shop-confirmation-restart' });
-  setText(restart, 'Place Another Order');
+  setText(restart, 'FINISH');
   restart.addEventListener('click', function () {
     clearConfirmation();
+    saveCart([]);
+    clearCartStorage();
+    destroyPayPal();
     buildShopUI(root, indexData);
   });
   section.appendChild(restart);
