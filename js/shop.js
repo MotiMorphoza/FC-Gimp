@@ -557,9 +557,6 @@ function renderPayPalButton(cart, getAddressData, isCheckoutValid, onSuccess, on
       _paymentApproved = false;
       var overlay = document.querySelector('.shop-paypal-overlay');
       if (overlay) overlay.classList.remove('is-visible');
-      if (typeof onCancelled === 'function') {
-        setTimeout(onCancelled, delayMs || 400);
-      }
     }
 
     _paypalInstance = window.paypal.Buttons({
@@ -1728,10 +1725,7 @@ function buildShopUI(root, indexData) {
         collectAddressData,
         checkoutIsValid,
         onPaymentSuccess,
-        /* onCancelled â€“ auto-restore PayPal buttons after cancel / error */
-        function () {
-          if (Array.isArray(loadCart()) && loadCart().length) schedulePayPalRefresh();
-        },
+        null,
         renderKey,
         renderCycle
       );
