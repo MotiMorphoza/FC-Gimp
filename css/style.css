@@ -1698,6 +1698,30 @@ body:has(.lightbox.active) .project-floating-title {
 
 .shop-cart-remove-btn:hover { color: #c07070; }
 
+.shop-cart-group {
+  border-top: 1px solid #1f1f1f;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.shop-cart-table tr.added {
+  animation: shopRowFlash 0.8s ease;
+}
+
+@keyframes shopRowFlash {
+  0%   { background: rgba(120, 180, 255, 0.18); }
+  100% { background: transparent; }
+}
+
+@media (hover: hover) {
+  .shop-cart-thumb {
+    transition: transform 0.2s ease;
+  }
+  .shop-cart-thumb:hover {
+    transform: scale(1.05);
+  }
+}
+
 .cart-remove {
   color: #c44;
   cursor: pointer;
