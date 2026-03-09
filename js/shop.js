@@ -2718,8 +2718,6 @@ var _shopLoading = false;
 function initShopPage() {
   var root = document.getElementById('shop-root');
   if (!root) return;
-  if (root.getAttribute('data-shop-mounted') === '1') return;
-  if (root.getAttribute('data-shop-mounting') === '1') return;
   if (_shopLoading) return;
   if (!SHOP_CONFIG || !Array.isArray(PRINT_SIZES)) {
     console.error('[shop] Missing configuration (config.js)');
@@ -2728,7 +2726,6 @@ function initShopPage() {
 
   destroyPayPal();
   _shopLoading = true;
-  root.setAttribute('data-shop-mounting', '1');
 
   while (root.firstChild) root.removeChild(root.firstChild);
   var loading = el('p', { className: 'shop-loading' });
@@ -2742,15 +2739,11 @@ function initShopPage() {
   loadShopIndex().then(function (indexData) {
     _shopLoading = false;
     buildShopUIV5(root, indexData);
-    root.setAttribute('data-shop-mounted', '1');
-    root.removeAttribute('data-shop-mounting');
   }).catch(function (err) {
     _shopLoading = false;
     console.error('[shop] Failed to initialise:', err);
     while (root.firstChild) root.removeChild(root.firstChild);
     renderNotice(root, 'Shop could not be loaded. Please refresh the page.', 'error');
-    root.removeAttribute('data-shop-mounted');
-    root.removeAttribute('data-shop-mounting');
   });
 }
 
