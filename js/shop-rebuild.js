@@ -251,11 +251,11 @@
     root.appendChild(prices);
 
     root.appendChild(h("h2", { className: "shop-section-title", text: "SHIPPING" }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "Local shipping: 7.00 EUR (free over EUR 77.00)." }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "International shipping: EUR 27.00 (free over EUR 222.00)." }));
+    root.appendChild(h("p", { className: "shop-intro-para", text: "LOCAL SHIPPING: 7.00 EUR (free over EUR 77.00)." }));
+    root.appendChild(h("p", { className: "shop-intro-para", text: "INTERNATIONAL SHIPPING: EUR 27.00 (free over EUR 222.00)." }));
 
     var countryWrap = h("div", { className: "shop-field shop-country-field" });
-    countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "Shipping country" }));
+    countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
     var countryInput = h("input", { id: "shop-country-v2", className: "shop-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
     var dl = h("datalist", { id: "shop-country-list-v2" });
     COUNTRIES.forEach(function (c) { dl.appendChild(h("option", { value: c.name })); });
