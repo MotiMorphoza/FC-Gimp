@@ -418,7 +418,7 @@ function isAddressValid(ui) {
         if (!now.cart[code]) now.cart[code] = { thumb: thumb, sizes: {} };
         now.cart[code].thumb = now.cart[code].thumb || thumb;
         now.cart[code].sizes[sizeId] = (now.cart[code].sizes[sizeId] || 0) + 1;
-        saveStore(now); addBtn.textContent = "?"; setTimeout(render, 650);
+        saveStore(now); addBtn.textContent = "✓"; setTimeout(render, 650);
       });
       rm.addEventListener("click", function () { var now = loadStore(); delete now.select[code]; saveStore(now); render(); });
       sel.addEventListener("change", function () { var now = loadStore(); if (!now.select[code]) return; now.select[code].size = String(sel.value || "A3").toUpperCase(); saveStore(now); });
@@ -534,7 +534,7 @@ function isAddressValid(ui) {
         customer_name: payload.name || "",
         customer_email: payload.email || "",
         customer_address: payload.address || "",
-        order_notes: payload.notes || "",
+        order_notes: payload.notes ? payload.notes : "—",
         items_breakdown: breakdown,
         item_count: String(payload.rows.length),
         subtotal: money(payload.subtotal),
@@ -609,7 +609,7 @@ function isAddressValid(ui) {
               transactionId: details && details.id ? details.id : "",
               email: u.email,
               name: u.name,
-              address: u.street + ", " + u.city + " " + u.postal + ", " + u.country,
+              address: [u.street, u.city, u.postal, u.country].filter(Boolean).join(", "),
               notes: u.notes,
               rows: rows,
               subtotal: subtotal,
@@ -673,6 +673,8 @@ function isAddressValid(ui) {
       app.refs = buildShop(root);
       var ui = loadUi();
       app.refs.countryInput.value = ui.country; app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
+
+      bindEvents();
       app.refs.nameInput.value = ui.name;
       app.refs.streetInput.value = ui.street;
       app.refs.cityInput.value = ui.city;
@@ -681,7 +683,6 @@ function isAddressValid(ui) {
       app.refs.streetInput.addEventListener("input", render);
       app.refs.cityInput.addEventListener("input", render);
       app.refs.postalInput.addEventListener("input", render);
-      bindEvents();
       render();
       root.setAttribute("data-shop-mounted", "1");
       root.removeAttribute("data-shop-mounting");
