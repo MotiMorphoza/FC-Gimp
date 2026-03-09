@@ -618,7 +618,7 @@ function isAddressValid(ui) {
             });
 
             var now = loadStore(); now.cart = {}; now.select = {}; saveStore(now);
-            app.refs.paypalMsg.textContent = "Payment completed successfully.";
+            showThankYou({rows: rows, total: total });
             resetPayPal(); render();
           }).catch(function () {
             app.paypal.processing = false; app.refs.paypalMsg.textContent = "Payment failed. Please try again.";
@@ -632,6 +632,64 @@ function isAddressValid(ui) {
       buttons.render("#paypal-button-container").then(function () { app.paypal.rendering = false; app.paypal.rendered = true; syncPayPalState(loadStore(), loadUi()); }).catch(function () { app.paypal.rendering = false; app.paypal.rendered = false; app.refs.paypalMsg.textContent = "Could not render PayPal."; });
     }).catch(function () { app.paypal.rendering = false; app.refs.paypalMsg.textContent = "Could not load PayPal."; });
   }
+
+
+
+function showThankYou(order) {
+
+  var overlay = document.createElement("div");
+  overlay.className = "shop-thankyou-overlay";
+
+  var modal = document.createElement("div");
+  modal.className = "shop-thankyou-modal";
+
+  var title = document.createElement("h2");
+  title.textContent = "Thank You";
+
+  var msg = document.createElement("p");
+  msg.textContent = "Payment completed successfully.";
+
+  var detailsTitle = document.createElement("h3");
+  detailsTitle.textContent = "Order details";
+
+  var list = document.createElement("div");
+  list.className = "shop-thankyou-items";
+
+  order.rows.forEach(function(r){
+    var line = document.createElement("div");
+    line.textContent =
+      r.code + " — " + r.size + " × " + r.qty + " = " +
+      (r.qty * r.price).toFixed(2) + " " + (cfg().currency || "EUR");
+    list.appendChild(line);
+  });
+
+  var totals = document.createElement("div");
+  totals.className = "shop-thankyou-total";
+  totals.textContent = "Total: " + money(order.total);
+
+  var emailMsg = document.createElement("p");
+  emailMsg.textContent = "A confirmation email has been sent. Please check your inbox.";
+
+  var btn = document.createElement("button");
+  btn.className = "shop-thankyou-close";
+  btn.textContent = "Back to Projects";
+
+  btn.addEventListener("click", function(){
+    window.location.href = "projects.html";
+  });
+
+  modal.appendChild(title);
+  modal.appendChild(msg);
+  modal.appendChild(detailsTitle);
+  modal.appendChild(list);
+  modal.appendChild(totals);
+  modal.appendChild(emailMsg);
+  modal.appendChild(btn);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+}
+
 
   function render() {
     if (!app.refs) return;

@@ -2426,3 +2426,50 @@ body:has(.lightbox.active) .project-floating-title {
   .shop-v7 .shop-cart-table tr { display: block; border-bottom: 1px solid rgba(255,255,255,.1); padding: 10px 0; }
   .shop-v7 .shop-cart-table td { display: block; border: 0; padding: 6px 0; }
 }
+
+
+/* ===== Shop THANK YOU ===== */
+
+
+.shop-thankyou-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.shop-thankyou-modal{
+  background:#111;
+  color:#fff;
+  padding:32px;
+  max-width:520px;
+  width:90%;
+  border-radius:8px;
+  text-align:center;
+}
+
+.shop-thankyou-modal h2{
+  margin-top:0;
+  font-size:28px;
+}
+
+.shop-thankyou-items{
+  margin:20px 0;
+  text-align:left;
+  font-size:14px;
+}
+
+.shop-thankyou-total{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.shop-thankyou-close{
+  margin-top:20px;
+  padding:10px 20px;
+  font-size:14px;
+  cursor:pointer;
+}
