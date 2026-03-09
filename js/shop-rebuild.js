@@ -529,6 +529,7 @@ function isAddressValid(ui) {
 
       var params = {
         order_id: payload.orderId,
+        order_date: new Date().toLocaleString(),
         transaction_id: payload.transactionId,
         customer_name: payload.name || "",
         customer_email: payload.email || "",
@@ -552,7 +553,18 @@ function isAddressValid(ui) {
     if (!rowsFromCart(store).length) { app.refs.paypalWrap.style.display = "none"; setOverlay("", false); return; }
     app.refs.paypalWrap.style.display = "";
     if (app.paypal.processing) { setOverlay("Processing...", true); return; }
-    if (app.paypal.actions) { try { if (canCheckout(store, ui)) app.paypal.actions.enable(); else app.paypal.actions.disable(); } catch (_e) {} }
+
+    if (app.paypal.actions) {
+    try {
+    if (canCheckout(store, ui)) {
+      app.paypal.actions.enable();
+    } else {
+      app.paypal.actions.disable();
+      return;   // מונע ניסיון PayPal כשהטופס לא תקין
+    }
+    } catch (_e) {}
+    }
+
     if (canCheckout(store, ui)) setOverlay("", false); else setOverlay("Complete checkout details to enable PayPal.", true);
   }
 
