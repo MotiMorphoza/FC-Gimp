@@ -2021,7 +2021,9 @@ function buildShopUIV5(root, indexData) {
     highlightCode: '',
     paypalReady: false,
     paypalLoading: false,
-    paypalInstance: null
+    paypalInstance: null,
+    paypalActions: null,
+    isProcessingPayPal: false
   };
 
   function getPlaceholderThumb() {
@@ -2265,6 +2267,31 @@ function buildShopUIV5(root, indexData) {
     row('Total', formatMoney(total), ' is-total');
     checkoutSection.style.display = rows.length ? '' : 'none';
     paypalWrapper.style.display = rows.length ? '' : 'none';
+    syncPayPalInteractivity();
+  }
+
+  function syncPayPalInteractivity() {
+    var hasItems = collectCartRows().length > 0;
+    var valid = checkoutIsValid();
+    var shouldDisable = hasItems && !valid;
+
+    if (state.paypalActions) {
+      try {
+        if (shouldDisable) state.paypalActions.disable();
+        else state.paypalActions.enable();
+      } catch (e) {}
+    }
+
+    if (state.isProcessingPayPal) return;
+
+    if (shouldDisable) {
+      setText(paypalOverlay, 'Complete checkout details to enable PayPal.');
+      paypalOverlay.classList.add('is-visible');
+      paypalOverlay.setAttribute('aria-hidden', 'false');
+    } else {
+      paypalOverlay.classList.remove('is-visible');
+      paypalOverlay.setAttribute('aria-hidden', 'true');
+    }
   }
 
   function renderSelect() {
@@ -2456,9 +2483,13 @@ function buildShopUIV5(root, indexData) {
   }
 
   function ensurePayPalButtons() {
+    if (state.paypalReady && !paypalContainer.hasChildNodes()) {
+      state.paypalReady = false;
+      state.paypalInstance = null;
+      state.paypalActions = null;
+    }
     if (state.paypalReady || state.paypalLoading) return;
     if (!collectCartRows().length) return;
-    if (!checkoutIsValid()) return;
 
     state.paypalLoading = true;
     var sdkSrc = 'https://www.paypal.com/sdk/js?client-id='
@@ -2474,6 +2505,10 @@ function buildShopUIV5(root, indexData) {
       }
 
       state.paypalInstance = window.paypal.Buttons({
+        onInit: function (data, actions) {
+          state.paypalActions = actions;
+          syncPayPalInteractivity();
+        },
         onClick: function (data, actions) {
           if (!collectCartRows().length) {
             renderNotice(paypalContainer, 'Cart is empty.', 'error');
@@ -2512,10 +2547,13 @@ function buildShopUIV5(root, indexData) {
           });
         },
         onApprove: function (data, actions) {
+          state.isProcessingPayPal = true;
+          setText(paypalOverlay, 'Processing...');
           paypalOverlay.classList.add('is-visible');
           var rowsSnapshot = collectCartRows();
           var addrSnapshot = getAddressData();
           return actions.order.capture().then(function (details) {
+            state.isProcessingPayPal = false;
             paypalOverlay.classList.remove('is-visible');
             var pu = details && details.purchase_units && details.purchase_units[0] ? details.purchase_units[0] : null;
             var ship = pu && pu.shipping ? pu.shipping : null;
@@ -2547,6 +2585,7 @@ function buildShopUIV5(root, indexData) {
             state.store = saveShopStore(state.store);
             state.paypalReady = false;
             state.paypalInstance = null;
+            state.paypalActions = null;
             while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
             saveConfirmation(confData);
             renderConfirmation(root, confData, indexData);
@@ -2563,19 +2602,23 @@ function buildShopUIV5(root, indexData) {
               cart: rowsSnapshot
             });
           }).catch(function (err) {
+            state.isProcessingPayPal = false;
             paypalOverlay.classList.remove('is-visible');
             console.error('[shop] Capture failed:', err);
             state.paypalReady = false;
             state.paypalInstance = null;
+            state.paypalActions = null;
             while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
             setTimeout(ensurePayPalButtons, 300);
           });
         },
         onError: function (err) {
+          state.isProcessingPayPal = false;
           console.error('[shop] PayPal error:', err);
           renderNotice(paypalContainer, 'Payment failed. Please try again.', 'error');
           state.paypalReady = false;
           state.paypalInstance = null;
+          state.paypalActions = null;
           setTimeout(function () {
             while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
             ensurePayPalButtons();
@@ -2585,7 +2628,9 @@ function buildShopUIV5(root, indexData) {
 
       if (state.paypalInstance.isEligible()) {
         state.paypalReady = true;
-        state.paypalInstance.render('#paypal-button-container');
+        state.paypalInstance.render('#paypal-button-container').then(function () {
+          syncPayPalInteractivity();
+        });
       } else {
         renderNotice(paypalContainer, 'PayPal is not available in your region.', 'error');
       }
@@ -2604,13 +2649,14 @@ function buildShopUIV5(root, indexData) {
     validateEmailField(false);
     if (!collectCartRows().length) {
       while (paypalContainer.firstChild) paypalContainer.removeChild(paypalContainer.firstChild);
+      state.paypalReady = false;
+      state.paypalInstance = null;
+      state.paypalActions = null;
+      state.isProcessingPayPal = false;
       return;
     }
-    if (checkoutIsValid()) {
-      ensurePayPalButtons();
-    } else if (!state.paypalReady) {
-      renderNotice(paypalContainer, 'Complete checkout details to enable PayPal.', 'info');
-    }
+    ensurePayPalButtons();
+    syncPayPalInteractivity();
   }
 
   clearBtn.addEventListener('click', function () {
