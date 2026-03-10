@@ -259,11 +259,25 @@ class Scanner {
     }
 
     const metadataImages = Array.isArray(metadata.images) ? metadata.images : [];
+    const metadataBySrc = new Map();
+    const orderedImages = [];
 
-    const images = imageFiles.map((filename, index) => ({
+    metadataImages.forEach((img) => {
+      if (!img || typeof img !== 'object') return;
+      const src = typeof img.src === 'string' ? img.src : '';
+      if (!src || !imageFiles.includes(src)) return;
+      metadataBySrc.set(src, img);
+      if (!orderedImages.includes(src)) orderedImages.push(src);
+    });
+
+    imageFiles.forEach((filename) => {
+      if (!orderedImages.includes(filename)) orderedImages.push(filename);
+    });
+
+    const images = orderedImages.map((filename) => ({
       src: filename,
-      caption: typeof metadataImages[index]?.caption === 'string'
-        ? metadataImages[index].caption
+      caption: typeof metadataBySrc.get(filename)?.caption === 'string'
+        ? metadataBySrc.get(filename).caption
         : ''
     }));
 

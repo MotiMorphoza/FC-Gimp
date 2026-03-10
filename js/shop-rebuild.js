@@ -659,6 +659,10 @@ function isAddressValid(ui) {
       return;
     }
     app.refs.paypalWrap.style.display = "";
+    if (app.paypal.rendered && !app.refs.paypalContainer.firstChild) {
+      app.paypal.rendered = false;
+      app.paypal.actions = null;
+    }
     if (app.paypal.rendered || app.paypal.rendering) { syncPayPalState(store, ui); return; }
     app.paypal.rendering = true;
     if (!app.paypal.sdkPromise) {
@@ -844,6 +848,7 @@ function showThankYou(order) {
     if (root.getAttribute("data-shop-mounting") === "1") return;
     root.setAttribute("data-shop-mounting", "1");
     loadShopIndex().then(function () {
+      resetPayPal();
       app.refs = buildShop(root);
       var ui = loadUi();
       syncCountryControls(ui.country, "init"); app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
