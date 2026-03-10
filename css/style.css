@@ -429,8 +429,8 @@ a.project-text {
   margin-bottom: 1.4em;
 }
 
-.project-caption p + p,
-.project-description p + p {
+.project-caption p + p:not(.project-caption-line--enter),
+.project-description p + p:not(.project-caption-line--enter) {
   margin-top: 1.8em;
   color: #4da3ff;
   display: table;
@@ -446,24 +446,23 @@ a.project-text {
   border-bottom-color: #4da3ff;
 }
 
-.project-caption .project-caption-line--enter{
-  color:#3a8bff;
-  display:inline-block;
-  border-bottom:1px solid rgba(58,139,255,0.55);
-  padding-bottom:0.05em;
+.project-caption .project-caption-line--enter {
+  color: #3a8bff;
+  display: inline-block;
+  border-bottom: 1px solid rgba(58,139,255,0.55);
+  padding-bottom: 0.05em;
   transition:
     color 0.18s ease,
     border-color 0.18s ease,
     transform 0.18s ease;
+  cursor: pointer;
 }
 
-.project-caption .project-caption-line--enter:hover{
-  color:#6fb1ff;
-  border-bottom-color:#6fb1ff;
-  transform:translateY(-2px);
-}
-
-/* ===== LIGHTBOX ===== */
+.project-caption .project-caption-line--enter:hover {
+  color: #6fb1ff;
+  border-bottom-color: #6fb1ff;
+  transform: translateY(-2px);
+}/* ===== LIGHTBOX ===== */
 .lightbox {
   position: fixed;
   inset: 0;
