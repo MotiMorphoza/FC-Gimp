@@ -1,0 +1,456 @@
+/* Shared slideshow */
+
+.slide-viewport {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 0;
+  padding: 2rem;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: #000;
+  max-width: 100%;
+  max-height: calc(100% - 8rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 1;
+  transition:
+    opacity 1s ease;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* ===== LANDING ===== */
+
+.page-landing,
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.landing .slide-viewport {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 2;
+  pointer-events: none;
+}
+.landing-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  padding: 0 1rem 8vh;
+  transform: none;
+}
+.landing-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  z-index: 1;
+}
+.landing-content h1,
+.landing-content p {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.landing-content h1 {
+  font-size: clamp(2.6rem, 5.1vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+.landing-content p {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  opacity: 0.9;
+  margin-top: 0.3rem;
+}
+
+/* Shell pages */
+.shell-layout {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  overflow: hidden;
+}
+[data-sidebar] {
+  min-height: 0;
+}
+.enter-btn {
+  margin-top: 0.55rem;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+}
+.enter-btn:hover {
+  background: #fff;
+  color: #000;
+}
+.sidebar {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #000;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  align-content: start;
+  justify-items: center;
+  padding: 2.5rem 13px max(1rem, env(safe-area-inset-bottom));
+  text-align: center;
+}
+.logo {
+  font-size: clamp(2.3rem, 2.7vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 1rem;
+}
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+.menu {
+  list-style: none;
+  padding: 0 0.25rem;
+  margin: 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s ease;
+}
+.menu a:hover {
+  opacity: 0.65;
+}
+.menu a[aria-current="page"] {
+  color: #d4d4d4;
+}
+.menu-toggle {
+  display: none;
+}
+.sidebar nav {
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.content-pane {
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  overflow-y: auto;
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+.about-pane {
+  padding: clamp(1rem, 3vw, 2.6rem);
+}
+.about-text h1 {
+  margin-top: 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+}
+.about-text p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+.about-image-wrap {
+  margin: 0;
+}
+.about-image-wrap img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Social - always at bottom of sidebar */
+.social {
+  margin: 1.5rem 0 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-self: stretch;
+}
+.social img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.social a:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+
+/* ===== ABOUT ===== */
+.about-pane .about-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 0.9fr);
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  align-items: start;
+}
+
+/* ===== HOME SHELL (NO PAGE SCROLL) ===== */
+.page-main .content-pane {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+.page-main .slide-viewport {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  align-items: center;
+}
+.page-main .slide {
+  max-height: 100%;
+}
+
+#landing-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: var(--bg);
+}
+
+body.landing-active .shell-layout {
+  visibility: hidden;
+}
+
+body.app-active .shell-layout {
+  visibility: visible;
+}
+
+/* ===================================================================
+   MOBILE  (<= 700px)
+=================================================================== */
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .page-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  /* Landing */
+  .landing {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  .landing-bg {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+  .landing-content {
+    position: absolute;
+    bottom: 12vh;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    gap: 0.25rem;
+    padding: 0 1rem;
+  }
+  .landing-content h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .landing-content p {
+    font-size: 0.9rem;
+  }
+  .enter-btn {
+    margin-top: 0.1rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* Shell structure */
+  .shell-layout {
+    display: block;
+    min-height: 100dvh;
+  }
+  .content-pane {
+    min-height: 100dvh;
+    height: auto;
+    position: relative;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  /* Top bar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 12px;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 100;
+  }
+  .sidebar nav {
+    width: 0;
+    min-width: 0;
+  }
+  .logo {
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+  .tagline {
+    display: none !important;
+  }
+
+  /* Menu button */
+  .menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    padding: 4px 6px;
+    margin-left: 0;
+  }
+  .menu-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+  .menu-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+
+  /* Dropdown menu */
+  .menu {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
+    margin: 0;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: 90;
+  }
+  .menu.open {
+    transform: translateY(0);
+  }
+  .menu a {
+    font-size: 1.1rem;
+  }
+
+  /* Home slide fix */
+  .slide-viewport {
+    height: calc(100dvh - 126px);
+    padding: 0;
+    align-items: center;
+  }
+  .slide {
+    max-height: 100%;
+    margin-top: 0;
+  }
+
+  /* About mobile */
+  .about-pane .about-grid {
+    display: block;
+  }
+  .about-image-wrap {
+    margin-top: 40px;
+  }
+
+  /* Social bar mobile */
+  .social {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 12px 0 max(12px, env(safe-area-inset-bottom));
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    z-index: 160;
+  }
+}
+
+/* ===================================================================
+   LANDING PAGE TITLE  -  white frame
+=================================================================== */
+
+.landing-content h1 {
+  color: #fff;
+  border: none;
+  padding: 6px 18px;
+  display: inline-block;
+}

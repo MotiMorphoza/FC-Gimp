@@ -1,4 +1,4 @@
-﻿// build/head-orchestrator.js
+// build/head-orchestrator.js
 'use strict';
 
 class HeadOrchestrator {
@@ -55,10 +55,12 @@ class HeadOrchestrator {
     tags.push(`<meta name="twitter:description" content="${description}">`);
     if (ogImage) tags.push(`<meta name="twitter:image" content="${ogImage}">`);
 
-    const mainCss = this.getMainCss();
-    if (mainCss) {
-      tags.push(`<link rel="stylesheet" href="${mainCss}">`);
-      tags.push(`<link rel="preload" href="${mainCss}" as="style">`);
+    const mainCssPaths = this.getMainCssPaths();
+    if (mainCssPaths.length) {
+      mainCssPaths.forEach((href) => {
+        tags.push(`<link rel="stylesheet" href="${href}">`);
+      });
+      tags.push(`<link rel="preload" href="${mainCssPaths[0]}" as="style">`);
     }
 
     const shopCss = this.getShopCss();
@@ -114,27 +116,15 @@ class HeadOrchestrator {
     return base + fileName;
   }
 
-  getMainCss() {
-    for (const [oldPath, newPath] of this.renameMap.entries()) {
-      if (
-        oldPath.startsWith('css/') &&
-        oldPath.endsWith('.css') &&
-        !oldPath.toLowerCase().includes('shop')
-      ) {
-        return newPath;
-      }
-    }
-    return null;
+  getMainCssPaths() {
+    const orderedPaths = ['css/core.css', 'css/layout.css', 'css/utilities.css', 'css/projects.css'];
+    return orderedPaths
+      .map((oldPath) => this.renameMap.get(oldPath))
+      .filter(Boolean);
   }
 
   getShopCss() {
-    if (!this.isShop()) return null;
-    for (const [oldPath, newPath] of this.renameMap.entries()) {
-      if (oldPath.toLowerCase().includes('shop') && oldPath.endsWith('.css')) {
-        return newPath;
-      }
-    }
-    return null;
+    return this.renameMap.get('css/shop.css') || null;
   }
 
   buildFavicons() {
