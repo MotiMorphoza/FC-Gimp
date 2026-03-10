@@ -359,7 +359,7 @@ function isAddressValid(ui) {
   root.appendChild(countryWrap);
 
   var selectSec = h("section", {});
-  selectSec.appendChild(h("h2", { className: "shop-section-title", text: "SELECT PRINT SIZE" }));
+  selectSec.appendChild(h("h2", { className: "shop-section-title shop-section-title-select", text: "SELECT PRINT SIZE" }));
   var selectBody = h("div", { className: "shop-select-body" });
   selectSec.appendChild(selectBody);
   root.appendChild(selectSec);

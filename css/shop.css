@@ -27,18 +27,35 @@
   border-bottom: 1px solid #2a2a2a;
 }
 
+.shop-section-title-select {
+  font-size: 14px;
+  text-align: center;
+}
+
 .shop-section-title-cart {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.16em;
   color: #f0f0f0;
+  text-align: center;
 }
 
 .shop-section-title-cart-icon {
   font-size: 1.05rem;
   line-height: 1;
+}
+
+@media (min-width: 701px) {
+  .shop-section-title-cart {
+    font-size: 1.35rem;
+  }
+
+  .shop-section-title-cart-icon {
+    font-size: 1.2rem;
+  }
 }
 
 .shop-title {
