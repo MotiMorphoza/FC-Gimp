@@ -1,13 +1,13 @@
 ﻿(function () {
   const videos = [
-    { id: "M7lc1UVf-VE", title: "Morphoza Window 01" },
-    { id: "aqz-KE-bpKQ", title: "Morphoza Window 02" },
-    { id: "ScMzIvxBSi4", title: "Morphoza Window 03" },
-    { id: "ysz5S6PUM-U", title: "Morphoza Window 04" },
-    { id: "e-ORhEE9VVg", title: "Morphoza Window 05" },
-    { id: "jNQXAC9IVRw", title: "Morphoza Window 06" },
-    { id: "dQw4w9WgXcQ", title: "Morphoza Window 07" },
-    { id: "9bZkp7q19f0", title: "Morphoza Window 08" }
+    { id: "eh7V9ZzCO4g", title: "Morphoza Window 01" },
+    { id: "kKb6r5kS-Ds", title: "Morphoza Window 02" },
+    { id: "4DhDvD3OI1I", title: "Morphoza Window 03" },
+    { id: "jiH3dJ7Xmxs", title: "Morphoza Window 04" },
+    { id: "mLwruD9gxN8", title: "Morphoza Window 05" },
+    { id: "U1SxF5vO1lk", title: "Morphoza Window 06" },
+    { id: "iTZSUXB1EZA", title: "Morphoza Window 07" },
+    { id: "nGn0Div6-v0", title: "Morphoza Window 08" }
   ];
 
   const state = {
