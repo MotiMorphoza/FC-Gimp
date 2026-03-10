@@ -2353,7 +2353,7 @@ body:has(.lightbox.active) .project-floating-title {
 
 .landing-content h1 {
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: none;
   padding: 6px 18px;
   display: inline-block;
 }
