@@ -340,8 +340,10 @@ function isAddressValid(ui) {
   root.appendChild(prices);
 
   root.appendChild(h("h2", { className: "shop-section-title", text: "SHIPPING" }));
-  root.appendChild(h("p", { className: "shop-intro-para", text: "LOCAL SHIPPING: 7.00 EUR (free over EUR 77.00)." }));
-  root.appendChild(h("p", { className: "shop-intro-para", text: "INTERNATIONAL SHIPPING: EUR 27.00 (free over EUR 222.00)." }));
+  root.appendChild(h("p", { className: "shipping-title", text: "LOCAL SHIPPING" }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "7.00 EUR (free over EUR 77.00)." }));
+  root.appendChild(h("p", { className: "shipping-title", text: "INTERNATIONAL SHIPPING" }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "27.00 EUR (free over EUR 222.00)." }));
 
   var countryWrap = h("div", { className: "shop-field shop-country-field" });
   countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
@@ -460,7 +462,7 @@ function isAddressValid(ui) {
     var codes = Object.keys(store.select).sort();
     if (!codes.length) { app.refs.selectBody.appendChild(h("p", { className: "shop-cart-empty", text: "No selected prints yet. Add from project galleries." })); return; }
     var table = h("table", { className: "shop-cart-table" });
-    var th = h("tr", {}); ["THUMB", "CODE", "SIZE", "ADD", "REMOVE"].forEach(function (x) { th.appendChild(h("th", { text: x })); });
+    var th = h("tr", {}); ["YOUR PIC", "CODE", "SIZE", "ADD", "REMOVE"].forEach(function (x) { th.appendChild(h("th", { text: x })); });
     var thead = h("thead", {}); thead.appendChild(th); table.appendChild(thead); var tbody = h("tbody", {});
 
     codes.forEach(function (code) {
