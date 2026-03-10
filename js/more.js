@@ -228,6 +228,28 @@
     updateCarousel(root);
   }
 
+  function bindMotiTile(root) {
+    const tile = root.querySelector("[data-more-open='morphoza']");
+    if (!tile || tile.dataset.tileBound === "true") return;
+
+    tile.dataset.tileBound = "true";
+
+    tile.addEventListener("click", (event) => {
+      const wallCell = event.target.closest(".more-video-wall-cell");
+      const index = wallCell ? Number(wallCell.dataset.videoIndex) : Number.NaN;
+      if (Number.isInteger(index)) {
+        state.activeIndex = index;
+      }
+      showGallery(root);
+    });
+
+    tile.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      showGallery(root);
+    });
+  }
+
   function bindEvents(root) {
     if (root.dataset.moreBound === "true") return;
     root.dataset.moreBound = "true";
@@ -330,6 +352,7 @@
     renderItems(root);
     initWall(root);
     startWallRotation(root);
+    bindMotiTile(root);
     bindEvents(root);
     showHome(root);
   };
