@@ -1,10 +1,14 @@
-/* More page */
+﻿/* More page */
 .more-pane {
   padding: 0;
 }
 
-.more-grid {
+.more-grid,
+.morphoza-view {
   min-height: 100%;
+}
+
+.more-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -88,6 +92,337 @@
   transform: scale(1);
 }
 
+.more-tile--interactive {
+  cursor: pointer;
+}
+
+.more-tile--interactive:hover,
+.more-tile--interactive:focus-visible {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+    #090909;
+}
+
+.more-video-wall {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  transform: scale(1);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.more-video-wall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.more-tile--video-wall:hover .more-video-wall,
+.more-tile--video-wall:focus-within .more-video-wall {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+.more-video-wall-cell {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #090909;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.more-video-wall-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.34));
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+
+.more-tile--video-wall:hover .more-video-wall-cell::after,
+.more-tile--video-wall:focus-within .more-video-wall-cell::after {
+  opacity: 0.7;
+}
+
+.more-video-wall-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  opacity: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.25s ease;
+}
+
+.more-video-wall-image.is-swapping {
+  opacity: 0.22;
+  transform: scale(1.025);
+}
+
+.more-tile--video-wall:hover .more-video-wall-image,
+.more-tile--video-wall:focus-within .more-video-wall-image {
+  filter: brightness(1.08);
+}
+
+.more-video-wall-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.more-video-wall-play::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 9px;
+  border-left: 9px solid rgba(255, 255, 255, 0.94);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.more-tile--video-wall:hover .more-video-wall-play,
+.more-tile--video-wall:focus-within .more-video-wall-play {
+  opacity: 0.82;
+  transform: translate(-50%, -50%) scale(1.05);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.morphoza-view {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.2vw, 30px);
+  padding: clamp(24px, 3vw, 42px);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #050505;
+}
+
+.morphoza-view[hidden],
+.morphoza-player-view[hidden] {
+  display: none;
+}
+
+.morphoza-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.morphoza-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.9rem, 3.2vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.morphoza-back {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding: 0.85rem 1rem;
+  min-height: 48px;
+  font: inherit;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.morphoza-back:hover,
+.morphoza-back:focus-visible,
+.morphoza-nav:hover,
+.morphoza-nav:focus-visible {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+.morphoza-back--home {
+  justify-self: start;
+}
+
+.morphoza-carousel-view,
+.morphoza-player-view {
+  flex: 1 1 auto;
+  min-height: min(68dvh, 760px);
+}
+
+.morphoza-carousel-shell {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 20px);
+}
+
+.morphoza-carousel {
+  min-height: min(68dvh, 760px);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.1), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #060606;
+}
+
+.morphoza-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: min(68dvh, 760px);
+}
+
+.morphoza-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(180px, 17vw, 240px);
+  aspect-ratio: 16 / 10;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 26px 55px rgba(0, 0, 0, 0.28);
+  opacity: var(--item-opacity, 0);
+  z-index: var(--item-z, 0);
+  transform:
+    translate(-50%, -50%)
+    translateX(var(--item-x, 0px))
+    translateY(var(--item-y, 0px))
+    scale(var(--item-scale, 1));
+  filter: brightness(var(--item-brightness, 0.78));
+  transition:
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+  overflow: hidden;
+}
+
+.morphoza-item.is-active {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 38px 90px rgba(0, 0, 0, 0.42);
+}
+
+.morphoza-item:hover,
+.morphoza-item:focus-visible {
+  filter: brightness(calc(var(--item-brightness, 0.78) + 0.12));
+}
+
+.morphoza-item-button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.morphoza-item-figure {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+.morphoza-item-figure img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.morphoza-item:hover .morphoza-item-figure img,
+.morphoza-item:focus-visible .morphoza-item-figure img {
+  transform: scale(1.04);
+  filter: brightness(1.08);
+}
+
+.morphoza-item-title {
+  margin: 0;
+  padding: 0.9rem 0.2rem 0;
+  font-size: clamp(0.86rem, 1vw, 1.02rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.morphoza-item:not(.is-active) .morphoza-item-title {
+  opacity: 0.82;
+}
+
+.morphoza-nav {
+  appearance: none;
+  width: clamp(44px, 4vw, 58px);
+  height: clamp(120px, 22vh, 190px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  cursor: pointer;
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  display: inline-grid;
+  place-items: center;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.morphoza-player-view {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.morphoza-player-frame {
+  min-height: min(60dvh, 720px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #000;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.42);
+}
+
+.morphoza-player-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .morphoza-carousel {
+    min-height: 560px;
+  }
+
+  .morphoza-track {
+    min-height: 560px;
+  }
+}
+
 @media (max-width: 900px) {
   .more-grid {
     grid-template-columns: 1fr;
@@ -96,5 +431,67 @@
 
   .more-tile {
     min-height: 280px;
+  }
+
+  .morphoza-view {
+    padding: 78px 14px 24px;
+  }
+
+  .morphoza-header {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .morphoza-back--home,
+  .morphoza-back--gallery {
+    justify-self: start;
+  }
+
+  .morphoza-title {
+    font-size: clamp(1.45rem, 8vw, 2.4rem);
+    text-align: left;
+  }
+
+  .morphoza-carousel-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .morphoza-nav {
+    width: 100%;
+    height: 48px;
+  }
+
+  .morphoza-nav--left {
+    order: 2;
+  }
+
+  .morphoza-carousel {
+    order: 1;
+    min-height: 460px;
+  }
+
+  .morphoza-track {
+    min-height: 460px;
+  }
+
+  .morphoza-nav--right {
+    order: 3;
+  }
+
+  .morphoza-item {
+    width: clamp(150px, 42vw, 250px);
+  }
+
+  .morphoza-item-title {
+    font-size: 0.78rem;
+  }
+
+  .morphoza-player-view {
+    min-height: 72dvh;
+  }
+
+  .morphoza-player-frame {
+    min-height: 52dvh;
   }
 }

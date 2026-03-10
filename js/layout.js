@@ -665,6 +665,12 @@ function runShopInit() {
   }
 }
 
+function runMoreInit() {
+  if (typeof window.initMorePage === "function") {
+    window.initMorePage();
+  }
+}
+
 /* =========================
    PJAX INFRASTRUCTURE
 ========================= */
@@ -864,6 +870,7 @@ async function initPage() {
   await initProjectPage();
   runSlideshowInit();
   runShopInit();
+  runMoreInit();
   initFullscreenLightboxSync();
   initPjaxNavigation();
 }
