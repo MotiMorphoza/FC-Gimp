@@ -27,8 +27,14 @@
   border-bottom: 1px solid #2a2a2a;
 }
 
+.shop-section-title-shop-main {
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  text-align: center;
+  color: #f0f0f0;
+}
+
 .shop-section-title-select {
-  font-size: 14px;
   text-align: center;
 }
 
@@ -49,6 +55,7 @@
 }
 
 @media (min-width: 701px) {
+  .shop-section-title-shop-main,
   .shop-section-title-cart {
     font-size: 1.35rem;
   }
@@ -1050,6 +1057,10 @@
 
   .shop-cart-table tbody td[data-label="REMOVE"]::before {
     display: none;
+  }
+
+  .shop-cart-table tbody td[data-label="REMOVE"] {
+    text-align: center;
   }
 
   .shop-cart-table tbody td:last-child {
