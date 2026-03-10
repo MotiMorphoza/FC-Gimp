@@ -68,6 +68,11 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${shopCss}">`);
     }
 
+    const moreCss = this.getMoreCss();
+    if (moreCss) {
+      tags.push(`<link rel="stylesheet" href="${moreCss}">`);
+    }
+
     tags.push(...this.buildFavicons());
 
     const heroPreload = this.getHeroPreload();
@@ -131,6 +136,11 @@ class HeadOrchestrator {
   getShopCss() {
     if (!this.isShop()) return null;
     return this.renameMap.get('css/shop.css') || null;
+  }
+
+  getMoreCss() {
+    if (!this.isMore()) return null;
+    return this.renameMap.get('css/more.css') || null;
   }
 
   buildFavicons() {
@@ -273,6 +283,7 @@ class HeadOrchestrator {
   isLanding()  { return this.getFileName() === 'index.html'; }
   isMain()     { return this.getFileName() === 'main.html'; }
   isProjectsList() { return this.getFileName() === 'projects.html'; }
+  isMore()     { return this.getFileName() === 'more.html'; }
   isProject()  {
     const fileName = this.getFileName();
     return fileName === 'project.html' || fileName.startsWith('project-');
