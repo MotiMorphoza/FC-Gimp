@@ -1,14 +1,5 @@
 ﻿(function () {
-  const videos = [
-    { id: "eh7V9ZzCO4g", title: "Morphoza Window 01" },
-    { id: "kKb6r5kS-Ds", title: "Morphoza Window 02" },
-    { id: "4DhDvD3OI1I", title: "Morphoza Window 03" },
-    { id: "jiH3dJ7Xmxs", title: "Morphoza Window 04" },
-    { id: "mLwruD9gxN8", title: "Morphoza Window 05" },
-    { id: "U1SxF5vO1lk", title: "Morphoza Window 06" },
-    { id: "iTZSUXB1EZA", title: "Morphoza Window 07" },
-    { id: "nGn0Div6-v0", title: "Morphoza Window 08" }
-  ];
+  let videos = [];
 
   const state = {
     activeIndex: 0,
@@ -16,9 +7,14 @@
     preloaded: new Set(),
     wallSlots: [],
     wallTimer: null,
-    titlesHydrated: false,
-    titlesPromise: null
+    videosLoaded: false,
+    videosPromise: null
   };
+
+  function getGeneratedDataUrl() {
+    const version = window.__BUILD_VERSION__ || Date.now();
+    return `data/morphoza-videos.generated.json?v=${version}`;
+  }
 
   function getCircularOffset(index, activeIndex, total) {
     let offset = index - activeIndex;
@@ -59,45 +55,6 @@
     return `https://www.youtube.com/embed/${videoId}`;
   }
 
-  function getOEmbedUrl(videoId) {
-    const videoUrl = encodeURIComponent(`https://www.youtube.com/watch?v=${videoId}`);
-    return `https://www.youtube.com/oembed?url=${videoUrl}&format=json`;
-  }
-
-  async function hydrateVideoTitles(root) {
-    if (state.titlesHydrated) return;
-    if (state.titlesPromise) return state.titlesPromise;
-
-    state.titlesPromise = Promise.all(
-      videos.map(async (video) => {
-        try {
-          const response = await fetch(getOEmbedUrl(video.id), { credentials: "omit" });
-          if (!response.ok) return;
-          const data = await response.json();
-          if (data && typeof data.title === "string" && data.title.trim()) {
-            video.title = data.title.trim();
-          }
-        } catch (_error) {
-          // Keep local fallback title when oEmbed is unavailable.
-        }
-      })
-    ).finally(() => {
-      state.titlesHydrated = true;
-    });
-
-    await state.titlesPromise;
-
-    if (!root?.isConnected) return;
-
-    renderItems(root);
-    initWall(root);
-
-    const playerOpen = !root.querySelector("[data-morphoza-player-view]")?.hidden;
-    if (!playerOpen) {
-      updateCarousel(root);
-    }
-  }
-
   function preloadThumb(videoId) {
     if (!videoId || state.preloaded.has(videoId)) return;
     const image = new Image();
@@ -106,6 +63,8 @@
   }
 
   function preloadVisibleThumbs() {
+    if (!videos.length) return;
+
     [0, -1, 1, -2, 2].forEach((delta) => {
       const index = (state.activeIndex + delta + videos.length) % videos.length;
       preloadThumb(videos[index] && videos[index].id);
@@ -115,6 +74,11 @@
   function renderItems(root) {
     const track = root.querySelector("[data-morphoza-track]");
     if (!track) return;
+
+    if (!videos.length) {
+      track.innerHTML = "";
+      return;
+    }
 
     track.innerHTML = videos.map((video, index) => `
       <article class="morphoza-item" data-video-index="${index}">
@@ -130,7 +94,7 @@
 
   function updateCarousel(root) {
     const items = root.querySelectorAll(".morphoza-item");
-    if (!items.length) return;
+    if (!items.length || !videos.length) return;
 
     const isMobile = window.matchMedia("(max-width: 900px)").matches;
 
@@ -167,12 +131,9 @@
 
   function initWall(root) {
     const cells = Array.from(root.querySelectorAll(".more-video-wall-cell"));
-    if (!cells.length) return;
+    if (!cells.length || !videos.length) return;
 
-    if (!state.wallSlots.length) {
-      state.wallSlots = cells.map((_, index) => index % videos.length);
-    }
-
+    state.wallSlots = cells.map((_, index) => index % videos.length);
     cells.forEach((cell, index) => {
       assignWallCell(cell, state.wallSlots[index]);
     });
@@ -214,6 +175,8 @@
 
   function startWallRotation(root) {
     stopWallRotation();
+    if (!videos.length) return;
+
     initWall(root);
     state.wallTimer = window.setInterval(() => {
       if (document.body.dataset.page !== "more") return;
@@ -245,7 +208,6 @@
   }
 
   function showGallery(root) {
-
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
@@ -266,6 +228,7 @@
   }
 
   function move(root, direction) {
+    if (!videos.length) return;
     state.activeIndex = (state.activeIndex + direction + videos.length) % videos.length;
     updateCarousel(root);
   }
@@ -376,6 +339,46 @@
     }
   }
 
+  async function loadVideos(root) {
+    if (!state.videosPromise) {
+      state.videosPromise = fetch(getGeneratedDataUrl(), { credentials: "same-origin" })
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((payload) => {
+          videos = Array.isArray(payload)
+            ? payload
+                .filter((entry) => entry && typeof entry.id === "string" && entry.id.trim())
+                .map((entry) => ({
+                  id: entry.id.trim(),
+                  title: typeof entry.title === "string" && entry.title.trim() ? entry.title.trim() : "Video"
+                }))
+            : [];
+          state.videosLoaded = true;
+          return videos;
+        })
+        .catch(() => {
+          videos = [];
+          state.videosLoaded = true;
+          return videos;
+        });
+    }
+
+    await state.videosPromise;
+
+    if (!root?.isConnected || !videos.length) return videos;
+
+    if (state.activeIndex >= videos.length) {
+      state.activeIndex = 0;
+    }
+
+    renderItems(root);
+    startWallRotation(root);
+    updateCarousel(root);
+    return videos;
+  }
+
   window.initMorePage = function initMorePage() {
     if (document.body.dataset.page !== "more") {
       stopWallRotation();
@@ -385,16 +388,13 @@
     const root = document.querySelector(".more-pane");
     if (!root) return;
 
-    renderItems(root);
-    initWall(root);
-    startWallRotation(root);
     bindMotiTile(root);
     bindEvents(root);
-    void hydrateVideoTitles(root);
     root.querySelector("[data-more-home]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
     resetPlayer(root);
+    void loadVideos(root);
   };
 })();

@@ -14,6 +14,7 @@ const AtomicDeployer    = require('./build/atomic-deployer');
 
 const { generateShopIndex }      = require('./build/shop-index-generator');
 const { convertProjectImages }   = require('./build/image-converter');
+const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 
 class SuperBuild {
 
@@ -34,6 +35,7 @@ class SuperBuild {
       this.logger.info('Starting build process');
 
       this.validateSource();
+      await this.buildMorphozaVideos();
 
       const tempDir = this.deployer.initTempDir(this.rootDir);
       this.deployer.copyToTemp(this.rootDir, tempDir);
@@ -220,6 +222,18 @@ class SuperBuild {
   // ─────────────────────────────────────────────────────────────────────────
   // Shop index
   // ─────────────────────────────────────────────────────────────────────────
+  async buildMorphozaVideos() {
+    const sourcePath = path.join(this.rootDir, 'data', 'morphoza-videos.json');
+    const outputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
+
+    await generateMorphozaVideos({
+      sourcePath,
+      outputPath,
+      logger: this.logger,
+      delayMs: 300
+    });
+  }
+
   async buildShopIndex(tempDir, BUILD_VERSION) {
     const projectsDir = path.join(tempDir, 'projects');
     const outputDir   = path.join(tempDir, 'shop');
@@ -266,7 +280,7 @@ class SuperBuild {
   // Source validation
   // ─────────────────────────────────────────────────────────────────────────
   validateSource() {
-    for (const item of ['index.html', 'css', 'js', 'images']) {
+    for (const item of ['index.html', 'css', 'js', 'images', 'data']) {
       if (!fs.existsSync(path.join(this.rootDir, item))) {
         throw new Error(`Missing required item: ${item}`);
       }
