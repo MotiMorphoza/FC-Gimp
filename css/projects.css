@@ -468,6 +468,7 @@ body:has(.lightbox.active) .project-floating-title {
 
 .next-project-text .enter {
   display: block;
+  width: fit-content;
   margin-top: 8px;
   font-size: 0.78rem;
   letter-spacing: 0.06em;
