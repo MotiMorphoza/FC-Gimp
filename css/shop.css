@@ -178,6 +178,10 @@
   border-color: #7a3030;
 }
 
+.shop-country-select {
+  display: none;
+}
+
 .shop-validation-msg {
   font-size: 0.72rem;
   color: #c07070;
@@ -915,6 +919,17 @@
   /* Prevent auto-zoom on input focus (iOS) */
   .shop-input {
     font-size: 16px;
+  }
+
+  .shop-country-input {
+    display: none;
+  }
+
+  .shop-country-select {
+    display: block;
+    min-height: 44px;
+    -webkit-appearance: menulist;
+    appearance: auto;
   }
 
   /* Minimum 44px touch targets */

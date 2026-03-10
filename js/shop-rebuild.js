@@ -64,7 +64,7 @@
     ];
   }
 
-  // PRICE_MAP — built once on first use. sizes() reads window.PRINT_SIZES which
+  // PRICE_MAP - built once on first use. sizes() reads window.PRINT_SIZES which
   // is set by config.js before shop.js and does not change at runtime.
   var _priceMap = null;
   function priceFor(sizeId) {
@@ -287,9 +287,25 @@ function isAddressValid(ui) {
     return SIZE_ORDER.filter(function (sid) { return inCart.indexOf(sid) === -1; });
   }
 
+  function syncCountryControls(value, source) {
+    var normalized = String(value || "");
+    var match = findCountryByName(normalized);
+    var nextValue = match ? match.name : normalized;
+
+    if (app.refs && app.refs.countryInput && source !== "input") {
+      app.refs.countryInput.value = nextValue;
+    }
+    if (app.refs && app.refs.countrySelect && source !== "select") {
+      app.refs.countrySelect.value = match ? match.name : "";
+    }
+
+    return nextValue;
+  }
+
   function uiState() {
+  var country = String((app.refs.countrySelect && app.refs.countrySelect.value) || (app.refs.countryInput && app.refs.countryInput.value) || "");
   return {
-    country: String(app.refs.countryInput.value || ""),
+    country: country,
     email: String(app.refs.emailInput.value || ""),
     name: String(app.refs.nameInput.value || ""),
     street: String(app.refs.streetInput.value || ""),
@@ -329,10 +345,17 @@ function isAddressValid(ui) {
 
   var countryWrap = h("div", { className: "shop-field shop-country-field" });
   countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
-  var countryInput = h("input", { id: "shop-country-v2", className: "shop-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
+  var countryInput = h("input", { id: "shop-country-v2", className: "shop-input shop-country-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
+  var countrySelect = h("select", { id: "shop-country-mobile-v2", className: "shop-input shop-country-select", "aria-label": "Select shipping country" });
+  countrySelect.appendChild(h("option", { value: "", text: "Select country" }));
   var dl = h("datalist", { id: "shop-country-list-v2" });
-  COUNTRIES.forEach(function (c) { dl.appendChild(h("option", { value: c.name })); });
-  countryWrap.appendChild(countryInput); countryWrap.appendChild(dl);
+  COUNTRIES.forEach(function (c) {
+    dl.appendChild(h("option", { value: c.name }));
+    countrySelect.appendChild(h("option", { value: c.name, text: c.name }));
+  });
+  countryWrap.appendChild(countryInput);
+  countryWrap.appendChild(countrySelect);
+  countryWrap.appendChild(dl);
   root.appendChild(countryWrap);
 
   var selectSec = h("section", {});
@@ -409,6 +432,7 @@ function isAddressValid(ui) {
   return {
     root: root,
     countryInput: countryInput,
+    countrySelect: countrySelect,
     selectBody: selectBody,
     cartBody: cartBody,
     totals: totals,
@@ -467,7 +491,7 @@ function isAddressValid(ui) {
         if (!now.cart[code]) now.cart[code] = { thumb: thumb, sizes: {} };
         now.cart[code].thumb = now.cart[code].thumb || thumb;
         now.cart[code].sizes[sizeId] = (now.cart[code].sizes[sizeId] || 0) + 1;
-        saveStore(now); addBtn.textContent = "✓"; setTimeout(render, 650);
+        saveStore(now); addBtn.textContent = "OK"; setTimeout(render, 650);
       });
       rm.addEventListener("click", function () { var now = loadStore(); delete now.select[code]; saveStore(now); render(); });
       sel.addEventListener("change", function () { var now = loadStore(); if (!now.select[code]) return; now.select[code].size = String(sel.value || "A3").toUpperCase(); saveStore(now); });
@@ -583,7 +607,7 @@ function isAddressValid(ui) {
         customer_name: payload.name || "",
         customer_email: payload.email || "",
         customer_address: payload.address || "",
-        order_notes: payload.notes ? payload.notes : "—",
+        order_notes: payload.notes ? payload.notes : "-",
         items_breakdown: breakdown,
         item_count: String(payload.rows.length),
         subtotal: money(payload.subtotal),
@@ -624,7 +648,7 @@ function isAddressValid(ui) {
 
   function ensurePayPal(store, ui) {
     if (!rowsFromCart(store).length) {
-      // Cart empty — hide the wrapper but do NOT destroy the rendered buttons.
+      // Cart empty - hide the wrapper but do NOT destroy the rendered buttons.
       // Destroying and re-rendering the container causes SDK instability.
       app.refs.paypalWrap.style.display = "none";
       return;
@@ -785,8 +809,20 @@ function showThankYou(order) {
   }
 
   function bindEvents() {
-    app.refs.countryInput.addEventListener("input", render);
-    app.refs.countryInput.addEventListener("change", render);
+    app.refs.countryInput.addEventListener("input", function () {
+      syncCountryControls(app.refs.countryInput.value, "input");
+      render();
+    });
+    app.refs.countryInput.addEventListener("change", function () {
+      syncCountryControls(app.refs.countryInput.value, "input");
+      render();
+    });
+    if (app.refs.countrySelect) {
+      app.refs.countrySelect.addEventListener("change", function () {
+        syncCountryControls(app.refs.countrySelect.value, "select");
+        render();
+      });
+    }
     app.refs.emailInput.addEventListener("input", render);
     app.refs.emailInput.addEventListener("blur", render);
     app.refs.notesInput.addEventListener("input", render);
@@ -805,7 +841,7 @@ function showThankYou(order) {
     loadShopIndex().then(function () {
       app.refs = buildShop(root);
       var ui = loadUi();
-      app.refs.countryInput.value = ui.country; app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
+      syncCountryControls(ui.country, "init"); app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
 
       bindEvents();
       app.refs.nameInput.value = ui.name;
