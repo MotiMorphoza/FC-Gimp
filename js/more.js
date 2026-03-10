@@ -192,8 +192,13 @@
   function resetPlayer(root) {
     const frame = root.querySelector("[data-morphoza-iframe]");
     if (frame) {
-      frame.src = "about:blank";
-      frame.removeAttribute("src");
+      const nextFrame = frame.cloneNode(false);
+      nextFrame.title = frame.title || "Moti Morphoza video player";
+      nextFrame.setAttribute("data-morphoza-iframe", "");
+      nextFrame.loading = "lazy";
+      nextFrame.allow = frame.allow || "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      nextFrame.allowFullscreen = true;
+      frame.replaceWith(nextFrame);
     }
     state.playerIndex = null;
   }
