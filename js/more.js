@@ -15,7 +15,9 @@
     playerIndex: null,
     preloaded: new Set(),
     wallSlots: [],
-    wallTimer: null
+    wallTimer: null,
+    titlesHydrated: false,
+    titlesPromise: null
   };
 
   function getCircularOffset(index, activeIndex, total) {
@@ -55,6 +57,45 @@
 
   function getEmbedUrl(videoId) {
     return `https://www.youtube.com/embed/${videoId}`;
+  }
+
+  function getOEmbedUrl(videoId) {
+    const videoUrl = encodeURIComponent(`https://www.youtube.com/watch?v=${videoId}`);
+    return `https://www.youtube.com/oembed?url=${videoUrl}&format=json`;
+  }
+
+  async function hydrateVideoTitles(root) {
+    if (state.titlesHydrated) return;
+    if (state.titlesPromise) return state.titlesPromise;
+
+    state.titlesPromise = Promise.all(
+      videos.map(async (video) => {
+        try {
+          const response = await fetch(getOEmbedUrl(video.id), { credentials: "omit" });
+          if (!response.ok) return;
+          const data = await response.json();
+          if (data && typeof data.title === "string" && data.title.trim()) {
+            video.title = data.title.trim();
+          }
+        } catch (_error) {
+          // Keep local fallback title when oEmbed is unavailable.
+        }
+      })
+    ).finally(() => {
+      state.titlesHydrated = true;
+    });
+
+    await state.titlesPromise;
+
+    if (!root?.isConnected) return;
+
+    renderItems(root);
+    initWall(root);
+
+    const playerOpen = !root.querySelector("[data-morphoza-player-view]")?.hidden;
+    if (!playerOpen) {
+      updateCarousel(root);
+    }
   }
 
   function preloadThumb(videoId) {
@@ -349,6 +390,7 @@
     startWallRotation(root);
     bindMotiTile(root);
     bindEvents(root);
+    void hydrateVideoTitles(root);
     root.querySelector("[data-more-home]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");

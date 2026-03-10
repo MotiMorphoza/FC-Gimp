@@ -270,7 +270,7 @@ class HeadOrchestrator {
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://www.paypalobjects.com https://cdn.emailjs.com https://cdn.jsdelivr.net",
       "frame-src https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://www.youtube.com https://www.youtube-nocookie.com",
-      "connect-src 'self' https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://api.emailjs.com",
+      "connect-src 'self' https://www.paypal.com https://paypal.com https://www.sandbox.paypal.com https://sandbox.paypal.com https://api.emailjs.com https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com",
       "img-src 'self' data: https://www.paypal.com https://paypal.com https://www.paypalobjects.com https://img.youtube.com https://i.ytimg.com",
       "style-src 'self' 'unsafe-inline'"
     ].join('; ');
