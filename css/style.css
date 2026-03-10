@@ -388,17 +388,17 @@ a.project-text {
   text-decoration: none;
 }
 .project-text .enter {
-  display:inline-block;
-  margin-top:10px;
-  font-size:0.8rem;
-  letter-spacing:0.08em;
-  color:#3a8bff;
-  border-bottom:1px solid rgba(58,139,255,0.6);
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
-
 .project-text:hover .enter {
-  border-bottom:1px solid #6fb1ff;
-  color:#6fb1ff;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .project-figure {
@@ -427,6 +427,37 @@ a.project-text {
 .project-caption p,
 .project-description p {
   margin-bottom: 1.4em;
+}
+
+.project-caption p + p,
+.project-description p + p {
+  margin-top: 1.8em;
+  color: #4da3ff;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid rgba(77, 163, 255, 0.6);
+  padding-bottom: 0.05em;
+  transition: border-color 0.2s ease;
+}
+
+.project-caption p + p:hover,
+.project-description p + p:hover {
+  border-bottom-color: #4da3ff;
+}
+
+.project-caption .project-caption-line--enter {
+  color: #4da3ff;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid rgba(77, 163, 255, 0.6);
+  padding-bottom: 0.05em;
+  transition: border-color 0.2s ease;
+}
+
+.project-caption .project-caption-line--enter:hover {
+  border-bottom-color: #4da3ff;
 }
 
 
