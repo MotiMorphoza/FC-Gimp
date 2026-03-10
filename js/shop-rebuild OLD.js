@@ -148,9 +148,17 @@
   }
 
   function loadUi() {
-    var raw = parseJSON(localStorage.getItem(UI_KEY) || "", {});
-    return { country: String(raw.country || ""), email: String(raw.email || ""), notes: String(raw.notes || "") };
-  }
+  var raw = parseJSON(localStorage.getItem(UI_KEY) || "", {});
+  return {
+    country: String(raw.country || ""),
+    email: String(raw.email || ""),
+    name: String(raw.name || ""),
+    street: String(raw.street || ""),
+    city: String(raw.city || ""),
+    postal: String(raw.postal || ""),
+    notes: String(raw.notes || "")
+  };
+}
 
   function saveUi(ui) { try { localStorage.setItem(UI_KEY, JSON.stringify(ui)); } catch (_e) {} }
 
@@ -171,6 +179,18 @@
   }
 
   function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
+
+
+function isAddressValid(ui) {
+  return (
+    ui.name.trim().length > 1 &&
+    ui.street.trim().length > 3 &&
+    ui.city.trim().length > 1 &&
+    ui.postal.trim().length > 1
+  );
+}
+
+
 
   function loadShopIndex() {
     if (app.indexPromise) return app.indexPromise;
@@ -219,89 +239,147 @@
   }
 
   function uiState() {
-    return {
-      country: String(app.refs.countryInput.value || ""),
-      email: String(app.refs.emailInput.value || ""),
-      notes: String(app.refs.notesInput.value || "")
-    };
-  }
+  return {
+    country: String(app.refs.countryInput.value || ""),
+    email: String(app.refs.emailInput.value || ""),
+    name: String(app.refs.nameInput.value || ""),
+    street: String(app.refs.streetInput.value || ""),
+    city: String(app.refs.cityInput.value || ""),
+    postal: String(app.refs.postalInput.value || ""),
+    notes: String(app.refs.notesInput.value || "")
+  };
+}
 
   function buildShop(root) {
-    clear(root);
-    root.classList.add("shop-v7");
+  clear(root);
+  root.classList.add("shop-v7");
 
-    root.appendChild(h("h1", { className: "shop-title", text: "Fine Art Prints" }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "Prints on premium art paper. Ships in protective packaging, ready to frame." }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "To order: Browse project galleries and click an image code to add prints to your cart." }));
+  root.appendChild(h("h1", { className: "shop-title", text: "Fine Art Prints" }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "Prints on premium art paper. Ships in protective packaging, ready to frame." }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "To order: Browse project galleries and click an image code to add prints to your cart." }));
 
-    var prices = h("table", { className: "shop-prices-table" });
-    var thRow = h("tr", {});
-    ["Size", "Physical size", "Description", "Price"].forEach(function (x) { thRow.appendChild(h("th", { text: x })); });
-    var thead = h("thead", {}); thead.appendChild(thRow); prices.appendChild(thead);
-    var tbody = h("tbody", {});
-    sizes().forEach(function (s) {
-      var tr = h("tr", {});
-      tr.appendChild(h("td", { text: s.id }));
-      tr.appendChild(h("td", { text: s.dims }));
-      tr.appendChild(h("td", { text: SIZE_DESC[s.id] || "" }));
-      tr.appendChild(h("td", { text: money(s.price) }));
-      tbody.appendChild(tr);
-    });
-    prices.appendChild(tbody);
-    root.appendChild(prices);
+  var prices = h("table", { className: "shop-prices-table" });
+  var thRow = h("tr", {});
+  ["Size", "Physical size", "Description", "Price"].forEach(function (x) { thRow.appendChild(h("th", { text: x })); });
+  var thead = h("thead", {}); thead.appendChild(thRow); prices.appendChild(thead);
+  var tbody = h("tbody", {});
+  sizes().forEach(function (s) {
+    var tr = h("tr", {});
+    tr.appendChild(h("td", { text: s.id }));
+    tr.appendChild(h("td", { text: s.dims }));
+    tr.appendChild(h("td", { text: SIZE_DESC[s.id] || "" }));
+    tr.appendChild(h("td", { text: money(s.price) }));
+    tbody.appendChild(tr);
+  });
+  prices.appendChild(tbody);
+  root.appendChild(prices);
 
-    root.appendChild(h("h2", { className: "shop-section-title", text: "SHIPPING" }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "LOCAL SHIPPING: 7.00 EUR (free over EUR 77.00)." }));
-    root.appendChild(h("p", { className: "shop-intro-para", text: "INTERNATIONAL SHIPPING: EUR 27.00 (free over EUR 222.00)." }));
+  root.appendChild(h("h2", { className: "shop-section-title", text: "SHIPPING" }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "LOCAL SHIPPING: 7.00 EUR (free over EUR 77.00)." }));
+  root.appendChild(h("p", { className: "shop-intro-para", text: "INTERNATIONAL SHIPPING: EUR 27.00 (free over EUR 222.00)." }));
 
-    var countryWrap = h("div", { className: "shop-field shop-country-field" });
-    countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
-    var countryInput = h("input", { id: "shop-country-v2", className: "shop-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
-    var dl = h("datalist", { id: "shop-country-list-v2" });
-    COUNTRIES.forEach(function (c) { dl.appendChild(h("option", { value: c.name })); });
-    countryWrap.appendChild(countryInput); countryWrap.appendChild(dl);
-    root.appendChild(countryWrap);
+  var countryWrap = h("div", { className: "shop-field shop-country-field" });
+  countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
+  var countryInput = h("input", { id: "shop-country-v2", className: "shop-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
+  var dl = h("datalist", { id: "shop-country-list-v2" });
+  COUNTRIES.forEach(function (c) { dl.appendChild(h("option", { value: c.name })); });
+  countryWrap.appendChild(countryInput); countryWrap.appendChild(dl);
+  root.appendChild(countryWrap);
 
-    var selectSec = h("section", {});
-    selectSec.appendChild(h("h2", { className: "shop-section-title", text: "SELECT PRINT SIZE" }));
-    var selectBody = h("div", { className: "shop-select-body" });
-    selectSec.appendChild(selectBody);
-    root.appendChild(selectSec);
+  var selectSec = h("section", {});
+  selectSec.appendChild(h("h2", { className: "shop-section-title", text: "SELECT PRINT SIZE" }));
+  var selectBody = h("div", { className: "shop-select-body" });
+  selectSec.appendChild(selectBody);
+  root.appendChild(selectSec);
 
-    var cartSec = h("section", {});
-    cartSec.appendChild(h("h2", { className: "shop-section-title", text: "CART" }));
-    var cartBody = h("div", { className: "shop-cart-body" });
-    cartSec.appendChild(cartBody);
-    root.appendChild(cartSec);
+  var cartSec = h("section", {});
+  cartSec.appendChild(h("h2", { className: "shop-section-title", text: "CART" }));
+  var cartBody = h("div", { className: "shop-cart-body" });
+  cartSec.appendChild(cartBody);
+  root.appendChild(cartSec);
 
-    var totals = h("div", { className: "shop-cart-totals" });
-    root.appendChild(totals);
+  var totals = h("div", { className: "shop-cart-totals" });
+  root.appendChild(totals);
 
-    var clearBtn = h("button", { type: "button", className: "shop-clear-cart-btn clear-cart", text: "Clear Cart" });
-    var clearWrap = h("div", { className: "shop-clear-cart-actions" }); clearWrap.appendChild(clearBtn); root.appendChild(clearWrap);
+  var clearBtn = h("button", { type: "button", className: "shop-clear-cart-btn clear-cart", text: "Clear Cart" });
+  var clearWrap = h("div", { className: "shop-clear-cart-actions" }); clearWrap.appendChild(clearBtn); root.appendChild(clearWrap);
 
-    var checkout = h("section", { className: "shop-checkout" });
-    checkout.appendChild(h("h2", { className: "shop-section-title", text: "Customer details form" }));
-    var eWrap = h("div", { className: "shop-field" });
-    eWrap.appendChild(h("label", { className: "shop-label", for: "shop-email-v2", text: "Email" }));
-    var emailInput = h("input", { id: "shop-email-v2", className: "shop-input", type: "email", placeholder: "name@example.com" });
-    var emailMsg = h("span", { className: "shop-validation-msg", id: "shop-email-v2-msg" });
-    eWrap.appendChild(emailInput); eWrap.appendChild(emailMsg); checkout.appendChild(eWrap);
-    var nWrap = h("div", { className: "shop-field" });
-    nWrap.appendChild(h("label", { className: "shop-label", for: "shop-notes-v2", text: "Order notes (optional)" }));
-    var notesInput = h("textarea", { id: "shop-notes-v2", className: "shop-input shop-notes-input", rows: "3" });
-    nWrap.appendChild(notesInput); checkout.appendChild(nWrap);
-    var paypalWrap = h("div", { className: "shop-paypal-wrapper" });
-    var paypalContainer = h("div", { id: "paypal-button-container" });
-    var paypalOverlay = h("div", { className: "shop-paypal-overlay", "aria-hidden": "true", text: "Complete checkout details to enable PayPal." });
-    paypalWrap.appendChild(paypalContainer); paypalWrap.appendChild(paypalOverlay); checkout.appendChild(paypalWrap);
-    var paypalMsg = h("p", { className: "shop-intro-para shop-paypal-message", text: "" }); checkout.appendChild(paypalMsg);
-    root.appendChild(checkout);
+  var checkout = h("section", { className: "shop-checkout" });
+  checkout.appendChild(h("h2", { className: "shop-section-title", text: "Customer details form" }));
 
-    return { root: root, countryInput: countryInput, selectBody: selectBody, cartBody: cartBody, totals: totals, clearBtn: clearBtn, emailInput: emailInput, emailMsg: emailMsg, notesInput: notesInput, paypalWrap: paypalWrap, paypalContainer: paypalContainer, paypalOverlay: paypalOverlay, paypalMsg: paypalMsg };
-  }
+  var eWrap = h("div", { className: "shop-field" });
+  eWrap.appendChild(h("label", { className: "shop-label", for: "shop-email-v2", text: "Email" }));
+  var emailInput = h("input", { id: "shop-email-v2", className: "shop-input", type: "email", placeholder: "name@example.com" });
+  var emailMsg = h("span", { className: "shop-validation-msg", id: "shop-email-v2-msg" });
+  eWrap.appendChild(emailInput); 
+  eWrap.appendChild(emailMsg); 
+  checkout.appendChild(eWrap);
 
-  function renderSelect(store) {
+  var nameWrap = h("div", { className: "shop-field" });
+  nameWrap.appendChild(h("label", { className: "shop-label", for: "shop-name-v2", text: "Full name" }));
+  var nameInput = h("input", { id: "shop-name-v2", className: "shop-input", type: "text", placeholder: "Full name" });
+  nameWrap.appendChild(nameInput);
+  checkout.appendChild(nameWrap);
+
+  var streetWrap = h("div", { className: "shop-field" });
+  streetWrap.appendChild(h("label", { className: "shop-label", for: "shop-street-v2", text: "Street address" }));
+  var streetInput = h("input", { id: "shop-street-v2", className: "shop-input", type: "text", placeholder: "Street address" });
+  streetWrap.appendChild(streetInput);
+  checkout.appendChild(streetWrap);
+
+  var cityWrap = h("div", { className: "shop-field" });
+  cityWrap.appendChild(h("label", { className: "shop-label", for: "shop-city-v2", text: "City" }));
+  var cityInput = h("input", { id: "shop-city-v2", className: "shop-input", type: "text", placeholder: "City" });
+  cityWrap.appendChild(cityInput);
+  checkout.appendChild(cityWrap);
+
+  var postalWrap = h("div", { className: "shop-field" });
+  postalWrap.appendChild(h("label", { className: "shop-label", for: "shop-postal-v2", text: "Postal / ZIP code" }));
+  var postalInput = h("input", { id: "shop-postal-v2", className: "shop-input", type: "text", placeholder: "Postal code" });
+  postalWrap.appendChild(postalInput);
+  checkout.appendChild(postalWrap);
+
+  var nWrap = h("div", { className: "shop-field" });
+  nWrap.appendChild(h("label", { className: "shop-label", for: "shop-notes-v2", text: "Order notes (optional)" }));
+  var notesInput = h("textarea", { id: "shop-notes-v2", className: "shop-input shop-notes-input", rows: "3" });
+  nWrap.appendChild(notesInput); 
+  checkout.appendChild(nWrap);
+
+  var paypalWrap = h("div", { className: "shop-paypal-wrapper" });
+  var paypalContainer = h("div", { id: "paypal-button-container" });
+  var paypalOverlay = h("div", { className: "shop-paypal-overlay", "aria-hidden": "true", text: "Complete checkout details to enable PayPal." });
+  paypalWrap.appendChild(paypalContainer); 
+  paypalWrap.appendChild(paypalOverlay); 
+  checkout.appendChild(paypalWrap);
+
+  var paypalMsg = h("p", { className: "shop-intro-para shop-paypal-message", text: "" }); 
+  checkout.appendChild(paypalMsg);
+
+  root.appendChild(checkout);
+
+  return {
+    root: root,
+    countryInput: countryInput,
+    selectBody: selectBody,
+    cartBody: cartBody,
+    totals: totals,
+    clearBtn: clearBtn,
+    emailInput: emailInput,
+    emailMsg: emailMsg,
+    nameInput: nameInput,
+    streetInput: streetInput,
+    cityInput: cityInput,
+    postalInput: postalInput,
+    notesInput: notesInput,
+    paypalWrap: paypalWrap,
+    paypalContainer: paypalContainer,
+    paypalOverlay: paypalOverlay,
+    paypalMsg: paypalMsg
+    };
+    }  
+    
+
+    function renderSelect(store) {
     clear(app.refs.selectBody);
     var codes = Object.keys(store.select).sort();
     if (!codes.length) { app.refs.selectBody.appendChild(h("p", { className: "shop-cart-empty", text: "No selected prints yet. Add from project galleries." })); return; }
@@ -340,7 +418,7 @@
         if (!now.cart[code]) now.cart[code] = { thumb: thumb, sizes: {} };
         now.cart[code].thumb = now.cart[code].thumb || thumb;
         now.cart[code].sizes[sizeId] = (now.cart[code].sizes[sizeId] || 0) + 1;
-        saveStore(now); addBtn.textContent = "?"; setTimeout(render, 650);
+        saveStore(now); addBtn.textContent = "✓"; setTimeout(render, 650);
       });
       rm.addEventListener("click", function () { var now = loadStore(); delete now.select[code]; saveStore(now); render(); });
       sel.addEventListener("change", function () { var now = loadStore(); if (!now.select[code]) return; now.select[code].size = String(sel.value || "A3").toUpperCase(); saveStore(now); });
@@ -411,7 +489,15 @@
     app.refs.paypalOverlay.setAttribute("aria-hidden", visible ? "false" : "true");
   }
 
-  function canCheckout(store, ui) { return rowsFromCart(store).length > 0 && isValidEmail(ui.email) && String(ui.country || "").trim().length > 0; }
+ function canCheckout(store, ui) {
+  return (
+    rowsFromCart(store).length > 0 &&
+    isValidEmail(ui.email) &&
+    String(ui.country || "").trim().length > 0 &&
+    isAddressValid(ui)
+  );
+}
+
 
   function emailJsAllowedDomain() {
     var allow = cfg().emailjsAllowedDomains;
@@ -443,11 +529,12 @@
 
       var params = {
         order_id: payload.orderId,
+        order_date: new Date().toLocaleString(),
         transaction_id: payload.transactionId,
         customer_name: payload.name || "",
         customer_email: payload.email || "",
         customer_address: payload.address || "",
-        order_notes: payload.notes || "",
+        order_notes: payload.notes ? payload.notes : "—",
         items_breakdown: breakdown,
         item_count: String(payload.rows.length),
         subtotal: money(payload.subtotal),
@@ -466,7 +553,18 @@
     if (!rowsFromCart(store).length) { app.refs.paypalWrap.style.display = "none"; setOverlay("", false); return; }
     app.refs.paypalWrap.style.display = "";
     if (app.paypal.processing) { setOverlay("Processing...", true); return; }
-    if (app.paypal.actions) { try { if (canCheckout(store, ui)) app.paypal.actions.enable(); else app.paypal.actions.disable(); } catch (_e) {} }
+
+    if (app.paypal.actions) {
+    try {
+    if (canCheckout(store, ui)) {
+      app.paypal.actions.enable();
+    } else {
+      app.paypal.actions.disable();
+      return;   // מונע ניסיון PayPal כשהטופס לא תקין
+    }
+    } catch (_e) {}
+    }
+
     if (canCheckout(store, ui)) setOverlay("", false); else setOverlay("Complete checkout details to enable PayPal.", true);
   }
 
@@ -510,8 +608,8 @@
               orderId: "MS-" + Date.now(),
               transactionId: details && details.id ? details.id : "",
               email: u.email,
-              name: "",
-              address: u.country,
+              name: u.name,
+              address: [u.street, u.city, u.postal, u.country].filter(Boolean).join(", "),
               notes: u.notes,
               rows: rows,
               subtotal: subtotal,
@@ -520,7 +618,7 @@
             });
 
             var now = loadStore(); now.cart = {}; now.select = {}; saveStore(now);
-            app.refs.paypalMsg.textContent = "Payment completed successfully.";
+            showThankYou({rows: rows, total: total });
             resetPayPal(); render();
           }).catch(function () {
             app.paypal.processing = false; app.refs.paypalMsg.textContent = "Payment failed. Please try again.";
@@ -535,6 +633,64 @@
     }).catch(function () { app.paypal.rendering = false; app.refs.paypalMsg.textContent = "Could not load PayPal."; });
   }
 
+
+
+function showThankYou(order) {
+
+  var overlay = document.createElement("div");
+  overlay.className = "shop-thankyou-overlay";
+
+  var modal = document.createElement("div");
+  modal.className = "shop-thankyou-modal";
+
+  var title = document.createElement("h2");
+  title.textContent = "Thank You";
+
+  var msg = document.createElement("p");
+  msg.textContent = "Payment completed successfully.";
+
+  var detailsTitle = document.createElement("h3");
+  detailsTitle.textContent = "Order details";
+
+  var list = document.createElement("div");
+  list.className = "shop-thankyou-items";
+
+  order.rows.forEach(function(r){
+    var line = document.createElement("div");
+    line.textContent =
+      r.code + " — " + r.size + " × " + r.qty + " = " +
+      (r.qty * r.price).toFixed(2) + " " + (cfg().currency || "EUR");
+    list.appendChild(line);
+  });
+
+  var totals = document.createElement("div");
+  totals.className = "shop-thankyou-total";
+  totals.textContent = "Total: " + money(order.total);
+
+  var emailMsg = document.createElement("p");
+  emailMsg.textContent = "A confirmation email has been sent. Please check your inbox.";
+
+  var btn = document.createElement("button");
+  btn.className = "shop-thankyou-close";
+  btn.textContent = "Back to Projects";
+
+  btn.addEventListener("click", function(){
+    window.location.href = "projects.html";
+  });
+
+  modal.appendChild(title);
+  modal.appendChild(msg);
+  modal.appendChild(detailsTitle);
+  modal.appendChild(list);
+  modal.appendChild(totals);
+  modal.appendChild(emailMsg);
+  modal.appendChild(btn);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+}
+
+
   function render() {
     if (!app.refs) return;
     var store = loadStore();
@@ -545,6 +701,10 @@
     renderTotals(store, ui);
     app.refs.emailInput.setAttribute("aria-invalid", isValidEmail(ui.email) ? "false" : "true");
     app.refs.emailMsg.textContent = isValidEmail(ui.email) || !ui.email ? "" : "Please enter a valid email address";
+    app.refs.nameInput.setAttribute("aria-invalid", ui.name.trim().length > 1 ? "false" : "true");
+    app.refs.streetInput.setAttribute("aria-invalid", ui.street.trim().length > 3 ? "false" : "true");
+    app.refs.cityInput.setAttribute("aria-invalid", ui.city.trim().length > 1 ? "false" : "true");
+    app.refs.postalInput.setAttribute("aria-invalid", ui.postal.trim().length > 1 ? "false" : "true");
     ensurePayPal(store, ui);
     syncPayPalState(store, ui);
   }
@@ -571,7 +731,16 @@
       app.refs = buildShop(root);
       var ui = loadUi();
       app.refs.countryInput.value = ui.country; app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
+
       bindEvents();
+      app.refs.nameInput.value = ui.name;
+      app.refs.streetInput.value = ui.street;
+      app.refs.cityInput.value = ui.city;
+      app.refs.postalInput.value = ui.postal;
+      app.refs.nameInput.addEventListener("input", render);
+      app.refs.streetInput.addEventListener("input", render);
+      app.refs.cityInput.addEventListener("input", render);
+      app.refs.postalInput.addEventListener("input", render);
       render();
       root.setAttribute("data-shop-mounted", "1");
       root.removeAttribute("data-shop-mounting");

@@ -26,6 +26,7 @@
     indexPromise: null,
     refs: null,
     highlightCode: "",
+    touched: {},
     paypal: { sdkPromise: null, rendering: false, rendered: false, actions: null, processing: false, timer: null }
   };
 
@@ -61,6 +62,17 @@
       { id: "A2", dims: "42 x 59.4 cm", price: 40 },
       { id: "A1", dims: "59.4 x 84.1 cm", price: 70 }
     ];
+  }
+
+  // PRICE_MAP — built once on first use. sizes() reads window.PRINT_SIZES which
+  // is set by config.js before shop.js and does not change at runtime.
+  var _priceMap = null;
+  function priceFor(sizeId) {
+    if (!_priceMap) {
+      _priceMap = {};
+      sizes().forEach(function(s) { _priceMap[String(s.id).toUpperCase()] = Number(s.price || 0); });
+    }
+    return _priceMap[String(sizeId || "").toUpperCase()] || 0;
   }
 
   function money(v) { return String((cfg().currency || "EUR").toUpperCase()) + " " + Number(v || 0).toFixed(2); }
@@ -124,8 +136,7 @@
       Object.keys(group.sizes || {}).forEach(function (sid) {
         var qty = parseInt(group.sizes[sid], 10);
         if (!isFinite(qty) || qty < 1) return;
-        var sizeMeta = sizes().find(function (s) { return String(s.id).toUpperCase() === String(sid).toUpperCase(); }) || { price: 0 };
-        rows.push({ code: code, size: sid, qty: qty, price: Number(sizeMeta.price || 0), thumb: String(group.thumb || "") });
+        rows.push({ code: code, size: sid, qty: qty, price: priceFor(sid), thumb: String(group.thumb || "") });
       });
     });
     return rows;
@@ -219,7 +230,11 @@ function isAddressValid(ui) {
     var store = loadStore();
     var mapped = app.codeMap.get(c);
     var thumb = String((options && options.thumbnailUrl) || (store.select[c] && store.select[c].thumb) || (mapped && mapped.thumb) || placeholder());
-    store.select[c] = { size: "A3", thumb: thumb };
+    if (!store.select[c]) {
+      store.select[c] = { size: "A3", thumb: thumb };
+    } else {
+      store.select[c].thumb = thumb || store.select[c].thumb;
+    }
     saveStore(store, c);
     return { ok: true };
   }
@@ -411,7 +426,7 @@ function isAddressValid(ui) {
       if (!avail.length) addBtn.disabled = true;
       tdAdd.appendChild(addBtn);
       var tdX = h("td", { "data-label": "X" });
-      var rm = h("button", { type: "button", className: "shop-row-remove-btn cart-remove", text: "x" }); tdX.appendChild(rm);
+      var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "x" }); tdX.appendChild(rm);
 
       addBtn.addEventListener("click", function () {
         var now = loadStore(); var sizeId = String(sel.value || "").toUpperCase(); if (!sizeId) return;
@@ -453,12 +468,12 @@ function isAddressValid(ui) {
         row.appendChild(h("span", { className: "shop-cart-size", text: sid }));
         var q = h("div", { className: "shop-qty-controls" });
         var minus = h("button", { type: "button", className: "shop-qty-btn", text: "-" });
-        var qv = h("span", { className: "shop-qty-text", text: String(qty) });
+        var qv = h("span", { className: "shop-qty-display", text: String(qty) });
         var plus = h("button", { type: "button", className: "shop-qty-btn", text: "+" });
         q.appendChild(minus); q.appendChild(qv); q.appendChild(plus);
         row.appendChild(q);
-        row.appendChild(h("span", { className: "shop-line-price", text: money(qty * (sizes().find(function (s) { return s.id === sid; }) || { price: 0 }).price) }));
-        var rm = h("button", { type: "button", className: "shop-row-remove-btn cart-remove", text: "x" });
+        row.appendChild(h("span", { className: "shop-line-price", text: money(qty * priceFor(sid)) }));
+        var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "x" });
         row.appendChild(rm);
         minus.addEventListener("click", function () { var now = loadStore(); var cur = (((now.cart[code] || {}).sizes || {})[sid]) || 0; if (cur <= 1) { delete now.cart[code].sizes[sid]; if (!Object.keys(now.cart[code].sizes).length) delete now.cart[code]; } else now.cart[code].sizes[sid] = cur - 1; saveStore(now); render(); });
         plus.addEventListener("click", function () { var now = loadStore(); now.cart[code].sizes[sid] = ((((now.cart[code] || {}).sizes || {})[sid]) || 0) + 1; saveStore(now); render(); });
@@ -493,7 +508,7 @@ function isAddressValid(ui) {
   return (
     rowsFromCart(store).length > 0 &&
     isValidEmail(ui.email) &&
-    String(ui.country || "").trim().length > 0 &&
+    findCountryByName(ui.country) !== null &&
     isAddressValid(ui)
   );
 }
@@ -550,7 +565,7 @@ function isAddressValid(ui) {
   }
 
   function syncPayPalState(store, ui) {
-    if (!rowsFromCart(store).length) { app.refs.paypalWrap.style.display = "none"; setOverlay("", false); return; }
+    if (!rowsFromCart(store).length) { app.refs.paypalWrap.style.display = "none"; return; }
     app.refs.paypalWrap.style.display = "";
     if (app.paypal.processing) { setOverlay("Processing...", true); return; }
 
@@ -575,7 +590,13 @@ function isAddressValid(ui) {
   }
 
   function ensurePayPal(store, ui) {
-    if (!rowsFromCart(store).length) { resetPayPal(); return; }
+    if (!rowsFromCart(store).length) {
+      // Cart empty — hide the wrapper but do NOT destroy the rendered buttons.
+      // Destroying and re-rendering the container causes SDK instability.
+      app.refs.paypalWrap.style.display = "none";
+      return;
+    }
+    app.refs.paypalWrap.style.display = "";
     if (app.paypal.rendered || app.paypal.rendering) { syncPayPalState(store, ui); return; }
     app.paypal.rendering = true;
     if (!app.paypal.sdkPromise) {
@@ -636,6 +657,7 @@ function isAddressValid(ui) {
 
 
 function showThankYou(order) {
+  var orderId = "MS-" + Date.now();
 
   var overlay = document.createElement("div");
   overlay.className = "shop-thankyou-overlay";
@@ -649,23 +671,26 @@ function showThankYou(order) {
   var msg = document.createElement("p");
   msg.textContent = "Payment completed successfully.";
 
+  var orderIdEl = document.createElement("p");
+  orderIdEl.style.fontSize = "13px";
+  orderIdEl.style.opacity = "0.65";
+  orderIdEl.textContent = "Order: " + orderId;
+
   var detailsTitle = document.createElement("h3");
   detailsTitle.textContent = "Order details";
 
   var list = document.createElement("div");
   list.className = "shop-thankyou-items";
 
-  order.rows.forEach(function(r){
+  order.rows.forEach(function(r) {
     var line = document.createElement("div");
-    line.textContent =
-      r.code + " — " + r.size + " × " + r.qty + " = " +
-      (r.qty * r.price).toFixed(2) + " " + (cfg().currency || "EUR");
+    line.textContent = r.code + " \u2014 " + r.size + " \u00d7 " + r.qty + " = " + money(r.qty * r.price);
     list.appendChild(line);
   });
 
-  var totals = document.createElement("div");
-  totals.className = "shop-thankyou-total";
-  totals.textContent = "Total: " + money(order.total);
+  var totalsEl = document.createElement("div");
+  totalsEl.className = "shop-thankyou-total";
+  totalsEl.textContent = "Total: " + money(order.total);
 
   var emailMsg = document.createElement("p");
   emailMsg.textContent = "A confirmation email has been sent. Please check your inbox.";
@@ -674,15 +699,31 @@ function showThankYou(order) {
   btn.className = "shop-thankyou-close";
   btn.textContent = "Back to Projects";
 
-  btn.addEventListener("click", function(){
-    window.location.href = "projects.html";
+  function closeModal() {
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    document.removeEventListener("keydown", onKey);
+  }
+
+  function onKey(e) { if (e.key === "Escape") closeModal(); }
+
+  btn.addEventListener("click", function() {
+    closeModal();
+    if (typeof window.loadPage === "function") {
+      window.loadPage("projects.html");
+    } else {
+      window.location.href = "projects.html";
+    }
   });
+
+  overlay.addEventListener("click", function(e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener("keydown", onKey);
 
   modal.appendChild(title);
   modal.appendChild(msg);
+  modal.appendChild(orderIdEl);
   modal.appendChild(detailsTitle);
   modal.appendChild(list);
-  modal.appendChild(totals);
+  modal.appendChild(totalsEl);
   modal.appendChild(emailMsg);
   modal.appendChild(btn);
 
@@ -699,12 +740,12 @@ function showThankYou(order) {
     renderSelect(store);
     renderCart(store);
     renderTotals(store, ui);
-    app.refs.emailInput.setAttribute("aria-invalid", isValidEmail(ui.email) ? "false" : "true");
-    app.refs.emailMsg.textContent = isValidEmail(ui.email) || !ui.email ? "" : "Please enter a valid email address";
-    app.refs.nameInput.setAttribute("aria-invalid", ui.name.trim().length > 1 ? "false" : "true");
-    app.refs.streetInput.setAttribute("aria-invalid", ui.street.trim().length > 3 ? "false" : "true");
-    app.refs.cityInput.setAttribute("aria-invalid", ui.city.trim().length > 1 ? "false" : "true");
-    app.refs.postalInput.setAttribute("aria-invalid", ui.postal.trim().length > 1 ? "false" : "true");
+    app.refs.emailInput.setAttribute("aria-invalid", (app.touched.email && !isValidEmail(ui.email)) ? "true" : "false");
+    app.refs.emailMsg.textContent = (app.touched.email && !isValidEmail(ui.email) && ui.email) ? "Please enter a valid email address" : "";
+    app.refs.nameInput.setAttribute("aria-invalid", (app.touched.name && ui.name.trim().length <= 1) ? "true" : "false");
+    app.refs.streetInput.setAttribute("aria-invalid", (app.touched.street && ui.street.trim().length <= 3) ? "true" : "false");
+    app.refs.cityInput.setAttribute("aria-invalid", (app.touched.city && ui.city.trim().length <= 1) ? "true" : "false");
+    app.refs.postalInput.setAttribute("aria-invalid", (app.touched.postal && ui.postal.trim().length <= 1) ? "true" : "false");
     ensurePayPal(store, ui);
     syncPayPalState(store, ui);
   }
@@ -741,6 +782,11 @@ function showThankYou(order) {
       app.refs.streetInput.addEventListener("input", render);
       app.refs.cityInput.addEventListener("input", render);
       app.refs.postalInput.addEventListener("input", render);
+      // Mark fields as touched on first blur so validation shows only after interaction
+      ["email", "name", "street", "city", "postal"].forEach(function(field) {
+        var input = app.refs[field + "Input"];
+        if (input) input.addEventListener("blur", function() { app.touched[field] = true; render(); }, { once: true });
+      });
       render();
       root.setAttribute("data-shop-mounted", "1");
       root.removeAttribute("data-shop-mounting");
