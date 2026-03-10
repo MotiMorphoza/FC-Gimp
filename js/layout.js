@@ -755,6 +755,11 @@ function syncOptionalShellElements(doc) {
 
     if (incoming && !current) {
       document.body.appendChild(incoming.cloneNode(true));
+      return;
+    }
+
+    if (!incoming && current) {
+      current.remove();
     }
   });
 }
@@ -930,7 +935,6 @@ function enableDecodeFade(images) {
 
 window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
-
 
 
 

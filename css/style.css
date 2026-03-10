@@ -903,7 +903,7 @@ body:has(.lightbox.active) .project-floating-title {
   height: 72px;
   padding: 0;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 
@@ -913,6 +913,10 @@ body:has(.lightbox.active) .project-floating-title {
 
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   pointer-events: auto;
+}
+
+.lightbox.active .lightbox-nav {
+  display: flex;
 }
 
 .lightbox-nav:hover {
