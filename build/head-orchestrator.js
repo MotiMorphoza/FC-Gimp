@@ -171,6 +171,28 @@ class HeadOrchestrator {
       if (oldPath.includes('og-cover')) return base + newPath;
     }
 
+    const fallbackShareImage = this.getDefaultShareImage();
+    return fallbackShareImage ? base + fallbackShareImage : null;
+  }
+
+  getDefaultShareImage() {
+    const preferred = [
+      'images/media/favicon-512.png',
+      'images/media/favicon-180.png',
+      'images/media/favicon.png',
+      'images/media/favicon-32.png'
+    ];
+
+    for (const oldPath of preferred) {
+      const resolved = this.renameMap.get(oldPath);
+      if (resolved) return resolved;
+    }
+
+    for (const [oldPath, newPath] of this.renameMap.entries()) {
+      if (!oldPath.toLowerCase().includes('favicon')) continue;
+      return newPath;
+    }
+
     return null;
   }
 
