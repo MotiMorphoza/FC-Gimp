@@ -117,13 +117,19 @@ class HeadOrchestrator {
   }
 
   getMainCssPaths() {
-    const orderedPaths = ['css/core.css', 'css/layout.css', 'css/utilities.css', 'css/projects.css'];
+    const orderedPaths = ['css/core.css', 'css/layout.css', 'css/utilities.css'];
+
+    if (this.isProjectsList() || this.isProject() || this.isShop()) {
+      orderedPaths.push('css/projects.css');
+    }
+
     return orderedPaths
       .map((oldPath) => this.renameMap.get(oldPath))
       .filter(Boolean);
   }
 
   getShopCss() {
+    if (!this.isShop()) return null;
     return this.renameMap.get('css/shop.css') || null;
   }
 
@@ -266,6 +272,7 @@ class HeadOrchestrator {
 
   isLanding()  { return this.getFileName() === 'index.html'; }
   isMain()     { return this.getFileName() === 'main.html'; }
+  isProjectsList() { return this.getFileName() === 'projects.html'; }
   isProject()  {
     const fileName = this.getFileName();
     return fileName === 'project.html' || fileName.startsWith('project-');
