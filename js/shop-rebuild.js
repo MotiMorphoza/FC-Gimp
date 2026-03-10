@@ -365,7 +365,10 @@ function isAddressValid(ui) {
   root.appendChild(selectSec);
 
   var cartSec = h("section", {});
-  cartSec.appendChild(h("h2", { className: "shop-section-title", text: "CART" }));
+  var cartTitle = h("h2", { className: "shop-section-title shop-section-title-cart" });
+  cartTitle.appendChild(h("span", { className: "shop-section-title-cart-icon", text: "🛒" }));
+  cartTitle.appendChild(h("span", { text: "CART" }));
+  cartSec.appendChild(cartTitle);
   var cartBody = h("div", { className: "shop-cart-body" });
   cartSec.appendChild(cartBody);
   root.appendChild(cartSec);
@@ -457,7 +460,7 @@ function isAddressValid(ui) {
     var codes = Object.keys(store.select).sort();
     if (!codes.length) { app.refs.selectBody.appendChild(h("p", { className: "shop-cart-empty", text: "No selected prints yet. Add from project galleries." })); return; }
     var table = h("table", { className: "shop-cart-table" });
-    var th = h("tr", {}); ["THUMB", "CODE", "SIZE", "ADD", "X"].forEach(function (x) { th.appendChild(h("th", { text: x })); });
+    var th = h("tr", {}); ["THUMB", "CODE", "SIZE", "ADD", "REMOVE"].forEach(function (x) { th.appendChild(h("th", { text: x })); });
     var thead = h("thead", {}); thead.appendChild(th); table.appendChild(thead); var tbody = h("tbody", {});
 
     codes.forEach(function (code) {
@@ -483,8 +486,8 @@ function isAddressValid(ui) {
       var addBtn = h("button", { type: "button", className: "shop-add-btn", text: avail.length ? "ADD" : "All sizes already in cart" });
       if (!avail.length) addBtn.disabled = true;
       tdAdd.appendChild(addBtn);
-      var tdX = h("td", { "data-label": "X" });
-      var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "x" }); tdX.appendChild(rm);
+      var tdX = h("td", { "data-label": "REMOVE" });
+      var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "REMOVE" }); tdX.appendChild(rm);
 
       addBtn.addEventListener("click", function () {
         var now = loadStore(); var sizeId = String(sel.value || "").toUpperCase(); if (!sizeId) return;
@@ -531,7 +534,7 @@ function isAddressValid(ui) {
         q.appendChild(minus); q.appendChild(qv); q.appendChild(plus);
         row.appendChild(q);
         row.appendChild(h("span", { className: "shop-line-price", text: money(qty * priceFor(sid)) }));
-        var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "x" });
+        var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "REMOVE" });
         row.appendChild(rm);
         minus.addEventListener("click", function () { var now = loadStore(); var cur = (((now.cart[code] || {}).sizes || {})[sid]) || 0; if (cur <= 1) { delete now.cart[code].sizes[sid]; if (!Object.keys(now.cart[code].sizes).length) delete now.cart[code]; } else now.cart[code].sizes[sid] = cur - 1; saveStore(now); render(); });
         plus.addEventListener("click", function () { var now = loadStore(); now.cart[code].sizes[sid] = ((((now.cart[code] || {}).sizes || {})[sid]) || 0) + 1; saveStore(now); render(); });
@@ -877,4 +880,3 @@ function showThankYou(order) {
     initShopPage();
   }
 })();
-
