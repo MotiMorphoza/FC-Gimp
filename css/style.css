@@ -395,6 +395,7 @@ a.project-text {
   color:#3a8bff;
   border-bottom:1px solid rgba(58,139,255,0.6);
 }
+
 .project-text:hover .enter {
   border-bottom:1px solid #6fb1ff;
   color:#6fb1ff;
