@@ -179,7 +179,7 @@
       const currentRoot = document.querySelector(".more-pane");
       if (!currentRoot) return;
       rotateWall(currentRoot);
-    }, 5000);
+    }, 4000);
   }
 
   function stopWallRotation() {
@@ -191,19 +191,15 @@
 
   function resetPlayer(root) {
     const frame = root.querySelector("[data-morphoza-iframe]");
-    if (frame) frame.src = "about:blank";
+    if (frame) {
+      frame.src = "about:blank";
+      frame.removeAttribute("src");
+    }
     state.playerIndex = null;
   }
 
-  function showHome(root) {
-    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
-    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
-    root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
-    root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
-    resetPlayer(root);
-  }
-
   function showGallery(root) {
+
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
@@ -279,11 +275,7 @@
 
       const back = event.target.closest("[data-morphoza-back]");
       if (back) {
-        if (back.dataset.morphozaBack === "home") {
-          showHome(root);
-        } else {
-          showGallery(root);
-        }
+        showGallery(root);
         return;
       }
 
@@ -324,8 +316,6 @@
         event.preventDefault();
         if (!root.querySelector("[data-morphoza-player-view]")?.hidden) {
           showGallery(root);
-        } else {
-          showHome(root);
         }
       }
     });
@@ -354,6 +344,10 @@
     startWallRotation(root);
     bindMotiTile(root);
     bindEvents(root);
-    showHome(root);
+    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
+    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
+    root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    resetPlayer(root);
   };
 })();
