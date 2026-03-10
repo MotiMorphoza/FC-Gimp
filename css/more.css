@@ -1,11 +1,22 @@
 ﻿/* More page */
 .more-pane {
+  height: 100%;
+  min-height: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .more-grid,
 .morphoza-view {
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.more-grid[hidden],
+.morphoza-view[hidden],
+.morphoza-carousel-view[hidden],
+.morphoza-player-view[hidden] {
+  display: none !important;
 }
 
 .more-grid {
@@ -16,7 +27,7 @@
 }
 
 .more-tile {
-  min-height: min(50dvh, 520px);
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -266,7 +277,7 @@
 .morphoza-carousel-view,
 .morphoza-player-view {
   flex: 1 1 auto;
-  min-height: min(68dvh, 760px);
+  min-height: 0;
 }
 
 .morphoza-carousel-shell {
@@ -278,7 +289,8 @@
 }
 
 .morphoza-carousel {
-  min-height: min(68dvh, 760px);
+  height: 100%;
+  min-height: 0;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -292,7 +304,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: min(68dvh, 760px);
+  min-height: 0;
 }
 
 .morphoza-item {
@@ -401,7 +413,8 @@
 }
 
 .morphoza-player-frame {
-  min-height: min(60dvh, 720px);
+  min-height: 0;
+  height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: #000;
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.42);
@@ -414,24 +427,20 @@
   display: block;
 }
 
-@media (max-width: 1100px) {
-  .morphoza-carousel {
-    min-height: 560px;
-  }
-
-  .morphoza-track {
-    min-height: 560px;
-  }
-}
-
 @media (max-width: 900px) {
+
+  .more-pane {
+    height: calc(100dvh - 56px);
+    min-height: calc(100dvh - 56px);
+  }
+
   .more-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, minmax(280px, 1fr));
+    grid-template-rows: repeat(4, 1fr);
   }
 
   .more-tile {
-    min-height: 280px;
+    min-height: 0;
   }
 
   .morphoza-view {
@@ -469,11 +478,6 @@
 
   .morphoza-carousel {
     order: 1;
-    min-height: 460px;
-  }
-
-  .morphoza-track {
-    min-height: 460px;
   }
 
   .morphoza-nav--right {
@@ -489,10 +493,10 @@
   }
 
   .morphoza-player-view {
-    min-height: 72dvh;
+    min-height: 0;
   }
 
   .morphoza-player-frame {
-    min-height: 52dvh;
+    min-height: 0;
   }
 }
