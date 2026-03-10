@@ -567,10 +567,12 @@ body:has(.lightbox.active) .project-floating-title {
     display: flex;
     flex-direction: column;
   }
-  .project-grid > .project-link {
+  .project-grid > .project-link,
+  .project-item.reverse .project-grid > .project-link {
     order: 1;
   }
-  .project-grid > .project-text {
+  .project-grid > .project-text,
+  .project-item.reverse .project-grid > .project-text {
     order: 2;
   }
   .project-text {
