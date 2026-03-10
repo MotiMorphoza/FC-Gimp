@@ -106,6 +106,7 @@
 .more-video-wall {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  place-items: stretch;
   gap: 8px;
   padding: 8px;
   transform: scale(1);

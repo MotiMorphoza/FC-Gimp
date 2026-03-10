@@ -4,13 +4,18 @@
     { id: "aqz-KE-bpKQ", title: "Morphoza Window 02" },
     { id: "ScMzIvxBSi4", title: "Morphoza Window 03" },
     { id: "ysz5S6PUM-U", title: "Morphoza Window 04" },
-    { id: "e-ORhEE9VVg", title: "Morphoza Window 05" }
+    { id: "e-ORhEE9VVg", title: "Morphoza Window 05" },
+    { id: "jNQXAC9IVRw", title: "Morphoza Window 06" },
+    { id: "dQw4w9WgXcQ", title: "Morphoza Window 07" },
+    { id: "9bZkp7q19f0", title: "Morphoza Window 08" }
   ];
 
   const state = {
     activeIndex: 0,
     playerIndex: null,
-    preloaded: new Set()
+    preloaded: new Set(),
+    wallSlots: [],
+    wallTimer: null
   };
 
   function getCircularOffset(index, activeIndex, total) {
@@ -52,14 +57,17 @@
     return `https://www.youtube.com/embed/${videoId}`;
   }
 
+  function preloadThumb(videoId) {
+    if (!videoId || state.preloaded.has(videoId)) return;
+    const image = new Image();
+    image.src = getThumbUrl(videoId);
+    state.preloaded.add(videoId);
+  }
+
   function preloadVisibleThumbs() {
     [0, -1, 1, -2, 2].forEach((delta) => {
       const index = (state.activeIndex + delta + videos.length) % videos.length;
-      const video = videos[index];
-      if (!video || state.preloaded.has(video.id)) return;
-      const image = new Image();
-      image.src = getThumbUrl(video.id);
-      state.preloaded.add(video.id);
+      preloadThumb(videos[index] && videos[index].id);
     });
   }
 
@@ -102,6 +110,83 @@
     });
 
     preloadVisibleThumbs();
+  }
+
+  function assignWallCell(cell, videoIndex) {
+    const image = cell.querySelector("[data-wall-image]");
+    const video = videos[videoIndex];
+    if (!image || !video) return;
+
+    cell.dataset.videoIndex = String(videoIndex);
+    cell.setAttribute("aria-label", `Open Moti Morphoza video gallery from ${video.title}`);
+    image.src = getThumbUrl(video.id);
+    image.alt = video.title;
+    preloadThumb(video.id);
+  }
+
+  function initWall(root) {
+    const cells = Array.from(root.querySelectorAll(".more-video-wall-cell"));
+    if (!cells.length) return;
+
+    if (!state.wallSlots.length) {
+      state.wallSlots = cells.map((_, index) => index % videos.length);
+    }
+
+    cells.forEach((cell, index) => {
+      assignWallCell(cell, state.wallSlots[index]);
+    });
+  }
+
+  function rotateWall(root) {
+    const cells = Array.from(root.querySelectorAll(".more-video-wall-cell"));
+    if (!cells.length || videos.length <= cells.length) return;
+
+    const slotIndex = Math.floor(Math.random() * cells.length);
+    const cell = cells[slotIndex];
+    const image = cell.querySelector("[data-wall-image]");
+    if (!image) return;
+
+    const used = new Set(state.wallSlots);
+    const candidates = videos
+      .map((_, index) => index)
+      .filter((index) => !used.has(index) || index === state.wallSlots[slotIndex]);
+
+    if (!candidates.length) return;
+
+    let nextIndex = candidates[Math.floor(Math.random() * candidates.length)];
+    if (nextIndex === state.wallSlots[slotIndex] && candidates.length > 1) {
+      nextIndex = candidates.find((index) => index !== state.wallSlots[slotIndex]) ?? nextIndex;
+    }
+    if (nextIndex === state.wallSlots[slotIndex]) return;
+
+    image.classList.add("is-swapping");
+    preloadThumb(videos[nextIndex] && videos[nextIndex].id);
+
+    window.setTimeout(() => {
+      state.wallSlots[slotIndex] = nextIndex;
+      assignWallCell(cell, nextIndex);
+      requestAnimationFrame(() => {
+        image.classList.remove("is-swapping");
+      });
+    }, 260);
+  }
+
+  function startWallRotation(root) {
+    stopWallRotation();
+    initWall(root);
+    state.wallTimer = window.setInterval(() => {
+      if (document.body.dataset.page !== "more") return;
+      const currentRoot = document.querySelector(".more-pane");
+      if (!currentRoot) return;
+      rotateWall(currentRoot);
+    }, 5000);
+  }
+
+  function stopWallRotation() {
+    if (state.wallTimer) {
+      window.clearInterval(state.wallTimer);
+      state.wallTimer = null;
+    }
   }
 
   function resetPlayer(root) {
@@ -148,6 +233,16 @@
     root.dataset.moreBound = "true";
 
     root.addEventListener("click", (event) => {
+      const wallCell = event.target.closest(".more-video-wall-cell");
+      if (wallCell) {
+        const index = Number(wallCell.dataset.videoIndex);
+        if (Number.isInteger(index)) {
+          state.activeIndex = index;
+        }
+        showGallery(root);
+        return;
+      }
+
       const openTile = event.target.closest("[data-more-open='morphoza']");
       if (openTile) {
         showGallery(root);
@@ -224,12 +319,17 @@
   }
 
   window.initMorePage = function initMorePage() {
-    if (document.body.dataset.page !== "more") return;
+    if (document.body.dataset.page !== "more") {
+      stopWallRotation();
+      return;
+    }
 
     const root = document.querySelector(".more-pane");
     if (!root) return;
 
     renderItems(root);
+    initWall(root);
+    startWallRotation(root);
     bindEvents(root);
     showHome(root);
   };
