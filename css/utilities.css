@@ -118,10 +118,10 @@
 }
 @media (max-width: 700px) {
   .floating-cart-indicator {
-    bottom: calc(68px + env(safe-area-inset-bottom));
+    display: none;
   }
 
   .cart-add-toast {
-    bottom: calc(122px + env(safe-area-inset-bottom));
+    bottom: calc(68px + env(safe-area-inset-bottom));
   }
 }
