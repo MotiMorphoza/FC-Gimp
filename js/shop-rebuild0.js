@@ -570,13 +570,14 @@ function isAddressValid(ui) {
     if (app.paypal.processing) { setOverlay("Processing...", true); return; }
 
     if (app.paypal.actions) {
-      try {
-        if (canCheckout(store, ui)) {
-          app.paypal.actions.enable();
-        } else {
-          app.paypal.actions.disable();
-        }
-      } catch (_e) {}
+    try {
+    if (canCheckout(store, ui)) {
+      app.paypal.actions.enable();
+    } else {
+      app.paypal.actions.disable();
+      return;   // מונע ניסיון PayPal כשהטופס לא תקין
+    }
+    } catch (_e) {}
     }
 
     if (canCheckout(store, ui)) setOverlay("", false); else setOverlay("Complete checkout details to enable PayPal.", true);
@@ -624,9 +625,8 @@ function isAddressValid(ui) {
             var subtotal = rows.reduce(function (sum, r) { return sum + (r.qty * r.price); }, 0);
             var shipping = shippingFor(subtotal, u.country);
             var total = subtotal + shipping;
-            var orderId = "MS-" + Date.now();
             sendEmailReceipt({
-              orderId: orderId,
+              orderId: "MS-" + Date.now(),
               transactionId: details && details.id ? details.id : "",
               email: u.email,
               name: u.name,
@@ -639,7 +639,7 @@ function isAddressValid(ui) {
             });
 
             var now = loadStore(); now.cart = {}; now.select = {}; saveStore(now);
-            showThankYou({ rows: rows, total: total, orderId: orderId });
+            showThankYou({rows: rows, total: total });
             resetPayPal(); render();
           }).catch(function () {
             app.paypal.processing = false; app.refs.paypalMsg.textContent = "Payment failed. Please try again.";
@@ -657,7 +657,7 @@ function isAddressValid(ui) {
 
 
 function showThankYou(order) {
-  var orderId = order.orderId || ("MS-" + Date.now());
+  var orderId = "MS-" + Date.now();
 
   var overlay = document.createElement("div");
   overlay.className = "shop-thankyou-overlay";
