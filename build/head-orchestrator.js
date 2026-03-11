@@ -1,4 +1,4 @@
-// build/head-orchestrator.js
+﻿// build/head-orchestrator.js
 'use strict';
 
 class HeadOrchestrator {
@@ -73,6 +73,11 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${moreCss}">`);
     }
 
+    const humanWritesCss = this.getHumanWritesCss();
+    if (humanWritesCss) {
+      tags.push(`<link rel="stylesheet" href="${humanWritesCss}">`);
+    }
+
     tags.push(...this.buildFavicons());
 
     const heroPreload = this.getHeroPreload();
@@ -141,6 +146,11 @@ class HeadOrchestrator {
   getMoreCss() {
     if (!this.isMore()) return null;
     return this.renameMap.get('css/more.css') || null;
+  }
+
+  getHumanWritesCss() {
+    if (!this.isMore()) return null;
+    return this.renameMap.get('css/human-writes.css') || null;
   }
 
   buildFavicons() {
@@ -292,3 +302,4 @@ class HeadOrchestrator {
 }
 
 module.exports = HeadOrchestrator;
+
