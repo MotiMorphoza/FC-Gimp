@@ -33,12 +33,12 @@
 }
 
 .hw-stage {
+  position: relative;
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: clamp(10px, 1.2vw, 18px);
 }
 
 .hw-book {
@@ -46,6 +46,7 @@
   min-width: 0;
   min-height: 0;
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
@@ -71,7 +72,7 @@
 
 .hw-paper-stack {
   position: absolute;
-  inset: 24px 16px 24px 16px;
+  inset: 24px 16px;
   border-radius: 12px;
   background:
     linear-gradient(90deg, rgba(245, 237, 223, 0.08), rgba(245, 237, 223, 0)),
@@ -125,7 +126,7 @@
   height: 100%;
   min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
   padding: clamp(14px, 1.35vw, 22px);
   background-image:
     linear-gradient(rgba(88, 63, 30, 0.05) 1px, transparent 1px),
@@ -149,11 +150,14 @@
 .hw-page-body {
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: auto;
   display: grid;
   align-content: start;
   gap: 0.6rem;
   padding-top: 0.72rem;
+  padding-right: 0.35rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(117, 88, 52, 0.45) rgba(0, 0, 0, 0);
 }
 
 .hw-page-body h2,
@@ -266,20 +270,13 @@
 .hw-text-flow {
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   display: grid;
   align-content: start;
   gap: 0.45rem;
 }
 
-.hw-page-footer {
-  display: none;
-}
-
-.hw-page-footer > :not(.hw-page-count) {
-  display: none;
-}
-
+.hw-page-footer,
 .hw-page-count {
   display: none;
 }
@@ -364,21 +361,6 @@
   transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, opacity 0.18s ease, color 0.18s ease;
 }
 
-.hw-nav:hover,
-.hw-nav:focus-visible {
-  transform: translateY(-50%) scale(1.02);
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.26);
-}
-
-.hw-contents:hover,
-.hw-contents:focus-visible {
-  transform: translateX(-50%) scale(1.02);
-  color: #fff7ea;
-  background: rgba(20, 16, 11, 0.36);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
 .hw-nav {
   position: absolute;
   top: 50%;
@@ -388,6 +370,21 @@
   border-radius: 999px;
   font-size: 1.25rem;
   transform: translateY(-50%);
+}
+
+.hw-nav--left {
+  left: 8px;
+}
+
+.hw-nav--right {
+  right: 8px;
+}
+
+.hw-nav:hover,
+.hw-nav:focus-visible {
+  transform: translateY(-50%) scale(1.02);
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.26);
 }
 
 .hw-nav.is-forward {
@@ -406,7 +403,6 @@
 .hw-nav:disabled {
   opacity: 0.4;
   cursor: default;
-  transform: none;
 }
 
 .hw-contents {
@@ -422,6 +418,14 @@
   letter-spacing: 0.08em;
   background: rgba(20, 16, 11, 0.28);
   backdrop-filter: blur(4px);
+}
+
+.hw-contents:hover,
+.hw-contents:focus-visible {
+  transform: translateX(-50%) scale(1.02);
+  color: #fff7ea;
+  background: rgba(20, 16, 11, 0.36);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .hw-live {
@@ -462,10 +466,26 @@
   }
 }
 
+.hw-page-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hw-page-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hw-page-body::-webkit-scrollbar-thumb {
+  background: rgba(117, 88, 52, 0.32);
+  border-radius: 999px;
+}
+
+.hw-page-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(117, 88, 52, 0.5);
+}
+
 @media (max-width: 980px) {
   .hw-stage {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
 
   .hw-book {
@@ -484,15 +504,15 @@
   }
 
   .hw-nav {
-  position: absolute;
-  top: 50%;
-  z-index: 6;
-  width: 52px;
-  height: 126px;
-  border-radius: 999px;
-  font-size: 1.25rem;
-  transform: translateY(-50%);
-}
+    position: fixed;
+    top: auto;
+    bottom: 22px;
+    z-index: 20;
+    width: 48px;
+    height: 60px;
+    border-radius: 18px;
+    transform: none;
+  }
 
   .hw-nav--left {
     left: 16px;
@@ -500,6 +520,11 @@
 
   .hw-nav--right {
     right: 16px;
+  }
+
+  .hw-nav:hover,
+  .hw-nav:focus-visible {
+    transform: scale(1.02);
   }
 
   .hw-contents {
@@ -522,22 +547,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-.hw-page-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-.hw-page-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.hw-page-body::-webkit-scrollbar-thumb {
-  background: rgba(117, 88, 52, 0.32);
-  border-radius: 999px;
-}
-
-.hw-page-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(117, 88, 52, 0.5);
-}
-
-

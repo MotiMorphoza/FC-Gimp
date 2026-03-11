@@ -1,22 +1,25 @@
 ﻿/* More page */
 .more-pane {
+  width: 100%;
   height: 100%;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
   padding: clamp(18px, 2vw, 30px);
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .more-grid,
-.morphoza-view {
+.morphoza-view,
+.human-writes-view {
   height: 100%;
   min-height: 0;
 }
 
 .more-grid[hidden],
 .morphoza-view[hidden],
+.human-writes-view[hidden],
 .morphoza-carousel-view[hidden],
 .morphoza-player-view[hidden] {
   display: none !important;
@@ -24,11 +27,12 @@
 
 .more-grid {
   position: relative;
-  flex: 1;
   min-height: 0;
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: clamp(12px, 1.2vw, 18px);
 }
 
@@ -57,6 +61,7 @@
 
 .more-tile {
   min-height: 0;
+  height: 100%;
   display: flex;
   color: inherit;
   text-decoration: none;
@@ -566,7 +571,6 @@ body[data-page="more"] #floating-cart-indicator {
   }
 
   .more-grid {
-    flex: 0 0 auto;
     height: auto;
     min-height: 0;
     grid-template-columns: 1fr;
@@ -738,11 +742,5 @@ body[data-page="more"] #floating-cart-indicator {
 
   .morphoza-player-view {
     min-height: 0;
-    gap: 0.7rem;
-  }
-
-  .morphoza-player-frame {
-    min-height: 0;
   }
 }
-
