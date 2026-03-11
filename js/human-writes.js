@@ -637,7 +637,16 @@
   async function loadTemplate() {
     const response = await fetch("human-writes.html", { credentials: "same-origin" });
     if (!response.ok) throw new Error(`Template HTTP ${response.status}`);
-    return response.text();
+
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const template = parsed.querySelector("template[data-hw-template]");
+
+    if (template) {
+      return template.innerHTML;
+    }
+
+    return parsed.body ? parsed.body.innerHTML : html;
   }
 
   async function loadRawTexts() {
@@ -715,3 +724,4 @@
     void initializeHumanWrites();
   }
 })();
+
