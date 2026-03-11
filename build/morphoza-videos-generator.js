@@ -6,6 +6,11 @@ const path = require('path');
 const DEFAULT_DELAY_MS = 300;
 const FALLBACK_TITLE = 'Video';
 
+function isRealTitle(title) {
+  const value = String(title || '').trim();
+  return value && value !== FALLBACK_TITLE;
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -69,7 +74,8 @@ async function generateMorphozaVideos({
     const videoId = String(ids[index] || '').trim();
     if (!videoId) continue;
 
-    let title = existingMap.get(videoId) || FALLBACK_TITLE;
+    const existingTitle = existingMap.get(videoId) || '';
+    let title = isRealTitle(existingTitle) ? existingTitle : FALLBACK_TITLE;
 
     try {
       title = await fetchVideoTitle(videoId);
@@ -77,6 +83,9 @@ async function generateMorphozaVideos({
         logger.info(`[morphoza] fetched title for ${videoId}`);
       }
     } catch (error) {
+      if (!isRealTitle(title)) {
+        title = FALLBACK_TITLE;
+      }
       if (logger?.warn) {
         logger.warn(`[morphoza] title fetch failed for ${videoId}: ${error.message}`);
       }
