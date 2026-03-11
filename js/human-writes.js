@@ -720,9 +720,61 @@
     });
   }
 
-  async function initializeHumanWrites() {
-    if (document.body.dataset.page !== "more") return;
+  function getMoreRoot() {
+    if (document.body.dataset.page !== "more") return null;
+    return document.querySelector(".more-pane");
+  }
 
+  function showHumanWritesView() {
+    const root = getMoreRoot();
+    if (!root) return;
+
+    root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
+
+    if (!state.root) {
+      void initializeHumanWrites();
+    }
+  }
+
+  function showMoreHome() {
+    const root = getMoreRoot();
+    if (!root) return;
+
+    root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
+  }
+
+  function bindHostNavigation() {
+    const root = getMoreRoot();
+    if (!root || root.dataset.hwHostBound === "true") return;
+
+    root.dataset.hwHostBound = "true";
+
+    root.addEventListener("click", (event) => {
+      const open = event.target.closest("[data-more-open='human-writes']");
+      if (open) {
+        showHumanWritesView();
+        return;
+      }
+
+      const back = event.target.closest("[data-human-writes-back]");
+      if (back) {
+        showMoreHome();
+      }
+    });
+
+    root.addEventListener("keydown", (event) => {
+      const open = event.target.closest("[data-more-open='human-writes']");
+      if (!open) return;
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      showHumanWritesView();
+    });
+  }
+
+  async function initializeHumanWrites() {
     const mount = document.querySelector("[data-human-writes-mount]");
     if (!mount) return;
 
@@ -750,17 +802,14 @@
   }
 
   window.initHumanWrites = function initHumanWrites() {
-    void initializeHumanWrites();
+    bindHostNavigation();
   };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
-      void initializeHumanWrites();
+      bindHostNavigation();
     }, { once: true });
   } else {
-    void initializeHumanWrites();
+    bindHostNavigation();
   }
 })();
-
-
-
