@@ -37,11 +37,11 @@
     };
 
     const mobile = {
-      0: { x: "0px", y: "-16px", scale: 1.18, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
-      1: { x: "130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, blur: 1, rotate: "-14deg", z: 4 },
-      2: { x: "220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, blur: 2, rotate: "-14deg", z: 2 },
-      [-1]: { x: "-130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, blur: 1, rotate: "14deg", z: 4 },
-      [-2]: { x: "-220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, blur: 2, rotate: "14deg", z: 2 }
+      0: { x: "0px", y: "-10px", scale: 1.08, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
+      1: { x: "88px", y: "18px", scale: 0.78, opacity: 0.84, brightness: 0.82, blur: 1, rotate: "-10deg", z: 4 },
+      2: { x: "144px", y: "42px", scale: 0.58, opacity: 0.24, brightness: 0.66, blur: 2, rotate: "-10deg", z: 2 },
+      [-1]: { x: "-88px", y: "18px", scale: 0.78, opacity: 0.84, brightness: 0.82, blur: 1, rotate: "10deg", z: 4 },
+      [-2]: { x: "-144px", y: "42px", scale: 0.58, opacity: 0.24, brightness: 0.66, blur: 2, rotate: "10deg", z: 2 }
     };
 
     const presets = isMobile ? mobile : desktop;

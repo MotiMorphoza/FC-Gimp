@@ -134,6 +134,7 @@
 
 .more-tile--interactive {
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .more-tile--interactive:hover,
@@ -178,6 +179,7 @@
   background: #090909;
   overflow: hidden;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .more-video-wall-cell::after {
@@ -497,6 +499,7 @@
 
 .morphoza-nav {
   appearance: none;
+  touch-action: manipulation;
   width: clamp(44px, 4vw, 58px);
   height: clamp(96px, 18vh, 160px);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -550,75 +553,109 @@ body[data-page="more"] #floating-cart-indicator {
   .more-pane {
     height: calc(100dvh - 56px);
     min-height: calc(100dvh - 56px);
+    overflow: hidden;
   }
 
   .more-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-  }
-
-  .more-grid::before {
-    display: none;
-  }
-
-  .more-grid::after {
-    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
   }
 
   .more-tile {
     min-height: 0;
+    padding: 10px;
+  }
+
+  .more-tile::after {
+    inset: 6px;
+  }
+
+  .more-tile-title {
+    margin-bottom: 8px;
+    font-size: clamp(0.72rem, 1.45vh, 0.95rem);
+    letter-spacing: 0.06em;
+  }
+
+  .more-tile-media {
+    min-height: 0;
+  }
+
+  .more-video-wall {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .more-video-wall-cell {
+    aspect-ratio: auto;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .more-video-wall-play {
+    width: 28px;
+    height: 28px;
+  }
+
+  .more-video-wall-play::before {
+    left: 11px;
+    top: 7px;
+    border-left-width: 7px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
   }
 
   .morphoza-view {
-    padding: 78px 14px 24px;
+    height: calc(100dvh - 56px);
+    min-height: 0;
+    gap: 12px;
+    padding: 68px 10px 14px;
+    overflow: hidden;
   }
 
   .morphoza-header {
     grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-
-  .morphoza-back--gallery {
-    justify-self: start;
+    gap: 0.65rem;
   }
 
   .morphoza-title {
-    font-size: clamp(1.45rem, 8vw, 2.4rem);
-    text-align: left;
+    font-size: clamp(1.05rem, 4vw, 1.4rem);
+    text-align: center;
+    letter-spacing: 0.09em;
   }
 
   .morphoza-carousel-shell {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr) auto;
-  }
-
-  .morphoza-nav {
-    width: 100%;
-    height: 48px;
-  }
-
-  .morphoza-nav--left {
-    order: 2;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: stretch;
+    gap: 8px;
   }
 
   .morphoza-carousel {
-    order: 1;
+    min-height: 0;
   }
 
-  .morphoza-nav--right {
-    order: 3;
+  .morphoza-nav {
+    width: 40px;
+    height: auto;
+    min-height: 0;
+    font-size: 1rem;
   }
 
   .morphoza-item {
-    width: clamp(150px, 42vw, 250px);
+    width: clamp(118px, 34vw, 160px);
+    padding: 8px;
   }
 
-  .morphoza-item-title {
-    font-size: 0.78rem;
+  .morphoza-item-title,
+  .morphoza-item.is-active .morphoza-item-title {
+    font-size: clamp(0.62rem, 1.45vh, 0.82rem);
+    padding-top: 8px;
+    line-height: 1.25;
   }
 
   .morphoza-player-view {
     min-height: 0;
+    gap: 0.7rem;
   }
 
   .morphoza-player-frame {

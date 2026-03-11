@@ -265,11 +265,20 @@ function getCartCount() {
   }
 }
 
+function shouldShowFloatingCartIndicator() {
+  const page = String(document.body?.dataset?.page || "").toLowerCase();
+  return page === "project" || page === "shop";
+}
+
 function updateFloatingCartIndicator() {
   const indicator = document.getElementById("floating-cart-indicator");
   if (!indicator) return;
+  const allowed = shouldShowFloatingCartIndicator();
+  indicator.hidden = !allowed;
+  indicator.setAttribute("aria-hidden", allowed ? "false" : "true");
+  if (!allowed) return;
   const count = getCartCount();
-  indicator.textContent = `🛒 ${count}`;
+  indicator.textContent = `\u{1F6D2} ${count}`;
 }
 
 function ensureFloatingCartIndicator() {
