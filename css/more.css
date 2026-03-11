@@ -4,7 +4,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: clamp(10px, 1.2vw, 18px);
+  padding: clamp(18px, 2vw, 30px);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -29,7 +29,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0;
+  gap: clamp(12px, 1.2vw, 18px);
 }
 
 .more-grid::before,
@@ -559,7 +559,7 @@ body[data-page="more"] #floating-cart-indicator {
   .more-pane {
     height: auto;
     min-height: calc(100dvh - 56px);
-    padding: 10px;
+    padding: 16px;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
@@ -571,7 +571,7 @@ body[data-page="more"] #floating-cart-indicator {
     min-height: 0;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, minmax(0, auto));
-    gap: 0;
+    gap: 14px;
   }
 
   .more-grid::before,
