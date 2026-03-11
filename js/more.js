@@ -8,7 +8,8 @@
     wallSlots: [],
     wallTimer: null,
     videosLoaded: false,
-    videosPromise: null
+    videosPromise: null,
+    moveTimer: null
   };
 
   function getGeneratedDataUrl() {
@@ -28,23 +29,23 @@
 
   function getSlotStyle(offset, isMobile) {
     const desktop = {
-      0: { x: "0px", y: "-24px", scale: 1.35, opacity: 1, brightness: 1.08, z: 6 },
-      1: { x: "260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, z: 4 },
-      2: { x: "470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, z: 2 },
-      [-1]: { x: "-260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, z: 4 },
-      [-2]: { x: "-470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, z: 2 }
+      0: { x: "0px", y: "-24px", scale: 1.35, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
+      1: { x: "260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, blur: 1, rotate: "-18deg", z: 4 },
+      2: { x: "470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, blur: 2, rotate: "-18deg", z: 2 },
+      [-1]: { x: "-260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, blur: 1, rotate: "18deg", z: 4 },
+      [-2]: { x: "-470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, blur: 2, rotate: "18deg", z: 2 }
     };
 
     const mobile = {
-      0: { x: "0px", y: "-16px", scale: 1.18, opacity: 1, brightness: 1.05, z: 6 },
-      1: { x: "130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, z: 4 },
-      2: { x: "220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, z: 2 },
-      [-1]: { x: "-130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, z: 4 },
-      [-2]: { x: "-220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, z: 2 }
+      0: { x: "0px", y: "-16px", scale: 1.18, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
+      1: { x: "130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, blur: 1, rotate: "-14deg", z: 4 },
+      2: { x: "220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, blur: 2, rotate: "-14deg", z: 2 },
+      [-1]: { x: "-130px", y: "34px", scale: 0.82, opacity: 0.88, brightness: 0.82, blur: 1, rotate: "14deg", z: 4 },
+      [-2]: { x: "-220px", y: "72px", scale: 0.66, opacity: 0.5, brightness: 0.68, blur: 2, rotate: "14deg", z: 2 }
     };
 
     const presets = isMobile ? mobile : desktop;
-    return presets[offset] || { x: "0px", y: "120px", scale: 0.5, opacity: 0, brightness: 0.5, z: 0 };
+    return presets[offset] || { x: "0px", y: "120px", scale: 0.5, opacity: 0, brightness: 0.5, blur: 2, rotate: "0deg", z: 0 };
   }
 
   function getThumbUrl(videoId) {
@@ -97,6 +98,11 @@
     if (!items.length || !videos.length) return;
 
     const isMobile = window.matchMedia("(max-width: 900px)").matches;
+    const carousel = root.querySelector(".morphoza-carousel");
+
+    if (carousel) {
+      carousel.style.setProperty("--bg-shift", `${-state.activeIndex * 30}px`);
+    }
 
     items.forEach((item, index) => {
       const offset = getCircularOffset(index, state.activeIndex, items.length);
@@ -108,6 +114,8 @@
       item.style.setProperty("--item-scale", String(slot.scale));
       item.style.setProperty("--item-opacity", String(slot.opacity));
       item.style.setProperty("--item-brightness", String(slot.brightness));
+      item.style.setProperty("--item-blur", `${slot.blur}px`);
+      item.style.setProperty("--item-rotate", slot.rotate);
       item.style.setProperty("--item-z", String(slot.z));
       item.classList.toggle("is-active", isActive);
       item.setAttribute("aria-hidden", Math.abs(offset) > 2 ? "true" : "false");
@@ -229,6 +237,19 @@
 
   function move(root, direction) {
     if (!videos.length) return;
+
+    const carousel = root.querySelector(".morphoza-carousel");
+    if (carousel) {
+      carousel.classList.add("moving");
+      if (state.moveTimer) {
+        window.clearTimeout(state.moveTimer);
+      }
+      state.moveTimer = window.setTimeout(() => {
+        carousel.classList.remove("moving");
+        state.moveTimer = null;
+      }, 450);
+    }
+
     state.activeIndex = (state.activeIndex + direction + videos.length) % videos.length;
     updateCarousel(root);
   }
@@ -258,6 +279,34 @@
   function bindEvents(root) {
     if (root.dataset.moreBound === "true") return;
     root.dataset.moreBound = "true";
+
+    root.addEventListener("pointermove", (event) => {
+      const button = event.target.closest(".morphoza-item-button");
+      if (!button) return;
+
+      const rect = button.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      const moveX = ((x - 0.5) * 10).toFixed(2);
+      const moveY = ((y - 0.5) * 10).toFixed(2);
+      const item = button.closest(".morphoza-item");
+      item?.style.setProperty("--thumb-scale", item.classList.contains("is-active") ? "1.03" : "1.06");
+      item?.style.setProperty("--thumb-x", `${moveX}px`);
+      item?.style.setProperty("--thumb-y", `${moveY}px`);
+    });
+
+    root.addEventListener("pointerout", (event) => {
+      const button = event.target.closest?.(".morphoza-item-button");
+      if (!button) return;
+      if (button.contains(event.relatedTarget)) return;
+      const item = button.closest(".morphoza-item");
+      if (!item) return;
+      item.style.removeProperty("--thumb-scale");
+      item.style.removeProperty("--thumb-x");
+      item.style.removeProperty("--thumb-y");
+    });
 
     root.addEventListener("click", (event) => {
       const wallCell = event.target.closest(".more-video-wall-cell");
