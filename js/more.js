@@ -196,7 +196,7 @@
       const currentRoot = document.querySelector(".more-pane");
       if (!currentRoot) return;
       rotateWall(currentRoot);
-    }, 4000);
+    }, 2000);
   }
 
   function stopWallRotation() {
