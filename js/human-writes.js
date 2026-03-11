@@ -650,9 +650,46 @@
   }
 
   async function loadRawTexts() {
-    const response = await fetch("TEXTS.txt", { credentials: "same-origin" });
-    if (!response.ok) throw new Error(`Text HTTP ${response.status}`);
-    return response.text();
+    const version = encodeURIComponent(window.__BUILD_VERSION__ || "");
+    const candidates = [
+      `data/human-writes-texts.txt${version ? `?v=${version}` : ""}`,
+      `TEXTS.txt${version ? `?v=${version}` : ""}`
+    ];
+
+    for (const url of candidates) {
+      const response = await fetch(url, { credentials: "same-origin" });
+      if (response.ok) return response.text();
+    }
+
+    return fallbackRawTexts();
+  }
+
+  function fallbackRawTexts() {
+    return [
+      "English texts",
+      "***************",
+      "",
+      "KIND",
+      "------",
+      "The source text file is currently missing.",
+      "Please add data/human-writes-texts.txt to restore full content.",
+      "",
+      "HEBREW TEXTS",
+      "**********************",
+      "",
+      "הערה",
+      "-----------",
+      "קובץ הטקסט חסר כרגע בפרויקט.",
+      "יש להוסיף data/human-writes-texts.txt כדי להציג את כל התכנים.",
+      "",
+      "Spanish texts",
+      "**************",
+      "",
+      "Nota",
+      "----------",
+      "El archivo de textos no existe en el proyecto.",
+      "Agrega data/human-writes-texts.txt para restaurar el contenido completo."
+    ].join("\n");
   }
 
   function captureRefs(root) {
@@ -724,4 +761,6 @@
     void initializeHumanWrites();
   }
 })();
+
+
 
