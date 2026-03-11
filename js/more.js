@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   let videos = [];
 
   const state = {
@@ -223,12 +223,33 @@
 
   function showGallery(root) {
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
     resetPlayer(root);
     renderItems(root);
     updateCarousel(root);
+  }
+
+  function showHome(root) {
+    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
+    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
+    root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    resetPlayer(root);
+    void loadVideos(root);
+  }
+
+  function showHumanWrites(root) {
+    root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
+    root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
+    stopWallRotation();
+    if (typeof window.initHumanWrites === "function") {
+      window.initHumanWrites();
+    }
   }
 
   function showPlayer(root, index) {
@@ -359,6 +380,18 @@
         return;
       }
 
+      const openHumanWrites = event.target.closest("[data-more-open='human-writes']");
+      if (openHumanWrites) {
+        showHumanWrites(root);
+        return;
+      }
+
+      const humanWritesBack = event.target.closest("[data-human-writes-back]");
+      if (humanWritesBack) {
+        showHome(root);
+        return;
+      }
+
       const nav = event.target.closest("[data-morphoza-nav]");
       if (nav) {
         move(root, nav.dataset.morphozaNav === "next" ? 1 : -1);
@@ -395,6 +428,13 @@
       if (openTile && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
         showGallery(root);
+        return;
+      }
+
+      const openHumanWrites = event.target.closest("[data-more-open='human-writes']");
+      if (openHumanWrites && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        showHumanWrites(root);
         return;
       }
 
@@ -481,11 +521,6 @@
 
     bindMotiTile(root);
     bindEvents(root);
-    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
-    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
-    root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
-    root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
-    resetPlayer(root);
-    void loadVideos(root);
+    showHome(root);
   };
 })();

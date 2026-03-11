@@ -8,14 +8,6 @@
 <body>
   <template data-hw-template>
     <section class="hw-module" data-hw-module aria-label="Human Writes notebook">
-      <div class="hw-toolbar">
-        <div class="hw-toolbar-copy">
-          <p class="hw-eyebrow">Notebook Module</p>
-          <h1 class="hw-title">Human Writes</h1>
-        </div>
-        <button class="hw-contents" type="button" data-hw-contents>Contents</button>
-      </div>
-
       <div class="hw-stage" data-hw-stage>
         <button class="hw-nav hw-nav--left" type="button" data-hw-nav="prev" aria-label="Previous page">
           <span aria-hidden="true">&#8592;</span>
@@ -27,16 +19,12 @@
           <div class="hw-page hw-page--left" data-hw-page="left"></div>
           <div class="hw-page hw-page--right" data-hw-page="right"></div>
           <div class="hw-page hw-page--single" data-hw-page="single"></div>
+          <button class="hw-contents" type="button" data-hw-contents>Back to contents</button>
         </div>
 
         <button class="hw-nav hw-nav--right" type="button" data-hw-nav="next" aria-label="Next page">
           <span aria-hidden="true">&#8594;</span>
         </button>
-      </div>
-
-      <div class="hw-footerbar">
-        <p class="hw-page-status" data-hw-page-status></p>
-        <p class="hw-reading-status" data-hw-reading-status></p>
       </div>
 
       <div class="hw-live" aria-live="polite" data-hw-live></div>

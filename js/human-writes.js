@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const PAGE_ID = "more";
   const MOBILE_QUERY = "(max-width: 980px)";
   const TEMPLATE_URL = "human-writes.html";
@@ -271,8 +271,6 @@
       prev: state.root.querySelector('[data-hw-nav="prev"]'),
       next: state.root.querySelector('[data-hw-nav="next"]'),
       contents: state.root.querySelector("[data-hw-contents]"),
-      pageStatus: state.root.querySelector("[data-hw-page-status]"),
-      readingStatus: state.root.querySelector("[data-hw-reading-status]"),
       live: state.root.querySelector("[data-hw-live]"),
       measure: state.root.querySelector("[data-hw-measure]")
     };
@@ -286,8 +284,6 @@
       "prev",
       "next",
       "contents",
-      "pageStatus",
-      "readingStatus",
       "live",
       "measure"
     ];
@@ -300,7 +296,7 @@
   }
 
   function splitBodyIntoBlocks(body) {
-    return body.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
+    return body.split(/\n{3,}/).map((block) => block.trim()).filter(Boolean);
   }
 
   function splitOversizedBlock(block) {
@@ -375,25 +371,19 @@
     return `${renderPageHeading(page)}${renderTextBlocks(page.blocks)}`;
   }
 
-  function renderTocSections(sections, language) {
-    return sections.map((section) => {
-      const rtlClass = language === "he" ? " hw-toc-section--rtl" : "";
-      return `
-        <section class="hw-toc-section${rtlClass}">
-          <h3>${escapeHtml(section.heading)}</h3>
-          <ul class="hw-toc-list">
-            ${section.items.map((item) => `
-              <li>
-                <button class="hw-toc-button" type="button" data-hw-jump="${item.pageIndex}">
-                  <span>${escapeHtml(item.title)}</span>
-                  <span class="hw-toc-page">${item.pageIndex + 1}</span>
-                </button>
-              </li>
-            `).join("")}
-          </ul>
-        </section>
-      `;
-    }).join("");
+  function renderTocSections(sections) {
+    const items = sections.flatMap((section) => section.items);
+    return `
+      <ul class="hw-toc-list">
+        ${items.map((item) => `
+          <li>
+            <button class="hw-toc-button" type="button" data-hw-jump="${item.pageIndex}">
+              <span>${escapeHtml(item.title)}</span>
+            </button>
+          </li>
+        `).join("")}
+      </ul>
+    `;
   }
 
   function renderPageArticle(page) {
@@ -419,8 +409,7 @@
             </div>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(page.languageLabel)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -435,8 +424,7 @@
             <p>${escapeHtml(page.body)}</p>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(page.languageLabel)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -446,14 +434,13 @@
       const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--toc${rtlClass}">
             <h2>${escapeHtml(page.title)}</h2>
-            ${renderTocSections(page.sections, page.language)}
+            ${renderTocSections(page.sections)}
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(page.languageLabel)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -462,13 +449,12 @@
     if (page.kind === "divider") {
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--quote">
             <blockquote>${escapeHtml(page.quote)}</blockquote>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(page.languageLabel)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -476,14 +462,10 @@
 
     const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
     const layout = page.layout || "text";
-    const headerNote = page.totalParts > 1
-      ? `Part ${page.part} of ${page.totalParts}`
-      : page.languageLabel;
-
     if (layout === "full-image" && page.image) {
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--full-image${rtlClass}">
             <div class="hw-full-image-figure">
               <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
@@ -493,8 +475,7 @@
             </div>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(headerNote)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -503,14 +484,13 @@
     if (layout === "image-top" && page.image) {
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-top${rtlClass}">
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(headerNote)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -519,14 +499,13 @@
     if (layout === "image-split" && page.image) {
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-split${rtlClass}">
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(headerNote)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -535,13 +514,12 @@
     if (layout === "quote") {
       return `
         <article class="hw-page-article">
-          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--quote${rtlClass}">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
           <footer class="hw-page-footer">
-            <span>${escapeHtml(headerNote)}</span>
-            <span class="hw-page-count">${page.pageNumber}</span>
+                        <span class="hw-page-count">${page.pageNumber}</span>
           </footer>
         </article>
       `;
@@ -549,13 +527,12 @@
 
     return `
       <article class="hw-page-article">
-        <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+        <p class="hw-running-head">Human Writes</p>
         <div class="hw-page-body hw-page-body--text${rtlClass}">
           <div class="hw-text-flow">${renderTextFlow(page)}</div>
         </div>
         <footer class="hw-page-footer">
-          <span>${escapeHtml(headerNote)}</span>
-          <span class="hw-page-count">${page.pageNumber}</span>
+                    <span class="hw-page-count">${page.pageNumber}</span>
         </footer>
       </article>
     `;
@@ -682,25 +659,25 @@
         kind: "toc",
         key: "toc-ltr",
         title: "Contents",
-        runningTitle: "English + Spanish",
+        runningTitle: "Human Writes",
         language: "en",
         languageLabel: "Contents",
         direction: 1,
         sections: [
-          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] },
-          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] }
+          { heading: "", items: [] },
+          { heading: "", items: [] }
         ]
       },
       right: {
         kind: "toc",
         key: "toc-he",
-        title: "\u05EA\u05D5\u05DB\u05DF \u05E2\u05E0\u05D9\u05D9\u05E0\u05D9\u05DD",
-        runningTitle: "Hebrew",
+        title: "Contents",
+        runningTitle: "Human Writes",
         language: "he",
         languageLabel: "Contents",
         direction: 1,
         sections: [
-          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] }
+          { heading: "", items: [] }
         ]
       }
     };
@@ -837,6 +814,8 @@
     if (!state.refs.prev || !state.refs.next) return;
 
     const direction = getCurrentDirection();
+    state.refs.prev.classList.toggle("is-forward", direction < 0);
+    state.refs.next.classList.toggle("is-forward", direction > 0);
 
     if (state.isMobile) {
       const prevPage = state.currentPage - direction;
@@ -876,22 +855,8 @@
     const visiblePages = getCurrentVisiblePages();
     if (!visiblePages.length) return;
 
-    const first = visiblePages[0].pageNumber;
-    const last = visiblePages[visiblePages.length - 1].pageNumber;
-    state.refs.pageStatus.textContent = state.isMobile
-      ? `Page ${first} of ${state.pages.length}`
-      : `Pages ${first}-${last} of ${state.pages.length}`;
-
     const focusPage = visiblePages[visiblePages.length - 1];
-    let directionLabel = "Front section - left-to-right navigation";
-    if (focusPage.kind === "toc") {
-      directionLabel = "Contents spread - jump anywhere";
-    } else if (focusPage.language === "he") {
-      directionLabel = "Hebrew section - reverse navigation";
-    }
-
-    state.refs.readingStatus.textContent = directionLabel;
-    state.refs.live.textContent = `${focusPage.runningTitle} - ${state.refs.pageStatus.textContent}`;
+    state.refs.live.textContent = `Human Writes page ${focusPage.pageNumber}`;
   }
 
   function render() {
@@ -962,6 +927,8 @@
     if (!state.pages.length) return;
 
     const direction = getCurrentDirection();
+    state.refs.prev.classList.toggle("is-forward", direction < 0);
+    state.refs.next.classList.toggle("is-forward", direction > 0);
     const step = stepKind === "next" ? direction : -direction;
 
     if (state.isMobile) {
@@ -1199,6 +1166,10 @@
       return;
     }
 
+    if (mount.closest("[hidden]")) {
+      return;
+    }
+
     if (mount === state.mount && state.root && state.root.isConnected) {
       captureRefs();
       bindEvents();
@@ -1228,7 +1199,6 @@
   }
 
   window.initHumanWrites = initializeHumanWrites;
-  window.initMorePage = initializeHumanWrites;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
@@ -1238,3 +1208,5 @@
     void initializeHumanWrites();
   }
 })();
+
+

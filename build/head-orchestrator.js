@@ -144,7 +144,7 @@ class HeadOrchestrator {
   }
 
   getMoreCss(html = '') {
-    if (!this.isMore() || /\bdata-human-writes-mount\b/i.test(html)) return null;
+    if (!this.isMore() || (/\bdata-human-writes-mount\b/i.test(html) && !/\bdata-more-home\b/i.test(html))) return null;
     return this.renameMap.get('css/more.css') || null;
   }
 

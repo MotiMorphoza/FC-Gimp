@@ -4,18 +4,106 @@
   <link rel="stylesheet" href="css/core.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/more.css">
   <link rel="stylesheet" href="css/human-writes.css">
-  <title>MotoSynteza - Human Writes</title>
+  <title>MotoSynteza - More</title>
 </head>
 <body class="page-shell" data-page="more">
   <div class="shell-layout">
     <div data-sidebar></div>
 
-    <main class="content-pane human-writes-pane" aria-label="Human Writes notebook area">
-      <section class="human-writes-mount" data-human-writes-mount></section>
+    <main class="content-pane more-pane" aria-label="More projects and channels">
+      <section class="more-grid" aria-label="More channels" data-more-home>
+        <article class="more-tile more-tile--interactive more-tile--video-wall" data-more-open="morphoza" tabindex="0" role="button" aria-label="Open Moti Morphoza video gallery">
+          <h2 class="more-tile-title">Moti Morphoza</h2>
+          <div class="more-tile-media more-video-wall" data-morphoza-wall>
+            <button class="more-video-wall-cell" type="button" data-wall-cell="0" aria-label="Open Moti Morphoza video gallery from video 1">
+              <img class="more-video-wall-image" data-wall-image alt="Moti Morphoza video thumbnail" loading="lazy" decoding="async">
+              <span class="more-video-wall-play" aria-hidden="true"></span>
+            </button>
+            <button class="more-video-wall-cell" type="button" data-wall-cell="1" aria-label="Open Moti Morphoza video gallery from video 2">
+              <img class="more-video-wall-image" data-wall-image alt="Moti Morphoza video thumbnail" loading="lazy" decoding="async">
+              <span class="more-video-wall-play" aria-hidden="true"></span>
+            </button>
+            <button class="more-video-wall-cell" type="button" data-wall-cell="2" aria-label="Open Moti Morphoza video gallery from video 3">
+              <img class="more-video-wall-image" data-wall-image alt="Moti Morphoza video thumbnail" loading="lazy" decoding="async">
+              <span class="more-video-wall-play" aria-hidden="true"></span>
+            </button>
+            <button class="more-video-wall-cell" type="button" data-wall-cell="3" aria-label="Open Moti Morphoza video gallery from video 4">
+              <img class="more-video-wall-image" data-wall-image alt="Moti Morphoza video thumbnail" loading="lazy" decoding="async">
+              <span class="more-video-wall-play" aria-hidden="true"></span>
+            </button>
+          </div>
+        </article>
+
+        <article class="more-tile more-tile--interactive" data-more-open="human-writes" tabindex="0" role="button" aria-label="Open Human Writes notebook">
+          <h2 class="more-tile-title">Human Writes</h2>
+          <div class="more-tile-media">
+            <img class="more-tile-media-item more-tile-media--still" src="images/more/human-writes.png" alt="Human Writes placeholder" loading="lazy" decoding="async">
+            <img class="more-tile-media-item more-tile-media--motion" src="images/more/human-writes.gif" alt="Human Writes animated placeholder" loading="lazy" decoding="async">
+          </div>
+        </article>
+
+        <a class="more-tile more-tile--interactive" href="https://www.facebook.com/QuipuArt" target="_blank" rel="noopener noreferrer" aria-label="Open Quipu Art on Facebook">
+          <h2 class="more-tile-title">Quipu Art</h2>
+          <div class="more-tile-media">
+            <img class="more-tile-media-item more-tile-media--still" src="images/more/quipu-art.png" alt="Quipu Art placeholder" loading="lazy" decoding="async">
+            <img class="more-tile-media-item more-tile-media--motion" src="images/more/quipu-art.gif" alt="Quipu Art animated placeholder" loading="lazy" decoding="async">
+          </div>
+        </a>
+
+        <a class="more-tile more-tile--interactive" href="https://www.facebook.com/share/187795GzPL/" target="_blank" rel="noopener noreferrer" aria-label="Open Hebrew with Moti Vation on Facebook">
+          <h2 class="more-tile-title">Hebrew with Moti Vation</h2>
+          <div class="more-tile-media">
+            <img class="more-tile-media-item more-tile-media--still" src="images/more/hebrew-with-moti-vation.png" alt="Hebrew with Moti Vation placeholder" loading="lazy" decoding="async">
+            <img class="more-tile-media-item more-tile-media--motion" src="images/more/hebrew-with-moti-vation.gif" alt="Hebrew with Moti Vation animated placeholder" loading="lazy" decoding="async">
+          </div>
+        </a>
+      </section>
+
+      <section class="morphoza-view" aria-label="Moti Morphoza video gallery" data-morphoza-view hidden>
+        <div class="morphoza-header">
+          <h1 class="morphoza-title">MOTI MORPHOZA</h1>
+        </div>
+
+        <div class="morphoza-carousel-view" data-morphoza-carousel-view>
+          <div class="morphoza-carousel-shell">
+            <button class="morphoza-nav morphoza-nav--left" type="button" aria-label="Previous video" data-morphoza-nav="prev">
+              <span aria-hidden="true">&#8592;</span>
+            </button>
+
+            <div class="morphoza-carousel" aria-live="polite">
+              <div class="morphoza-track" data-morphoza-track></div>
+            </div>
+
+            <button class="morphoza-nav morphoza-nav--right" type="button" aria-label="Next video" data-morphoza-nav="next">
+              <span aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="morphoza-player-view" data-morphoza-player-view hidden>
+          <button class="morphoza-back morphoza-back--gallery" type="button" data-morphoza-back="gallery">BACK TO GALLERY</button>
+          <div class="morphoza-player-frame">
+            <iframe
+              title="Moti Morphoza video player"
+              data-morphoza-iframe
+              loading="lazy"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="human-writes-view" aria-label="Human Writes notebook" data-human-writes-view hidden>
+        <button class="morphoza-back" type="button" data-human-writes-back>BACK TO MORE</button>
+        <div class="human-writes-host" data-human-writes-mount></div>
+      </section>
     </main>
   </div>
 
+  <script src="js/more.js"></script>
   <script src="js/human-writes.js"></script>
   <script type="module" src="js/layout.js"></script>
 </body>
