@@ -521,10 +521,12 @@
 
 .morphoza-player-frame {
   min-height: 0;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: #000;
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
 .morphoza-player-frame iframe {

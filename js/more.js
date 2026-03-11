@@ -53,7 +53,7 @@
   }
 
   function getEmbedUrl(videoId) {
-    return `https://www.youtube.com/embed/${videoId}`;
+    return `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1`;
   }
 
   function preloadThumb(videoId) {
@@ -208,7 +208,7 @@
       nextFrame.title = frame.title || "Moti Morphoza video player";
       nextFrame.setAttribute("data-morphoza-iframe", "");
       nextFrame.loading = "lazy";
-      nextFrame.allow = frame.allow || "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      nextFrame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
       nextFrame.allowFullscreen = true;
       frame.replaceWith(nextFrame);
     }
@@ -343,7 +343,10 @@
       const index = Number(item.dataset.videoIndex);
       if (!Number.isInteger(index)) return;
 
-      if (index === state.activeIndex) {
+      const isMobileList = window.matchMedia("(max-width: 900px)").matches;
+      if (isMobileList || index === state.activeIndex) {
+        state.activeIndex = index;
+        updateCarousel(root);
         showPlayer(root, index);
       } else {
         state.activeIndex = index;
