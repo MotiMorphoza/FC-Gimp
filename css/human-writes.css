@@ -1,13 +1,14 @@
 ﻿.human-writes-view {
   flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
   min-height: 0;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .human-writes-host {
   flex: 1 1 auto;
+  width: 100%;
   min-height: 0;
   display: flex;
 }
@@ -23,9 +24,9 @@
   width: 100%;
   min-width: 0;
   min-height: 0;
+  height: 100%;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
+  grid-template-rows: minmax(0, 1fr);
   color: var(--hw-ink);
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   position: relative;
@@ -33,22 +34,22 @@
 
 .hw-stage {
   min-height: 0;
+  height: 100%;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: start;
+  align-items: center;
   gap: clamp(10px, 1.2vw, 18px);
 }
 
 .hw-book {
   position: relative;
   min-width: 0;
-  min-height: clamp(620px, 82vh, 920px);
+  min-height: 0;
   height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
   padding: clamp(10px, 1.2vw, 16px);
-  padding-bottom: 74px;
   border-radius: 22px;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 36%),
@@ -384,6 +385,7 @@
   height: 126px;
   border-radius: 999px;
   font-size: 1.25rem;
+  align-self: center;
 }
 
 .hw-nav.is-forward {
@@ -408,14 +410,16 @@
 .hw-contents {
   position: absolute;
   left: 50%;
-  bottom: 14px;
+  bottom: 18px;
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 5;
   min-height: 42px;
   border-radius: 999px;
   padding: 0.62rem 1.1rem;
   font-size: 0.74rem;
   letter-spacing: 0.08em;
+  background: rgba(20, 16, 11, 0.48);
+  backdrop-filter: blur(4px);
 }
 
 .hw-live {
@@ -463,9 +467,7 @@
   }
 
   .hw-book {
-    min-height: calc(100dvh - 190px);
     grid-template-columns: 1fr;
-    padding-bottom: 84px;
   }
 
   .hw-paper-stack,
