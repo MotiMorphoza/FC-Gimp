@@ -4,7 +4,8 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: clamp(10px, 1.2vw, 18px);
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -556,6 +557,8 @@ body[data-page="more"] #floating-cart-indicator {
   .more-pane {
     height: auto;
     min-height: calc(100dvh - 56px);
+    padding: 10px;
+    box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
   }
