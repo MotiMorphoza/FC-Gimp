@@ -7,6 +7,9 @@
     () => `TEXTS.txt${versionQuery()}`
   ];
 
+  const LAYOUT_PREVIEW_MODE = true;
+  const LAYOUT_PREVIEW_TEXT = "This is a shared comparison text for layout preview. The same text appears in every layout pair so spacing, image balance and readability can be compared directly without content bias.";
+
   const ENTRY_DECOR = {
     "en-1": { layout: "text", image: "images/more/human-writes.gif" },
     "en-2": { layout: "image-split", image: "images/more/human-writes.gif" },
@@ -682,7 +685,75 @@
       }
     };
   }
+
+  function buildLayoutPreviewPages() {
+    const toc = createTocPageConfig();
+    const pages = [toc.left, toc.right];
+    const pageIndexByEntry = new Map();
+    const tocItems = toc.left.sections[0].items;
+
+    const specs = [
+      { id: "layout-text", title: "LAYOUT 01 - TEXT", layout: "text", image: "images/more/human-writes.png" },
+      { id: "layout-image-top", title: "LAYOUT 02 - IMAGE TOP", layout: "image-top", image: "images/more/human-writes.gif" },
+      { id: "layout-image-split", title: "LAYOUT 03 - IMAGE SPLIT", layout: "image-split", image: "images/more/human-writes.png" },
+      { id: "layout-full-image", title: "LAYOUT 04 - FULL IMAGE", layout: "full-image", image: "images/more/human-writes.gif" },
+      { id: "layout-quote", title: "LAYOUT 05 - QUOTE", layout: "quote", image: "images/more/human-writes.png" }
+    ];
+
+    const blocks = [LAYOUT_PREVIEW_TEXT];
+
+    for (const spec of specs) {
+      const startIndex = pages.length;
+      pageIndexByEntry.set(spec.id, startIndex);
+      tocItems.push({ title: spec.title, pageIndex: startIndex });
+
+      pages.push(
+        {
+          kind: "text",
+          key: `${spec.id}:a`,
+          entryId: spec.id,
+          title: spec.title,
+          runningTitle: "Human Writes",
+          language: "en",
+          languageLabel: "",
+          direction: 1,
+          layout: spec.layout,
+          image: spec.image,
+          blocks,
+          part: 1,
+          totalParts: 2,
+          startIndex: 0
+        },
+        {
+          kind: "text",
+          key: `${spec.id}:b`,
+          entryId: spec.id,
+          title: spec.title,
+          runningTitle: "Human Writes",
+          language: "en",
+          languageLabel: "",
+          direction: 1,
+          layout: spec.layout,
+          image: spec.image,
+          blocks,
+          part: 2,
+          totalParts: 2,
+          startIndex: 0
+        }
+      );
+    }
+
+    pages.forEach((page, index) => {
+      page.pageNumber = index + 1;
+    });
+
+    return { pages, pageIndexByEntry };
+  }
+
   function buildBookPages(entries) {
+    if (LAYOUT_PREVIEW_MODE) {
+      return buildLayoutPreviewPages();
+    }
     const pages = [
       {
         kind: "cover",
@@ -1208,5 +1279,6 @@
     void initializeHumanWrites();
   }
 })();
+
 
 

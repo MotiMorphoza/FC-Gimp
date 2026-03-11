@@ -33,12 +33,12 @@
 }
 
 .hw-stage {
-  position: relative;
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
+  gap: clamp(10px, 1.2vw, 18px);
 }
 
 .hw-book {
@@ -362,27 +362,26 @@
 }
 
 .hw-nav {
-  position: absolute;
-  top: 50%;
+  position: relative;
   z-index: 6;
   width: 52px;
   height: 126px;
   border-radius: 999px;
   font-size: 1.25rem;
-  transform: translateY(-50%);
+  transform: none;
 }
 
 .hw-nav--left {
-  left: 8px;
+  left: auto;
 }
 
 .hw-nav--right {
-  right: 8px;
+  right: auto;
 }
 
 .hw-nav:hover,
 .hw-nav:focus-visible {
-  transform: translateY(-50%) scale(1.02);
+  transform: scale(1.02);
   background: rgba(255, 255, 255, 0.11);
   border-color: rgba(255, 255, 255, 0.26);
 }
@@ -401,7 +400,7 @@
 }
 
 .hw-nav:disabled {
-  opacity: 0.4;
+  opacity: 0.62;
   cursor: default;
 }
 
