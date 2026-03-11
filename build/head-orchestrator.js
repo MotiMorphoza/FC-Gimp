@@ -1,4 +1,4 @@
-﻿// build/head-orchestrator.js
+// build/head-orchestrator.js
 'use strict';
 
 class HeadOrchestrator {
@@ -68,7 +68,7 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${shopCss}">`);
     }
 
-    const moreCss = this.getMoreCss();
+    const moreCss = this.getMoreCss(html);
     if (moreCss) {
       tags.push(`<link rel="stylesheet" href="${moreCss}">`);
     }
@@ -143,8 +143,8 @@ class HeadOrchestrator {
     return this.renameMap.get('css/shop.css') || null;
   }
 
-  getMoreCss() {
-    if (!this.isMore()) return null;
+  getMoreCss(html = '') {
+    if (!this.isMore() || /\bdata-human-writes-mount\b/i.test(html)) return null;
     return this.renameMap.get('css/more.css') || null;
   }
 

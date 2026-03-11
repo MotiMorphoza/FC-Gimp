@@ -1,50 +1,66 @@
-﻿(function () {
-  const MOBILE_QUERY = "(max-width: 900px)";
-  const LAYOUT_TYPES = ["text", "image-top", "image-split", "quote", "text"];
+(function () {
+  const PAGE_ID = "more";
+  const MOBILE_QUERY = "(max-width: 980px)";
+  const TEMPLATE_URL = "human-writes.html";
+  const TEXT_SOURCE_CANDIDATES = [
+    () => `data/human-writes-texts.txt${versionQuery()}`,
+    () => `TEXTS.txt${versionQuery()}`
+  ];
+
+  const ENTRY_DECOR = {
+    "en-1": { layout: "text", image: "images/more/human-writes.gif" },
+    "en-2": { layout: "image-split", image: "images/more/human-writes.gif" },
+    "en-3": { layout: "image-top", image: "images/more/human-writes.png" },
+    "he-1": { layout: "text", image: "images/more/human-writes.png" },
+    "he-2": { layout: "image-top", image: "images/more/human-writes.gif" },
+    "he-3": { layout: "image-split", image: "images/more/human-writes.png" },
+    "es-1": { layout: "image-top", image: "images/more/human-writes.gif" },
+    "es-2": { layout: "text", image: "images/more/human-writes.png" },
+    "es-3": { layout: "image-split", image: "images/more/human-writes.gif" }
+  };
 
   const state = {
-    entries: [],
-    pages: [],
-    pageIndexByEntry: new Map(),
-    currentSpread: 0,
-    currentPage: 0,
-    isMobile: false,
     mount: null,
     root: null,
     refs: {},
-    tocIndex: 2,
-    hebrewStartIndex: -1,
+    entries: [],
+    pages: [],
+    pageIndexByEntry: new Map(),
+    preloadedImages: new Set(),
+    isMobile: false,
+    currentSpread: 0,
+    currentPage: 0,
     resizeTimer: null,
+    audioCtx: null,
     touchStartX: null,
     touchStartY: null,
-    audioCtx: null,
-    buildToken: 0
+    buildToken: 0,
+    initPromise: null,
+    globalListenersBound: false
   };
 
-  function escapeHtml(text) {
-    return String(text)
+  function versionQuery() {
+    const version = window.__BUILD_VERSION__ || "";
+    return version ? `?v=${encodeURIComponent(version)}` : "";
+  }
+
+  function escapeHtml(value) {
+    return String(value)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
-      .replace(/\"/g, "&quot;")
+      .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
   }
 
-  function slugify(input) {
-    return String(input)
-      .toLowerCase()
-      .replace(/[^a-z0-9\u0590-\u05ff]+/g, "-")
-      .replace(/^-+|-+$/g, "") || "text";
-  }
-
   function maybeDecodeMojibake(line) {
-    if (!/[Ã×Ö]/.test(line)) return line;
+    if (!/[\u00C3\u00D7\u00D6]/.test(line)) return line;
 
     try {
-      const bytes = Uint8Array.from(Array.from(line, (ch) => ch.charCodeAt(0) & 0xff));
+      const bytes = Uint8Array.from(Array.from(line, (char) => char.charCodeAt(0) & 0xff));
       const decoded = new TextDecoder("utf-8").decode(bytes);
-      const originalScore = (line.match(/[\u0590-\u05FFáéíóúñÁÉÍÓÚÑ]/g) || []).length;
-      const decodedScore = (decoded.match(/[\u0590-\u05FFáéíóúñÁÉÍÓÚÑ]/g) || []).length;
+      const originalScore = (line.match(/[\u0590-\u05FF\u00E1\u00E9\u00ED\u00F3\u00FA\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00D1]/g) || []).length;
+      const decodedScore = (decoded.match(/[\u0590-\u05FF\u00E1\u00E9\u00ED\u00F3\u00FA\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00D1]/g) || []).length;
       return decodedScore > originalScore ? decoded : line;
     } catch {
       return line;
@@ -60,10 +76,10 @@
   }
 
   function detectLanguage(line) {
-    const t = line.trim().toLowerCase();
-    if (/^english\s+texts?$/.test(t)) return "en";
-    if (/^hebrew\s+texts?$/.test(t)) return "he";
-    if (/^spanish\s+texts?$/.test(t)) return "es";
+    const normalized = line.trim().toLowerCase();
+    if (/^english\s+texts?$/.test(normalized)) return "en";
+    if (/^hebrew\s+texts?$/.test(normalized)) return "he";
+    if (/^spanish\s+texts?$/.test(normalized)) return "es";
     return null;
   }
 
@@ -76,384 +92,827 @@
   }
 
   function nextNonEmpty(lines, from) {
-    for (let i = from; i < lines.length; i += 1) {
-      if (lines[i].trim()) return i;
+    for (let index = from; index < lines.length; index += 1) {
+      if (lines[index].trim()) return index;
     }
     return -1;
   }
 
   function isTitleStart(lines, index) {
-    const line = lines[index]?.trim();
-    if (!line) return false;
-    if (isSeparator(line)) return false;
-
-    const nextIndex = nextNonEmpty(lines, index + 1);
-    if (nextIndex === -1) return false;
-    return isUnderline(lines[nextIndex]);
+    const line = (lines[index] || "").trim();
+    if (!line || isSeparator(line)) return false;
+    const underlineIndex = nextNonEmpty(lines, index + 1);
+    if (underlineIndex === -1) return false;
+    return isUnderline(lines[underlineIndex]);
   }
 
   function compactBody(lines) {
-    const out = [];
+    const output = [];
     let blank = false;
 
-    for (const raw of lines) {
-      const line = raw.replace(/\s+$/g, "");
+    for (const rawLine of lines) {
+      const line = rawLine.replace(/\s+$/g, "");
       if (!line.trim()) {
-        if (!blank && out.length) out.push("");
+        if (!blank && output.length) output.push("");
         blank = true;
       } else {
-        out.push(line);
+        output.push(line);
         blank = false;
       }
     }
 
-    while (out.length && !out[0].trim()) out.shift();
-    while (out.length && !out[out.length - 1].trim()) out.pop();
-    return out.join("\n");
+    while (output.length && !output[0].trim()) output.shift();
+    while (output.length && !output[output.length - 1].trim()) output.pop();
+    return output.join("\n");
+  }
+
+  function slugKey(value) {
+    return String(value)
+      .toLowerCase()
+      .replace(/[^a-z0-9\u0590-\u05ff]+/g, "") || "text";
+  }
+
+  function buildEntryId(language, title, order) {
+    return `${language}-${slugKey(title)}-${order}`;
   }
 
   function parseTextEntries(raw) {
     const lines = normalizeRawText(raw).split("\n");
     const entries = [];
+    const orders = { en: 0, he: 0, es: 0 };
     let language = null;
-    let orderByLang = { en: 0, he: 0, es: 0 };
 
-    for (let i = 0; i < lines.length; i += 1) {
-      const current = lines[i] || "";
-      const detected = detectLanguage(current);
-      if (detected) {
-        language = detected;
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index] || "";
+      const detectedLanguage = detectLanguage(line);
+      if (detectedLanguage) {
+        language = detectedLanguage;
         continue;
       }
 
-      if (!language || isSeparator(current) || !current.trim()) continue;
-      if (!isTitleStart(lines, i)) continue;
+      if (!language || !line.trim() || isSeparator(line) || !isTitleStart(lines, index)) {
+        continue;
+      }
 
-      const title = (lines[i] || "").trim();
+      const title = line.trim();
       const bodyLines = [];
-      const titleUnderlineIndex = nextNonEmpty(lines, i + 1);
-      i = titleUnderlineIndex;
+      index = nextNonEmpty(lines, index + 1);
 
-      for (let j = i + 1; j < lines.length; j += 1) {
-        const line = lines[j] || "";
-        if (detectLanguage(line) || isSeparator(line) || isTitleStart(lines, j)) {
-          i = j - 1;
+      for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+        const candidate = lines[cursor] || "";
+        if (detectLanguage(candidate) || isSeparator(candidate) || isTitleStart(lines, cursor)) {
+          index = cursor - 1;
           break;
         }
-
-        bodyLines.push(line);
-        if (j === lines.length - 1) i = j;
+        bodyLines.push(candidate);
+        if (cursor === lines.length - 1) {
+          index = cursor;
+        }
       }
 
       const body = compactBody(bodyLines);
       if (!body) continue;
 
-      orderByLang = { ...orderByLang, [language]: orderByLang[language] + 1 };
-      const order = orderByLang[language];
-      const layout = LAYOUT_TYPES[(order - 1) % LAYOUT_TYPES.length];
-
+      orders[language] += 1;
       entries.push({
-        id: `${language}-${slugify(title)}-${order}`,
+        id: buildEntryId(language, title, orders[language]),
         title,
         language,
-        order,
-        body,
-        image: null,
-        layout
+        order: orders[language],
+        body
       });
     }
 
     return entries;
   }
 
-  function splitByScore(text, maxScore) {
-    const blocks = text.split(/\n\n+/).map((b) => b.trim()).filter(Boolean);
-    const pages = [];
+  function decorateEntries(entries) {
+    return entries.map((entry) => {
+      const decor = ENTRY_DECOR[`${entry.language}-${entry.order}`] || ENTRY_DECOR[slugKey(entry.title)] || {};
+      return {
+        ...entry,
+        image: decor.image || "",
+        layout: decor.layout || "text"
+      };
+    });
+  }
+
+  async function fetchTemplateMarkup() {
+    const response = await fetch(TEMPLATE_URL, { credentials: "same-origin" });
+    if (!response.ok) throw new Error(`Template HTTP ${response.status}`);
+
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const template = parsed.querySelector("template[data-hw-template]");
+    if (!template) throw new Error("Human Writes template missing");
+    return template.innerHTML;
+  }
+
+  async function fetchTextSource() {
+    for (const getUrl of TEXT_SOURCE_CANDIDATES) {
+      try {
+        const response = await fetch(getUrl(), { credentials: "same-origin" });
+        if (response.ok) {
+          return response.text();
+        }
+      } catch {
+        // Try the next candidate before falling back.
+      }
+    }
+
+    return getFallbackRawText();
+  }
+
+  function getFallbackRawText() {
+    return [
+      "English texts",
+      "***************",
+      "",
+      "KIND",
+      "------",
+      "The content source is missing. Drop data/human-writes-texts.txt into the project to restore the full notebook.",
+      "",
+      "HEBREW TEXTS",
+      "**********************",
+      "",
+      "Hebrew Placeholder",
+      "-----------",
+      "The source text is currently missing, but the reverse-reading notebook flow remains active.",
+      "",
+      "Spanish texts",
+      "**************",
+      "",
+      "El Viaje",
+      "----------",
+      "El archivo fuente falta en el proyecto por ahora."
+    ].join("\n");
+  }
+
+  function resetMountState() {
+    state.mount = null;
+    state.root = null;
+    state.refs = {};
+    state.pages = [];
+    state.pageIndexByEntry = new Map();
+    state.preloadedImages.clear();
+    state.touchStartX = null;
+    state.touchStartY = null;
+    state.currentSpread = 0;
+    state.currentPage = 0;
+  }
+
+  function captureRefs() {
+    state.refs = {
+      stage: state.root.querySelector("[data-hw-stage]"),
+      book: state.root.querySelector("[data-hw-book]"),
+      left: state.root.querySelector('[data-hw-page="left"]'),
+      right: state.root.querySelector('[data-hw-page="right"]'),
+      single: state.root.querySelector('[data-hw-page="single"]'),
+      prev: state.root.querySelector('[data-hw-nav="prev"]'),
+      next: state.root.querySelector('[data-hw-nav="next"]'),
+      contents: state.root.querySelector("[data-hw-contents]"),
+      pageStatus: state.root.querySelector("[data-hw-page-status]"),
+      readingStatus: state.root.querySelector("[data-hw-reading-status]"),
+      live: state.root.querySelector("[data-hw-live]"),
+      measure: state.root.querySelector("[data-hw-measure]")
+    };
+
+    const requiredRefs = [
+      "stage",
+      "book",
+      "left",
+      "right",
+      "single",
+      "prev",
+      "next",
+      "contents",
+      "pageStatus",
+      "readingStatus",
+      "live",
+      "measure"
+    ];
+
+    for (const refName of requiredRefs) {
+      if (!state.refs[refName]) {
+        throw new Error(`Human Writes reference missing: ${refName}`);
+      }
+    }
+  }
+
+  function splitBodyIntoBlocks(body) {
+    return body.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
+  }
+
+  function splitOversizedBlock(block) {
+    const lines = block.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+    if (lines.length > 1) {
+      const pieces = [];
+      let current = [];
+      let score = 0;
+
+      for (const line of lines) {
+        const nextScore = score + line.length + 8;
+        if (nextScore > 180 && current.length) {
+          pieces.push(current.join("\n"));
+          current = [line];
+          score = line.length;
+        } else {
+          current.push(line);
+          score = nextScore;
+        }
+      }
+
+      if (current.length) pieces.push(current.join("\n"));
+      return pieces;
+    }
+
+    const words = block.split(/\s+/).filter(Boolean);
+    if (words.length <= 1) return [block];
+
+    const pieces = [];
     let current = [];
     let score = 0;
 
-    function blockScore(block) {
-      const lineBreaks = (block.match(/\n/g) || []).length;
-      return block.length + lineBreaks * 24;
+    for (const word of words) {
+      const nextScore = score + word.length + 1;
+      if (nextScore > 120 && current.length) {
+        pieces.push(current.join(" "));
+        current = [word];
+        score = word.length;
+      } else {
+        current.push(word);
+        score = nextScore;
+      }
     }
 
-    function splitOversized(block) {
-      const words = block.split(/\s+/).filter(Boolean);
-      const chunks = [];
-      let chunk = [];
-      let chunkScore = 0;
-
-      for (const word of words) {
-        const wordScore = word.length + 1;
-        if (chunkScore + wordScore > maxScore && chunk.length) {
-          chunks.push(chunk.join(" "));
-          chunk = [word];
-          chunkScore = wordScore;
-        } else {
-          chunk.push(word);
-          chunkScore += wordScore;
-        }
-      }
-
-      if (chunk.length) chunks.push(chunk.join(" "));
-      return chunks;
-    }
-
-    for (const block of blocks) {
-      const bScore = blockScore(block);
-      if (bScore > maxScore) {
-        const pieces = splitOversized(block);
-        for (const piece of pieces) {
-          if (score + piece.length > maxScore && current.length) {
-            pages.push(current.join("\n\n"));
-            current = [];
-            score = 0;
-          }
-          current.push(piece);
-          score += piece.length;
-        }
-        continue;
-      }
-
-      if (score + bScore > maxScore && current.length) {
-        pages.push(current.join("\n\n"));
-        current = [];
-        score = 0;
-      }
-
-      current.push(block);
-      score += bScore;
-    }
-
-    if (current.length) pages.push(current.join("\n\n"));
-    return pages.length ? pages : [text];
+    if (current.length) pieces.push(current.join(" "));
+    return pieces;
   }
 
-  function layoutForChunk(entry, chunkIndex) {
-    if (chunkIndex > 0) return "text";
-    return entry.layout || "text";
+  function renderTextBlocks(blocks) {
+    return blocks
+      .map((block) => `<p>${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
+      .join("");
   }
 
-  function buildPages(entries) {
+  function renderPageHeading(page) {
+    if (page.part > 1) {
+      return `<h3>${escapeHtml(page.title)} - ${page.part}/${page.totalParts}</h3>`;
+    }
+    return `<h2>${escapeHtml(page.title)}</h2>`;
+  }
+
+  function renderTextFlow(page) {
+    if (page.layout === "quote") {
+      const [leadBlock, ...restBlocks] = page.blocks;
+      return [
+        renderPageHeading(page),
+        `<blockquote>${escapeHtml(leadBlock || "").replace(/\n/g, "<br>")}</blockquote>`,
+        restBlocks.length ? renderTextBlocks(restBlocks) : ""
+      ].join("");
+    }
+
+    return `${renderPageHeading(page)}${renderTextBlocks(page.blocks)}`;
+  }
+
+  function renderTocSections(sections, language) {
+    return sections.map((section) => {
+      const rtlClass = language === "he" ? " hw-toc-section--rtl" : "";
+      return `
+        <section class="hw-toc-section${rtlClass}">
+          <h3>${escapeHtml(section.heading)}</h3>
+          <ul class="hw-toc-list">
+            ${section.items.map((item) => `
+              <li>
+                <button class="hw-toc-button" type="button" data-hw-jump="${item.pageIndex}">
+                  <span>${escapeHtml(item.title)}</span>
+                  <span class="hw-toc-page">${item.pageIndex + 1}</span>
+                </button>
+              </li>
+            `).join("")}
+          </ul>
+        </section>
+      `;
+    }).join("");
+  }
+
+  function renderPageArticle(page) {
+    if (!page) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head"></p>
+          <div class="hw-page-body"></div>
+          <footer class="hw-page-footer"></footer>
+        </article>
+      `;
+    }
+
+    if (page.kind === "cover") {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--cover">
+            <img class="hw-cover-image" src="${escapeHtml(page.image)}" alt="Human Writes cover" loading="lazy" decoding="async">
+            <div class="hw-cover-copy">
+              <h2>${escapeHtml(page.title)}</h2>
+              <p>${escapeHtml(page.subtitle)}</p>
+            </div>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(page.languageLabel)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (page.kind === "intro") {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--intro">
+            <h2>${escapeHtml(page.title)}</h2>
+            <p>${escapeHtml(page.body)}</p>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(page.languageLabel)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (page.kind === "toc") {
+      const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--toc${rtlClass}">
+            <h2>${escapeHtml(page.title)}</h2>
+            ${renderTocSections(page.sections, page.language)}
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(page.languageLabel)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (page.kind === "divider") {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--quote">
+            <blockquote>${escapeHtml(page.quote)}</blockquote>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(page.languageLabel)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
+    const layout = page.layout || "text";
+    const headerNote = page.totalParts > 1
+      ? `Part ${page.part} of ${page.totalParts}`
+      : page.languageLabel;
+
+    if (layout === "full-image" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--full-image${rtlClass}">
+            <div class="hw-full-image-figure">
+              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+              <div class="hw-full-image-caption">
+                ${renderTextFlow(page)}
+              </div>
+            </div>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(headerNote)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (layout === "image-top" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--image-top${rtlClass}">
+            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(headerNote)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (layout === "image-split" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--image-split${rtlClass}">
+            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(headerNote)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    if (layout === "quote") {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+          <div class="hw-page-body hw-page-body--quote${rtlClass}">
+            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+          </div>
+          <footer class="hw-page-footer">
+            <span>${escapeHtml(headerNote)}</span>
+            <span class="hw-page-count">${page.pageNumber}</span>
+          </footer>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="hw-page-article">
+        <p class="hw-running-head">${escapeHtml(page.runningTitle)}</p>
+        <div class="hw-page-body hw-page-body--text${rtlClass}">
+          <div class="hw-text-flow">${renderTextFlow(page)}</div>
+        </div>
+        <footer class="hw-page-footer">
+          <span>${escapeHtml(headerNote)}</span>
+          <span class="hw-page-count">${page.pageNumber}</span>
+        </footer>
+      </article>
+    `;
+  }
+
+  function getLanguageLabel(language) {
+    if (language === "he") return "Hebrew";
+    if (language === "es") return "Spanish";
+    return "English";
+  }
+
+  function syncResponsiveState() {
+    state.isMobile = window.matchMedia(MOBILE_QUERY).matches;
+  }
+
+  function getReferencePageElement() {
+    return state.isMobile ? state.refs.single : state.refs.left;
+  }
+
+  function syncMeasureBox() {
+    const reference = getReferencePageElement();
+    if (!reference || !state.refs.measure) return;
+
+    const rect = reference.getBoundingClientRect();
+    const width = Math.max(320, Math.round(rect.width || reference.clientWidth || 420));
+    const height = Math.max(420, Math.round(rect.height || reference.clientHeight || 620));
+
+    state.refs.measure.style.width = `${width}px`;
+    state.refs.measure.style.height = `${height}px`;
+  }
+
+  function pageFits(entry, blocks, layout) {
+    const page = {
+      kind: "text",
+      title: entry.title,
+      runningTitle: entry.title,
+      language: entry.language,
+      languageLabel: getLanguageLabel(entry.language),
+      layout,
+      image: entry.image,
+      blocks,
+      part: 1,
+      totalParts: 1,
+      pageNumber: 999
+    };
+
+    state.refs.measure.innerHTML = renderPageArticle(page);
+    const article = state.refs.measure.firstElementChild;
+    if (!article) return false;
+    return article.scrollHeight <= state.refs.measure.clientHeight + 1;
+  }
+
+  function fitBlockCount(entry, blocks, startIndex, layout) {
+    const remaining = blocks.length - startIndex;
+    if (remaining <= 0) return 0;
+
+    let low = 1;
+    let high = remaining;
+    let best = 0;
+
+    while (low <= high) {
+      const middle = Math.floor((low + high) / 2);
+      const slice = blocks.slice(startIndex, startIndex + middle);
+      if (pageFits(entry, slice, layout)) {
+        best = middle;
+        low = middle + 1;
+      } else {
+        high = middle - 1;
+      }
+    }
+
+    return best;
+  }
+
+  function paginateEntry(entry) {
+    const blocks = splitBodyIntoBlocks(entry.body);
     const pages = [];
+    let startIndex = 0;
+
+    while (startIndex < blocks.length) {
+      const layout = startIndex === 0 ? entry.layout : "text";
+      let fitCount = fitBlockCount(entry, blocks, startIndex, layout);
+
+      if (fitCount === 0) {
+        const splitBlocks = splitOversizedBlock(blocks[startIndex]);
+        if (splitBlocks.length === 1) {
+          fitCount = 1;
+        } else {
+          blocks.splice(startIndex, 1, ...splitBlocks);
+          continue;
+        }
+      }
+
+      pages.push({
+        kind: "text",
+        key: `text:${entry.id}:${startIndex}`,
+        entryId: entry.id,
+        title: entry.title,
+        runningTitle: entry.title,
+        language: entry.language,
+        languageLabel: getLanguageLabel(entry.language),
+        direction: entry.language === "he" ? -1 : 1,
+        layout,
+        image: entry.image,
+        blocks: blocks.slice(startIndex, startIndex + fitCount),
+        startIndex
+      });
+
+      startIndex += fitCount;
+    }
+
+    const totalParts = pages.length;
+    pages.forEach((page, index) => {
+      page.part = index + 1;
+      page.totalParts = totalParts;
+    });
+
+    return pages;
+  }
+
+  function createTocPageConfig() {
+    return {
+      left: {
+        kind: "toc",
+        key: "toc-ltr",
+        title: "Contents",
+        runningTitle: "English + Spanish",
+        language: "en",
+        languageLabel: "Contents",
+        direction: 1,
+        sections: [
+          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] },
+          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] }
+        ]
+      },
+      right: {
+        kind: "toc",
+        key: "toc-he",
+        title: "\u05EA\u05D5\u05DB\u05DF \u05E2\u05E0\u05D9\u05D9\u05E0\u05D9\u05DD",
+        runningTitle: "Hebrew",
+        language: "he",
+        languageLabel: "Contents",
+        direction: 1,
+        sections: [
+          { heading: "\u05E2\u05D1\u05E8\u05D9\u05EA", items: [] }
+        ]
+      }
+    };
+  }
+  function buildBookPages(entries) {
+    const pages = [
+      {
+        kind: "cover",
+        key: "cover",
+        title: "Human Writes",
+        subtitle: "Three languages. One notebook. Two reading directions.",
+        runningTitle: "Human Writes",
+        language: "en",
+        languageLabel: "Cover",
+        direction: 1,
+        image: "images/more/human-writes.png"
+      },
+      {
+        kind: "intro",
+        key: "intro",
+        title: "Welcome",
+        runningTitle: "Human Writes",
+        language: "en",
+        languageLabel: "Introduction",
+        direction: 1,
+        body: "A spiral notebook for English, Hebrew and Spanish texts. English and Spanish begin at the front. Hebrew starts from the back, and page direction reverses once you arrive there."
+      }
+    ];
+
+    const toc = createTocPageConfig();
     const pageIndexByEntry = new Map();
+    const tocSectionsByLanguage = {
+      en: toc.left.sections[0],
+      es: toc.left.sections[1],
+      he: toc.right.sections[0]
+    };
 
-    pages.push({
-      kind: "cover",
-      title: "Human Writes",
-      runningTitle: "Human Writes",
-      pageNumber: 1,
-      language: "en",
-      image: "images/more/human-writes.png"
-    });
-
-    pages.push({
-      kind: "intro",
-      title: "Introduction",
-      runningTitle: "Human Writes",
-      pageNumber: 2,
-      language: "en",
-      intro: "Three languages. One notebook. Turn the pages naturally in English and Spanish, then from the back in Hebrew with reversed direction."
-    });
-
-    pages.push({
-      kind: "toc-ltr",
-      title: "Contents",
-      runningTitle: "Contents",
-      pageNumber: 3,
-      language: "en"
-    });
-
-    pages.push({
-      kind: "toc-he",
-      title: "תוכן עניינים",
-      runningTitle: "תוכן עניינים",
-      pageNumber: 4,
-      language: "he"
-    });
-
-    const maxScore = window.matchMedia(MOBILE_QUERY).matches ? 700 : 1150;
+    pages.push(toc.left, toc.right);
 
     const ltrEntries = entries
       .filter((entry) => entry.language === "en" || entry.language === "es")
-      .sort((a, b) => {
-        if (a.language !== b.language) return a.language.localeCompare(b.language);
-        return a.order - b.order;
+      .sort((left, right) => {
+        if (left.language !== right.language) return left.language.localeCompare(right.language);
+        return left.order - right.order;
       });
 
     for (const entry of ltrEntries) {
-      const chunks = splitByScore(entry.body, maxScore);
-      chunks.forEach((chunk, index) => {
-        const pageIndex = pages.length;
-        if (index === 0) pageIndexByEntry.set(entry.id, pageIndex);
-        pages.push({
-          kind: "text",
-          entryId: entry.id,
-          title: entry.title,
-          runningTitle: entry.title,
-          language: entry.language,
-          order: entry.order,
-          part: index + 1,
-          total: chunks.length,
-          layout: layoutForChunk(entry, index),
-          body: chunk,
-          image: entry.image,
-          pageNumber: pageIndex + 1
-        });
+      const entryPages = paginateEntry(entry);
+      if (!entryPages.length) continue;
+
+      pageIndexByEntry.set(entry.id, pages.length);
+      tocSectionsByLanguage[entry.language].items.push({
+        title: entry.title,
+        pageIndex: pages.length
       });
+      pages.push(...entryPages);
     }
 
     if (pages.length % 2 !== 0) {
       pages.push({
         kind: "divider",
-        title: "",
-        runningTitle: "",
+        key: "divider",
+        title: "Divider",
+        runningTitle: "Turn the notebook",
         language: "en",
-        quote: "Turn from the back for Hebrew texts.",
-        pageNumber: pages.length + 1
+        languageLabel: "Direction shift",
+        direction: 1,
+        quote: "Hebrew texts begin from the back of the notebook.",
+        image: ""
       });
     }
 
-    const hebrewStartIndex = pages.length;
-    const heEntries = entries
+    const hebrewEntries = entries
       .filter((entry) => entry.language === "he")
-      .sort((a, b) => a.order - b.order);
+      .sort((left, right) => left.order - right.order);
 
-    for (let e = heEntries.length - 1; e >= 0; e -= 1) {
-      const entry = heEntries[e];
-      const chunks = splitByScore(entry.body, maxScore);
-      for (let i = chunks.length - 1; i >= 0; i -= 1) {
-        const pageIndex = pages.length;
-        if (i === 0) pageIndexByEntry.set(entry.id, pageIndex);
-        pages.push({
-          kind: "text",
-          entryId: entry.id,
-          title: entry.title,
-          runningTitle: entry.title,
-          language: entry.language,
-          order: entry.order,
-          part: i + 1,
-          total: chunks.length,
-          layout: i === 0 ? layoutForChunk(entry, 0) : "text",
-          body: chunks[i],
-          image: entry.image,
-          pageNumber: pageIndex + 1
-        });
+    for (let entryIndex = hebrewEntries.length - 1; entryIndex >= 0; entryIndex -= 1) {
+      const entry = hebrewEntries[entryIndex];
+      const entryPages = paginateEntry(entry);
+      if (!entryPages.length) continue;
+
+      for (let pageIndex = entryPages.length - 1; pageIndex >= 0; pageIndex -= 1) {
+        const page = entryPages[pageIndex];
+        if (page.part === 1) {
+          pageIndexByEntry.set(entry.id, pages.length);
+          tocSectionsByLanguage.he.items.push({
+            title: entry.title,
+            pageIndex: pages.length
+          });
+        }
+        pages.push(page);
       }
     }
 
-    return { pages, pageIndexByEntry, hebrewStartIndex };
+    tocSectionsByLanguage.he.items.reverse();
+
+    pages.forEach((page, index) => {
+      page.pageNumber = index + 1;
+    });
+
+    return { pages, pageIndexByEntry };
   }
 
-  function listFor(entries, language) {
-    return entries
-      .filter((entry) => entry.language === language)
-      .sort((a, b) => a.order - b.order)
-      .map((entry) => ({ id: entry.id, title: entry.title }));
+  function getCurrentPageIndex() {
+    return state.isMobile ? state.currentPage : state.currentSpread * 2;
   }
 
-  function buildTocData(entries) {
-    return {
-      ltr: [...listFor(entries, "en"), ...listFor(entries, "es")],
-      he: listFor(entries, "he")
-    };
-  }
-
-  function renderParagraphs(text) {
-    return text
-      .split(/\n\n+/)
-      .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, "<br>")}</p>`)
-      .join("");
-  }
-
-  function tocMarkup(items, pageMap, langCode) {
-    const list = items
-      .map((item) => {
-        const target = pageMap.get(item.id);
-        const safeTarget = Number.isInteger(target) ? target : 0;
-        return `<li class="hw-toc-item"><button class="hw-toc-button" data-hw-jump="${safeTarget}" data-hw-lang="${langCode}" type="button">${escapeHtml(item.title)}</button></li>`;
-      })
-      .join("");
-    return `<ul class="hw-toc-list">${list}</ul>`;
-  }
-
-  function pageMarkup(page, tocData) {
-    if (!page) {
-      return "<article class=\"hw-page-inner\"><header class=\"hw-running-head\"></header><div class=\"hw-content\"></div><footer class=\"hw-page-number\"></footer></article>";
-    }
-
-    if (page.kind === "cover") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">Human Writes</header><div class="hw-content hw-content--cover"><img class="hw-cover-image" src="${escapeHtml(page.image || "images/more/human-writes.png")}" alt="Human Writes cover" loading="lazy" decoding="async"><h2 class="hw-cover-title">Human Writes</h2></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.kind === "intro") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">Human Writes</header><div class="hw-content hw-content--intro"><h2 class="hw-intro-title">Welcome</h2><p class="hw-intro-copy">${escapeHtml(page.intro || "")}</p></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.kind === "toc-ltr") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">Contents</header><div class="hw-content hw-content--toc"><h2>Contents (EN + ES)</h2>${tocMarkup(tocData.ltr, state.pageIndexByEntry, "ltr")}</div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.kind === "toc-he") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">תוכן עניינים</header><div class="hw-content hw-content--toc hw-content--text he"><h2>תוכן עניינים</h2>${tocMarkup(tocData.he, state.pageIndexByEntry, "he")}</div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.kind === "divider") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">Human Writes</header><div class="hw-content hw-content--quote"><blockquote>${escapeHtml(page.quote || "")}</blockquote></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    const rtlClass = page.language === "he" ? " he" : "";
-    const header = escapeHtml(page.runningTitle || "Human Writes");
-    const body = renderParagraphs(page.body || "");
-    const fallbackImage = "images/more/human-writes.gif";
-    const image = escapeHtml(page.image || fallbackImage);
-
-    if (page.layout === "image-top") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">${header}</header><div class="hw-content hw-content--image-top${rtlClass}"><img class="hw-media" src="${image}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async"><div class="hw-content hw-content--text${rtlClass}">${body}</div></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.layout === "image-split") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">${header}</header><div class="hw-content hw-content--image-split${rtlClass}"><img class="hw-media" src="${image}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async"><div class="hw-content hw-content--text${rtlClass}">${body}</div></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.layout === "quote") {
-      const quoteLine = page.body.split(/\n+/).find((line) => line.trim()) || page.title;
-      return `<article class="hw-page-inner"><header class="hw-running-head">${header}</header><div class="hw-content hw-content--quote${rtlClass}"><blockquote>${escapeHtml(quoteLine)}</blockquote></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    if (page.layout === "full-image") {
-      return `<article class="hw-page-inner"><header class="hw-running-head">${header}</header><div class="hw-content hw-content--full-image"><img class="hw-media" src="${image}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async"></div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-    }
-
-    return `<article class="hw-page-inner"><header class="hw-running-head">${header}</header><div class="hw-content hw-content--text${rtlClass}">${body}</div><footer class="hw-page-number">${page.pageNumber}</footer></article>`;
-  }
-
-  function currentDirection() {
-    const focusIndex = state.isMobile
-      ? state.currentPage
-      : Math.min(state.pages.length - 1, state.currentSpread * 2 + 1);
-    const focusPage = state.pages[focusIndex] || state.pages[state.currentSpread * 2];
-    return focusPage && focusPage.language === "he" ? -1 : 1;
-  }
-
-  function maxSpread() {
-    return Math.max(0, Math.ceil(state.pages.length / 2) - 1);
-  }
-
-  function updateNavState() {
-    const prev = state.refs.prev;
-    const next = state.refs.next;
-    if (!prev || !next) return;
-
-    const dir = currentDirection();
+  function getCurrentVisiblePages() {
     if (state.isMobile) {
-      prev.disabled = state.currentPage - dir < 0 || state.currentPage - dir >= state.pages.length;
-      next.disabled = state.currentPage + dir < 0 || state.currentPage + dir >= state.pages.length;
+      return [state.pages[state.currentPage]].filter(Boolean);
+    }
+
+    const leftIndex = state.currentSpread * 2;
+    return [state.pages[leftIndex], state.pages[leftIndex + 1]].filter(Boolean);
+  }
+
+  function getCurrentDirection() {
+    const visiblePages = getCurrentVisiblePages();
+    const focusPage = visiblePages[visiblePages.length - 1] || state.pages[0];
+    return focusPage && typeof focusPage.direction === "number" ? focusPage.direction : 1;
+  }
+
+  function clampPosition() {
+    if (state.isMobile) {
+      state.currentPage = Math.max(0, Math.min(state.currentPage, state.pages.length - 1));
       return;
     }
 
-    prev.disabled = state.currentSpread - dir < 0 || state.currentSpread - dir > maxSpread();
-    next.disabled = state.currentSpread + dir < 0 || state.currentSpread + dir > maxSpread();
+    const maxSpread = Math.max(0, Math.ceil(state.pages.length / 2) - 1);
+    state.currentSpread = Math.max(0, Math.min(state.currentSpread, maxSpread));
+  }
+
+  function updateNavState() {
+    if (!state.refs.prev || !state.refs.next) return;
+
+    const direction = getCurrentDirection();
+
+    if (state.isMobile) {
+      const prevPage = state.currentPage - direction;
+      const nextPage = state.currentPage + direction;
+      state.refs.prev.disabled = prevPage < 0 || prevPage >= state.pages.length;
+      state.refs.next.disabled = nextPage < 0 || nextPage >= state.pages.length;
+      return;
+    }
+
+    const maxSpread = Math.max(0, Math.ceil(state.pages.length / 2) - 1);
+    const prevSpread = state.currentSpread - direction;
+    const nextSpread = state.currentSpread + direction;
+    state.refs.prev.disabled = prevSpread < 0 || prevSpread > maxSpread;
+    state.refs.next.disabled = nextSpread < 0 || nextSpread > maxSpread;
+  }
+
+  function preloadImageSource(src) {
+    if (!src || state.preloadedImages.has(src)) return;
+    const image = new Image();
+    image.src = src;
+    state.preloadedImages.add(src);
+  }
+
+  function preloadNearbyImages() {
+    const startIndex = getCurrentPageIndex();
+    const indexes = [startIndex - 2, startIndex - 1, startIndex + 1, startIndex + 2];
+
+    indexes.forEach((index) => {
+      const page = state.pages[index];
+      if (page && page.image) {
+        preloadImageSource(page.image);
+      }
+    });
+  }
+
+  function updateStatus() {
+    const visiblePages = getCurrentVisiblePages();
+    if (!visiblePages.length) return;
+
+    const first = visiblePages[0].pageNumber;
+    const last = visiblePages[visiblePages.length - 1].pageNumber;
+    state.refs.pageStatus.textContent = state.isMobile
+      ? `Page ${first} of ${state.pages.length}`
+      : `Pages ${first}-${last} of ${state.pages.length}`;
+
+    const focusPage = visiblePages[visiblePages.length - 1];
+    let directionLabel = "Front section - left-to-right navigation";
+    if (focusPage.kind === "toc") {
+      directionLabel = "Contents spread - jump anywhere";
+    } else if (focusPage.language === "he") {
+      directionLabel = "Hebrew section - reverse navigation";
+    }
+
+    state.refs.readingStatus.textContent = directionLabel;
+    state.refs.live.textContent = `${focusPage.runningTitle} - ${state.refs.pageStatus.textContent}`;
+  }
+
+  function render() {
+    if (!state.root || !state.pages.length) return;
+
+    clampPosition();
+
+    if (state.isMobile) {
+      state.refs.single.innerHTML = renderPageArticle(state.pages[state.currentPage]);
+      state.refs.left.innerHTML = "";
+      state.refs.right.innerHTML = "";
+    } else {
+      const leftIndex = state.currentSpread * 2;
+      state.refs.left.innerHTML = renderPageArticle(state.pages[leftIndex]);
+      state.refs.right.innerHTML = renderPageArticle(state.pages[leftIndex + 1]);
+      state.refs.single.innerHTML = "";
+    }
+
+    updateNavState();
+    updateStatus();
+    preloadNearbyImages();
   }
 
   function playFlipSound() {
@@ -461,105 +920,127 @@
       if (!state.audioCtx) {
         state.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
-      const ctx = state.audioCtx;
-      const now = ctx.currentTime;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
 
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(760, now);
-      osc.frequency.exponentialRampToValueAtTime(360, now + 0.08);
+      const context = state.audioCtx;
+      const time = context.currentTime;
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
 
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.028, now + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+      oscillator.type = "triangle";
+      oscillator.frequency.setValueAtTime(720, time);
+      oscillator.frequency.exponentialRampToValueAtTime(310, time + 0.08);
 
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.09);
+      gain.gain.setValueAtTime(0.0001, time);
+      gain.gain.exponentialRampToValueAtTime(0.02, time + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.09);
+
+      oscillator.connect(gain);
+      gain.connect(context.destination);
+      oscillator.start(time);
+      oscillator.stop(time + 0.09);
     } catch {
-      // Ignore audio failures (autoplay or unsupported context).
+      // Ignore browsers that block sound without a gesture.
     }
   }
 
-  function preloadNearby() {
-    const indexes = [];
-    if (state.isMobile) {
-      indexes.push(state.currentPage + 1, state.currentPage - 1, state.currentPage + 2);
-    } else {
-      const base = state.currentSpread * 2;
-      indexes.push(base + 2, base + 3, base - 2, base - 1);
-    }
+  function animateFlip() {
+    if (!state.root) return;
 
-    indexes.forEach((index) => {
-      const page = state.pages[index];
-      if (!page || !page.image) return;
-      const img = new Image();
-      img.src = page.image;
-    });
-  }
-
-  function render() {
-    const tocData = buildTocData(state.entries);
-    const leftIndex = state.currentSpread * 2;
-    const rightIndex = leftIndex + 1;
-
-    if (state.isMobile) {
-      state.refs.single.innerHTML = pageMarkup(state.pages[state.currentPage], tocData);
-    } else {
-      state.refs.left.innerHTML = pageMarkup(state.pages[leftIndex], tocData);
-      state.refs.right.innerHTML = pageMarkup(state.pages[rightIndex], tocData);
-    }
-
-    state.refs.live.textContent = state.isMobile
-      ? `Page ${state.currentPage + 1}`
-      : `Pages ${leftIndex + 1}-${Math.min(rightIndex + 1, state.pages.length)}`;
-
-    updateNavState();
-    preloadNearby();
-  }
-
-  function flipAnimation() {
-    state.root.classList.remove("hw-is-flipping");
+    state.root.classList.remove("is-flipping");
     requestAnimationFrame(() => {
-      state.root.classList.add("hw-is-flipping");
-      window.setTimeout(() => state.root.classList.remove("hw-is-flipping"), 300);
+      if (!state.root) return;
+      state.root.classList.add("is-flipping");
+      window.setTimeout(() => {
+        if (state.root) {
+          state.root.classList.remove("is-flipping");
+        }
+      }, 280);
     });
-  }
-
-  function goToIndex(targetPageIndex) {
-    if (!Number.isInteger(targetPageIndex)) return;
-    if (targetPageIndex < 0 || targetPageIndex >= state.pages.length) return;
-
-    if (state.isMobile) {
-      state.currentPage = targetPageIndex;
-    } else {
-      state.currentSpread = Math.floor(targetPageIndex / 2);
-    }
-
-    render();
-    flipAnimation();
-    playFlipSound();
   }
 
   function move(stepKind) {
-    const dir = currentDirection();
-    const step = stepKind === "next" ? dir : -dir;
+    if (!state.pages.length) return;
+
+    const direction = getCurrentDirection();
+    const step = stepKind === "next" ? direction : -direction;
 
     if (state.isMobile) {
       const nextPage = state.currentPage + step;
       if (nextPage < 0 || nextPage >= state.pages.length) return;
       state.currentPage = nextPage;
     } else {
+      const maxSpread = Math.max(0, Math.ceil(state.pages.length / 2) - 1);
       const nextSpread = state.currentSpread + step;
-      if (nextSpread < 0 || nextSpread > maxSpread()) return;
+      if (nextSpread < 0 || nextSpread > maxSpread) return;
       state.currentSpread = nextSpread;
     }
 
     render();
-    flipAnimation();
+    animateFlip();
     playFlipSound();
+  }
+
+  function goToPage(targetIndex) {
+    if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= state.pages.length) return;
+
+    let changed = false;
+
+    if (state.isMobile) {
+      changed = state.currentPage !== targetIndex;
+      state.currentPage = targetIndex;
+    } else {
+      const targetSpread = Math.floor(targetIndex / 2);
+      changed = state.currentSpread !== targetSpread;
+      state.currentSpread = targetSpread;
+    }
+
+    if (!changed) return;
+
+    render();
+    animateFlip();
+    playFlipSound();
+  }
+
+  function getContentsPageIndex() {
+    const tocIndex = state.pages.findIndex((page) => page && page.key === "toc-ltr");
+    return tocIndex >= 0 ? tocIndex : 0;
+  }
+
+  function repaginate(preserveKey) {
+    syncResponsiveState();
+    syncMeasureBox();
+
+    const built = buildBookPages(state.entries);
+    state.pages = built.pages;
+    state.pageIndexByEntry = built.pageIndexByEntry;
+
+    if (preserveKey) {
+      const nextIndex = state.pages.findIndex((page) => page.key === preserveKey || page.entryId === preserveKey);
+      if (nextIndex >= 0) {
+        if (state.isMobile) {
+          state.currentPage = nextIndex;
+        } else {
+          state.currentSpread = Math.floor(nextIndex / 2);
+        }
+      }
+    }
+
+    render();
+  }
+
+  function getCurrentPreserveKey() {
+    const currentPage = state.pages[getCurrentPageIndex()];
+    return currentPage ? (currentPage.key || currentPage.entryId || "cover") : "cover";
+  }
+
+  function onResize() {
+    if (!state.root || !state.root.isConnected || document.body.dataset.page !== PAGE_ID) return;
+
+    const preserveKey = getCurrentPreserveKey();
+    window.clearTimeout(state.resizeTimer);
+    state.resizeTimer = window.setTimeout(() => {
+      repaginate(preserveKey);
+    }, 120);
   }
 
   function handleClick(event) {
@@ -569,23 +1050,26 @@
       return;
     }
 
-    const contents = event.target.closest("[data-hw-contents]");
-    if (contents) {
-      goToIndex(state.tocIndex);
+    if (event.target.closest("[data-hw-contents]")) {
+      goToPage(getContentsPageIndex());
       return;
     }
 
     const jump = event.target.closest("[data-hw-jump]");
     if (jump) {
-      const target = Number(jump.dataset.hwJump);
-      if (Number.isInteger(target)) {
-        goToIndex(target);
-      }
+      goToPage(Number(jump.dataset.hwJump));
     }
   }
 
+  function isTypingTarget(target) {
+    return target instanceof Element && Boolean(
+      target.closest("input, textarea, select, [contenteditable='true']")
+    );
+  }
+
   function handleKeydown(event) {
-    if (!state.mount?.contains(document.activeElement) && !state.mount?.contains(event.target)) return;
+    if (document.body.dataset.page !== PAGE_ID || !state.root || !state.root.isConnected) return;
+    if (isTypingTarget(event.target)) return;
 
     if (event.key === "ArrowLeft") {
       event.preventDefault();
@@ -601,19 +1085,20 @@
 
     if (event.key.toLowerCase() === "c") {
       event.preventDefault();
-      goToIndex(state.tocIndex);
+      goToPage(getContentsPageIndex());
     }
   }
 
   function handleTouchStart(event) {
-    const touch = event.changedTouches?.[0];
+    const touch = event.changedTouches && event.changedTouches[0];
     if (!touch) return;
+
     state.touchStartX = touch.clientX;
     state.touchStartY = touch.clientY;
   }
 
   function handleTouchEnd(event) {
-    const touch = event.changedTouches?.[0];
+    const touch = event.changedTouches && event.changedTouches[0];
     if (!touch || state.touchStartX == null || state.touchStartY == null) return;
 
     const dx = touch.clientX - state.touchStartX;
@@ -621,195 +1106,135 @@
     state.touchStartX = null;
     state.touchStartY = null;
 
-    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+    if (Math.abs(dx) < 44 || Math.abs(dx) < Math.abs(dy)) return;
     move(dx < 0 ? "next" : "prev");
   }
 
-  function syncResponsiveState() {
-    state.isMobile = window.matchMedia(MOBILE_QUERY).matches;
-    if (state.isMobile) {
-      state.currentPage = state.currentSpread * 2;
-    } else {
-      state.currentSpread = Math.floor(state.currentPage / 2);
-    }
-  }
-
-  async function loadTemplate() {
-    const response = await fetch("human-writes.html", { credentials: "same-origin" });
-    if (!response.ok) throw new Error(`Template HTTP ${response.status}`);
-
-    const html = await response.text();
-    const parsed = new DOMParser().parseFromString(html, "text/html");
-    const template = parsed.querySelector("template[data-hw-template]");
-
-    if (template) {
-      return template.innerHTML;
-    }
-
-    return parsed.body ? parsed.body.innerHTML : html;
-  }
-
-  async function loadRawTexts() {
-    const version = encodeURIComponent(window.__BUILD_VERSION__ || "");
-    const candidates = [
-      `data/human-writes-texts.txt${version ? `?v=${version}` : ""}`,
-      `TEXTS.txt${version ? `?v=${version}` : ""}`
-    ];
-
-    for (const url of candidates) {
-      const response = await fetch(url, { credentials: "same-origin" });
-      if (response.ok) return response.text();
-    }
-
-    return fallbackRawTexts();
-  }
-
-  function fallbackRawTexts() {
-    return [
-      "English texts",
-      "***************",
-      "",
-      "KIND",
-      "------",
-      "The source text file is currently missing.",
-      "Please add data/human-writes-texts.txt to restore full content.",
-      "",
-      "HEBREW TEXTS",
-      "**********************",
-      "",
-      "הערה",
-      "-----------",
-      "קובץ הטקסט חסר כרגע בפרויקט.",
-      "יש להוסיף data/human-writes-texts.txt כדי להציג את כל התכנים.",
-      "",
-      "Spanish texts",
-      "**************",
-      "",
-      "Nota",
-      "----------",
-      "El archivo de textos no existe en el proyecto.",
-      "Agrega data/human-writes-texts.txt para restaurar el contenido completo."
-    ].join("\n");
-  }
-
-  function captureRefs(root) {
-    state.refs = {
-      left: root.querySelector('[data-hw-page="left"]'),
-      right: root.querySelector('[data-hw-page="right"]'),
-      single: root.querySelector('[data-hw-page="single"]'),
-      prev: root.querySelector('[data-hw-nav="prev"]'),
-      next: root.querySelector('[data-hw-nav="next"]'),
-      contents: root.querySelector('[data-hw-contents]'),
-      book: root.querySelector("[data-hw-book]"),
-      live: root.querySelector("[data-hw-live]")
-    };
-  }
-
   function bindEvents() {
+    if (!state.root || state.root.dataset.hwBound === "true") return;
+
+    state.root.dataset.hwBound = "true";
     state.root.addEventListener("click", handleClick);
-    state.refs.book?.addEventListener("touchstart", handleTouchStart, { passive: true });
-    state.refs.book?.addEventListener("touchend", handleTouchEnd, { passive: true });
-    window.addEventListener("keydown", handleKeydown);
-    window.addEventListener("resize", () => {
-      window.clearTimeout(state.resizeTimer);
-      state.resizeTimer = window.setTimeout(() => {
-        const wasMobile = state.isMobile;
-        syncResponsiveState();
-        if (wasMobile !== state.isMobile) render();
-      }, 120);
-    });
-  }
+    state.refs.book.addEventListener("touchstart", handleTouchStart, { passive: true });
+    state.refs.book.addEventListener("touchend", handleTouchEnd, { passive: true });
 
-  function getMoreRoot() {
-    if (document.body.dataset.page !== "more") return null;
-    return document.querySelector(".more-pane");
-  }
-
-  function showHumanWritesView() {
-    const root = getMoreRoot();
-    if (!root) return;
-
-    root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
-    root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
-    root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
-
-    if (!state.root) {
-      void initializeHumanWrites();
+    if (!state.globalListenersBound) {
+      state.globalListenersBound = true;
+      window.addEventListener("keydown", handleKeydown);
+      window.addEventListener("resize", onResize);
     }
   }
 
-  function showMoreHome() {
-    const root = getMoreRoot();
-    if (!root) return;
+  function showError(message) {
+    if (!state.mount) return;
 
-    root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
-    root.querySelector("[data-more-home]")?.removeAttribute("hidden");
+    state.mount.innerHTML = `
+      <section class="hw-module" aria-label="Human Writes notebook unavailable">
+        <div class="hw-toolbar-copy">
+          <p class="hw-eyebrow">Notebook Module</p>
+          <h1 class="hw-title">Human Writes</h1>
+        </div>
+        <div class="hw-book">
+          <div class="hw-page hw-page--single" style="display:block; margin:0;">
+            <article class="hw-page-article">
+              <p class="hw-running-head">Module status</p>
+              <div class="hw-page-body hw-page-body--intro">
+                <h2>Unable to load the notebook</h2>
+                <p>${escapeHtml(message)}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    `;
   }
 
-  function bindHostNavigation() {
-    const root = getMoreRoot();
-    if (!root || root.dataset.hwHostBound === "true") return;
-
-    root.dataset.hwHostBound = "true";
-
-    root.addEventListener("click", (event) => {
-      const open = event.target.closest("[data-more-open='human-writes']");
-      if (open) {
-        showHumanWritesView();
-        return;
-      }
-
-      const back = event.target.closest("[data-human-writes-back]");
-      if (back) {
-        showMoreHome();
-      }
+  function afterLayout() {
+    return new Promise((resolve) => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
     });
+  }
 
-    root.addEventListener("keydown", (event) => {
-      const open = event.target.closest("[data-more-open='human-writes']");
-      if (!open) return;
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      showHumanWritesView();
-    });
+  async function mountHumanWrites(mount) {
+    const token = ++state.buildToken;
+    const [templateMarkup, rawText] = await Promise.all([
+      fetchTemplateMarkup(),
+      fetchTextSource()
+    ]);
+
+    if (token !== state.buildToken || document.body.dataset.page !== PAGE_ID || !mount.isConnected) {
+      return;
+    }
+
+    const entries = decorateEntries(parseTextEntries(rawText));
+    if (!entries.length) {
+      throw new Error("No Human Writes texts were found.");
+    }
+
+    mount.innerHTML = templateMarkup;
+    state.mount = mount;
+    state.root = mount.querySelector("[data-hw-module]");
+    if (!state.root) throw new Error("Human Writes mount failed");
+
+    captureRefs();
+    state.entries = entries;
+    syncResponsiveState();
+    bindEvents();
+
+    await afterLayout();
+    repaginate("cover");
   }
 
   async function initializeHumanWrites() {
+    if (document.body.dataset.page !== PAGE_ID) {
+      resetMountState();
+      return;
+    }
+
     const mount = document.querySelector("[data-human-writes-mount]");
-    if (!mount) return;
+    if (!mount) {
+      resetMountState();
+      return;
+    }
 
-    state.mount = mount;
-    const token = ++state.buildToken;
+    if (mount === state.mount && state.root && state.root.isConnected) {
+      captureRefs();
+      bindEvents();
+      syncResponsiveState();
+      syncMeasureBox();
+      render();
+      return;
+    }
 
-    const [template, rawTexts] = await Promise.all([loadTemplate(), loadRawTexts()]);
-    if (token !== state.buildToken) return;
+    if (state.initPromise) {
+      return state.initPromise;
+    }
 
-    mount.innerHTML = template;
-    state.root = mount.querySelector("[data-hw-module]");
-    if (!state.root) return;
+    state.initPromise = (async () => {
+      try {
+        resetMountState();
+        state.mount = mount;
+        await mountHumanWrites(mount);
+      } catch (error) {
+        showError(error instanceof Error ? error.message : "Unknown Human Writes error");
+      } finally {
+        state.initPromise = null;
+      }
+    })();
 
-    captureRefs(state.root);
-    state.entries = parseTextEntries(rawTexts);
-
-    const built = buildPages(state.entries);
-    state.pages = built.pages;
-    state.pageIndexByEntry = built.pageIndexByEntry;
-    state.hebrewStartIndex = built.hebrewStartIndex;
-
-    syncResponsiveState();
-    render();
-    bindEvents();
+    return state.initPromise;
   }
 
-  window.initHumanWrites = function initHumanWrites() {
-    bindHostNavigation();
-  };
+  window.initHumanWrites = initializeHumanWrites;
+  window.initMorePage = initializeHumanWrites;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
-      bindHostNavigation();
+      void initializeHumanWrites();
     }, { once: true });
   } else {
-    bindHostNavigation();
+    void initializeHumanWrites();
   }
 })();
