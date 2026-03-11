@@ -9,7 +9,8 @@
     wallTimer: null,
     videosLoaded: false,
     videosPromise: null,
-    moveTimer: null
+    moveTimer: null,
+    mobileInlineIndex: null
   };
 
   function getGeneratedDataUrl() {
@@ -56,6 +57,10 @@
     return `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1`;
   }
 
+  function isMobileMorphoza() {
+    return window.matchMedia("(max-width: 900px)").matches;
+  }
+
   function preloadThumb(videoId) {
     if (!videoId || state.preloaded.has(videoId)) return;
     const image = new Image();
@@ -97,7 +102,7 @@
     const items = root.querySelectorAll(".morphoza-item");
     if (!items.length || !videos.length) return;
 
-    const isMobile = window.matchMedia("(max-width: 900px)").matches;
+    const isMobile = isMobileMorphoza();
     const carousel = root.querySelector(".morphoza-carousel");
 
     if (carousel) {
@@ -213,6 +218,7 @@
       frame.replaceWith(nextFrame);
     }
     state.playerIndex = null;
+    state.mobileInlineIndex = null;
   }
 
   function showGallery(root) {
@@ -221,6 +227,7 @@
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
     resetPlayer(root);
+    renderItems(root);
     updateCarousel(root);
   }
 
@@ -233,6 +240,33 @@
     root.querySelector("[data-morphoza-carousel-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-player-view]")?.removeAttribute("hidden");
     frame.src = getEmbedUrl(video.id);
+  }
+
+  function showInlineMobilePlayer(root, index) {
+    const video = videos[index];
+    if (!video) return;
+
+    renderItems(root);
+    state.activeIndex = index;
+    state.playerIndex = index;
+    state.mobileInlineIndex = index;
+    updateCarousel(root);
+
+    const selector = ".morphoza-item[data-video-index=\"" + index + "\"]";
+    const item = root.querySelector(selector);
+    const figure = item?.querySelector(".morphoza-item-figure");
+    if (!item || !figure) return;
+
+    const iframe = document.createElement("iframe");
+    iframe.src = getEmbedUrl(video.id);
+    iframe.title = video.title || "Moti Morphoza video player";
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    figure.replaceChildren(iframe);
+    item.classList.add("is-inline-player");
+    item.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   function move(root, direction) {
@@ -343,8 +377,10 @@
       const index = Number(item.dataset.videoIndex);
       if (!Number.isInteger(index)) return;
 
-      const isMobileList = window.matchMedia("(max-width: 900px)").matches;
-      if (isMobileList || index === state.activeIndex) {
+      const isMobileList = isMobileMorphoza();
+      if (isMobileList) {
+        showInlineMobilePlayer(root, index);
+      } else if (index === state.activeIndex) {
         state.activeIndex = index;
         updateCarousel(root);
         showPlayer(root, index);
@@ -428,6 +464,9 @@
     renderItems(root);
     startWallRotation(root);
     updateCarousel(root);
+    if (isMobileMorphoza() && Number.isInteger(state.mobileInlineIndex) && videos[state.mobileInlineIndex]) {
+      showInlineMobilePlayer(root, state.mobileInlineIndex);
+    }
     return videos;
   }
 

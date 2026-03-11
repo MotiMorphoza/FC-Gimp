@@ -660,9 +660,9 @@ body[data-page="more"] #floating-cart-indicator {
   .morphoza-track {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     height: auto;
-    padding: 0 10px;
+    padding: 0 10px 8px;
   }
 
   .morphoza-item {
@@ -691,7 +691,24 @@ body[data-page="more"] #floating-cart-indicator {
   }
 
   .morphoza-item-button {
-    gap: 8px;
+    gap: 10px;
+  }
+
+  .morphoza-item.is-inline-player {
+    padding: 12px;
+  }
+
+  .morphoza-item.is-inline-player .morphoza-item-figure {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    background: #000;
+  }
+
+  .morphoza-item.is-inline-player .morphoza-item-figure iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
   }
 
   .morphoza-item-title,
