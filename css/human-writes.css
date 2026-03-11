@@ -361,16 +361,22 @@
   background: rgba(255, 255, 255, 0.06);
   color: #f6ead5;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, opacity 0.18s ease, color 0.18s ease;
 }
 
 .hw-nav:hover,
-.hw-nav:focus-visible,
-.hw-contents:hover,
-.hw-contents:focus-visible {
-  transform: translateY(-1px);
+.hw-nav:focus-visible {
+  transform: translateY(-50%) scale(1.02);
   background: rgba(255, 255, 255, 0.11);
   border-color: rgba(255, 255, 255, 0.26);
+}
+
+.hw-contents:hover,
+.hw-contents:focus-visible {
+  transform: translateX(-50%) scale(1.02);
+  color: #fff7ea;
+  background: rgba(20, 16, 11, 0.36);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .hw-nav {
@@ -414,7 +420,7 @@
   padding: 0.62rem 1.1rem;
   font-size: 0.74rem;
   letter-spacing: 0.08em;
-  background: rgba(20, 16, 11, 0.48);
+  background: rgba(20, 16, 11, 0.28);
   backdrop-filter: blur(4px);
 }
 
@@ -507,7 +513,9 @@
 
   .hw-contents:hover,
   .hw-contents:focus-visible {
-    transform: translateX(-50%) translateY(-1px);
+    transform: translateX(-50%) scale(1.02);
+    color: #fff7ea;
+    background: rgba(20, 16, 11, 0.64);
   }
 
   .hw-page-body--image-split {
@@ -531,4 +539,5 @@
 .hw-page-body::-webkit-scrollbar-thumb:hover {
   background: rgba(117, 88, 52, 0.5);
 }
+
 
