@@ -5,6 +5,7 @@
   const COVER_IMAGE = "data/hw/pics/human-writes-notebook.png";
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
   const SWIPE_HINT_STORAGE_KEY = "hwSwipeHintSeen";
+  const PAGE_INDEX_STORAGE_KEY = "hwCurrentPageIndex";
 
   const OPENING_SPREAD = {
     coverImage: COVER_IMAGE,
@@ -391,6 +392,26 @@
     }
   }
 
+  function readPersistedPageIndex() {
+    try {
+      const raw = window.localStorage.getItem(PAGE_INDEX_STORAGE_KEY);
+      if (raw == null) return null;
+      const parsed = Number.parseInt(raw, 10);
+      return Number.isInteger(parsed) && parsed >= 0 ? parsed : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function persistPagePosition() {
+    if (!state.pages.length) return;
+    try {
+      window.localStorage.setItem(PAGE_INDEX_STORAGE_KEY, String(getCurrentPageIndex()));
+    } catch {
+      // Ignore storage blockers.
+    }
+  }
+
   function updateSwipeHintState() {
     const hint = state.refs.swipeHint;
     if (!hint) return;
@@ -692,6 +713,7 @@
     updateNavState();
     updateStatus();
     preloadNearbyImages();
+    persistPagePosition();
   }
 
   function playFlipSound() {
@@ -799,6 +821,15 @@
           state.currentPage = nextIndex;
         } else {
           state.currentSpread = Math.floor(nextIndex / 2);
+        }
+      }
+    } else {
+      const persistedIndex = readPersistedPageIndex();
+      if (persistedIndex != null && persistedIndex < state.pages.length) {
+        if (state.isMobile) {
+          state.currentPage = persistedIndex;
+        } else {
+          state.currentSpread = Math.floor(persistedIndex / 2);
         }
       }
     }
@@ -960,7 +991,7 @@
     bindEvents();
 
     await afterLayout();
-    repaginate("cover");
+    repaginate();
   }
 
   async function initializeHumanWrites() {
