@@ -648,7 +648,7 @@ body[data-page="more"] #floating-cart-indicator {
   .more-pane.is-human-writes-active {
     height: calc(100dvh - 56px);
     min-height: calc(100dvh - 56px);
-    padding: 6px 8px 0;
+    padding: 10px 8px 0;
     overflow: hidden;
   }
 
@@ -769,4 +769,3 @@ body[data-page="more"] #floating-cart-indicator {
     min-height: 0;
   }
 }
-

@@ -1195,7 +1195,16 @@
     repaginate();
   }
 
-  async function initializeHumanWrites() {
+  function resetToOpeningPage() {
+    if (!state.pages.length) return;
+    state.currentSpread = 0;
+    state.currentPage = 0;
+    render({ resetScroll: true });
+  }
+
+  async function initializeHumanWrites(options = {}) {
+    const resetToStart = options.resetToStart === true;
+
     if (document.body.dataset.page !== PAGE_ID) {
       resetMountState();
       return;
@@ -1216,12 +1225,20 @@
       bindEvents();
       syncResponsiveState();
       syncMeasureBox();
-      render();
+      if (resetToStart) {
+        resetToOpeningPage();
+      } else {
+        render();
+      }
       return;
     }
 
     if (state.initPromise) {
-      return state.initPromise;
+      return state.initPromise.then(() => {
+        if (resetToStart && state.root && state.root.isConnected) {
+          resetToOpeningPage();
+        }
+      });
     }
 
     state.initPromise = (async () => {
@@ -1229,6 +1246,9 @@
         resetMountState();
         state.mount = mount;
         await mountHumanWrites(mount);
+        if (resetToStart && state.root && state.root.isConnected) {
+          resetToOpeningPage();
+        }
       } catch (error) {
         showError(error instanceof Error ? error.message : "Unknown Human Writes error");
       } finally {
@@ -1249,4 +1269,3 @@
     void initializeHumanWrites();
   }
 })();
-

@@ -283,7 +283,9 @@
     void loadVideos(root);
   }
 
-  function showHumanWrites(root) {
+  function showHumanWrites(root, options = {}) {
+    const resetToStart = options.resetToStart === true;
+
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
@@ -291,7 +293,7 @@
     persistRequestedView(VIEW_HUMAN_WRITES);
     stopWallRotation();
     if (typeof window.initHumanWrites === "function") {
-      window.initHumanWrites();
+      window.initHumanWrites({ resetToStart });
     }
   }
 
@@ -425,7 +427,7 @@
 
       const openHumanWrites = event.target.closest("[data-more-open='human-writes']");
       if (openHumanWrites) {
-        showHumanWrites(root);
+        showHumanWrites(root, { resetToStart: true });
         return;
       }
 
@@ -477,7 +479,7 @@
       const openHumanWrites = event.target.closest("[data-more-open='human-writes']");
       if (openHumanWrites && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
-        showHumanWrites(root);
+        showHumanWrites(root, { resetToStart: true });
         return;
       }
 
@@ -567,7 +569,7 @@
 
     const requestedView = readRequestedView();
     if (requestedView === VIEW_HUMAN_WRITES) {
-      showHumanWrites(root);
+      showHumanWrites(root, { resetToStart: false });
       return;
     }
 
