@@ -645,6 +645,20 @@ body[data-page="more"] #floating-cart-indicator {
     min-height: 0;
   }
 
+  .more-pane.is-human-writes-active {
+    height: calc(100dvh - 56px);
+    min-height: calc(100dvh - 56px);
+    padding: 6px 8px 0;
+    overflow: hidden;
+  }
+
+  .more-pane.is-human-writes-active .human-writes-view,
+  .more-pane.is-human-writes-active .human-writes-host {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
   .morphoza-header {
     grid-template-columns: 1fr;
     gap: 0.65rem;
@@ -755,3 +769,4 @@ body[data-page="more"] #floating-cart-indicator {
     min-height: 0;
   }
 }
+

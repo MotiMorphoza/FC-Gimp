@@ -776,13 +776,24 @@
 
     requestAnimationFrame(() => {
       const bodyAgain = state.refs.single && state.refs.single.querySelector(".hw-page-body");
-      if (bodyAgain) bodyAgain.scrollTop = 0;
+      if (bodyAgain) {
+        bodyAgain.scrollTop = 0;
+        if (typeof bodyAgain.scrollTo === "function") {
+          bodyAgain.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }
+      }
       resetTargets.forEach((target) => {
         if (target && typeof target.scrollTop === "number") {
           target.scrollTop = 0;
         }
       });
     });
+
+    window.setTimeout(() => {
+      const bodyLate = state.refs.single && state.refs.single.querySelector(".hw-page-body");
+      if (bodyLate) bodyLate.scrollTop = 0;
+      if (state.refs.single) state.refs.single.scrollTop = 0;
+    }, 0);
   }
 
   function render(options = {}) {
@@ -796,6 +807,15 @@
       state.refs.left.innerHTML = "";
       state.refs.right.innerHTML = "";
       refineMobileTextFlow();
+
+      const mobileBody = state.refs.single.querySelector(".hw-page-body");
+      if (mobileBody) {
+        mobileBody.scrollTop = 0;
+        if (typeof mobileBody.scrollTo === "function") {
+          mobileBody.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }
+      }
+      state.refs.single.scrollTop = 0;
     } else {
       const leftIndex = state.currentSpread * 2;
       state.refs.left.innerHTML = renderPageArticle(state.pages[leftIndex]);
@@ -1145,3 +1165,4 @@
     void initializeHumanWrites();
   }
 })();
+

@@ -253,12 +253,17 @@
     state.mobileInlineIndex = null;
   }
 
+  function setMoreMode(root, mode) {
+    root.classList.toggle("is-human-writes-active", mode === VIEW_HUMAN_WRITES);
+  }
+
   function showGallery(root) {
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    setMoreMode(root, VIEW_MORPHOZA);
     persistRequestedView(VIEW_MORPHOZA);
     resetPlayer(root);
     renderItems(root);
@@ -272,6 +277,7 @@
     root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    setMoreMode(root, VIEW_HOME);
     persistRequestedView(VIEW_HOME);
     resetPlayer(root);
     void loadVideos(root);
@@ -281,6 +287,7 @@
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
+    setMoreMode(root, VIEW_HUMAN_WRITES);
     persistRequestedView(VIEW_HUMAN_WRITES);
     stopWallRotation();
     if (typeof window.initHumanWrites === "function") {
