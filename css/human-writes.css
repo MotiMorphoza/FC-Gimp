@@ -632,6 +632,7 @@
   }
 
   .hw-page--single {
+    position: relative;
     display: flex;
     min-height: 0;
     height: 100%;
@@ -645,8 +646,22 @@
   }
 
   .hw-page--single > .hw-page-article {
+    position: absolute;
+    inset: 0;
     min-height: 0;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .hw-page-body--cover,
+  .hw-page-body--full-image {
+    padding-top: 0;
+    gap: 0;
+  }
+
+  .hw-page-body--full-image .hw-full-image-figure {
     height: 100%;
+    min-height: 0;
   }
 
   .hw-cover-copy {
@@ -807,5 +822,3 @@
   display: grid;
   gap: 0.45rem;
 }
-
-
