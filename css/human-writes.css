@@ -711,7 +711,7 @@
   .hw-raw-text {
     font-size: clamp(0.78rem, 3.05vw, 0.88rem);
     line-height: 1.48;
-    text-wrap: pretty;
+    text-wrap: wrap;
   }
 
   .hw-page-body--image-split {
@@ -762,7 +762,7 @@
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
-  text-wrap: pretty;
+  text-wrap: wrap;
   direction: inherit;
   unicode-bidi: plaintext;
 }

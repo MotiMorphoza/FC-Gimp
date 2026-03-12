@@ -6,7 +6,7 @@
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
   const SWIPE_HINT_STORAGE_KEY = "hwSwipeHintSeen";
   const PAGE_INDEX_STORAGE_KEY = "hwCurrentPageIndex";
-  const ORPHAN_PUNCTUATION_REGEX = /[.,!?:;—\-…]$/u;
+  const ORPHAN_PUNCTUATION_REGEX = /[.,!?:;\u2014\-\u2026]$/u;
   const TYPOGRAPHY_MAX_ITERATIONS = 6;
 
   const OPENING_SPREAD = {
@@ -762,7 +762,7 @@
     };
   }
 
-  function clearTypographyTweaks(block) {
+  function resetTypographyBlock(block) {
     block.style.removeProperty("inline-size");
     block.style.removeProperty("max-inline-size");
     block.style.removeProperty("margin-inline");
@@ -771,63 +771,11 @@
     block.style.removeProperty("font-size");
   }
 
-  function applyBalanceTweak(block, tweak) {
-    if (tweak.expandPercent > 0) {
-      block.style.inlineSize = `calc(100% + ${tweak.expandPercent.toFixed(2)}%)`;
-      block.style.maxInlineSize = `calc(100% + ${tweak.expandPercent.toFixed(2)}%)`;
-      block.style.marginInline = `${(-tweak.expandPercent / 2).toFixed(2)}%`;
-    } else {
-      block.style.removeProperty("inline-size");
-      block.style.removeProperty("max-inline-size");
-      block.style.removeProperty("margin-inline");
-    }
-
-    if (tweak.letterSpacing !== 0) {
-      block.style.letterSpacing = `${tweak.letterSpacing.toFixed(3)}em`;
-    } else {
-      block.style.removeProperty("letter-spacing");
-    }
-
-    if (tweak.wordSpacing !== 0) {
-      block.style.wordSpacing = `${tweak.wordSpacing.toFixed(3)}em`;
-    } else {
-      block.style.removeProperty("word-spacing");
-    }
-  }
-
-  function getBalanceTweaks() {
-    if (state.isMobile) {
-      return [
-        { expandPercent: 0.0, letterSpacing: 0, wordSpacing: 0 },
-        { expandPercent: 1.0, letterSpacing: 0, wordSpacing: 0 },
-        { expandPercent: 0.0, letterSpacing: -0.003, wordSpacing: 0 },
-        { expandPercent: 1.0, letterSpacing: -0.003, wordSpacing: 0 },
-        { expandPercent: 1.4, letterSpacing: -0.004, wordSpacing: -0.010 }
-      ];
-    }
-
-    return [
-      { expandPercent: 0.0, letterSpacing: 0, wordSpacing: 0 },
-      { expandPercent: 0.8, letterSpacing: 0, wordSpacing: 0 },
-      { expandPercent: 0.0, letterSpacing: -0.002, wordSpacing: 0 },
-      { expandPercent: 0.8, letterSpacing: -0.002, wordSpacing: 0 },
-      { expandPercent: 1.2, letterSpacing: -0.003, wordSpacing: -0.008 }
-    ];
-  }
-
   function optimizeTextBlockTypography(block) {
     if (!block) return;
 
-    clearTypographyTweaks(block);
+    resetTypographyBlock(block);
     if (!assessOrphanLine(block).hasOrphan) return;
-
-    const balanceTweaks = getBalanceTweaks();
-    for (const tweak of balanceTweaks) {
-      applyBalanceTweak(block, tweak);
-      if (!assessOrphanLine(block).hasOrphan) {
-        return;
-      }
-    }
 
     const baseFontSize = parseFloat(window.getComputedStyle(block).fontSize || "16");
     if (!Number.isFinite(baseFontSize) || baseFontSize <= 0) {
@@ -835,13 +783,16 @@
     }
 
     const minFontSize = Math.max(10, baseFontSize * 0.8);
-    const step = Math.max(0.18, baseFontSize * 0.03);
+    const step = Math.max(0.16, baseFontSize * 0.03);
     let nextFontSize = baseFontSize;
 
     for (let iteration = 0; iteration < TYPOGRAPHY_MAX_ITERATIONS; iteration += 1) {
       nextFontSize = Math.max(minFontSize, nextFontSize - step);
-      block.style.fontSize = `${nextFontSize.toFixed(2)}px`;
+      if (nextFontSize >= baseFontSize - 0.01) {
+        break;
+      }
 
+      block.style.fontSize = `${nextFontSize.toFixed(2)}px`;
       if (!assessOrphanLine(block).hasOrphan) {
         return;
       }
@@ -1285,8 +1236,3 @@
     void initializeHumanWrites();
   }
 })();
-
-
-
-
-
