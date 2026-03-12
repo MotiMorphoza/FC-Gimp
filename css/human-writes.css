@@ -504,42 +504,50 @@
 
   .hw-nav {
     position: fixed;
-    top: auto;
-    bottom: 22px;
-    z-index: 20;
-    width: 48px;
-    height: 60px;
-    border-radius: 18px;
-    transform: none;
+    top: 50%;
+    bottom: auto;
+    z-index: 30;
+    width: 56px;
+    height: 72px;
+    border-radius: 20px;
+    transform: translateY(-50%);
+    background: rgba(12, 12, 14, 0.82);
+    border-color: rgba(157, 193, 255, 0.48);
+    color: #d8e7ff;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.38);
   }
 
   .hw-nav--left {
-    left: 16px;
+    left: 10px;
   }
 
   .hw-nav--right {
-    right: 16px;
+    right: 10px;
   }
 
   .hw-nav:hover,
   .hw-nav:focus-visible {
-    transform: scale(1.02);
+    transform: translateY(-50%) scale(1.03);
   }
 
   .hw-contents {
     position: fixed;
     left: 50%;
-    bottom: 24px;
+    bottom: 16px;
     transform: translateX(-50%);
-    z-index: 20;
-    background: rgba(20, 16, 11, 0.78);
+    z-index: 30;
+    background: rgba(20, 16, 11, 0.82);
   }
 
   .hw-contents:hover,
   .hw-contents:focus-visible {
     transform: translateX(-50%) scale(1.02);
     color: #fff7ea;
-    background: rgba(20, 16, 11, 0.64);
+    background: rgba(20, 16, 11, 0.66);
+  }
+
+  .hw-page-body {
+    padding-bottom: 98px;
   }
 
   .hw-page-body--image-split {
