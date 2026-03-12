@@ -9,17 +9,17 @@
   },
   {
     "lang": "en",
-    "layout": "03",
+    "layout": "01",
     "title": "T  R  i P",
     "image": "",
     "hidden": false,
-    "body": "We were Adam and Eve\nMonkeys.. \na deer and Gazelle\nprehistoric man, ancient woman\nNative American Warriors\nChildren\nWe built a micro cosmos\nAnd we invented stories\nOne hundred meter square of forest\nFelt like a whole continent\nWe've been in the marshlands\nJapanese winter gardens\nin the moon rise heights\nwe were synchronized\nBetween conifers and oaks\nwith the senses enhanced\nhalf silvery face from a full moon light\nhalf glowing face gleamed by a fire\nWe made love"
+    "body": "We were Adam and Eve\n\nMonkeys.. \n\na deer and Gazelle.\n\nprehistoric man, ancient woman\nNative American Warriors\nChildren.\n\nWe built a micro cosmos\nAnd we invented stories.\n\nOne hundred meter square of forest\nFelt like a whole continent.\n\nWe've been in the marshlands\nJapanese winter gardens\nin the moon rise heights.\n\nwe were synchronized.\n\nBetween conifers and oaks\nwith the senses enhanced\n\nhalf silvery face from a full moon light\nhalf glowing face gleamed by a fire\n\nWe made love."
   },
   {
     "lang": "en",
-    "layout": "02",
+    "layout": "01",
     "title": "Sum Time",
-    "image": "human-writes.png",
+    "image": "",
     "hidden": false,
     "body": "i'm the sum of my actions\nthe sum of my thoughts\nthe sum of my fears and\nthe sum of my hopes\ni'm my addictions\nrather less or a lot\nsometimes i'm lonely\nand sometimes i don't\n\ni'm the sum of the\nbooks that i red\nthe people i met\nthe places I've been\nand the things in my dreams\n\ni'm the sum of my actions\nthe sum of my thoughts\nso why do i appreciate myself\nonly if you're attracted to me\nor not.."
   },
@@ -27,31 +27,31 @@
     "lang": "he",
     "layout": "01",
     "title": "מעשייה על אריה",
-    "image": "human-writes.png",
+    "image": "",
     "hidden": false,
-    "body": "קובץ המקור העברי של הטקסט הזה אינו נמצא כרגע במאגר.\n\nהכותרת נשמרה במדויק, והמערכת מוכנה לקלוט את הטקסט המלא\nברגע שיוחזר הקובץ המקורי אל data/human-writes-texts.txt.\n\nבינתיים העמוד מציג תוכן זמני כדי לאפשר בדיקה מלאה של\nהמחברת, הניווט, כיווני הקריאה והפגינציה."
+    "body": "מעשייה על אריה\n\nהיו היה אריה צמחוני שלא אהב אלימות\n\nאמר שזה לא בריא\n\nוהיה אוכל רק מה שמגיע אליו\n\nלא מתאמץ או יוצא מכליו\n\n\nלרדוף אחרי טרף\n\nכל יום ללא הרף\n\nהרי לכם שטות\n\nכך אמר, ואכל תות\n\n\nוהאמת שהאריה גדל יפה\n\nבין הבננות ועלי הקפה\n\nאסף פטריות והזה הזיות\n\nחלם חלומות ותכנן תוכניות\n\nפשוט נראה היה לו\n\nשאין דרך יותר יפה מזו\n\nלחיות\n\n\nאבל דבר אחד הוא שכח\n\nשהוא אריה ולא מלאך\n\n\nהוא בטח לא יחיה לנצח\n\nוהמוות, מחכה לו בפתח\n\n\nאם רק יחלום כל יום שעובר\n\nמחכה לו עתיד ממש קודר\n\n\nהוא הפסיק לרוץ\n\nכי זה נראה חסר טעם\n\nבשביל מה בכלל לזוז\n\nאם מעליך תלוי לו, תפוז\n\n\nלמה לו להתעייף,\n\nלהתנשף ולהזיע\n\nככה טוב לי לכולם הוא הודיע\n\nאבל ביננו\n\nהוא הרגיש די פגיע\n\n\nאז עם אריות אחרים הוא לא התעמל\n\nהעדיף לבד, עם עצמו להתבטל\n\nוהוא הלך ונחלש ונחלש והלך\n\nוהיה מסתובב, כל היום מצוברח\n\n\nאבל כמו בת יענה\n\nהוא טמן את הראש בחול\n\nוחיכה וחיכה שהכול יעבור\n\nאך רק השנים חלפו וזה לא השתפר\n\nהוא איבד את המשמעת יותר ויותר\n\nהוא נסגר כמו דג באקווריום ענק\n\nרואה רק את מי, שעובר במרחק\n\nובלי חברים כבר אין משמעות\n\nזה די משעמם ועדיף כבר למות\n\n\nאז יום אחד כשכבר ממש נמאס\n\nהוא החליט להפסיק להיות מבואס\n\nהוא יצא לפגוש חברים\n\nונדרס"
   },
   {
     "lang": "he",
-    "layout": "02",
+    "layout": "01",
     "title": "החילזון המיוסר",
-    "image": "human-writes.gif",
+    "image": "",
     "hidden": false,
-    "body": "גם כאן הכותרת המקורית נשמרה, אך גוף היצירה המלא חסר.\n\nהמימוש הנוכחי נבנה כך שהטקסטים בעברית יתחילו מסוף המחברת,\nיתנהגו בכיוון קריאה הפוך, ויוכלו להתרחב אוטומטית לעוד עמודים.\n\nכאשר יוחזר הטקסט המלא, לא יידרש שינוי קוד נוסף במודול עצמו."
+    "body": "החילזון המיוסר\n\nהיה פעם חילזון\n\nשרק רצה לישון ולישון\n\nהוא מאוד פחד מדחייה\n\nואת כל ימיו העביר בקונכייה\n\nהיה שם קצת חשוך\n\nמשעמם ולחוץ\n\nאבל הוא היה מוגן מכל מה שקורה בחוץ\n\nהרי הבחוץ מסוכן\n\nויש שם הרבה בלאגן\n\nהכל כה גדול והוא כה קטן\n\nאז ככה בראש ההר\n\nמעבר למקום שבו השביל נגמר\n\nמוקף בקוצים וצמחי צבר\n\nהסתתר בשבלול חילזון די מוזר\n\nוהכל היה בסדר\n\nואפילו נחמד\n\nכל עוד היה ידידנו לבד\n\n\nאבל לפעמים הוא שמע קולות וצלילים\n\nאנשים צוחקים\n\nמשחקים\n\nאוהבים\n\nולבו\" התחמץ בקרבו\"\n\nשהוא כאן ואין אף אחד איתו\n\nאבל תגידו אתם\n\nמה כבר הוא יכל לעשות\n\nכשמסביבו הוא בנה כל כך הרבה הגנות\n\nויום אחד הוא החליט\n\nשהוא לא יכול עוד יותר\n\nשהוא עדיין צעיר\n\nמכדי על החיים לוותר\n\nהוא ימצא את האומץ\n\nלשנות את חייו\n\nישאיר את העבר הבודד\n\nמאחוריו\n\n\nהוא יזוז ויזיז\n\nהוא ישנה ויחליף\n\nאת הקוצים יעזוב ואת הסלע יקיף\n\nהוא יעלה על השביל\n\nוילך להכיר\n\nאת זו שבשבילה את פחדיו הוא הסיר\n\nוכך היה\n\nבאיטיות אך בנחישות\n\nהשתנתה מולו המציאות\n\nפתאום יש צבעים\n\nחמימות\n\nופרחים\n\nדשא ירוק והמוני פרפרים\n\nאז כן\n\nהוא החליט לקחת סיכון\n\nאך למרבה הצער\n\nהיו שם גם זוג באמצע זיון\n\nוכשהם התהפכו\n\nהשבלול התרסק\n\nהחילזון נמעך\n\nוהחיים הם סתם דרעאק"
   },
   {
     "lang": "he",
-    "layout": "03",
+    "layout": "01",
     "title": "פרפרורים",
-    "image": "human-writes.png",
+    "image": "",
     "hidden": false,
-    "body": "זהו מיקום זמני לטקסט העברי השלישי.\n\nהמודול קורא את הכותרת, מסדר את תוכן העניינים, וממקם את הטקסט\nבחלק האחורי של המחברת בדיוק לפי הדרישות.\n\nיש להחליף את הפסקאות האלו בתוכן המקורי כאשר קובץ המקור יחזור."
+    "body": "פרפורים\n\nזֶהוּ סיפּוּר קָצָר, עָל פָּרפָּר מֶבוּלבָּל\n\nשלַעוּף מָהֶר, לא כֹּל כָּך יָכָל\n\nוחָבָל\n\nכּי זֶה קצָת הֶפריעַ לו למצוא חָבֶרים\n\nהָרֶי הוא הָיָה איטי והם הָיוּ מֶהירים\n\nנוּ, אָז מָה לַעָשֹות\n\nיָשָב הפָּרפָּר וחָשָב\n\nויָשָב ויָשָב וחָשָב וחָשָב\n\nופִּתאום קָפָץ לו לַרֹאש, רָעָיון שובָב\n\nאוּלָי\n\nאִם אֶתחָפֶּשֹ לפֶּרָח יָפֶה\n\nאֶיזֶשֶהוּ פָּרפָּר יִקפוץ לקָפֶה\n\nאוּלָי אֶיזושֶהי פָּרפָּרית תָעָצור לַנוּח\n\nוהוא הֶתחיל להָרגיש מָמָש בָּטוּחַ\n\nאָז הוא הִתיָישֶב עָל עָנָף, וחיכָּה וחיכָּה\n\nכשהוא מֶנָסֶה להירָאות, כּמו הפֶּרָח הָכי מָגניב בַּסביבָה\n\nהוא מָתָח תָ'כּנָפָיים והֶבּיט לַשָמָיים\n\nואָכֶן, אֶיזו הָפתָעָה\n\nלרֶגָע נִראָה שהתוכנית, מָצליחָה\n\nכּי פִּתאום\n\nלבּיקוּר קצָרצָר הֶגיעַ פָּרפָּר\n\nואָחָרָיו עוד פָּרפָּר ועוד פָּרפָּר\n\nואָז עָברָה גָם פָּרפָּרית מָקסימָה\n\nוליבּו נִשבָּר\n\nלָמָה אָף אֶחָד מֶהֶם לא נִשאָר\n\nאָהההה זֶה בֶּטָח העָנָף\n\nהוא מָסריחַ ומֶטוּנָף\n\nאֶמצָא לי מָקום אָחֶר והָכּול יִסתָדֶר\n\nאָבָל מָהֶר מֶאוד כָּך קָרָה\n\nשאותָה הבֶּעָיָה, פָּשוּט חָזרָה עָל עָצמָה\n\nועָנָף אָחָר עָנָף וּלכֹּל אָשֶר הָלָך\n\nהָלכָה הבֶּעָיָה איתו\n\nואָז הוא הֶבין\n\nשהָרֶי הוא, לא הָיָה פֶּרָח, ולא הָיָה לו צוּף\n\nוהָכי עָצוּב\n\nשהוא כּבָר לא יָכול לַעוּף\n\nכּבָר שָנים שהוא חָי בחָלום, תָקוּעַ באותו מָקום.\n\nולא הָיוּ לו חָוָויות וסיפּוּרים חָדָשים\n\nובִּכלָל, עָל מָה יֶש לדָבֶּר עִם פָּרפָּרים\n\nוכּבָר נִמאָס לו לִהִיות בּודֶד, אָבָל הוא הָיָה עָיֶיף וכָּבֶד\n\nואֶת התִקוָוה הוא הֶתחיל לאָבֶּד\n\nאָך כשהוא עָצָם אֶת העֶינָיים כשכּלוּם כּבָר לא הָיָה קָיָים\n\nפִּתאום נִפתֶחוּ לו האוזנָיים והוא שָמָע קול בֶּתוּלי בּוקֶעַ מִן הָיָם\n\nוהקול קָרָא לו לַבוא בשירָה מֶתוּקָה, מָשָך אֶת ליבּו, עִם מָנגינָה אָחָר מָנגינָה\n\nאָז הוא הִתעורֶר וניסָה להָזיז אֶת הכּנָפָיים\n\nאָבָל זֶה לא הָיָה קָל, זֶה לָקָח לו בֶּעֶרֶך חודשָיים\n\nוזה עוד כּלוּם\n\nכּי מָמָש לַעוּף לָקָח לו שנָתָיים\n\nומָה בַּסוף ? מי יודֶעַ ? אוּלָי הוא עָכשָיו, אֶיפושֶהוּ טובֶעַ\n\nמֶחָפֶּשֹ אֶת עָצמו עָל רֹאש אֶיזֶה הָר\n\nאו קופֶא לַמָוֶות תָחָת אֶיזֶה גֶשֶר מֶנוּכָּר\n\nזה לא מֶשָנֶה בֶּעֶצֶם כּלָל וכלָל\n\nואֶיך שלא נִסתָכֶּל על זה\n\nלַסיפור הָזֶה אֶין מוּסָר הָשֹכֶּל\n\nאו פּוּאֶנטָה\n\nבכלל"
   },
   {
     "lang": "es",
-    "layout": "02",
+    "layout": "01",
     "title": "impresion de un momento especial",
-    "image": "human-writes.gif",
+    "image": "",
     "hidden": false,
     "body": "compartir un momento,\n\nun momento y seguir...\n\nbienvenidos a la circo de la vida\n\naqui hay de todo\n\naqui hay que saber como jugar\n\nlo que quieres ver es lo que es\n\ntodo girando al rodeador de algo\n\ny a su mismo\n\n\"como te llamas ?\n\"me preguntan los otros,\n\na mi no es nececito de llamar !\n\nyo llego solo...\n\nY TU ?!\n\na donde vas ?\n\nespiritus libres que se juntan ser uno,\n\nY separar,\n\nnada no se queda lo mismo,\n\nrecordar\n\ncrecer\n\nrelajar\n\nasi se acaba\n\notro principio..."
   },
@@ -59,15 +59,15 @@
     "lang": "es",
     "layout": "01",
     "title": "El Viaje",
-    "image": "human-writes.png",
+    "image": "",
     "hidden": false,
     "body": "aveces salen de mi\n\npoderes que me sorprendan\n\nno quiero la sorpresa,\n\nquiero ser este poder !\n\ntenia miedo\n\nque me voy acabar\n\ncomo los locos en la calle\n\npor la energia\n\nque no se va a su sitio...\n\nquiero explotar,\n\nactuar,\n\nsacar 30 anos\n\naveces siento\n\nque tengo todo el tiempo\n\ny aveces siento\n\nque perdi mucho tiempo\n\npenso de escapar,\n\nesconder\n\nen una esquina del mundo\n\nhacer mi vida\n\npequena,\n\nlejos de la sociedad.\n\npero no puedo,\n\nquiero cambiar la..."
   },
   {
     "lang": "es",
-    "layout": "03",
+    "layout": "01",
     "title": "ilusiones...",
-    "image": "human-writes.gif",
+    "image": "",
     "hidden": false,
     "body": "a la menos cambiar a mi mismo !\n\nestoy llorando mucho,\n\npero estoy sonriendo\n\nun monton !\n\n(hay que tener equilibrio... no ?)\n\nno soy apatico y dormido,\n\nsoy positivo y caotico,\n\nquiero arte,\n\nmusica,\n\nteatro,\n\nL I B E R T A D en los CALLES\n\nquiero amigos\n\nque quieren lo mismo,\n\nme costa escribir estos cosas\n\npor la expectaciones\n\npero jo...\n\njo jo jo"
   }

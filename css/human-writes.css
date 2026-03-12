@@ -558,3 +558,44 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.hw-toc-groups {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.hw-toc-group {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.hw-toc-divider {
+  height: 1px;
+  margin: 0.12rem 0 0.06rem;
+  background: linear-gradient(90deg, rgba(94, 68, 37, 0), rgba(94, 68, 37, 0.45), rgba(94, 68, 37, 0));
+}
+
+.hw-toc-button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.hw-page-body--rtl .hw-toc-button {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.hw-toc-mark {
+  width: 0.62rem;
+  height: 1px;
+  background: rgba(43, 36, 26, 0.74);
+}
+
+.hw-page-body--rtl .hw-toc-mark {
+  order: 2;
+}
+
+.hw-toc-label {
+  min-width: 0;
+}

@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: impresion de un momento especial
 IMAGE: 
-HIDDEN: false
+HIDDEN:
 BODY:
 compartir un momento,
 

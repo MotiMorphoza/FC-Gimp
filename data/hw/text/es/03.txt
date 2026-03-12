@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: ilusiones...
 IMAGE: 
-HIDDEN: false
+HIDDEN:
 BODY:
 a la menos cambiar a mi mismo !
 

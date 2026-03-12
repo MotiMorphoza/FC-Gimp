@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: מעשייה על אריה
 IMAGE: 
-HIDDEN: false
+HIDDEN:
 BODY:
 מעשייה על אריה
 

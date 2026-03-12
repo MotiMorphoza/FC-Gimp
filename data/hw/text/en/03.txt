@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: Sum Time
 IMAGE:
-HIDDEN: false
+HIDDEN:
 BODY:
 i'm the sum of my actions
 the sum of my thoughts

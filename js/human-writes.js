@@ -5,6 +5,14 @@
   const COVER_IMAGE = "data/hw/pics/human-writes.png";
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
 
+  const OPENING_SPREAD = {
+    coverImage: COVER_IMAGE,
+    coverTitle: "Human Writes",
+    coverSubtitle: "Three languages. One notebook. Two reading directions.",
+    introTitle: "Welcome",
+    introBody: "A spiral notebook for English, Hebrew and Spanish texts. English and Spanish begin at the front. Hebrew starts from the back, and page direction reverses once you arrive there."
+  };
+
   const LAYOUT_CODE_MAP = {
     "01": "text",
     "02": "image-top",
@@ -203,17 +211,25 @@
   }
 
   function renderTocSections(sections) {
-    const items = sections.flatMap((section) => section.items);
+    const groups = sections.filter((section) => Array.isArray(section.items) && section.items.length > 0);
     return `
-      <ul class="hw-toc-list">
-        ${items.map((item) => `
-          <li>
-            <button class="hw-toc-button" type="button" data-hw-jump="${item.pageIndex}">
-              <span>${escapeHtml(item.title)}</span>
-            </button>
-          </li>
+      <div class="hw-toc-groups">
+        ${groups.map((section, index) => `
+          <div class="hw-toc-group">
+            <ul class="hw-toc-list">
+              ${section.items.map((item) => `
+                <li>
+                  <button class="hw-toc-button" type="button" data-hw-jump="${item.pageIndex}">
+                    <span class="hw-toc-mark" aria-hidden="true"></span>
+                    <span class="hw-toc-label">${escapeHtml(item.title)}</span>
+                  </button>
+                </li>
+              `).join("")}
+            </ul>
+            ${index < groups.length - 1 ? '<div class="hw-toc-divider" aria-hidden="true"></div>' : ''}
+          </div>
         `).join("")}
-      </ul>
+      </div>
     `;
   }
 
@@ -406,7 +422,7 @@
       right: {
         kind: "toc",
         key: "toc-he",
-        title: "Contents",
+        title: "תוכן עניינים",
         runningTitle: "Human Writes",
         language: "he",
         languageLabel: "Contents",
@@ -423,23 +439,23 @@
       {
         kind: "cover",
         key: "cover",
-        title: "Human Writes",
-        subtitle: "Three languages. One notebook. Two reading directions.",
+        title: OPENING_SPREAD.coverTitle,
+        subtitle: OPENING_SPREAD.coverSubtitle,
         runningTitle: "Human Writes",
         language: "en",
         languageLabel: "Cover",
         direction: 1,
-        image: COVER_IMAGE
+        image: OPENING_SPREAD.coverImage
       },
       {
         kind: "intro",
         key: "intro",
-        title: "Welcome",
+        title: OPENING_SPREAD.introTitle,
         runningTitle: "Human Writes",
         language: "en",
         languageLabel: "Introduction",
         direction: 1,
-        body: "A spiral notebook for English, Hebrew and Spanish texts. English and Spanish begin at the front. Hebrew starts from the back, and page direction reverses once you arrive there."
+        body: OPENING_SPREAD.introBody
       }
     ];
 
@@ -554,18 +570,14 @@
     state.refs.next.classList.toggle("is-forward", direction > 0);
 
     if (state.isMobile) {
-      const prevPage = state.currentPage - direction;
-      const nextPage = state.currentPage + direction;
-      state.refs.prev.disabled = prevPage < 0 || prevPage >= state.pages.length;
-      state.refs.next.disabled = nextPage < 0 || nextPage >= state.pages.length;
+      state.refs.prev.disabled = state.currentPage <= 0;
+      state.refs.next.disabled = state.currentPage >= state.pages.length - 1;
       return;
     }
 
     const maxSpread = Math.max(0, Math.ceil(state.pages.length / 2) - 1);
-    const prevSpread = state.currentSpread - direction;
-    const nextSpread = state.currentSpread + direction;
-    state.refs.prev.disabled = prevSpread < 0 || prevSpread > maxSpread;
-    state.refs.next.disabled = nextSpread < 0 || nextSpread > maxSpread;
+    state.refs.prev.disabled = state.currentSpread <= 0;
+    state.refs.next.disabled = state.currentSpread >= maxSpread;
   }
 
   function preloadImageSource(src) {
@@ -662,8 +674,7 @@
   function move(stepKind) {
     if (!state.pages.length) return;
 
-    const direction = getCurrentDirection();
-    const step = stepKind === "next" ? direction : -direction;
+    const step = stepKind === "next" ? 1 : -1;
 
     if (state.isMobile) {
       const nextPage = state.currentPage + step;

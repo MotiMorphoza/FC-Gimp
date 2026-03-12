@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: KIND
 IMAGE:
-HIDDEN: false
+HIDDEN:
 BODY:
 i'm laying near you
 
@@ -11,7 +11,7 @@ my body is almost exploding
 
 the hell with friendship i think...
 
-i want to make you a women
+i want to make you a women.
 
 to take your cloth off
 
@@ -19,9 +19,9 @@ and feel you up
 
 with all my being
 
-that you will make me a man
+that you will make me a man.
 
-but you are already snoring
+but you are already snoring..
 
 i'm getting up
 
@@ -29,26 +29,24 @@ another joint
 
 another poem
 
-till the bottom
+till the bottom.
 
 and for a moment
 
-you wake up smiling
+you wake up smiling -
 
-and going back to sleep
+and falling back to sleep.
 
-it's too late
+it's too late..
 
 the moment has gone
 
-again
+again.
 
-i was too kind
+i was too kind -
 
-kind of person
+the kind of person
 
-who
-
-sleeps
+who sleeps -
 
 alone..

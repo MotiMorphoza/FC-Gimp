@@ -19,9 +19,9 @@ function normalizeLayoutCode(raw) {
 function parseBoolean(raw, fieldName, filePath) {
   const value = String(raw || '').trim().toLowerCase();
   if (value === '') return false;
-  if (value === 'true') return true;
+  if (value === 'truth' || value === 'true') return true;
   if (value === 'false') return false;
-  throw new Error(`[human-writes] Invalid ${fieldName} in ${filePath}. Expected true/false.`);
+  throw new Error(`[human-writes] Invalid ${fieldName} in ${filePath}. Use empty, TRUTH, TRUE or FALSE.`);
 }
 
 function parseEntryFile(filePath) {
@@ -85,7 +85,7 @@ function parseEntryFile(filePath) {
     throw new Error(`[human-writes] Unknown layout code ${layout} in ${filePath}`);
   }
 
-  const hidden = parseBoolean(fields.get('HIDDEN') || 'false', 'HIDDEN', filePath);
+  const hidden = parseBoolean(fields.get('HIDDEN') || '', 'HIDDEN', filePath);
   const title = String(fields.get('TITLE') || '');
   const image = String(fields.get('IMAGE') || '').trim();
 

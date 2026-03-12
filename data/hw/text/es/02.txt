@@ -1,7 +1,7 @@
 LAYOUT: 01
 TITLE: El Viaje
 IMAGE: 
-HIDDEN: false
+HIDDEN:
 BODY:
 aveces salen de mi
 
