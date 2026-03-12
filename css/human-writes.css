@@ -670,7 +670,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: min(96vw, 560px);
-    bottom: calc(env(safe-area-inset-bottom) + 72px);
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 36px);
     min-height: 44px;
     padding: 0.24rem 0.4rem;
     border-radius: 999px;
@@ -690,7 +690,7 @@
   }
 
   .hw-swipe-hint.is-visible {
-    bottom: calc(env(safe-area-inset-bottom) + 122px);
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 92px);
   }
 }
 
