@@ -1,6 +1,11 @@
 (function () {
   let videos = [];
 
+  const VIEW_KEY = "view";
+  const VIEW_HOME = "home";
+  const VIEW_MORPHOZA = "morphoza";
+  const VIEW_HUMAN_WRITES = "human-writes";
+
   const state = {
     activeIndex: 0,
     playerIndex: null,
@@ -16,6 +21,33 @@
   function getGeneratedDataUrl() {
     const version = window.__BUILD_VERSION__ || Date.now();
     return `data/morphoza-videos.generated.json?v=${version}`;
+  }
+
+  function readRequestedView() {
+    try {
+      const url = new URL(window.location.href);
+      const view = url.searchParams.get(VIEW_KEY);
+      if (view === VIEW_MORPHOZA || view === VIEW_HUMAN_WRITES) {
+        return view;
+      }
+      return VIEW_HOME;
+    } catch {
+      return VIEW_HOME;
+    }
+  }
+
+  function persistRequestedView(view) {
+    try {
+      const url = new URL(window.location.href);
+      if (!view || view === VIEW_HOME) {
+        url.searchParams.delete(VIEW_KEY);
+      } else {
+        url.searchParams.set(VIEW_KEY, view);
+      }
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    } catch {
+      // Ignore history API blockers.
+    }
   }
 
   function getCircularOffset(index, activeIndex, total) {
@@ -227,9 +259,11 @@
     root.querySelector("[data-morphoza-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    persistRequestedView(VIEW_MORPHOZA);
     resetPlayer(root);
     renderItems(root);
     updateCarousel(root);
+    void loadVideos(root);
   }
 
   function showHome(root) {
@@ -238,6 +272,7 @@
     root.querySelector("[data-human-writes-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-carousel-view]")?.removeAttribute("hidden");
     root.querySelector("[data-morphoza-player-view]")?.setAttribute("hidden", "hidden");
+    persistRequestedView(VIEW_HOME);
     resetPlayer(root);
     void loadVideos(root);
   }
@@ -246,6 +281,7 @@
     root.querySelector("[data-more-home]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-morphoza-view]")?.setAttribute("hidden", "hidden");
     root.querySelector("[data-human-writes-view]")?.removeAttribute("hidden");
+    persistRequestedView(VIEW_HUMAN_WRITES);
     stopWallRotation();
     if (typeof window.initHumanWrites === "function") {
       window.initHumanWrites();
@@ -521,6 +557,18 @@
 
     bindMotiTile(root);
     bindEvents(root);
+
+    const requestedView = readRequestedView();
+    if (requestedView === VIEW_HUMAN_WRITES) {
+      showHumanWrites(root);
+      return;
+    }
+
+    if (requestedView === VIEW_MORPHOZA) {
+      showGallery(root);
+      return;
+    }
+
     showHome(root);
   };
 })();
