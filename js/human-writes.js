@@ -422,7 +422,7 @@
       right: {
         kind: "toc",
         key: "toc-he",
-        title: "×ª×•×›×Ÿ ×¢× ×™×™× ×™×",
+        title: "\u05EA\u05D5\u05DB\u05DF \u05E2\u05E0\u05D9\u05D9\u05E0\u05D9\u05DD",
         runningTitle: "Human Writes",
         language: "he",
         languageLabel: "Contents",
