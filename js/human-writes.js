@@ -6,6 +6,8 @@
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
   const SWIPE_HINT_STORAGE_KEY = "hwSwipeHintSeen";
   const PAGE_INDEX_STORAGE_KEY = "hwCurrentPageIndex";
+  const ORPHAN_PUNCTUATION_REGEX = /[.,!?:;—\-…]$/u;
+  const TYPOGRAPHY_MAX_ITERATIONS = 6;
 
   const OPENING_SPREAD = {
     coverImage: COVER_IMAGE,
@@ -694,57 +696,173 @@
     state.refs.live.textContent = `Human Writes page ${focusPage.pageNumber}`;
   }
 
-  function isSingleWordWidow(element) {
-    const node = element && element.firstChild;
-    if (!node || node.nodeType !== Node.TEXT_NODE) return false;
-
-    const text = node.textContent || "";
-    const lastMatch = /(\S+)\s*$/.exec(text);
-    if (!lastMatch) return false;
-
-    const trailingWhitespace = (text.match(/\s*$/) || [""])[0].length;
-    const lastEnd = text.length - trailingWhitespace;
-    const lastStart = lastEnd - lastMatch[1].length;
-    if (lastStart <= 0) return false;
-
-    const prefix = text.slice(0, lastStart).trimEnd();
-    const prevMatch = /(\S+)\s*$/.exec(prefix);
-    if (!prevMatch) return false;
-
-    const prevEnd = prefix.length;
-    const prevStart = prevEnd - prevMatch[1].length;
-
-    const lastRange = document.createRange();
-    lastRange.setStart(node, lastStart);
-    lastRange.setEnd(node, lastEnd);
-    const lastRect = lastRange.getBoundingClientRect();
-
-    const prevRange = document.createRange();
-    prevRange.setStart(node, prevStart);
-    prevRange.setEnd(node, prevEnd);
-    const prevRect = prevRange.getBoundingClientRect();
-
-    if (!lastRect.height || !prevRect.height) return false;
-    return Math.abs(lastRect.top - prevRect.top) > 1;
+  function extractWordTokens(text) {
+    const tokens = [];
+    const matcher = /\S+/gu;
+    let match = matcher.exec(text);
+    while (match) {
+      tokens.push({
+        value: match[0],
+        start: match.index,
+        end: match.index + match[0].length
+      });
+      match = matcher.exec(text);
+    }
+    return tokens;
   }
 
-  function refineMobileTextFlow() {
-    if (!state.isMobile) return;
-    const article = state.refs.single && state.refs.single.querySelector(".hw-page-article");
-    if (!article) return;
+  function assessOrphanLine(block) {
+    const textNode = block && block.firstChild;
+    if (!textNode || textNode.nodeType !== Node.TEXT_NODE) {
+      return { hasOrphan: false };
+    }
 
-    const rawBlocks = article.querySelectorAll(".hw-raw-text");
-    rawBlocks.forEach((block) => {
-      block.style.removeProperty("font-size");
-      const base = parseFloat(window.getComputedStyle(block).fontSize || "14");
-      if (!Number.isFinite(base)) return;
+    const text = textNode.textContent || "";
+    const tokens = extractWordTokens(text);
+    if (tokens.length < 2) {
+      return { hasOrphan: false };
+    }
 
-      const min = Math.max(11.4, base - 2);
-      let nextSize = base;
-      while (nextSize > min && isSingleWordWidow(block)) {
-        nextSize -= 0.2;
-        block.style.fontSize = `${nextSize.toFixed(2)}px`;
+    const last = tokens[tokens.length - 1];
+    const previous = tokens[tokens.length - 2];
+
+    const lastRange = document.createRange();
+    lastRange.setStart(textNode, last.start);
+    lastRange.setEnd(textNode, last.end);
+    const lastRect = lastRange.getBoundingClientRect();
+
+    const previousRange = document.createRange();
+    previousRange.setStart(textNode, previous.start);
+    previousRange.setEnd(textNode, previous.end);
+    const previousRect = previousRange.getBoundingClientRect();
+
+    if (!lastRect.height || !previousRect.height) {
+      return { hasOrphan: false };
+    }
+
+    if (Math.abs(lastRect.top - previousRect.top) <= 1) {
+      return { hasOrphan: false };
+    }
+
+    const betweenWords = text.slice(previous.end, last.start);
+    const hasManualBreak = /[\r\n]/.test(betweenWords);
+    if (hasManualBreak) {
+      return { hasOrphan: false };
+    }
+
+    const punctuationException = ORPHAN_PUNCTUATION_REGEX.test(previous.value);
+    if (punctuationException) {
+      return { hasOrphan: false };
+    }
+
+    return {
+      hasOrphan: true,
+      orphanWord: last.value,
+      previousWord: previous.value
+    };
+  }
+
+  function clearTypographyTweaks(block) {
+    block.style.removeProperty("inline-size");
+    block.style.removeProperty("max-inline-size");
+    block.style.removeProperty("margin-inline");
+    block.style.removeProperty("letter-spacing");
+    block.style.removeProperty("word-spacing");
+    block.style.removeProperty("font-size");
+  }
+
+  function applyBalanceTweak(block, tweak) {
+    if (tweak.expandPercent > 0) {
+      block.style.inlineSize = `calc(100% + ${tweak.expandPercent.toFixed(2)}%)`;
+      block.style.maxInlineSize = `calc(100% + ${tweak.expandPercent.toFixed(2)}%)`;
+      block.style.marginInline = `${(-tweak.expandPercent / 2).toFixed(2)}%`;
+    } else {
+      block.style.removeProperty("inline-size");
+      block.style.removeProperty("max-inline-size");
+      block.style.removeProperty("margin-inline");
+    }
+
+    if (tweak.letterSpacing !== 0) {
+      block.style.letterSpacing = `${tweak.letterSpacing.toFixed(3)}em`;
+    } else {
+      block.style.removeProperty("letter-spacing");
+    }
+
+    if (tweak.wordSpacing !== 0) {
+      block.style.wordSpacing = `${tweak.wordSpacing.toFixed(3)}em`;
+    } else {
+      block.style.removeProperty("word-spacing");
+    }
+  }
+
+  function getBalanceTweaks() {
+    if (state.isMobile) {
+      return [
+        { expandPercent: 0.0, letterSpacing: 0, wordSpacing: 0 },
+        { expandPercent: 1.0, letterSpacing: 0, wordSpacing: 0 },
+        { expandPercent: 0.0, letterSpacing: -0.003, wordSpacing: 0 },
+        { expandPercent: 1.0, letterSpacing: -0.003, wordSpacing: 0 },
+        { expandPercent: 1.4, letterSpacing: -0.004, wordSpacing: -0.010 }
+      ];
+    }
+
+    return [
+      { expandPercent: 0.0, letterSpacing: 0, wordSpacing: 0 },
+      { expandPercent: 0.8, letterSpacing: 0, wordSpacing: 0 },
+      { expandPercent: 0.0, letterSpacing: -0.002, wordSpacing: 0 },
+      { expandPercent: 0.8, letterSpacing: -0.002, wordSpacing: 0 },
+      { expandPercent: 1.2, letterSpacing: -0.003, wordSpacing: -0.008 }
+    ];
+  }
+
+  function optimizeTextBlockTypography(block) {
+    if (!block) return;
+
+    clearTypographyTweaks(block);
+    if (!assessOrphanLine(block).hasOrphan) return;
+
+    const balanceTweaks = getBalanceTweaks();
+    for (const tweak of balanceTweaks) {
+      applyBalanceTweak(block, tweak);
+      if (!assessOrphanLine(block).hasOrphan) {
+        return;
       }
+    }
+
+    const baseFontSize = parseFloat(window.getComputedStyle(block).fontSize || "16");
+    if (!Number.isFinite(baseFontSize) || baseFontSize <= 0) {
+      return;
+    }
+
+    const minFontSize = Math.max(10, baseFontSize * 0.8);
+    const step = Math.max(0.18, baseFontSize * 0.03);
+    let nextFontSize = baseFontSize;
+
+    for (let iteration = 0; iteration < TYPOGRAPHY_MAX_ITERATIONS; iteration += 1) {
+      nextFontSize = Math.max(minFontSize, nextFontSize - step);
+      block.style.fontSize = `${nextFontSize.toFixed(2)}px`;
+
+      if (!assessOrphanLine(block).hasOrphan) {
+        return;
+      }
+
+      if (nextFontSize <= minFontSize + 0.01) {
+        break;
+      }
+    }
+  }
+
+  function refineVisibleTypography() {
+    if (!state.root || !state.root.isConnected) return;
+
+    const host = state.isMobile
+      ? state.refs.single
+      : state.refs.book;
+    if (!host) return;
+
+    const rawBlocks = host.querySelectorAll(".hw-raw-text");
+    rawBlocks.forEach((block) => {
+      optimizeTextBlockTypography(block);
     });
   }
 
@@ -806,7 +924,6 @@
       state.refs.single.innerHTML = renderPageArticle(state.pages[state.currentPage]);
       state.refs.left.innerHTML = "";
       state.refs.right.innerHTML = "";
-      refineMobileTextFlow();
 
       const mobileBody = state.refs.single.querySelector(".hw-page-body");
       if (mobileBody) {
@@ -822,6 +939,8 @@
       state.refs.right.innerHTML = renderPageArticle(state.pages[leftIndex + 1]);
       state.refs.single.innerHTML = "";
     }
+
+    refineVisibleTypography();
 
     if (resetScroll) {
       resetVisiblePageScroll();
@@ -1050,6 +1169,7 @@
       state.globalListenersBound = true;
       window.addEventListener("keydown", handleKeydown);
       window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
     }
   }
 
@@ -1165,4 +1285,8 @@
     void initializeHumanWrites();
   }
 })();
+
+
+
+
 

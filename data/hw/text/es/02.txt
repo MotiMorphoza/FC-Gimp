@@ -3,6 +3,7 @@ TITLE: El Viaje
 IMAGE: 
 HIDDEN:
 BODY:
+
 aveces salen de mi
 
 poderes que me sorprendan
@@ -50,3 +51,5 @@ lejos de la sociedad.
 pero no puedo,
 
 quiero cambiar la...
+
+

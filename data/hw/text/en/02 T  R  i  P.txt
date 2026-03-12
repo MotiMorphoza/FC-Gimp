@@ -1,8 +1,9 @@
 LAYOUT: 01
-TITLE: T  R  i P
+TITLE: T  R  i  P
 IMAGE: 
 HIDDEN:
 BODY:
+
 We were Adam and Eve
 
 Monkeys.. 
@@ -32,3 +33,5 @@ half silvery face from a full moon light
 half glowing face gleamed by a fire
 
 We made love.
+
+

@@ -3,6 +3,7 @@ TITLE: Sum Time
 IMAGE:
 HIDDEN:
 BODY:
+
 i'm the sum of my actions
 the sum of my thoughts
 the sum of my fears and
@@ -23,3 +24,5 @@ the sum of my thoughts
 so why do i appreciate myself
 only if you're attracted to me
 or not..
+
+
