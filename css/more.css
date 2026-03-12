@@ -646,9 +646,9 @@ body[data-page="more"] #floating-cart-indicator {
   }
 
   .more-pane.is-human-writes-active {
-    height: calc(100dvh - 56px);
-    min-height: calc(100dvh - 56px);
-    padding: 10px 8px 0;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 60px 8px calc(100px + env(safe-area-inset-bottom));
     overflow: hidden;
   }
 
@@ -769,3 +769,4 @@ body[data-page="more"] #floating-cart-indicator {
     min-height: 0;
   }
 }
+
