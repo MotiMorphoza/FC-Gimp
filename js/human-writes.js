@@ -10,7 +10,7 @@
     coverTitle: "CAKE EAT EASY..",
     coverSubtitle: "LIFE is what happens before we die.\n(Confuse Use)",
     introTitle: "Welcome",
-    introBody: "You are going to read a pieace of mind.\nIt's not about peace\nI hope you don't mind\when i find myself loneley\nthen i write and i write\nit's a kind of magic\nmakes things feel allright. "
+    introBody: "You are going to read a pieace of mind.\nIt's not about peace\nI hope you don't mind\nWhen i find myself loneley\nmostly then i will write\nit's a kind of magic which\nmakes things feel allright. "
   };
 
   const LAYOUT_CODE_MAP = {
