@@ -752,7 +752,10 @@
   }
 
   .hw-swipe-hint.is-visible {
-    bottom: calc(env(safe-area-inset-bottom) + 56px);
+    top: 12px;
+    left: 12px;
+    bottom: auto;
+    transform: none;
   }
 }
 
@@ -837,6 +840,7 @@
   display: grid;
   gap: 0.45rem;
 }
+
 
 
 
