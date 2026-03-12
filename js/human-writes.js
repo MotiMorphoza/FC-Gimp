@@ -4,6 +4,7 @@
   const TEMPLATE_URL = "human-writes.html";
   const COVER_IMAGE = "data/hw/pics/human-writes-notebook.png";
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
+  const SWIPE_HINT_STORAGE_KEY = "hwSwipeHintSeen";
 
   const OPENING_SPREAD = {
     coverImage: COVER_IMAGE,
@@ -36,6 +37,7 @@
     audioCtx: null,
     touchStartX: null,
     touchStartY: null,
+    swipeHintDismissed: false,
     buildToken: 0,
     initPromise: null,
     globalListenersBound: false
@@ -158,6 +160,10 @@
       prev: state.root.querySelector('[data-hw-nav="prev"]'),
       next: state.root.querySelector('[data-hw-nav="next"]'),
       contents: state.root.querySelector("[data-hw-contents]"),
+      mobilePrev: state.root.querySelector('[data-hw-mobile-nav="prev"]'),
+      mobileNext: state.root.querySelector('[data-hw-mobile-nav="next"]'),
+      mobileContents: state.root.querySelector('[data-hw-mobile-contents]'),
+      swipeHint: state.root.querySelector('[data-hw-swipe-hint]'),
       live: state.root.querySelector("[data-hw-live]"),
       measure: state.root.querySelector("[data-hw-measure]")
     };
@@ -369,6 +375,38 @@
     state.isMobile = window.matchMedia(MOBILE_QUERY).matches;
   }
 
+  function readSwipeHintPreference() {
+    try {
+      return window.localStorage.getItem(SWIPE_HINT_STORAGE_KEY) === "1";
+    } catch {
+      return false;
+    }
+  }
+
+  function persistSwipeHintPreference() {
+    try {
+      window.localStorage.setItem(SWIPE_HINT_STORAGE_KEY, "1");
+    } catch {
+      // Ignore storage blockers.
+    }
+  }
+
+  function updateSwipeHintState() {
+    const hint = state.refs.swipeHint;
+    if (!hint) return;
+
+    const shouldShow = state.isMobile && !state.swipeHintDismissed;
+    hint.hidden = !shouldShow;
+    hint.classList.toggle("is-visible", shouldShow);
+  }
+
+  function dismissSwipeHint() {
+    if (state.swipeHintDismissed) return;
+    state.swipeHintDismissed = true;
+    persistSwipeHintPreference();
+    updateSwipeHintState();
+  }
+
   function getReferencePageElement() {
     return state.isMobile ? state.refs.single : state.refs.left;
   }
@@ -566,18 +604,46 @@
     if (!state.refs.prev || !state.refs.next) return;
 
     const direction = getCurrentDirection();
-    state.refs.prev.classList.toggle("is-forward", direction < 0);
-    state.refs.next.classList.toggle("is-forward", direction > 0);
+    const prevIsForward = direction < 0;
+    const nextIsForward = direction > 0;
+
+    [state.refs.prev, state.refs.mobilePrev].forEach((button) => {
+      if (button) button.classList.toggle("is-forward", prevIsForward);
+    });
+
+    [state.refs.next, state.refs.mobileNext].forEach((button) => {
+      if (button) button.classList.toggle("is-forward", nextIsForward);
+    });
 
     if (state.isMobile) {
-      state.refs.prev.disabled = state.currentPage <= 0;
-      state.refs.next.disabled = state.currentPage >= state.pages.length - 1;
+      const disablePrev = state.currentPage <= 0;
+      const disableNext = state.currentPage >= state.pages.length - 1;
+
+      [state.refs.prev, state.refs.mobilePrev].forEach((button) => {
+        if (button) button.disabled = disablePrev;
+      });
+
+      [state.refs.next, state.refs.mobileNext].forEach((button) => {
+        if (button) button.disabled = disableNext;
+      });
+
+      updateSwipeHintState();
       return;
     }
 
     const maxSpread = Math.max(0, Math.ceil(state.pages.length / 2) - 1);
-    state.refs.prev.disabled = state.currentSpread <= 0;
-    state.refs.next.disabled = state.currentSpread >= maxSpread;
+    const disablePrev = state.currentSpread <= 0;
+    const disableNext = state.currentSpread >= maxSpread;
+
+    [state.refs.prev, state.refs.mobilePrev].forEach((button) => {
+      if (button) button.disabled = disablePrev;
+    });
+
+    [state.refs.next, state.refs.mobileNext].forEach((button) => {
+      if (button) button.disabled = disableNext;
+    });
+
+    updateSwipeHintState();
   }
 
   function preloadImageSource(src) {
@@ -756,13 +822,14 @@
   }
 
   function handleClick(event) {
-    const nav = event.target.closest("[data-hw-nav]");
+    const nav = event.target.closest("[data-hw-nav], [data-hw-mobile-nav]");
     if (nav) {
-      move(nav.dataset.hwNav === "next" ? "next" : "prev");
+      const stepKind = nav.dataset.hwNav || nav.dataset.hwMobileNav;
+      move(stepKind === "next" ? "next" : "prev");
       return;
     }
 
-    if (event.target.closest("[data-hw-contents]")) {
+    if (event.target.closest("[data-hw-contents], [data-hw-mobile-contents]")) {
       goToPage(getContentsPageIndex());
       return;
     }
@@ -819,6 +886,7 @@
     state.touchStartY = null;
 
     if (Math.abs(dx) < 44 || Math.abs(dx) < Math.abs(dy)) return;
+    dismissSwipeHint();
     move(dx < 0 ? "next" : "prev");
   }
 
@@ -887,6 +955,7 @@
 
     captureRefs();
     state.entries = entries;
+    state.swipeHintDismissed = readSwipeHintPreference();
     syncResponsiveState();
     bindEvents();
 
