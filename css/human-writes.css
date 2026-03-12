@@ -592,19 +592,24 @@
   }
 
   .hw-stage {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     align-items: stretch;
     gap: 0;
     flex: 1 1 auto;
     min-height: 0;
-    height: auto;
+    height: 100%;
   }
 
   .hw-book {
     width: min(96vw, 100%);
     margin: 0 auto;
+    display: grid;
     grid-template-columns: 1fr;
     gap: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
     padding: clamp(8px, 2.5vw, 12px);
     border-radius: 18px;
   }
@@ -620,6 +625,8 @@
 
   .hw-page--single {
     display: block;
+    min-height: 0;
+    height: 100%;
   }
 
   .hw-page-article {
@@ -627,6 +634,11 @@
     background-image:
       linear-gradient(rgba(88, 63, 30, 0.032) 1px, transparent 1px),
       radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 30%);
+  }
+
+  .hw-page--single > .hw-page-article {
+    min-height: 0;
+    height: 100%;
   }
 
   .hw-cover-copy {
@@ -648,6 +660,7 @@
   .hw-page-body {
     padding-top: 1rem;
     padding-right: 0.1rem;
+    overflow-anchor: none;
   }
 
   .hw-page-body p,

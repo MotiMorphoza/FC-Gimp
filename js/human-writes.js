@@ -750,10 +750,39 @@
 
   function resetVisiblePageScroll() {
     if (!state.isMobile) return;
+
+    const resetTargets = [
+      state.refs.single,
+      state.refs.book,
+      state.refs.stage,
+      state.root,
+      state.mount,
+      state.mount && state.mount.closest(".human-writes-host"),
+      state.mount && state.mount.closest(".human-writes-view"),
+      state.mount && state.mount.closest(".content-pane"),
+      document.scrollingElement,
+      document.documentElement,
+      document.body
+    ];
+
     const body = state.refs.single && state.refs.single.querySelector(".hw-page-body");
     if (body) body.scrollTop = 0;
-    if (state.refs.single) state.refs.single.scrollTop = 0;
-    if (state.refs.book) state.refs.book.scrollTop = 0;
+
+    resetTargets.forEach((target) => {
+      if (target && typeof target.scrollTop === "number") {
+        target.scrollTop = 0;
+      }
+    });
+
+    requestAnimationFrame(() => {
+      const bodyAgain = state.refs.single && state.refs.single.querySelector(".hw-page-body");
+      if (bodyAgain) bodyAgain.scrollTop = 0;
+      resetTargets.forEach((target) => {
+        if (target && typeof target.scrollTop === "number") {
+          target.scrollTop = 0;
+        }
+      });
+    });
   }
 
   function render(options = {}) {
