@@ -576,24 +576,22 @@
 }
 
 .hw-toc-button {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.42rem;
 }
 
 .hw-page-body--rtl .hw-toc-button {
-  grid-template-columns: minmax(0, 1fr) auto;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
 }
 
 .hw-toc-mark {
   width: 0.62rem;
   height: 1px;
+  flex: 0 0 0.62rem;
   background: rgba(43, 36, 26, 0.74);
-}
-
-.hw-page-body--rtl .hw-toc-mark {
-  order: 2;
 }
 
 .hw-toc-label {
