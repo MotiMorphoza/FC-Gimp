@@ -696,7 +696,7 @@
     font-size: clamp(0.64rem, 3vw, 0.84rem);
   }
 
-  .hw-full-image-caption .hw-raw-text,
+  .hw-full-image-caption .hw-paragraph,
   .hw-full-image-caption p,
   .hw-full-image-caption blockquote {
     font-size: clamp(0.5rem, 2.5vw, 0.68rem);
@@ -716,7 +716,7 @@
 
   .hw-page-body p,
   .hw-page-body li,
-  .hw-raw-text {
+  .hw-page-body .hw-paragraph {
     font-size: clamp(0.78rem, 3.05vw, 0.88rem);
     line-height: 1.48;
     text-wrap: wrap;
@@ -758,8 +758,12 @@
   }
 }
 
-.hw-raw-text {
-  margin: 0;
+.hw-body {
+  display: block;
+}
+
+.hw-page-body .hw-paragraph {
+  margin: 0 0 1.2em;
   border: 0;
   padding: 0;
   background: transparent;
@@ -773,6 +777,11 @@
   text-wrap: wrap;
   direction: inherit;
   unicode-bidi: plaintext;
+}
+
+.hw-page-body .hw-paragraph:last-child,
+.hw-page-body .hw-paragraph--quote {
+  margin-bottom: 0;
 }
 
 .hw-toc-group {
@@ -820,7 +829,7 @@
 }
 
 
-.hw-page-body--rtl .hw-raw-text {
+.hw-page-body--rtl .hw-paragraph {
   direction: rtl;
   text-align: right;
   unicode-bidi: plaintext;

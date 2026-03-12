@@ -191,12 +191,22 @@
     }
   }
 
-  function splitBodyIntoBlocks(body) {
-    return [String(body || "").replace(/\r\n/g, "\n")];
+  function splitBodyIntoParagraphs(body) {
+    const normalized = String(body || "").replace(/\r\n/g, "\n");
+    const parts = normalized
+      .split(/\n[ \t]*\n+/)
+      .filter((part) => /[^\s]/.test(part));
+
+    return parts.length ? parts : [""];
   }
 
-  function renderRawText(text) {
-    return `<pre class="hw-raw-text">${escapeHtml(text || "")}</pre>`;
+  function renderParagraph(text, extraClass = "") {
+    const className = extraClass ? `hw-paragraph ${extraClass}` : "hw-paragraph";
+    return `<p class="${className}">${escapeHtml(text || "")}</p>`;
+  }
+
+  function renderParagraphGroup(paragraphs) {
+    return `<div class="hw-body">${paragraphs.map((paragraph) => renderParagraph(paragraph)).join("")}</div>`;
   }
 
   function renderPageHeading(page) {
@@ -207,16 +217,20 @@
   }
 
   function renderTextFlow(page) {
+    const paragraphs = Array.isArray(page.paragraphs) && page.paragraphs.length
+      ? page.paragraphs
+      : [""];
+
     if (page.layout === "quote") {
-      const [leadBlock, ...restBlocks] = page.blocks;
+      const [leadParagraph, ...restParagraphs] = paragraphs;
       return [
         renderPageHeading(page),
-        `<blockquote>${renderRawText(leadBlock || "")}</blockquote>`,
-        restBlocks.length ? restBlocks.map((block) => renderRawText(block)).join("") : ""
+        `<blockquote>${renderParagraph(leadParagraph || "", "hw-paragraph--quote")}</blockquote>`,
+        restParagraphs.length ? renderParagraphGroup(restParagraphs) : ""
       ].join("");
     }
 
-    return `${renderPageHeading(page)}${page.blocks.map((block) => renderRawText(block)).join("")}`;
+    return `${renderPageHeading(page)}${renderParagraphGroup(paragraphs)}`;
   }
 
   function renderTocSections(sections) {
@@ -458,7 +472,7 @@
       direction: entry.language === "he" ? -1 : 1,
       layout: entry.layout || "text",
       image: entry.image,
-      blocks: splitBodyIntoBlocks(entry.body),
+      paragraphs: splitBodyIntoParagraphs(entry.body),
       startIndex: 0,
       part: 1,
       totalParts: 1
@@ -824,7 +838,7 @@
       : state.refs.book;
     if (!host) return;
 
-    const rawBlocks = host.querySelectorAll(".hw-raw-text");
+    const rawBlocks = host.querySelectorAll(".hw-paragraph");
     rawBlocks.forEach((block) => {
       optimizeTextBlockTypography(block);
     });
