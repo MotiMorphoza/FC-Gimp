@@ -7,10 +7,10 @@
 
   const OPENING_SPREAD = {
     coverImage: COVER_IMAGE,
-    coverTitle: "Human Writes",
-    coverSubtitle: "Three languages. One notebook. Two reading directions.",
+    coverTitle: "CAKE EAT EASY..",
+    coverSubtitle: "LIFE is what happens before we die. (Confuse Use)",
     introTitle: "Welcome",
-    introBody: "A spiral notebook for English, Hebrew and Spanish texts. English and Spanish begin at the front. Hebrew starts from the back, and page direction reverses once you arrive there."
+    introBody: "T E S T."
   };
 
   const LAYOUT_CODE_MAP = {
