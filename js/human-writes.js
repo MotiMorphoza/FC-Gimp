@@ -2,7 +2,7 @@
   const PAGE_ID = "more";
   const MOBILE_QUERY = "(max-width: 980px)";
   const TEMPLATE_URL = "human-writes.html";
-  const COVER_IMAGE = "data/hw/pics/human-writes.png";
+  const COVER_IMAGE = "data/hw/pics/human-writes-notebook.png";
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
 
   const OPENING_SPREAD = {
@@ -10,7 +10,7 @@
     coverTitle: "CAKE EAT EASY..",
     coverSubtitle: "LIFE is what happens before we die. (Confuse Use)",
     introTitle: "Welcome",
-    introBody: "T E S T."
+    introBody: "You are going to read a pieace of mind. It's not about peace, I hope you don't mind. "
   };
 
   const LAYOUT_CODE_MAP = {
