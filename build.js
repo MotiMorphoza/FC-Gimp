@@ -15,6 +15,7 @@ const AtomicDeployer    = require('./build/atomic-deployer');
 const { generateShopIndex }      = require('./build/shop-index-generator');
 const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
+const { generateHumanWritesContent } = require('./build/human-writes-generator');
 
 class SuperBuild {
 
@@ -36,6 +37,7 @@ class SuperBuild {
 
       this.validateSource();
       await this.buildMorphozaVideos();
+      this.buildHumanWritesContent();
 
       const tempDir = this.deployer.initTempDir(this.rootDir);
       this.deployer.copyToTemp(this.rootDir, tempDir);
@@ -231,6 +233,17 @@ class SuperBuild {
       outputPath,
       logger: this.logger,
       delayMs: 300
+    });
+  }
+
+  buildHumanWritesContent() {
+    const sourceRoot = path.join(this.rootDir, 'data', 'hw');
+    const outputPath = path.join(sourceRoot, 'generated', 'human-writes.generated.json');
+
+    generateHumanWritesContent({
+      sourceRoot,
+      outputPath,
+      logger: this.logger
     });
   }
 

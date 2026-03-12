@@ -1,25 +1,16 @@
-﻿(function () {
+(function () {
   const PAGE_ID = "more";
   const MOBILE_QUERY = "(max-width: 980px)";
   const TEMPLATE_URL = "human-writes.html";
-  const TEXT_SOURCE_CANDIDATES = [
-    () => `data/human-writes-texts.txt${versionQuery()}`,
-    () => `TEXTS.txt${versionQuery()}`
-  ];
+  const COVER_IMAGE = "data/hw/pics/human-writes.png";
+  const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
 
-  const LAYOUT_PREVIEW_MODE = true;
-  const LAYOUT_PREVIEW_TEXT = "This is a shared comparison text for layout preview. The same text appears in every layout pair so spacing, image balance and readability can be compared directly without content bias.";
-
-  const ENTRY_DECOR = {
-    "en-1": { layout: "text", image: "images/more/human-writes.gif" },
-    "en-2": { layout: "image-split", image: "images/more/human-writes.gif" },
-    "en-3": { layout: "image-top", image: "images/more/human-writes.png" },
-    "he-1": { layout: "text", image: "images/more/human-writes.png" },
-    "he-2": { layout: "image-top", image: "images/more/human-writes.gif" },
-    "he-3": { layout: "image-split", image: "images/more/human-writes.png" },
-    "es-1": { layout: "image-top", image: "images/more/human-writes.gif" },
-    "es-2": { layout: "text", image: "images/more/human-writes.png" },
-    "es-3": { layout: "image-split", image: "images/more/human-writes.gif" }
+  const LAYOUT_CODE_MAP = {
+    "01": "text",
+    "02": "image-top",
+    "03": "image-split",
+    "04": "quote",
+    "05": "full-image"
   };
 
   const state = {
@@ -56,148 +47,63 @@
       .replace(/'/g, "&#39;");
   }
 
-  function maybeDecodeMojibake(line) {
-    if (!/[\u00C3\u00D7\u00D6]/.test(line)) return line;
-
-    try {
-      const bytes = Uint8Array.from(Array.from(line, (char) => char.charCodeAt(0) & 0xff));
-      const decoded = new TextDecoder("utf-8").decode(bytes);
-      const originalScore = (line.match(/[\u0590-\u05FF\u00E1\u00E9\u00ED\u00F3\u00FA\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00D1]/g) || []).length;
-      const decodedScore = (decoded.match(/[\u0590-\u05FF\u00E1\u00E9\u00ED\u00F3\u00FA\u00F1\u00C1\u00C9\u00CD\u00D3\u00DA\u00D1]/g) || []).length;
-      return decodedScore > originalScore ? decoded : line;
-    } catch {
-      return line;
-    }
-  }
-
-  function normalizeRawText(raw) {
-    return raw
-      .replace(/\r\n/g, "\n")
-      .split("\n")
-      .map((line) => maybeDecodeMojibake(line))
-      .join("\n");
-  }
-
-  function detectLanguage(line) {
-    const normalized = line.trim().toLowerCase();
-    if (/^english\s+texts?$/.test(normalized)) return "en";
-    if (/^hebrew\s+texts?$/.test(normalized)) return "he";
-    if (/^spanish\s+texts?$/.test(normalized)) return "es";
-    return null;
-  }
-
-  function isSeparator(line) {
-    return /^\*{3,}\s*$/.test(line.trim());
-  }
-
-  function isUnderline(line) {
-    return /^[-=]{3,}\s*$/.test(line.trim());
-  }
-
-  function nextNonEmpty(lines, from) {
-    for (let index = from; index < lines.length; index += 1) {
-      if (lines[index].trim()) return index;
-    }
-    return -1;
-  }
-
-  function isTitleStart(lines, index) {
-    const line = (lines[index] || "").trim();
-    if (!line || isSeparator(line)) return false;
-    const underlineIndex = nextNonEmpty(lines, index + 1);
-    if (underlineIndex === -1) return false;
-    return isUnderline(lines[underlineIndex]);
-  }
-
-  function compactBody(lines) {
-    const output = [];
-    let blank = false;
-
-    for (const rawLine of lines) {
-      const line = rawLine.replace(/\s+$/g, "");
-      if (!line.trim()) {
-        if (!blank && output.length) output.push("");
-        blank = true;
-      } else {
-        output.push(line);
-        blank = false;
-      }
-    }
-
-    while (output.length && !output[0].trim()) output.shift();
-    while (output.length && !output[output.length - 1].trim()) output.pop();
-    return output.join("\n");
-  }
-
   function slugKey(value) {
     return String(value)
       .toLowerCase()
       .replace(/[^a-z0-9\u0590-\u05ff]+/g, "") || "text";
   }
 
-  function buildEntryId(language, title, order) {
-    return `${language}-${slugKey(title)}-${order}`;
+  function normalizeLayoutCode(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    if (/^\d+$/.test(raw)) return raw.padStart(2, "0");
+    return raw;
   }
 
-  function parseTextEntries(raw) {
-    const lines = normalizeRawText(raw).split("\n");
-    const entries = [];
+  function normalizeGeneratedEntries(items) {
+    if (!Array.isArray(items)) {
+      throw new Error("Human Writes generated payload must be an array.");
+    }
+
     const orders = { en: 0, he: 0, es: 0 };
-    let language = null;
+    const normalized = [];
 
-    for (let index = 0; index < lines.length; index += 1) {
-      const line = lines[index] || "";
-      const detectedLanguage = detectLanguage(line);
-      if (detectedLanguage) {
-        language = detectedLanguage;
-        continue;
+    for (const item of items) {
+      if (!item || typeof item !== "object") {
+        throw new Error("Human Writes generated entry is invalid.");
       }
 
-      if (!language || !line.trim() || isSeparator(line) || !isTitleStart(lines, index)) {
-        continue;
+      const language = String(item.lang || "").trim().toLowerCase();
+      if (!(language in orders)) {
+        throw new Error(`Unknown language in generated entry: ${language}`);
       }
 
-      const title = line.trim();
-      const bodyLines = [];
-      index = nextNonEmpty(lines, index + 1);
-
-      for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
-        const candidate = lines[cursor] || "";
-        if (detectLanguage(candidate) || isSeparator(candidate) || isTitleStart(lines, cursor)) {
-          index = cursor - 1;
-          break;
-        }
-        bodyLines.push(candidate);
-        if (cursor === lines.length - 1) {
-          index = cursor;
-        }
+      const layoutCode = normalizeLayoutCode(item.layout);
+      const layout = LAYOUT_CODE_MAP[layoutCode];
+      if (!layout) {
+        throw new Error(`Unknown layout code in generated entry: ${layoutCode}`);
       }
 
-      const body = compactBody(bodyLines);
-      if (!body) continue;
+      const hidden = item.hidden === true || String(item.hidden || "").trim().toLowerCase() === "true";
+      if (hidden) continue;
 
       orders[language] += 1;
-      entries.push({
-        id: buildEntryId(language, title, orders[language]),
+      const title = typeof item.title === "string" ? item.title : "";
+      const body = typeof item.body === "string" ? item.body.replace(/\r\n/g, "\n") : "";
+      const imageName = typeof item.image === "string" ? item.image.trim() : "";
+
+      normalized.push({
+        id: `${language}-${slugKey(title || `entry-${orders[language]}`)}-${orders[language]}`,
         title,
         language,
         order: orders[language],
-        body
+        body,
+        image: imageName ? `data/hw/pics/${imageName}` : "",
+        layout
       });
     }
 
-    return entries;
-  }
-
-  function decorateEntries(entries) {
-    return entries.map((entry) => {
-      const decor = ENTRY_DECOR[`${entry.language}-${entry.order}`] || ENTRY_DECOR[slugKey(entry.title)] || {};
-      return {
-        ...entry,
-        image: decor.image || "",
-        layout: decor.layout || "text"
-      };
-    });
+    return normalized;
   }
 
   async function fetchTemplateMarkup() {
@@ -211,44 +117,14 @@
     return template.innerHTML;
   }
 
-  async function fetchTextSource() {
-    for (const getUrl of TEXT_SOURCE_CANDIDATES) {
-      try {
-        const response = await fetch(getUrl(), { credentials: "same-origin" });
-        if (response.ok) {
-          return response.text();
-        }
-      } catch {
-        // Try the next candidate before falling back.
-      }
+  async function fetchGeneratedEntries() {
+    const response = await fetch(GENERATED_CONTENT_URL(), { credentials: "same-origin" });
+    if (!response.ok) {
+      throw new Error(`Generated content HTTP ${response.status}`);
     }
 
-    return getFallbackRawText();
-  }
-
-  function getFallbackRawText() {
-    return [
-      "English texts",
-      "***************",
-      "",
-      "KIND",
-      "------",
-      "The content source is missing. Drop data/human-writes-texts.txt into the project to restore the full notebook.",
-      "",
-      "HEBREW TEXTS",
-      "**********************",
-      "",
-      "Hebrew Placeholder",
-      "-----------",
-      "The source text is currently missing, but the reverse-reading notebook flow remains active.",
-      "",
-      "Spanish texts",
-      "**************",
-      "",
-      "El Viaje",
-      "----------",
-      "El archivo fuente falta en el proyecto por ahora."
-    ].join("\n");
+    const payload = await response.json();
+    return normalizeGeneratedEntries(payload);
   }
 
   function resetMountState() {
@@ -299,59 +175,11 @@
   }
 
   function splitBodyIntoBlocks(body) {
-    return body.split(/\n{3,}/).map((block) => block.trim()).filter(Boolean);
+    return [String(body || "").replace(/\r\n/g, "\n")];
   }
 
-  function splitOversizedBlock(block) {
-    const lines = block.split(/\n+/).map((line) => line.trim()).filter(Boolean);
-    if (lines.length > 1) {
-      const pieces = [];
-      let current = [];
-      let score = 0;
-
-      for (const line of lines) {
-        const nextScore = score + line.length + 8;
-        if (nextScore > 180 && current.length) {
-          pieces.push(current.join("\n"));
-          current = [line];
-          score = line.length;
-        } else {
-          current.push(line);
-          score = nextScore;
-        }
-      }
-
-      if (current.length) pieces.push(current.join("\n"));
-      return pieces;
-    }
-
-    const words = block.split(/\s+/).filter(Boolean);
-    if (words.length <= 1) return [block];
-
-    const pieces = [];
-    let current = [];
-    let score = 0;
-
-    for (const word of words) {
-      const nextScore = score + word.length + 1;
-      if (nextScore > 120 && current.length) {
-        pieces.push(current.join(" "));
-        current = [word];
-        score = word.length;
-      } else {
-        current.push(word);
-        score = nextScore;
-      }
-    }
-
-    if (current.length) pieces.push(current.join(" "));
-    return pieces;
-  }
-
-  function renderTextBlocks(blocks) {
-    return blocks
-      .map((block) => `<p>${escapeHtml(block).replace(/\n/g, "<br>")}</p>`)
-      .join("");
+  function renderRawText(text) {
+    return `<pre class="hw-raw-text">${escapeHtml(text || "")}</pre>`;
   }
 
   function renderPageHeading(page) {
@@ -366,12 +194,12 @@
       const [leadBlock, ...restBlocks] = page.blocks;
       return [
         renderPageHeading(page),
-        `<blockquote>${escapeHtml(leadBlock || "").replace(/\n/g, "<br>")}</blockquote>`,
-        restBlocks.length ? renderTextBlocks(restBlocks) : ""
+        `<blockquote>${renderRawText(leadBlock || "")}</blockquote>`,
+        restBlocks.length ? restBlocks.map((block) => renderRawText(block)).join("") : ""
       ].join("");
     }
 
-    return `${renderPageHeading(page)}${renderTextBlocks(page.blocks)}`;
+    return `${renderPageHeading(page)}${page.blocks.map((block) => renderRawText(block)).join("")}`;
   }
 
   function renderTocSections(sections) {
@@ -411,9 +239,6 @@
               <p>${escapeHtml(page.subtitle)}</p>
             </div>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -426,9 +251,6 @@
             <h2>${escapeHtml(page.title)}</h2>
             <p>${escapeHtml(page.body)}</p>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -442,9 +264,6 @@
             <h2>${escapeHtml(page.title)}</h2>
             ${renderTocSections(page.sections)}
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -456,15 +275,13 @@
           <div class="hw-page-body hw-page-body--quote">
             <blockquote>${escapeHtml(page.quote)}</blockquote>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
 
     const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
     const layout = page.layout || "text";
+
     if (layout === "full-image" && page.image) {
       return `
         <article class="hw-page-article">
@@ -477,9 +294,6 @@
               </div>
             </div>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -492,9 +306,6 @@
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -507,9 +318,6 @@
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -521,9 +329,6 @@
           <div class="hw-page-body hw-page-body--quote${rtlClass}">
             <div class="hw-text-flow">${renderTextFlow(page)}</div>
           </div>
-          <footer class="hw-page-footer">
-                        <span class="hw-page-count">${page.pageNumber}</span>
-          </footer>
         </article>
       `;
     }
@@ -534,9 +339,6 @@
         <div class="hw-page-body hw-page-body--text${rtlClass}">
           <div class="hw-text-flow">${renderTextFlow(page)}</div>
         </div>
-        <footer class="hw-page-footer">
-                    <span class="hw-page-count">${page.pageNumber}</span>
-        </footer>
       </article>
     `;
   }
@@ -567,93 +369,23 @@
     state.refs.measure.style.height = `${height}px`;
   }
 
-  function pageFits(entry, blocks, layout) {
-    const page = {
+  function paginateEntry(entry) {
+    return [{
       kind: "text",
+      key: `text:${entry.id}:0`,
+      entryId: entry.id,
       title: entry.title,
       runningTitle: entry.title,
       language: entry.language,
       languageLabel: getLanguageLabel(entry.language),
-      layout,
+      direction: entry.language === "he" ? -1 : 1,
+      layout: entry.layout || "text",
       image: entry.image,
-      blocks,
+      blocks: splitBodyIntoBlocks(entry.body),
+      startIndex: 0,
       part: 1,
-      totalParts: 1,
-      pageNumber: 999
-    };
-
-    state.refs.measure.innerHTML = renderPageArticle(page);
-    const article = state.refs.measure.firstElementChild;
-    if (!article) return false;
-    return article.scrollHeight <= state.refs.measure.clientHeight + 1;
-  }
-
-  function fitBlockCount(entry, blocks, startIndex, layout) {
-    const remaining = blocks.length - startIndex;
-    if (remaining <= 0) return 0;
-
-    let low = 1;
-    let high = remaining;
-    let best = 0;
-
-    while (low <= high) {
-      const middle = Math.floor((low + high) / 2);
-      const slice = blocks.slice(startIndex, startIndex + middle);
-      if (pageFits(entry, slice, layout)) {
-        best = middle;
-        low = middle + 1;
-      } else {
-        high = middle - 1;
-      }
-    }
-
-    return best;
-  }
-
-  function paginateEntry(entry) {
-    const blocks = splitBodyIntoBlocks(entry.body);
-    const pages = [];
-    let startIndex = 0;
-
-    while (startIndex < blocks.length) {
-      const layout = startIndex === 0 ? entry.layout : "text";
-      let fitCount = fitBlockCount(entry, blocks, startIndex, layout);
-
-      if (fitCount === 0) {
-        const splitBlocks = splitOversizedBlock(blocks[startIndex]);
-        if (splitBlocks.length === 1) {
-          fitCount = 1;
-        } else {
-          blocks.splice(startIndex, 1, ...splitBlocks);
-          continue;
-        }
-      }
-
-      pages.push({
-        kind: "text",
-        key: `text:${entry.id}:${startIndex}`,
-        entryId: entry.id,
-        title: entry.title,
-        runningTitle: entry.title,
-        language: entry.language,
-        languageLabel: getLanguageLabel(entry.language),
-        direction: entry.language === "he" ? -1 : 1,
-        layout,
-        image: entry.image,
-        blocks: blocks.slice(startIndex, startIndex + fitCount),
-        startIndex
-      });
-
-      startIndex += fitCount;
-    }
-
-    const totalParts = pages.length;
-    pages.forEach((page, index) => {
-      page.part = index + 1;
-      page.totalParts = totalParts;
-    });
-
-    return pages;
+      totalParts: 1
+    }];
   }
 
   function createTocPageConfig() {
@@ -686,74 +418,7 @@
     };
   }
 
-  function buildLayoutPreviewPages() {
-    const toc = createTocPageConfig();
-    const pages = [toc.left, toc.right];
-    const pageIndexByEntry = new Map();
-    const tocItems = toc.left.sections[0].items;
-
-    const specs = [
-      { id: "layout-text", title: "LAYOUT 01 - TEXT", layout: "text", image: "images/more/human-writes.png" },
-      { id: "layout-image-top", title: "LAYOUT 02 - IMAGE TOP", layout: "image-top", image: "images/more/human-writes.gif" },
-      { id: "layout-image-split", title: "LAYOUT 03 - IMAGE SPLIT", layout: "image-split", image: "images/more/human-writes.png" },
-      { id: "layout-full-image", title: "LAYOUT 04 - FULL IMAGE", layout: "full-image", image: "images/more/human-writes.gif" },
-      { id: "layout-quote", title: "LAYOUT 05 - QUOTE", layout: "quote", image: "images/more/human-writes.png" }
-    ];
-
-    const blocks = [LAYOUT_PREVIEW_TEXT];
-
-    for (const spec of specs) {
-      const startIndex = pages.length;
-      pageIndexByEntry.set(spec.id, startIndex);
-      tocItems.push({ title: spec.title, pageIndex: startIndex });
-
-      pages.push(
-        {
-          kind: "text",
-          key: `${spec.id}:a`,
-          entryId: spec.id,
-          title: spec.title,
-          runningTitle: "Human Writes",
-          language: "en",
-          languageLabel: "",
-          direction: 1,
-          layout: spec.layout,
-          image: spec.image,
-          blocks,
-          part: 1,
-          totalParts: 2,
-          startIndex: 0
-        },
-        {
-          kind: "text",
-          key: `${spec.id}:b`,
-          entryId: spec.id,
-          title: spec.title,
-          runningTitle: "Human Writes",
-          language: "en",
-          languageLabel: "",
-          direction: 1,
-          layout: spec.layout,
-          image: spec.image,
-          blocks,
-          part: 2,
-          totalParts: 2,
-          startIndex: 0
-        }
-      );
-    }
-
-    pages.forEach((page, index) => {
-      page.pageNumber = index + 1;
-    });
-
-    return { pages, pageIndexByEntry };
-  }
-
   function buildBookPages(entries) {
-    if (LAYOUT_PREVIEW_MODE) {
-      return buildLayoutPreviewPages();
-    }
     const pages = [
       {
         kind: "cover",
@@ -764,7 +429,7 @@
         language: "en",
         languageLabel: "Cover",
         direction: 1,
-        image: "images/more/human-writes.png"
+        image: COVER_IMAGE
       },
       {
         kind: "intro",
@@ -998,8 +663,6 @@
     if (!state.pages.length) return;
 
     const direction = getCurrentDirection();
-    state.refs.prev.classList.toggle("is-forward", direction < 0);
-    state.refs.next.classList.toggle("is-forward", direction > 0);
     const step = stepKind === "next" ? direction : -direction;
 
     if (state.isMobile) {
@@ -1168,10 +831,6 @@
 
     state.mount.innerHTML = `
       <section class="hw-module" aria-label="Human Writes notebook unavailable">
-        <div class="hw-toolbar-copy">
-          <p class="hw-eyebrow">Notebook Module</p>
-          <h1 class="hw-title">Human Writes</h1>
-        </div>
         <div class="hw-book">
           <div class="hw-page hw-page--single" style="display:block; margin:0;">
             <article class="hw-page-article">
@@ -1197,18 +856,17 @@
 
   async function mountHumanWrites(mount) {
     const token = ++state.buildToken;
-    const [templateMarkup, rawText] = await Promise.all([
+    const [templateMarkup, entries] = await Promise.all([
       fetchTemplateMarkup(),
-      fetchTextSource()
+      fetchGeneratedEntries()
     ]);
 
     if (token !== state.buildToken || document.body.dataset.page !== PAGE_ID || !mount.isConnected) {
       return;
     }
 
-    const entries = decorateEntries(parseTextEntries(rawText));
     if (!entries.length) {
-      throw new Error("No Human Writes texts were found.");
+      throw new Error("No visible Human Writes entries found in generated data.");
     }
 
     mount.innerHTML = templateMarkup;
@@ -1279,6 +937,3 @@
     void initializeHumanWrites();
   }
 })();
-
-
-
