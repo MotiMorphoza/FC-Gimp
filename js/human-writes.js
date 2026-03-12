@@ -694,7 +694,70 @@
     state.refs.live.textContent = `Human Writes page ${focusPage.pageNumber}`;
   }
 
-  function render() {
+  function isSingleWordWidow(element) {
+    const node = element && element.firstChild;
+    if (!node || node.nodeType !== Node.TEXT_NODE) return false;
+
+    const text = node.textContent || "";
+    const lastMatch = /(\S+)\s*$/.exec(text);
+    if (!lastMatch) return false;
+
+    const trailingWhitespace = (text.match(/\s*$/) || [""])[0].length;
+    const lastEnd = text.length - trailingWhitespace;
+    const lastStart = lastEnd - lastMatch[1].length;
+    if (lastStart <= 0) return false;
+
+    const prefix = text.slice(0, lastStart).trimEnd();
+    const prevMatch = /(\S+)\s*$/.exec(prefix);
+    if (!prevMatch) return false;
+
+    const prevEnd = prefix.length;
+    const prevStart = prevEnd - prevMatch[1].length;
+
+    const lastRange = document.createRange();
+    lastRange.setStart(node, lastStart);
+    lastRange.setEnd(node, lastEnd);
+    const lastRect = lastRange.getBoundingClientRect();
+
+    const prevRange = document.createRange();
+    prevRange.setStart(node, prevStart);
+    prevRange.setEnd(node, prevEnd);
+    const prevRect = prevRange.getBoundingClientRect();
+
+    if (!lastRect.height || !prevRect.height) return false;
+    return Math.abs(lastRect.top - prevRect.top) > 1;
+  }
+
+  function refineMobileTextFlow() {
+    if (!state.isMobile) return;
+    const article = state.refs.single && state.refs.single.querySelector(".hw-page-article");
+    if (!article) return;
+
+    const rawBlocks = article.querySelectorAll(".hw-raw-text");
+    rawBlocks.forEach((block) => {
+      block.style.removeProperty("font-size");
+      const base = parseFloat(window.getComputedStyle(block).fontSize || "14");
+      if (!Number.isFinite(base)) return;
+
+      const min = Math.max(11.4, base - 2);
+      let nextSize = base;
+      while (nextSize > min && isSingleWordWidow(block)) {
+        nextSize -= 0.2;
+        block.style.fontSize = `${nextSize.toFixed(2)}px`;
+      }
+    });
+  }
+
+  function resetVisiblePageScroll() {
+    if (!state.isMobile) return;
+    const body = state.refs.single && state.refs.single.querySelector(".hw-page-body");
+    if (body) body.scrollTop = 0;
+    if (state.refs.single) state.refs.single.scrollTop = 0;
+    if (state.refs.book) state.refs.book.scrollTop = 0;
+  }
+
+  function render(options = {}) {
+    const resetScroll = options.resetScroll === true;
     if (!state.root || !state.pages.length) return;
 
     clampPosition();
@@ -703,11 +766,16 @@
       state.refs.single.innerHTML = renderPageArticle(state.pages[state.currentPage]);
       state.refs.left.innerHTML = "";
       state.refs.right.innerHTML = "";
+      refineMobileTextFlow();
     } else {
       const leftIndex = state.currentSpread * 2;
       state.refs.left.innerHTML = renderPageArticle(state.pages[leftIndex]);
       state.refs.right.innerHTML = renderPageArticle(state.pages[leftIndex + 1]);
       state.refs.single.innerHTML = "";
+    }
+
+    if (resetScroll) {
+      resetVisiblePageScroll();
     }
 
     updateNavState();
@@ -775,7 +843,7 @@
       state.currentSpread = nextSpread;
     }
 
-    render();
+    render({ resetScroll: true });
     animateFlip();
     playFlipSound();
   }
@@ -796,7 +864,7 @@
 
     if (!changed) return;
 
-    render();
+    render({ resetScroll: true });
     animateFlip();
     playFlipSound();
   }

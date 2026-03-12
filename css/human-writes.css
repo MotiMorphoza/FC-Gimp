@@ -587,7 +587,7 @@
   .hw-module {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0 0 calc(126px + env(safe-area-inset-bottom));
     min-height: 0;
   }
 
@@ -650,6 +650,14 @@
     padding-right: 0.1rem;
   }
 
+  .hw-page-body p,
+  .hw-page-body li,
+  .hw-raw-text {
+    font-size: clamp(0.78rem, 3.05vw, 0.88rem);
+    line-height: 1.28;
+    text-wrap: pretty;
+  }
+
   .hw-page-body--image-split {
     grid-template-columns: 1fr;
   }
@@ -695,7 +703,9 @@
   font: inherit;
   line-height: inherit;
   white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-wrap: pretty;
   direction: inherit;
   unicode-bidi: plaintext;
 }
