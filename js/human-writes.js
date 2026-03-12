@@ -10,7 +10,7 @@
     coverTitle: "CAKE EAT EASY..",
     coverSubtitle: "LIFE is what happens before we die.\n(Confuse Use)",
     introTitle: "Welcome",
-    introBody: "You are going to read a pieace of mind.\nIt's not about peace\nI hope you don't mind\nWhen i find myself loneley\nmostly then i will write\nit's a kind of magic which\nmakes things feel allright. "
+    introBody: "You are going to read\na piece of my mind.\nIt's not about peace\nI hope you don't mind\nWhen i find myself loneley\nmostly then i will write\nit's a kind of magic which\nmakes things feel allright. "
   };
 
   const LAYOUT_CODE_MAP = {
@@ -422,7 +422,7 @@
       right: {
         kind: "toc",
         key: "toc-he",
-        title: "\u05EA\u05D5\u05DB\u05DF \u05E2\u05E0\u05D9\u05D9\u05E0\u05D9\u05DD",
+        title: "×ª×•×›×Ÿ ×¢× ×™×™× ×™×",
         runningTitle: "Human Writes",
         language: "he",
         languageLabel: "Contents",

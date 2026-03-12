@@ -557,11 +557,8 @@
   line-height: inherit;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-}
-
-.hw-toc-groups {
-  display: grid;
-  gap: 0.45rem;
+  direction: inherit;
+  unicode-bidi: plaintext;
 }
 
 .hw-toc-group {
@@ -576,33 +573,47 @@
 }
 
 .hw-toc-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.42rem;
-}
-
-
-.hw-page-body--rtl .hw-toc-button {
-  justify-content: flex-end;
-  flex-direction: row;
+  display: block;
 }
 
 .hw-toc-mark {
+  display: inline-block;
   width: 0.62rem;
   height: 1px;
-  flex: 0 0 0.62rem;
+  vertical-align: middle;
+  margin-right: 0.42rem;
   background: rgba(43, 36, 26, 0.74);
 }
 
-.hw-page-body--rtl .hw-toc-label {
-  order: 1;
+.hw-toc-label {
+  display: inline;
+  min-width: 0;
+}
+
+.hw-page-body--rtl .hw-toc-list li {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hw-page-body--rtl .hw-toc-button {
+  direction: rtl;
+  text-align: right;
 }
 
 .hw-page-body--rtl .hw-toc-mark {
-  order: 2;
+  margin-right: 0;
+  margin-left: 0.42rem;
 }
 
-.hw-toc-label {
-  min-width: 0;
+
+.hw-page-body--rtl .hw-raw-text {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
 }
+
+.hw-toc-groups {
+  display: grid;
+  gap: 0.45rem;
+}
+
