@@ -252,7 +252,7 @@
             <img class="hw-cover-image" src="${escapeHtml(page.image)}" alt="Human Writes cover" loading="lazy" decoding="async">
             <div class="hw-cover-copy">
               <h2>${escapeHtml(page.title)}</h2>
-              <p>${escapeHtml(page.subtitle)}</p>
+              <p>${escapeHtml(page.subtitle).replace(/\n/g, "<br>")}</p>
             </div>
           </div>
         </article>
@@ -265,7 +265,7 @@
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--intro">
             <h2>${escapeHtml(page.title)}</h2>
-            <p>${escapeHtml(page.body)}</p>
+            <p>${escapeHtml(page.body).replace(/\n/g, "<br>")}</p>
           </div>
         </article>
       `;
@@ -422,7 +422,7 @@
       right: {
         kind: "toc",
         key: "toc-he",
-        title: "תוכן עניינים",
+        title: "×ª×•×›×Ÿ ×¢× ×™×™× ×™×",
         runningTitle: "Human Writes",
         language: "he",
         languageLabel: "Contents",
