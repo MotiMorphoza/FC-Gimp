@@ -723,43 +723,56 @@
       return { hasOrphan: false };
     }
 
-    const last = tokens[tokens.length - 1];
-    const previous = tokens[tokens.length - 2];
+    const lines = [];
+    const lineTopTolerance = 1.5;
 
-    const lastRange = document.createRange();
-    lastRange.setStart(textNode, last.start);
-    lastRange.setEnd(textNode, last.end);
-    const lastRect = lastRange.getBoundingClientRect();
+    for (const token of tokens) {
+      const tokenRange = document.createRange();
+      tokenRange.setStart(textNode, token.start);
+      tokenRange.setEnd(textNode, token.end);
+      const tokenRect = tokenRange.getBoundingClientRect();
+      if (!tokenRect.height) continue;
 
-    const previousRange = document.createRange();
-    previousRange.setStart(textNode, previous.start);
-    previousRange.setEnd(textNode, previous.end);
-    const previousRect = previousRange.getBoundingClientRect();
+      const lastLine = lines[lines.length - 1];
+      if (!lastLine || Math.abs(tokenRect.top - lastLine.top) > lineTopTolerance) {
+        lines.push({
+          top: tokenRect.top,
+          tokens: [token]
+        });
+      } else {
+        lastLine.tokens.push(token);
+      }
+    }
 
-    if (!lastRect.height || !previousRect.height) {
+    if (lines.length < 2) {
       return { hasOrphan: false };
     }
 
-    if (Math.abs(lastRect.top - previousRect.top) <= 1) {
-      return { hasOrphan: false };
+    for (let index = 1; index < lines.length; index += 1) {
+      const line = lines[index];
+      if (!line || line.tokens.length !== 1) continue;
+
+      const previousLine = lines[index - 1];
+      const previousWord = previousLine && previousLine.tokens[previousLine.tokens.length - 1];
+      const orphanWord = line.tokens[0];
+      if (!previousWord || !orphanWord) continue;
+
+      const betweenWords = text.slice(previousWord.end, orphanWord.start);
+      const hasManualBreak = /[\r\n]/.test(betweenWords);
+      if (hasManualBreak) continue;
+
+      const punctuationException = ORPHAN_PUNCTUATION_REGEX.test(previousWord.value);
+      if (punctuationException) continue;
+
+      return {
+        hasOrphan: true,
+        orphanWord: orphanWord.value,
+        previousWord: previousWord.value,
+        lineIndex: index
+      };
     }
 
-    const betweenWords = text.slice(previous.end, last.start);
-    const hasManualBreak = /[\r\n]/.test(betweenWords);
-    if (hasManualBreak) {
-      return { hasOrphan: false };
-    }
-
-    const punctuationException = ORPHAN_PUNCTUATION_REGEX.test(previous.value);
-    if (punctuationException) {
-      return { hasOrphan: false };
-    }
-
-    return {
-      hasOrphan: true,
-      orphanWord: last.value,
-      previousWord: previous.value
-    };
+    return { hasOrphan: false };
   }
 
   function resetTypographyBlock(block) {
@@ -1236,3 +1249,4 @@
     void initializeHumanWrites();
   }
 })();
+
