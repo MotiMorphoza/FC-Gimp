@@ -424,7 +424,7 @@
 .hw-contents {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: 8px;
   transform: translateX(-50%);
   z-index: 5;
   min-height: 42px;
@@ -807,6 +807,14 @@
   margin-bottom: 0;
 }
 
+.hw-page-body .hw-paragraph-spacer {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  pointer-events: none;
+}
+
 .hw-toc-group {
   display: grid;
   gap: 0.25rem;
@@ -862,6 +870,7 @@
   display: grid;
   gap: 0.45rem;
 }
+
 
 
 

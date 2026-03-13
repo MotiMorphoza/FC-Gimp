@@ -191,13 +191,59 @@
     }
   }
 
+  function isParagraphBlock(block) {
+    return typeof block === "string" || (block && block.type === "paragraph");
+  }
+
   function splitBodyIntoParagraphs(body) {
     const normalized = String(body || "").replace(/\r\n/g, "\n");
-    const parts = normalized
-      .split(/\n[ \t]*\n+/)
-      .filter((part) => /[^\s]/.test(part));
+    const lines = normalized.split("\n");
+    const blocks = [];
+    let currentParagraph = [];
+    let blankLineRun = 0;
 
-    return parts.length ? parts : [""];
+    function flushParagraph() {
+      if (!currentParagraph.length) return;
+      blocks.push({ type: "paragraph", text: currentParagraph.join("\n") });
+      currentParagraph = [];
+    }
+
+    function flushSpacer(lineCount, preserveAll = false) {
+      const count = Math.max(0, Number(lineCount) || 0);
+      if (!count) return;
+
+      const hasParagraph = blocks.some((block) => isParagraphBlock(block));
+      const spacerLines = preserveAll || !hasParagraph
+        ? count
+        : Math.max(0, count - 1);
+
+      if (spacerLines > 0) {
+        blocks.push({ type: "spacer", lines: spacerLines });
+      }
+    }
+
+    lines.forEach((line) => {
+      if (!/[^\t ]/.test(line)) {
+        flushParagraph();
+        blankLineRun += 1;
+        return;
+      }
+
+      if (blankLineRun > 0) {
+        flushSpacer(blankLineRun, false);
+        blankLineRun = 0;
+      }
+
+      currentParagraph.push(line);
+    });
+
+    flushParagraph();
+
+    if (blankLineRun > 0) {
+      flushSpacer(blankLineRun, true);
+    }
+
+    return blocks.length ? blocks : [{ type: "paragraph", text: "" }];
   }
 
   function renderParagraph(text, extraClass = "") {
@@ -205,8 +251,51 @@
     return `<p class="${className}">${escapeHtml(text || "")}</p>`;
   }
 
-  function renderParagraphGroup(paragraphs) {
-    return `<div class="hw-body">${paragraphs.map((paragraph) => renderParagraph(paragraph)).join("")}</div>`;
+  function renderSpacer(lines = 1) {
+    const lineCount = Math.max(1, Number(lines) || 1);
+    return `<div class="hw-paragraph-spacer" aria-hidden="true" style="height:${(lineCount * 1.45).toFixed(2)}em"></div>`;
+  }
+
+  function renderParagraphGroup(blocks) {
+    const normalizedBlocks = Array.isArray(blocks) && blocks.length
+      ? blocks
+      : [{ type: "paragraph", text: "" }];
+
+    return `<div class="hw-body">${normalizedBlocks.map((block) => {
+      if (block && block.type === "spacer") {
+        return renderSpacer(block.lines);
+      }
+
+      const text = typeof block === "string"
+        ? block
+        : block && block.type === "paragraph"
+          ? block.text
+          : "";
+
+      return renderParagraph(text);
+    }).join("")}</div>`;
+  }
+
+  function getLeadParagraphText(blocks) {
+    const leadParagraph = Array.isArray(blocks)
+      ? blocks.find((block) => isParagraphBlock(block))
+      : null;
+
+    if (typeof leadParagraph === "string") {
+      return leadParagraph;
+    }
+
+    return leadParagraph && typeof leadParagraph.text === "string"
+      ? leadParagraph.text
+      : "";
+  }
+
+  function getBlocksAfterLeadParagraph(blocks) {
+    if (!Array.isArray(blocks) || !blocks.length) return [];
+
+    const leadIndex = blocks.findIndex((block) => isParagraphBlock(block));
+    if (leadIndex === -1) return blocks;
+    return blocks.slice(leadIndex + 1);
   }
 
   function renderPageHeading(page) {
@@ -217,20 +306,21 @@
   }
 
   function renderTextFlow(page) {
-    const paragraphs = Array.isArray(page.paragraphs) && page.paragraphs.length
+    const blocks = Array.isArray(page.paragraphs) && page.paragraphs.length
       ? page.paragraphs
-      : [""];
+      : [{ type: "paragraph", text: "" }];
 
     if (page.layout === "quote") {
-      const [leadParagraph, ...restParagraphs] = paragraphs;
+      const leadParagraph = getLeadParagraphText(blocks);
+      const restBlocks = getBlocksAfterLeadParagraph(blocks);
       return [
         renderPageHeading(page),
         `<blockquote>${renderParagraph(leadParagraph || "", "hw-paragraph--quote")}</blockquote>`,
-        restParagraphs.length ? renderParagraphGroup(restParagraphs) : ""
+        restBlocks.length ? renderParagraphGroup(restBlocks) : ""
       ].join("");
     }
 
-    return `${renderPageHeading(page)}${renderParagraphGroup(paragraphs)}`;
+    return `${renderPageHeading(page)}${renderParagraphGroup(blocks)}`;
   }
 
   function renderTocSections(sections) {
@@ -1298,5 +1388,6 @@
     void initializeHumanWrites();
   }
 })();
+
 
 
