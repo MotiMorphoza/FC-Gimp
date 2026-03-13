@@ -938,7 +938,7 @@
 
       const context = state.audioCtx;
       const time = context.currentTime;
-      const duration = 0.12;
+      const duration = 0.1;
       const sampleRate = context.sampleRate;
       const frameCount = Math.max(1, Math.floor(sampleRate * duration));
       const buffer = context.createBuffer(1, frameCount, sampleRate);
@@ -946,7 +946,7 @@
 
       for (let index = 0; index < frameCount; index += 1) {
         const progress = index / frameCount;
-        const envelope = Math.pow(1 - progress, 2.4);
+        const envelope = Math.pow(1 - progress, 3.2);
         channel[index] = (Math.random() * 2 - 1) * envelope;
       }
 
@@ -956,11 +956,11 @@
 
       source.buffer = buffer;
       filter.type = "bandpass";
-      filter.frequency.setValueAtTime(1600, time);
-      filter.Q.setValueAtTime(0.8, time);
+      filter.frequency.setValueAtTime(1050, time);
+      filter.Q.setValueAtTime(0.55, time);
 
       gain.gain.setValueAtTime(0.0001, time);
-      gain.gain.exponentialRampToValueAtTime(0.012, time + 0.018);
+      gain.gain.exponentialRampToValueAtTime(0.006, time + 0.02);
       gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
 
       source.connect(filter);
@@ -1298,4 +1298,5 @@
     void initializeHumanWrites();
   }
 })();
+
 

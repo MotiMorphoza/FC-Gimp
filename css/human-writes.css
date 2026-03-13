@@ -199,7 +199,8 @@
 .hw-page-body--cover {
   position: relative;
   display: grid;
-  place-items: center;
+  align-content: end;
+  justify-items: start;
   overflow: hidden;
 }
 
@@ -228,8 +229,8 @@
   border-radius: 12px;
   background: rgba(12, 10, 8, 0.56);
   color: #f6eddc;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  text-align: left;
 }
 
 .hw-cover-copy p {
@@ -239,6 +240,8 @@
 
 .hw-page-body--intro {
   align-content: center;
+  justify-items: center;
+  text-align: center;
   padding-inline: clamp(0px, 2vw, 16px);
 }
 
@@ -678,8 +681,8 @@
   border-radius: 12px;
   background: rgba(12, 10, 8, 0.56);
   color: #f6eddc;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  text-align: left;
 }
 
   .hw-cover-copy h2 {
@@ -851,6 +854,8 @@
   display: grid;
   gap: 0.45rem;
 }
+
+
 
 
 
