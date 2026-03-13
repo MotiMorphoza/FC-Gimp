@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,19 +13,43 @@
       </div>
 
       <div class="morphoza-carousel-view" data-morphoza-carousel-view>
-        <div class="morphoza-carousel-shell">
-          <button class="morphoza-nav morphoza-nav--left" type="button" aria-label="Previous video" data-morphoza-nav="prev">
-            <span aria-hidden="true">&#8592;</span>
-          </button>
-
-          <div class="morphoza-carousel" aria-live="polite">
-            <div class="morphoza-track" data-morphoza-track></div>
+        <section class="morphoza-rail" data-morphoza-rail="me" aria-label="Me carousel">
+          <div class="morphoza-rail-header">
+            <h2 class="morphoza-rail-title">ME</h2>
           </div>
+          <div class="morphoza-carousel-shell">
+            <button class="morphoza-nav morphoza-nav--left" type="button" aria-label="Previous video in Me" data-morphoza-nav="prev">
+              <span aria-hidden="true">&#8592;</span>
+            </button>
 
-          <button class="morphoza-nav morphoza-nav--right" type="button" aria-label="Next video" data-morphoza-nav="next">
-            <span aria-hidden="true">&#8594;</span>
-          </button>
-        </div>
+            <div class="morphoza-carousel" aria-live="polite" data-morphoza-carousel="me">
+              <div class="morphoza-track" data-morphoza-track="me"></div>
+            </div>
+
+            <button class="morphoza-nav morphoza-nav--right" type="button" aria-label="Next video in Me" data-morphoza-nav="next">
+              <span aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="morphoza-rail" data-morphoza-rail="mine" aria-label="Mine carousel">
+          <div class="morphoza-rail-header">
+            <h2 class="morphoza-rail-title">MINE</h2>
+          </div>
+          <div class="morphoza-carousel-shell">
+            <button class="morphoza-nav morphoza-nav--left" type="button" aria-label="Previous video in Mine" data-morphoza-nav="prev">
+              <span aria-hidden="true">&#8592;</span>
+            </button>
+
+            <div class="morphoza-carousel" aria-live="polite" data-morphoza-carousel="mine">
+              <div class="morphoza-track" data-morphoza-track="mine"></div>
+            </div>
+
+            <button class="morphoza-nav morphoza-nav--right" type="button" aria-label="Next video in Mine" data-morphoza-nav="next">
+              <span aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+        </section>
       </div>
 
       <div class="morphoza-player-view" data-morphoza-player-view hidden>

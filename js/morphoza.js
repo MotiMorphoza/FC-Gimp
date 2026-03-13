@@ -2,6 +2,15 @@
   const PAGE_ID = "more";
   const TEMPLATE_URL = "morphoza.html";
   const MOBILE_QUERY = "(max-width: 900px)";
+  const RAIL_KEYS = ["me", "mine"];
+  const DEFAULT_ACTIVE_RAIL = "me";
+
+  function createRailState() {
+    return {
+      me: { activeIndex: 0 },
+      mine: { activeIndex: 0 }
+    };
+  }
 
   const state = {
     pane: null,
@@ -10,17 +19,19 @@
     root: null,
     refs: {},
     videos: [],
-    activeIndex: 0,
-    playerIndex: null,
-    mobileInlineIndex: null,
+    rails: createRailState(),
+    activeRailKey: DEFAULT_ACTIVE_RAIL,
+    player: null,
+    inlinePlayer: null,
     preloaded: new Set(),
     wallSlots: [],
     wallTimer: null,
     videosPromise: null,
     templatePromise: null,
-    moveTimer: null,
+    moveTimers: Object.create(null),
     initPromise: null,
-    globalListenersBound: false
+    globalListenersBound: false,
+    railPositionsInitialized: false
   };
 
   function versionQuery() {
@@ -40,6 +51,47 @@
     return target instanceof Element && Boolean(
       target.closest("input, textarea, select, [contenteditable='true']")
     );
+  }
+
+  function getDefaultRailIndex(railKey, total) {
+    if (!total) return 0;
+    if (railKey === "mine") {
+      return Math.floor(total / 2) % total;
+    }
+    return 0;
+  }
+
+  function normalizeIndex(index, total) {
+    if (!total) return 0;
+    const numericIndex = Number(index);
+    if (!Number.isInteger(numericIndex)) return 0;
+    return ((numericIndex % total) + total) % total;
+  }
+
+  function ensureRailPositions(options = {}) {
+    const total = state.videos.length;
+    const reset = options.reset === true;
+
+    if (!total) {
+      state.rails = createRailState();
+      state.activeRailKey = DEFAULT_ACTIVE_RAIL;
+      return;
+    }
+
+    RAIL_KEYS.forEach((railKey) => {
+      const currentIndex = state.rails[railKey]?.activeIndex;
+      if (reset || !Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= total) {
+        state.rails[railKey].activeIndex = getDefaultRailIndex(railKey, total);
+      }
+    });
+
+    if (Number.isInteger(options.meStartIndex)) {
+      state.rails.me.activeIndex = normalizeIndex(options.meStartIndex, total);
+    }
+
+    if (!RAIL_KEYS.includes(state.activeRailKey)) {
+      state.activeRailKey = DEFAULT_ACTIVE_RAIL;
+    }
   }
 
   async function fetchTemplateMarkup() {
@@ -147,43 +199,58 @@
     state.preloaded.add(videoId);
   }
 
-  function preloadVisibleThumbs() {
-    if (!state.videos.length) return;
+  function preloadVisibleThumbs(railKey) {
+    if (!state.videos.length || !state.rails[railKey]) return;
 
     [0, -1, 1, -2, 2].forEach((delta) => {
-      const index = (state.activeIndex + delta + state.videos.length) % state.videos.length;
+      const index = (state.rails[railKey].activeIndex + delta + state.videos.length) % state.videos.length;
       preloadThumb(state.videos[index] && state.videos[index].id);
     });
+  }
+
+  function getRailRefs(railKey) {
+    return state.refs.rails ? state.refs.rails[railKey] : null;
+  }
+
+  function getRailItems(railKey) {
+    const railRefs = getRailRefs(railKey);
+    return railRefs?.track ? Array.from(railRefs.track.querySelectorAll(".morphoza-item")) : [];
   }
 
   function captureRefs() {
     state.refs = {
       carouselView: state.root.querySelector("[data-morphoza-carousel-view]"),
       playerView: state.root.querySelector("[data-morphoza-player-view]"),
-      track: state.root.querySelector("[data-morphoza-track]"),
       iframe: state.root.querySelector("[data-morphoza-iframe]"),
-      carousel: state.root.querySelector(".morphoza-carousel")
+      rails: {}
     };
 
-    const required = ["carouselView", "playerView", "track", "iframe", "carousel"];
+    RAIL_KEYS.forEach((railKey) => {
+      state.refs.rails[railKey] = {
+        rail: state.root.querySelector(`[data-morphoza-rail='${railKey}']`),
+        carousel: state.root.querySelector(`[data-morphoza-carousel='${railKey}']`),
+        track: state.root.querySelector(`[data-morphoza-track='${railKey}']`)
+      };
+    });
+
+    const required = ["carouselView", "playerView", "iframe"];
     for (const name of required) {
       if (!state.refs[name]) {
         throw new Error(`Morphoza reference missing: ${name}`);
       }
     }
+
+    RAIL_KEYS.forEach((railKey) => {
+      const railRefs = state.refs.rails[railKey];
+      if (!railRefs?.rail || !railRefs.carousel || !railRefs.track) {
+        throw new Error(`Morphoza rail reference missing: ${railKey}`);
+      }
+    });
   }
 
-  function renderItems() {
-    const track = state.refs.track;
-    if (!track) return;
-
-    if (!state.videos.length) {
-      track.innerHTML = "";
-      return;
-    }
-
-    track.innerHTML = state.videos.map((video, index) => `
-      <article class="morphoza-item" data-video-index="${index}">
+  function createItemMarkup(video, index, railKey) {
+    return `
+      <article class="morphoza-item" data-video-index="${index}" data-rail-key="${railKey}">
         <button class="morphoza-item-button" type="button" aria-label="${video.title}">
           <div class="morphoza-item-figure">
             <img src="${getThumbUrl(video.id)}" alt="${video.title}" loading="lazy" decoding="async">
@@ -191,23 +258,38 @@
           <p class="morphoza-item-title">${video.title}</p>
         </button>
       </article>
-    `).join("");
+    `;
   }
 
-  function updateCarousel() {
-    const items = state.root ? state.root.querySelectorAll(".morphoza-item") : [];
-    if (!items.length || !state.videos.length) return;
+  function renderItems() {
+    RAIL_KEYS.forEach((railKey) => {
+      const railRefs = getRailRefs(railKey);
+      if (!railRefs?.track) return;
+
+      if (!state.videos.length) {
+        railRefs.track.innerHTML = "";
+        return;
+      }
+
+      railRefs.track.innerHTML = state.videos.map((video, index) => createItemMarkup(video, index, railKey)).join("");
+    });
+  }
+
+  function updateCarousel(railKey) {
+    const railState = state.rails[railKey];
+    const railRefs = getRailRefs(railKey);
+    const items = getRailItems(railKey);
+
+    if (!railState || !railRefs?.carousel || !items.length || !state.videos.length) return;
 
     const isMobile = isMobileMorphoza();
-
-    if (state.refs.carousel) {
-      state.refs.carousel.style.setProperty("--bg-shift", `${-state.activeIndex * 30}px`);
-    }
+    railRefs.carousel.style.setProperty("--bg-shift", `${-railState.activeIndex * 30}px`);
 
     items.forEach((item, index) => {
-      const offset = getCircularOffset(index, state.activeIndex, items.length);
+      const offset = getCircularOffset(index, railState.activeIndex, items.length);
       const slot = getSlotStyle(offset, isMobile);
       const isActive = offset === 0;
+      const button = item.querySelector(".morphoza-item-button");
 
       item.style.setProperty("--item-x", slot.x);
       item.style.setProperty("--item-y", slot.y);
@@ -219,10 +301,14 @@
       item.style.setProperty("--item-z", String(slot.z));
       item.classList.toggle("is-active", isActive);
       item.setAttribute("aria-hidden", Math.abs(offset) > 2 ? "true" : "false");
-      item.querySelector(".morphoza-item-button")?.setAttribute("aria-pressed", isActive ? "true" : "false");
+      button?.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
 
-    preloadVisibleThumbs();
+    preloadVisibleThumbs(railKey);
+  }
+
+  function updateAllCarousels() {
+    RAIL_KEYS.forEach(updateCarousel);
   }
 
   function resetPlayer() {
@@ -238,8 +324,8 @@
       state.refs.iframe = nextFrame;
     }
 
-    state.playerIndex = null;
-    state.mobileInlineIndex = null;
+    state.player = null;
+    state.inlinePlayer = null;
   }
 
   function showGalleryView() {
@@ -247,28 +333,32 @@
     state.refs.playerView?.setAttribute("hidden", "hidden");
   }
 
-  function showPlayer(index) {
+  function showPlayer(railKey, index) {
     const video = state.videos[index];
     if (!video || !state.refs.iframe) return;
 
-    state.playerIndex = index;
-    state.mobileInlineIndex = null;
+    state.activeRailKey = railKey;
+    state.player = { railKey, index };
+    state.inlinePlayer = null;
     state.refs.carouselView?.setAttribute("hidden", "hidden");
     state.refs.playerView?.removeAttribute("hidden");
     state.refs.iframe.src = getEmbedUrl(video.id);
   }
 
-  function showInlineMobilePlayer(index, options = {}) {
+  function showInlineMobilePlayer(railKey, index, options = {}) {
     const video = state.videos[index];
-    if (!video) return;
+    const railRefs = getRailRefs(railKey);
+    if (!video || !railRefs?.track) return;
+
+    state.activeRailKey = railKey;
+    state.rails[railKey].activeIndex = index;
+    state.player = { railKey, index };
+    state.inlinePlayer = { railKey, index };
 
     renderItems();
-    state.activeIndex = index;
-    state.playerIndex = index;
-    state.mobileInlineIndex = index;
-    updateCarousel();
+    updateAllCarousels();
 
-    const item = state.root.querySelector(`.morphoza-item[data-video-index="${index}"]`);
+    const item = railRefs.track.querySelector(`.morphoza-item[data-video-index='${index}']`);
     const figure = item?.querySelector(".morphoza-item-figure");
     if (!item || !figure) return;
 
@@ -287,23 +377,25 @@
     }
   }
 
-  function move(direction) {
-    if (!state.videos.length || !state.root) return;
+  function move(railKey, direction) {
+    const railState = state.rails[railKey];
+    const railRefs = getRailRefs(railKey);
+    if (!railState || !railRefs?.carousel || !state.videos.length || !state.root) return;
 
-    const carousel = state.refs.carousel;
-    if (carousel) {
-      carousel.classList.add("moving");
-      if (state.moveTimer) {
-        window.clearTimeout(state.moveTimer);
-      }
-      state.moveTimer = window.setTimeout(() => {
-        carousel.classList.remove("moving");
-        state.moveTimer = null;
-      }, 450);
+    state.activeRailKey = railKey;
+    railRefs.carousel.classList.add("moving");
+
+    if (state.moveTimers[railKey]) {
+      window.clearTimeout(state.moveTimers[railKey]);
     }
 
-    state.activeIndex = (state.activeIndex + direction + state.videos.length) % state.videos.length;
-    updateCarousel();
+    state.moveTimers[railKey] = window.setTimeout(() => {
+      railRefs.carousel.classList.remove("moving");
+      state.moveTimers[railKey] = null;
+    }, 450);
+
+    railState.activeIndex = (railState.activeIndex + direction + state.videos.length) % state.videos.length;
+    updateCarousel(railKey);
   }
 
   function assignWallCell(cell, videoIndex) {
@@ -413,7 +505,11 @@
   function handleModuleClick(event) {
     const nav = event.target.closest("[data-morphoza-nav]");
     if (nav) {
-      move(nav.dataset.morphozaNav === "next" ? 1 : -1);
+      const rail = nav.closest("[data-morphoza-rail]");
+      const railKey = rail?.dataset.morphozaRail;
+      if (RAIL_KEYS.includes(railKey)) {
+        move(railKey, nav.dataset.morphozaNav === "next" ? 1 : -1);
+      }
       return;
     }
 
@@ -422,30 +518,35 @@
       showGalleryView();
       resetPlayer();
       renderItems();
-      updateCarousel();
+      updateAllCarousels();
       return;
     }
 
     const item = event.target.closest(".morphoza-item");
     if (!item) return;
 
+    const rail = item.closest("[data-morphoza-rail]");
+    const railKey = rail?.dataset.morphozaRail;
     const index = Number(item.dataset.videoIndex);
-    if (!Number.isInteger(index)) return;
+
+    if (!RAIL_KEYS.includes(railKey) || !Number.isInteger(index)) return;
+
+    state.activeRailKey = railKey;
 
     if (isMobileMorphoza()) {
-      showInlineMobilePlayer(index);
+      showInlineMobilePlayer(railKey, index);
       return;
     }
 
-    if (index === state.activeIndex) {
-      state.activeIndex = index;
-      updateCarousel();
-      showPlayer(index);
+    if (index === state.rails[railKey].activeIndex) {
+      state.rails[railKey].activeIndex = index;
+      updateCarousel(railKey);
+      showPlayer(railKey, index);
       return;
     }
 
-    state.activeIndex = index;
-    updateCarousel();
+    state.rails[railKey].activeIndex = index;
+    updateCarousel(railKey);
   }
 
   function handleKeydown(event) {
@@ -455,13 +556,13 @@
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      move(1);
+      move(state.activeRailKey, 1);
       return;
     }
 
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      move(-1);
+      move(state.activeRailKey, -1);
       return;
     }
 
@@ -471,7 +572,7 @@
         showGalleryView();
         resetPlayer();
         renderItems();
-        updateCarousel();
+        updateAllCarousels();
       }
     }
   }
@@ -480,11 +581,28 @@
     if (document.body.dataset.page !== PAGE_ID || !state.root || !state.root.isConnected) return;
     if (!state.shell || state.shell.hidden) return;
 
-    renderItems();
-    updateCarousel();
+    const wasPlayerVisible = Boolean(state.refs.playerView && !state.refs.playerView.hidden);
+    const currentPlayer = state.player;
+    const currentInline = state.inlinePlayer;
 
-    if (isMobileMorphoza() && Number.isInteger(state.mobileInlineIndex) && state.videos[state.mobileInlineIndex]) {
-      showInlineMobilePlayer(state.mobileInlineIndex, { scrollIntoView: false });
+    renderItems();
+    updateAllCarousels();
+
+    if (isMobileMorphoza()) {
+      if (currentInline && RAIL_KEYS.includes(currentInline.railKey) && Number.isInteger(currentInline.index) && state.videos[currentInline.index]) {
+        showInlineMobilePlayer(currentInline.railKey, currentInline.index, { scrollIntoView: false });
+        return;
+      }
+
+      if (wasPlayerVisible && currentPlayer && RAIL_KEYS.includes(currentPlayer.railKey) && Number.isInteger(currentPlayer.index) && state.videos[currentPlayer.index]) {
+        showGalleryView();
+        showInlineMobilePlayer(currentPlayer.railKey, currentPlayer.index, { scrollIntoView: false });
+      }
+      return;
+    }
+
+    if (currentInline) {
+      state.inlinePlayer = null;
     }
   }
 
@@ -563,11 +681,14 @@
       try {
         await mountModule();
         await fetchVideos();
-        if (state.activeIndex >= state.videos.length) {
-          state.activeIndex = 0;
+        if (!state.railPositionsInitialized) {
+          ensureRailPositions({ reset: true });
+          state.railPositionsInitialized = true;
+        } else {
+          ensureRailPositions();
         }
         renderItems();
-        updateCarousel();
+        updateAllCarousels();
         initWall();
       } catch (error) {
         showError(error instanceof Error ? error.message : "Unable to load Morphoza module.");
@@ -585,16 +706,21 @@
 
     stopWallRotation();
 
+    if (options.resetToStart === true) {
+      ensureRailPositions({ reset: true });
+    } else {
+      ensureRailPositions();
+    }
+
     if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < state.videos.length) {
-      state.activeIndex = options.startIndex;
-    } else if (options.resetToStart === true) {
-      state.activeIndex = 0;
+      state.rails.me.activeIndex = normalizeIndex(options.startIndex, state.videos.length);
+      state.activeRailKey = "me";
     }
 
     showGalleryView();
     resetPlayer();
     renderItems();
-    updateCarousel();
+    updateAllCarousels();
   }
 
   async function activateHome() {
@@ -604,7 +730,7 @@
     showGalleryView();
     resetPlayer();
     renderItems();
-    updateCarousel();
+    updateAllCarousels();
     startWallRotation();
   }
 
@@ -617,7 +743,7 @@
       showGalleryView();
       resetPlayer();
       renderItems();
-      updateCarousel();
+      updateAllCarousels();
     }
 
     if (options.resumeHome) {
