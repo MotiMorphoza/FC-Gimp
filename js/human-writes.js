@@ -960,7 +960,7 @@
       filter.Q.setValueAtTime(0.55, time);
 
       gain.gain.setValueAtTime(0.0001, time);
-      gain.gain.exponentialRampToValueAtTime(0.006, time + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.017, time + 0.02);
       gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
 
       source.connect(filter);
