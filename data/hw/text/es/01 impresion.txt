@@ -1,5 +1,5 @@
 LAYOUT: 01
-TITLE: Impresión de un momento
+TITLE: Impresión
 IMAGE:
 HIDDEN:
 BODY:
