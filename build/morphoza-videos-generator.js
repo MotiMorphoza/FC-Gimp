@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 const fs = require('fs');
 const path = require('path');
@@ -8,6 +8,7 @@ const FETCH_TIMEOUT_MS = 5000;
 const MAX_ATTEMPTS = 3;
 const RETRY_DELAYS_MS = [500, 1000];
 const FALLBACK_TITLE = 'Video';
+const RAIL_KEYS = ['me', 'mine'];
 
 function isRealTitle(title) {
   const value = String(title || '').trim();
@@ -25,6 +26,50 @@ function readJson(filePath, fallbackValue) {
   } catch (_error) {
     return fallbackValue;
   }
+}
+
+function normalizeSourcePayload(payload) {
+  if (Array.isArray(payload)) {
+    return {
+      me: payload,
+      mine: []
+    };
+  }
+
+  if (payload && typeof payload === 'object') {
+    return {
+      me: Array.isArray(payload.me) ? payload.me : [],
+      mine: Array.isArray(payload.mine) ? payload.mine : []
+    };
+  }
+
+  throw new Error('morphoza-videos.json must contain either a JSON array of video IDs or an object with me/mine arrays');
+}
+
+function buildExistingTitleMap(existingPayload) {
+  const map = new Map();
+
+  if (Array.isArray(existingPayload)) {
+    existingPayload
+      .filter((entry) => entry && typeof entry.id === 'string')
+      .forEach((entry) => {
+        map.set(entry.id, String(entry.title || '').trim());
+      });
+    return map;
+  }
+
+  if (existingPayload && typeof existingPayload === 'object') {
+    RAIL_KEYS.forEach((railKey) => {
+      const entries = Array.isArray(existingPayload[railKey]) ? existingPayload[railKey] : [];
+      entries
+        .filter((entry) => entry && typeof entry.id === 'string')
+        .forEach((entry) => {
+          map.set(entry.id, String(entry.title || '').trim());
+        });
+    });
+  }
+
+  return map;
 }
 
 async function fetchVideoTitleOnce(videoId) {
@@ -88,27 +133,27 @@ async function generateMorphozaVideos({
   logger,
   delayMs = DEFAULT_DELAY_MS
 }) {
-  const ids = readJson(sourcePath, []);
-  if (!Array.isArray(ids)) {
-    throw new Error('morphoza-videos.json must contain a JSON array of video IDs');
-  }
-
+  const source = normalizeSourcePayload(readJson(sourcePath, []));
   const existing = readJson(outputPath, []);
-  const existingMap = new Map(
-    Array.isArray(existing)
-      ? existing
-          .filter((entry) => entry && typeof entry.id === 'string')
-          .map((entry) => [entry.id, String(entry.title || '').trim()])
-      : []
-  );
+  const existingMap = buildExistingTitleMap(existing);
 
-  const result = [];
+  const queue = [];
+  RAIL_KEYS.forEach((railKey) => {
+    source[railKey].forEach((rawId) => {
+      const videoId = String(rawId || '').trim();
+      if (!videoId) return;
+      queue.push({ railKey, videoId });
+    });
+  });
+
+  const result = {
+    me: [],
+    mine: []
+  };
   const summary = { fetched: 0, preserved: 0, fallback: 0 };
 
-  for (let index = 0; index < ids.length; index += 1) {
-    const videoId = String(ids[index] || '').trim();
-    if (!videoId) continue;
-
+  for (let index = 0; index < queue.length; index += 1) {
+    const { railKey, videoId } = queue[index];
     const existingTitle = existingMap.get(videoId) || '';
     let title = isRealTitle(existingTitle) ? existingTitle : FALLBACK_TITLE;
 
@@ -117,27 +162,27 @@ async function generateMorphozaVideos({
       title = fetched.title;
       summary.fetched += 1;
       if (logger?.info) {
-        logger.info(`[morphoza] ${videoId} ✓ title fetched from YouTube (attempt ${fetched.attempts})`);
+        logger.info(`[morphoza] ${videoId} ? title fetched from YouTube (attempt ${fetched.attempts})`);
       }
     } catch (error) {
       if (isRealTitle(existingTitle)) {
         title = existingTitle;
         summary.preserved += 1;
         if (logger?.info) {
-          logger.info(`[morphoza] ${videoId} ✓ title preserved from existing file`);
+          logger.info(`[morphoza] ${videoId} ? title preserved from existing file`);
         }
       } else {
         title = FALLBACK_TITLE;
         summary.fallback += 1;
         if (logger?.warn) {
-          logger.warn(`[morphoza] ${videoId} ⚠ fetch failed -> fallback used (${error.message})`);
+          logger.warn(`[morphoza] ${videoId} ? fetch failed -> fallback used (${error.message})`);
         }
       }
     }
 
-    result.push({ id: videoId, title });
+    result[railKey].push({ id: videoId, title });
 
-    if (index < ids.length - 1) {
+    if (index < queue.length - 1) {
       await sleep(delayMs);
     }
   }
@@ -150,7 +195,7 @@ async function generateMorphozaVideos({
   if (currentJson !== nextJson) {
     fs.writeFileSync(outputPath, nextJson, 'utf8');
     if (logger?.info) {
-      logger.info(`[morphoza] wrote ${result.length} video entries`);
+      logger.info(`[morphoza] wrote ${queue.length} video entries across ${RAIL_KEYS.length} rails`);
     }
   } else if (logger?.info) {
     logger.info('[morphoza] no changes detected, skipped writing generated file');

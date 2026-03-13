@@ -7,8 +7,8 @@
 
   function createRailState() {
     return {
-      me: { activeIndex: 0 },
-      mine: { activeIndex: 0 }
+      me: { videos: [], activeIndex: 0 },
+      mine: { videos: [], activeIndex: 0 }
     };
   }
 
@@ -18,8 +18,8 @@
     host: null,
     root: null,
     refs: {},
-    videos: [],
     rails: createRailState(),
+    allVideos: [],
     activeRailKey: DEFAULT_ACTIVE_RAIL,
     player: null,
     inlinePlayer: null,
@@ -53,12 +53,51 @@
     );
   }
 
-  function getDefaultRailIndex(railKey, total) {
-    if (!total) return 0;
-    if (railKey === "mine") {
-      return Math.floor(total / 2) % total;
-    }
-    return 0;
+  function sanitizeGeneratedEntries(entries) {
+    if (!Array.isArray(entries)) return [];
+
+    return entries
+      .map((entry) => {
+        if (typeof entry === "string") {
+          const id = entry.trim();
+          return id ? { id, title: "Video" } : null;
+        }
+
+        if (!entry || typeof entry !== "object") return null;
+
+        const id = typeof entry.id === "string" ? entry.id.trim() : "";
+        if (!id) return null;
+
+        const title = typeof entry.title === "string" && entry.title.trim()
+          ? entry.title.trim()
+          : "Video";
+
+        return { id, title };
+      })
+      .filter(Boolean);
+  }
+
+  function mergeUniqueVideos(videosByRail) {
+    const seen = new Set();
+    const merged = [];
+
+    RAIL_KEYS.forEach((railKey) => {
+      videosByRail[railKey].forEach((video) => {
+        if (seen.has(video.id)) return;
+        seen.add(video.id);
+        merged.push(video);
+      });
+    });
+
+    return merged;
+  }
+
+  function getRailVideos(railKey) {
+    return state.rails[railKey]?.videos || [];
+  }
+
+  function getFirstAvailableRailKey() {
+    return RAIL_KEYS.find((railKey) => getRailVideos(railKey).length > 0) || DEFAULT_ACTIVE_RAIL;
   }
 
   function normalizeIndex(index, total) {
@@ -69,29 +108,40 @@
   }
 
   function ensureRailPositions(options = {}) {
-    const total = state.videos.length;
     const reset = options.reset === true;
 
-    if (!total) {
-      state.rails = createRailState();
-      state.activeRailKey = DEFAULT_ACTIVE_RAIL;
-      return;
-    }
-
     RAIL_KEYS.forEach((railKey) => {
-      const currentIndex = state.rails[railKey]?.activeIndex;
-      if (reset || !Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= total) {
-        state.rails[railKey].activeIndex = getDefaultRailIndex(railKey, total);
+      const rail = state.rails[railKey];
+      const total = rail.videos.length;
+
+      if (!total) {
+        rail.activeIndex = 0;
+        return;
+      }
+
+      if (reset || !Number.isInteger(rail.activeIndex) || rail.activeIndex < 0 || rail.activeIndex >= total) {
+        rail.activeIndex = 0;
       }
     });
 
-    if (Number.isInteger(options.meStartIndex)) {
-      state.rails.me.activeIndex = normalizeIndex(options.meStartIndex, total);
+    const fallbackRailKey = getFirstAvailableRailKey();
+    if (!RAIL_KEYS.includes(state.activeRailKey) || !getRailVideos(state.activeRailKey).length) {
+      state.activeRailKey = fallbackRailKey;
+    }
+  }
+
+  function findVideoLocation(videoId) {
+    const targetId = String(videoId || "").trim();
+    if (!targetId) return null;
+
+    for (const railKey of RAIL_KEYS) {
+      const index = getRailVideos(railKey).findIndex((video) => video.id === targetId);
+      if (index >= 0) {
+        return { railKey, index };
+      }
     }
 
-    if (!RAIL_KEYS.includes(state.activeRailKey)) {
-      state.activeRailKey = DEFAULT_ACTIVE_RAIL;
-    }
+    return null;
   }
 
   async function fetchTemplateMarkup() {
@@ -122,22 +172,25 @@
           return response.json();
         })
         .then((payload) => {
-          state.videos = Array.isArray(payload)
-            ? payload
-                .filter((entry) => entry && typeof entry.id === "string" && entry.id.trim())
-                .map((entry) => ({
-                  id: entry.id.trim(),
-                  title: typeof entry.title === "string" && entry.title.trim()
-                    ? entry.title.trim()
-                    : "Video"
-                }))
-            : [];
+          const railsPayload = Array.isArray(payload)
+            ? { me: payload, mine: [] }
+            : (payload && typeof payload === "object" ? payload : {});
 
-          return state.videos;
+          const normalized = {
+            me: sanitizeGeneratedEntries(railsPayload.me),
+            mine: sanitizeGeneratedEntries(railsPayload.mine)
+          };
+
+          state.rails.me.videos = normalized.me;
+          state.rails.mine.videos = normalized.mine;
+          state.allVideos = mergeUniqueVideos(normalized);
+
+          return state.rails;
         })
         .catch(() => {
-          state.videos = [];
-          return state.videos;
+          state.rails = createRailState();
+          state.allVideos = [];
+          return state.rails;
         });
     }
 
@@ -200,11 +253,13 @@
   }
 
   function preloadVisibleThumbs(railKey) {
-    if (!state.videos.length || !state.rails[railKey]) return;
+    const videos = getRailVideos(railKey);
+    const rail = state.rails[railKey];
+    if (!videos.length || !rail) return;
 
     [0, -1, 1, -2, 2].forEach((delta) => {
-      const index = (state.rails[railKey].activeIndex + delta + state.videos.length) % state.videos.length;
-      preloadThumb(state.videos[index] && state.videos[index].id);
+      const index = (rail.activeIndex + delta + videos.length) % videos.length;
+      preloadThumb(videos[index] && videos[index].id);
     });
   }
 
@@ -250,7 +305,7 @@
 
   function createItemMarkup(video, index, railKey) {
     return `
-      <article class="morphoza-item" data-video-index="${index}" data-rail-key="${railKey}">
+      <article class="morphoza-item" data-video-index="${index}" data-rail-key="${railKey}" data-video-id="${video.id}">
         <button class="morphoza-item-button" type="button" aria-label="${video.title}">
           <div class="morphoza-item-figure">
             <img src="${getThumbUrl(video.id)}" alt="${video.title}" loading="lazy" decoding="async">
@@ -264,25 +319,30 @@
   function renderItems() {
     RAIL_KEYS.forEach((railKey) => {
       const railRefs = getRailRefs(railKey);
-      if (!railRefs?.track) return;
+      const videos = getRailVideos(railKey);
+      if (!railRefs?.track || !railRefs?.rail) return;
 
-      if (!state.videos.length) {
+      if (!videos.length) {
         railRefs.track.innerHTML = "";
+        railRefs.rail.hidden = true;
         return;
       }
 
-      railRefs.track.innerHTML = state.videos.map((video, index) => createItemMarkup(video, index, railKey)).join("");
+      railRefs.rail.hidden = false;
+      railRefs.track.innerHTML = videos.map((video, index) => createItemMarkup(video, index, railKey)).join("");
     });
   }
 
   function updateCarousel(railKey) {
     const railState = state.rails[railKey];
     const railRefs = getRailRefs(railKey);
+    const videos = getRailVideos(railKey);
     const items = getRailItems(railKey);
 
-    if (!railState || !railRefs?.carousel || !items.length || !state.videos.length) return;
+    if (!railState || !railRefs?.carousel || !items.length || !videos.length) return;
 
     const isMobile = isMobileMorphoza();
+    railState.activeIndex = normalizeIndex(railState.activeIndex, videos.length);
     railRefs.carousel.style.setProperty("--bg-shift", `${-railState.activeIndex * 30}px`);
 
     items.forEach((item, index) => {
@@ -334,7 +394,7 @@
   }
 
   function showPlayer(railKey, index) {
-    const video = state.videos[index];
+    const video = getRailVideos(railKey)[index];
     if (!video || !state.refs.iframe) return;
 
     state.activeRailKey = railKey;
@@ -346,7 +406,7 @@
   }
 
   function showInlineMobilePlayer(railKey, index, options = {}) {
-    const video = state.videos[index];
+    const video = getRailVideos(railKey)[index];
     const railRefs = getRailRefs(railKey);
     if (!video || !railRefs?.track) return;
 
@@ -380,7 +440,8 @@
   function move(railKey, direction) {
     const railState = state.rails[railKey];
     const railRefs = getRailRefs(railKey);
-    if (!railState || !railRefs?.carousel || !state.videos.length || !state.root) return;
+    const videos = getRailVideos(railKey);
+    if (!railState || !railRefs?.carousel || !videos.length || !state.root) return;
 
     state.activeRailKey = railKey;
     railRefs.carousel.classList.add("moving");
@@ -394,16 +455,17 @@
       state.moveTimers[railKey] = null;
     }, 450);
 
-    railState.activeIndex = (railState.activeIndex + direction + state.videos.length) % state.videos.length;
+    railState.activeIndex = (railState.activeIndex + direction + videos.length) % videos.length;
     updateCarousel(railKey);
   }
 
   function assignWallCell(cell, videoIndex) {
     const image = cell.querySelector("[data-wall-image]");
-    const video = state.videos[videoIndex];
+    const video = state.allVideos[videoIndex];
     if (!image || !video) return;
 
     cell.dataset.videoIndex = String(videoIndex);
+    cell.dataset.videoId = video.id;
     cell.setAttribute("aria-label", `Open Moti Morphoza video gallery from ${video.title}`);
     image.src = getThumbUrl(video.id);
     image.alt = video.title;
@@ -412,9 +474,9 @@
 
   function initWall() {
     const cells = state.pane ? Array.from(state.pane.querySelectorAll(".more-video-wall-cell")) : [];
-    if (!cells.length || !state.videos.length) return;
+    if (!cells.length || !state.allVideos.length) return;
 
-    state.wallSlots = cells.map((_, index) => index % state.videos.length);
+    state.wallSlots = cells.map((_, index) => index % state.allVideos.length);
     cells.forEach((cell, index) => {
       assignWallCell(cell, state.wallSlots[index]);
     });
@@ -422,7 +484,7 @@
 
   function rotateWall() {
     const cells = state.pane ? Array.from(state.pane.querySelectorAll(".more-video-wall-cell")) : [];
-    if (!cells.length || state.videos.length <= cells.length) return;
+    if (!cells.length || state.allVideos.length <= cells.length) return;
 
     const slotIndex = Math.floor(Math.random() * cells.length);
     const cell = cells[slotIndex];
@@ -430,7 +492,7 @@
     if (!image) return;
 
     const used = new Set(state.wallSlots);
-    const candidates = state.videos
+    const candidates = state.allVideos
       .map((_, index) => index)
       .filter((index) => !used.has(index) || index === state.wallSlots[slotIndex]);
 
@@ -443,7 +505,7 @@
     if (nextIndex === state.wallSlots[slotIndex]) return;
 
     image.classList.add("is-swapping");
-    preloadThumb(state.videos[nextIndex] && state.videos[nextIndex].id);
+    preloadThumb(state.allVideos[nextIndex] && state.allVideos[nextIndex].id);
 
     window.setTimeout(() => {
       state.wallSlots[slotIndex] = nextIndex;
@@ -463,7 +525,7 @@
 
   function startWallRotation() {
     stopWallRotation();
-    if (!state.videos.length) return;
+    if (!state.allVideos.length) return;
 
     initWall();
     state.wallTimer = window.setInterval(() => {
@@ -589,12 +651,12 @@
     updateAllCarousels();
 
     if (isMobileMorphoza()) {
-      if (currentInline && RAIL_KEYS.includes(currentInline.railKey) && Number.isInteger(currentInline.index) && state.videos[currentInline.index]) {
+      if (currentInline && RAIL_KEYS.includes(currentInline.railKey) && Number.isInteger(currentInline.index) && getRailVideos(currentInline.railKey)[currentInline.index]) {
         showInlineMobilePlayer(currentInline.railKey, currentInline.index, { scrollIntoView: false });
         return;
       }
 
-      if (wasPlayerVisible && currentPlayer && RAIL_KEYS.includes(currentPlayer.railKey) && Number.isInteger(currentPlayer.index) && state.videos[currentPlayer.index]) {
+      if (wasPlayerVisible && currentPlayer && RAIL_KEYS.includes(currentPlayer.railKey) && Number.isInteger(currentPlayer.index) && getRailVideos(currentPlayer.railKey)[currentPlayer.index]) {
         showGalleryView();
         showInlineMobilePlayer(currentPlayer.railKey, currentPlayer.index, { scrollIntoView: false });
       }
@@ -702,7 +764,7 @@
 
   async function show(options = {}) {
     await init();
-    if (!state.root || !state.videos.length) return;
+    if (!state.root || !state.allVideos.length) return;
 
     stopWallRotation();
 
@@ -712,8 +774,12 @@
       ensureRailPositions();
     }
 
-    if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < state.videos.length) {
-      state.rails.me.activeIndex = normalizeIndex(options.startIndex, state.videos.length);
+    const location = findVideoLocation(options.startVideoId);
+    if (location) {
+      state.rails[location.railKey].activeIndex = location.index;
+      state.activeRailKey = location.railKey;
+    } else if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < getRailVideos("me").length) {
+      state.rails.me.activeIndex = normalizeIndex(options.startIndex, getRailVideos("me").length);
       state.activeRailKey = "me";
     }
 

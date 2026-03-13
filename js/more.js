@@ -90,8 +90,10 @@
     root.addEventListener("click", (event) => {
       const wallCell = event.target.closest(".more-video-wall-cell");
       if (wallCell) {
+        const videoId = typeof wallCell.dataset.videoId === "string" ? wallCell.dataset.videoId.trim() : "";
         const index = Number(wallCell.dataset.videoIndex);
         void showMorphoza(root, {
+          startVideoId: videoId || undefined,
           startIndex: Number.isInteger(index) ? index : undefined
         });
         return;
