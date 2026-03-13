@@ -132,6 +132,25 @@
   color: #f3c2ff;
 }
 
+.morphoza-rail-header::after {
+  content: "";
+  display: block;
+  width: clamp(72px, 10vw, 120px);
+  height: 1px;
+  margin-left: 1rem;
+  opacity: 0.85;
+}
+
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-rail-header::after {
+  background: linear-gradient(90deg, rgba(143, 200, 255, 0.95), rgba(143, 200, 255, 0.12));
+  box-shadow: 0 0 16px rgba(143, 200, 255, 0.24);
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-rail-header::after {
+  background: linear-gradient(90deg, rgba(243, 194, 255, 0.95), rgba(243, 194, 255, 0.12));
+  box-shadow: 0 0 16px rgba(243, 194, 255, 0.22);
+}
+
 .morphoza-carousel-shell {
   height: 100%;
   min-height: 0;
@@ -179,6 +198,40 @@
   );
 }
 
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-carousel {
+  border-color: rgba(143, 200, 255, 0.14);
+  background:
+    radial-gradient(circle at 24% 18%, rgba(143, 200, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 80% 78%, rgba(95, 160, 255, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #06101a;
+  box-shadow: inset 0 0 0 1px rgba(143, 200, 255, 0.05);
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-carousel {
+  border-color: rgba(243, 194, 255, 0.15);
+  background:
+    radial-gradient(circle at 74% 20%, rgba(243, 194, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(255, 180, 212, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #170814;
+  box-shadow: inset 0 0 0 1px rgba(243, 194, 255, 0.05);
+}
+
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-carousel::before {
+  background:
+    radial-gradient(circle at 28% 24%, rgba(143, 200, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 76% 70%, rgba(170, 225, 255, 0.06), transparent 52%),
+    radial-gradient(circle at 50% 88%, rgba(120, 170, 255, 0.05), transparent 56%);
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-carousel::before {
+  background:
+    radial-gradient(circle at 72% 24%, rgba(243, 194, 255, 0.13), transparent 40%),
+    radial-gradient(circle at 24% 76%, rgba(255, 205, 228, 0.06), transparent 52%),
+    radial-gradient(circle at 52% 88%, rgba(255, 176, 214, 0.05), transparent 56%);
+}
+
 .morphoza-track {
   position: relative;
   width: 100%;
@@ -224,6 +277,28 @@
   box-shadow:
     0 45px 110px rgba(0, 0, 0, 0.55),
     0 0 35px rgba(255, 255, 255, 0.08);
+}
+
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-item {
+  background: linear-gradient(180deg, rgba(143, 200, 255, 0.06), rgba(255, 255, 255, 0.03));
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-item {
+  background: linear-gradient(180deg, rgba(243, 194, 255, 0.06), rgba(255, 255, 255, 0.03));
+}
+
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-item.is-active {
+  border-color: rgba(143, 200, 255, 0.38);
+  box-shadow:
+    0 45px 110px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(143, 200, 255, 0.2);
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-item.is-active {
+  border-color: rgba(243, 194, 255, 0.4);
+  box-shadow:
+    0 45px 110px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(243, 194, 255, 0.2);
 }
 
 .morphoza-item.is-active::after {
@@ -336,6 +411,20 @@
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
+.morphoza-rail[data-morphoza-rail="me"] .morphoza-nav {
+  border-color: rgba(143, 200, 255, 0.22);
+  background: linear-gradient(180deg, rgba(143, 200, 255, 0.08), rgba(8, 18, 32, 0.35));
+  color: #a8d9ff;
+  box-shadow: inset 0 0 0 1px rgba(143, 200, 255, 0.04);
+}
+
+.morphoza-rail[data-morphoza-rail="mine"] .morphoza-nav {
+  border-color: rgba(243, 194, 255, 0.22);
+  background: linear-gradient(180deg, rgba(243, 194, 255, 0.08), rgba(28, 10, 24, 0.36));
+  color: #ffd6ff;
+  box-shadow: inset 0 0 0 1px rgba(243, 194, 255, 0.04);
+}
+
 .morphoza-player-view {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
@@ -418,6 +507,11 @@
   .morphoza-rail + .morphoza-rail::after {
     width: 88px;
     top: -6px;
+  }
+
+  .morphoza-rail-header::after {
+    width: 62px;
+    margin-left: 0.7rem;
   }
 
   .morphoza-rail-title {
