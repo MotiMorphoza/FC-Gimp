@@ -938,21 +938,36 @@
 
       const context = state.audioCtx;
       const time = context.currentTime;
-      const oscillator = context.createOscillator();
+      const duration = 0.12;
+      const sampleRate = context.sampleRate;
+      const frameCount = Math.max(1, Math.floor(sampleRate * duration));
+      const buffer = context.createBuffer(1, frameCount, sampleRate);
+      const channel = buffer.getChannelData(0);
+
+      for (let index = 0; index < frameCount; index += 1) {
+        const progress = index / frameCount;
+        const envelope = Math.pow(1 - progress, 2.4);
+        channel[index] = (Math.random() * 2 - 1) * envelope;
+      }
+
+      const source = context.createBufferSource();
+      const filter = context.createBiquadFilter();
       const gain = context.createGain();
 
-      oscillator.type = "triangle";
-      oscillator.frequency.setValueAtTime(720, time);
-      oscillator.frequency.exponentialRampToValueAtTime(310, time + 0.08);
+      source.buffer = buffer;
+      filter.type = "bandpass";
+      filter.frequency.setValueAtTime(1600, time);
+      filter.Q.setValueAtTime(0.8, time);
 
       gain.gain.setValueAtTime(0.0001, time);
-      gain.gain.exponentialRampToValueAtTime(0.02, time + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.09);
+      gain.gain.exponentialRampToValueAtTime(0.012, time + 0.018);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
 
-      oscillator.connect(gain);
+      source.connect(filter);
+      filter.connect(gain);
       gain.connect(context.destination);
-      oscillator.start(time);
-      oscillator.stop(time + 0.09);
+      source.start(time);
+      source.stop(time + duration);
     } catch {
       // Ignore browsers that block sound without a gesture.
     }
@@ -1283,3 +1298,4 @@
     void initializeHumanWrites();
   }
 })();
+

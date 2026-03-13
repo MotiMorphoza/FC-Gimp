@@ -199,7 +199,7 @@
 .hw-page-body--cover {
   position: relative;
   display: grid;
-  align-content: end;
+  place-items: center;
   overflow: hidden;
 }
 
@@ -228,6 +228,8 @@
   border-radius: 12px;
   background: rgba(12, 10, 8, 0.56);
   color: #f6eddc;
+  justify-items: center;
+  text-align: center;
 }
 
 .hw-cover-copy p {
@@ -667,10 +669,18 @@
   }
 
   .hw-cover-copy {
-    max-width: 62%;
-    padding: 0.5rem 0.56rem;
-    gap: 0.24rem;
-  }
+  position: relative;
+  z-index: 1;
+  max-width: 78%;
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(12, 10, 8, 0.56);
+  color: #f6eddc;
+  justify-items: center;
+  text-align: center;
+}
 
   .hw-cover-copy h2 {
     font-size: clamp(0.54rem, 3.15vw, 0.74rem) !important;
@@ -753,7 +763,7 @@
   }
 
   .hw-swipe-hint.is-visible {
-    top: 12px;
+    top: 58px;
     left: 12px;
     bottom: auto;
     transform: none;
@@ -841,6 +851,8 @@
   display: grid;
   gap: 0.45rem;
 }
+
+
 
 
 
