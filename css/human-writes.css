@@ -686,12 +686,12 @@
 }
 
   .hw-cover-copy h2 {
-    font-size: clamp(0.54rem, 3.15vw, 0.74rem) !important;
+    font-size: clamp(0.74rem, 3.15vw, 0.74rem) !important;
     line-height: 1.02;
   }
 
   .hw-cover-copy p {
-    font-size: clamp(0.44rem, 2.45vw, 0.58rem) !important;
+    font-size: clamp(0.64rem, 2.45vw, 0.58rem) !important;
     line-height: 1.1;
   }
 
