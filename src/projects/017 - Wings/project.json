@@ -1,0 +1,27 @@
+{
+  "title": "Wings",
+  "codePrefix": "WNG",
+  "description": "One of humanity’s greatest passions has always been to fly.
+All it takes is a pair of wings, right? (And in our case, an enormous engine.) \nBirds — dwellers of the treetops — inhabitants of lakes — the tireless recyclers of the city’s food. \nA documentation of the urban winged scene. \nFasten your seatbelts; the captain wishes you a pleasant flight..",
+ "images": [
+    { "src": "01.jpg", "caption": "" },
+    { "src": "02.jpg", "caption": "" },
+    { "src": "03.jpg", "caption": "" },
+    { "src": "04.jpg", "caption": "" },
+    { "src": "05.jpg", "caption": "" },
+    { "src": "06.jpg", "caption": "" },
+    { "src": "07.jpg", "caption": "" },
+    { "src": "08.jpg", "caption": "" },
+    { "src": "09.jpg", "caption": "" },
+    { "src": "10.jpg", "caption": "" },
+    { "src": "11.jpg", "caption": "" },
+    { "src": "12.jpg", "caption": "" },
+    { "src": "13.jpg", "caption": "" },
+    { "src": "14.jpg", "caption": "" },
+    { "src": "15.jpg", "caption": "" },
+    { "src": "16.jpg", "caption": "" },
+    { "src": "17.jpg", "caption": "" },
+    { "src": "18.jpg", "caption": "" },
+    { "src": "19.jpg", "caption": "" },
+    { "src": "20.jpg", "caption": "" }
+}
