@@ -23,7 +23,7 @@ var SHOP_CONFIG = {
   emailjsTemplateCustomer: 'template_lnqp67u',
   emailjsTemplateSeller:   'template_wmram69',
   emailjsPublicKey:        '4TVmDiBgB9ej8IlZ2',
-  emailjsAllowedDomains:   ['motimorphoza.github.io', 'localhost', '127.0.0.1'],
+  emailjsAllowedDomains:   ['www.motosynteza.art', 'motosynteza.art', 'motimorphoza.github.io', 'localhost', '127.0.0.1'],
 
   shopIndexUrl: 'shop/index.json'
 };
@@ -47,3 +47,4 @@ if (typeof window !== 'undefined') {
   window.PRINT_SIZES = PRINT_SIZES;
   window.DEFAULT_SIZE_IDX = DEFAULT_SIZE_IDX;
 }
+

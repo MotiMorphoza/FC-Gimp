@@ -1,6 +1,8 @@
 // build/head-orchestrator.js
 'use strict';
 
+const { SITE_ORIGIN } = require('./site-config');
+
 class HeadOrchestrator {
   constructor({ logger, renameMap, manifestData, version, assets, htmlFile }) {
     this.logger       = logger;
@@ -121,9 +123,8 @@ class HeadOrchestrator {
   }
 
   buildCanonical() {
-    const base     = 'https://motimorphoza.github.io/MotoSynteza/';
     const fileName = this.getFileName();
-    return base + fileName;
+    return this.buildAbsoluteUrl(fileName);
   }
 
   getMainCssPaths() {
@@ -181,24 +182,22 @@ class HeadOrchestrator {
   }
 
   getOgImage(projectMeta) {
-    const base = 'https://motimorphoza.github.io/MotoSynteza/';
-
     if (projectMeta?.slug && Array.isArray(projectMeta.images) && projectMeta.images.length) {
       const firstImage = projectMeta.images[0];
       const firstSrc = typeof firstImage === 'string' ? firstImage : firstImage.src;
       if (firstSrc) {
         const rawPath = `projects/${projectMeta.slug}/${firstSrc}`;
         const resolved = this.renameMap.get(rawPath) || rawPath;
-        return base + resolved;
+        return this.buildAbsoluteUrl(resolved);
       }
     }
 
     for (const [oldPath, newPath] of this.renameMap.entries()) {
-      if (oldPath.includes('og-cover')) return base + newPath;
+      if (oldPath.includes('og-cover')) return this.buildAbsoluteUrl(newPath);
     }
 
     const fallbackShareImage = this.getDefaultShareImage();
-    return fallbackShareImage ? base + fallbackShareImage : null;
+    return fallbackShareImage ? this.buildAbsoluteUrl(fallbackShareImage) : null;
   }
 
   getDefaultShareImage() {
@@ -259,7 +258,7 @@ class HeadOrchestrator {
         '@type': 'ImageObject',
         name: projectMeta.title || 'MotoSynteza Project',
         description: projectMeta.description || 'MotoSynteza photography project',
-        contentUrl: imagePath ? `https://motimorphoza.github.io/MotoSynteza/${imagePath}` : undefined,
+        contentUrl: imagePath ? this.buildAbsoluteUrl(imagePath) : undefined,
         creator: {
           '@type': 'Person',
           name: 'Moti Morphoza'
@@ -271,8 +270,13 @@ class HeadOrchestrator {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'MotoSynteza',
-      url: 'https://motimorphoza.github.io/MotoSynteza/'
+      url: `${SITE_ORIGIN}/`
     };
+  }
+
+  buildAbsoluteUrl(relativePath = '') {
+    const normalized = String(relativePath || '').replace(/^\/+/, '');
+    return `${SITE_ORIGIN}/${normalized}`;
   }
 
   getDefaultCspPolicy() {

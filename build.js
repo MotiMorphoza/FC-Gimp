@@ -16,6 +16,7 @@ const { generateShopIndex }      = require('./build/shop-index-generator');
 const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
+const { SITE_HOSTNAME } = require('./build/site-config');
 
 class SuperBuild {
 
@@ -41,6 +42,7 @@ class SuperBuild {
 
       const tempDir = this.deployer.initTempDir(this.rootDir);
       this.deployer.copyToTemp(this.rootDir, tempDir);
+      this.writeCustomDomainFile(tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Convert project images  JPG/PNG → WebP
@@ -247,6 +249,13 @@ class SuperBuild {
     });
   }
 
+
+  writeCustomDomainFile(tempDir) {
+    const cnamePath = path.join(tempDir, 'CNAME');
+    fs.writeFileSync(cnamePath, SITE_HOSTNAME + '\n', 'utf8');
+    this.logger.info(`[pages] CNAME written for ${SITE_HOSTNAME}`);
+  }
+
   async buildShopIndex(tempDir, BUILD_VERSION) {
     const projectsDir = path.join(tempDir, 'projects');
     const outputDir   = path.join(tempDir, 'shop');
@@ -306,3 +315,4 @@ if (require.main === module) {
 }
 
 module.exports = SuperBuild;
+
