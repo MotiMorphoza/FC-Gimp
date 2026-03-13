@@ -1,9 +1,8 @@
 {
   "title": "Wings",
   "codePrefix": "WNG",
-  "description": "One of humanity’s greatest passions has always been to fly.
-All it takes is a pair of wings, right? (And in our case, an enormous engine.) \nBirds — dwellers of the treetops — inhabitants of lakes — the tireless recyclers of the city’s food. \nA documentation of the urban winged scene. \nFasten your seatbelts; the captain wishes you a pleasant flight..",
- "images": [
+  "description": "One of humanity’s greatest passions has always been to fly.\nAll it takes is a pair of wings, right? (And in our case, an enormous engine.)\nBirds — dwellers of the treetops — inhabitants of lakes — the tireless recyclers of the city’s food.\nA documentation of the urban winged scene.\nFasten your seatbelts; the captain wishes you a pleasant flight.",
+  "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },
     { "src": "03.jpg", "caption": "" },
@@ -24,4 +23,5 @@ All it takes is a pair of wings, right? (And in our case, an enormous engine.) \
     { "src": "18.jpg", "caption": "" },
     { "src": "19.jpg", "caption": "" },
     { "src": "20.jpg", "caption": "" }
+  ]
 }
