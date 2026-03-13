@@ -1,0 +1,634 @@
+(function () {
+  const PAGE_ID = "more";
+  const TEMPLATE_URL = "morphoza.html";
+  const MOBILE_QUERY = "(max-width: 900px)";
+
+  const state = {
+    pane: null,
+    shell: null,
+    host: null,
+    root: null,
+    refs: {},
+    videos: [],
+    activeIndex: 0,
+    playerIndex: null,
+    mobileInlineIndex: null,
+    preloaded: new Set(),
+    wallSlots: [],
+    wallTimer: null,
+    videosPromise: null,
+    templatePromise: null,
+    moveTimer: null,
+    initPromise: null,
+    globalListenersBound: false
+  };
+
+  function versionQuery() {
+    const version = window.__BUILD_VERSION__ || "";
+    return version ? `?v=${encodeURIComponent(version)}` : "";
+  }
+
+  function getGeneratedDataUrl() {
+    return `data/morphoza-videos.generated.json${versionQuery()}`;
+  }
+
+  function isMobileMorphoza() {
+    return window.matchMedia(MOBILE_QUERY).matches;
+  }
+
+  function isTypingTarget(target) {
+    return target instanceof Element && Boolean(
+      target.closest("input, textarea, select, [contenteditable='true']")
+    );
+  }
+
+  async function fetchTemplateMarkup() {
+    if (!state.templatePromise) {
+      state.templatePromise = fetch(TEMPLATE_URL, { credentials: "same-origin" })
+        .then((response) => {
+          if (!response.ok) throw new Error(`Morphoza template HTTP ${response.status}`);
+          return response.text();
+        })
+        .then((html) => {
+          const parsed = new DOMParser().parseFromString(html, "text/html");
+          const template = parsed.querySelector("template[data-morphoza-template]");
+          if (!template) {
+            throw new Error("Morphoza template missing");
+          }
+          return template.innerHTML;
+        });
+    }
+
+    return state.templatePromise;
+  }
+
+  async function fetchVideos() {
+    if (!state.videosPromise) {
+      state.videosPromise = fetch(getGeneratedDataUrl(), { credentials: "same-origin" })
+        .then((response) => {
+          if (!response.ok) throw new Error(`Morphoza data HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((payload) => {
+          state.videos = Array.isArray(payload)
+            ? payload
+                .filter((entry) => entry && typeof entry.id === "string" && entry.id.trim())
+                .map((entry) => ({
+                  id: entry.id.trim(),
+                  title: typeof entry.title === "string" && entry.title.trim()
+                    ? entry.title.trim()
+                    : "Video"
+                }))
+            : [];
+
+          return state.videos;
+        })
+        .catch(() => {
+          state.videos = [];
+          return state.videos;
+        });
+    }
+
+    return state.videosPromise;
+  }
+
+  function getThumbUrl(videoId) {
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  }
+
+  function getEmbedUrl(videoId) {
+    return `https://www.youtube.com/embed/${videoId}?playsinline=1&rel=0&modestbranding=1`;
+  }
+
+  function getCircularOffset(index, activeIndex, total) {
+    let offset = index - activeIndex;
+    const midpoint = total / 2;
+
+    if (offset > midpoint) offset -= total;
+    if (offset < -midpoint) offset += total;
+
+    return offset;
+  }
+
+  function getSlotStyle(offset, isMobile) {
+    const desktop = {
+      0: { x: "0px", y: "-24px", scale: 1.35, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
+      1: { x: "260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, blur: 1, rotate: "-18deg", z: 4 },
+      2: { x: "470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, blur: 2, rotate: "-18deg", z: 2 },
+      [-1]: { x: "-260px", y: "34px", scale: 0.92, opacity: 0.92, brightness: 0.84, blur: 1, rotate: "18deg", z: 4 },
+      [-2]: { x: "-470px", y: "82px", scale: 0.76, opacity: 0.68, brightness: 0.72, blur: 2, rotate: "18deg", z: 2 }
+    };
+
+    const mobile = {
+      0: { x: "0px", y: "-10px", scale: 1.08, opacity: 1, brightness: 1, blur: 0, rotate: "0deg", z: 6 },
+      1: { x: "88px", y: "18px", scale: 0.78, opacity: 0.84, brightness: 0.82, blur: 1, rotate: "-10deg", z: 4 },
+      2: { x: "144px", y: "42px", scale: 0.58, opacity: 0.24, brightness: 0.66, blur: 2, rotate: "-10deg", z: 2 },
+      [-1]: { x: "-88px", y: "18px", scale: 0.78, opacity: 0.84, brightness: 0.82, blur: 1, rotate: "10deg", z: 4 },
+      [-2]: { x: "-144px", y: "42px", scale: 0.58, opacity: 0.24, brightness: 0.66, blur: 2, rotate: "10deg", z: 2 }
+    };
+
+    const presets = isMobile ? mobile : desktop;
+    return presets[offset] || {
+      x: "0px",
+      y: "120px",
+      scale: 0.5,
+      opacity: 0,
+      brightness: 0.5,
+      blur: 2,
+      rotate: "0deg",
+      z: 0
+    };
+  }
+
+  function preloadThumb(videoId) {
+    if (!videoId || state.preloaded.has(videoId)) return;
+    const image = new Image();
+    image.src = getThumbUrl(videoId);
+    state.preloaded.add(videoId);
+  }
+
+  function preloadVisibleThumbs() {
+    if (!state.videos.length) return;
+
+    [0, -1, 1, -2, 2].forEach((delta) => {
+      const index = (state.activeIndex + delta + state.videos.length) % state.videos.length;
+      preloadThumb(state.videos[index] && state.videos[index].id);
+    });
+  }
+
+  function captureRefs() {
+    state.refs = {
+      carouselView: state.root.querySelector("[data-morphoza-carousel-view]"),
+      playerView: state.root.querySelector("[data-morphoza-player-view]"),
+      track: state.root.querySelector("[data-morphoza-track]"),
+      iframe: state.root.querySelector("[data-morphoza-iframe]"),
+      carousel: state.root.querySelector(".morphoza-carousel")
+    };
+
+    const required = ["carouselView", "playerView", "track", "iframe", "carousel"];
+    for (const name of required) {
+      if (!state.refs[name]) {
+        throw new Error(`Morphoza reference missing: ${name}`);
+      }
+    }
+  }
+
+  function renderItems() {
+    const track = state.refs.track;
+    if (!track) return;
+
+    if (!state.videos.length) {
+      track.innerHTML = "";
+      return;
+    }
+
+    track.innerHTML = state.videos.map((video, index) => `
+      <article class="morphoza-item" data-video-index="${index}">
+        <button class="morphoza-item-button" type="button" aria-label="${video.title}">
+          <div class="morphoza-item-figure">
+            <img src="${getThumbUrl(video.id)}" alt="${video.title}" loading="lazy" decoding="async">
+          </div>
+          <p class="morphoza-item-title">${video.title}</p>
+        </button>
+      </article>
+    `).join("");
+  }
+
+  function updateCarousel() {
+    const items = state.root ? state.root.querySelectorAll(".morphoza-item") : [];
+    if (!items.length || !state.videos.length) return;
+
+    const isMobile = isMobileMorphoza();
+
+    if (state.refs.carousel) {
+      state.refs.carousel.style.setProperty("--bg-shift", `${-state.activeIndex * 30}px`);
+    }
+
+    items.forEach((item, index) => {
+      const offset = getCircularOffset(index, state.activeIndex, items.length);
+      const slot = getSlotStyle(offset, isMobile);
+      const isActive = offset === 0;
+
+      item.style.setProperty("--item-x", slot.x);
+      item.style.setProperty("--item-y", slot.y);
+      item.style.setProperty("--item-scale", String(slot.scale));
+      item.style.setProperty("--item-opacity", String(slot.opacity));
+      item.style.setProperty("--item-brightness", String(slot.brightness));
+      item.style.setProperty("--item-blur", `${slot.blur}px`);
+      item.style.setProperty("--item-rotate", slot.rotate);
+      item.style.setProperty("--item-z", String(slot.z));
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-hidden", Math.abs(offset) > 2 ? "true" : "false");
+      item.querySelector(".morphoza-item-button")?.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    preloadVisibleThumbs();
+  }
+
+  function resetPlayer() {
+    const frame = state.refs.iframe;
+    if (frame) {
+      const nextFrame = frame.cloneNode(false);
+      nextFrame.title = frame.title || "Moti Morphoza video player";
+      nextFrame.setAttribute("data-morphoza-iframe", "");
+      nextFrame.loading = "lazy";
+      nextFrame.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      nextFrame.allowFullscreen = true;
+      frame.replaceWith(nextFrame);
+      state.refs.iframe = nextFrame;
+    }
+
+    state.playerIndex = null;
+    state.mobileInlineIndex = null;
+  }
+
+  function showGalleryView() {
+    state.refs.carouselView?.removeAttribute("hidden");
+    state.refs.playerView?.setAttribute("hidden", "hidden");
+  }
+
+  function showPlayer(index) {
+    const video = state.videos[index];
+    if (!video || !state.refs.iframe) return;
+
+    state.playerIndex = index;
+    state.mobileInlineIndex = null;
+    state.refs.carouselView?.setAttribute("hidden", "hidden");
+    state.refs.playerView?.removeAttribute("hidden");
+    state.refs.iframe.src = getEmbedUrl(video.id);
+  }
+
+  function showInlineMobilePlayer(index, options = {}) {
+    const video = state.videos[index];
+    if (!video) return;
+
+    renderItems();
+    state.activeIndex = index;
+    state.playerIndex = index;
+    state.mobileInlineIndex = index;
+    updateCarousel();
+
+    const item = state.root.querySelector(`.morphoza-item[data-video-index="${index}"]`);
+    const figure = item?.querySelector(".morphoza-item-figure");
+    if (!item || !figure) return;
+
+    const iframe = document.createElement("iframe");
+    iframe.src = getEmbedUrl(video.id);
+    iframe.title = video.title || "Moti Morphoza video player";
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    figure.replaceChildren(iframe);
+    item.classList.add("is-inline-player");
+
+    if (options.scrollIntoView !== false) {
+      item.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  function move(direction) {
+    if (!state.videos.length || !state.root) return;
+
+    const carousel = state.refs.carousel;
+    if (carousel) {
+      carousel.classList.add("moving");
+      if (state.moveTimer) {
+        window.clearTimeout(state.moveTimer);
+      }
+      state.moveTimer = window.setTimeout(() => {
+        carousel.classList.remove("moving");
+        state.moveTimer = null;
+      }, 450);
+    }
+
+    state.activeIndex = (state.activeIndex + direction + state.videos.length) % state.videos.length;
+    updateCarousel();
+  }
+
+  function assignWallCell(cell, videoIndex) {
+    const image = cell.querySelector("[data-wall-image]");
+    const video = state.videos[videoIndex];
+    if (!image || !video) return;
+
+    cell.dataset.videoIndex = String(videoIndex);
+    cell.setAttribute("aria-label", `Open Moti Morphoza video gallery from ${video.title}`);
+    image.src = getThumbUrl(video.id);
+    image.alt = video.title;
+    preloadThumb(video.id);
+  }
+
+  function initWall() {
+    const cells = state.pane ? Array.from(state.pane.querySelectorAll(".more-video-wall-cell")) : [];
+    if (!cells.length || !state.videos.length) return;
+
+    state.wallSlots = cells.map((_, index) => index % state.videos.length);
+    cells.forEach((cell, index) => {
+      assignWallCell(cell, state.wallSlots[index]);
+    });
+  }
+
+  function rotateWall() {
+    const cells = state.pane ? Array.from(state.pane.querySelectorAll(".more-video-wall-cell")) : [];
+    if (!cells.length || state.videos.length <= cells.length) return;
+
+    const slotIndex = Math.floor(Math.random() * cells.length);
+    const cell = cells[slotIndex];
+    const image = cell.querySelector("[data-wall-image]");
+    if (!image) return;
+
+    const used = new Set(state.wallSlots);
+    const candidates = state.videos
+      .map((_, index) => index)
+      .filter((index) => !used.has(index) || index === state.wallSlots[slotIndex]);
+
+    if (!candidates.length) return;
+
+    let nextIndex = candidates[Math.floor(Math.random() * candidates.length)];
+    if (nextIndex === state.wallSlots[slotIndex] && candidates.length > 1) {
+      nextIndex = candidates.find((index) => index !== state.wallSlots[slotIndex]) ?? nextIndex;
+    }
+    if (nextIndex === state.wallSlots[slotIndex]) return;
+
+    image.classList.add("is-swapping");
+    preloadThumb(state.videos[nextIndex] && state.videos[nextIndex].id);
+
+    window.setTimeout(() => {
+      state.wallSlots[slotIndex] = nextIndex;
+      assignWallCell(cell, nextIndex);
+      requestAnimationFrame(() => {
+        image.classList.remove("is-swapping");
+      });
+    }, 260);
+  }
+
+  function stopWallRotation() {
+    if (state.wallTimer) {
+      window.clearInterval(state.wallTimer);
+      state.wallTimer = null;
+    }
+  }
+
+  function startWallRotation() {
+    stopWallRotation();
+    if (!state.videos.length) return;
+
+    initWall();
+    state.wallTimer = window.setInterval(() => {
+      if (document.body.dataset.page !== PAGE_ID) return;
+      if (!state.pane || !state.pane.isConnected) return;
+      rotateWall();
+    }, 2000);
+  }
+
+  function handlePointerMove(event) {
+    const button = event.target.closest(".morphoza-item-button");
+    if (!button) return;
+
+    const rect = button.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    const moveX = ((x - 0.5) * 10).toFixed(2);
+    const moveY = ((y - 0.5) * 10).toFixed(2);
+    const item = button.closest(".morphoza-item");
+    item?.style.setProperty("--thumb-scale", item.classList.contains("is-active") ? "1.03" : "1.06");
+    item?.style.setProperty("--thumb-x", `${moveX}px`);
+    item?.style.setProperty("--thumb-y", `${moveY}px`);
+  }
+
+  function handlePointerOut(event) {
+    const button = event.target.closest?.(".morphoza-item-button");
+    if (!button) return;
+    if (button.contains(event.relatedTarget)) return;
+
+    const item = button.closest(".morphoza-item");
+    if (!item) return;
+    item.style.removeProperty("--thumb-scale");
+    item.style.removeProperty("--thumb-x");
+    item.style.removeProperty("--thumb-y");
+  }
+
+  function handleModuleClick(event) {
+    const nav = event.target.closest("[data-morphoza-nav]");
+    if (nav) {
+      move(nav.dataset.morphozaNav === "next" ? 1 : -1);
+      return;
+    }
+
+    const back = event.target.closest("[data-morphoza-back]");
+    if (back) {
+      showGalleryView();
+      resetPlayer();
+      renderItems();
+      updateCarousel();
+      return;
+    }
+
+    const item = event.target.closest(".morphoza-item");
+    if (!item) return;
+
+    const index = Number(item.dataset.videoIndex);
+    if (!Number.isInteger(index)) return;
+
+    if (isMobileMorphoza()) {
+      showInlineMobilePlayer(index);
+      return;
+    }
+
+    if (index === state.activeIndex) {
+      state.activeIndex = index;
+      updateCarousel();
+      showPlayer(index);
+      return;
+    }
+
+    state.activeIndex = index;
+    updateCarousel();
+  }
+
+  function handleKeydown(event) {
+    if (document.body.dataset.page !== PAGE_ID) return;
+    if (!state.shell || state.shell.hidden || !state.root || !state.root.isConnected) return;
+    if (isTypingTarget(event.target)) return;
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      move(1);
+      return;
+    }
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      move(-1);
+      return;
+    }
+
+    if (event.key === "Escape") {
+      if (state.refs.playerView && !state.refs.playerView.hidden) {
+        event.preventDefault();
+        showGalleryView();
+        resetPlayer();
+        renderItems();
+        updateCarousel();
+      }
+    }
+  }
+
+  function handleResize() {
+    if (document.body.dataset.page !== PAGE_ID || !state.root || !state.root.isConnected) return;
+    if (!state.shell || state.shell.hidden) return;
+
+    renderItems();
+    updateCarousel();
+
+    if (isMobileMorphoza() && Number.isInteger(state.mobileInlineIndex) && state.videos[state.mobileInlineIndex]) {
+      showInlineMobilePlayer(state.mobileInlineIndex, { scrollIntoView: false });
+    }
+  }
+
+  function bindEvents() {
+    if (!state.root || state.root.dataset.morphozaBound === "true") return;
+
+    state.root.dataset.morphozaBound = "true";
+    state.root.addEventListener("pointermove", handlePointerMove);
+    state.root.addEventListener("pointerout", handlePointerOut);
+    state.root.addEventListener("click", handleModuleClick);
+
+    if (!state.globalListenersBound) {
+      state.globalListenersBound = true;
+      window.addEventListener("keydown", handleKeydown);
+      window.addEventListener("resize", handleResize);
+    }
+  }
+
+  function showError(message) {
+    if (!state.host) return;
+
+    state.host.innerHTML = `
+      <section class="morphoza-view" aria-label="Moti Morphoza unavailable">
+        <div class="morphoza-header">
+          <h1 class="morphoza-title">MOTI MORPHOZA</h1>
+        </div>
+        <div class="morphoza-player-view">
+          <button class="morphoza-back" type="button" disabled>MODULE STATUS</button>
+          <div class="morphoza-player-frame" style="display:grid;place-items:center;padding:1.5rem;color:#fff;box-sizing:border-box;">
+            <p>${String(message || "Unable to load Morphoza module.")}</p>
+          </div>
+        </div>
+      </section>
+    `;
+    state.root = state.host.querySelector("[data-morphoza-module]") || state.host.querySelector(".morphoza-view");
+  }
+
+  async function mountModule() {
+    if (!state.host) return;
+    if (state.root && state.root.isConnected && state.host.contains(state.root)) {
+      captureRefs();
+      bindEvents();
+      return;
+    }
+
+    const markup = await fetchTemplateMarkup();
+    state.host.innerHTML = markup;
+    state.root = state.host.querySelector("[data-morphoza-module]");
+    if (!state.root) {
+      throw new Error("Morphoza mount failed");
+    }
+
+    captureRefs();
+    bindEvents();
+  }
+
+  async function init(pane) {
+    if (document.body.dataset.page !== PAGE_ID) return;
+
+    const nextPane = pane || state.pane || document.querySelector(".more-pane");
+    if (!nextPane) return;
+
+    state.pane = nextPane;
+    state.shell = nextPane.querySelector("[data-morphoza-view]");
+    state.host = nextPane.querySelector("[data-morphoza-mount]");
+
+    if (!state.shell || !state.host) {
+      return;
+    }
+
+    if (state.initPromise) {
+      return state.initPromise;
+    }
+
+    state.initPromise = (async () => {
+      try {
+        await mountModule();
+        await fetchVideos();
+        if (state.activeIndex >= state.videos.length) {
+          state.activeIndex = 0;
+        }
+        renderItems();
+        updateCarousel();
+        initWall();
+      } catch (error) {
+        showError(error instanceof Error ? error.message : "Unable to load Morphoza module.");
+      } finally {
+        state.initPromise = null;
+      }
+    })();
+
+    return state.initPromise;
+  }
+
+  async function show(options = {}) {
+    await init();
+    if (!state.root || !state.videos.length) return;
+
+    stopWallRotation();
+
+    if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < state.videos.length) {
+      state.activeIndex = options.startIndex;
+    } else if (options.resetToStart === true) {
+      state.activeIndex = 0;
+    }
+
+    showGalleryView();
+    resetPlayer();
+    renderItems();
+    updateCarousel();
+  }
+
+  async function activateHome() {
+    await init();
+    if (!state.root) return;
+
+    showGalleryView();
+    resetPlayer();
+    renderItems();
+    updateCarousel();
+    startWallRotation();
+  }
+
+  async function hide(options = {}) {
+    if (!state.root) return;
+
+    stopWallRotation();
+
+    if (options.resetPlayer !== false) {
+      showGalleryView();
+      resetPlayer();
+      renderItems();
+      updateCarousel();
+    }
+
+    if (options.resumeHome) {
+      startWallRotation();
+    }
+  }
+
+  window.MorphozaModule = {
+    init,
+    show,
+    hide,
+    activateHome
+  };
+})();

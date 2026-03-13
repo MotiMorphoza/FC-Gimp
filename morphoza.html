@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morphoza Template</title>
+</head>
+<body>
+  <template data-morphoza-template>
+    <div class="morphoza-view" data-morphoza-module>
+      <div class="morphoza-header">
+        <h1 class="morphoza-title">MOTI MORPHOZA</h1>
+      </div>
+
+      <div class="morphoza-carousel-view" data-morphoza-carousel-view>
+        <div class="morphoza-carousel-shell">
+          <button class="morphoza-nav morphoza-nav--left" type="button" aria-label="Previous video" data-morphoza-nav="prev">
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+
+          <div class="morphoza-carousel" aria-live="polite">
+            <div class="morphoza-track" data-morphoza-track></div>
+          </div>
+
+          <button class="morphoza-nav morphoza-nav--right" type="button" aria-label="Next video" data-morphoza-nav="next">
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="morphoza-player-view" data-morphoza-player-view hidden>
+        <button class="morphoza-back morphoza-back--gallery" type="button" data-morphoza-back="gallery">BACK TO GALLERY</button>
+        <div class="morphoza-player-frame">
+          <iframe
+            title="Moti Morphoza video player"
+            data-morphoza-iframe
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+</html>

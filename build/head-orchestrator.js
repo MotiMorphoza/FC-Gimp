@@ -75,6 +75,11 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${moreCss}">`);
     }
 
+    const morphozaCss = this.getMorphozaCss();
+    if (morphozaCss) {
+      tags.push(`<link rel="stylesheet" href="${morphozaCss}">`);
+    }
+
     const humanWritesCss = this.getHumanWritesCss();
     if (humanWritesCss) {
       tags.push(`<link rel="stylesheet" href="${humanWritesCss}">`);
@@ -147,6 +152,11 @@ class HeadOrchestrator {
   getMoreCss(html = '') {
     if (!this.isMore() || (/\bdata-human-writes-mount\b/i.test(html) && !/\bdata-more-home\b/i.test(html))) return null;
     return this.renameMap.get('css/more.css') || null;
+  }
+
+  getMorphozaCss() {
+    if (!this.isMore()) return null;
+    return this.renameMap.get('css/morphoza.css') || null;
   }
 
   getHumanWritesCss() {
