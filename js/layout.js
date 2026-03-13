@@ -1,4 +1,4 @@
-﻿
+
 
 
 
@@ -7,7 +7,7 @@
 
 
 /* ==============================
-   layout.js  â€“  MotoSynteza (v4)
+   layout.js  –  MotoSynteza (v4)
    ============================== */
 
 /* ========================= 
@@ -28,18 +28,50 @@ async function loadSidebar() {
     placeholder.innerHTML = html;
 
     const toggle = placeholder.querySelector(".menu-toggle");
-    const menu   = placeholder.querySelector(".menu");
+    const menu = placeholder.querySelector(".menu");
+    const fullscreenButtons = placeholder.querySelectorAll("[data-fullscreen-toggle]");
 
     if (toggle && menu) {
       toggle.addEventListener("click", () => {
         menu.classList.toggle("open");
       });
     }
+
+    fullscreenButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        await toggleFullscreenMode();
+        menu?.classList.remove("open");
+      });
+    });
+
+    updateFullscreenToggleState(placeholder);
   } catch (err) {
     console.error("Sidebar error:", err);
   }
 }
 
+function updateFullscreenToggleState(scope = document) {
+  const buttons = scope.querySelectorAll("[data-fullscreen-toggle]");
+  const isFullscreen = Boolean(document.fullscreenElement);
+
+  buttons.forEach((button) => {
+    button.textContent = isFullscreen ? "Exit Full Screen" : "Full Screen";
+    button.setAttribute("aria-label", isFullscreen ? "Exit full screen" : "Enter full screen");
+  });
+}
+
+async function toggleFullscreenMode() {
+  try {
+    if (document.fullscreenElement) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    await document.documentElement.requestFullscreen();
+  } catch {
+      // Ignore browsers that reject fullscreen.
+  }
+}
 /* =========================
    PROJECT LOADER (JSON)
 ========================= */
@@ -192,18 +224,18 @@ function bindProjectLightbox() {
 
 /* =========================
    IMAGE PROTECTION
-   â€“ Right-click disabled on gallery/lightbox images
-   â€“ Drag disabled
-   â€“ Toast on contextmenu
-   â€“ Transparent overlay per figure (mobile long-press reduction)
-   â€“ PJAX-safe: listeners attached once, globally
+   – Right-click disabled on gallery/lightbox images
+   – Drag disabled
+   – Toast on contextmenu
+   – Transparent overlay per figure (mobile long-press reduction)
+   – PJAX-safe: listeners attached once, globally
 ========================= */
 
 function initImageProtection() {
   if (window.__IMAGE_PROTECTION_READY__) return;
   window.__IMAGE_PROTECTION_READY__ = true;
 
-  /* â”€â”€ Toast element â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Toast element ──────────────────────────────────────── */
   let toastEl = document.getElementById("ms-img-toast");
   if (!toastEl) {
     toastEl           = document.createElement("div");
@@ -221,7 +253,7 @@ function initImageProtection() {
     toastTimer = setTimeout(() => toastEl.classList.remove("is-visible"), 2200);
   }
 
-  /* â”€â”€ Right-click / contextmenu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Right-click / contextmenu ──────────────────────────── */
   document.addEventListener("contextmenu", (e) => {
     const img = e.target.closest(".project-gallery img, .lightbox img");
     if (!img) return;
@@ -229,7 +261,7 @@ function initImageProtection() {
     showToast();
   });
 
-  /* â”€â”€ Drag prevention â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Drag prevention ────────────────────────────────────── */
   document.addEventListener("dragstart", (e) => {
     const img = e.target.closest(".project-gallery img, .lightbox img");
     if (!img) return;
@@ -328,9 +360,9 @@ function showAddedToCartToast() {
 
 /* =========================
    FLOATING PROJECT TITLE
-   â€“ Fixed element positioned in the top gap area
-   â€“ Visible after the first image's centre scrolls out of view
-   â€“ Cleaned up on navigation away from project page
+   – Fixed element positioned in the top gap area
+   – Visible after the first image's centre scrolls out of view
+   – Cleaned up on navigation away from project page
 ========================= */
 
 function initFloatingTitle(title, images) {
@@ -358,7 +390,7 @@ function initFloatingTitle(title, images) {
   const pane     = document.querySelector(".content-pane");
 
   /*
-   * On mobile (â‰¤700px), the body/page scrolls â€” .content-pane has height:auto
+   * On mobile (≤700px), the body/page scrolls — .content-pane has height:auto
    * and is not the real scroll container. Using it as IntersectionObserver root
    * means the observer never fires correctly on mobile.
    * Use null (viewport) on mobile, the pane on desktop where pane clips/scrolls.
@@ -401,9 +433,9 @@ function initFloatingTitle(title, images) {
 
 /* =========================
    NEXT PROJECT SECTION
-   â€“ Appended to .project-content below the gallery
-   â€“ Uses window.__PROJECTS__ manifest; wraps last â†’ first
-   â€“ Navigates via PJAX (window.loadPage)
+   – Appended to .project-content below the gallery
+   – Uses window.__PROJECTS__ manifest; wraps last → first
+   – Navigates via PJAX (window.loadPage)
 ========================= */
 
 function appendNextProject(contentEl, currentSlug) {
@@ -486,7 +518,7 @@ enableDecodeFade([img]);
 ========================= */
 
 async function initProjectPage() {
-  /* â”€â”€ Not a project page â†’ clean up transient elements â”€â”€â”€â”€â”€â”€ */
+  /* ── Not a project page → clean up transient elements ────── */
   if (document.body.dataset.page !== "project") {
     if (window.__FLOATING_TITLE_CLEANUP__) {
       window.__FLOATING_TITLE_CLEANUP__();
@@ -504,7 +536,7 @@ async function initProjectPage() {
   if (projectSlug) document.body.dataset.project = projectSlug;
   if (!projectSlug) return;
 
-  /* â”€â”€ Ensure projects manifest is available â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ *
+  /* ── Ensure projects manifest is available ────────────────── *
    * When project.html is loaded directly (not via PJAX from    *
    * projects.html), window.__PROJECTS__ may be undefined if     *
    * projects-manifest.js was not yet executed. Fetch it now.   */
@@ -573,7 +605,7 @@ async function initProjectPage() {
 
       const img       = document.createElement("img");
       img.src         = `projects/${projectSlug}/${imgData.src}`;
-      img.alt         = imgData.caption || `${projectTitle} â€“ image ${index + 1}`;
+      img.alt         = imgData.caption || `${projectTitle} – image ${index + 1}`;
       img.loading     = index === 0 ? "eager" : "lazy";
       if (index === 0) img.setAttribute("fetchpriority", "high");
       img.decoding    = "async";
@@ -637,13 +669,13 @@ async function initProjectPage() {
   const images = [...document.querySelectorAll(".project-gallery img")];
   if (!images.length) return;
 
-  /* â”€â”€ Transparent protection overlays â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Transparent protection overlays ─────────────────────── */
   addImageProtectionOverlays(gallery);
 
-  /* â”€â”€ Floating project title â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Floating project title ───────────────────────────────── */
   initFloatingTitle(projectTitle, images);
 
-  /* â”€â”€ Next project section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── Next project section ─────────────────────────────────── */
   const contentEl = document.querySelector(".project-content");
   if (contentEl) appendNextProject(contentEl, projectSlug);
 
@@ -832,6 +864,7 @@ function initFullscreenLightboxSync() {
 
   document.addEventListener("fullscreenchange", () => {
     bindProjectLightbox();
+    updateFullscreenToggleState(document);
   });
 }
 
@@ -951,6 +984,9 @@ function enableDecodeFade(images) {
 
 window.loadPage = loadPage;
 document.addEventListener("DOMContentLoaded", initPage);
+
+
+
 
 
 
