@@ -2,7 +2,8 @@
   "name": "motosynteza",
   "version": "2.0.0",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "morphoza:sync": "node build/sync-morphoza-videos.js"
   },
   "dependencies": {
     "sharp": "^0.34.5"
