@@ -2,14 +2,18 @@
   const PAGE_ID = "more";
   const TEMPLATE_URL = "morphoza.html";
   const MOBILE_QUERY = "(max-width: 900px)";
-  const RAIL_KEYS = ["me", "mine"];
-  const DEFAULT_ACTIVE_RAIL = "me";
+  const RAILS = [
+    { key: "justMe", title: "Just Me", legacyKeys: ["me"] },
+    { key: "cooperation", title: "Cooperation" },
+    { key: "mine", title: "Mine" },
+    { key: "looooong", title: "Looooong", legacyKeys: ["long"] }
+  ];
+  const RAIL_KEYS = RAILS.map((rail) => rail.key);
+  const RAIL_CONFIG = Object.fromEntries(RAILS.map((rail) => [rail.key, rail]));
+  const DEFAULT_ACTIVE_RAIL = "justMe";
 
   function createRailState() {
-    return {
-      me: { videos: [], activeIndex: 0 },
-      mine: { videos: [], activeIndex: 0 }
-    };
+    return Object.fromEntries(RAIL_KEYS.map((railKey) => [railKey, { videos: [], activeIndex: 0 }]));
   }
 
   const state = {
@@ -75,6 +79,23 @@
         return { id, title };
       })
       .filter(Boolean);
+  }
+
+  function getRailPayloadEntries(payload, railKey) {
+    if (!payload || typeof payload !== "object") return [];
+
+    const candidates = [railKey, ...(RAIL_CONFIG[railKey]?.legacyKeys || [])];
+    for (const candidateKey of candidates) {
+      if (Array.isArray(payload[candidateKey])) {
+        return payload[candidateKey];
+      }
+    }
+
+    return [];
+  }
+
+  function getRailTitle(railKey) {
+    return RAIL_CONFIG[railKey]?.title || railKey;
   }
 
   function mergeUniqueVideos(videosByRail) {
@@ -173,16 +194,16 @@
         })
         .then((payload) => {
           const railsPayload = Array.isArray(payload)
-            ? { me: payload, mine: [] }
+            ? { justMe: payload }
             : (payload && typeof payload === "object" ? payload : {});
 
-          const normalized = {
-            me: sanitizeGeneratedEntries(railsPayload.me),
-            mine: sanitizeGeneratedEntries(railsPayload.mine)
-          };
+          const normalized = Object.fromEntries(
+            RAIL_KEYS.map((railKey) => [railKey, sanitizeGeneratedEntries(getRailPayloadEntries(railsPayload, railKey))])
+          );
 
-          state.rails.me.videos = normalized.me;
-          state.rails.mine.videos = normalized.mine;
+          RAIL_KEYS.forEach((railKey) => {
+            state.rails[railKey].videos = normalized[railKey];
+          });
           state.allVideos = mergeUniqueVideos(normalized);
 
           return state.rails;
@@ -293,10 +314,14 @@
     };
 
     RAIL_KEYS.forEach((railKey) => {
+      const rail = state.root.querySelector(`[data-morphoza-rail='${railKey}']`);
       state.refs.rails[railKey] = {
-        rail: state.root.querySelector(`[data-morphoza-rail='${railKey}']`),
+        rail,
+        shell: rail?.querySelector(".morphoza-carousel-shell") || null,
         carousel: state.root.querySelector(`[data-morphoza-carousel='${railKey}']`),
-        track: state.root.querySelector(`[data-morphoza-track='${railKey}']`)
+        track: state.root.querySelector(`[data-morphoza-track='${railKey}']`),
+        navPrev: rail?.querySelector("[data-morphoza-nav='prev']") || null,
+        navNext: rail?.querySelector("[data-morphoza-nav='next']") || null
       };
     });
 
@@ -309,10 +334,19 @@
 
     RAIL_KEYS.forEach((railKey) => {
       const railRefs = state.refs.rails[railKey];
-      if (!railRefs?.rail || !railRefs.carousel || !railRefs.track) {
+      if (!railRefs?.rail || !railRefs.shell || !railRefs.carousel || !railRefs.track) {
         throw new Error(`Morphoza rail reference missing: ${railKey}`);
       }
     });
+  }
+
+  function createEmptyRailMarkup(railKey) {
+    const title = getRailTitle(railKey);
+    return `
+      <div class="morphoza-empty-state" role="note" aria-label="${title} rail is empty">
+        <p class="morphoza-empty-copy">${title} is ready for its first video.</p>
+      </div>
+    `;
   }
 
   function createItemMarkup(video, index, railKey) {
@@ -334,15 +368,23 @@
     RAIL_KEYS.forEach((railKey) => {
       const railRefs = getRailRefs(railKey);
       const videos = getRailVideos(railKey);
-      if (!railRefs?.track || !railRefs?.rail) return;
+      if (!railRefs?.track || !railRefs?.rail || !railRefs?.shell) return;
+
+      railRefs.rail.hidden = false;
+      railRefs.shell.classList.toggle("is-empty", !videos.length);
+      [railRefs.navPrev, railRefs.navNext].forEach((button) => {
+        if (!button) return;
+        button.disabled = !videos.length;
+        button.hidden = !videos.length;
+        button.setAttribute("aria-hidden", !videos.length ? "true" : "false");
+      });
 
       if (!videos.length) {
-        railRefs.track.innerHTML = "";
-        railRefs.rail.hidden = true;
+        railRefs.track.innerHTML = createEmptyRailMarkup(railKey);
+        railRefs.carousel.style.setProperty("--bg-shift", "0px");
         return;
       }
 
-      railRefs.rail.hidden = false;
       railRefs.track.innerHTML = videos.map((video, index) => createItemMarkup(video, index, railKey)).join("");
     });
   }
@@ -403,8 +445,6 @@
   }
 
   function resetGalleryScroll() {
-    if (!isMobileMorphoza()) return;
-
     [state.root, state.shell, state.refs.carouselView].forEach((element) => {
       if (!element) return;
 
@@ -415,6 +455,16 @@
 
       element.scrollTop = 0;
       element.scrollLeft = 0;
+    });
+  }
+
+  function scrollRailIntoView(railKey, options = {}) {
+    const rail = getRailRefs(railKey)?.rail;
+    if (!rail || rail.hidden) return;
+
+    rail.scrollIntoView({
+      behavior: options.behavior || "auto",
+      block: options.block || "start"
     });
   }
 
@@ -794,7 +844,7 @@
 
   async function show(options = {}) {
     await init();
-    if (!state.root || !state.allVideos.length) return;
+    if (!state.root) return;
 
     stopWallRotation();
 
@@ -804,13 +854,19 @@
       ensureRailPositions();
     }
 
+    let targetRailKey = null;
     const location = findVideoLocation(options.startVideoId);
     if (location) {
       state.rails[location.railKey].activeIndex = location.index;
       state.activeRailKey = location.railKey;
-    } else if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < getRailVideos("me").length) {
-      state.rails.me.activeIndex = normalizeIndex(options.startIndex, getRailVideos("me").length);
-      state.activeRailKey = "me";
+      targetRailKey = location.railKey;
+    } else {
+      const defaultRailKey = getFirstAvailableRailKey();
+      if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < getRailVideos(defaultRailKey).length) {
+        state.rails[defaultRailKey].activeIndex = normalizeIndex(options.startIndex, getRailVideos(defaultRailKey).length);
+        state.activeRailKey = defaultRailKey;
+        targetRailKey = defaultRailKey;
+      }
     }
 
     showGalleryView();
@@ -818,6 +874,11 @@
     renderItems();
     updateAllCarousels();
     resetGalleryScroll();
+    if (targetRailKey && targetRailKey !== DEFAULT_ACTIVE_RAIL) {
+      requestAnimationFrame(() => {
+        scrollRailIntoView(targetRailKey);
+      });
+    }
   }
 
   async function activateHome() {

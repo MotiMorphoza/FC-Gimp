@@ -8,8 +8,10 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
     #050505;
   height: 100%;
-  min-height: 0;
+  min-height: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .morphoza-view[hidden],
@@ -64,25 +66,121 @@
 }
 
 .morphoza-carousel-view {
-  display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: clamp(14px, 1.8vh, 22px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.6vh, 34px);
+  height: auto;
+  padding-bottom: clamp(20px, 4vh, 42px);
 }
 
 .morphoza-rail {
+  --rail-order: 1;
+  --rail-title-color: #8fc8ff;
+  --rail-header-line: linear-gradient(90deg, rgba(143, 200, 255, 0.95), rgba(143, 200, 255, 0.12));
+  --rail-header-glow: 0 0 16px rgba(143, 200, 255, 0.24);
+  --rail-carousel-border: rgba(143, 200, 255, 0.14);
+  --rail-carousel-bg:
+    radial-gradient(circle at 24% 18%, rgba(143, 200, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 80% 78%, rgba(95, 160, 255, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #06101a;
+  --rail-carousel-before:
+    radial-gradient(circle at 28% 24%, rgba(143, 200, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 76% 70%, rgba(170, 225, 255, 0.06), transparent 52%),
+    radial-gradient(circle at 50% 88%, rgba(120, 170, 255, 0.05), transparent 56%);
+  --rail-carousel-inset: inset 0 0 0 1px rgba(143, 200, 255, 0.05);
+  --rail-item-bg: linear-gradient(180deg, rgba(143, 200, 255, 0.06), rgba(255, 255, 255, 0.03));
+  --rail-item-active-border: rgba(143, 200, 255, 0.38);
+  --rail-item-active-glow: 0 0 34px rgba(143, 200, 255, 0.2);
+  --rail-nav-border: rgba(143, 200, 255, 0.22);
+  --rail-nav-bg: linear-gradient(180deg, rgba(143, 200, 255, 0.08), rgba(8, 18, 32, 0.35));
+  --rail-nav-color: #a8d9ff;
+  --rail-nav-inset: inset 0 0 0 1px rgba(143, 200, 255, 0.04);
   min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
   align-content: start;
-  gap: 0.75rem;
+  gap: clamp(10px, 1.6vh, 18px);
+  order: var(--rail-order);
 }
 
-.morphoza-rail[data-morphoza-rail="me"] {
-  order: 1;
+.morphoza-rail[data-morphoza-rail="justMe"] {
+  --rail-order: 1;
+}
+
+.morphoza-rail[data-morphoza-rail="cooperation"] {
+  --rail-order: 2;
+  --rail-title-color: #95f2c7;
+  --rail-header-line: linear-gradient(90deg, rgba(149, 242, 199, 0.96), rgba(255, 220, 162, 0.2));
+  --rail-header-glow: 0 0 18px rgba(149, 242, 199, 0.22);
+  --rail-carousel-border: rgba(149, 242, 199, 0.16);
+  --rail-carousel-bg:
+    radial-gradient(circle at 18% 18%, rgba(104, 238, 187, 0.16), transparent 34%),
+    radial-gradient(circle at 78% 76%, rgba(255, 213, 131, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #051310;
+  --rail-carousel-before:
+    radial-gradient(circle at 26% 22%, rgba(122, 255, 210, 0.13), transparent 40%),
+    radial-gradient(circle at 76% 74%, rgba(255, 230, 166, 0.06), transparent 52%),
+    radial-gradient(circle at 52% 88%, rgba(98, 189, 160, 0.05), transparent 56%);
+  --rail-carousel-inset: inset 0 0 0 1px rgba(149, 242, 199, 0.05);
+  --rail-item-bg: linear-gradient(180deg, rgba(149, 242, 199, 0.07), rgba(255, 228, 176, 0.03));
+  --rail-item-active-border: rgba(149, 242, 199, 0.42);
+  --rail-item-active-glow: 0 0 34px rgba(149, 242, 199, 0.18);
+  --rail-nav-border: rgba(149, 242, 199, 0.24);
+  --rail-nav-bg: linear-gradient(180deg, rgba(149, 242, 199, 0.08), rgba(8, 28, 23, 0.36));
+  --rail-nav-color: #d4ffe6;
+  --rail-nav-inset: inset 0 0 0 1px rgba(149, 242, 199, 0.04);
 }
 
 .morphoza-rail[data-morphoza-rail="mine"] {
-  order: 2;
+  --rail-order: 3;
+  --rail-title-color: #f3c2ff;
+  --rail-header-line: linear-gradient(90deg, rgba(243, 194, 255, 0.95), rgba(243, 194, 255, 0.12));
+  --rail-header-glow: 0 0 16px rgba(243, 194, 255, 0.22);
+  --rail-carousel-border: rgba(243, 194, 255, 0.15);
+  --rail-carousel-bg:
+    radial-gradient(circle at 74% 20%, rgba(243, 194, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(255, 180, 212, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #170814;
+  --rail-carousel-before:
+    radial-gradient(circle at 72% 24%, rgba(243, 194, 255, 0.13), transparent 40%),
+    radial-gradient(circle at 24% 76%, rgba(255, 205, 228, 0.06), transparent 52%),
+    radial-gradient(circle at 52% 88%, rgba(255, 176, 214, 0.05), transparent 56%);
+  --rail-carousel-inset: inset 0 0 0 1px rgba(243, 194, 255, 0.05);
+  --rail-item-bg: linear-gradient(180deg, rgba(243, 194, 255, 0.06), rgba(255, 255, 255, 0.03));
+  --rail-item-active-border: rgba(243, 194, 255, 0.4);
+  --rail-item-active-glow: 0 0 34px rgba(243, 194, 255, 0.2);
+  --rail-nav-border: rgba(243, 194, 255, 0.22);
+  --rail-nav-bg: linear-gradient(180deg, rgba(243, 194, 255, 0.08), rgba(28, 10, 24, 0.36));
+  --rail-nav-color: #ffd6ff;
+  --rail-nav-inset: inset 0 0 0 1px rgba(243, 194, 255, 0.04);
+}
+
+.morphoza-rail[data-morphoza-rail="looooong"] {
+  --rail-order: 4;
+  --rail-title-color: #ffc86f;
+  --rail-header-line: linear-gradient(90deg, rgba(255, 200, 111, 0.95), rgba(255, 130, 92, 0.18));
+  --rail-header-glow: 0 0 18px rgba(255, 183, 88, 0.24);
+  --rail-carousel-border: rgba(255, 200, 111, 0.16);
+  --rail-carousel-bg:
+    radial-gradient(circle at 74% 18%, rgba(255, 200, 111, 0.18), transparent 34%),
+    radial-gradient(circle at 18% 80%, rgba(255, 130, 92, 0.09), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
+    #1a1006;
+  --rail-carousel-before:
+    radial-gradient(circle at 70% 24%, rgba(255, 213, 138, 0.14), transparent 40%),
+    radial-gradient(circle at 24% 76%, rgba(255, 147, 103, 0.06), transparent 52%),
+    radial-gradient(circle at 52% 88%, rgba(214, 136, 77, 0.05), transparent 56%);
+  --rail-carousel-inset: inset 0 0 0 1px rgba(255, 200, 111, 0.05);
+  --rail-item-bg: linear-gradient(180deg, rgba(255, 200, 111, 0.07), rgba(255, 146, 103, 0.03));
+  --rail-item-active-border: rgba(255, 200, 111, 0.42);
+  --rail-item-active-glow: 0 0 34px rgba(255, 200, 111, 0.18);
+  --rail-nav-border: rgba(255, 200, 111, 0.24);
+  --rail-nav-bg: linear-gradient(180deg, rgba(255, 200, 111, 0.08), rgba(36, 20, 10, 0.36));
+  --rail-nav-color: #ffd9a2;
+  --rail-nav-inset: inset 0 0 0 1px rgba(255, 200, 111, 0.04);
 }
 
 .morphoza-rail + .morphoza-rail {
@@ -133,14 +231,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-rail-title {
-  color: #8fc8ff;
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-rail-title {
-  color: #f3c2ff;
+  color: var(--rail-title-color);
 }
 
 .morphoza-rail-header::after {
@@ -150,20 +241,12 @@
   height: 1px;
   margin-left: 1rem;
   opacity: 0.85;
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-rail-header::after {
-  background: linear-gradient(90deg, rgba(143, 200, 255, 0.95), rgba(143, 200, 255, 0.12));
-  box-shadow: 0 0 16px rgba(143, 200, 255, 0.24);
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-rail-header::after {
-  background: linear-gradient(90deg, rgba(243, 194, 255, 0.95), rgba(243, 194, 255, 0.12));
-  box-shadow: 0 0 16px rgba(243, 194, 255, 0.22);
+  background: var(--rail-header-line);
+  box-shadow: var(--rail-header-glow);
 }
 
 .morphoza-carousel-shell {
-  height: 100%;
+  height: auto;
   min-height: 0;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
@@ -171,27 +254,26 @@
   gap: clamp(10px, 1.5vw, 20px);
 }
 
+.morphoza-carousel-shell.is-empty {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .morphoza-carousel {
-  height: 100%;
+  height: clamp(230px, 31vh, 320px);
   min-height: 0;
   position: relative;
   overflow: hidden;
   perspective: 1200px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background:
-    radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.1), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
-    #060606;
+  border: 1px solid var(--rail-carousel-border);
+  background: var(--rail-carousel-bg);
+  box-shadow: var(--rail-carousel-inset);
 }
 
 .morphoza-carousel::before {
   content: "";
   position: absolute;
   inset: -10%;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.04), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05), transparent 55%);
+  background: var(--rail-carousel-before);
   transform: translateX(var(--bg-shift, 0px));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -207,40 +289,6 @@
     rgba(0, 0, 0, 0) 40%,
     rgba(0, 0, 0, 0.35) 100%
   );
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-carousel {
-  border-color: rgba(143, 200, 255, 0.14);
-  background:
-    radial-gradient(circle at 24% 18%, rgba(143, 200, 255, 0.16), transparent 34%),
-    radial-gradient(circle at 80% 78%, rgba(95, 160, 255, 0.08), transparent 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
-    #06101a;
-  box-shadow: inset 0 0 0 1px rgba(143, 200, 255, 0.05);
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-carousel {
-  border-color: rgba(243, 194, 255, 0.15);
-  background:
-    radial-gradient(circle at 74% 20%, rgba(243, 194, 255, 0.18), transparent 34%),
-    radial-gradient(circle at 18% 82%, rgba(255, 180, 212, 0.08), transparent 44%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0)),
-    #170814;
-  box-shadow: inset 0 0 0 1px rgba(243, 194, 255, 0.05);
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-carousel::before {
-  background:
-    radial-gradient(circle at 28% 24%, rgba(143, 200, 255, 0.12), transparent 40%),
-    radial-gradient(circle at 76% 70%, rgba(170, 225, 255, 0.06), transparent 52%),
-    radial-gradient(circle at 50% 88%, rgba(120, 170, 255, 0.05), transparent 56%);
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-carousel::before {
-  background:
-    radial-gradient(circle at 72% 24%, rgba(243, 194, 255, 0.13), transparent 40%),
-    radial-gradient(circle at 24% 76%, rgba(255, 205, 228, 0.06), transparent 52%),
-    radial-gradient(circle at 52% 88%, rgba(255, 176, 214, 0.05), transparent 56%);
 }
 
 .morphoza-track {
@@ -259,7 +307,7 @@
   aspect-ratio: 16 / 12;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--rail-item-bg);
   box-shadow: 0 26px 55px rgba(0, 0, 0, 0.28);
   opacity: var(--item-opacity, 0);
   z-index: var(--item-z, 0);
@@ -283,33 +331,36 @@
 }
 
 .morphoza-item.is-active {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: var(--rail-item-active-border);
   filter: brightness(1) blur(0px);
   box-shadow:
     0 45px 110px rgba(0, 0, 0, 0.55),
-    0 0 35px rgba(255, 255, 255, 0.08);
+    var(--rail-item-active-glow);
 }
 
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-item {
-  background: linear-gradient(180deg, rgba(143, 200, 255, 0.06), rgba(255, 255, 255, 0.03));
+.morphoza-empty-state {
+  height: 100%;
+  min-height: clamp(180px, 22vh, 220px);
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 2.4vh, 30px);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-item {
-  background: linear-gradient(180deg, rgba(243, 194, 255, 0.06), rgba(255, 255, 255, 0.03));
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-item.is-active {
-  border-color: rgba(143, 200, 255, 0.38);
-  box-shadow:
-    0 45px 110px rgba(0, 0, 0, 0.55),
-    0 0 34px rgba(143, 200, 255, 0.2);
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-item.is-active {
-  border-color: rgba(243, 194, 255, 0.4);
-  box-shadow:
-    0 45px 110px rgba(0, 0, 0, 0.55),
-    0 0 34px rgba(243, 194, 255, 0.2);
+.morphoza-empty-copy {
+  margin: 0;
+  max-width: 26ch;
+  text-align: center;
+  font-size: clamp(0.72rem, 0.95vw, 0.92rem);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rail-title-color);
+  opacity: 0.88;
 }
 
 .morphoza-item.is-active::after {
@@ -412,28 +463,15 @@
   touch-action: manipulation;
   width: clamp(44px, 4vw, 58px);
   height: clamp(82px, 12vh, 128px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.04);
-  color: #fff;
+  border: 1px solid var(--rail-nav-border);
+  background: var(--rail-nav-bg);
+  color: var(--rail-nav-color);
   cursor: pointer;
   font-size: clamp(1.25rem, 2.2vw, 1.8rem);
   display: inline-grid;
   place-items: center;
+  box-shadow: var(--rail-nav-inset);
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-}
-
-.morphoza-rail[data-morphoza-rail="me"] .morphoza-nav {
-  border-color: rgba(143, 200, 255, 0.22);
-  background: linear-gradient(180deg, rgba(143, 200, 255, 0.08), rgba(8, 18, 32, 0.35));
-  color: #a8d9ff;
-  box-shadow: inset 0 0 0 1px rgba(143, 200, 255, 0.04);
-}
-
-.morphoza-rail[data-morphoza-rail="mine"] .morphoza-nav {
-  border-color: rgba(243, 194, 255, 0.22);
-  background: linear-gradient(180deg, rgba(243, 194, 255, 0.08), rgba(28, 10, 24, 0.36));
-  color: #ffd6ff;
-  box-shadow: inset 0 0 0 1px rgba(243, 194, 255, 0.04);
 }
 
 .morphoza-player-view {

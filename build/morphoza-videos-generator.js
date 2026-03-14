@@ -8,7 +8,26 @@ const FETCH_TIMEOUT_MS = 5000;
 const MAX_ATTEMPTS = 3;
 const RETRY_DELAYS_MS = [500, 1000];
 const FALLBACK_TITLE = 'Video';
-const RAIL_KEYS = ['me', 'mine'];
+const RAILS = [
+  { key: 'justMe', aliases: ['justMe', 'me'] },
+  { key: 'cooperation', aliases: ['cooperation'] },
+  { key: 'mine', aliases: ['mine'] },
+  { key: 'looooong', aliases: ['looooong', 'long'] }
+];
+const RAIL_KEYS = RAILS.map((rail) => rail.key);
+
+function getRailEntries(payload, railKey) {
+  const rail = RAILS.find((entry) => entry.key === railKey);
+  const aliases = rail?.aliases || [railKey];
+
+  for (const alias of aliases) {
+    if (Array.isArray(payload?.[alias])) {
+      return payload[alias];
+    }
+  }
+
+  return [];
+}
 
 function isRealTitle(title) {
   const value = String(title || '').trim();
@@ -30,20 +49,14 @@ function readJson(filePath, fallbackValue) {
 
 function normalizeSourcePayload(payload) {
   if (Array.isArray(payload)) {
-    return {
-      me: payload,
-      mine: []
-    };
+    return Object.fromEntries(RAIL_KEYS.map((railKey) => [railKey, railKey === 'justMe' ? payload : []]));
   }
 
   if (payload && typeof payload === 'object') {
-    return {
-      me: Array.isArray(payload.me) ? payload.me : [],
-      mine: Array.isArray(payload.mine) ? payload.mine : []
-    };
+    return Object.fromEntries(RAIL_KEYS.map((railKey) => [railKey, getRailEntries(payload, railKey)]));
   }
 
-  throw new Error('morphoza-videos.json must contain either a JSON array of video IDs or an object with me/mine arrays');
+  throw new Error('morphoza-videos.json must contain either a JSON array of video IDs or an object with rail arrays');
 }
 
 function buildExistingTitleMap(existingPayload) {
@@ -60,7 +73,7 @@ function buildExistingTitleMap(existingPayload) {
 
   if (existingPayload && typeof existingPayload === 'object') {
     RAIL_KEYS.forEach((railKey) => {
-      const entries = Array.isArray(existingPayload[railKey]) ? existingPayload[railKey] : [];
+      const entries = getRailEntries(existingPayload, railKey);
       entries
         .filter((entry) => entry && typeof entry.id === 'string')
         .forEach((entry) => {
@@ -168,10 +181,7 @@ async function generateMorphozaVideos({
     });
   });
 
-  const result = {
-    me: [],
-    mine: []
-  };
+  const result = Object.fromEntries(RAIL_KEYS.map((railKey) => [railKey, []]));
   const summary = { fetched: 0, preserved: 0, fallback: 0 };
 
   for (let index = 0; index < queue.length; index += 1) {
