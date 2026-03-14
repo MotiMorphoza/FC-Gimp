@@ -255,27 +255,27 @@ class SuperBuild {
   // ─────────────────────────────────────────────────────────────────────────
   async buildMorphozaVideos() {
     const sourcePath = path.join(this.rootDir, 'data', 'morphoza-videos.json');
-    const outputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
+    const localOutputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
     const deployedOutputPath = path.join(this.rootDir, 'docs', 'data', 'morphoza-videos.generated.json');
 
     await generateMorphozaVideos({
       sourcePath,
-      outputPath,
-      fallbackSourcePaths: [deployedOutputPath],
+      outputPath: deployedOutputPath,
+      fallbackSourcePaths: [localOutputPath],
       logger: this.logger,
       delayMs: 300
     });
 
-    const generatedJson = fs.readFileSync(outputPath, 'utf8');
-    const deployedJson = fs.existsSync(deployedOutputPath)
-      ? fs.readFileSync(deployedOutputPath, 'utf8')
+    const deployedJson = fs.readFileSync(deployedOutputPath, 'utf8');
+    const localJson = fs.existsSync(localOutputPath)
+      ? fs.readFileSync(localOutputPath, 'utf8')
       : null;
 
-    fs.mkdirSync(path.dirname(deployedOutputPath), { recursive: true });
+    fs.mkdirSync(path.dirname(localOutputPath), { recursive: true });
 
-    if (deployedJson !== generatedJson) {
-      fs.writeFileSync(deployedOutputPath, generatedJson, 'utf8');
-      this.logger.info('[morphoza] synced generated data into docs/data');
+    if (localJson !== deployedJson) {
+      fs.writeFileSync(localOutputPath, deployedJson, 'utf8');
+      this.logger.info('[morphoza] copied docs/data generated file into data');
     }
   }
 

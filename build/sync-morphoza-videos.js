@@ -11,29 +11,29 @@ async function main() {
   const logger = new Logger();
   const rootDir = path.resolve(__dirname, '..');
   const sourcePath = path.join(rootDir, 'data', 'morphoza-videos.json');
-  const outputPath = path.join(rootDir, 'data', 'morphoza-videos.generated.json');
+  const localOutputPath = path.join(rootDir, 'data', 'morphoza-videos.generated.json');
   const deployedOutputPath = path.join(rootDir, 'docs', 'data', 'morphoza-videos.generated.json');
 
   await generateMorphozaVideos({
     sourcePath,
-    outputPath,
-    fallbackSourcePaths: [deployedOutputPath],
+    outputPath: deployedOutputPath,
+    fallbackSourcePaths: [localOutputPath],
     logger,
     delayMs: 300
   });
 
-  const generatedJson = fs.readFileSync(outputPath, 'utf8');
-  const deployedJson = fs.existsSync(deployedOutputPath)
-    ? fs.readFileSync(deployedOutputPath, 'utf8')
+  const deployedJson = fs.readFileSync(deployedOutputPath, 'utf8');
+  const localJson = fs.existsSync(localOutputPath)
+    ? fs.readFileSync(localOutputPath, 'utf8')
     : null;
 
-  fs.mkdirSync(path.dirname(deployedOutputPath), { recursive: true });
+  fs.mkdirSync(path.dirname(localOutputPath), { recursive: true });
 
-  if (generatedJson !== deployedJson) {
-    fs.writeFileSync(deployedOutputPath, generatedJson, 'utf8');
-    logger.info('[morphoza] synced generated data into docs/data');
+  if (deployedJson !== localJson) {
+    fs.writeFileSync(localOutputPath, deployedJson, 'utf8');
+    logger.info('[morphoza] copied docs/data generated file into data');
   } else {
-    logger.info('[morphoza] docs/data already matches local generated data');
+    logger.info('[morphoza] data already matches docs/data generated file');
   }
 }
 
