@@ -15,10 +15,11 @@ class Versioning {
   /**
    * Generate deterministic build version
    */
-  generateVersion(renameMap, manifestContent) {
+  generateVersion(renameMap, manifestContent, extraContent = {}) {
     const data = {
       renames: Array.from(renameMap.entries()).sort(),
-      manifest: manifestContent
+      manifest: manifestContent,
+      extraContent
     };
 
     const hash = crypto

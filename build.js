@@ -31,6 +31,32 @@ class SuperBuild {
     this.rootDir           = process.cwd();
   }
 
+  collectVersionInputs(buildDir) {
+    const dataDir = path.join(buildDir, 'data');
+    const inputs = {};
+
+    const walk = (currentDir) => {
+      if (!fs.existsSync(currentDir)) return;
+
+      fs.readdirSync(currentDir, { withFileTypes: true })
+        .sort((left, right) => left.name.localeCompare(right.name))
+        .forEach((entry) => {
+          const fullPath = path.join(currentDir, entry.name);
+
+          if (entry.isDirectory()) {
+            walk(fullPath);
+            return;
+          }
+
+          const relativePath = path.relative(buildDir, fullPath).replace(/\\/g, '/');
+          inputs[relativePath] = fs.readFileSync(fullPath, 'utf8');
+        });
+    };
+
+    walk(dataDir);
+    return inputs;
+  }
+
   async build() {
     try {
 
@@ -81,11 +107,12 @@ class SuperBuild {
       const manifestPath = path.join(tempDir, 'js', 'image-manifest.js');
       this.manifestGenerator.generate(manifestData, manifestPath);
       const manifestContent = fs.readFileSync(manifestPath, 'utf8');
+      const versionInputs = this.collectVersionInputs(tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Versioning (preliminary pass – before asset hashing)
       // ─────────────────────────────────────────────────────────────────────
-      const prelimVersion = this.versioning.generateVersion(new Map(), manifestContent);
+      const prelimVersion = this.versioning.generateVersion(new Map(), manifestContent, versionInputs);
       this.versioning.createVersionFile(tempDir, prelimVersion);
 
       // ─────────────────────────────────────────────────────────────────────
@@ -97,7 +124,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       // Final BUILD_VERSION (incorporates rename map)
       // ─────────────────────────────────────────────────────────────────────
-      const BUILD_VERSION = this.versioning.generateVersion(renameMap, manifestContent);
+      const BUILD_VERSION = this.versioning.generateVersion(renameMap, manifestContent, versionInputs);
 
       const jsDir = path.join(tempDir, 'js');
       const jsFiles = fs.readdirSync(jsDir).sort();
