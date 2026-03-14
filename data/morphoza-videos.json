@@ -6,28 +6,25 @@
     "9wB1TBQIUJY",
     "4DhDvD3OI1I",
     "jiH3dJ7Xmxs",
-    "Rwcewjec0ug",
     "mLwruD9gxN8",
     "U1SxF5vO1lk",
     "iTZSUXB1EZA",
     "fQ9GvwNHcC0",
     "AKJGgbYc_ag",
-    "dnG-ZWLFyuY",
-    "MveYsjWmTrY",
-    "2TW-vIyt2dY",
-    "cK5NdcNTqJk",
-    "dyU128dqbcA",
-    "n0GZH31uXrw",
-    "-qg62yJ2wZM",
     "pByC5rCDR6U",
-    "bjNWMkOUulY",
-    "PcJKI8IFKqk",
     "nGn0Div6-v0",
     "ShzQW2ZONDI",
     "GlILgZ94DtU",
     "BU1VJPKiz4A" 
   ],
-  "cooperation": [],
+  "cooperation": [
+    "Rwcewjec0ug",
+    "dnG-ZWLFyuY",
+    "MveYsjWmTrY",
+    "2TW-vIyt2dY",
+    "bjNWMkOUulY",
+    "PcJKI8IFKqk",
+  ],
   "mine": [
     "wo75vSYA1XQ",
     "FoudfrvjFAw",
@@ -36,5 +33,10 @@
     "t19wvGpJGEI",
     "_PacpfFCx-E"
   ],
-  "looooong": []
+  "looooong": [
+    "cK5NdcNTqJk",
+    "dyU128dqbcA",
+    "n0GZH31uXrw",
+    "-qg62yJ2wZM",
+  ]
 }
