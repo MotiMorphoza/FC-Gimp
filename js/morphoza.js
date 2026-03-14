@@ -402,6 +402,22 @@
     state.inlinePlayer = null;
   }
 
+  function resetGalleryScroll() {
+    if (!isMobileMorphoza()) return;
+
+    [state.root, state.shell, state.refs.carouselView].forEach((element) => {
+      if (!element) return;
+
+      if (typeof element.scrollTo === "function") {
+        element.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        return;
+      }
+
+      element.scrollTop = 0;
+      element.scrollLeft = 0;
+    });
+  }
+
   function showGalleryView() {
     state.refs.carouselView?.removeAttribute("hidden");
     state.refs.playerView?.setAttribute("hidden", "hidden");
@@ -801,6 +817,7 @@
     resetPlayer();
     renderItems();
     updateAllCarousels();
+    resetGalleryScroll();
   }
 
   async function activateHome() {

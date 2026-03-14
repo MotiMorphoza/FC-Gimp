@@ -497,8 +497,8 @@
     flex-direction: column;
     min-height: 0;
     height: auto;
-    gap: 22px;
-    padding-bottom: 8px;
+    gap: 24px;
+    padding-bottom: 12px;
   }
 
   .morphoza-rail {
@@ -545,15 +545,15 @@
     height: auto;
     min-height: 0;
     overflow: visible;
-    padding: 12px 0 4px;
+    padding: 12px 0 6px;
   }
 
   .morphoza-track {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
     height: auto;
-    padding: 0 10px 14px;
+    padding: 0 10px 18px;
   }
 
   .morphoza-item {
@@ -562,7 +562,7 @@
     top: auto;
     width: 100%;
     aspect-ratio: auto;
-    padding: 10px;
+    padding: 12px;
     opacity: 1;
     filter: none;
     transform: none;
@@ -604,12 +604,18 @@
 
   .morphoza-item-title,
   .morphoza-item.is-active .morphoza-item-title {
+    display: block;
     order: -1;
-    margin: 0 0 2px;
+    margin: 0 0 4px;
     font-size: 0.72rem;
     padding: 0;
     line-height: 1.35;
     opacity: 1;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+    overflow: visible;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .morphoza-item-figure {
