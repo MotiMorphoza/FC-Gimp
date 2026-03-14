@@ -59,18 +59,19 @@
   transform: translateY(-1px);
 }
 
-.morphoza-carousel-view,
+.morphoza-carousel-view {
+  flex: 0 0 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4.2vh, 54px);
+  height: auto;
+  padding-bottom: clamp(20px, 4vh, 42px);
+}
+
 .morphoza-player-view {
   flex: 1 1 auto;
   min-height: 0;
-}
-
-.morphoza-carousel-view {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(20px, 2.6vh, 34px);
-  height: auto;
-  padding-bottom: clamp(20px, 4vh, 42px);
 }
 
 .morphoza-rail {
@@ -97,10 +98,9 @@
   --rail-nav-color: #a8d9ff;
   --rail-nav-inset: inset 0 0 0 1px rgba(143, 200, 255, 0.04);
   min-height: 0;
-  display: grid;
-  grid-template-rows: auto auto;
-  align-content: start;
-  gap: clamp(10px, 1.6vh, 18px);
+  display: block;
+  position: relative;
+  isolation: isolate;
   order: var(--rail-order);
 }
 
@@ -184,8 +184,8 @@
 }
 
 .morphoza-rail + .morphoza-rail {
-  position: relative;
-  padding-top: clamp(16px, 2vh, 24px);
+  margin-top: clamp(10px, 1.6vh, 20px);
+  padding-top: clamp(18px, 2.4vh, 28px);
 }
 
 .morphoza-rail + .morphoza-rail::before {
@@ -222,6 +222,9 @@
   justify-content: center;
   min-height: clamp(28px, 3.4vh, 38px);
   padding-inline: clamp(4px, 0.8vw, 10px);
+  margin-bottom: clamp(12px, 1.8vh, 18px);
+  position: relative;
+  z-index: 2;
 }
 
 .morphoza-rail-title {
@@ -252,6 +255,8 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: clamp(10px, 1.5vw, 20px);
+  position: relative;
+  z-index: 1;
 }
 
 .morphoza-carousel-shell.is-empty {
@@ -535,16 +540,16 @@
     flex-direction: column;
     min-height: 0;
     height: auto;
-    gap: 24px;
+    gap: 28px;
     padding-bottom: 12px;
   }
 
   .morphoza-rail {
-    grid-template-rows: auto auto;
-    gap: 14px;
+    display: block;
   }
 
   .morphoza-rail + .morphoza-rail {
+    margin-top: 8px;
     padding-top: 24px;
   }
 

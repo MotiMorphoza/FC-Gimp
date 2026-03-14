@@ -445,7 +445,7 @@
   }
 
   function resetGalleryScroll() {
-    [state.root, state.shell, state.refs.carouselView].forEach((element) => {
+    [state.pane, state.root, state.shell, state.refs.carouselView].forEach((element) => {
       if (!element) return;
 
       if (typeof element.scrollTo === "function") {
