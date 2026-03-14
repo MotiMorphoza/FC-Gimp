@@ -25,10 +25,6 @@
       "title": "Bring Back the Fire - Hendo Hendo Mei"
     },
     {
-      "id": "Rwcewjec0ug",
-      "title": "Divines - Warsaw, what you've done to me [OFFICIAL VIDEO]"
-    },
-    {
       "id": "mLwruD9gxN8",
       "title": "imagine dragons - believer"
     },
@@ -49,6 +45,20 @@
       "title": "Lion's Dilemma"
     },
     {
+      "id": "pByC5rCDR6U",
+      "title": "i go away"
+    },
+    {
+      "id": "nGn0Div6-v0",
+      "title": "Casino"
+    }
+  ],
+  "cooperation": [
+    {
+      "id": "Rwcewjec0ug",
+      "title": "Divines - Warsaw, what you've done to me [OFFICIAL VIDEO]"
+    },
+    {
       "id": "dnG-ZWLFyuY",
       "title": "Whip Test"
     },
@@ -61,36 +71,12 @@
       "title": "Dancing Ends"
     },
     {
-      "id": "cK5NdcNTqJk",
-      "title": "Electric Guru"
-    },
-    {
-      "id": "dyU128dqbcA",
-      "title": "Seven Deadly Sins Kurt Weill Bertolt Brecht \\ Monika Łopuszyńska"
-    },
-    {
-      "id": "n0GZH31uXrw",
-      "title": "Mimopera"
-    },
-    {
-      "id": "-qg62yJ2wZM",
-      "title": "What's the Date ?"
-    },
-    {
-      "id": "pByC5rCDR6U",
-      "title": "i go away"
-    },
-    {
       "id": "bjNWMkOUulY",
       "title": "Action Dreams"
     },
     {
       "id": "PcJKI8IFKqk",
       "title": "Where is Sherlock"
-    },
-    {
-      "id": "nGn0Div6-v0",
-      "title": "Casino"
     },
     {
       "id": "ShzQW2ZONDI",
@@ -105,7 +91,6 @@
       "title": "Video"
     }
   ],
-  "cooperation": [],
   "mine": [
     {
       "id": "wo75vSYA1XQ",
@@ -132,5 +117,22 @@
       "title": "Epoca - Gotan Project - 3 in it Y"
     }
   ],
-  "looooong": []
+  "looooong": [
+    {
+      "id": "cK5NdcNTqJk",
+      "title": "Electric Guru"
+    },
+    {
+      "id": "dyU128dqbcA",
+      "title": "Seven Deadly Sins Kurt Weill Bertolt Brecht \\ Monika Łopuszyńska"
+    },
+    {
+      "id": "n0GZH31uXrw",
+      "title": "Mimopera"
+    },
+    {
+      "id": "-qg62yJ2wZM",
+      "title": "What's the Date ?"
+    }
+  ]
 }

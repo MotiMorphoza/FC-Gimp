@@ -238,6 +238,18 @@ class SuperBuild {
       logger: this.logger,
       delayMs: 300
     });
+
+    const generatedJson = fs.readFileSync(outputPath, 'utf8');
+    const deployedJson = fs.existsSync(deployedOutputPath)
+      ? fs.readFileSync(deployedOutputPath, 'utf8')
+      : null;
+
+    fs.mkdirSync(path.dirname(deployedOutputPath), { recursive: true });
+
+    if (deployedJson !== generatedJson) {
+      fs.writeFileSync(deployedOutputPath, generatedJson, 'utf8');
+      this.logger.info('[morphoza] synced generated data into docs/data');
+    }
   }
 
   buildHumanWritesContent() {
