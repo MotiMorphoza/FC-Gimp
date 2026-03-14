@@ -229,10 +229,12 @@ class SuperBuild {
   async buildMorphozaVideos() {
     const sourcePath = path.join(this.rootDir, 'data', 'morphoza-videos.json');
     const outputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
+    const deployedOutputPath = path.join(this.rootDir, 'docs', 'data', 'morphoza-videos.generated.json');
 
     await generateMorphozaVideos({
       sourcePath,
       outputPath,
+      fallbackSourcePaths: [deployedOutputPath],
       logger: this.logger,
       delayMs: 300
     });

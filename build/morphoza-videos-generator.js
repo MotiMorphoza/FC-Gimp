@@ -72,6 +72,21 @@ function buildExistingTitleMap(existingPayload) {
   return map;
 }
 
+function mergeTitleMaps(primaryMap, secondaryMap) {
+  const nextMap = new Map(primaryMap);
+
+  secondaryMap.forEach((title, videoId) => {
+    const currentTitle = nextMap.get(videoId) || '';
+
+    if (isRealTitle(currentTitle)) return;
+    if (!String(title || '').trim()) return;
+
+    nextMap.set(videoId, String(title || '').trim());
+  });
+
+  return nextMap;
+}
+
 async function fetchVideoTitleOnce(videoId) {
   const oembedUrl = new URL('https://www.youtube.com/oembed');
   oembedUrl.searchParams.set('url', `https://www.youtube.com/watch?v=${videoId}`);
@@ -130,12 +145,19 @@ async function fetchVideoTitleWithRetry(videoId) {
 async function generateMorphozaVideos({
   sourcePath,
   outputPath,
+  fallbackSourcePaths = [],
   logger,
   delayMs = DEFAULT_DELAY_MS
 }) {
   const source = normalizeSourcePayload(readJson(sourcePath, []));
   const existing = readJson(outputPath, []);
-  const existingMap = buildExistingTitleMap(existing);
+  let existingMap = buildExistingTitleMap(existing);
+
+  fallbackSourcePaths.forEach((fallbackPath) => {
+    const fallbackPayload = readJson(fallbackPath, null);
+    if (!fallbackPayload) return;
+    existingMap = mergeTitleMaps(existingMap, buildExistingTitleMap(fallbackPayload));
+  });
 
   const queue = [];
   RAIL_KEYS.forEach((railKey) => {
