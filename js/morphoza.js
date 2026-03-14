@@ -272,6 +272,18 @@
     return railRefs?.track ? Array.from(railRefs.track.querySelectorAll(".morphoza-item")) : [];
   }
 
+  function enforceRailOrder() {
+    const carouselView = state.refs.carouselView;
+    if (!carouselView || !state.refs.rails) return;
+
+    RAIL_KEYS.forEach((railKey) => {
+      const rail = state.refs.rails[railKey]?.rail;
+      if (rail) {
+        carouselView.appendChild(rail);
+      }
+    });
+  }
+
   function captureRefs() {
     state.refs = {
       carouselView: state.root.querySelector("[data-morphoza-carousel-view]"),
@@ -317,6 +329,8 @@
   }
 
   function renderItems() {
+    enforceRailOrder();
+
     RAIL_KEYS.forEach((railKey) => {
       const railRefs = getRailRefs(railKey);
       const videos = getRailVideos(railKey);
