@@ -22,7 +22,8 @@
     "02": "image-top",
     "03": "image-split",
     "04": "quote",
-    "05": "full-image"
+    "05": "full-image",
+    "06": "image-bottom"
   };
 
   const state = {
@@ -305,22 +306,40 @@
     return `<h2>${escapeHtml(page.title)}</h2>`;
   }
 
+  function hasRenderableParagraphs(blocks) {
+    return Array.isArray(blocks) && blocks.some((block) => {
+      if (typeof block === "string") {
+        return Boolean(block.trim());
+      }
+
+      return block && block.type === "paragraph" && Boolean(String(block.text || "").trim());
+    });
+  }
+
+  function hasRenderableTextFlow(page) {
+    const hasTitle = Boolean(String(page?.title || "").trim());
+    const blocks = Array.isArray(page?.paragraphs) ? page.paragraphs : [];
+    return hasTitle || hasRenderableParagraphs(blocks);
+  }
+
   function renderTextFlow(page) {
     const blocks = Array.isArray(page.paragraphs) && page.paragraphs.length
       ? page.paragraphs
       : [{ type: "paragraph", text: "" }];
+    const heading = String(page.title || "").trim() ? renderPageHeading(page) : "";
+    const paragraphMarkup = hasRenderableParagraphs(blocks) ? renderParagraphGroup(blocks) : "";
 
     if (page.layout === "quote") {
       const leadParagraph = getLeadParagraphText(blocks);
       const restBlocks = getBlocksAfterLeadParagraph(blocks);
       return [
-        renderPageHeading(page),
-        `<blockquote>${renderParagraph(leadParagraph || "", "hw-paragraph--quote")}</blockquote>`,
+        heading,
+        leadParagraph ? `<blockquote>${renderParagraph(leadParagraph, "hw-paragraph--quote")}</blockquote>` : "",
         restBlocks.length ? renderParagraphGroup(restBlocks) : ""
-      ].join("");
+      ].filter(Boolean).join("");
     }
 
-    return `${renderPageHeading(page)}${renderParagraphGroup(blocks)}`;
+    return `${heading}${paragraphMarkup}`;
   }
 
   function renderTocSections(sections) {
@@ -410,17 +429,31 @@
 
     const rtlClass = page.language === "he" ? " hw-page-body--rtl" : "";
     const layout = page.layout || "text";
+    const hasTextFlow = hasRenderableTextFlow(page);
+    const bodyStateClass = hasTextFlow ? " hw-page-body--with-copy" : " hw-page-body--image-only";
 
     if (layout === "full-image" && page.image) {
       return `
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
-          <div class="hw-page-body hw-page-body--full-image${rtlClass}">
+          <div class="hw-page-body hw-page-body--full-image${rtlClass}${bodyStateClass}">
             <div class="hw-full-image-figure">
               <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-              <div class="hw-full-image-caption">
-                ${renderTextFlow(page)}
-              </div>
+            </div>
+            ${hasTextFlow ? `<div class="hw-text-flow hw-text-flow--stacked-image">${renderTextFlow(page)}</div>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    if (layout === "image-bottom" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--image-bottom${rtlClass}${bodyStateClass}">
+            ${hasTextFlow ? `<div class="hw-text-flow hw-text-flow--stacked-image">${renderTextFlow(page)}</div>` : ""}
+            <div class="hw-image-bottom-figure">
+              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             </div>
           </div>
         </article>
@@ -569,6 +602,10 @@
     }];
   }
 
+  function shouldIncludeEntryInToc(entry) {
+    return entry && entry.layout !== "full-image";
+  }
+
   function createTocPageConfig() {
     return {
       left: {
@@ -646,10 +683,12 @@
       if (!entryPages.length) continue;
 
       pageIndexByEntry.set(entry.id, pages.length);
-      tocSectionsByLanguage[entry.language].items.push({
-        title: entry.title,
-        pageIndex: pages.length
-      });
+      if (shouldIncludeEntryInToc(entry)) {
+        tocSectionsByLanguage[entry.language].items.push({
+          title: entry.title,
+          pageIndex: pages.length
+        });
+      }
       pages.push(...entryPages);
     }
 
@@ -680,10 +719,12 @@
         const page = entryPages[pageIndex];
         if (page.part === 1) {
           pageIndexByEntry.set(entry.id, pages.length);
-          tocSectionsByLanguage.he.items.push({
-            title: entry.title,
-            pageIndex: pages.length
-          });
+          if (shouldIncludeEntryInToc(entry)) {
+            tocSectionsByLanguage.he.items.push({
+              title: entry.title,
+              pageIndex: pages.length
+            });
+          }
         }
         pages.push(page);
       }
