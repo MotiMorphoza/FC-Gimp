@@ -251,6 +251,11 @@
   padding-inline: clamp(0px, 2vw, 16px);
 }
 
+.hw-page-body--text-centered {
+  align-content: center;
+  justify-items: center;
+}
+
 .hw-page-body--toc,
 .hw-page-body--text,
 .hw-page-body--image-top,
@@ -316,6 +321,30 @@
   display: grid;
   align-content: start;
   gap: 0.45rem;
+}
+
+.hw-text-flow--centered {
+  width: min(100%, 34ch);
+  justify-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hw-text-flow--centered h2,
+.hw-text-flow--centered h3,
+.hw-text-flow--centered p,
+.hw-text-flow--centered blockquote,
+.hw-text-flow--centered .hw-paragraph {
+  text-align: center;
+}
+
+.hw-page-body--rtl .hw-text-flow--centered,
+.hw-page-body--rtl .hw-text-flow--centered h2,
+.hw-page-body--rtl .hw-text-flow--centered h3,
+.hw-page-body--rtl .hw-text-flow--centered p,
+.hw-page-body--rtl .hw-text-flow--centered blockquote,
+.hw-page-body--rtl .hw-text-flow--centered .hw-paragraph {
+  text-align: center;
 }
 
 .hw-page-footer,
@@ -386,6 +415,11 @@
 
 .hw-page-body--full-image .hw-inline-image {
   object-fit: contain;
+  object-position: center;
+}
+
+.hw-page-body--full-image-stretched .hw-inline-image {
+  object-fit: cover;
   object-position: center;
 }
 

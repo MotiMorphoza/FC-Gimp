@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VALID_LAYOUT_CODES = new Set(['01', '02', '03', '04', '05', '06']);
+const VALID_LAYOUT_CODES = new Set(['01', '01C', '02', '02C', '02TC', '03', '04', '05', '05S', '06']);
 const LANGUAGES = ['en', 'he', 'es'];
 const HEADER_KEYS = new Set(['LAYOUT', 'TITLE', 'IMAGE', 'HIDDEN', 'BODY']);
 
@@ -13,7 +13,7 @@ function normalizeLayoutCode(raw) {
   if (/^\d+$/.test(value)) {
     return value.padStart(2, '0');
   }
-  return value;
+  return value.toUpperCase();
 }
 
 function parseBoolean(raw, fieldName, filePath) {

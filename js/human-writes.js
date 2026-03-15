@@ -19,10 +19,14 @@
 
   const LAYOUT_CODE_MAP = {
     "01": "text",
+    "01C": "text-centered",
     "02": "image-top",
+    "02C": "image-top-centered",
+    "02TC": "image-bottom-centered",
     "03": "image-split",
     "04": "quote",
     "05": "full-image",
+    "05S": "full-image-stretched",
     "06": "image-bottom"
   };
 
@@ -71,7 +75,7 @@
     const raw = String(value || "").trim();
     if (!raw) return "";
     if (/^\d+$/.test(raw)) return raw.padStart(2, "0");
-    return raw;
+    return raw.toUpperCase();
   }
 
   function normalizeGeneratedEntries(items) {
@@ -342,6 +346,20 @@
     return `${heading}${paragraphMarkup}`;
   }
 
+  function renderTextFlowMarkup(page, options = {}) {
+    const classes = ["hw-text-flow"];
+
+    if (options.stacked) {
+      classes.push("hw-text-flow--stacked-image");
+    }
+
+    if (options.centered) {
+      classes.push("hw-text-flow--centered");
+    }
+
+    return `<div class="${classes.join(" ")}">${renderTextFlow(page)}</div>`;
+  }
+
   function renderTocSections(sections) {
     const groups = sections.filter((section) => Array.isArray(section.items) && section.items.length > 0);
     return `
@@ -431,16 +449,28 @@
     const layout = page.layout || "text";
     const hasTextFlow = hasRenderableTextFlow(page);
     const bodyStateClass = hasTextFlow ? " hw-page-body--with-copy" : " hw-page-body--image-only";
+    const isFullImageStretched = layout === "full-image-stretched";
 
-    if (layout === "full-image" && page.image) {
+    if ((layout === "full-image" || layout === "full-image-stretched") && page.image) {
       return `
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
-          <div class="hw-page-body hw-page-body--full-image${rtlClass}${bodyStateClass}">
+          <div class="hw-page-body hw-page-body--full-image${isFullImageStretched ? " hw-page-body--full-image-stretched" : ""}${rtlClass}${bodyStateClass}">
             <div class="hw-full-image-figure">
               <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             </div>
-            ${hasTextFlow ? `<div class="hw-text-flow hw-text-flow--stacked-image">${renderTextFlow(page)}</div>` : ""}
+            ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true }) : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    if (layout === "text-centered") {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--text hw-page-body--text-centered${rtlClass}">
+            ${renderTextFlowMarkup(page, { centered: true })}
           </div>
         </article>
       `;
@@ -451,7 +481,21 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-bottom${rtlClass}${bodyStateClass}">
-            ${hasTextFlow ? `<div class="hw-text-flow hw-text-flow--stacked-image">${renderTextFlow(page)}</div>` : ""}
+            ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true }) : ""}
+            <div class="hw-image-bottom-figure">
+              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    if (layout === "image-bottom-centered" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--image-bottom hw-page-body--centered-copy${rtlClass}${bodyStateClass}">
+            ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true, centered: true }) : ""}
             <div class="hw-image-bottom-figure">
               <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
             </div>
@@ -466,7 +510,19 @@
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-top${rtlClass}">
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+            ${renderTextFlowMarkup(page)}
+          </div>
+        </article>
+      `;
+    }
+
+    if (layout === "image-top-centered" && page.image) {
+      return `
+        <article class="hw-page-article">
+          <p class="hw-running-head">Human Writes</p>
+          <div class="hw-page-body hw-page-body--image-top hw-page-body--centered-copy${rtlClass}">
+            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            ${renderTextFlowMarkup(page, { centered: true })}
           </div>
         </article>
       `;
@@ -478,7 +534,7 @@
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-split${rtlClass}">
             <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+            ${renderTextFlowMarkup(page)}
           </div>
         </article>
       `;
@@ -489,7 +545,7 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--quote${rtlClass}">
-            <div class="hw-text-flow">${renderTextFlow(page)}</div>
+            ${renderTextFlowMarkup(page)}
           </div>
         </article>
       `;
@@ -499,7 +555,7 @@
       <article class="hw-page-article">
         <p class="hw-running-head">Human Writes</p>
         <div class="hw-page-body hw-page-body--text${rtlClass}">
-          <div class="hw-text-flow">${renderTextFlow(page)}</div>
+          ${renderTextFlowMarkup(page)}
         </div>
       </article>
     `;
@@ -603,7 +659,7 @@
   }
 
   function shouldIncludeEntryInToc(entry) {
-    return entry && entry.layout !== "full-image";
+    return entry && entry.layout !== "full-image" && entry.layout !== "full-image-stretched";
   }
 
   function createTocPageConfig() {
