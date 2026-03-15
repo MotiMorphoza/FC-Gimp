@@ -1,4 +1,4 @@
-LAYOUT: 03
+LAYOUT: 01
 TITLE: Big BRO
 IMAGE: bigbro.jpg
 HIDDEN:
