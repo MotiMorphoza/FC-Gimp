@@ -1,5 +1,5 @@
 LAYOUT: 05
 TITLE: 
-IMAGE: Ginny.jpg
+IMAGE: ginny.jpg
 HIDDEN:
 BODY:
