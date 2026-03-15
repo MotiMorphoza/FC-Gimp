@@ -366,6 +366,8 @@
 .hw-full-image-figure,
 .hw-image-bottom-figure {
   position: relative;
+  display: grid;
+  place-items: center;
   height: 100%;
   min-height: 0;
   overflow: hidden;
@@ -373,9 +375,18 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
+.hw-full-image-figure {
+  background: transparent;
+}
+
 .hw-page-body--full-image .hw-inline-image,
 .hw-page-body--image-bottom .hw-inline-image {
   display: block;
+}
+
+.hw-page-body--full-image .hw-inline-image {
+  object-fit: contain;
+  object-position: center;
 }
 
 .hw-nav,
