@@ -1,14 +1,14 @@
 LAYOUT: 04
-TITLE: innocence
+TITLE: STATIONS 
 IMAGE: 
 HIDDEN:
 BODY:
 
-retrieving a feeling
-conceiving a thought
-being the moment
-forgetting the world
-it doesn’t make sense
-it’s innocence
+Have you ever walked on
+the thin line of a
+mental path stretched
+between two Heres and
+crossing through the
+Nows..
 
 
