@@ -3,14 +3,14 @@
   const TEMPLATE_URL = "morphoza.html";
   const MOBILE_QUERY = "(max-width: 900px)";
   const RAILS = [
-    { key: "justMe", title: "Just Me", legacyKeys: ["me"] },
-    { key: "cooperation", title: "Cooperation" },
-    { key: "mine", title: "Mine" },
-    { key: "looooong", title: "Looooong", legacyKeys: ["long"] }
+    { key: "cooperation", title: "ME &.." },
+    { key: "justMe", title: "JUST ME..", legacyKeys: ["me"] },
+    { key: "mine", title: "MINE" },
+    { key: "looooong", title: "LOOOOONG", legacyKeys: ["long"] }
   ];
   const RAIL_KEYS = RAILS.map((rail) => rail.key);
   const RAIL_CONFIG = Object.fromEntries(RAILS.map((rail) => [rail.key, rail]));
-  const DEFAULT_ACTIVE_RAIL = "justMe";
+  const DEFAULT_ACTIVE_RAIL = "cooperation";
 
   function createRailState() {
     return Object.fromEntries(RAIL_KEYS.map((railKey) => [railKey, { videos: [], activeIndex: 0 }]));

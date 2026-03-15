@@ -105,11 +105,11 @@
 }
 
 .morphoza-rail[data-morphoza-rail="justMe"] {
-  --rail-order: 1;
+  --rail-order: 2;
 }
 
 .morphoza-rail[data-morphoza-rail="cooperation"] {
-  --rail-order: 2;
+  --rail-order: 1;
   --rail-title-color: #95f2c7;
   --rail-header-line: linear-gradient(90deg, rgba(149, 242, 199, 0.96), rgba(255, 220, 162, 0.2));
   --rail-header-glow: 0 0 18px rgba(149, 242, 199, 0.22);
