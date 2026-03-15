@@ -260,22 +260,21 @@ class SuperBuild {
 
     await generateMorphozaVideos({
       sourcePath,
-      outputPath: deployedOutputPath,
-      fallbackSourcePaths: [localOutputPath],
+      outputPath: localOutputPath,
       logger: this.logger,
       delayMs: 300
     });
 
-    const deployedJson = fs.readFileSync(deployedOutputPath, 'utf8');
-    const localJson = fs.existsSync(localOutputPath)
-      ? fs.readFileSync(localOutputPath, 'utf8')
+    const localJson = fs.readFileSync(localOutputPath, 'utf8');
+    const deployedJson = fs.existsSync(deployedOutputPath)
+      ? fs.readFileSync(deployedOutputPath, 'utf8')
       : null;
 
-    fs.mkdirSync(path.dirname(localOutputPath), { recursive: true });
+    fs.mkdirSync(path.dirname(deployedOutputPath), { recursive: true });
 
-    if (localJson !== deployedJson) {
-      fs.writeFileSync(localOutputPath, deployedJson, 'utf8');
-      this.logger.info('[morphoza] copied docs/data generated file into data');
+    if (deployedJson !== localJson) {
+      fs.writeFileSync(deployedOutputPath, localJson, 'utf8');
+      this.logger.info('[morphoza] copied local generated file into docs/data');
     }
   }
 
