@@ -11,12 +11,35 @@
       <div data-sidebar></div>
 
       <main class="content-pane" aria-label="Main slideshow area">
-        <div
-          class="slide-viewport"
-          data-slideshow
-          data-path="images/main"
-          data-alt="MotoSynteza featured photos"
-        ></div>
+        <div class="main-stage">
+          <section class="main-intro" aria-label="Welcome text">
+            <div class="main-intro-inner">
+              <p class="main-intro-lead">Welcome to my Luna Park.</p>
+              <p>Hold on tight.</p>
+              <p>The train is leaving now.</p>
+
+              <div class="main-intro-stops">
+                <p class="main-intro-label">Stops along the way:</p>
+                <ul>
+                  <li>Conceptual street photography</li>
+                  <li>Performance video's</li>
+                  <li>Spoken word</li>
+                </ul>
+              </div>
+
+              <p class="main-intro-outro">Enjoy the ride.</p>
+            </div>
+          </section>
+
+          <div class="main-stage-media">
+            <div
+              class="slide-viewport"
+              data-slideshow
+              data-path="images/main"
+              data-alt="MotoSynteza featured photos"
+            ></div>
+          </div>
+        </div>
       </main>
     </div>
     <script type="module" src="js/image-manifest.js"></script>
