@@ -1,6 +1,6 @@
 LAYOUT: 02TC
 TITLE: The Joker
-IMAGE: 
+IMAGE: joker.jpg
 HIDDEN:
 BODY:
 
