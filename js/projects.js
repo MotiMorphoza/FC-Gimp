@@ -23,7 +23,7 @@ function initProjectsPage() {
     const grid = document.createElement("div");
     grid.className = "project-grid";
 
-    const href = `project.html?project=${encodeURIComponent(project.slug)}`;
+    const href = `project-${encodeURIComponent(project.slug)}.html`;
 
     const link = document.createElement("a");
     link.href = href;

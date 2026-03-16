@@ -16,7 +16,7 @@ const { generateShopIndex }      = require('./build/shop-index-generator');
 const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
-const { SITE_HOSTNAME } = require('./build/site-config');
+const { SITE_HOSTNAME, SITE_ORIGIN } = require('./build/site-config');
 
 class SuperBuild {
 
@@ -92,6 +92,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       const projects = this.scanner.scanProjectsFromRoot(tempDir);
       this.logger.info(`Validated ${projects.length} projects`);
+      this.generateStaticProjectPages(projects, tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Generate manifests
@@ -236,6 +237,8 @@ class SuperBuild {
         fs.writeFileSync(filePath, html, 'utf8');
       }
 
+      this.generateRobotsAndSitemap(tempDir, projects);
+
       // ─────────────────────────────────────────────────────────────────────
       // Verify & Deploy
       // ─────────────────────────────────────────────────────────────────────
@@ -317,6 +320,104 @@ class SuperBuild {
   // ─────────────────────────────────────────────────────────────────────────
   // Projects manifest  (window.__PROJECTS__)
   // ─────────────────────────────────────────────────────────────────────────
+  generateStaticProjectPages(projects, tempDir) {
+    const templatePath = path.join(tempDir, 'project.html');
+    if (!fs.existsSync(templatePath)) {
+      throw new Error('Missing project.html template for static project pages');
+    }
+
+    const template = fs.readFileSync(templatePath, 'utf8');
+
+    projects.forEach((project) => {
+      const outputPath = path.join(tempDir, `project-${project.slug}.html`);
+      const pageHtml = template.replace(
+        /<body class="page-shell" data-page="project">/i,
+        `<body class="page-shell" data-page="project" data-project-slug="${project.slug}">`
+      );
+
+      fs.writeFileSync(outputPath, pageHtml, 'utf8');
+    });
+
+    this.logger.info(`Generated ${projects.length} static project pages`);
+  }
+
+  escapeXml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  }
+
+  generateRobotsAndSitemap(tempDir, projects) {
+    const today = new Date().toISOString().slice(0, 10);
+    const staticPages = [
+      '',
+      'main.html',
+      'projects.html',
+      'about.html',
+      'shop.html',
+      'more.html',
+      'human-writes.html',
+      'morphoza.html'
+    ];
+
+    const pageEntries = staticPages.map((fileName) => ({
+      url: fileName ? encodeURI(`${SITE_ORIGIN}/${fileName}`) : `${SITE_ORIGIN}/`,
+      images: []
+    }));
+
+    const projectEntries = projects.map((project) => ({
+      url: encodeURI(`${SITE_ORIGIN}/project-${project.slug}.html`),
+      images: project.images.map((image) => ({
+        loc: encodeURI(`${SITE_ORIGIN}/projects/${project.slug}/${image.src}`),
+        title: project.title
+      }))
+    }));
+
+    const urlEntries = [...pageEntries, ...projectEntries];
+
+    const sitemap = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+      ...urlEntries.map((entry) => {
+        const lines = [
+          '  <url>',
+          `    <loc>${this.escapeXml(entry.url)}</loc>`,
+          `    <lastmod>${today}</lastmod>`
+        ];
+
+        entry.images.forEach((image) => {
+          lines.push('    <image:image>');
+          lines.push(`      <image:loc>${this.escapeXml(image.loc)}</image:loc>`);
+          if (image.title) {
+            lines.push(`      <image:title>${this.escapeXml(image.title)}</image:title>`);
+          }
+          lines.push('    </image:image>');
+        });
+
+        lines.push('  </url>');
+        return lines.join('\n');
+      }),
+      '</urlset>',
+      ''
+    ].join('\n');
+
+    const robots = [
+      'User-agent: *',
+      'Allow: /',
+      '',
+      `Sitemap: ${SITE_ORIGIN}/sitemap.xml`,
+      `Host: ${SITE_HOSTNAME}`,
+      ''
+    ].join('\n');
+
+    fs.writeFileSync(path.join(tempDir, 'sitemap.xml'), sitemap, 'utf8');
+    fs.writeFileSync(path.join(tempDir, 'robots.txt'), robots, 'utf8');
+    this.logger.info('[seo] Generated robots.txt and sitemap.xml');
+  }
+
   generateProjectsManifest(projects, tempDir) {
     const outputPath = path.join(tempDir, 'js', 'projects-manifest.js');
 

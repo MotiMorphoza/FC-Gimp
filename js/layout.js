@@ -162,7 +162,7 @@ function getActiveNavKey() {
   const fileName = pathname.split("/").pop() || "";
 
   if (!fileName || fileName === "index.html" || fileName === "main.html") return "home";
-  if (fileName === "project.html" || pathname.includes("/projects/")) return "projects";
+  if (fileName === "project.html" || fileName.startsWith("project-") || pathname.includes("/projects/")) return "projects";
   if (fileName === "projects.html") return "projects";
   if (fileName === "search.html") return "";
   if (fileName === "about.html") return "about";
@@ -216,6 +216,12 @@ function getSlugFromURL(url = window.location.href) {
   const parsed      = new URL(url, window.location.origin);
   const fromQuery   = parsed.searchParams.get("project");
   if (fromQuery) return fromQuery;
+
+  const fileName = parsed.pathname.split("/").pop() || "";
+  const staticMatch = fileName.match(/^project-(.+)\.html$/i);
+  if (staticMatch?.[1]) {
+    return decodeURIComponent(staticMatch[1]);
+  }
 
   const parts        = parsed.pathname.split("/").filter(Boolean);
   const projectsIndex = parts.indexOf("projects");
@@ -597,7 +603,7 @@ function appendNextProject(contentEl, currentSlug) {
   label.textContent = "Next Project";
   section.appendChild(label);
 
-  const href   = `project.html?project=${encodeURIComponent(next.slug)}`;
+  const href   = `project-${encodeURIComponent(next.slug)}.html`;
   const link   = document.createElement("a");
   link.href     = href;
   link.className = "next-project-link";

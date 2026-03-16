@@ -44,6 +44,9 @@ class HeadOrchestrator {
     const canonical = this.buildCanonical();
     if (canonical) tags.push(`<link rel="canonical" href="${canonical}">`);
 
+    const robots = this.getRobotsMeta();
+    if (robots) tags.push(`<meta name="robots" content="${robots}">`);
+
     tags.push(`<meta property="og:title" content="${effectiveTitle}">`);
     tags.push(`<meta property="og:description" content="${description}">`);
     tags.push('<meta property="og:type" content="website">');
@@ -134,7 +137,17 @@ class HeadOrchestrator {
 
   buildCanonical() {
     const fileName = this.getFileName();
+    if (this.isGenericProject()) return null;
+    if (fileName === 'index.html') return `${SITE_ORIGIN}/`;
     return this.buildAbsoluteUrl(fileName);
+  }
+
+  getRobotsMeta() {
+    if (this.isSearch() || this.isGenericProject()) {
+      return 'noindex,follow';
+    }
+
+    return null;
   }
 
   getMainCssPaths() {
@@ -198,7 +211,7 @@ class HeadOrchestrator {
       return this.manifestData.projects.find(p => p.slug === slug) || null;
     }
 
-    return this.manifestData.projects[0] || null;
+    return null;
   }
 
   getOgImage(projectMeta) {
@@ -296,7 +309,8 @@ class HeadOrchestrator {
 
   buildAbsoluteUrl(relativePath = '') {
     const normalized = String(relativePath || '').replace(/^\/+/, '');
-    return `${SITE_ORIGIN}/${normalized}`;
+    if (!normalized) return `${SITE_ORIGIN}/`;
+    return encodeURI(`${SITE_ORIGIN}/${normalized}`);
   }
 
   getDefaultCspPolicy() {
@@ -319,6 +333,7 @@ class HeadOrchestrator {
   isProjectsList() { return this.getFileName() === 'projects.html'; }
   isSearch()   { return this.getFileName() === 'search.html'; }
   isMore()     { return this.getFileName() === 'more.html'; }
+  isGenericProject() { return this.getFileName() === 'project.html'; }
   isProject()  {
     const fileName = this.getFileName();
     return fileName === 'project.html' || fileName.startsWith('project-');

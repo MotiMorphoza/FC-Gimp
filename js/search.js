@@ -98,7 +98,7 @@ function createSearchResultCard(project, index) {
 
   const link = document.createElement("a");
   link.className = "search-result-link";
-  link.href = `project.html?project=${encodeURIComponent(project.slug)}`;
+  link.href = `project-${encodeURIComponent(project.slug)}.html`;
 
   const mediaWrap = document.createElement("div");
   mediaWrap.className = "search-result-media-wrap";
