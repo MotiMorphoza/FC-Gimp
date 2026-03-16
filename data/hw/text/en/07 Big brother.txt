@@ -5,7 +5,7 @@ HIDDEN:
 BODY:
 
 He sees you, he knows you.
-He passes through the walls.
+He passes through walls.
 Processing your data,
 he answers your calls.
 
