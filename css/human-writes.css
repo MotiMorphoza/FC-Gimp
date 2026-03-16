@@ -423,6 +423,15 @@
   object-position: center;
 }
 
+.hw-page-body--image-top > .hw-inline-image,
+.hw-page-body--image-bottom.hw-page-body--centered-copy .hw-inline-image {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  justify-self: center;
+  align-self: center;
+}
+
 .hw-nav,
 .hw-contents {
   appearance: none;
