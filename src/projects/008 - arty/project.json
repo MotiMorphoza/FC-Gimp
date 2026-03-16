@@ -2,47 +2,218 @@
   "title": "Arty facts",
   "codePrefix": "ART",
   "description": "Art hides inside ordinary facts of daily life.",
-  "tags": ["street", "daily life", "urban", "ordinary life", "humor"],
+  "tags": [
+    "street",
+    "daily life",
+    "urban",
+    "ordinary life",
+    "humor"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" },
-    { "src": "17.jpg", "caption": "" },
-    { "src": "18.jpg", "caption": "" },
-    { "src": "19.jpg", "caption": "" },
-    { "src": "20.jpg", "caption": "" },
-    { "src": "21.jpg", "caption": "" },
-    { "src": "22.jpg", "caption": "" },
-    { "src": "23.jpg", "caption": "" },
-    { "src": "24.jpg", "caption": "" },
-    { "src": "25.jpg", "caption": "" },
-    { "src": "26.jpg", "caption": "" },
-    { "src": "27.jpg", "caption": "" },
-    { "src": "28.jpg", "caption": "" },
-    { "src": "29.jpg", "caption": "" },
-    { "src": "30.jpg", "caption": "" },
-    { "src": "31.jpg", "caption": "" },
-    { "src": "32.jpg", "caption": "" },
-    { "src": "33.jpg", "caption": "" },
-    { "src": "34.jpg", "caption": "" },
-    { "src": "35.jpg", "caption": "" },
-    { "src": "36.jpg", "caption": "" },
-    { "src": "37.jpg", "caption": "" },
-    { "src": "38.jpg", "caption": "" },
-    { "src": "39.jpg", "caption": "" },
-    { "src": "40.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 16"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 17"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 18"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 19"
+    },
+    {
+      "src": "20.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 20"
+    },
+    {
+      "src": "21.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 21"
+    },
+    {
+      "src": "22.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 22"
+    },
+    {
+      "src": "23.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 23"
+    },
+    {
+      "src": "24.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 24"
+    },
+    {
+      "src": "25.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 25"
+    },
+    {
+      "src": "26.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 26"
+    },
+    {
+      "src": "27.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 27"
+    },
+    {
+      "src": "28.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 28"
+    },
+    {
+      "src": "29.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 29"
+    },
+    {
+      "src": "30.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 30"
+    },
+    {
+      "src": "31.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 31"
+    },
+    {
+      "src": "32.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 32"
+    },
+    {
+      "src": "33.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 33"
+    },
+    {
+      "src": "34.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 34"
+    },
+    {
+      "src": "35.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 35"
+    },
+    {
+      "src": "36.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 36"
+    },
+    {
+      "src": "37.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 37"
+    },
+    {
+      "src": "38.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 38"
+    },
+    {
+      "src": "39.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 39"
+    },
+    {
+      "src": "40.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 40"
+    },
+    {
+      "src": "001.jpg",
+      "caption": "",
+      "alt": "Observational street scene from the Arty facts series, photograph 41"
+    }
   ]
 }

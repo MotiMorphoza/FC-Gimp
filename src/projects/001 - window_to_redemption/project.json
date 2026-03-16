@@ -2,25 +2,108 @@
   "title": "Window to Redemption",
   "codePrefix": "WTR",
   "description": "A series of photographs taken from a single window overlooking Savior Square in Warsaw. \nLife is a theater that continues without any pause, \nonly the camera can freez moments in time.",
-  "tags": ["street", "Warsaw", "window", "observation", "urban"],
+  "tags": [
+    "street",
+    "Warsaw",
+    "window",
+    "observation",
+    "urban"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" },
-    { "src": "17.jpg", "caption": "" },
-    { "src": "18.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 16"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 17"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 18"
+    },
+    {
+      "src": "32.jpg",
+      "caption": "",
+      "alt": "Warsaw street scene seen through a window in the Window to Redemption series, photograph 19"
+    }
   ]
 }

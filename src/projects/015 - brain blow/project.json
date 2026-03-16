@@ -2,18 +2,68 @@
   "title": "Brain Blow",
   "codePrefix": "BB",
   "description": "A tribute for the famous rainbow of Plac Zbawiciela in Warsaw - Poland \nhttps://en.wikipedia.org/wiki/Rainbow_(Warsaw)",
-  "tags": ["Warsaw", "rainbow", "public art", "color", "city"],
+  "tags": [
+    "Warsaw",
+    "rainbow",
+    "public art",
+    "color",
+    "city"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Warsaw rainbow public art scene from the Brain Blow series, photograph 11"
+    }
   ]
 }

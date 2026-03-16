@@ -2,27 +2,168 @@
   "title": "Wings",
   "codePrefix": "WNG",
   "description": "One of humanity’s most greatest desires \n has always been the urge to fly. \n All it takes is a pair of wings, right? \n (And an enormous engine, in our case..) \n\n Birds: \n — dwellers of treetops \n — inhabitants of lakes \n — tireless recyclers of the city’s leftovers. \n Fasten your seatbelts; \n the captain wishes you a pleasant flight.",
-  "tags": ["birds", "animals", "flight", "urban nature", "freedom"],
+  "tags": [
+    "birds",
+    "animals",
+    "flight",
+    "urban nature",
+    "freedom"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "01B.jpg", "caption": ""},
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" },
-    { "src": "17.jpg", "caption": "" },
-    { "src": "18.jpg", "caption": "" },
-    { "src": "19.jpg", "caption": "" },
-    { "src": "20.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 2"
+    },
+    {
+      "src": "01B.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 16"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 17"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 18"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 19"
+    },
+    {
+      "src": "20.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 20"
+    },
+    {
+      "src": "01A.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 21"
+    },
+    {
+      "src": "01C.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 22"
+    },
+    {
+      "src": "01D.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 23"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 24"
+    },
+    {
+      "src": "06A.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 25"
+    },
+    {
+      "src": "06B.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 26"
+    },
+    {
+      "src": "06C.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 27"
+    },
+    {
+      "src": "06D.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 28"
+    },
+    {
+      "src": "16A.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 29"
+    },
+    {
+      "src": "16B.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 30"
+    },
+    {
+      "src": "44.jpg",
+      "caption": "",
+      "alt": "Bird and urban nature scene from the Wings series, photograph 31"
+    }
   ]
 }

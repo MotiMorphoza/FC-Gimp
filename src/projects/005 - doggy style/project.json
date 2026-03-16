@@ -2,16 +2,58 @@
   "title": "Doggy Style",
   "codePrefix": "DGS",
   "description": "A playful photo series of man’s best friend, capturing humor, movement, and the unique personality of dogs within the urban environment.",
-  "tags": ["dogs", "animals", "urban", "humor", "motion"],
+  "tags": [
+    "dogs",
+    "animals",
+    "urban",
+    "humor",
+    "motion"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Dog in an urban street scene from the Doggy Style series, photograph 9"
+    }
   ]
 }

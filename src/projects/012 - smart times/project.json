@@ -2,20 +2,83 @@
   "title": "Smart Times",
   "codePrefix": "SMT",
   "description": "He sees you, he knows you.\nHe passes through walls.\nProcessing your data,\nhe answers your calls.\n\nHe listens and records,\nhe knows where you are.\nWithout him, my friend,\nyou won’t get very far.\n\nHe made you addicted —\nlife is pink as a gum —\nthat sticks to your pants..\nyes, it all was a scam.\n\nHe’s smart, you are not.\nYou can’t think on your own.\nOh no..\nyou’re a victim\nof your cellular phone.",
-  "tags": ["technology", "phone", "surveillance", "society", "urban"],
+  "tags": [
+    "technology",
+    "phone",
+    "surveillance",
+    "society",
+    "urban"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Phone-centered urban scene from the Smart Times series, photograph 14"
+    }
   ]
 }

@@ -2,27 +2,113 @@
   "title": "Stat You",
   "codePrefix": "SY",
   "description": "You shall not make for yourself an image in the form of anything in heaven above or on the earth beneath or in the waters below. You shall not bow down to them or worship them; for I the Lord your God am a jealous God. \nExodus 20:4-6 ",
-  "tags": ["statues", "faith", "idolatry", "symbols", "urban"],
+  "tags": [
+    "statues",
+    "faith",
+    "idolatry",
+    "symbols",
+    "urban"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" },
-    { "src": "17.jpg", "caption": "" },
-    { "src": "18.jpg", "caption": "" },
-    { "src": "19.jpg", "caption": "" },
-    { "src": "20.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 16"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 17"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 18"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 19"
+    },
+    {
+      "src": "20.jpg",
+      "caption": "",
+      "alt": "Statue and symbolic urban scene from the Stat You series, photograph 20"
+    }
   ]
 }

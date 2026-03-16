@@ -2,23 +2,128 @@
   "title": "Reflections",
   "codePrefix": "RFL",
   "description": "Moments where reality folds back onto itself. \nGlass and water, turning the ordinary world into layered echoes of light, distortion, and silenced observation.",
-  "tags": ["reflections", "glass", "water", "light", "urban"],
+  "tags": [
+    "reflections",
+    "glass",
+    "water",
+    "light",
+    "urban"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 16"
+    },
+    {
+      "src": "01A.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 17"
+    },
+    {
+      "src": "01B.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 18"
+    },
+    {
+      "src": "01C.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 19"
+    },
+    {
+      "src": "08A.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 20"
+    },
+    {
+      "src": "29.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 21"
+    },
+    {
+      "src": "30.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 22"
+    },
+    {
+      "src": "31.jpg",
+      "caption": "",
+      "alt": "Reflection in glass or water from the Reflections series, photograph 23"
+    }
   ]
 }

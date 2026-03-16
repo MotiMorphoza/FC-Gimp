@@ -2,38 +2,168 @@
   "title": "Windows: Eyes of the Modern Soul",
   "codePrefix": "WEMS",
   "description": "Frames, frames, frames. \nWe see the world through them. \nIt is our “WINDOWS operating system.” ",
-  "tags": ["window", "urban", "frames", "observation", "modern life"],
+  "tags": [
+    "window",
+    "urban",
+    "frames",
+    "observation",
+    "modern life"
+  ],
   "images": [
-    { "src": "01.jpg", "caption": "" },
-    { "src": "02.jpg", "caption": "" },
-    { "src": "03.jpg", "caption": "" },
-    { "src": "04.jpg", "caption": "" },
-    { "src": "05.jpg", "caption": "" },
-    { "src": "06.jpg", "caption": "" },
-    { "src": "07.jpg", "caption": "" },
-    { "src": "08.jpg", "caption": "" },
-    { "src": "09.jpg", "caption": "" },
-    { "src": "10.jpg", "caption": "" },
-    { "src": "11.jpg", "caption": "" },
-    { "src": "12.jpg", "caption": "" },
-    { "src": "13.jpg", "caption": "" },
-    { "src": "14.jpg", "caption": "" },
-    { "src": "15.jpg", "caption": "" },
-    { "src": "16.jpg", "caption": "" },
-    { "src": "17.jpg", "caption": "" },
-    { "src": "18.jpg", "caption": "" },
-    { "src": "19.jpg", "caption": "" },
-    { "src": "20.jpg", "caption": "" },
-    { "src": "21.jpg", "caption": "" },
-    { "src": "22.jpg", "caption": "" },
-    { "src": "23.jpg", "caption": "" },
-    { "src": "24.jpg", "caption": "" },
-    { "src": "25.jpg", "caption": "" },
-    { "src": "26.jpg", "caption": "" },
-    { "src": "27.jpg", "caption": "" },
-    { "src": "28.jpg", "caption": "" },
-    { "src": "29.jpg", "caption": "" },
-    { "src": "30.jpg", "caption": "" },
-    { "src": "31.jpg", "caption": "" }
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 1"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 2"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 3"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 4"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 5"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 6"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 7"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 8"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 9"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 10"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 11"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 12"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 13"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 14"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 15"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 16"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 17"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 18"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 19"
+    },
+    {
+      "src": "20.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 20"
+    },
+    {
+      "src": "21.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 21"
+    },
+    {
+      "src": "22.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 22"
+    },
+    {
+      "src": "23.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 23"
+    },
+    {
+      "src": "24.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 24"
+    },
+    {
+      "src": "25.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 25"
+    },
+    {
+      "src": "26.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 26"
+    },
+    {
+      "src": "27.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 27"
+    },
+    {
+      "src": "28.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 28"
+    },
+    {
+      "src": "29.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 29"
+    },
+    {
+      "src": "30.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 30"
+    },
+    {
+      "src": "31.jpg",
+      "caption": "",
+      "alt": "Urban window and frame composition from the Windows: Eyes of the Modern Soul series, photograph 31"
+    }
   ]
 }
