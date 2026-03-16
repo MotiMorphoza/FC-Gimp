@@ -1,43 +1,27 @@
-const ALL_TOPICS_LABEL = "All topics";
-
-function normalizeProject(project) {
+function normalizeProject(project, index) {
   const tags = Array.isArray(project?.tags)
     ? [...new Set(project.tags.map((tag) => String(tag || "").trim()).filter(Boolean))]
     : [];
 
+  const titleText = String(project?.title || "").trim().toLowerCase();
+  const descriptionText = String(project?.description || "").trim().toLowerCase();
+  const tagsLower = tags.map((tag) => tag.toLowerCase());
+
   return {
     ...project,
     tags,
-    searchText: [
-      project?.title || "",
-      project?.description || "",
-      tags.join(" ")
-    ].join(" ").toLowerCase()
+    tagsLower,
+    _index: index,
+    titleText,
+    descriptionText,
+    searchText: [titleText, descriptionText, tagsLower.join(" ")].join(" ").trim()
   };
-}
-
-function collectTopics(projects) {
-  const counts = new Map();
-
-  projects.forEach((project) => {
-    project.tags.forEach((tag) => {
-      counts.set(tag, (counts.get(tag) || 0) + 1);
-    });
-  });
-
-  return [...counts.entries()]
-    .sort((left, right) => {
-      if (right[1] !== left[1]) return right[1] - left[1];
-      return left[0].localeCompare(right[0]);
-    })
-    .map(([tag, count]) => ({ tag, count }));
 }
 
 function readSearchStateFromUrl() {
   const url = new URL(window.location.href);
   return {
-    query: url.searchParams.get("q") || "",
-    activeTag: url.searchParams.get("tag") || ""
+    query: url.searchParams.get("q") || ""
   };
 }
 
@@ -51,45 +35,71 @@ function writeSearchStateToUrl(state) {
     url.searchParams.delete("q");
   }
 
-  if (state.activeTag) {
-    url.searchParams.set("tag", state.activeTag);
-  } else {
-    url.searchParams.delete("tag");
-  }
+  url.searchParams.delete("tag");
 
   window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
-function filterProjects(projects, state) {
-  const query = state.query.trim().toLowerCase();
-
-  return projects.filter((project) => {
-    const matchesQuery = !query || project.searchText.includes(query);
-    const matchesTag = !state.activeTag || project.tags.includes(state.activeTag);
-    return matchesQuery && matchesTag;
-  });
+function tokenizeQuery(query) {
+  return [...new Set(String(query || "").toLowerCase().split(/\s+/).map((term) => term.trim()).filter(Boolean))];
 }
 
-function renderTopicFilters(chipsEl, topics, state, onSelect) {
-  chipsEl.innerHTML = "";
+function scoreProject(project, normalizedQuery, terms) {
+  if (!normalizedQuery) return 0;
 
-  const allButton = document.createElement("button");
-  allButton.type = "button";
-  allButton.className = "search-chip" + (state.activeTag ? "" : " is-active");
-  allButton.textContent = ALL_TOPICS_LABEL;
-  allButton.setAttribute("aria-pressed", state.activeTag ? "false" : "true");
-  allButton.addEventListener("click", () => onSelect(""));
-  chipsEl.appendChild(allButton);
+  let score = 0;
 
-  topics.forEach(({ tag, count }) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "search-chip" + (state.activeTag === tag ? " is-active" : "");
-    button.textContent = `${tag} (${count})`;
-    button.setAttribute("aria-pressed", state.activeTag === tag ? "true" : "false");
-    button.addEventListener("click", () => onSelect(state.activeTag === tag ? "" : tag));
-    chipsEl.appendChild(button);
+  if (project.titleText === normalizedQuery) {
+    score += 240;
+  } else if (project.titleText.includes(normalizedQuery)) {
+    score += 160;
+  }
+
+  if (project.descriptionText.includes(normalizedQuery)) {
+    score += 52;
+  }
+
+  if (project.tagsLower.includes(normalizedQuery)) {
+    score += 132;
+  }
+
+  if (project.searchText.includes(normalizedQuery)) {
+    score += 20;
+  }
+
+  terms.forEach((term) => {
+    if (project.titleText.includes(term)) score += 46;
+    if (project.descriptionText.includes(term)) score += 14;
+
+    project.tagsLower.forEach((tag) => {
+      if (tag === term) {
+        score += 38;
+        return;
+      }
+
+      if (tag.includes(term)) {
+        score += 22;
+      }
+    });
   });
+
+  return score;
+}
+
+function filterProjects(projects, state) {
+  const normalizedQuery = state.query.trim().toLowerCase();
+  if (!normalizedQuery) return [...projects];
+
+  const terms = tokenizeQuery(normalizedQuery);
+
+  return projects
+    .map((project) => ({
+      project,
+      score: scoreProject(project, normalizedQuery, terms)
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((left, right) => right.score - left.score || left.project._index - right.project._index)
+    .map(({ project }) => project);
 }
 
 function createSearchResultCard(project, index) {
@@ -168,17 +178,28 @@ function enableDecodeFade(images) {
   });
 }
 
-function renderResults(resultsEl, projects) {
+function renderEmptyState(resultsEl, query) {
+  const empty = document.createElement("section");
+  empty.className = "search-empty-state";
+
+  const title = document.createElement("h2");
+  title.textContent = query ? `No galleries matched "${query}".` : "No galleries are available right now.";
+
+  const copy = document.createElement("p");
+  copy.textContent = query
+    ? "Try a broader word from the sidebar search."
+    : "Use the sidebar search to look through the available galleries.";
+
+  empty.appendChild(title);
+  empty.appendChild(copy);
+  resultsEl.appendChild(empty);
+}
+
+function renderResults(resultsEl, projects, query) {
   resultsEl.innerHTML = "";
 
   if (!projects.length) {
-    const empty = document.createElement("section");
-    empty.className = "search-empty-state";
-    empty.innerHTML = [
-      "<h2>No galleries matched that search.</h2>",
-      "<p>Try a broader word like urban, faith, birds, nature, or clear the active filter.</p>"
-    ].join("");
-    resultsEl.appendChild(empty);
+    renderEmptyState(resultsEl, query);
     return;
   }
 
@@ -189,24 +210,28 @@ function renderResults(resultsEl, projects) {
   enableDecodeFade([...resultsEl.querySelectorAll(".search-result-media")]);
 }
 
-function updateResultsSummary(summaryEl, clearButton, visibleCount, totalCount, state) {
-  const parts = [`${visibleCount} of ${totalCount} galleries`];
+function updateResultsSummary(summaryEl, visibleCount, totalCount, state) {
+  const query = state.query.trim();
 
-  if (state.activeTag) parts.push(`topic: ${state.activeTag}`);
-  if (state.query.trim()) parts.push(`search: "${state.query.trim()}"`);
+  if (!query) {
+    summaryEl.textContent = `Showing all ${totalCount} galleries. Use the sidebar search to narrow the selection.`;
+    return;
+  }
 
-  summaryEl.textContent = parts.join("  |  ");
-  clearButton.hidden = !state.activeTag && !state.query.trim();
+  if (!visibleCount) {
+    summaryEl.textContent = `No galleries matched "${query}". Update the term in the sidebar search and try again.`;
+    return;
+  }
+
+  const label = visibleCount === 1 ? "gallery" : "galleries";
+  summaryEl.textContent = `${visibleCount} ${label} matched "${query}".`;
 }
 
 function initSearchPage() {
-  const input = document.getElementById("search-page-input");
-  const chipsEl = document.getElementById("search-filter-chips");
   const summaryEl = document.getElementById("search-results-summary");
   const resultsEl = document.getElementById("search-results");
-  const clearButton = document.getElementById("search-clear-button");
 
-  if (!input || !chipsEl || !summaryEl || !resultsEl || !clearButton) return;
+  if (!summaryEl || !resultsEl) return;
 
   const manifest = window.__PROJECTS__;
 
@@ -217,46 +242,17 @@ function initSearchPage() {
 
   const projects = manifest
     .filter((project) => project?.slug && project?.title)
-    .map(normalizeProject);
-  const topics = collectTopics(projects);
+    .map((project, index) => normalizeProject(project, index));
   const state = readSearchStateFromUrl();
+  const visibleProjects = filterProjects(projects, state);
 
-  if (state.activeTag && !topics.some((topic) => topic.tag === state.activeTag)) {
-    state.activeTag = "";
+  renderResults(resultsEl, visibleProjects, state.query.trim());
+  updateResultsSummary(summaryEl, visibleProjects.length, projects.length, state);
+  writeSearchStateToUrl(state);
+
+  if (typeof window.setSidebarSearchValue === "function") {
+    window.setSidebarSearchValue(state.query);
   }
-
-  const render = () => {
-    const visibleProjects = filterProjects(projects, state);
-    input.value = state.query;
-    renderTopicFilters(chipsEl, topics, state, (tag) => {
-      state.activeTag = tag;
-      render();
-    });
-    renderResults(resultsEl, visibleProjects);
-    updateResultsSummary(summaryEl, clearButton, visibleProjects.length, projects.length, state);
-    writeSearchStateToUrl(state);
-
-    if (typeof window.setSidebarSearchValue === "function") {
-      window.setSidebarSearchValue(state.query);
-    }
-  };
-
-  if (input.dataset.searchBound !== "true") {
-    input.addEventListener("input", (event) => {
-      state.query = event.target.value || "";
-      render();
-    });
-
-    clearButton.addEventListener("click", () => {
-      state.query = "";
-      state.activeTag = "";
-      render();
-    });
-
-    input.dataset.searchBound = "true";
-  }
-
-  render();
 }
 
 window.initSearchPage = initSearchPage;
