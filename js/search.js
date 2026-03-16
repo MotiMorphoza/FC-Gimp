@@ -115,7 +115,7 @@ function createSearchResultCard(project, index) {
 
   const media = document.createElement("img");
   media.className = "search-result-media";
-  media.alt = `${project.title} cover image`;
+  media.alt = project.coverAlt || `${project.title} cover image`;
   media.loading = index === 0 ? "eager" : "lazy";
   if (index === 0) media.setAttribute("fetchpriority", "high");
   media.decoding = "async";

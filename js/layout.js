@@ -233,6 +233,16 @@ function getSlugFromURL(url = window.location.href) {
   return "";
 }
 
+function getProjectImageAlt(projectTitle, imgData, index) {
+  const explicitAlt = typeof imgData?.alt === "string" ? imgData.alt.trim() : "";
+  if (explicitAlt) return explicitAlt;
+
+  const captionAlt = typeof imgData?.caption === "string" ? imgData.caption.trim() : "";
+  if (captionAlt) return captionAlt;
+
+  return `${projectTitle} - image ${index + 1}`;
+}
+
 /* =========================
    LIGHTBOX STATE
 ========================= */
@@ -251,6 +261,7 @@ function openLightbox(images, index) {
   if (!lightbox || !lightboxImg) return;
 
   lightboxImg.src = _lightboxState.images[_lightboxState.index].src;
+  lightboxImg.alt = _lightboxState.images[_lightboxState.index].alt || "";
   lightbox.classList.add("active");
 
   // Update data-single so nav arrows hide on single-image sets
@@ -266,7 +277,10 @@ function navigateLightbox(delta) {
 
   const lightbox    = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
-  if (lightboxImg) lightboxImg.src = images[_lightboxState.index].src;
+  if (lightboxImg) {
+    lightboxImg.src = images[_lightboxState.index].src;
+    lightboxImg.alt = images[_lightboxState.index].alt || "";
+  }
 }
 
 /* =========================
@@ -612,7 +626,7 @@ function appendNextProject(contentEl, currentSlug) {
   grid.className = "next-project-grid";
 const img = document.createElement("img");
 img.className = "next-project-media";
-img.alt = next.title || "";
+img.alt = next.coverAlt || next.title || "";
 img.loading = "lazy";
 img.decoding = "async";
 
@@ -747,7 +761,7 @@ async function initProjectPage() {
 
       const img       = document.createElement("img");
       img.src         = `projects/${projectSlug}/${imgData.src}`;
-      img.alt         = imgData.caption || `${projectTitle} – image ${index + 1}`;
+      img.alt         = getProjectImageAlt(projectTitle, imgData, index);
       img.loading     = index === 0 ? "eager" : "lazy";
       if (index === 0) img.setAttribute("fetchpriority", "high");
       img.decoding    = "async";

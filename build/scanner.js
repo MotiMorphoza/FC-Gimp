@@ -235,6 +235,43 @@ class Scanner {
       .sort((a, b) => a.localeCompare(b));
   }
 
+  getImageMetadataMaps(metadataImages) {
+    const bySrc = new Map();
+    const byStem = new Map();
+    const orderedSources = [];
+
+    metadataImages.forEach((img) => {
+      if (!img || typeof img !== 'object') return;
+
+      const src = typeof img.src === 'string' ? img.src.trim() : '';
+      if (!src) return;
+
+      const normalized = {
+        src,
+        caption: typeof img.caption === 'string' ? img.caption : '',
+        alt: typeof img.alt === 'string' ? img.alt.trim() : ''
+      };
+
+      const stem = path.parse(src).name.toLowerCase();
+
+      bySrc.set(src, normalized);
+      if (!byStem.has(stem)) byStem.set(stem, normalized);
+      if (!orderedSources.includes(src)) orderedSources.push(src);
+    });
+
+    return { bySrc, byStem, orderedSources };
+  }
+
+  getMetadataForFilename(filename, metadataMaps) {
+    if (!filename || !metadataMaps) return null;
+
+    const exact = metadataMaps.bySrc.get(filename);
+    if (exact) return exact;
+
+    const stem = path.parse(filename).name.toLowerCase();
+    return metadataMaps.byStem.get(stem) || null;
+  }
+
   parseProject(projectPath, slug, rootDir = process.cwd()) {
     const projectJsonPath = path.join(projectPath, 'project.json');
 
@@ -259,27 +296,32 @@ class Scanner {
     }
 
     const metadataImages = Array.isArray(metadata.images) ? metadata.images : [];
-    const metadataBySrc = new Map();
+    const metadataMaps = this.getImageMetadataMaps(metadataImages);
     const orderedImages = [];
 
-    metadataImages.forEach((img) => {
-      if (!img || typeof img !== 'object') return;
-      const src = typeof img.src === 'string' ? img.src : '';
-      if (!src || !imageFiles.includes(src)) return;
-      metadataBySrc.set(src, img);
-      if (!orderedImages.includes(src)) orderedImages.push(src);
+    metadataMaps.orderedSources.forEach((src) => {
+      const resolved = imageFiles.includes(src)
+        ? src
+        : imageFiles.find((filename) => path.parse(filename).name.toLowerCase() === path.parse(src).name.toLowerCase());
+
+      if (resolved && !orderedImages.includes(resolved)) {
+        orderedImages.push(resolved);
+      }
     });
 
     imageFiles.forEach((filename) => {
       if (!orderedImages.includes(filename)) orderedImages.push(filename);
     });
 
-    const images = orderedImages.map((filename) => ({
-      src: filename,
-      caption: typeof metadataBySrc.get(filename)?.caption === 'string'
-        ? metadataBySrc.get(filename).caption
-        : ''
-    }));
+    const images = orderedImages.map((filename) => {
+      const metadataEntry = this.getMetadataForFilename(filename, metadataMaps);
+
+      return {
+        src: filename,
+        caption: metadataEntry?.caption || '',
+        alt: metadataEntry?.alt || ''
+      };
+    });
 
     const description = typeof metadata.description === 'string' ? metadata.description : '';
     const tags = Array.isArray(metadata.tags)

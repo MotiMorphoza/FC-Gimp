@@ -280,18 +280,17 @@ class HeadOrchestrator {
 
   getJsonLd(projectMeta) {
     if (this.isProject() && projectMeta?.slug) {
-      const firstImage = Array.isArray(projectMeta.images) ? projectMeta.images[0] : null;
-      const firstSrc = firstImage ? (typeof firstImage === 'string' ? firstImage : firstImage.src) : null;
-      const imagePath = firstSrc
-        ? (this.renameMap.get(`projects/${projectMeta.slug}/${firstSrc}`) || `projects/${projectMeta.slug}/${firstSrc}`)
-        : null;
+      const canonical = this.buildCanonical();
+      const imageObjects = this.buildProjectImageObjects(projectMeta);
 
       return {
         '@context': 'https://schema.org',
-        '@type': 'ImageObject',
+        '@type': 'ImageGallery',
         name: projectMeta.title || 'MotoSynteza Project',
         description: projectMeta.description || 'MotoSynteza photography project',
-        contentUrl: imagePath ? this.buildAbsoluteUrl(imagePath) : undefined,
+        url: canonical || undefined,
+        image: imageObjects.length ? imageObjects : undefined,
+        primaryImageOfPage: imageObjects[0] || undefined,
         creator: {
           '@type': 'Person',
           name: 'Moti Morphoza'
@@ -305,6 +304,32 @@ class HeadOrchestrator {
       name: 'MotoSynteza',
       url: `${SITE_ORIGIN}/`
     };
+  }
+
+  buildProjectImageObjects(projectMeta) {
+    if (!projectMeta?.slug || !Array.isArray(projectMeta.images)) {
+      return [];
+    }
+
+    return projectMeta.images
+      .map((image, index) => {
+        const src = typeof image === 'string' ? image : image?.src;
+        if (!src) return null;
+
+        const rawPath = `projects/${projectMeta.slug}/${src}`;
+        const resolved = this.renameMap.get(rawPath) || rawPath;
+        const caption = typeof image === 'object' ? String(image.caption || '').trim() : '';
+        const alt = typeof image === 'object' ? String(image.alt || '').trim() : '';
+        const description = alt || caption || `${projectMeta.title} image ${index + 1}`;
+
+        return {
+          '@type': 'ImageObject',
+          contentUrl: this.buildAbsoluteUrl(resolved),
+          caption: caption || undefined,
+          description
+        };
+      })
+      .filter(Boolean);
   }
 
   buildAbsoluteUrl(relativePath = '') {

@@ -163,19 +163,60 @@ function listProjectImagesSorted(projectDir) {
     .sort((a, b) => a.localeCompare(b));
 }
 
+function normalizeImageMetadataEntry(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+
+  const src = typeof entry.src === 'string' ? entry.src.trim() : '';
+  if (!src) return null;
+
+  return {
+    src,
+    caption: typeof entry.caption === 'string' ? entry.caption : '',
+    alt: typeof entry.alt === 'string' ? entry.alt.trim() : ''
+  };
+}
+
+function buildImageMetadataMaps(images) {
+  const bySrc = new Map();
+  const byStem = new Map();
+
+  images.forEach((entry) => {
+    const normalized = normalizeImageMetadataEntry(entry);
+    if (!normalized) return;
+
+    const stem = path.parse(normalized.src).name.toLowerCase();
+    bySrc.set(normalized.src, normalized);
+    if (!byStem.has(stem)) byStem.set(stem, normalized);
+  });
+
+  return { bySrc, byStem };
+}
+
+function getMetadataForFilename(filename, metadataMaps) {
+  const exact = metadataMaps.bySrc.get(filename);
+  if (exact) return exact;
+
+  const stem = path.parse(filename).name.toLowerCase();
+  return metadataMaps.byStem.get(stem) || null;
+}
+
 function rewriteProjectJson(srcPath, destPath, projectDir) {
 
   const json = JSON.parse(fs.readFileSync(srcPath, 'utf8'));
   const existingImages = Array.isArray(json.images) ? json.images : [];
+  const metadataMaps = buildImageMetadataMaps(existingImages);
 
   const imageFiles = listProjectImagesSorted(projectDir);
 
-  json.images = imageFiles.map((filename, index) => ({
-    src: filename,
-    caption: typeof existingImages[index]?.caption === 'string'
-      ? existingImages[index].caption
-      : ''
-  }));
+  json.images = imageFiles.map((filename) => {
+    const metadataEntry = getMetadataForFilename(filename, metadataMaps);
+
+    return {
+      src: filename,
+      caption: metadataEntry?.caption || '',
+      alt: metadataEntry?.alt || ''
+    };
+  });
 
   fs.writeFileSync(destPath, JSON.stringify(json, null, 2), 'utf8');
 

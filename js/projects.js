@@ -31,7 +31,7 @@ function initProjectsPage() {
 
     const media = document.createElement("img");
     media.className = "project-media";
-    media.alt = project.title;
+    media.alt = project.coverAlt || project.title;
     media.loading = index === 0 ? "eager" : "lazy";
     if (index === 0) media.setAttribute("fetchpriority", "high");
     media.decoding = "async";

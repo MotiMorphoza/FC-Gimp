@@ -92,6 +92,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       const projects = this.scanner.scanProjectsFromRoot(tempDir);
       this.logger.info(`Validated ${projects.length} projects`);
+      this.logImageMetadataCoverage(projects);
       this.generateStaticProjectPages(projects, tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
@@ -371,8 +372,7 @@ class SuperBuild {
     const projectEntries = projects.map((project) => ({
       url: encodeURI(`${SITE_ORIGIN}/project-${project.slug}.html`),
       images: project.images.map((image) => ({
-        loc: encodeURI(`${SITE_ORIGIN}/projects/${project.slug}/${image.src}`),
-        title: project.title
+        loc: encodeURI(`${SITE_ORIGIN}/projects/${project.slug}/${image.src}`)
       }))
     }));
 
@@ -391,9 +391,6 @@ class SuperBuild {
         entry.images.forEach((image) => {
           lines.push('    <image:image>');
           lines.push(`      <image:loc>${this.escapeXml(image.loc)}</image:loc>`);
-          if (image.title) {
-            lines.push(`      <image:title>${this.escapeXml(image.title)}</image:title>`);
-          }
           lines.push('    </image:image>');
         });
 
@@ -427,6 +424,7 @@ class SuperBuild {
       description: p.description || '',
       tags:        Array.isArray(p.tags) ? p.tags : [],
       cover:       p.images[0]?.src || '',
+      coverAlt:    p.images[0]?.alt || p.images[0]?.caption || p.title,
       imageCount:  p.images.length
     }));
 
@@ -443,6 +441,21 @@ class SuperBuild {
   // ─────────────────────────────────────────────────────────────────────────
   // Source validation
   // ─────────────────────────────────────────────────────────────────────────
+  logImageMetadataCoverage(projects) {
+    const stats = projects.reduce((acc, project) => {
+      (project.images || []).forEach((image) => {
+        acc.total += 1;
+        if (String(image?.alt || '').trim()) acc.withAlt += 1;
+        if (String(image?.caption || '').trim()) acc.withCaption += 1;
+      });
+      return acc;
+    }, { total: 0, withAlt: 0, withCaption: 0 });
+
+    this.logger.info(
+      `[seo] Image metadata coverage: alt ${stats.withAlt}/${stats.total}, captions ${stats.withCaption}/${stats.total}`
+    );
+  }
+
   validateSource() {
     for (const item of ['index.html', 'css', 'js', 'images', 'data']) {
       if (!fs.existsSync(path.join(this.rootDir, item))) {

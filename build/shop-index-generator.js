@@ -151,6 +151,7 @@ function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename 
         code,
         src: img.src,
         caption: img.caption || '',
+        alt: img.alt || img.caption || '',
         thumbnailUrl: `projects/${slug}/${img.src}`
       };
     });

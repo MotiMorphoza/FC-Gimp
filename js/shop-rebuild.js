@@ -213,7 +213,10 @@ function isAddressValid(ui) {
       app.codeMap = new Map();
       (data.projects || []).forEach(function (p) {
         (p.images || []).forEach(function (img) {
-          app.codeMap.set(String(img.code || "").toUpperCase(), { thumb: String(img.thumbnailUrl || "") });
+          app.codeMap.set(String(img.code || "").toUpperCase(), {
+            thumb: String(img.thumbnailUrl || ""),
+            alt: String(img.alt || img.caption || img.code || "")
+          });
         });
       });
       return app.codeMap;
@@ -467,14 +470,16 @@ function isAddressValid(ui) {
 
     codes.forEach(function (code) {
       var item = store.select[code] || {};
-      var thumb = item.thumb || (app.codeMap.get(code) && app.codeMap.get(code).thumb) || placeholder();
+      var mapped = app.codeMap.get(code) || {};
+      var thumb = item.thumb || mapped.thumb || placeholder();
+      var thumbAlt = String(mapped.alt || code);
       var avail = availableSizes(store, code);
       var tr = h("tr", { "data-select-code": code });
-      var img = h("img", { className: "shop-cart-thumb", src: thumb, alt: code, loading: "lazy", decoding: "async" });
+      var img = h("img", { className: "shop-cart-thumb", src: thumb, alt: thumbAlt, loading: "lazy", decoding: "async" });
       img.addEventListener("error", function () { img.src = placeholder(); });
-      img.addEventListener("click", function () { openPreview(img.src, code); });
+      img.addEventListener("click", function () { openPreview(img.src, thumbAlt); });
       var prev = h("button", { type: "button", className: "shop-thumb-preview-link cart-preview", text: "Preview" });
-      prev.addEventListener("click", function () { openPreview(img.src, code); });
+      prev.addEventListener("click", function () { openPreview(img.src, thumbAlt); });
       var tdThumb = h("td", { "data-label": "THUMB" }); tdThumb.appendChild(img); tdThumb.appendChild(prev);
 
       var tdCode = h("td", { "data-label": "CODE" }); tdCode.appendChild(h("span", { className: "shop-cart-code", text: code }));
@@ -519,11 +524,13 @@ function isAddressValid(ui) {
     if (!groups.length) { app.refs.cartBody.appendChild(h("p", { className: "shop-cart-empty", text: "Cart is empty." })); return; }
     groups.forEach(function (code) {
       var group = store.cart[code];
+      var mapped = app.codeMap.get(code) || {};
+      var thumbAlt = String(mapped.alt || code);
       var block = h("div", { className: "shop-cart-group" });
       var head = h("div", { className: "shop-cart-group-head" });
-      var img = h("img", { className: "shop-cart-thumb", src: group.thumb || placeholder(), alt: code, loading: "lazy", decoding: "async" });
+      var img = h("img", { className: "shop-cart-thumb", src: group.thumb || placeholder(), alt: thumbAlt, loading: "lazy", decoding: "async" });
       img.addEventListener("error", function () { img.src = placeholder(); });
-      img.addEventListener("click", function () { openPreview(img.src, code); });
+      img.addEventListener("click", function () { openPreview(img.src, thumbAlt); });
       head.appendChild(img); head.appendChild(h("span", { className: "shop-cart-code", text: code })); block.appendChild(head);
       SIZE_ORDER.forEach(function (sid) {
         var qty = parseInt((group.sizes || {})[sid], 10); if (!isFinite(qty) || qty < 1) return;
