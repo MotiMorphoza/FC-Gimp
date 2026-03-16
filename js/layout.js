@@ -44,10 +44,46 @@ async function loadSidebar() {
       });
     });
 
+    syncActiveSidebarLink(placeholder);
     updateFullscreenToggleState(placeholder);
   } catch (err) {
     console.error("Sidebar error:", err);
   }
+}
+
+function getActiveNavKey() {
+  const page = document.body?.dataset?.page?.trim();
+  if (page) {
+    if (page === "landing") return "home";
+    if (page === "project") return "projects";
+    return page;
+  }
+
+  const pathname = window.location.pathname.toLowerCase();
+  const fileName = pathname.split("/").pop() || "";
+
+  if (!fileName || fileName === "index.html" || fileName === "main.html") return "home";
+  if (fileName === "project.html" || pathname.includes("/projects/")) return "projects";
+  if (fileName === "projects.html") return "projects";
+  if (fileName === "about.html") return "about";
+  if (fileName === "shop.html") return "shop";
+  if (fileName === "more.html") return "more";
+
+  return "";
+}
+
+function syncActiveSidebarLink(scope = document) {
+  const activeNavKey = getActiveNavKey();
+  const links = scope.querySelectorAll(".menu a[data-nav]");
+
+  links.forEach((link) => {
+    if (link.dataset.nav === activeNavKey) {
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+
+    link.removeAttribute("aria-current");
+  });
 }
 
 function updateFullscreenToggleState(scope = document) {

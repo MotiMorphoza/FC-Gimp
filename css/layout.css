@@ -159,13 +159,29 @@
   text-decoration: none;
   font-size: 1.5rem;
   letter-spacing: 0.03em;
+  position: relative;
+  display: inline-block;
+  padding-inline: 0.3rem;
   transition: opacity 0.2s ease;
 }
 .menu a:hover {
   opacity: 0.65;
 }
 .menu a[aria-current="page"] {
-  color: #d4d4d4;
+  color: #fff;
+  opacity: 1;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+.menu a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  right: 0.3rem;
+  bottom: -0.3rem;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.82) 18%, rgba(255, 255, 255, 0.96) 50%, rgba(255, 255, 255, 0.82) 82%, transparent 100%);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.18);
 }
 .menu-fullscreen-item {
   margin-top: 0.4rem;
@@ -573,5 +589,4 @@ body.app-active .shell-layout {
   padding: 6px 18px;
   display: inline-block;
 }
-
 
