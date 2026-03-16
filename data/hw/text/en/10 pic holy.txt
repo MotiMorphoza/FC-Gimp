@@ -1,4 +1,4 @@
-LAYOUT: 05
+LAYOUT: 05s
 TITLE: 
 IMAGE: holy.jpg
 HIDDEN:

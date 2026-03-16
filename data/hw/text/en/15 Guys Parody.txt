@@ -1,6 +1,6 @@
-LAYOUT: 01
+LAYOUT: 02
 TITLE: Guys Parody
-IMAGE:
+IMAGE: guys.jpg
 HIDDEN:
 BODY:
 

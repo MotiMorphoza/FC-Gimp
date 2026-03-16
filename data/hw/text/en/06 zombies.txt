@@ -1,4 +1,4 @@
-LAYOUT: 02
+LAYOUT: 02C
 TITLE: Zombies
 IMAGE: zombies.jpg
 HIDDEN:

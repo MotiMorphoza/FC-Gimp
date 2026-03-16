@@ -1,5 +1,0 @@
-LAYOUT: 05
-TITLE: 
-IMAGE: guys.jpg
-HIDDEN:
-BODY:

@@ -1,4 +1,4 @@
-LAYOUT: 05
+LAYOUT: 05S
 TITLE: 
 IMAGE: bigbro.jpg
 HIDDEN:
