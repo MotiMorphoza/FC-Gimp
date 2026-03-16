@@ -2,6 +2,7 @@
   "title": "Smashed",
   "codePrefix": "SMA",
   "description": "Experiments with photographic techniques – long exposure and subject tracking.",
+  "tags": ["experimental", "long exposure", "motion", "abstraction", "tracking"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

@@ -2,6 +2,7 @@
   "title": "Ohhhhh Your God",
   "codePrefix": "OYG",
   "description": "A visual commentaries on the religious show, \nprovoking tension between faith & identity. \nBelieve me.. \nDON'T believe nobody.",
+  "tags": ["faith", "identity", "symbols", "street", "provocation"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

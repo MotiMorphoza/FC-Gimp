@@ -2,6 +2,7 @@
   "title": "Golden age",
   "codePrefix": "GLD",
   "description": "Life -\nis what happens before we die.\n(Confuse Use).",
+  "tags": ["life", "existential", "people", "urban", "time"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

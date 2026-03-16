@@ -2,6 +2,7 @@
   "title": "Window to Redemption",
   "codePrefix": "WTR",
   "description": "A series of photographs taken from a single window overlooking Savior Square in Warsaw. \nLife is a theater that continues without any pause, \nonly the camera can freez moments in time.",
+  "tags": ["street", "Warsaw", "window", "observation", "urban"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

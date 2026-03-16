@@ -2,6 +2,7 @@
   "title": "Stat You",
   "codePrefix": "SY",
   "description": "You shall not make for yourself an image in the form of anything in heaven above or on the earth beneath or in the waters below. You shall not bow down to them or worship them; for I the Lord your God am a jealous God. \nExodus 20:4-6 ",
+  "tags": ["statues", "faith", "idolatry", "symbols", "urban"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

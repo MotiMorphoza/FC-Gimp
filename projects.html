@@ -12,6 +12,35 @@
       <div data-sidebar></div>
 
       <main class="content-pane">
+        <header class="projects-hero">
+          <p class="projects-eyebrow">Galleries</p>
+          <h1>Browse the photo galleries</h1>
+          <p class="projects-intro">
+            Explore MotoSynteza projects by subject, mood, and urban themes.
+            Use the search and topic filters to jump between related series.
+          </p>
+        </header>
+
+        <section class="projects-discovery" aria-label="Gallery search and filters">
+          <div class="projects-search-row">
+            <label class="projects-search-field" for="projects-search">
+              <span class="projects-search-label">Search galleries</span>
+              <input
+                id="projects-search"
+                class="projects-search-input"
+                type="search"
+                name="search"
+                placeholder="Search by title, description, or topic"
+                autocomplete="off"
+              />
+            </label>
+            <button id="projects-clear-search" class="projects-clear-search" type="button" hidden>Clear</button>
+          </div>
+
+          <p id="projects-results-summary" class="projects-results-summary" aria-live="polite"></p>
+          <div id="projects-filter-chips" class="projects-filter-chips" aria-label="Gallery topics"></div>
+        </section>
+
         <div id="projects-list" class="projects-list"></div>
       </main>
     </div>

@@ -2,6 +2,7 @@
   "title": "Brain Blow",
   "codePrefix": "BB",
   "description": "A tribute for the famous rainbow of Plac Zbawiciela in Warsaw - Poland \nhttps://en.wikipedia.org/wiki/Rainbow_(Warsaw)",
+  "tags": ["Warsaw", "rainbow", "public art", "color", "city"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

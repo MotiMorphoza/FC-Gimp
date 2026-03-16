@@ -324,6 +324,7 @@ class SuperBuild {
       slug:        p.slug,
       title:       p.title,
       description: p.description || '',
+      tags:        Array.isArray(p.tags) ? p.tags : [],
       cover:       p.images[0]?.src || '',
       imageCount:  p.images.length
     }));

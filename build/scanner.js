@@ -282,11 +282,19 @@ class Scanner {
     }));
 
     const description = typeof metadata.description === 'string' ? metadata.description : '';
+    const tags = Array.isArray(metadata.tags)
+      ? [...new Set(
+          metadata.tags
+            .map((tag) => typeof tag === 'string' ? tag.trim() : '')
+            .filter(Boolean)
+        )]
+      : [];
 
     return {
       slug,
       title: metadata.title.trim(),
       description,
+      tags,
       images
     };
   }

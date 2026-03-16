@@ -2,6 +2,7 @@
   "title": "Arty facts",
   "codePrefix": "ART",
   "description": "Art hides inside ordinary facts of daily life.",
+  "tags": ["street", "daily life", "urban", "ordinary life", "humor"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

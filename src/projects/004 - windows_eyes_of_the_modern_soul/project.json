@@ -2,6 +2,7 @@
   "title": "Windows: Eyes of the Modern Soul",
   "codePrefix": "WEMS",
   "description": "Frames, frames, frames. \nWe see the world through them. \nIt is our “WINDOWS operating system.” ",
+  "tags": ["window", "urban", "frames", "observation", "modern life"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

@@ -2,6 +2,7 @@
   "title": "Star Dust",
   "codePrefix": "STD",
   "description": "We are planets inside a planet, \nfractals within fractals. \nEach one dressed in its own frock coat.",
+  "tags": ["cosmos", "people", "urban", "pattern", "surreal"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

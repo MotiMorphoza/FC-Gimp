@@ -2,6 +2,7 @@
   "title": "Umbrellas :)",
   "codePrefix": "UMB",
   "description": "Small moving shelters. \nFragments of color drifting through rain that reveal rhythm, solitude, and fleeting encounters in the city.",
+  "tags": ["rain", "urban", "solitude", "color", "movement"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

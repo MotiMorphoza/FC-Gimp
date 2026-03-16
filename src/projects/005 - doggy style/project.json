@@ -2,6 +2,7 @@
   "title": "Doggy Style",
   "codePrefix": "DGS",
   "description": "A playful photo series of man’s best friend, capturing humor, movement, and the unique personality of dogs within the urban environment.",
+  "tags": ["dogs", "animals", "urban", "humor", "motion"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

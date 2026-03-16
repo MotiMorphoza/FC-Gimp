@@ -2,6 +2,7 @@
   "title": "king No Smo",
   "codePrefix": "KNS",
   "description": "Small moments between inhaling to exhaling, \nA feeling of strength that hides vulnerability. \nSmoking connecting people..",
+  "tags": ["people", "smoking", "street", "connection", "vulnerability"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

@@ -2,6 +2,7 @@
   "title": "Natural Taste",
   "codePrefix": "NT",
   "description": "Beauty exist all around. \nInspiration Satisfaction and Relaxetion.",
+  "tags": ["nature", "beauty", "organic", "calm", "details"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },

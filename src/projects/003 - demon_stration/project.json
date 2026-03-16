@@ -2,6 +2,7 @@
   "title": "Demon Stration",
   "codePrefix": "DS",
   "description": "Confrontation between symbols of authority and resistance, examining how the political theatre shapes public perception.",
+  "tags": ["politics", "authority", "resistance", "public space", "street"],
   "images": [
     { "src": "01.jpg", "caption": "" },
     { "src": "02.jpg", "caption": "" },
