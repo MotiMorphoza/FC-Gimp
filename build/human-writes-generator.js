@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VALID_LAYOUT_CODES = new Set(['01', '01C', '02', '02C', '02TC', '03', '04', '05', '05S', '06']);
+const VALID_LAYOUT_CODES = new Set(['01', '01C', '02', '02C', '02T', '02TC', '03', '04', '05', '05S', '06']);
 const LANGUAGES = ['en', 'he', 'es'];
 const HEADER_KEYS = new Set(['LAYOUT', 'TITLE', 'IMAGE', 'HIDDEN', 'BODY']);
 

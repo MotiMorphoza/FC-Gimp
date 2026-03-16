@@ -22,6 +22,7 @@
     "01C": "text-centered",
     "02": "image-top",
     "02C": "image-top-centered",
+    "02T": "image-bottom",
     "02TC": "image-bottom-centered",
     "03": "image-split",
     "04": "quote",

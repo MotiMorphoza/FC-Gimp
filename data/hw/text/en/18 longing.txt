@@ -1,0 +1,9 @@
+LAYOUT: 02T
+TITLE: Longing
+IMAGE: longing.jpg
+HIDDEN:
+BODY:
+
+it’s not that i forgot you !
+i just didn’t remember..
+

@@ -488,16 +488,16 @@
 .hw-contents {
   position: absolute;
   left: 50%;
-  bottom: 8px;
+  bottom: 4px;
   transform: translateX(-50%);
   z-index: 5;
-  min-height: 42px;
+  min-height: 34px;
   border-radius: 999px;
-  padding: 0.62rem 1.1rem;
-  font-size: 0.74rem;
+  padding: 0.4rem 0.82rem;
+  font-size: 0.68rem;
   letter-spacing: 0.08em;
-  background: rgba(20, 16, 11, 0.28);
-  backdrop-filter: blur(4px);
+  background: rgba(20, 16, 11, 0.18);
+  backdrop-filter: blur(2px);
 }
 
 .hw-contents:hover,
