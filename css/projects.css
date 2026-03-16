@@ -1,136 +1,3 @@
-/* ===== PROJECTS PAGE ===== */
-.projects-hero {
-  padding: clamp(32px, 6vw, 72px) 34px 20px;
-}
-
-.projects-eyebrow {
-  margin: 0 0 10px;
-  color: #6fb1ff;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-}
-
-.projects-hero h1 {
-  margin: 0;
-  font-size: clamp(2rem, 5vw, 4.1rem);
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-.projects-intro {
-  max-width: 760px;
-  margin: 16px 0 0;
-  color: #bebebe;
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
-.projects-discovery {
-  margin: 0 34px 18px;
-  padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background:
-    linear-gradient(180deg, rgba(24, 24, 24, 0.96), rgba(10, 10, 10, 0.96)),
-    radial-gradient(circle at top right, rgba(77, 163, 255, 0.14), transparent 45%);
-  backdrop-filter: blur(10px);
-}
-
-.projects-search-row {
-  display: flex;
-  gap: 12px;
-  align-items: end;
-}
-
-.projects-search-field {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.projects-search-label {
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.projects-search-input {
-  width: 100%;
-  min-height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0;
-  background: rgba(8, 8, 8, 0.9);
-  color: #fff;
-  padding: 0 14px;
-  font: inherit;
-}
-
-.projects-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.42);
-}
-
-.projects-search-input:focus-visible,
-.projects-clear-search:focus-visible,
-.projects-chip:focus-visible {
-  outline: 2px solid #6fb1ff;
-  outline-offset: 2px;
-}
-
-.projects-clear-search {
-  min-height: 48px;
-  padding: 0 18px;
-  border: 1px solid rgba(111, 177, 255, 0.42);
-  background: transparent;
-  color: #d3e8ff;
-  font: inherit;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.projects-clear-search:hover {
-  background: rgba(111, 177, 255, 0.1);
-  border-color: rgba(111, 177, 255, 0.8);
-  color: #fff;
-}
-
-.projects-results-summary {
-  margin: 14px 0 0;
-  color: rgba(255, 255, 255, 0.64);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.projects-filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.projects-chip {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 8px 12px;
-  font: inherit;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.projects-chip:hover {
-  border-color: rgba(111, 177, 255, 0.66);
-  color: #fff;
-}
-
-.projects-chip.is-active {
-  border-color: rgba(111, 177, 255, 0.9);
-  background: rgba(111, 177, 255, 0.14);
-  color: #fff;
-}
-
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -177,26 +44,6 @@
   letter-spacing: 0.03em;
 }
 
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 14px;
-  padding: 0;
-  list-style: none;
-}
-
-.project-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border: 1px solid rgba(111, 177, 255, 0.3);
-  color: #d3e8ff;
-  background: rgba(111, 177, 255, 0.08);
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-}
-
 .project-text p {
   margin: 0;
   color: #c9c9c9;
@@ -214,25 +61,6 @@
   height: 60px;
   background: rgba(255, 255, 255, 0.35);
   margin: 6px 0;
-}
-
-.projects-empty-state {
-  margin: 0 34px 60px;
-  padding: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(14, 14, 14, 0.88);
-}
-
-.projects-empty-state h2 {
-  margin: 0 0 10px;
-  font-size: 1.3rem;
-  font-weight: 400;
-}
-
-.projects-empty-state p {
-  margin: 0;
-  color: #bfbfbf;
-  line-height: 1.7;
 }
 
 /* ===== PROJECT CONTENT WRAPPER ===== */
@@ -733,20 +561,6 @@ body:has(.lightbox.active) .project-floating-title {
     font-size: 0.95rem;
   }
 
-  .projects-discovery {
-    margin: 0 14px 18px;
-    padding: 14px;
-  }
-
-  .projects-search-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .projects-clear-search {
-    width: 100%;
-  }
-
   .projects-list {
     padding: 0 14px 100px;
   }
@@ -782,15 +596,6 @@ body:has(.lightbox.active) .project-floating-title {
     max-width: none;
     margin: 0;
     display: block;
-  }
-
-  .project-tags {
-    gap: 6px;
-  }
-
-  .project-tag {
-    font-size: 0.76rem;
-    padding: 5px 8px;
   }
 
   .project-caption {
@@ -853,10 +658,6 @@ body:has(.lightbox.active) .project-floating-title {
     font-size: 1.1rem;
   }
 
-  .projects-empty-state {
-    margin: 0 0 40px;
-    padding: 20px;
-  }
 }
 
 /* Mobile: collapse inner padding on project pages (navbar offset kept) */

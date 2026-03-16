@@ -44,11 +44,109 @@ async function loadSidebar() {
       });
     });
 
+    bindSidebarSearch(placeholder);
     syncActiveSidebarLink(placeholder);
+    syncSidebarSearchState(placeholder);
     updateFullscreenToggleState(placeholder);
   } catch (err) {
     console.error("Sidebar error:", err);
   }
+}
+
+function getSearchQueryFromLocation() {
+  const url = new URL(window.location.href);
+  return url.searchParams.get("q") || "";
+}
+
+function setSidebarSearchValue(value, scope = document) {
+  const normalized = String(value || "");
+  const inputs = scope.querySelectorAll("[data-sidebar-search-input]");
+
+  inputs.forEach((input) => {
+    if (input.value !== normalized) {
+      input.value = normalized;
+    }
+  });
+}
+
+function buildSearchPageUrl(query = "") {
+  const url = new URL("search.html", window.location.href);
+  const normalized = String(query || "").trim();
+
+  if (normalized) {
+    url.searchParams.set("q", normalized);
+  } else {
+    url.searchParams.delete("q");
+  }
+
+  url.searchParams.delete("tag");
+
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function syncSidebarSearchState(scope = document) {
+  const isSearchPage =
+    String(document.body?.dataset?.page || "").trim() === "search" ||
+    /\/search\.html$/i.test(window.location.pathname);
+
+  scope.querySelectorAll("[data-sidebar-search-trigger]").forEach((button) => {
+    button.dataset.active = isSearchPage ? "true" : "false";
+  });
+
+  setSidebarSearchValue(getSearchQueryFromLocation(), scope);
+}
+
+function navigateToSearchPage(query = "", menu = null) {
+  const target = buildSearchPageUrl(query);
+  const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+  menu?.classList.remove("open");
+
+  if (target === current) {
+    if (typeof window.initSearchPage === "function") {
+      window.initSearchPage();
+    }
+    return;
+  }
+
+  if (typeof window.loadPage === "function") {
+    loadPage(target);
+    return;
+  }
+
+  window.location.href = target;
+}
+
+function bindSidebarSearch(scope = document) {
+  if (scope.dataset.sidebarSearchBound === "true") return;
+
+  const menu = scope.querySelector(".menu");
+  const forms = scope.querySelectorAll("[data-sidebar-search-form]");
+  const buttons = scope.querySelectorAll("[data-sidebar-search-trigger]");
+  const inputs = scope.querySelectorAll("[data-sidebar-search-input]");
+
+  const getQuery = () => scope.querySelector("[data-sidebar-search-input]")?.value || "";
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      setSidebarSearchValue(input.value, scope);
+    });
+  });
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      navigateToSearchPage(getQuery(), menu);
+    });
+  });
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      navigateToSearchPage(getQuery(), menu);
+    });
+  });
+
+  scope.dataset.sidebarSearchBound = "true";
 }
 
 function getActiveNavKey() {
@@ -56,6 +154,7 @@ function getActiveNavKey() {
   if (page) {
     if (page === "landing") return "home";
     if (page === "project") return "projects";
+    if (page === "search") return "";
     return page;
   }
 
@@ -65,6 +164,7 @@ function getActiveNavKey() {
   if (!fileName || fileName === "index.html" || fileName === "main.html") return "home";
   if (fileName === "project.html" || pathname.includes("/projects/")) return "projects";
   if (fileName === "projects.html") return "projects";
+  if (fileName === "search.html") return "";
   if (fileName === "about.html") return "about";
   if (fileName === "shop.html") return "shop";
   if (fileName === "more.html") return "more";
@@ -730,6 +830,12 @@ function runProjectsInit() {
   }
 }
 
+function runSearchInit() {
+  if (typeof window.initSearchPage === "function") {
+    window.initSearchPage();
+  }
+}
+
 function runSlideshowInit() {
   if (typeof window.initSlideshow === "function") {
     window.initSlideshow();
@@ -945,6 +1051,7 @@ async function initPage() {
   ensureFloatingCartIndicator();
   initImageProtection();    // global once; PJAX-safe
   runProjectsInit();
+  runSearchInit();
   await initProjectPage();
   runSlideshowInit();
   runShopInit();
@@ -1019,6 +1126,7 @@ function enableDecodeFade(images) {
 ========================= */
 
 window.loadPage = loadPage;
+window.setSidebarSearchValue = setSidebarSearchValue;
 document.addEventListener("DOMContentLoaded", initPage);
 
 

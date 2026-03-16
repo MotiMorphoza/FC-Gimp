@@ -85,6 +85,11 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${humanWritesCss}">`);
     }
 
+    const searchCss = this.getSearchCss();
+    if (searchCss) {
+      tags.push(`<link rel="stylesheet" href="${searchCss}">`);
+    }
+
     tags.push(...this.buildFavicons());
 
     const heroPreload = this.getHeroPreload();
@@ -162,6 +167,11 @@ class HeadOrchestrator {
   getHumanWritesCss() {
     if (!this.isMore()) return null;
     return this.renameMap.get('css/human-writes.css') || null;
+  }
+
+  getSearchCss() {
+    if (!this.isSearch()) return null;
+    return this.renameMap.get('css/search.css') || null;
   }
 
   buildFavicons() {
@@ -307,6 +317,7 @@ class HeadOrchestrator {
   isLanding()  { return this.getFileName() === 'index.html'; }
   isMain()     { return this.getFileName() === 'main.html'; }
   isProjectsList() { return this.getFileName() === 'projects.html'; }
+  isSearch()   { return this.getFileName() === 'search.html'; }
   isMore()     { return this.getFileName() === 'more.html'; }
   isProject()  {
     const fileName = this.getFileName();

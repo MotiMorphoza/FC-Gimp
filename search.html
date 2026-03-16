@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MotoSynteza - Search</title>
+    <meta name="description" content="Search MotoSynteza galleries by subject, mood, and urban themes." />
+  </head>
+  <body class="page-shell" data-page="search">
+    <div class="shell-layout">
+      <div data-sidebar></div>
+
+      <main class="content-pane search-pane" aria-label="Search MotoSynteza galleries">
+        <section class="search-shell">
+          <header class="search-hero">
+            <p class="search-eyebrow">Search</p>
+            <h1>Find the right gallery</h1>
+            <p class="search-intro">
+              Search across all series, then narrow the results by topic, mood, or subject.
+            </p>
+          </header>
+
+          <section class="search-toolbar" aria-label="Search tools">
+            <div class="search-form-row">
+              <label class="search-field" for="search-page-input">
+                <span class="search-label">Search galleries</span>
+                <input
+                  id="search-page-input"
+                  class="search-input"
+                  type="search"
+                  name="q"
+                  placeholder="Type a title, topic, or keyword"
+                  autocomplete="off"
+                />
+              </label>
+              <button id="search-clear-button" class="search-clear-button" type="button" hidden>Clear</button>
+            </div>
+
+            <p id="search-results-summary" class="search-results-summary" aria-live="polite"></p>
+            <div id="search-filter-chips" class="search-filter-chips" aria-label="Gallery topics"></div>
+          </section>
+
+          <div id="search-results" class="search-results"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/projects-manifest.js"></script>
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/layout.js"></script>
+  </body>
+</html>

@@ -15,11 +15,38 @@
       <li><a href="about.html" data-nav="about">About me</a></li>
       <li><a href="shop.html" data-nav="shop">Prints</a></li>
       <li><a href="more.html" data-nav="more">Juice</a></li>
+      <li class="menu-search-item menu-search-item--mobile">
+        <button class="sidebar-search-button sidebar-search-button--mobile" type="button" data-sidebar-search-trigger>Search</button>
+        <form class="sidebar-search-form sidebar-search-form--mobile" data-sidebar-search-form role="search">
+          <input
+            class="sidebar-search-input sidebar-search-input--mobile"
+            type="search"
+            name="q"
+            placeholder="Search galleries"
+            autocomplete="off"
+            data-sidebar-search-input
+          />
+        </form>
+      </li>
       <li class="menu-fullscreen-item menu-fullscreen-item--mobile">
         <button class="menu-fullscreen" type="button" data-fullscreen-toggle>Full Screen</button>
       </li>
     </ul>
   </nav>
+
+  <div class="sidebar-search sidebar-search--desktop">
+    <button class="sidebar-search-button" type="button" data-sidebar-search-trigger>Search</button>
+    <form class="sidebar-search-form" data-sidebar-search-form role="search">
+      <input
+        class="sidebar-search-input"
+        type="search"
+        name="q"
+        placeholder="Search galleries"
+        autocomplete="off"
+        data-sidebar-search-input
+      />
+    </form>
+  </div>
 
   <div class="sidebar-fullscreen sidebar-fullscreen--desktop">
     <button class="menu-fullscreen" type="button" data-fullscreen-toggle>Full Screen</button>
