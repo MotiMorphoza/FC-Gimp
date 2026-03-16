@@ -10,6 +10,7 @@ class AtomicDeployer {
     this.backupDir = '.docs-backup';
     this.targetDir = 'docs';
     this.directoriesToCopy = ['css', 'js', 'images', 'partials', 'data'];
+    this.rootPassthroughPatterns = [/^google[a-z0-9]+\.html$/i];
   }
 
   // --------------------------------------------------
@@ -46,6 +47,8 @@ class AtomicDeployer {
       fs.copyFileSync(src, dest);
     }
 
+    this.copyRootPassthroughFiles(rootDir, tempDir);
+
     // Copy static directories
 
     const srcProjectsDir = path.join(rootDir, 'src', 'projects');
@@ -65,6 +68,23 @@ class AtomicDeployer {
         fs.cpSync(src, dest, { recursive: true });
       }
     }
+  }
+
+  copyRootPassthroughFiles(rootDir, tempDir) {
+    const entries = fs.readdirSync(rootDir, { withFileTypes: true });
+
+    entries
+      .filter((entry) => entry.isFile())
+      .filter((entry) =>
+        this.rootPassthroughPatterns.some((pattern) => pattern.test(entry.name))
+      )
+      .forEach((entry) => {
+        const src = path.join(rootDir, entry.name);
+        const dest = path.join(tempDir, entry.name);
+
+        fs.copyFileSync(src, dest);
+        this.logger.info(`[pages] Copied root passthrough file: ${entry.name}`);
+      });
   }
 
   // --------------------------------------------------
