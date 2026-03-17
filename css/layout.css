@@ -766,12 +766,18 @@ body.app-active .shell-layout {
   }
 
   /* Home slide fix */
+  .page-main .content-pane {
+    overflow-y: auto;
+    padding-top: 60px;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+  }
+
   .main-stage {
     height: auto;
-    min-height: calc(100dvh - 156px);
+    min-height: auto;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.25rem 1rem 0;
+    gap: 2rem;
+    padding: 1.6rem 1rem 1.5rem;
     align-items: start;
   }
 
@@ -782,7 +788,7 @@ body.app-active .shell-layout {
 
   .main-intro-inner {
     width: min(100%, 520px);
-    transform: translateY(-1.65rem);
+    transform: none;
   }
 
   .main-intro p {
@@ -800,14 +806,17 @@ body.app-active .shell-layout {
 
   .main-stage-media {
     height: auto;
+    min-height: clamp(360px, 68dvh, 560px);
   }
 
-  .slide-viewport {
-    height: calc(100dvh - 126px);
+  .page-main .slide-viewport {
+    height: clamp(360px, 68dvh, 560px);
+    min-height: 360px;
     padding: 0;
     align-items: center;
   }
-  .slide {
+
+  .page-main .slide {
     max-height: 100%;
     margin-top: 0;
   }
