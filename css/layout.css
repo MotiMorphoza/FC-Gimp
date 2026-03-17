@@ -344,7 +344,13 @@
 }
 .about-text h1 {
   margin-top: 0;
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-family: "Palatino Linotype", "Book Antiqua", Baskerville, Georgia, serif;
+  font-size: clamp(2.15rem, 4vw, 3.35rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: rgba(255, 248, 236, 0.96);
 }
 .about-text p {
   line-height: 1.6;
