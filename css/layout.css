@@ -487,7 +487,7 @@
   text-align: center;
   font-family: "Palatino Linotype", "Book Antiqua", Baskerville, Georgia, serif;
   color: rgba(255, 248, 236, 0.95);
-  transform: translateY(clamp(-2.6rem, -3vw, -1.5rem));
+  transform: translateY(clamp(-3.9rem, -4.5vw, -2.25rem));
 }
 
 .main-intro p,
@@ -519,6 +519,8 @@
 }
 
 .main-intro-stops {
+  display: grid;
+  gap: 1.7rem;
   margin: 1.7rem 0 1.95rem;
 }
 
@@ -526,7 +528,6 @@
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.72);
-  margin-bottom: 1.7rem;
 }
 
 .main-intro-stops ul {
@@ -781,7 +782,7 @@ body.app-active .shell-layout {
 
   .main-intro-inner {
     width: min(100%, 520px);
-    transform: translateY(-1.1rem);
+    transform: translateY(-1.65rem);
   }
 
   .main-intro p {
