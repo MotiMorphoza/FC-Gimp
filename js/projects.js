@@ -10,6 +10,7 @@ function initProjectsPage() {
   }
 
   listEl.dataset.initialized = "true";
+  const totalProjects = manifest.length;
 
   manifest.forEach((project, index) => {
     if (!project?.slug || !project?.title) return;
@@ -22,6 +23,10 @@ function initProjectsPage() {
 
     const grid = document.createElement("div");
     grid.className = "project-grid";
+
+    const counter = document.createElement("div");
+    counter.className = "project-counter";
+    counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(totalProjects).padStart(2, "0")}`;
 
     const href = `project-${encodeURIComponent(project.slug)}.html`;
 
@@ -76,6 +81,7 @@ function initProjectsPage() {
       grid.appendChild(link);
     }
 
+    section.appendChild(counter);
     section.appendChild(grid);
     listEl.appendChild(section);
 
