@@ -1,5 +1,5 @@
 .projects-hero {
-  padding: clamp(34px, 6vw, 82px) clamp(24px, 4vw, 58px) clamp(22px, 3vw, 34px);
+  padding: clamp(8px, 2.2vw, 24px) clamp(24px, 4vw, 58px) clamp(20px, 3vw, 32px);
   text-align: center;
 }
 
@@ -558,6 +558,10 @@ body:has(.lightbox.active) .project-floating-title {
    PROJECT GALLERY: first image vertically centered (desktop)
 =================================================================== */
 @media (min-width: 701px) {
+  body[data-page="projects"] .content-pane {
+    padding-top: 0;
+  }
+
   body[data-page="project"] .content-pane {
     padding-top: 0;
   }
