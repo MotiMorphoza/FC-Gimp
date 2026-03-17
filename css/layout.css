@@ -266,7 +266,7 @@
   color: #fff;
   padding: 0 12px;
   font: inherit;
-  text-align: left;
+  text-align: center;
 }
 
 .sidebar-search-input::placeholder {
@@ -487,6 +487,7 @@
   text-align: center;
   font-family: "Palatino Linotype", "Book Antiqua", Baskerville, Georgia, serif;
   color: rgba(255, 248, 236, 0.95);
+  transform: translateY(clamp(-2.6rem, -3vw, -1.5rem));
 }
 
 .main-intro p,
@@ -518,14 +519,14 @@
 }
 
 .main-intro-stops {
-  margin: 1.95rem 0 1.95rem;
+  margin: 1.7rem 0 1.95rem;
 }
 
 .main-intro-label {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.72);
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.7rem;
 }
 
 .main-intro-stops ul {
@@ -780,6 +781,7 @@ body.app-active .shell-layout {
 
   .main-intro-inner {
     width: min(100%, 520px);
+    transform: translateY(-1.1rem);
   }
 
   .main-intro p {
