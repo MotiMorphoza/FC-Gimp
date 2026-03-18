@@ -2,9 +2,7 @@ LAYOUT: 02C
 TITLE: Zombies
 IMAGE: zombies.jpg
 HIDDEN:
-BODY:
-
-zombies – zombies  
+BODY: 
 zombies everywhere  
 beware of the zombies  
 zombies here and there  
