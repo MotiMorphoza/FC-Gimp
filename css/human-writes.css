@@ -211,13 +211,14 @@
   height: 100%;
   object-fit: cover;
   border-radius: var(--hw-image-radius);
+  clip-path: inset(0 round var(--hw-image-radius));
   border: 0;
 }
 
 .hw-inline-image {
   display: block;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -225,6 +226,7 @@
   justify-self: center;
   align-self: center;
   border-radius: var(--hw-image-radius);
+  clip-path: inset(0 round var(--hw-image-radius));
   border: 0;
 }
 
@@ -408,12 +410,15 @@
   padding: 0 0.12rem 0.12rem;
 }
 
+.hw-inline-image-frame,
 .hw-full-image-figure,
 .hw-image-bottom-figure {
   position: relative;
   display: grid;
   place-items: center;
+  width: 100%;
   height: 100%;
+  min-width: 0;
   min-height: 0;
   overflow: hidden;
   padding: var(--hw-image-gap);
@@ -439,17 +444,12 @@
   object-position: center;
 }
 
-.hw-page-body--image-top > .hw-inline-image,
-.hw-page-body--image-split > .hw-inline-image,
-.hw-page-body--image-bottom .hw-inline-image,
-.hw-page-body--image-bottom.hw-page-body--centered-copy .hw-inline-image {
-  display: block;
-  object-fit: contain;
-  object-position: center;
-  justify-self: center;
-  align-self: center;
-  max-width: calc(100% - (var(--hw-image-gap) * 2));
-  max-height: calc(100% - (var(--hw-image-gap) * 2));
+.hw-page-body--image-top > .hw-inline-image-frame,
+.hw-page-body--image-split > .hw-inline-image-frame,
+.hw-page-body--image-bottom .hw-image-bottom-figure,
+.hw-page-body--image-bottom.hw-page-body--centered-copy .hw-image-bottom-figure {
+  min-width: 0;
+  min-height: 0;
 }
 
 .hw-nav,

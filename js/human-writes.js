@@ -384,6 +384,14 @@
     `;
   }
 
+  function renderInlineImageFrame(imageSrc, altText, wrapperClass = "hw-inline-image-frame") {
+    return `
+      <div class="${wrapperClass}">
+        <img class="hw-inline-image" src="${escapeHtml(imageSrc)}" alt="${escapeHtml(altText)}" loading="lazy" decoding="async">
+      </div>
+    `;
+  }
+
   function renderPageArticle(page) {
     if (!page) {
       return `
@@ -457,9 +465,7 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--full-image${isFullImageStretched ? " hw-page-body--full-image-stretched" : ""}${rtlClass}${bodyStateClass}">
-            <div class="hw-full-image-figure">
-              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-            </div>
+            ${renderInlineImageFrame(page.image, page.title, "hw-full-image-figure")}
             ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true }) : ""}
           </div>
         </article>
@@ -483,9 +489,7 @@
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-bottom${rtlClass}${bodyStateClass}">
             ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true }) : ""}
-            <div class="hw-image-bottom-figure">
-              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-            </div>
+            ${renderInlineImageFrame(page.image, page.title, "hw-image-bottom-figure")}
           </div>
         </article>
       `;
@@ -497,9 +501,7 @@
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-bottom hw-page-body--centered-copy${rtlClass}${bodyStateClass}">
             ${hasTextFlow ? renderTextFlowMarkup(page, { stacked: true, centered: true }) : ""}
-            <div class="hw-image-bottom-figure">
-              <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
-            </div>
+            ${renderInlineImageFrame(page.image, page.title, "hw-image-bottom-figure")}
           </div>
         </article>
       `;
@@ -510,7 +512,7 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-top${rtlClass}">
-            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            ${renderInlineImageFrame(page.image, page.title)}
             ${renderTextFlowMarkup(page)}
           </div>
         </article>
@@ -522,7 +524,7 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-top hw-page-body--centered-copy${rtlClass}">
-            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            ${renderInlineImageFrame(page.image, page.title)}
             ${renderTextFlowMarkup(page, { centered: true })}
           </div>
         </article>
@@ -534,7 +536,7 @@
         <article class="hw-page-article">
           <p class="hw-running-head">Human Writes</p>
           <div class="hw-page-body hw-page-body--image-split${rtlClass}">
-            <img class="hw-inline-image" src="${escapeHtml(page.image)}" alt="${escapeHtml(page.title)}" loading="lazy" decoding="async">
+            ${renderInlineImageFrame(page.image, page.title)}
             ${renderTextFlowMarkup(page)}
           </div>
         </article>
@@ -649,7 +651,7 @@
       runningTitle: entry.title,
       language: entry.language,
       languageLabel: getLanguageLabel(entry.language),
-      direction: entry.language === "he" ? -1 : 1,
+      direction: 1,
       layout: entry.layout || "text",
       image: entry.image,
       paragraphs: splitBodyIntoParagraphs(entry.body),
@@ -749,45 +751,23 @@
       pages.push(...entryPages);
     }
 
-    if (pages.length % 2 !== 0) {
-      pages.push({
-        kind: "divider",
-        key: "divider",
-        title: "Divider",
-        runningTitle: "Turn the notebook",
-        language: "en",
-        languageLabel: "Direction shift",
-        direction: 1,
-        quote: "Hebrew texts begin from the back of the notebook.",
-        image: ""
-      });
-    }
-
     const hebrewEntries = entries
       .filter((entry) => entry.language === "he")
       .sort((left, right) => left.order - right.order);
 
-    for (let entryIndex = hebrewEntries.length - 1; entryIndex >= 0; entryIndex -= 1) {
-      const entry = hebrewEntries[entryIndex];
+    for (const entry of hebrewEntries) {
       const entryPages = paginateEntry(entry);
       if (!entryPages.length) continue;
 
-      for (let pageIndex = entryPages.length - 1; pageIndex >= 0; pageIndex -= 1) {
-        const page = entryPages[pageIndex];
-        if (page.part === 1) {
-          pageIndexByEntry.set(entry.id, pages.length);
-          if (shouldIncludeEntryInToc(entry)) {
-            tocSectionsByLanguage.he.items.push({
-              title: entry.title,
-              pageIndex: pages.length
-            });
-          }
-        }
-        pages.push(page);
+      pageIndexByEntry.set(entry.id, pages.length);
+      if (shouldIncludeEntryInToc(entry)) {
+        tocSectionsByLanguage.he.items.push({
+          title: entry.title,
+          pageIndex: pages.length
+        });
       }
+      pages.push(...entryPages);
     }
-
-    tocSectionsByLanguage.he.items.reverse();
 
     pages.forEach((page, index) => {
       page.pageNumber = index + 1;
