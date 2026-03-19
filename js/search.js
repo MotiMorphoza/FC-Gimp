@@ -89,7 +89,8 @@ const EMOTION_QUERY_PROFILES = {
     counter: ["crowd", "hostility", "violence", "alarm", "velocity", "tension"]
   }
 };
-const ALONE_CUE_VARIANTS = ["alone", "solitary", "solitude", "lonely", "loneliness", "isolation", "withdrawal", "anonymity", "silence", "emptiness", "separation"];
+const ALONE_CUE_VARIANTS = ["alone", "solitary", "solitude", "lonely", "loneliness", "isolation", "withdrawal", "emptiness", "separation"];
+const ALONE_COMPOSITION_VARIANTS = ["isolated subject"];
 const ISOLATION_VARIANTS = [
   "solitude", "lonely", "loneliness", "isolation", "detachment", "distance",
   "withdrawal", "anonymity", "silence", "quietness", "separation", "alone"
@@ -763,7 +764,7 @@ function hasIsolationCue(indexedImage) {
     includesVariant(indexedImage.image.tension, ALONE_CUE_VARIANTS, "solitude") ||
     includesVariant(indexedImage.image.relations, ALONE_CUE_VARIANTS, "solitude") ||
     includesVariant(indexedImage.image.reading, ALONE_CUE_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.composition, ISOLATION_COMPOSITION_VARIANTS, "isolated subject")
+    includesVariant(indexedImage.image.composition, ALONE_COMPOSITION_VARIANTS, "isolated subject")
   );
 }
 
