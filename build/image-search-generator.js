@@ -31,7 +31,10 @@ const STOP_WORDS = new Set([
   'a', 'an', 'and', 'as', 'at', 'above', 'across', 'against', 'along', 'around',
   'before', 'behind', 'beneath', 'beside', 'between', 'by', 'for', 'from', 'in',
   'inside', 'into', 'near', 'of', 'on', 'over', 'past', 'through', 'to', 'toward',
-  'under', 'up', 'with', 'without', 'the', 'this', 'that', 'these', 'those'
+  'under', 'up', 'with', 'without', 'the', 'this', 'that', 'these', 'those',
+  'while', 'seen', 'view', 'older', 'young', 'adult', 'adults', 'one', 'two',
+  'three', 'four', 'five', 'few', 'many', 'black', 'white', 'red', 'blue',
+  'yellow', 'green', 'pink', 'orange', 'purple', 'close'
 ]);
 
 const HUMAN_HINTS = [
@@ -47,14 +50,44 @@ const COLOR_HINTS = [
   'black', 'white', 'gray', 'grey', 'blue', 'red', 'yellow', 'green', 'pink',
   'orange', 'purple', 'violet', 'gold', 'silver', 'brown', 'beige', 'turquoise'
 ];
-const OBJECT_HINTS = [
-  'window', 'windows', 'wall', 'cross', 'bird', 'birds', 'pigeon', 'duck', 'gull',
-  'stork', 'heron', 'dog', 'dogs', 'umbrella', 'phone', 'smartphone', 'hand', 'hands',
-  'bench', 'tree', 'sign', 'tram', 'bicycle', 'bike', 'stroller', 'flower', 'flag',
-  'skull', 'glasses', 'statue', 'mask', 'mirror', 'reflection', 'boat', 'cage', 'chair',
-  'stairs', 'windowpanes', 'billboard', 'shadow', 'coat', 'wheel', 'snow', 'water',
-  'car', 'cars', 'cigarette', 'cigarettes', 'smoke', 'smoking', 'cat', 'cats'
+const OBJECT_FAMILIES = [
+  { canonical: 'window', match: ['window', 'windows', 'pane', 'panes', 'windowpane', 'windowpanes', 'shop window', 'storefront window'] },
+  { canonical: 'wall', match: ['wall', 'walls', 'facade', 'facades'] },
+  { canonical: 'cross', match: ['cross', 'crosses', 'crucifix'] },
+  { canonical: 'bird', match: ['bird', 'birds', 'pigeon', 'pigeons', 'duck', 'ducks', 'gull', 'gulls', 'seagull', 'seagulls', 'stork', 'storks', 'heron', 'herons', 'crow', 'crows', 'sparrow', 'sparrows'] },
+  { canonical: 'dog', match: ['dog', 'dogs', 'puppy', 'puppies', 'canine'] },
+  { canonical: 'umbrella', match: ['umbrella', 'umbrellas', 'parasol', 'parasols'] },
+  { canonical: 'phone', match: ['phone', 'phones', 'smartphone', 'smartphones', 'cellphone', 'cellphones', 'mobile phone', 'mobile phones'] },
+  { canonical: 'hand', match: ['hand', 'hands', 'palm', 'palms', 'glove', 'gloves'] },
+  { canonical: 'bench', match: ['bench', 'benches'] },
+  { canonical: 'tree', match: ['tree', 'trees', 'branch', 'branches', 'trunk', 'trunks'] },
+  { canonical: 'sign', match: ['sign', 'signs', 'traffic sign', 'traffic signs', 'billboard', 'billboards'] },
+  { canonical: 'tram', match: ['tram', 'trams'] },
+  { canonical: 'bike', match: ['bike', 'bikes', 'bicycle', 'bicycles', 'cyclist', 'cyclists', 'rider', 'riders'] },
+  { canonical: 'stroller', match: ['stroller', 'strollers', 'pram', 'prams'] },
+  { canonical: 'flower', match: ['flower', 'flowers', 'rose', 'roses', 'bouquet', 'bouquets'] },
+  { canonical: 'flag', match: ['flag', 'flags', 'banner', 'banners'] },
+  { canonical: 'skull', match: ['skull', 'skulls'] },
+  { canonical: 'glasses', match: ['glasses', 'sunglasses', 'spectacles'] },
+  { canonical: 'statue', match: ['statue', 'statues', 'sculpture', 'sculptures', 'monument', 'monuments'] },
+  { canonical: 'mask', match: ['mask', 'masks'] },
+  { canonical: 'mirror', match: ['mirror', 'mirrors', 'reflection', 'reflections'] },
+  { canonical: 'boat', match: ['boat', 'boats'] },
+  { canonical: 'cage', match: ['cage', 'cages', 'birdcage', 'birdcages'] },
+  { canonical: 'chair', match: ['chair', 'chairs'] },
+  { canonical: 'stairs', match: ['stairs', 'stair', 'staircase'] },
+  { canonical: 'shadow', match: ['shadow', 'shadows', 'silhouette', 'silhouettes'] },
+  { canonical: 'wheel', match: ['wheel', 'wheels'] },
+  { canonical: 'snow', match: ['snow', 'snowy'] },
+  { canonical: 'water', match: ['water', 'waters', 'puddle', 'puddles', 'river', 'rivers', 'pond', 'ponds'] },
+  { canonical: 'car', match: ['car', 'cars', 'vehicle', 'vehicles', 'taxi', 'taxis', 'van', 'vans'] },
+  { canonical: 'cigarette', match: ['cigarette', 'cigarettes', 'smoker', 'smokers', 'smoking', 'smoke'] },
+  { canonical: 'cat', match: ['cat', 'cats', 'kitten', 'kittens'] }
 ];
+const VALUE_CORRECTIONS = new Map([
+  ['cros', 'cross'],
+  ['glasse', 'glasses']
+]);
 
 const WOMAN_HINTS = ['woman', 'women', 'female', 'nun', 'nuns', 'girl', 'girls', 'mother', 'mothers'];
 const MAN_HINTS = ['man', 'men', 'male', 'priest', 'priests', 'monk', 'monks', 'boy', 'boys', 'king'];
@@ -74,21 +107,63 @@ const WIDE_HINTS = ['wide shot', 'wide view', 'wide scene', 'wide frame', 'panor
 
 function includesAny(text, hints = []) {
   const normalizedText = String(text || '').toLowerCase();
-  return hints.some((hint) => {
-    const normalizedHint = String(hint || '').toLowerCase().trim();
-    if (!normalizedHint) return false;
-    if (normalizedHint.includes(' ')) return normalizedText.includes(normalizedHint);
-    const pattern = new RegExp(`(^|[^a-z])${normalizedHint.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?=$|[^a-z])`, 'i');
-    return pattern.test(normalizedText);
-  });
+  return hints.some((hint) => hasNormalizedTerm(normalizedText, hint));
 }
 
 function uniqueStrings(items = []) {
   return [...new Set(
     items
-      .map((item) => String(item || '').trim())
+      .map((item) => cleanSemanticValue(item))
       .filter(Boolean)
   )];
+}
+
+function normalizeForMatch(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[â€™']/g, '')
+    .replace(/[^a-z0-9\u0590-\u05ff -]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function stemWord(value) {
+  const token = normalizeForMatch(value);
+  if (!token) return '';
+  if (token.endsWith('ies') && token.length > 4) return `${token.slice(0, -3)}y`;
+  if (token.endsWith('es') && token.length > 4) return token.slice(0, -2);
+  if (token.endsWith('s') && token.length > 3) return token.slice(0, -1);
+  return token;
+}
+
+function tokenizeForMatch(value) {
+  return normalizeForMatch(String(value || '').replace(/-/g, ' '))
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter(Boolean);
+}
+
+function hasNormalizedTerm(text, term) {
+  const normalizedText = normalizeForMatch(text);
+  const normalizedTerm = normalizeForMatch(term);
+  if (!normalizedText || !normalizedTerm) return false;
+
+  if (normalizedTerm.includes(' ')) {
+    const escaped = normalizedTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+    const pattern = new RegExp(`(^|[^a-z0-9\\u0590-\\u05ff])${escaped}(?=$|[^a-z0-9\\u0590-\\u05ff])`, 'i');
+    return pattern.test(normalizedText);
+  }
+
+  const textTokens = tokenizeForMatch(normalizedText);
+  const termStem = stemWord(normalizedTerm);
+  return textTokens.some((token) => token === normalizedTerm || stemWord(token) === termStem);
+}
+
+function cleanSemanticValue(value) {
+  const normalized = String(value || '').trim();
+  if (!normalized) return '';
+  const corrected = VALUE_CORRECTIONS.get(normalized.toLowerCase());
+  return corrected || normalized;
 }
 
 function normalizeStem(value) {
@@ -125,11 +200,11 @@ function deriveNegativeHints(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
   const negatives = [];
 
-  if (HUMAN_HINTS.some((hint) => normalizedAlt.includes(hint))) {
+  if (includesAny(normalizedAlt, HUMAN_HINTS)) {
     negatives.push('people');
   }
 
-  if (!GRAYSCALE_HINTS.some((hint) => normalizedAlt.includes(hint))) {
+  if (!includesAny(normalizedAlt, GRAYSCALE_HINTS)) {
     negatives.push('color');
   }
 
@@ -140,40 +215,40 @@ function deriveFieldByIncludes(alt, mapping) {
   const normalizedAlt = String(alt || '').toLowerCase();
   return uniqueStrings(
     mapping
-      .filter(({ match }) => match.some((term) => normalizedAlt.includes(term)))
+      .filter(({ match }) => includesAny(normalizedAlt, match))
       .flatMap(({ values }) => values)
   );
 }
 
 function derivePointOfView(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
-  if (normalizedAlt.includes('seen from above') || normalizedAlt.includes('overhead view')) return 'overhead';
-  if (normalizedAlt.includes('close-up')) return 'close-up';
-  if (normalizedAlt.includes('through')) return 'framed view';
-  if (normalizedAlt.includes('silhouette')) return 'silhouette';
+  if (includesAny(normalizedAlt, ['seen from above', 'overhead view'])) return 'overhead';
+  if (includesAny(normalizedAlt, ['close-up', 'close up'])) return 'close-up';
+  if (includesAny(normalizedAlt, ['through', 'framed by'])) return 'framed view';
+  if (includesAny(normalizedAlt, ['silhouette', 'silhouettes'])) return 'silhouette';
   return '';
 }
 
 function deriveManipulation(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
-  if (GRAYSCALE_HINTS.some((hint) => normalizedAlt.includes(hint))) return 'monochrome';
-  if (normalizedAlt.includes('motion-blurred') || normalizedAlt.includes('blur')) return 'motion blur';
-  if (normalizedAlt.includes('reflection')) return 'reflection';
+  if (includesAny(normalizedAlt, GRAYSCALE_HINTS)) return 'monochrome';
+  if (includesAny(normalizedAlt, ['motion-blurred', 'motion blurred', 'blur', 'blurred'])) return 'motion blur';
+  if (includesAny(normalizedAlt, ['reflection', 'reflections', 'reflected'])) return 'reflection';
   return 'straight';
 }
 
 function deriveObjects(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
   return uniqueStrings(
-    OBJECT_HINTS.filter((term) => normalizedAlt.includes(term)).map((term) =>
-      term.endsWith('s') ? term.slice(0, -1) : term
-    )
+    OBJECT_FAMILIES
+      .filter(({ match }) => includesAny(normalizedAlt, match))
+      .map(({ canonical }) => canonical)
   );
 }
 
 function deriveColors(alt) {
   return uniqueStrings(
-    COLOR_HINTS.filter((term) => String(alt || '').toLowerCase().includes(term))
+    COLOR_HINTS.filter((term) => includesAny(String(alt || '').toLowerCase(), [term]))
   );
 }
 
@@ -214,7 +289,7 @@ function derivePeopleProfile(alt) {
   let prominence = 'none';
   if (hasPeople) {
     const leadWindow = normalizedAlt.split(/\s+/).slice(0, 8).join(' ');
-    prominence = HUMAN_HINTS.some((hint) => leadWindow.includes(hint)) ? 'primary' : 'secondary';
+    prominence = includesAny(leadWindow, HUMAN_HINTS) ? 'primary' : 'secondary';
     if (crowd) prominence = 'primary';
   }
 
@@ -223,7 +298,13 @@ function derivePeopleProfile(alt) {
     people_count: peopleCount,
     gender,
     age_group: ageGroup,
-    people_prominence: prominence
+    people_prominence: prominence,
+    people_focus: crowd
+      ? 'crowd'
+      : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), CHILD_HINTS) ? 'child'
+        : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), WOMAN_HINTS) && !includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), MAN_HINTS) ? 'woman'
+          : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), MAN_HINTS) && !includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), WOMAN_HINTS) ? 'man'
+            : ''
   };
 }
 
@@ -232,7 +313,7 @@ function deriveColorProfile(alt, colors, manipulation) {
   const dominantColors = uniqueStrings(colors || []).slice(0, 3);
 
   let colorMode = 'color';
-  if (GRAYSCALE_HINTS.some((hint) => normalizedAlt.includes(hint)) || String(manipulation || '').toLowerCase() === 'monochrome') {
+  if (includesAny(normalizedAlt, GRAYSCALE_HINTS) || String(manipulation || '').toLowerCase() === 'monochrome') {
     colorMode = 'bw';
   } else if (includesAny(normalizedAlt, COLORFUL_HINTS) || dominantColors.length >= 3) {
     colorMode = 'colorful';
@@ -249,6 +330,7 @@ function deriveEnvironmentProfile(project, alt, environment = []) {
   const environmentType = [];
   const settingType = [];
   const natureHintCount = NATURE_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
+  const urbanHintCount = STREET_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
 
   if (includesAny(normalizedAlt, INDOOR_HINTS)) environmentType.push('indoor');
   if (includesAny(normalizedAlt, OUTDOOR_HINTS) || (environment || []).some((term) => ['city', 'street', 'park', 'water edge', 'winter'].includes(String(term).toLowerCase()))) {
@@ -258,7 +340,10 @@ function deriveEnvironmentProfile(project, alt, environment = []) {
     environmentType.push('street', 'urban');
     settingType.push('street');
   }
-  if (natureHintCount >= 2 || (environment || []).some((term) => ['nature', 'urban nature', 'water edge'].includes(String(term).toLowerCase()))) {
+  if (
+    (environment || []).some((term) => ['nature', 'urban nature', 'water edge'].includes(String(term).toLowerCase())) ||
+    natureHintCount >= (urbanHintCount ? 3 : 2)
+  ) {
     environmentType.push('nature');
   }
   if (includesAny(normalizedAlt, DOMESTIC_HINTS)) {
@@ -266,10 +351,10 @@ function deriveEnvironmentProfile(project, alt, environment = []) {
     settingType.push('domestic');
   }
 
-  if (normalizedAlt.includes('park')) settingType.push('park');
-  if (normalizedAlt.includes('public square')) settingType.push('public square');
-  if (normalizedAlt.includes('window')) settingType.push('window');
-  if (normalizedAlt.includes('river') || normalizedAlt.includes('pond') || normalizedAlt.includes('water')) settingType.push('water edge');
+  if (includesAny(normalizedAlt, ['park'])) settingType.push('park');
+  if (includesAny(normalizedAlt, ['public square'])) settingType.push('public square');
+  if (includesAny(normalizedAlt, ['window', 'windows', 'pane', 'panes'])) settingType.push('window');
+  if (includesAny(normalizedAlt, ['river', 'pond', 'water', 'puddle'])) settingType.push('water edge');
 
   return {
     environment_type: uniqueStrings(environmentType),
@@ -291,7 +376,7 @@ function deriveShotType(alt, composition = [], pov = '') {
   if (includesAny(normalizedAlt, WIDE_HINTS) || normalizedComposition.includes("bird's-eye view")) {
     return 'wide';
   }
-  if ((normalizedAlt.includes('portrait') || normalizedAlt.includes('face')) && HUMAN_HINTS.some((hint) => normalizedAlt.includes(hint))) {
+  if (includesAny(normalizedAlt, ['portrait', 'face']) && includesAny(normalizedAlt, HUMAN_HINTS)) {
     return 'portrait';
   }
   return '';
@@ -360,12 +445,12 @@ function deriveStyle(project, alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
   const style = [];
 
-  if (/window|facade|building/.test(normalizedAlt)) style.push('architectural observation');
-  if (/reflection|reflected|mirror/.test(normalizedAlt)) style.push('reflection study');
-  if (/motion-blurred|blur/.test(normalizedAlt)) style.push('motion-blur street photography');
-  if (/bird|duck|gull|pigeon|stork|heron/.test(normalizedAlt)) style.push('poetic observation');
-  if (/umbrella|crossing|cyclist|pedestrian|street|tram/.test(normalizedAlt)) style.push('street photography');
-  if (/skull|vegetable|eggplant|birdcage|chair|boat/.test(normalizedAlt)) style.push('conceptual still life');
+  if (includesAny(normalizedAlt, ['window', 'windows', 'facade', 'building', 'buildings'])) style.push('architectural observation');
+  if (includesAny(normalizedAlt, ['reflection', 'reflections', 'reflected', 'mirror', 'mirrors'])) style.push('reflection study');
+  if (includesAny(normalizedAlt, ['motion-blurred', 'motion blurred', 'blur', 'blurred'])) style.push('motion-blur street photography');
+  if (includesAny(normalizedAlt, ['bird', 'birds', 'duck', 'ducks', 'gull', 'gulls', 'pigeon', 'pigeons', 'stork', 'storks', 'heron', 'herons'])) style.push('poetic observation');
+  if (includesAny(normalizedAlt, ['umbrella', 'umbrellas', 'crossing', 'cyclist', 'cyclists', 'pedestrian', 'pedestrians', 'street', 'tram', 'trams'])) style.push('street photography');
+  if (includesAny(normalizedAlt, ['skull', 'skulls', 'vegetable', 'vegetables', 'eggplant', 'eggplants', 'birdcage', 'birdcages', 'chair', 'chairs', 'boat', 'boats'])) style.push('conceptual still life');
 
   return uniqueStrings([...style, ...(project.tags || [])]);
 }

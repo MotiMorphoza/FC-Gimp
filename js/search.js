@@ -39,6 +39,10 @@ const HUMAN_VISUAL_HINTS = [
 const COLORFUL_HINTS = ["colorful", "colourful", "vivid", "multicolor", "multicolour", "rainbow"];
 const CROWD_VISUAL_HINTS = ["crowd", "protesters", "choir", "marchers", "group"];
 const PLURAL_PEOPLE_HINTS = ["people", "pedestrians", "children", "officers", "workers", "vendors"];
+const WOMAN_VISUAL_HINTS = ["woman", "women", "female", "nun", "nuns", "girl", "girls", "mother", "mothers"];
+const MAN_VISUAL_HINTS = ["man", "men", "male", "priest", "priests", "monk", "monks", "boy", "boys", "father", "fathers"];
+const CHILD_VISUAL_HINTS = ["child", "children", "kid", "kids", "girl", "girls", "boy", "boys", "baby", "babies"];
+const STRICT_OBJECT_QUERY_CLASSES = new Set(["object"]);
 
 const SEARCH_STATE = {
   loadPromise: null,
@@ -52,6 +56,8 @@ function getTagHelpers() {
   return window.MotoSearchTags || {
     normalizeTerm: (value) => String(value || "").toLowerCase().trim(),
     stemTerm: (value) => String(value || "").toLowerCase().trim(),
+    valueHasVariant: (value, variant) => String(value || "").toLowerCase().split(/\s+/).includes(String(variant || "").toLowerCase()),
+    valueHasAnyVariant: (value, variants = []) => variants.some((variant) => String(value || "").toLowerCase().split(/\s+/).includes(String(variant || "").toLowerCase())),
     parseQuery: (query) => ({
       raw: query,
       normalized: String(query || "").trim().toLowerCase(),
@@ -76,28 +82,14 @@ function normalizeMaybeArray(values) {
 }
 
 function includesVariant(values, variants, canonical) {
-  const { normalizeTerm, stemTerm } = getTagHelpers();
+  const { valueHasAnyVariant } = getTagHelpers();
   return normalizeArray(values).some((value) => {
-    const normalized = normalizeTerm(value);
-    const stemmed = stemTerm(value);
-    return variants.some((variant) => (
-      variant &&
-      (normalized === variant ||
-        normalized.includes(variant) ||
-        stemmed === variant ||
-        stemmed.includes(variant) ||
-        normalized.includes(canonical))
-    ));
+    return valueHasAnyVariant(value, [...variants, canonical].filter(Boolean));
   });
 }
 
 function textHasHint(text, hint) {
-  const normalizedText = String(text || "").toLowerCase();
-  const normalizedHint = String(hint || "").toLowerCase().trim();
-  if (!normalizedHint) return false;
-  if (normalizedHint.includes(" ")) return normalizedText.includes(normalizedHint);
-  const pattern = new RegExp(`(^|[^a-z])${normalizedHint.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?=$|[^a-z])`, "i");
-  return pattern.test(normalizedText);
+  return getTagHelpers().valueHasVariant(text, hint);
 }
 
 function textHasAnyHint(text, hints = []) {
@@ -153,6 +145,25 @@ function deriveVisualProfile(image) {
     }
   }
 
+  let peopleFocus = String(image.people_focus || "").trim().toLowerCase();
+  if (!peopleFocus) {
+    const leadText = combinedText.split(/\s+/).slice(0, 12).join(" ");
+    if (textHasAnyHint(combinedText, CROWD_VISUAL_HINTS) || Number(peopleCount) >= 4) {
+      peopleFocus = "crowd";
+    } else if (textHasAnyHint(leadText, CHILD_VISUAL_HINTS)) {
+      peopleFocus = "child";
+    } else if (textHasAnyHint(leadText, WOMAN_VISUAL_HINTS) && !textHasAnyHint(leadText, MAN_VISUAL_HINTS)) {
+      peopleFocus = "woman";
+    } else if (textHasAnyHint(leadText, MAN_VISUAL_HINTS) && !textHasAnyHint(leadText, WOMAN_VISUAL_HINTS)) {
+      peopleFocus = "man";
+    } else if (hasPeople && Number(peopleCount) === 1) {
+      if (gender.includes("woman") && !gender.includes("man")) peopleFocus = "woman";
+      else if (gender.includes("man") && !gender.includes("woman")) peopleFocus = "man";
+      else if (ageGroup.includes("child")) peopleFocus = "child";
+      else peopleFocus = "person";
+    }
+  }
+
   let peopleProminence = String(image.people_prominence || "").trim().toLowerCase();
   if (!peopleProminence) {
     const leadText = combinedText.split(/\s+/).slice(0, 8).join(" ");
@@ -163,7 +174,7 @@ function deriveVisualProfile(image) {
 
   const colorMode = String(image.color_mode || "").trim().toLowerCase() ||
     (String(image.manipulation || "").trim().toLowerCase() === "monochrome" ? "bw" :
-      (colors.length >= 3 || COLORFUL_HINTS.some((hint) => combinedText.includes(hint)) ? "colorful" : "color"));
+      (colors.length >= 3 || textHasAnyHint(combinedText, COLORFUL_HINTS) ? "colorful" : "color"));
 
   const dominantColors = normalizeMaybeArray(image.dominant_colors);
   if (!dominantColors.length) {
@@ -175,29 +186,32 @@ function deriveVisualProfile(image) {
     const natureHintCount = ["river", "pond", "water", "grass", "leaf", "leaves", "flower", "flowers", "tree", "trees", "branch", "branches"]
       .filter((hint) => textHasHint(combinedText, hint))
       .length;
+    const urbanHintCount = ["street", "crosswalk", "sidewalk", "intersection", "city", "urban", "public space"]
+      .filter((hint) => textHasHint(combinedText, hint))
+      .length;
 
-    if (environment.some((value) => /street|city|public space|urban/.test(normalizeTerm(value))) || /street|crosswalk|sidewalk|intersection/.test(combinedText)) {
+    if (environment.some((value) => /street|city|public space|urban/.test(normalizeTerm(value))) || textHasAnyHint(combinedText, ["street", "crosswalk", "sidewalk", "intersection"])) {
       environmentType.push("street", "urban", "outdoor");
     }
-    if (environment.some((value) => /nature|urban nature|water edge/.test(normalizeTerm(value))) || natureHintCount >= 2) {
+    if (environment.some((value) => /nature|urban nature|water edge/.test(normalizeTerm(value))) || natureHintCount >= (urbanHintCount ? 3 : 2)) {
       environmentType.push("nature", "outdoor");
     }
-    if (/interior|indoor|room|kitchen|bedroom|table/.test(combinedText)) {
+    if (textHasAnyHint(combinedText, ["interior", "indoor", "room", "kitchen", "bedroom", "table"])) {
       environmentType.push("indoor");
     }
-    if (/home|house|domestic|kitchen|bedroom|room/.test(combinedText)) {
+    if (textHasAnyHint(combinedText, ["home", "house", "domestic", "kitchen", "bedroom", "room"])) {
       environmentType.push("domestic", "indoor");
     }
   }
 
   const settingType = normalizeMaybeArray(image.setting_type);
   if (!settingType.length) {
-    if (/street|crosswalk|sidewalk|intersection/.test(combinedText)) settingType.push("street");
-    if (/park/.test(combinedText)) settingType.push("park");
-    if (/public square/.test(combinedText)) settingType.push("public square");
-    if (/window/.test(combinedText)) settingType.push("window");
-    if (/river|pond|water/.test(combinedText)) settingType.push("water edge");
-    if (/kitchen|room|bedroom|table/.test(combinedText)) settingType.push("domestic");
+    if (textHasAnyHint(combinedText, ["street", "crosswalk", "sidewalk", "intersection"])) settingType.push("street");
+    if (textHasAnyHint(combinedText, ["park"])) settingType.push("park");
+    if (textHasAnyHint(combinedText, ["public square"])) settingType.push("public square");
+    if (textHasAnyHint(combinedText, ["window", "windows", "pane", "panes"])) settingType.push("window");
+    if (textHasAnyHint(combinedText, ["river", "pond", "water", "puddle"])) settingType.push("water edge");
+    if (textHasAnyHint(combinedText, ["kitchen", "room", "bedroom", "table"])) settingType.push("domestic");
   }
 
   let shotType = String(image.shot_type || "").trim().toLowerCase();
@@ -208,7 +222,7 @@ function deriveVisualProfile(image) {
       shotType = "detail";
     } else if (composition.some((value) => /bird's-eye view|overhead view/.test(normalizeTerm(value))) || /wide shot|wide view|wide scene/.test(combinedText)) {
       shotType = "wide";
-    } else if ((combinedText.includes("portrait") || combinedText.includes("face")) && hasPeople) {
+    } else if (textHasAnyHint(combinedText, ["portrait", "face"]) && hasPeople) {
       shotType = "portrait";
     }
   }
@@ -218,6 +232,7 @@ function deriveVisualProfile(image) {
     people_count: peopleCount,
     gender: normalizeArray(gender),
     age_group: normalizeArray(ageGroup),
+    people_focus: peopleFocus || "",
     people_prominence: peopleProminence || "none",
     color_mode: colorMode || "color",
     dominant_colors: normalizeArray(dominantColors),
@@ -260,7 +275,8 @@ function normalizeImage(image, index) {
     dominant_colors: normalizeMaybeArray(image?.dominant_colors),
     environment_type: normalizeMaybeArray(image?.environment_type),
     setting_type: normalizeMaybeArray(image?.setting_type),
-    shot_type: String(image?.shot_type || "").trim()
+    shot_type: String(image?.shot_type || "").trim(),
+    people_focus: String(image?.people_focus || "").trim()
   };
 
   SEARCH_ARRAY_FIELDS.forEach((field) => {
@@ -386,21 +402,30 @@ function writeSearchStateToUrl(state) {
 }
 
 function matchValue(value, stemmedValue, variants, canonical) {
-  return variants.some((variant) => {
-    if (!variant) return false;
-    return value === variant ||
-      value.includes(variant) ||
-      stemmedValue === variant ||
-      stemmedValue.includes(variant) ||
-      value.includes(canonical);
-  });
+  const { valueHasAnyVariant } = getTagHelpers();
+  return valueHasAnyVariant(value, [...variants, canonical].filter(Boolean));
 }
 
 function getObjectProminence(indexedImage, termGroup) {
-  if (includesVariant(indexedImage.image.primary, termGroup.variants, termGroup.canonical)) return "primary";
-  if (includesVariant(indexedImage.image.objects, termGroup.variants, termGroup.canonical)) return "secondary";
-  if (includesVariant(indexedImage.image.secondary, termGroup.variants, termGroup.canonical) ||
-    includesVariant([indexedImage.image.alt], termGroup.variants, termGroup.canonical)) {
+  const leadAlt = String(indexedImage.image.alt || "").split(/\s+/).slice(0, 10).join(" ");
+  const allAlt = String(indexedImage.image.alt || "");
+  const variants = [...termGroup.variants, termGroup.canonical].filter(Boolean);
+  const primaryMatch = includesVariant(indexedImage.image.primary, termGroup.variants, termGroup.canonical);
+  const objectMatch = includesVariant(indexedImage.image.objects, termGroup.variants, termGroup.canonical);
+  const secondaryMatch = includesVariant(indexedImage.image.secondary, termGroup.variants, termGroup.canonical);
+  const leadAltMatch = getTagHelpers().valueHasAnyVariant(leadAlt, variants);
+  const altMatch = getTagHelpers().valueHasAnyVariant(allAlt, variants);
+
+  if (leadAltMatch && (primaryMatch || objectMatch)) {
+    return "primary";
+  }
+  if (altMatch && (primaryMatch || objectMatch)) {
+    return "secondary";
+  }
+  if (leadAltMatch) {
+    return "secondary";
+  }
+  if (secondaryMatch && altMatch) {
     return "background";
   }
   return "none";
@@ -426,14 +451,30 @@ function matchHardVisualTerm(indexedImage, termGroup) {
         : { matched: false, score: 0 };
     }
     if (canonical === "woman" || canonical === "man") {
-      return (visual.gender || []).includes(canonical)
-        ? { matched: true, score: visual.people_prominence === "primary" ? 16 : 7 }
-        : { matched: false, score: 0 };
+      if (!(visual.gender || []).includes(canonical)) {
+        return { matched: false, score: 0 };
+      }
+
+      if (visual.people_focus === canonical) {
+        return { matched: true, score: visual.people_prominence === "primary" ? 18 : 12 };
+      }
+
+      if (!visual.people_focus || visual.people_focus === "person") {
+        return { matched: true, score: visual.people_prominence === "primary" ? 11 : 7 };
+      }
+
+      return { matched: true, score: 3 };
     }
     if (canonical === "child") {
-      return (visual.age_group || []).includes("child")
-        ? { matched: true, score: visual.people_prominence === "primary" ? 16 : 7 }
-        : { matched: false, score: 0 };
+      if (!(visual.age_group || []).includes("child")) {
+        return { matched: false, score: 0 };
+      }
+
+      if (visual.people_focus === "child") {
+        return { matched: true, score: visual.people_prominence === "primary" ? 18 : 12 };
+      }
+
+      return { matched: true, score: visual.people_prominence === "primary" ? 8 : 5 };
     }
   }
 
@@ -465,6 +506,16 @@ function matchHardVisualTerm(indexedImage, termGroup) {
         : { matched: false, score: 0 };
     }
 
+    if (canonical === "nature") {
+      const hasNature = environmentType.includes("nature");
+      const mixedUrban = environmentType.includes("urban") || environmentType.includes("street");
+      const strongNatureSetting = settingType.includes("park") || settingType.includes("water edge");
+      if (!hasNature) return { matched: false, score: 0 };
+      if (!mixedUrban) return { matched: true, score: 15 };
+      if (strongNatureSetting) return { matched: true, score: 9 };
+      return { matched: true, score: 5 };
+    }
+
     const matched = environmentType.includes(canonical) || settingType.includes(canonical);
     return matched ? { matched: true, score: 13 } : { matched: false, score: 0 };
   }
@@ -482,7 +533,7 @@ function matchHardVisualTerm(indexedImage, termGroup) {
     const prominence = getObjectProminence(indexedImage, termGroup);
     if (prominence === "primary") return { matched: true, score: 16 };
     if (prominence === "secondary") return { matched: true, score: 10 };
-    if (prominence === "background") return { matched: true, score: 4 };
+    if (prominence === "background" && !STRICT_OBJECT_QUERY_CLASSES.has(queryClass)) return { matched: true, score: 4 };
     return { matched: false, score: 0 };
   }
 
