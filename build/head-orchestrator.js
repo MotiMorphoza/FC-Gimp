@@ -282,6 +282,20 @@ class HeadOrchestrator {
     if (this.isProject() && projectMeta?.slug) {
       const canonical = this.buildCanonical();
       const imageObjects = this.buildProjectImageObjects(projectMeta);
+      const about = Array.isArray(projectMeta?.seo?.about)
+        ? projectMeta.seo.about
+            .map((item) => String(item || '').trim())
+            .filter(Boolean)
+            .slice(0, 4)
+            .map((name) => ({ '@type': 'Thing', name }))
+        : [];
+      const keywords = Array.isArray(projectMeta?.seo?.keywords)
+        ? projectMeta.seo.keywords
+            .map((item) => String(item || '').trim())
+            .filter(Boolean)
+            .slice(0, 5)
+            .join(', ')
+        : '';
 
       return {
         '@context': 'https://schema.org',
@@ -289,6 +303,8 @@ class HeadOrchestrator {
         name: projectMeta.title || 'MotoSynteza Project',
         description: projectMeta.description || 'MotoSynteza photography project',
         url: canonical || undefined,
+        about: about.length ? about : undefined,
+        keywords: keywords || undefined,
         image: imageObjects.length ? imageObjects : undefined,
         primaryImageOfPage: imageObjects[0] || undefined,
         creator: {
@@ -320,13 +336,27 @@ class HeadOrchestrator {
         const resolved = this.renameMap.get(rawPath) || rawPath;
         const caption = typeof image === 'object' ? String(image.caption || '').trim() : '';
         const alt = typeof image === 'object' ? String(image.alt || '').trim() : '';
-        const description = alt || caption || `${projectMeta.title} image ${index + 1}`;
+        const seo = typeof image === 'object' && image?.seo && typeof image.seo === 'object'
+          ? image.seo
+          : null;
+        const description = String(seo?.description || alt || caption || `${projectMeta.title} image ${index + 1}`).trim();
+        const name = String(seo?.name || alt || `${projectMeta.title} image ${index + 1}`).trim();
+        const keywords = Array.isArray(seo?.keywords)
+          ? seo.keywords
+              .map((item) => String(item || '').trim())
+              .filter(Boolean)
+              .slice(0, 5)
+              .join(', ')
+          : '';
 
         return {
           '@type': 'ImageObject',
+          name,
           contentUrl: this.buildAbsoluteUrl(resolved),
           caption: caption || undefined,
-          description
+          description,
+          keywords: keywords || undefined,
+          representativeOfPage: seo?.representativeOfPage ? true : undefined
         };
       })
       .filter(Boolean);

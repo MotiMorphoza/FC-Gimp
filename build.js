@@ -17,6 +17,7 @@ const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
 const { writeImageSearchDataset } = require('./build/image-search-generator');
+const { applyProjectSeoData, buildProjectSeoMap, renderProjectSeedMarkup } = require('./build/project-seo');
 const { SITE_HOSTNAME, SITE_ORIGIN } = require('./build/site-config');
 
 class SuperBuild {
@@ -94,8 +95,10 @@ class SuperBuild {
       const projects = this.scanner.scanProjectsFromRoot(tempDir);
       this.logger.info(`Validated ${projects.length} projects`);
       this.logImageMetadataCoverage(projects);
+      const imageSearchDataset = this.generateImageSearchDataset(projects, tempDir);
+      const projectSeoMap = buildProjectSeoMap(projects, imageSearchDataset);
+      applyProjectSeoData(projects, projectSeoMap);
       this.generateStaticProjectPages(projects, tempDir);
-      this.generateImageSearchDataset(projects, tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Generate manifests
@@ -107,6 +110,7 @@ class SuperBuild {
         path.join(tempDir, 'images'),
         tempDir
       );
+      applyProjectSeoData(manifestData.projects || [], projectSeoMap);
 
       const manifestPath = path.join(tempDir, 'js', 'image-manifest.js');
       this.manifestGenerator.generate(manifestData, manifestPath);
@@ -333,9 +337,25 @@ class SuperBuild {
 
     projects.forEach((project) => {
       const outputPath = path.join(tempDir, `project-${project.slug}.html`);
-      const pageHtml = template.replace(
+      const seededMarkup = renderProjectSeedMarkup(project);
+      let pageHtml = template.replace(
         /<body class="page-shell" data-page="project">/i,
         `<body class="page-shell" data-page="project" data-project-slug="${project.slug}">`
+      );
+
+      pageHtml = pageHtml.replace(
+        /<section class="project-context"><\/section>/i,
+        seededMarkup.contextHtml
+      );
+
+      pageHtml = pageHtml.replace(
+        /<div class="project-gallery"><\/div>/i,
+        seededMarkup.galleryHtml
+      );
+
+      pageHtml = pageHtml.replace(
+        /<nav class="project-related-links" aria-label="Related galleries"><\/nav>/i,
+        seededMarkup.relatedHtml
       );
 
       fs.writeFileSync(outputPath, pageHtml, 'utf8');
@@ -345,7 +365,7 @@ class SuperBuild {
   }
 
   generateImageSearchDataset(projects, tempDir) {
-    writeImageSearchDataset({
+    return writeImageSearchDataset({
       projects,
       rootDir: this.rootDir,
       tempDir,

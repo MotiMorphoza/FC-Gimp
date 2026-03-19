@@ -335,6 +335,7 @@ class Scanner {
     return {
       slug,
       title: metadata.title.trim(),
+      codePrefix: typeof metadata.codePrefix === 'string' ? metadata.codePrefix.trim() : '',
       description,
       tags,
       images

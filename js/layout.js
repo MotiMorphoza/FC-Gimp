@@ -244,14 +244,552 @@ function getSlugFromURL(url = window.location.href) {
   return "";
 }
 
-function getProjectImageAlt(projectTitle, imgData, index) {
+function getProjectImageAlt(projectTitle, imgData, index, semanticMeta = null) {
   const explicitAlt = typeof imgData?.alt === "string" ? imgData.alt.trim() : "";
   if (explicitAlt) return explicitAlt;
 
-  const captionAlt = typeof imgData?.caption === "string" ? imgData.caption.trim() : "";
-  if (captionAlt) return captionAlt;
+  const semanticAlt = typeof semanticMeta?.finalAlt === "string" ? semanticMeta.finalAlt.trim() : "";
+  if (semanticAlt) return semanticAlt;
 
   return `${projectTitle} - image ${index + 1}`;
+}
+
+const PROJECT_SEMANTIC_VISUAL_HINTS = [
+  "bench", "bird", "blur", "bottle", "building", "cat", "chair", "chimney", "coat",
+  "cross", "cyclist", "dog", "duck", "egg", "face", "flag", "flower", "glove", "hand",
+  "mask", "nun", "panel", "phone", "pigeon", "reflection", "shadow", "sign", "silhouette",
+  "smoke", "snow", "statue", "stroller", "tram", "tree", "umbrella", "vendor", "window"
+];
+
+const PROJECT_GENERIC_VISUAL_TERMS = new Set([
+  "architecture", "city", "color", "daylight", "daytime", "people", "park",
+  "street", "urban", "water edge", "winter"
+]);
+
+const PROJECT_MOTIF_LABELS = new Map([
+  ["bird", "Birds"],
+  ["bike", "Bicycles"],
+  ["bottle", "Bottles"],
+  ["cat", "Cats"],
+  ["chair", "Chairs"],
+  ["chimney", "Chimneys"],
+  ["cross", "Crosses"],
+  ["dog", "Dogs"],
+  ["duck", "Birds"],
+  ["egg", "Broken eggs"],
+  ["flag", "Flags"],
+  ["flower", "Flowers"],
+  ["glove", "Discarded objects"],
+  ["hand", "Hands"],
+  ["mask", "Masks"],
+  ["phone", "Phones"],
+  ["pigeon", "Birds"],
+  ["reflection", "Reflections"],
+  ["shadow", "Shadows"],
+  ["sign", "Signs"],
+  ["snow", "Snow"],
+  ["statue", "Statues"],
+  ["stroller", "Strollers"],
+  ["tram", "Trams"],
+  ["tree", "Trees"],
+  ["umbrella", "Umbrellas"],
+  ["window", "Windows"]
+]);
+
+const PROJECT_CONCEPT_REWRITES = new Map([
+  ["alienation", "holding distance and human detachment in view"],
+  ["authority", "testing how power appears in public space"],
+  ["connection", "searching for brief links between separate lives"],
+  ["everyday symbolism", "letting ordinary scenes lean toward symbol"],
+  ["humor", "finding wit in the smallest urban collisions"],
+  ["loneliness", "holding solitude against the public scene"],
+  ["movement", "letting motion unsettle the scene"],
+  ["nature", "letting nature interrupt the built world"],
+  ["observation", "staying with distance, watching, and pause"],
+  ["poetic", "keeping a poetic drift inside the image"],
+  ["public space", "treating public space as a charged stage"],
+  ["reflection", "letting doubled views disturb the surface"],
+  ["reflections", "letting doubled views disturb the surface"],
+  ["solitude", "holding solitude against the public scene"],
+  ["surreal", "nudging the ordinary toward the surreal"],
+  ["surveillance", "keeping watchfulness inside the picture"],
+  ["time", "turning small moments into a study of passing time"],
+  ["urban absurdity", "finding absurdity inside ordinary public space"],
+  ["urban nature", "letting nature press back into the city"],
+  ["vulnerability", "keeping fragility close to the frame"]
+]);
+
+const PROJECT_NOTE_BLOCKLIST = [
+  /\bstarts reading as\b/i,
+  /\bbegins to read as\b/i,
+  /\bthe ordinary presence of\b/i,
+  /\bsmall emblem of\b/i,
+  /\breading as\b/i
+];
+
+function uniqueProjectStrings(items = []) {
+  return [...new Set(
+    items
+      .map((item) => String(item || "").trim())
+      .filter(Boolean)
+  )];
+}
+
+function normalizeProjectTerm(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function normalizeProjectStem(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\.[a-z0-9]+$/i, "");
+}
+
+function capitalizeProjectText(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function ensureProjectSentence(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return /[.!?]$/.test(text) ? text : `${text}.`;
+}
+
+function countProjectTerm(map, value, weight = 1) {
+  const normalized = normalizeProjectTerm(value);
+  if (!normalized) return;
+  map.set(normalized, (map.get(normalized) || 0) + weight);
+}
+
+function sortedProjectTerms(map) {
+  return [...map.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
+}
+
+function isLiteralProjectPrimary(term) {
+  const normalized = normalizeProjectTerm(term);
+  if (!normalized || normalized.includes(" versus ") || normalized.includes(" vs ")) return false;
+  return PROJECT_SEMANTIC_VISUAL_HINTS.some((hint) => normalized.includes(hint));
+}
+
+function getLiteralProjectPrimary(meta = {}) {
+  return uniqueProjectStrings((meta.primary || []).filter((term) => isLiteralProjectPrimary(term)));
+}
+
+function humanizeProjectMotif(term) {
+  const normalized = normalizeProjectTerm(term);
+  return PROJECT_MOTIF_LABELS.get(normalized) || capitalizeProjectText(term);
+}
+
+function rewriteProjectConcept(term) {
+  const raw = String(term || "").trim();
+  const normalized = normalizeProjectTerm(raw);
+  if (!normalized) return "";
+
+  const versusMatch = normalized.match(/^(.+?)\s+versus\s+(.+)$/i) || normalized.match(/^(.+?)\s+vs\.?\s+(.+)$/i);
+  if (versusMatch) {
+    return `holding ${versusMatch[1]} and ${versusMatch[2]} in the same frame`;
+  }
+
+  if (PROJECT_CONCEPT_REWRITES.has(normalized)) {
+    return PROJECT_CONCEPT_REWRITES.get(normalized);
+  }
+
+  if (normalized.includes("absurd")) return "finding absurdity inside the everyday scene";
+  if (normalized.includes("symbol")) return "letting ordinary details carry symbolic weight";
+  if (normalized.includes("surveillance")) return "keeping watchfulness inside the image";
+  if (normalized.includes("solitude") || normalized.includes("loneliness")) return "holding solitude against the public scene";
+  if (normalized.includes("nature")) return "letting nature interrupt the built world";
+  if (normalized.includes("movement")) return "letting motion unsettle the scene";
+  if (normalized.includes("reflection")) return "letting doubled views disturb the surface";
+
+  return "";
+}
+
+function cleanProjectEditorialSentence(value) {
+  const normalized = String(value || "")
+    .replace(/\s+/g, " ")
+    .replace(/\s+([,.;!?])/g, "$1")
+    .trim();
+
+  if (!normalized) return "";
+  if (PROJECT_NOTE_BLOCKLIST.some((pattern) => pattern.test(normalized))) return "";
+
+  const clipped = normalized.length > 220 ? `${normalized.slice(0, 217).trimEnd()}...` : normalized;
+  return ensureProjectSentence(clipped);
+}
+
+function buildProjectAltFallback(projectTitle, semanticMeta = {}, index = 0) {
+  const primary = getLiteralProjectPrimary(semanticMeta)[0] || "";
+  const objects = uniqueProjectStrings(semanticMeta.objects || []).filter((term) => !PROJECT_GENERIC_VISUAL_TERMS.has(normalizeProjectTerm(term)));
+  const environment = uniqueProjectStrings(semanticMeta.environment || []).filter((term) => !PROJECT_GENERIC_VISUAL_TERMS.has(normalizeProjectTerm(term)));
+  const colors = uniqueProjectStrings(semanticMeta.colors || []);
+  const lighting = uniqueProjectStrings(semanticMeta.lighting || []);
+
+  const subject = primary || (objects.length >= 2 ? `${objects[0]} and ${objects[1]}` : objects[0]) || "";
+  const env = environment[0] || "";
+  const color = colors[0] || "";
+  const light = lighting[0] || "";
+
+  if (subject && env && light) return ensureProjectSentence(`${capitalizeProjectText(subject)} in ${env} under ${light}`);
+  if (subject && env && color) return ensureProjectSentence(`${capitalizeProjectText(subject)} in ${color} tones against ${env}`);
+  if (subject && env) return ensureProjectSentence(`${capitalizeProjectText(subject)} in ${env}`);
+  if (subject && light) return ensureProjectSentence(`${capitalizeProjectText(subject)} in ${light}`);
+  if (subject) return ensureProjectSentence(`${capitalizeProjectText(subject)} photographed in the gallery`);
+
+  return `${projectTitle} - image ${index + 1}`;
+}
+
+function getProjectImageScore(semanticMeta = {}) {
+  const score = semanticMeta?.score && typeof semanticMeta.score === "object" ? semanticMeta.score : {};
+  const impact = Number(score.impact) || 0;
+  const originality = Number(score.originality) || 0;
+  const emotion = Number(score.emotion) || 0;
+  return impact * 2 + originality + emotion;
+}
+
+function selectProjectSemanticNoteSources(entries = []) {
+  const scored = entries
+    .map((entry, index) => ({
+      src: entry.src,
+      index,
+      score:
+        getProjectImageScore(entry) +
+        ((entry.relations || []).length ? 2 : 0) +
+        ((entry.symbols || []).length ? 1 : 0) +
+        ((entry.reading || []).length ? 1 : 0)
+    }))
+    .sort((left, right) => right.score - left.score || left.index - right.index);
+
+  const selected = new Set();
+  if (entries[0]?.src) selected.add(entries[0].src);
+
+  scored.forEach((entry) => {
+    if (selected.size >= 5) return;
+    selected.add(entry.src);
+  });
+
+  return selected;
+}
+
+function deriveProjectSemanticNote(semanticMeta = {}) {
+  const reading = cleanProjectEditorialSentence((semanticMeta.reading || [])[0] || "");
+  if (reading) return reading;
+
+  const relation = cleanProjectEditorialSentence((semanticMeta.relations || [])[0] || "");
+  if (relation) return relation;
+
+  return "";
+}
+
+async function loadImageSearchDataset() {
+  if (window.__IMAGE_SEARCH_DATASET__) return window.__IMAGE_SEARCH_DATASET__;
+  if (window.__IMAGE_SEARCH_DATASET_PROMISE__) return window.__IMAGE_SEARCH_DATASET_PROMISE__;
+
+  const version = window.__BUILD_VERSION__ || Date.now();
+  const candidates = [
+    `data/images-search.generated.json?v=${version}`,
+    `data/images.json?v=${version}`
+  ];
+
+  window.__IMAGE_SEARCH_DATASET_PROMISE__ = (async () => {
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url, { credentials: "same-origin" });
+        if (!res.ok) continue;
+        const data = await res.json();
+        if (!Array.isArray(data)) continue;
+        window.__IMAGE_SEARCH_DATASET__ = data;
+        return data;
+      } catch (_error) {
+        // Try the next candidate.
+      }
+    }
+
+    window.__IMAGE_SEARCH_DATASET__ = [];
+    return [];
+  })();
+
+  return window.__IMAGE_SEARCH_DATASET_PROMISE__;
+}
+
+function buildProjectSemanticState(projectData, dataset = []) {
+  const bySrc = new Map();
+  const entries = [];
+  const byId = new Map();
+
+  dataset.forEach((entry) => {
+    if (!entry || typeof entry !== "object") return;
+    if (entry.id) byId.set(entry.id, entry);
+    if (entry.projectSlug !== projectData.slug) return;
+    bySrc.set(normalizeProjectStem(entry.src), entry);
+    entries.push(entry);
+  });
+
+  const selectedSources = selectProjectSemanticNoteSources(entries);
+  const imageMetaBySrc = new Map();
+
+  projectData.images.forEach((image, index) => {
+    const semanticMeta = bySrc.get(normalizeProjectStem(image.src)) || {};
+    const finalAlt = String(image.alt || "").trim() || buildProjectAltFallback(projectData.title, semanticMeta, index);
+    const note = !String(image.caption || "").trim() && selectedSources.has(image.src)
+      ? deriveProjectSemanticNote(semanticMeta)
+      : "";
+
+    imageMetaBySrc.set(normalizeProjectStem(image.src), {
+      finalAlt,
+      note,
+      entry: semanticMeta
+    });
+  });
+
+  const motifCounts = new Map();
+  const conceptCounts = new Map();
+
+  entries.forEach((entry) => {
+    getLiteralProjectPrimary(entry).forEach((term) => countProjectTerm(motifCounts, term, 3));
+    (entry.objects || []).forEach((term) => countProjectTerm(motifCounts, term, 4));
+    (entry.environment || [])
+      .filter((term) => !PROJECT_GENERIC_VISUAL_TERMS.has(normalizeProjectTerm(term)))
+      .forEach((term) => countProjectTerm(motifCounts, term, 1));
+    (entry.tension || []).forEach((term) => countProjectTerm(conceptCounts, term, 4));
+    (entry.themes || []).forEach((term) => countProjectTerm(conceptCounts, term, 2));
+    (entry.mood || []).forEach((term) => countProjectTerm(conceptCounts, term, 1));
+  });
+
+  const topMotif = sortedProjectTerms(motifCounts).find(([term]) => !PROJECT_GENERIC_VISUAL_TERMS.has(term))?.[0] || "";
+  const topConcept = sortedProjectTerms(conceptCounts).map(([term]) => rewriteProjectConcept(term)).find(Boolean) || "";
+  const lead = topMotif && topConcept
+    ? ensureProjectSentence(`${humanizeProjectMotif(topMotif)} keep returning here, ${topConcept}`)
+    : "";
+
+  const galleryLookup = new Map((window.__PROJECTS__ || []).map((project) => [project.slug, project]));
+  const relatedWeights = new Map();
+
+  entries.forEach((entry) => {
+    (entry.related || []).forEach((relatedId) => {
+      const relatedEntry = byId.get(relatedId) || dataset.find((item) => item?.id === relatedId);
+      if (!relatedEntry || relatedEntry.projectSlug === projectData.slug) return;
+      if (!galleryLookup.has(relatedEntry.projectSlug)) return;
+      relatedWeights.set(
+        relatedEntry.projectSlug,
+        (relatedWeights.get(relatedEntry.projectSlug) || 0) + 1
+      );
+    });
+  });
+
+  const relatedLinks = [...relatedWeights.entries()]
+    .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+    .slice(0, 3)
+    .map(([slug]) => {
+      const targetProject = galleryLookup.get(slug);
+      const targetEntries = dataset.filter((item) => item?.projectSlug === slug);
+      const sharedMotifSet = new Set(
+        entries.flatMap((entry) => uniqueProjectStrings([...(entry.objects || []), ...getLiteralProjectPrimary(entry)]))
+          .map(normalizeProjectTerm)
+          .filter((term) => term && !PROJECT_GENERIC_VISUAL_TERMS.has(term))
+      );
+      const sharedMotif = targetEntries
+        .flatMap((entry) => uniqueProjectStrings([...(entry.objects || []), ...getLiteralProjectPrimary(entry)]))
+        .find((term) => sharedMotifSet.has(normalizeProjectTerm(term)));
+      const sharedConceptSet = new Set(
+        entries.flatMap((entry) => [...(entry.tension || []), ...(entry.themes || [])]).map(normalizeProjectTerm)
+      );
+      const sharedConceptRaw = targetEntries
+        .flatMap((entry) => [...(entry.tension || []), ...(entry.themes || [])])
+        .find((term) => sharedConceptSet.has(normalizeProjectTerm(term)));
+      const sharedConcept = rewriteProjectConcept(sharedConceptRaw)
+        .replace(/^holding\s+/i, "")
+        .replace(/^finding\s+/i, "")
+        .replace(/^letting\s+/i, "")
+        .replace(/^keeping\s+/i, "")
+        .trim();
+
+      let context = "A nearby gallery with a related visual tension.";
+      if (sharedMotif && sharedConcept) {
+        context = ensureProjectSentence(`Continues the thread of ${humanizeProjectMotif(sharedMotif).toLowerCase()} and ${sharedConcept}`);
+      } else if (sharedMotif) {
+        context = ensureProjectSentence(`Another gallery shaped by ${humanizeProjectMotif(sharedMotif).toLowerCase()}`);
+      } else if (sharedConcept) {
+        context = ensureProjectSentence(`Another gallery drawn toward ${sharedConcept}`);
+      }
+
+      return {
+        slug,
+        title: targetProject?.title || slug,
+        href: `project-${encodeURIComponent(slug)}.html`,
+        context
+      };
+    });
+
+  return {
+    lead,
+    relatedLinks,
+    imageMetaBySrc
+  };
+}
+
+function renderProjectContext(contextEl, projectData, lead = "") {
+  if (!contextEl) return;
+  contextEl.innerHTML = "";
+
+  const title = document.createElement("h1");
+  title.className = "project-context-title";
+  title.textContent = projectData.title || "";
+  contextEl.appendChild(title);
+
+  if (projectData.description) {
+    const description = document.createElement("p");
+    description.className = "project-context-description";
+    description.textContent = projectData.description;
+    contextEl.appendChild(description);
+  }
+
+  if (lead) {
+    const leadEl = document.createElement("p");
+    leadEl.className = "project-context-lead";
+    leadEl.textContent = lead;
+    contextEl.appendChild(leadEl);
+  }
+}
+
+function renderProjectCaption(captionEl, text = "") {
+  captionEl.innerHTML = "";
+  const normalized = String(text || "").trim();
+  if (!normalized) return;
+
+  const lines = normalized.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  if (!lines.length) {
+    captionEl.textContent = normalized;
+    return;
+  }
+
+  lines.forEach((lineText, lineIndex) => {
+    const p = document.createElement("p");
+    p.className = lineIndex > 0 ? "project-caption-line project-caption-line--enter" : "project-caption-line";
+    p.textContent = lineText;
+    captionEl.appendChild(p);
+  });
+}
+
+function createProjectFigure(projectData, imgData, index, semanticMeta = null) {
+  const total = projectData.images.length;
+  const prefix =
+    typeof projectData.codePrefix === "string" && projectData.codePrefix.trim()
+      ? projectData.codePrefix.trim().toUpperCase()
+      : projectData.slug.split("-").map((segment) => segment[0]?.toUpperCase()).join("");
+  const padWidth = Math.max(3, String(total).length);
+  const number = String(total - index).padStart(padWidth, "0");
+  const code = `${prefix}-${number}`;
+
+  const figure = document.createElement("figure");
+  figure.className = "project-figure";
+
+  const imageWrap = document.createElement("div");
+  imageWrap.className = "project-image-wrapper";
+
+  const codeTag = document.createElement("div");
+  codeTag.className = "image-code project-image-code";
+  codeTag.dataset.code = code;
+  codeTag.appendChild(document.createTextNode(code));
+
+  const addHint = document.createElement("span");
+  addHint.className = "add-to-cart-hint";
+  addHint.textContent = "ADD TO CART";
+  codeTag.appendChild(addHint);
+
+  const img = document.createElement("img");
+  img.src = `projects/${projectData.slug}/${imgData.src}`;
+  img.alt = getProjectImageAlt(projectData.title, imgData, index, semanticMeta);
+  img.loading = index === 0 ? "eager" : "lazy";
+  if (index === 0) img.setAttribute("fetchpriority", "high");
+  img.decoding = "async";
+
+  const caption = document.createElement("figcaption");
+  caption.className = "project-caption";
+  const captionText = String(imgData.caption || "").trim() || String(semanticMeta?.note || "").trim();
+  renderProjectCaption(caption, captionText);
+
+  imageWrap.appendChild(codeTag);
+  imageWrap.appendChild(img);
+
+  figure.appendChild(imageWrap);
+  figure.appendChild(caption);
+
+  return figure;
+}
+
+function renderProjectGallery(gallery, projectData, semanticState = null) {
+  if (!gallery) return;
+  gallery.innerHTML = "";
+
+  projectData.images.forEach((imgData, index) => {
+    const semanticMeta = semanticState?.imageMetaBySrc?.get(normalizeProjectStem(imgData.src)) || null;
+    gallery.appendChild(createProjectFigure(projectData, imgData, index, semanticMeta));
+  });
+}
+
+function renderProjectRelatedLinks(relatedEl, relatedLinks = []) {
+  if (!relatedEl) return;
+  relatedEl.innerHTML = "";
+
+  if (!relatedLinks.length) return;
+
+  const label = document.createElement("p");
+  label.className = "project-related-label";
+  label.textContent = "Related Galleries";
+  relatedEl.appendChild(label);
+
+  relatedLinks.forEach((linkData) => {
+    const link = document.createElement("a");
+    link.className = "project-related-link";
+    link.href = linkData.href;
+
+    const title = document.createElement("span");
+    title.className = "project-related-title";
+    title.textContent = linkData.title;
+
+    const copy = document.createElement("span");
+    copy.className = "project-related-copy";
+    copy.textContent = linkData.context;
+
+    link.appendChild(title);
+    link.appendChild(copy);
+    relatedEl.appendChild(link);
+  });
+}
+
+function bindProjectCodeTags(gallery) {
+  gallery.querySelectorAll(".project-image-code").forEach((codeTag) => {
+    if (codeTag.dataset.bound === "true") return;
+
+    codeTag.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const addToCart = window.motoAddToCartByCode;
+      if (typeof addToCart !== "function") return;
+
+      const thumb = codeTag
+        .closest(".project-image-wrapper")
+        ?.querySelector("img")
+        ?.getAttribute("src") || "";
+      const result = addToCart(codeTag.dataset.code, {
+        sizeIdx: window.DEFAULT_SIZE_IDX,
+        qty: 1,
+        thumbnailUrl: thumb
+      });
+      if (!result?.ok) return;
+
+      codeTag.classList.add("added");
+      setTimeout(() => codeTag.classList.remove("added"), 800);
+      showAddedToCartToast();
+    });
+
+    codeTag.dataset.bound = "true";
+  });
 }
 
 /* =========================
@@ -684,7 +1222,7 @@ enableDecodeFade([img]);
    PROJECT PAGE INIT
 ========================= */
 
-async function initProjectPage() {
+async function initProjectPageLegacy() {
   /* ── Not a project page → clean up transient elements ────── */
   if (document.body.dataset.page !== "project") {
     if (window.__FLOATING_TITLE_CLEANUP__) {
@@ -846,6 +1384,89 @@ async function initProjectPage() {
   const contentEl = document.querySelector(".project-content");
   if (contentEl) appendNextProject(contentEl, projectSlug);
 
+  enableForwardPreload(images, projectSlug);
+  enableDecodeFade(images);
+  bindProjectLightbox();
+}
+
+async function initProjectPage() {
+  if (document.body.dataset.page !== "project") {
+    if (window.__FLOATING_TITLE_CLEANUP__) {
+      window.__FLOATING_TITLE_CLEANUP__();
+      window.__FLOATING_TITLE_CLEANUP__ = null;
+    }
+    return;
+  }
+
+  const contentEl = document.querySelector(".project-content");
+  const contextEl = document.querySelector(".project-context");
+  const gallery = document.querySelector(".project-gallery");
+  const relatedEl = document.querySelector(".project-related-links");
+  if (!gallery || !contentEl) return;
+
+  const projectSlug = getSlugFromURL();
+  if (projectSlug) document.body.dataset.project = projectSlug;
+  if (!projectSlug) return;
+
+  if (!Array.isArray(window.__PROJECTS__)) {
+    try {
+      const version = window.__BUILD_VERSION__ || Date.now();
+      const res = await fetch(`js/projects-manifest.js?v=${version}`, {
+        credentials: "same-origin"
+      });
+      if (res.ok) {
+        const scriptText = await res.text();
+        new Function(scriptText)();
+      }
+    } catch (_e) {
+      // Manifest is optional for rendering. Only next/related navigation degrades.
+    }
+  }
+
+  let projectTitle = contextEl?.querySelector(".project-context-title")?.textContent?.trim() || "";
+  const hasSeededGallery = gallery.querySelector(".project-figure") !== null;
+  const hasSeededContext = Boolean(contextEl?.children.length);
+
+  if (!hasSeededGallery || !hasSeededContext) {
+    try {
+      const version = window.__BUILD_VERSION__ || Date.now();
+      const [projectRes, dataset] = await Promise.all([
+        fetch(`projects/${projectSlug}/project.json?v=${version}`, {
+          credentials: "same-origin"
+        }),
+        loadImageSearchDataset()
+      ]);
+
+      if (!projectRes.ok) throw new Error("Project JSON not found");
+      const data = await projectRes.json();
+      data.slug = projectSlug;
+      projectTitle = data.title || projectTitle;
+
+      const semanticState = buildProjectSemanticState(data, dataset);
+
+      renderProjectContext(contextEl, data, semanticState.lead);
+      renderProjectGallery(gallery, data, semanticState);
+      renderProjectRelatedLinks(relatedEl, semanticState.relatedLinks);
+    } catch (err) {
+      console.error(err);
+      gallery.innerHTML = "";
+      const errEl = document.createElement("div");
+      errEl.className = "project-load-error";
+      errEl.setAttribute("role", "alert");
+      errEl.innerHTML =
+        "<p>This project could not be loaded.</p>" +
+        "<p>Please <button class=\"project-reload-btn\" onclick=\"window.location.reload()\">reload the page</button> or return to <a href=\"projects.html\">Projects</a>.</p>";
+      gallery.appendChild(errEl);
+    }
+  }
+
+  const images = [...document.querySelectorAll(".project-gallery img")];
+  if (!images.length) return;
+
+  addImageProtectionOverlays(gallery);
+  bindProjectCodeTags(gallery);
+  initFloatingTitle(projectTitle, images);
+  appendNextProject(contentEl, projectSlug);
   enableForwardPreload(images, projectSlug);
   enableDecodeFade(images);
   bindProjectLightbox();
