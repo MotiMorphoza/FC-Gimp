@@ -28,6 +28,18 @@ const FIELD_WEIGHTS = {
   noise: 1
 };
 
+const HUMAN_VISUAL_HINTS = [
+  "people", "person", "human", "humans", "man", "men", "woman", "women",
+  "child", "children", "girl", "girls", "boy", "boys", "nun", "nuns",
+  "priest", "priests", "crowd", "pedestrian", "pedestrians", "figure", "figures",
+  "cyclist", "cyclists", "rider", "riders", "vendor", "vendors", "seller", "sellers",
+  "worker", "workers", "paddleboarder", "smoker", "smokers"
+];
+
+const COLORFUL_HINTS = ["colorful", "colourful", "vivid", "multicolor", "multicolour", "rainbow"];
+const CROWD_VISUAL_HINTS = ["crowd", "protesters", "choir", "marchers", "group"];
+const PLURAL_PEOPLE_HINTS = ["people", "pedestrians", "children", "officers", "workers", "vendors"];
+
 const SEARCH_STATE = {
   loadPromise: null,
   images: [],
@@ -57,6 +69,164 @@ function normalizeArray(values) {
   )];
 }
 
+function normalizeMaybeArray(values) {
+  if (Array.isArray(values)) return normalizeArray(values);
+  if (values == null || values === "") return [];
+  return normalizeArray([values]);
+}
+
+function includesVariant(values, variants, canonical) {
+  const { normalizeTerm, stemTerm } = getTagHelpers();
+  return normalizeArray(values).some((value) => {
+    const normalized = normalizeTerm(value);
+    const stemmed = stemTerm(value);
+    return variants.some((variant) => (
+      variant &&
+      (normalized === variant ||
+        normalized.includes(variant) ||
+        stemmed === variant ||
+        stemmed.includes(variant) ||
+        normalized.includes(canonical))
+    ));
+  });
+}
+
+function textHasHint(text, hint) {
+  const normalizedText = String(text || "").toLowerCase();
+  const normalizedHint = String(hint || "").toLowerCase().trim();
+  if (!normalizedHint) return false;
+  if (normalizedHint.includes(" ")) return normalizedText.includes(normalizedHint);
+  const pattern = new RegExp(`(^|[^a-z])${normalizedHint.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?=$|[^a-z])`, "i");
+  return pattern.test(normalizedText);
+}
+
+function textHasAnyHint(text, hints = []) {
+  return hints.some((hint) => textHasHint(text, hint));
+}
+
+function deriveVisualProfile(image) {
+  const { normalizeTerm } = getTagHelpers();
+  const primary = normalizeArray(image.primary);
+  const secondary = normalizeArray(image.secondary);
+  const objects = normalizeArray(image.objects);
+  const environment = normalizeArray(image.environment);
+  const colors = normalizeArray(image.colors);
+  const composition = normalizeArray(image.composition);
+  const combinedText = normalizeTerm([
+    image.alt,
+    ...primary,
+    ...secondary,
+    ...objects,
+    ...environment,
+    image.caption
+  ].join(" "));
+
+  const explicitHasPeople = typeof image.has_people === "boolean" ? image.has_people : null;
+  const hasPeople = explicitHasPeople != null
+    ? explicitHasPeople
+    : textHasAnyHint(combinedText, HUMAN_VISUAL_HINTS);
+  const humanHintCount = HUMAN_VISUAL_HINTS.filter((hint) => textHasHint(combinedText, hint)).length;
+
+  const peopleCount = Number.isFinite(image.people_count)
+    ? Number(image.people_count)
+    : textHasAnyHint(combinedText, CROWD_VISUAL_HINTS) ? 5
+      : textHasAnyHint(combinedText, PLURAL_PEOPLE_HINTS) ? 3
+      : (/\band\b/.test(combinedText) && humanHintCount >= 2) ? 2
+      : hasPeople ? 1 : 0;
+
+  const gender = normalizeMaybeArray(image.gender);
+  if (!gender.length) {
+    if (textHasAnyHint(combinedText, ["woman", "women", "female", "nun", "nuns"])) {
+      gender.push("woman");
+    }
+    if (textHasAnyHint(combinedText, ["man", "men", "male", "priest", "priests"])) {
+      gender.push("man");
+    }
+  }
+
+  const ageGroup = normalizeMaybeArray(image.age_group);
+  if (!ageGroup.length) {
+    if (textHasAnyHint(combinedText, ["child", "children", "boy", "boys", "girl", "girls", "baby", "babies"])) {
+      ageGroup.push("child");
+    } else if (hasPeople) {
+      ageGroup.push("adult");
+    }
+  }
+
+  let peopleProminence = String(image.people_prominence || "").trim().toLowerCase();
+  if (!peopleProminence) {
+    const leadText = combinedText.split(/\s+/).slice(0, 8).join(" ");
+    peopleProminence = hasPeople
+      ? textHasAnyHint(leadText, HUMAN_VISUAL_HINTS) ? "primary" : "secondary"
+      : "none";
+  }
+
+  const colorMode = String(image.color_mode || "").trim().toLowerCase() ||
+    (String(image.manipulation || "").trim().toLowerCase() === "monochrome" ? "bw" :
+      (colors.length >= 3 || COLORFUL_HINTS.some((hint) => combinedText.includes(hint)) ? "colorful" : "color"));
+
+  const dominantColors = normalizeMaybeArray(image.dominant_colors);
+  if (!dominantColors.length) {
+    dominantColors.push(...colors);
+  }
+
+  const environmentType = normalizeMaybeArray(image.environment_type);
+  if (!environmentType.length) {
+    const natureHintCount = ["river", "pond", "water", "grass", "leaf", "leaves", "flower", "flowers", "tree", "trees", "branch", "branches"]
+      .filter((hint) => textHasHint(combinedText, hint))
+      .length;
+
+    if (environment.some((value) => /street|city|public space|urban/.test(normalizeTerm(value))) || /street|crosswalk|sidewalk|intersection/.test(combinedText)) {
+      environmentType.push("street", "urban", "outdoor");
+    }
+    if (environment.some((value) => /nature|urban nature|water edge/.test(normalizeTerm(value))) || natureHintCount >= 2) {
+      environmentType.push("nature", "outdoor");
+    }
+    if (/interior|indoor|room|kitchen|bedroom|table/.test(combinedText)) {
+      environmentType.push("indoor");
+    }
+    if (/home|house|domestic|kitchen|bedroom|room/.test(combinedText)) {
+      environmentType.push("domestic", "indoor");
+    }
+  }
+
+  const settingType = normalizeMaybeArray(image.setting_type);
+  if (!settingType.length) {
+    if (/street|crosswalk|sidewalk|intersection/.test(combinedText)) settingType.push("street");
+    if (/park/.test(combinedText)) settingType.push("park");
+    if (/public square/.test(combinedText)) settingType.push("public square");
+    if (/window/.test(combinedText)) settingType.push("window");
+    if (/river|pond|water/.test(combinedText)) settingType.push("water edge");
+    if (/kitchen|room|bedroom|table/.test(combinedText)) settingType.push("domestic");
+  }
+
+  let shotType = String(image.shot_type || "").trim().toLowerCase();
+  if (!shotType) {
+    if (composition.some((value) => normalizeTerm(value) === "close crop") || /close up|close-up/.test(combinedText)) {
+      shotType = "close_up";
+    } else if (/detail/.test(combinedText)) {
+      shotType = "detail";
+    } else if (composition.some((value) => /bird's-eye view|overhead view/.test(normalizeTerm(value))) || /wide shot|wide view|wide scene/.test(combinedText)) {
+      shotType = "wide";
+    } else if ((combinedText.includes("portrait") || combinedText.includes("face")) && hasPeople) {
+      shotType = "portrait";
+    }
+  }
+
+  return {
+    has_people: hasPeople,
+    people_count: peopleCount,
+    gender: normalizeArray(gender),
+    age_group: normalizeArray(ageGroup),
+    people_prominence: peopleProminence || "none",
+    color_mode: colorMode || "color",
+    dominant_colors: normalizeArray(dominantColors),
+    environment_type: normalizeArray(environmentType),
+    setting_type: normalizeArray(settingType),
+    shot_type: shotType
+  };
+}
+
 function normalizeImage(image, index) {
   const projectSlug = String(image?.projectSlug || "").trim();
   const src = String(image?.src || "").trim();
@@ -80,12 +250,24 @@ function normalizeImage(image, index) {
       : {},
     density: String(image?.density || "").trim(),
     pov: String(image?.pov || "").trim(),
-    manipulation: String(image?.manipulation || "").trim()
+    manipulation: String(image?.manipulation || "").trim(),
+    has_people: typeof image?.has_people === "boolean" ? image.has_people : null,
+    people_count: Number.isFinite(image?.people_count) ? Number(image.people_count) : null,
+    gender: normalizeMaybeArray(image?.gender),
+    age_group: normalizeMaybeArray(image?.age_group),
+    people_prominence: String(image?.people_prominence || "").trim(),
+    color_mode: String(image?.color_mode || "").trim(),
+    dominant_colors: normalizeMaybeArray(image?.dominant_colors),
+    environment_type: normalizeMaybeArray(image?.environment_type),
+    setting_type: normalizeMaybeArray(image?.setting_type),
+    shot_type: String(image?.shot_type || "").trim()
   };
 
   SEARCH_ARRAY_FIELDS.forEach((field) => {
     normalized[field] = normalizeArray(image?.[field]);
   });
+
+  normalized.visual = deriveVisualProfile(normalized);
 
   return normalized;
 }
@@ -214,6 +396,110 @@ function matchValue(value, stemmedValue, variants, canonical) {
   });
 }
 
+function getObjectProminence(indexedImage, termGroup) {
+  if (includesVariant(indexedImage.image.primary, termGroup.variants, termGroup.canonical)) return "primary";
+  if (includesVariant(indexedImage.image.objects, termGroup.variants, termGroup.canonical)) return "secondary";
+  if (includesVariant(indexedImage.image.secondary, termGroup.variants, termGroup.canonical) ||
+    includesVariant([indexedImage.image.alt], termGroup.variants, termGroup.canonical)) {
+    return "background";
+  }
+  return "none";
+}
+
+function matchHardVisualTerm(indexedImage, termGroup) {
+  const visual = indexedImage.image.visual || {};
+  const canonical = termGroup.canonical;
+  const queryClass = termGroup.queryClass;
+
+  if (queryClass === "people") {
+    if (canonical === "people") {
+      return visual.has_people ? { matched: true, score: visual.people_prominence === "primary" ? 14 : 10 } : { matched: false, score: 0 };
+    }
+    if (canonical === "crowd") {
+      return (visual.has_people && Number(visual.people_count) >= 4)
+        ? { matched: true, score: 15 }
+        : { matched: false, score: 0 };
+    }
+    if (canonical === "alone") {
+      return (visual.has_people && Number(visual.people_count) === 1 && visual.people_prominence === "primary")
+        ? { matched: true, score: 14 }
+        : { matched: false, score: 0 };
+    }
+    if (canonical === "woman" || canonical === "man") {
+      return (visual.gender || []).includes(canonical)
+        ? { matched: true, score: visual.people_prominence === "primary" ? 16 : 7 }
+        : { matched: false, score: 0 };
+    }
+    if (canonical === "child") {
+      return (visual.age_group || []).includes("child")
+        ? { matched: true, score: visual.people_prominence === "primary" ? 16 : 7 }
+        : { matched: false, score: 0 };
+    }
+  }
+
+  if (queryClass === "color") {
+    if ((visual.color_mode || "") === "bw") return { matched: false, score: 0 };
+    return (visual.dominant_colors || []).includes(canonical)
+      ? { matched: true, score: 13 }
+      : { matched: false, score: 0 };
+  }
+
+  if (queryClass === "color_mode") {
+    if (canonical === "black and white" || canonical === "monochrome") {
+      return visual.color_mode === "bw" ? { matched: true, score: 15 } : { matched: false, score: 0 };
+    }
+    if (canonical === "colorful") {
+      return visual.color_mode === "colorful" ? { matched: true, score: 14 } : { matched: false, score: 0 };
+    }
+    if (canonical === "color") {
+      return visual.color_mode !== "bw" ? { matched: true, score: 12 } : { matched: false, score: 0 };
+    }
+  }
+
+  if (queryClass === "environment") {
+    const environmentType = visual.environment_type || [];
+    const settingType = visual.setting_type || [];
+    if (canonical === "urban") {
+      return (environmentType.includes("urban") || environmentType.includes("street"))
+        ? { matched: true, score: 13 }
+        : { matched: false, score: 0 };
+    }
+
+    const matched = environmentType.includes(canonical) || settingType.includes(canonical);
+    return matched ? { matched: true, score: 13 } : { matched: false, score: 0 };
+  }
+
+  if (queryClass === "object") {
+    if (canonical === "animal") {
+      const animalMatch = includesVariant(
+        [...indexedImage.image.primary, ...indexedImage.image.objects],
+        termGroup.variants,
+        canonical
+      );
+      return animalMatch ? { matched: true, score: 12 } : { matched: false, score: 0 };
+    }
+
+    const prominence = getObjectProminence(indexedImage, termGroup);
+    if (prominence === "primary") return { matched: true, score: 16 };
+    if (prominence === "secondary") return { matched: true, score: 10 };
+    if (prominence === "background") return { matched: true, score: 4 };
+    return { matched: false, score: 0 };
+  }
+
+  if (queryClass === "shot") {
+    const shotType = visual.shot_type || "";
+    const normalizedShot = canonical === "close up" ? "close_up"
+      : canonical === "wide shot" ? "wide"
+      : canonical;
+
+    return shotType === normalizedShot
+      ? { matched: true, score: 15 }
+      : { matched: false, score: 0 };
+  }
+
+  return { matched: false, score: 0 };
+}
+
 function getPremiumBoost(indexedImage) {
   const score = indexedImage?.image?.score;
   if (!score || typeof score !== "object") return 0;
@@ -247,6 +533,10 @@ function scoreField(indexedImage, fieldName, termGroup) {
 }
 
 function isNegativeMatch(indexedImage, termGroup) {
+  if (termGroup.kind === "hard") {
+    return matchHardVisualTerm(indexedImage, termGroup).matched;
+  }
+
   const explicitNegative = (indexedImage.fields.negative || []).some((value) =>
     matchValue(value, getTagHelpers().stemTerm(value), termGroup.variants, termGroup.canonical)
   );
@@ -282,13 +572,19 @@ function scoreImage(indexedImage, parsedQuery) {
     let termMatched = false;
     let termScore = 0;
 
-    Object.keys(indexedImage.fields).forEach((fieldName) => {
-      if (fieldName === "negative") return;
-      const fieldResult = scoreField(indexedImage, fieldName, termGroup);
-      if (!fieldResult.matched) return;
-      termMatched = true;
-      termScore += fieldResult.score;
-    });
+    if (termGroup.kind === "hard") {
+      const hardResult = matchHardVisualTerm(indexedImage, termGroup);
+      termMatched = hardResult.matched;
+      termScore = hardResult.score;
+    } else {
+      Object.keys(indexedImage.fields).forEach((fieldName) => {
+        if (fieldName === "negative") return;
+        const fieldResult = scoreField(indexedImage, fieldName, termGroup);
+        if (!fieldResult.matched) return;
+        termMatched = true;
+        termScore += fieldResult.score;
+      });
+    }
 
     if (!termMatched) {
       return {
@@ -374,6 +670,14 @@ function searchImages(indexedImages, query) {
     };
   }
 
+  if (parsedQuery.hasHardPositive && !parsedQuery.hasSoftPositive) {
+    return {
+      parsedQuery,
+      mode: "and",
+      results: []
+    };
+  }
+
   const orMatches = indexedImages
     .map((indexedImage) => {
       if (parsedQuery.negative.some((termGroup) => isNegativeMatch(indexedImage, termGroup))) {
@@ -382,8 +686,22 @@ function searchImages(indexedImages, query) {
 
       let score = 0;
       let matchedTerms = 0;
+      let matchedSoftTerms = 0;
+      let hardMismatch = false;
 
       parsedQuery.positive.forEach((termGroup) => {
+        if (termGroup.kind === "hard") {
+          const hardResult = matchHardVisualTerm(indexedImage, termGroup);
+          if (!hardResult.matched) {
+            hardMismatch = true;
+            return;
+          }
+
+          matchedTerms += 1;
+          score += hardResult.score;
+          return;
+        }
+
         let termMatched = false;
         Object.keys(indexedImage.fields).forEach((fieldName) => {
           if (fieldName === "negative") return;
@@ -393,14 +711,18 @@ function searchImages(indexedImages, query) {
           score += fieldResult.score;
         });
 
-        if (termMatched) matchedTerms += 1;
+        if (termMatched) {
+          matchedTerms += 1;
+          matchedSoftTerms += 1;
+        }
       });
 
-      if (!matchedTerms || !score) return null;
+      if (hardMismatch || !matchedTerms || !score) return null;
+      if (parsedQuery.hasHardPositive && parsedQuery.hasSoftPositive && !matchedSoftTerms) return null;
 
       return {
         ...indexedImage,
-        _score: score + matchedTerms
+        _score: score + matchedTerms + getPremiumBoost(indexedImage)
       };
     })
     .filter(Boolean)

@@ -61,6 +61,7 @@ const MOTIF_LABELS = new Map([
   ['cat', 'Cats'],
   ['chair', 'Chairs'],
   ['chimney', 'Chimneys'],
+  ['cros', 'Crosses'],
   ['cross', 'Crosses'],
   ['dog', 'Dogs'],
   ['duck', 'Birds'],
@@ -194,6 +195,185 @@ const SETTING_LABELS = new Map([
   ['window', 'around windows and facades']
 ]);
 
+const WEAK_KEYWORD_TERMS = new Set([
+  'architecture',
+  'city',
+  'color',
+  'image',
+  'photo',
+  'photography',
+  'gallery',
+  'series',
+  'scene',
+  'visual',
+  'daylight',
+  'daytime',
+  'urban'
+]);
+
+const PROJECT_SEO_OVERRIDES = new Map([
+  ['000 - unusuall_usual', {
+    titleDescriptor: 'Everyday Street Observations',
+    metaDescription: 'A conceptual street photography series finding humor, drama, and poetry in ordinary urban moments. Small gestures and passing encounters turn daily life slightly strange.',
+    lead: 'Everyday gestures and passing encounters keep the gallery light on its feet.',
+    about: ['everyday street life', 'urban observation', 'humor in public space'],
+    keywords: ['street photography', 'everyday moments', 'urban humor', 'public life']
+  }],
+  ['001 - window_to_redemption', {
+    titleDescriptor: 'Urban Window Studies',
+    metaDescription: 'Photographs made from a single window overlooking Savior Square in Warsaw. Weather, passersby, and reflections turn one fixed view into a study of urban change.',
+    lead: 'A fixed Warsaw window becomes a stage for weather, reflection, and passing lives.',
+    about: ['Warsaw city square', 'window observation', 'urban change'],
+    keywords: ['window photography', 'Warsaw street life', 'urban observation', 'reflections']
+  }],
+  ['002 - ohhhhh_your_god', {
+    titleDescriptor: 'Religious Street Observations',
+    metaDescription: 'A street photography series observing ritual, costume, and devotion in public space. Faith appears here as spectacle, symbol, and uneasy performance.',
+    lead: 'Ritual, costume, and devotion turn the street into a public performance.',
+    about: ['religious ritual in public space', 'street observation', 'symbolic performance'],
+    keywords: ['religious procession', 'street photography', 'public ritual', 'symbols']
+  }],
+  ['003 - demon_stration', {
+    titleDescriptor: 'Political Street Theatre',
+    metaDescription: 'A conceptual street photography series about protest, authority, and civic symbolism in public space. Resistance and power stay pressed together inside the frame.',
+    lead: 'Protest imagery and official symbols collide across the public frame.',
+    about: ['public protest', 'authority and resistance', 'civic theatre'],
+    keywords: ['protest photography', 'public space', 'authority', 'resistance']
+  }],
+  ['004 - windows_eyes_of_the_modern_soul', {
+    titleDescriptor: 'Window Reflection Studies',
+    metaDescription: 'A conceptual street photography series built around windows, frames, and reflective surfaces. City facades become places of distance, watching, and doubled vision.',
+    lead: 'Windows recur as surfaces of watching, distance, and reflection.',
+    about: ['windows and facades', 'urban observation', 'reflections'],
+    keywords: ['windows', 'urban architecture', 'reflection study', 'street photography']
+  }],
+  ['005 - doggy style', {
+    titleDescriptor: 'Urban Dog Portraits',
+    metaDescription: 'A playful street photography series following dogs through movement, character, and city rhythm. Humor and affection keep the urban setting light on its feet.',
+    lead: 'Dogs move through the city with humor, speed, and stubborn personality.',
+    about: ['dogs in the city', 'urban movement', 'playful observation'],
+    keywords: ['dogs', 'street photography', 'urban animals', 'motion']
+  }],
+  ['006 - smashed', {
+    titleDescriptor: 'Motion Experiment Series',
+    metaDescription: 'An experimental photography series using long exposure and subject tracking to stretch movement through the frame. Street scenes dissolve into speed, blur, and unstable time.',
+    lead: 'Blur and long exposure pull ordinary movement out of stable time.',
+    about: ['long exposure', 'subject tracking', 'motion experiments'],
+    keywords: ['long exposure', 'motion blur', 'subject tracking', 'experimental photography']
+  }],
+  ['007 - umbrellas', {
+    titleDescriptor: 'Rain Street Scenes',
+    metaDescription: 'A street photography series built around umbrellas as small moving shelters in the city. Weather, motion, and color turn public space into a shifting choreography.',
+    lead: 'Umbrellas drift through the frame like brief shelters in motion.',
+    about: ['umbrellas in motion', 'rainy streets', 'public space'],
+    keywords: ['umbrellas', 'rain', 'street photography', 'movement']
+  }],
+  ['008 - arty', {
+    titleDescriptor: 'Conceptual Still Life Series',
+    metaDescription: 'A conceptual still life series finding strange beauty in ordinary objects. Familiar materials are reframed through wit, juxtaposition, and visual surprise.',
+    lead: 'Ordinary objects tip quietly toward wit, imbalance, and surprise.',
+    about: ['conceptual still life', 'ordinary objects', 'visual wit'],
+    keywords: ['still life', 'ordinary objects', 'conceptual photography', 'visual wit']
+  }],
+  ['009 - KING NO SMO', {
+    titleDescriptor: 'Smoking Street Portraits',
+    metaDescription: 'A street photography series observing the small rituals around smoking in public space. Breath, pause, and gesture shape the mood of each encounter.',
+    lead: 'The pause between inhale and exhale shapes the rhythm of the gallery.',
+    about: ['smoking rituals', 'public pauses', 'street portraiture'],
+    keywords: ['smoking', 'street portraits', 'urban ritual', 'gesture']
+  }],
+  ['010 - reflection', {
+    titleDescriptor: 'Reflection Study Series',
+    metaDescription: 'A conceptual street photography series built around reflections, doubled surfaces, and unstable viewpoints. City scenes fold back on themselves with a quiet, watchful tone.',
+    lead: 'Reflected surfaces keep the city slightly unstable and doubled.',
+    about: ['reflections and surfaces', 'doubled views', 'urban observation'],
+    keywords: ['reflections', 'street photography', 'glass', 'doubled image']
+  }],
+  ['011 - golden age', {
+    titleDescriptor: 'Aging in Public Space',
+    metaDescription: 'A street photography series observing older bodies, public presence, and the passing of time. The images stay tender, direct, and attentive to everyday dignity.',
+    lead: 'Older bodies and public gestures turn passing time into the subject.',
+    about: ['older bodies in public space', 'passing time', 'everyday dignity'],
+    keywords: ['aging', 'street photography', 'public life', 'time']
+  }],
+  ['012 - smart times', {
+    titleDescriptor: 'Watchful City Scenes',
+    metaDescription: 'A conceptual street photography series about phones, attention, and quiet surveillance in city life. Screens, gestures, and public behavior reveal a watchful modern routine.',
+    lead: 'Phones and watchful habits thread through the city scene.',
+    about: ['phones in public space', 'watchfulness', 'modern behavior'],
+    keywords: ['smartphone', 'urban observation', 'surveillance', 'modern life']
+  }],
+  ['013 - natural taste', {
+    titleDescriptor: 'Minimal Still Life Series',
+    metaDescription: 'A minimal still life series shaped by organic forms, fragile materials, and small visual shocks. Nature and domestic objects meet in crisp, unexpected arrangements.',
+    lead: 'Organic forms and domestic fragments hold beauty just before they turn strange.',
+    about: ['organic still life', 'unexpected beauty', 'domestic fragments'],
+    keywords: ['still life', 'organic forms', 'conceptual photography', 'nature']
+  }],
+  ['014 - stat you', {
+    titleDescriptor: 'Statue Encounter Series',
+    metaDescription: 'A street photography series observing statues, idols, and the uneasy boundary between image and worship. Public sculpture becomes a stage for irony, distance, and belief.',
+    lead: 'Statues and acts of looking keep image, belief, and irony close together.',
+    about: ['statues and idols', 'image and belief', 'public irony'],
+    keywords: ['statues', 'public art', 'idolatry', 'street photography']
+  }],
+  ['015 - brain blow', {
+    titleDescriptor: 'Public Symbol Study',
+    metaDescription: 'A conceptual street photography series centered on the rainbow installation in Warsaw and the public meanings gathered around it. Color, memory, and civic symbolism stay close to the frame.',
+    lead: 'A public symbol gathers color, memory, and civic tension around it.',
+    about: ['rainbow installation', 'public symbol', 'civic memory'],
+    keywords: ['rainbow installation', 'Warsaw', 'public symbol', 'conceptual street photography']
+  }],
+  ['016 - star dust', {
+    titleDescriptor: 'Cosmic Street Fragments',
+    metaDescription: 'A conceptual photography series linking small earthly details to cosmic suggestion. Fleeting objects and city fragments take on a wider, slightly metaphysical scale.',
+    lead: 'Small earthly fragments open briefly onto a wider cosmic feeling.',
+    about: ['cosmic suggestion', 'street fragments', 'small scale wonder'],
+    keywords: ['conceptual photography', 'cosmic imagery', 'urban fragments', 'poetic observation']
+  }],
+  ['017 - Wings', {
+    titleDescriptor: 'Flight in Urban Space',
+    metaDescription: 'A street photography series built around birds, wings, and the human desire to rise above the ground. City air, movement, and freedom guide the sequence.',
+    lead: 'Birds and winged forms keep pulling the gallery upward toward escape.',
+    about: ['birds and flight', 'urban freedom', 'motion'],
+    keywords: ['birds', 'flight', 'street photography', 'freedom']
+  }]
+]);
+
+const RELATED_PHRASE_LABELS = new Map([
+  ['alienation', 'Urban detachment scenes'],
+  ['authority', 'Public authority scenes'],
+  ['beauty', 'Everyday beauty studies'],
+  ['connection', 'Brief human connections'],
+  ['daily life', 'Everyday street scenes'],
+  ['everyday symbolism', 'Symbolic everyday moments'],
+  ['freedom', 'Small freedom studies'],
+  ['humor', 'Wry street moments'],
+  ['identity', 'Shifting identity scenes'],
+  ['loneliness', 'Urban solitude scenes'],
+  ['modern life', 'Modern life observations'],
+  ['movement', 'Restless city movement'],
+  ['nature', 'Nature against the city'],
+  ['observation', 'Watchful city scenes'],
+  ['ordinary life', 'Ordinary public life'],
+  ['pattern', 'Pattern-driven studies'],
+  ['poetic', 'Poetic city moments'],
+  ['politics', 'Political street scenes'],
+  ['public space', 'Charged public spaces'],
+  ['rain', 'Rain-soaked street scenes'],
+  ['reflection', 'Reflective city scenes'],
+  ['reflections', 'Reflective city scenes'],
+  ['society', 'Social order scenes'],
+  ['solitude', 'Public solitude scenes'],
+  ['surreal', 'Offbeat street moments'],
+  ['surveillance', 'Watchful urban scenes'],
+  ['technology', 'Daily technology scenes'],
+  ['time', 'Passing time studies'],
+  ['urban absurdity', 'Absurd urban moments'],
+  ['urban nature', 'Urban nature scenes'],
+  ['vulnerability', 'Fragile public moments']
+]);
+
 function uniqueStrings(items = []) {
   return [...new Set(
     items
@@ -232,6 +412,18 @@ function ensureSentence(value) {
   if (!text) return '';
   if (/[.!?]$/.test(text)) return text;
   return `${text}.`;
+}
+
+function cleanText(value) {
+  return String(value || '')
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([,.;:!?])/g, '$1')
+    .trim();
+}
+
+function cleanSentence(value) {
+  return ensureSentence(cleanText(value));
 }
 
 function escapeHtml(value) {
@@ -365,6 +557,32 @@ function getToneLabel(value) {
   return '';
 }
 
+function getProjectSeoOverride(project) {
+  return PROJECT_SEO_OVERRIDES.get(String(project?.slug || '').trim()) || null;
+}
+
+function filterKeywordTerms(items = []) {
+  return uniqueStrings(items).filter((term) => {
+    const normalized = normalizeTerm(term);
+    return normalized && !WEAK_KEYWORD_TERMS.has(normalized) && normalized.length > 2;
+  });
+}
+
+function keywordTitleCase(value) {
+  const normalized = cleanText(value).replace(/\s+/g, ' ');
+  if (!normalized) return '';
+  return normalized
+    .split(' ')
+    .map((word) => {
+      const lower = normalizeTerm(word);
+      if (!lower) return '';
+      if (['and', 'in', 'of', 'the', 'to'].includes(lower)) return lower;
+      return capitalize(lower);
+    })
+    .filter(Boolean)
+    .join(' ');
+}
+
 function getSettingLabel(aggregates = {}) {
   const topSetting = sortedEntries(aggregates.environmentTerms || termCountMap())
     .map(([term]) => term)
@@ -426,42 +644,65 @@ function appendIntentQualifier(baseSentence, qualifier) {
   return ensureSentence(combined);
 }
 
-function buildRelatedAnchorText(title = '', sharedMotif = '', sharedConcept = '') {
-  const conceptLabel = getConceptLabel(sharedConcept);
-  if (conceptLabel) {
-    return `${toTitleCase(conceptLabel)} series – ${title}`;
+function buildRelatedPhrase(sharedMotif = '', sharedConcept = '') {
+  const conceptKey = normalizeTerm(sharedConcept);
+  if (conceptKey && RELATED_PHRASE_LABELS.has(conceptKey)) {
+    return RELATED_PHRASE_LABELS.get(conceptKey);
   }
 
   if (sharedMotif) {
-    return `${humanizeMotif(sharedMotif)} series – ${title}`;
+    const motifLabel = humanizeMotif(sharedMotif);
+    if (/birds?/i.test(motifLabel)) return 'Birds in the city';
+    if (/cross/i.test(motifLabel)) return 'Religious symbols';
+    if (/windows?/i.test(motifLabel)) return 'Window studies';
+    if (/umbrellas?/i.test(motifLabel)) return 'Umbrella street scenes';
+    if (/dogs?/i.test(motifLabel)) return 'Urban dog portraits';
+    if (/masks?/i.test(motifLabel)) return 'Masked public scenes';
+    if (/statues?/i.test(motifLabel)) return 'Statue encounters';
+    if (/signs?/i.test(motifLabel)) return 'Public sign scenes';
+    if (/snow/i.test(motifLabel)) return 'Snowbound scenes';
+    if (/reflections?/i.test(motifLabel)) return 'Reflection studies';
+    return `${motifLabel} studies`;
   }
 
-  return `Related gallery – ${title}`;
+  return 'Related visual thread';
 }
 
-function buildGalleryTitleDescriptor(aggregates = {}) {
+function buildRelatedAnchorText(title = '', sharedMotif = '', sharedConcept = '') {
+  return `${buildRelatedPhrase(sharedMotif, sharedConcept)} - ${title}`;
+}
+
+function buildGalleryTitleDescriptor(project, aggregates = {}) {
+  const override = getProjectSeoOverride(project);
+  if (override?.titleDescriptor) {
+    return override.titleDescriptor;
+  }
+
   const motif = getTopMotifTerm(aggregates);
   const concept = sortedEntries(aggregates.concepts || termCountMap())
     .map(([term]) => term)
     .find(Boolean) || '';
+  const setting = getSettingLabel(aggregates).replace(/^in\s+/i, '').replace(/^around\s+/i, '');
+  const descriptorCandidates = [
+    motif ? `${humanizeMotif(motif)} studies` : '',
+    concept ? `${toTitleCase(getConceptLabel(concept))} series` : '',
+    setting ? `${capitalize(setting)} series` : '',
+    'Conceptual Street Photography Series'
+  ].map(cleanText).filter(Boolean);
 
-  if (motif && concept) {
-    return `${humanizeMotif(motif)} and ${toTitleCase(getConceptLabel(concept))}`;
-  }
-
-  if (motif) {
-    return `${humanizeMotif(motif)} Conceptual Street Photography`;
-  }
-
-  if (concept) {
-    return `${toTitleCase(getConceptLabel(concept))} Conceptual Street Photography`;
-  }
-
-  return 'Conceptual Street Photography Series';
+  return descriptorCandidates.find((candidate) => {
+    const words = countWords(candidate);
+    return words >= 2 && words <= 5;
+  }) || 'Conceptual Street Photography Series';
 }
 
 function buildGalleryMetaDescription(project, aggregates = {}) {
-  const base = ensureSentence(project.description || '');
+  const override = getProjectSeoOverride(project);
+  if (override?.metaDescription) {
+    return cleanSentence(override.metaDescription);
+  }
+
+  const base = cleanSentence(project.description || '');
   const motif = getTopMotifTerm(aggregates);
   const concept = sortedEntries(aggregates.concepts || termCountMap())
     .map(([term]) => term)
@@ -483,9 +724,9 @@ function buildGalleryMetaDescription(project, aggregates = {}) {
   if (details.length === 1) sentence += ` shaped by ${details[0]}`;
   if (details.length >= 2) sentence += ` shaped by ${details[0]} and ${details[1]}`;
   if (setting) sentence += ` ${setting}`;
-  if (mood) sentence += ` with a ${mood} tone`;
+  if (mood) sentence += ` with a ${mood} atmosphere`;
 
-  return [base, ensureSentence(sentence)].filter(Boolean).join(' ');
+  return [base, cleanSentence(sentence)].filter(Boolean).join(' ');
 }
 
 function collectProjectAggregates(entries = []) {
@@ -521,6 +762,11 @@ function collectProjectAggregates(entries = []) {
 }
 
 function buildProjectLead(project, aggregates) {
+  const override = getProjectSeoOverride(project);
+  if (override?.lead) {
+    return cleanSentence(override.lead);
+  }
+
   const motif = getTopMotifTerm(aggregates);
   const conceptTerm = sortedEntries(aggregates.concepts).map(([term]) => term).find(Boolean) || '';
   const concept = rewriteConcept(conceptTerm);
@@ -554,31 +800,45 @@ function buildProjectLead(project, aggregates) {
 }
 
 function buildImageKeywords(meta = {}) {
-  return uniqueStrings([
+  const concept = firstMeaningful(meta.themes || []);
+  return filterKeywordTerms([
     ...getVisualPrimary(meta),
     ...(meta.objects || []),
     ...(meta.environment || []).filter((term) => !GENERIC_VISUAL_TERMS.has(normalizeTerm(term))),
     ...(meta.colors || []).slice(0, 1),
-    ...(meta.lighting || []).slice(0, 1)
+    concept ? getConceptLabel(concept) : ''
   ]).slice(0, 5);
 }
 
 function buildImageName(meta = {}, finalAlt = '', index = 0) {
   const primary = firstMeaningful(getVisualPrimary(meta));
-  if (primary) return toTitleCase(primary);
+  if (primary) return keywordTitleCase(primary);
 
-  const objects = uniqueStrings(meta.objects || []);
-  if (objects.length >= 2) return toTitleCase(`${objects[0]} and ${objects[1]}`);
-  if (objects[0]) return toTitleCase(objects[0]);
+  const objects = filterKeywordTerms(meta.objects || []);
+  if (objects.length >= 2) return keywordTitleCase(`${objects[0]} and ${objects[1]}`);
+  if (objects[0]) return keywordTitleCase(objects[0]);
 
-  const words = String(finalAlt || '')
+  const baseAlt = cleanText(finalAlt)
     .replace(/[.!?]+$/g, '')
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 7)
-    .join(' ');
+    .split(/\s*,\s*/)[0]
+    .replace(/^(a|an|the)\s+/i, '')
+    .trim();
 
-  return words ? capitalize(words) : `Image ${index + 1}`;
+  if (baseAlt) {
+    const words = [];
+    for (const word of baseAlt.split(/\s+/)) {
+      const normalized = normalizeTerm(word);
+      if (!normalized) continue;
+      if (words.length >= 6) break;
+      if (words.length >= 3 && ['in', 'on', 'at', 'by', 'with', 'through', 'under', 'against', 'near'].includes(normalized)) break;
+      words.push(word);
+    }
+
+    const candidate = keywordTitleCase(words.join(' '));
+    if (candidate) return candidate;
+  }
+
+  return `Image ${index + 1}`;
 }
 
 function buildAltFallback(projectTitle, meta = {}, index = 0) {
@@ -617,7 +877,12 @@ function buildAltFallback(projectTitle, meta = {}, index = 0) {
   return `${projectTitle} image ${index + 1}`;
 }
 
-function buildGalleryKeywords(aggregates) {
+function buildGalleryKeywords(project, aggregates) {
+  const override = getProjectSeoOverride(project);
+  if (override?.keywords?.length) {
+    return filterKeywordTerms(override.keywords).slice(0, 5);
+  }
+
   const motifKeywords = sortedEntries(aggregates.motifs)
     .map(([term]) => term)
     .filter((term) => !GENERIC_VISUAL_TERMS.has(term))
@@ -628,10 +893,15 @@ function buildGalleryKeywords(aggregates) {
     .filter((term) => !/versus/i.test(term))
     .slice(0, 2);
 
-  return uniqueStrings([...motifKeywords, ...conceptKeywords]).slice(0, 5);
+  return filterKeywordTerms([...motifKeywords, ...conceptKeywords]).slice(0, 5);
 }
 
-function buildGalleryAbout(aggregates) {
+function buildGalleryAbout(project, aggregates) {
+  const override = getProjectSeoOverride(project);
+  if (override?.about?.length) {
+    return filterKeywordTerms(override.about).slice(0, 4);
+  }
+
   const visual = sortedEntries(aggregates.motifs)
     .map(([term]) => humanizeMotif(term).toLowerCase())
     .filter(Boolean)
@@ -647,25 +917,20 @@ function buildGalleryAbout(aggregates) {
     .filter(Boolean)
     .slice(0, 2);
 
-  return uniqueStrings([...visual, ...conceptual]).slice(0, 4);
+  return filterKeywordTerms([...visual, ...conceptual]).slice(0, 4);
 }
 
 function buildRelatedContext(sharedMotif = '', sharedConcept = '') {
-  const conceptLabel = getConceptLabel(sharedConcept);
-
-  if (sharedMotif && conceptLabel) {
-    return ensureSentence(`Another gallery where ${sharedMotif} carry a similar ${conceptLabel} charge`);
+  const conceptKey = normalizeTerm(sharedConcept);
+  if (conceptKey && RELATED_PHRASE_LABELS.has(conceptKey)) {
+    return cleanSentence(`Another gallery drawn toward ${RELATED_PHRASE_LABELS.get(conceptKey).toLowerCase()}`);
   }
 
   if (sharedMotif) {
-    return ensureSentence(`Another gallery shaped by ${sharedMotif}`);
+    return cleanSentence(`Another gallery built around ${humanizeMotif(sharedMotif).toLowerCase()}`);
   }
 
-  if (conceptLabel) {
-    return ensureSentence(`Another gallery drawn toward ${conceptLabel}`);
-  }
-
-  return ensureSentence('A nearby gallery with a related visual tension');
+  return cleanSentence('A nearby gallery with a related visual rhythm');
 }
 
 function buildSharedMotif(sourceAggregates, targetAggregates) {
@@ -697,6 +962,27 @@ function buildSharedConcept(sourceAggregates, targetAggregates) {
     .replace(/^letting\s+/i, '')
     .replace(/^keeping\s+/i, '')
     .trim();
+}
+
+function getSharedAggregateScore(sourceAggregates, targetAggregates) {
+  const sourceConcepts = new Set(sortedEntries(sourceAggregates.concepts).map(([term]) => term));
+  const sourceMotifs = new Set(
+    sortedEntries(sourceAggregates.motifs)
+      .map(([term]) => term)
+      .filter((term) => !isWeakMotifTerm(term))
+  );
+
+  let score = 0;
+
+  sortedEntries(targetAggregates.concepts).forEach(([term]) => {
+    if (sourceConcepts.has(term)) score += 2;
+  });
+
+  sortedEntries(targetAggregates.motifs).forEach(([term]) => {
+    if (!isWeakMotifTerm(term) && sourceMotifs.has(term)) score += 1;
+  });
+
+  return score;
 }
 
 function buildCanonicalGalleryUrl(slug) {
@@ -753,6 +1039,17 @@ function buildProjectSeoMap(projects = [], dataset = []) {
       });
     });
 
+    if (!relationWeights.size) {
+      projects.forEach((targetProject) => {
+        if (targetProject.slug === project.slug) return;
+        const targetAggregates = aggregatesByProject.get(targetProject.slug) || collectProjectAggregates([]);
+        const similarityScore = getSharedAggregateScore(aggregates, targetAggregates);
+        if (similarityScore >= 2) {
+          relationWeights.set(targetProject.slug, similarityScore);
+        }
+      });
+    }
+
     const relatedLinks = sortedEntries(relationWeights)
       .map(([targetSlug, weight]) => {
         const targetProject = projectLookup.get(targetSlug);
@@ -776,10 +1073,10 @@ function buildProjectSeoMap(projects = [], dataset = []) {
 
     seoMap.set(project.slug, {
       lead: buildProjectLead(project, aggregates),
-      titleDescriptor: buildGalleryTitleDescriptor(aggregates),
+      titleDescriptor: buildGalleryTitleDescriptor(project, aggregates),
       metaDescription: buildGalleryMetaDescription(project, aggregates),
-      keywords: buildGalleryKeywords(aggregates),
-      about: buildGalleryAbout(aggregates),
+      keywords: buildGalleryKeywords(project, aggregates),
+      about: buildGalleryAbout(project, aggregates),
       relatedLinks,
       imageSeoByStem
     });

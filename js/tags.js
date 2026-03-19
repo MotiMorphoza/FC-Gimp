@@ -1,13 +1,13 @@
 (function () {
   const TAG_MAP = {
-    lonely: ["lonely", "loneliness", "isolated", "isolation", "solitude", "alone", "alienation", "emptiness"],
+    lonely: ["lonely", "loneliness", "isolated", "isolation", "solitude", "alienation", "emptiness"],
     urban: ["urban", "city", "street", "metropolitan", "public space", "sidewalk"],
     hand: ["hand", "hands", "gesture", "palm", "fingers", "glove", "peace sign"],
-    people: ["people", "person", "persons", "human", "humans", "crowd", "man", "woman", "women", "child", "children", "figure", "figures", "pedestrian", "pedestrians", "portrait"],
+    people: ["people", "person", "persons", "human", "humans", "figure", "figures", "pedestrian", "pedestrians"],
     blue: ["blue", "azure", "cobalt", "cyan"],
     cold: ["cold", "winter", "icy", "ice", "snow", "frozen", "frigid", "chill"],
     minimalism: ["minimalism", "minimal", "sparse", "empty", "reduced", "clean", "restraint"],
-    window: ["window", "windows", "pane", "panes", "frame", "frames", "opening", "aperture"],
+    window: ["window", "windows", "pane", "panes", "frame", "frames"],
     bird: ["bird", "birds", "pigeon", "crow", "gull", "duck", "stork", "heron", "sparrow"],
     protest: ["protest", "protester", "protesters", "demonstration", "march", "activism", "resistance"],
     absurd: ["absurd", "absurdity", "surreal", "irony", "ironic", "humor", "humour", "wit"],
@@ -15,24 +15,89 @@
     dark: ["dark", "black", "shadow", "shadowy", "gloom"],
     calm: ["calm", "quiet", "stillness", "peace", "meditative", "soft"],
     color: ["color", "colour", "colored", "colourful", "vivid", "multicolor", "multicolour"],
-    monochrome: ["monochrome", "blackandwhite", "black-white", "grayscale", "greyscale"]
+    monochrome: ["monochrome", "black and white", "black-and-white", "grayscale", "greyscale"]
   };
+
+  const HARD_VISUAL_MAP = {
+    woman: { queryClass: "people", variants: ["woman", "women", "female"] },
+    man: { queryClass: "people", variants: ["man", "men", "male"] },
+    child: { queryClass: "people", variants: ["child", "children", "kid", "kids", "boy", "boys", "girl", "girls", "baby", "babies"] },
+    crowd: { queryClass: "people", variants: ["crowd", "group", "people", "pedestrians", "protesters"] },
+    people: { queryClass: "people", variants: ["people", "person", "persons", "human", "humans", "figure", "figures"] },
+    alone: { queryClass: "people", variants: ["alone", "solitary", "single person"] },
+    blue: { queryClass: "color", variants: ["blue", "azure", "cobalt", "cyan"] },
+    red: { queryClass: "color", variants: ["red", "scarlet", "crimson"] },
+    yellow: { queryClass: "color", variants: ["yellow", "gold", "golden"] },
+    color: { queryClass: "color_mode", variants: ["color", "colour", "blue", "red", "yellow", "green", "orange", "purple", "pink"] },
+    "black and white": { queryClass: "color_mode", variants: ["black and white", "black-and-white", "bw"] },
+    monochrome: { queryClass: "color_mode", variants: ["monochrome", "grayscale", "greyscale"] },
+    colorful: { queryClass: "color_mode", variants: ["colorful", "colourful", "vivid", "multicolor", "multicolour", "rainbow"] },
+    indoor: { queryClass: "environment", variants: ["indoor", "indoors", "inside", "interior"] },
+    outdoor: { queryClass: "environment", variants: ["outdoor", "outdoors", "outside"] },
+    street: { queryClass: "environment", variants: ["street", "sidewalk", "crosswalk", "intersection"] },
+    urban: { queryClass: "environment", variants: ["urban", "city", "public space", "public square"] },
+    nature: { queryClass: "environment", variants: ["nature", "natural", "park", "river", "pond", "tree", "trees"] },
+    domestic: { queryClass: "environment", variants: ["domestic", "home", "house", "apartment", "kitchen", "room"] },
+    dog: { queryClass: "object", variants: ["dog", "dogs"] },
+    animal: { queryClass: "object", variants: ["animal", "animals", "dog", "dogs", "cat", "cats", "bird", "birds", "duck", "gull", "stork", "heron", "pigeon"] },
+    bird: { queryClass: "object", variants: ["bird", "birds", "pigeon", "duck", "gull", "stork", "heron", "sparrow"] },
+    window: { queryClass: "object", variants: ["window", "windows", "pane", "panes"] },
+    umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas"] },
+    car: { queryClass: "object", variants: ["car", "cars"] },
+    tree: { queryClass: "object", variants: ["tree", "trees"] },
+    phone: { queryClass: "object", variants: ["phone", "phones", "smartphone", "smartphones"] },
+    cigarette: { queryClass: "object", variants: ["cigarette", "cigarettes", "smoke", "smoking"] },
+    smoking: { queryClass: "object", variants: ["smoking", "smoke", "cigarette", "cigarettes"] },
+    "close up": { queryClass: "shot", variants: ["close up", "close-up", "close crop"] },
+    "wide shot": { queryClass: "shot", variants: ["wide shot", "wide view", "wide scene", "wide frame"] },
+    detail: { queryClass: "shot", variants: ["detail", "detail study"] },
+    portrait: { queryClass: "shot", variants: ["portrait", "face portrait"] }
+  };
+
+  const PHRASE_VARIANTS = [
+    ["black and white", ["black and white", "black-and-white", "black white"]],
+    ["close up", ["close up", "close-up"]],
+    ["wide shot", ["wide shot", "wide view", "wide scene", "wide frame"]],
+    ["no people", ["no people"]],
+    ["no color", ["no color", "no colour"]],
+    ["no cars", ["no cars", "no car"]],
+    ["no animals", ["no animals", "no animal"]]
+  ];
 
   const STOP_WORDS = new Set([
     "a", "an", "and", "at", "be", "for", "from", "in", "into", "is", "it", "of",
     "on", "or", "that", "the", "their", "this", "to", "with"
   ]);
 
+  function escapeRegex(value) {
+    return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
   function normalizeTerm(value) {
     return String(value || "")
       .toLowerCase()
       .replace(/[’']/g, "")
-      .replace(/[^a-z0-9\u0590-\u05ff]+/g, " ")
+      .replace(/[^a-z0-9\u0590-\u05ff_ -]+/g, " ")
+      .replace(/\s+/g, " ")
       .trim();
   }
 
+  function normalizeQueryText(query) {
+    let normalized = normalizeTerm(query);
+
+    PHRASE_VARIANTS.forEach(([canonical, variants]) => {
+      const placeholder = canonical.replace(/\s+/g, "_");
+      variants.forEach((variant) => {
+        const pattern = new RegExp(`\\b${escapeRegex(normalizeTerm(variant)).replace(/ /g, "\\s+")}\\b`, "g");
+        normalized = normalized.replace(pattern, placeholder);
+      });
+    });
+
+    return normalized;
+  }
+
   function stemTerm(value) {
-    const token = normalizeTerm(value).replace(/\s+/g, " ");
+    const token = normalizeTerm(String(value || "").replace(/_/g, " ")).replace(/\s+/g, " ");
     if (!token) return "";
     if (token.endsWith("ies") && token.length > 4) return `${token.slice(0, -3)}y`;
     if (token.endsWith("es") && token.length > 4) return token.slice(0, -2);
@@ -44,6 +109,10 @@
     const normalized = stemTerm(token);
     if (!normalized) return "";
 
+    if (HARD_VISUAL_MAP[normalized]) {
+      return normalized;
+    }
+
     for (const [canonical, variants] of Object.entries(TAG_MAP)) {
       if (canonical === normalized) return canonical;
       if (variants.some((variant) => stemTerm(variant) === normalized)) {
@@ -54,23 +123,66 @@
     return normalized;
   }
 
+  function getHardVisualDefinition(token) {
+    const canonical = canonicalizeToken(token);
+    if (!canonical) return null;
+    if (!HARD_VISUAL_MAP[canonical]) return null;
+    return {
+      canonical,
+      ...HARD_VISUAL_MAP[canonical]
+    };
+  }
+
   function tokenizeQuery(query) {
     return [...new Set(
-      normalizeTerm(query)
+      normalizeQueryText(query)
         .split(/\s+/)
         .map((token) => token.trim())
         .filter((token) => token && !STOP_WORDS.has(token))
     )];
   }
 
-  function expandToken(token) {
+  function expandSoftToken(token) {
     const canonical = canonicalizeToken(token);
     const variants = TAG_MAP[canonical] || [];
     return [...new Set([canonical, ...variants.map(stemTerm), ...variants.map(normalizeTerm)])].filter(Boolean);
   }
 
+  function expandHardToken(token) {
+    const definition = getHardVisualDefinition(token);
+    if (!definition) return [];
+    return [...new Set([definition.canonical, ...definition.variants.map(stemTerm), ...definition.variants.map(normalizeTerm)])].filter(Boolean);
+  }
+
+  function expandToken(token, options = {}) {
+    return options.hard ? expandHardToken(token) : expandSoftToken(token);
+  }
+
+  function buildTermGroup(token, forcedKind = "") {
+    const rawToken = String(token || "").replace(/_/g, " ").trim();
+    const hardDefinition = getHardVisualDefinition(rawToken);
+
+    if (hardDefinition) {
+      return {
+        token: rawToken,
+        canonical: hardDefinition.canonical,
+        variants: expandHardToken(rawToken),
+        kind: "hard",
+        queryClass: hardDefinition.queryClass
+      };
+    }
+
+    return {
+      token: rawToken,
+      canonical: canonicalizeToken(rawToken),
+      variants: expandSoftToken(rawToken),
+      kind: forcedKind || "soft",
+      queryClass: ""
+    };
+  }
+
   function parseQuery(query) {
-    const normalized = normalizeTerm(query);
+    const normalized = normalizeQueryText(query);
     const rawTokens = tokenizeQuery(normalized);
     const positiveTokens = [];
     const negativeTokens = [];
@@ -80,38 +192,40 @@
       const nextToken = rawTokens[index + 1];
 
       if ((token === "no" || token === "without") && nextToken) {
-        negativeTokens.push(canonicalizeToken(nextToken));
+        negativeTokens.push(buildTermGroup(nextToken, "hard"));
         index += 1;
         continue;
       }
 
-      positiveTokens.push(token);
+      if (token.startsWith("no_")) {
+        negativeTokens.push(buildTermGroup(token.slice(3), "hard"));
+        continue;
+      }
+
+      positiveTokens.push(buildTermGroup(token));
     }
 
     return {
       raw: query,
-      normalized,
-      positive: positiveTokens.map((token) => ({
-        token,
-        canonical: canonicalizeToken(token),
-        variants: expandToken(token)
-      })),
-      negative: negativeTokens.map((token) => ({
-        token,
-        canonical: canonicalizeToken(token),
-        variants: expandToken(token)
-      }))
+      normalized: normalized.replace(/_/g, " "),
+      positive: positiveTokens,
+      negative: negativeTokens,
+      hasHardPositive: positiveTokens.some((token) => token.kind === "hard"),
+      hasSoftPositive: positiveTokens.some((token) => token.kind !== "hard")
     };
   }
 
   window.MotoSearchTags = {
     TAG_MAP,
+    HARD_VISUAL_MAP,
     STOP_WORDS,
     normalizeTerm,
+    normalizeQueryText,
     stemTerm,
     canonicalizeToken,
     tokenizeQuery,
     expandToken,
+    getHardVisualDefinition,
     parseQuery
   };
 })();

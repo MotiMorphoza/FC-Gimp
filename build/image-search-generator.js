@@ -39,6 +39,7 @@ const HUMAN_HINTS = [
   'adult', 'adults', 'crowd', 'pedestrian', 'pedestrians', 'protester', 'protesters',
   'priest', 'priests', 'nun', 'nuns', 'cyclist', 'cyclists', 'rider', 'riders',
   'worker', 'workers', 'vendor', 'vendors', 'seller', 'sellers', 'figure', 'figures'
+  , 'paddleboarder', 'smoker', 'smokers'
 ];
 
 const GRAYSCALE_HINTS = ['black and white', 'black-and-white', 'monochrome', 'grayscale', 'greyscale'];
@@ -51,8 +52,36 @@ const OBJECT_HINTS = [
   'stork', 'heron', 'dog', 'dogs', 'umbrella', 'phone', 'smartphone', 'hand', 'hands',
   'bench', 'tree', 'sign', 'tram', 'bicycle', 'bike', 'stroller', 'flower', 'flag',
   'skull', 'glasses', 'statue', 'mask', 'mirror', 'reflection', 'boat', 'cage', 'chair',
-  'stairs', 'windowpanes', 'billboard', 'shadow', 'coat', 'wheel', 'snow', 'water'
+  'stairs', 'windowpanes', 'billboard', 'shadow', 'coat', 'wheel', 'snow', 'water',
+  'car', 'cars', 'cigarette', 'cigarettes', 'smoke', 'smoking', 'cat', 'cats'
 ];
+
+const WOMAN_HINTS = ['woman', 'women', 'female', 'nun', 'nuns', 'girl', 'girls', 'mother', 'mothers'];
+const MAN_HINTS = ['man', 'men', 'male', 'priest', 'priests', 'monk', 'monks', 'boy', 'boys', 'king'];
+const CHILD_HINTS = ['child', 'children', 'kid', 'kids', 'boy', 'boys', 'girl', 'girls', 'baby', 'babies'];
+const CROWD_HINTS = ['crowd', 'protesters', 'choir', 'marchers', 'group'];
+const PLURAL_PEOPLE_HINTS = ['people', 'pedestrians', 'children', 'officers', 'workers', 'vendors'];
+const PAIR_HINTS = ['two', 'pair', 'couple', 'both'];
+const INDOOR_HINTS = ['indoor', 'indoors', 'interior', 'kitchen', 'room', 'bedroom', 'studio', 'table'];
+const OUTDOOR_HINTS = ['outdoor', 'outdoors', 'street', 'park', 'bench', 'crosswalk', 'tram', 'snow', 'sky', 'river', 'pond', 'sidewalk', 'bridge'];
+const DOMESTIC_HINTS = ['kitchen', 'room', 'bedroom', 'table', 'domestic', 'home', 'house'];
+const STREET_HINTS = ['street', 'crosswalk', 'sidewalk', 'tram', 'intersection', 'public square', 'public space'];
+const NATURE_HINTS = ['tree', 'trees', 'flower', 'flowers', 'bird', 'birds', 'duck', 'gull', 'stork', 'heron', 'river', 'pond', 'water', 'grass', 'leaf', 'leaves'];
+const COLORFUL_HINTS = ['rainbow', 'colorful', 'colourful', 'vivid', 'bright', 'multicolor', 'multicolour'];
+const CLOSE_UP_HINTS = ['close-up', 'close up', 'close crop'];
+const DETAIL_HINTS = ['detail', 'detail study'];
+const WIDE_HINTS = ['wide shot', 'wide view', 'wide scene', 'wide frame', 'panoramic'];
+
+function includesAny(text, hints = []) {
+  const normalizedText = String(text || '').toLowerCase();
+  return hints.some((hint) => {
+    const normalizedHint = String(hint || '').toLowerCase().trim();
+    if (!normalizedHint) return false;
+    if (normalizedHint.includes(' ')) return normalizedText.includes(normalizedHint);
+    const pattern = new RegExp(`(^|[^a-z])${normalizedHint.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?=$|[^a-z])`, 'i');
+    return pattern.test(normalizedText);
+  });
+}
 
 function uniqueStrings(items = []) {
   return [...new Set(
@@ -148,6 +177,126 @@ function deriveColors(alt) {
   );
 }
 
+function derivePeopleProfile(alt) {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const woman = includesAny(normalizedAlt, WOMAN_HINTS);
+  const man = includesAny(normalizedAlt, MAN_HINTS);
+  const child = includesAny(normalizedAlt, CHILD_HINTS);
+  const crowd = includesAny(normalizedAlt, CROWD_HINTS);
+  const hasPeople = includesAny(normalizedAlt, HUMAN_HINTS);
+  const humanHintCount = HUMAN_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
+
+  let peopleCount = 0;
+  if (!hasPeople) {
+    peopleCount = 0;
+  } else if (crowd) {
+    peopleCount = 5;
+  } else if (includesAny(normalizedAlt, PLURAL_PEOPLE_HINTS)) {
+    peopleCount = 3;
+  } else if (/\band\b/.test(normalizedAlt) && humanHintCount >= 2) {
+    peopleCount = 2;
+  } else if (includesAny(normalizedAlt, PAIR_HINTS) || ((woman || man) && / and /.test(normalizedAlt))) {
+    peopleCount = 2;
+  } else {
+    peopleCount = 1;
+  }
+
+  const gender = uniqueStrings([
+    woman ? 'woman' : '',
+    man ? 'man' : ''
+  ]);
+
+  const ageGroup = uniqueStrings([
+    child ? 'child' : '',
+    hasPeople && !child ? 'adult' : ''
+  ]);
+
+  let prominence = 'none';
+  if (hasPeople) {
+    const leadWindow = normalizedAlt.split(/\s+/).slice(0, 8).join(' ');
+    prominence = HUMAN_HINTS.some((hint) => leadWindow.includes(hint)) ? 'primary' : 'secondary';
+    if (crowd) prominence = 'primary';
+  }
+
+  return {
+    has_people: hasPeople,
+    people_count: peopleCount,
+    gender,
+    age_group: ageGroup,
+    people_prominence: prominence
+  };
+}
+
+function deriveColorProfile(alt, colors, manipulation) {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const dominantColors = uniqueStrings(colors || []).slice(0, 3);
+
+  let colorMode = 'color';
+  if (GRAYSCALE_HINTS.some((hint) => normalizedAlt.includes(hint)) || String(manipulation || '').toLowerCase() === 'monochrome') {
+    colorMode = 'bw';
+  } else if (includesAny(normalizedAlt, COLORFUL_HINTS) || dominantColors.length >= 3) {
+    colorMode = 'colorful';
+  }
+
+  return {
+    color_mode: colorMode,
+    dominant_colors: dominantColors
+  };
+}
+
+function deriveEnvironmentProfile(project, alt, environment = []) {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const environmentType = [];
+  const settingType = [];
+  const natureHintCount = NATURE_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
+
+  if (includesAny(normalizedAlt, INDOOR_HINTS)) environmentType.push('indoor');
+  if (includesAny(normalizedAlt, OUTDOOR_HINTS) || (environment || []).some((term) => ['city', 'street', 'park', 'water edge', 'winter'].includes(String(term).toLowerCase()))) {
+    environmentType.push('outdoor');
+  }
+  if (includesAny(normalizedAlt, STREET_HINTS) || (environment || []).some((term) => ['street', 'city', 'urban', 'public space'].includes(String(term).toLowerCase()))) {
+    environmentType.push('street', 'urban');
+    settingType.push('street');
+  }
+  if (natureHintCount >= 2 || (environment || []).some((term) => ['nature', 'urban nature', 'water edge'].includes(String(term).toLowerCase()))) {
+    environmentType.push('nature');
+  }
+  if (includesAny(normalizedAlt, DOMESTIC_HINTS)) {
+    environmentType.push('domestic', 'indoor');
+    settingType.push('domestic');
+  }
+
+  if (normalizedAlt.includes('park')) settingType.push('park');
+  if (normalizedAlt.includes('public square')) settingType.push('public square');
+  if (normalizedAlt.includes('window')) settingType.push('window');
+  if (normalizedAlt.includes('river') || normalizedAlt.includes('pond') || normalizedAlt.includes('water')) settingType.push('water edge');
+
+  return {
+    environment_type: uniqueStrings(environmentType),
+    setting_type: uniqueStrings(settingType)
+  };
+}
+
+function deriveShotType(alt, composition = [], pov = '') {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const normalizedComposition = (composition || []).map((value) => String(value || '').toLowerCase());
+  const normalizedPov = String(pov || '').toLowerCase();
+
+  if (includesAny(normalizedAlt, CLOSE_UP_HINTS) || normalizedComposition.includes('close crop') || normalizedPov === 'close-up') {
+    return 'close_up';
+  }
+  if (includesAny(normalizedAlt, DETAIL_HINTS)) {
+    return 'detail';
+  }
+  if (includesAny(normalizedAlt, WIDE_HINTS) || normalizedComposition.includes("bird's-eye view")) {
+    return 'wide';
+  }
+  if ((normalizedAlt.includes('portrait') || normalizedAlt.includes('face')) && HUMAN_HINTS.some((hint) => normalizedAlt.includes(hint))) {
+    return 'portrait';
+  }
+  return '';
+}
+
 function deriveComposition(alt) {
   return deriveFieldByIncludes(alt, [
     { match: ['seen from above', 'overhead view'], values: ['overhead view', 'bird\'s-eye view'] },
@@ -226,6 +375,17 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
   const projectTags = uniqueStrings(project.tags || []);
   const stem = normalizeStem(image.src);
   const id = `img-${String(projectIndex + 1).padStart(3, '0')}-${slugifyId(project.slug)}-${slugifyId(stem)}`;
+  const objects = deriveObjects(image.alt);
+  const environment = deriveEnvironment(project, image.alt);
+  const composition = deriveComposition(image.alt);
+  const lighting = deriveLighting(image.alt);
+  const colors = deriveColors(image.alt);
+  const pov = derivePointOfView(image.alt);
+  const manipulation = deriveManipulation(image.alt);
+  const peopleProfile = derivePeopleProfile(image.alt);
+  const colorProfile = deriveColorProfile(image.alt, colors, manipulation);
+  const environmentProfile = deriveEnvironmentProfile(project, image.alt, environment);
+  const shotType = deriveShotType(image.alt, composition, pov);
 
   return {
     id,
@@ -242,12 +402,12 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
     primary: [],
     secondary: uniqueStrings([...projectTags, ...altTokens]).slice(0, 18),
     noise: uniqueStrings([project.title]),
-    objects: deriveObjects(image.alt),
-    environment: deriveEnvironment(project, image.alt),
+    objects,
+    environment,
     style: deriveStyle(project, image.alt),
-    composition: deriveComposition(image.alt),
-    lighting: deriveLighting(image.alt),
-    colors: deriveColors(image.alt),
+    composition,
+    lighting,
+    colors,
     mood: [],
     themes: projectTags,
     symbols: [],
@@ -259,10 +419,14 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
     reading: image.alt ? [image.alt] : [],
     density: '',
     intensity: {},
-    pov: derivePointOfView(image.alt),
-    manipulation: deriveManipulation(image.alt),
+    pov,
+    manipulation,
     negative: deriveNegativeHints(image.alt),
-    related: []
+    related: [],
+    ...peopleProfile,
+    ...colorProfile,
+    ...environmentProfile,
+    shot_type: shotType
   };
 }
 
