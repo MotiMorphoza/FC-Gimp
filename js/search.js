@@ -61,6 +61,35 @@ const EMOTION_QUERY_FIELDS = {
   projectDescription: 1
 };
 const EMOTION_QUERY_CANONICALS = new Set(["happy", "sad", "calm", "lonely", "quiet"]);
+const EMOTION_SIGNAL_FIELDS = ["mood", "tone", "themes", "tension", "reading", "relations", "composition"];
+const EMOTION_QUERY_PROFILES = {
+  happy: {
+    primary: ["joy", "joyful", "cheerful", "delight", "delightful", "smile", "smiling", "laughter", "laughing", "companionship", "warmth", "tenderness", "playfulness", "openness", "lightness"],
+    secondary: ["wonder", "surprise", "resilience"],
+    counter: ["melancholy", "sadness", "sorrow", "grief", "fatigue", "withdrawal", "loneliness", "isolation"]
+  },
+  sad: {
+    primary: ["sad", "sadness", "melancholy", "sorrow", "grief", "fragility", "fatigue", "neglect", "vulnerability", "withdrawal", "reserve"],
+    secondary: ["lonely", "loneliness", "solitude", "detachment", "distance", "silence"],
+    counter: ["joy", "joyful", "playfulness", "companionship", "warmth", "openness", "lightness", "laughter"]
+  },
+  lonely: {
+    primary: ["lonely", "loneliness", "solitude", "isolation", "withdrawal", "anonymity", "emptiness", "separation", "solitary"],
+    secondary: ["distance", "silence", "detachment", "reserve", "quietness"],
+    counter: ["companionship", "warmth", "openness", "joy", "playfulness"]
+  },
+  calm: {
+    primary: ["calm", "stillness", "quietness", "contemplation", "restraint", "gentleness", "clarity", "patience", "suspension"],
+    secondary: ["wonder", "order", "afterglow", "distance"],
+    counter: ["hostility", "violence", "chaos", "alarm", "velocity", "tension"]
+  },
+  quiet: {
+    primary: ["quiet", "quietness", "silence", "stillness", "hushed", "muted", "contemplation", "restraint"],
+    secondary: ["calm", "distance", "reserve", "order"],
+    counter: ["crowd", "hostility", "violence", "alarm", "velocity", "tension"]
+  }
+};
+const ALONE_CUE_VARIANTS = ["alone", "solitary", "solitude", "lonely", "loneliness", "isolation", "withdrawal", "anonymity", "silence", "emptiness", "separation"];
 const ISOLATION_VARIANTS = [
   "solitude", "lonely", "loneliness", "isolation", "detachment", "distance",
   "withdrawal", "anonymity", "silence", "quietness", "separation", "alone"
@@ -677,6 +706,10 @@ function isEmotionQuery(termGroup) {
 function scoreEmotionTerm(indexedImage, termGroup) {
   let matched = false;
   let score = 0;
+  const profile = EMOTION_QUERY_PROFILES[termGroup.canonical] || null;
+  let primarySignal = 0;
+  let secondarySignal = 0;
+  let counterSignal = 0;
 
   Object.entries(EMOTION_QUERY_FIELDS).forEach(([fieldName, weight]) => {
     const values = indexedImage.fields[fieldName] || [];
@@ -689,17 +722,47 @@ function scoreEmotionTerm(indexedImage, termGroup) {
     });
   });
 
+  if (profile) {
+    EMOTION_SIGNAL_FIELDS.forEach((fieldName) => {
+      const values = indexedImage.fields[fieldName] || [];
+      if (!values.length) return;
+      const weight = EMOTION_QUERY_FIELDS[fieldName] || 2;
+
+      values.forEach((value) => {
+        const stemmedValue = getTagHelpers().stemTerm(value);
+        if (profile.primary.some((variant) => matchValue(value, stemmedValue, [variant], variant))) {
+          primarySignal += weight;
+        }
+        if (profile.secondary.some((variant) => matchValue(value, stemmedValue, [variant], variant))) {
+          secondarySignal += Math.max(1, weight - 1);
+        }
+        if (profile.counter.some((variant) => matchValue(value, stemmedValue, [variant], variant))) {
+          counterSignal += Math.max(1, weight - 2);
+        }
+      });
+    });
+
+    if (primarySignal || secondarySignal) {
+      matched = true;
+      score += (primarySignal * 0.8) + (secondarySignal * 0.45);
+    }
+
+    if (counterSignal) {
+      score = Math.max(1, score - (counterSignal * 0.35));
+    }
+  }
+
   return { matched, score };
 }
 
 function hasIsolationCue(indexedImage) {
   return (
-    includesVariant(indexedImage.image.mood, ISOLATION_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.tone, ISOLATION_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.themes, ISOLATION_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.tension, ISOLATION_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.relations, ISOLATION_VARIANTS, "solitude") ||
-    includesVariant(indexedImage.image.reading, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.mood, ALONE_CUE_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.tone, ALONE_CUE_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.themes, ALONE_CUE_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.tension, ALONE_CUE_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.relations, ALONE_CUE_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.reading, ALONE_CUE_VARIANTS, "solitude") ||
     includesVariant(indexedImage.image.composition, ISOLATION_COMPOSITION_VARIANTS, "isolated subject")
   );
 }
