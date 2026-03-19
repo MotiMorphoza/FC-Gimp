@@ -214,6 +214,19 @@ function matchValue(value, stemmedValue, variants, canonical) {
   });
 }
 
+function getPremiumBoost(indexedImage) {
+  const score = indexedImage?.image?.score;
+  if (!score || typeof score !== "object") return 0;
+
+  const impact = Number(score.impact) || 0;
+  const originality = Number(score.originality) || 0;
+  const emotion = Number(score.emotion) || 0;
+  if (!impact && !originality && !emotion) return 0;
+
+  const weightedAverage = ((impact * 0.35) + (originality * 0.35) + (emotion * 0.3)) / 10;
+  return weightedAverage * 1.5;
+}
+
 function scoreField(indexedImage, fieldName, termGroup) {
   const values = indexedImage.fields[fieldName] || [];
   if (!values.length) return { matched: false, score: 0 };
@@ -292,6 +305,8 @@ function scoreImage(indexedImage, parsedQuery) {
   if (parsedQuery.positive.length > 1 && matchCount === parsedQuery.positive.length) {
     score += parsedQuery.positive.length * 2;
   }
+
+  score += getPremiumBoost(indexedImage);
 
   return {
     matched: true,

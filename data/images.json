@@ -56,7 +56,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-11",
+      "img-000-20",
+      "img-000-23"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-11",
@@ -114,7 +123,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-01",
+      "img-000-20",
+      "img-000-23"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-000-20",
@@ -173,7 +191,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-24",
+      "img-000-01",
+      "img-000-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-23",
@@ -231,7 +258,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-26",
+      "img-000-01",
+      "img-000-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-24",
@@ -288,7 +324,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-20",
+      "img-000-01",
+      "img-000-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-26",
@@ -347,7 +392,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-23",
+      "img-004-01",
+      "img-000-01"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-01",
@@ -405,7 +459,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-04",
+      "img-001-03",
+      "img-001-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-03",
@@ -464,7 +527,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-01",
+      "img-001-04",
+      "img-001-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-04",
@@ -522,7 +594,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-001-01",
+      "img-001-15",
+      "img-001-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-001-07",
@@ -580,7 +661,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-001-32",
+      "img-001-01",
+      "img-001-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-001-15",
@@ -639,7 +729,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-04",
+      "img-001-01",
+      "img-001-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-32",
@@ -696,7 +795,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-07",
+      "img-001-01",
+      "img-001-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-01",
@@ -754,7 +862,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-05",
+      "img-002-06",
+      "img-002-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-03",
@@ -812,7 +929,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-13",
+      "img-002-01",
+      "img-002-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-002-05",
@@ -871,7 +997,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-01",
+      "img-002-13",
+      "img-002-15"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-002-06",
@@ -930,7 +1065,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-01",
+      "img-002-03",
+      "img-002-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-13",
@@ -987,7 +1131,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-01",
+      "img-002-03",
+      "img-002-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-15",
@@ -1045,7 +1198,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-01",
+      "img-002-05",
+      "img-002-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-01",
@@ -1104,7 +1266,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-08",
+      "img-003-10",
+      "img-003-39"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-003-06",
@@ -1163,7 +1334,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-10",
+      "img-003-01",
+      "img-003-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-003-08",
@@ -1222,7 +1402,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-39",
+      "img-003-01",
+      "img-003-10"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-003-10",
@@ -1281,7 +1470,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-10",
+      "img-003-01",
+      "img-003-06"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-15",
@@ -1340,7 +1538,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-01",
+      "img-003-06",
+      "img-003-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-25",
@@ -1399,7 +1606,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-29",
+      "img-003-01",
+      "img-003-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-29",
@@ -1457,7 +1673,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-25",
+      "img-003-01",
+      "img-003-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-36",
@@ -1515,7 +1740,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-01",
+      "img-003-06",
+      "img-003-08"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-39",
@@ -1572,7 +1806,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-08",
+      "img-003-01",
+      "img-003-10"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-004-01",
@@ -1630,7 +1873,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-26",
+      "img-004-14",
+      "img-004-22"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-02",
@@ -1687,7 +1939,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-09",
+      "img-004-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-004-09",
@@ -1745,7 +2006,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-02",
+      "img-004-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-004-10",
@@ -1801,7 +2071,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-02",
+      "img-004-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-13",
@@ -1858,7 +2137,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-02",
+      "img-004-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-14",
@@ -1915,7 +2203,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-22",
+      "img-004-02"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-22",
@@ -1973,7 +2270,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-14",
+      "img-004-02"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-26",
@@ -2029,7 +2335,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-01",
+      "img-004-02",
+      "img-004-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-005-01",
@@ -2087,7 +2402,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-06",
+      "img-005-02",
+      "img-005-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-005-02",
@@ -2146,7 +2470,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-05",
+      "img-005-01",
+      "img-005-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-005-05",
@@ -2203,7 +2536,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-02",
+      "img-005-01",
+      "img-005-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-005-06",
@@ -2260,7 +2602,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-01",
+      "img-005-02",
+      "img-005-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-006-01",
@@ -2318,7 +2669,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-03",
+      "img-006-09",
+      "img-006-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-03",
@@ -2376,7 +2736,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-09",
+      "img-006-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-09",
@@ -2432,7 +2801,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-03",
+      "img-006-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-11",
@@ -2490,7 +2868,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-03",
+      "img-006-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-17",
@@ -2549,7 +2936,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-03",
+      "img-006-09"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-01",
@@ -2608,7 +3004,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-02",
+      "img-007-06",
+      "img-007-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-02",
@@ -2667,7 +3072,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-17",
+      "img-007-01",
+      "img-007-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-06",
@@ -2726,7 +3140,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-01",
+      "img-007-02",
+      "img-007-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-13",
@@ -2785,7 +3208,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-01",
+      "img-007-02",
+      "img-007-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-16",
@@ -2842,7 +3274,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-01",
+      "img-007-02",
+      "img-007-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-17",
@@ -2901,7 +3342,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-02",
+      "img-007-01",
+      "img-007-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-23",
@@ -2959,7 +3409,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-06",
+      "img-007-01",
+      "img-007-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-02",
@@ -3017,7 +3476,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-06",
+      "img-008-08",
+      "img-008-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-06",
@@ -3075,7 +3543,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-38",
+      "img-008-02",
+      "img-008-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-08",
@@ -3132,7 +3609,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-02",
+      "img-008-06",
+      "img-008-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-17",
@@ -3190,7 +3676,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-02",
+      "img-008-06",
+      "img-008-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-29",
@@ -3248,7 +3743,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-008-02",
+      "img-008-06",
+      "img-008-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-38",
@@ -3306,7 +3810,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-06",
+      "img-008-02",
+      "img-008-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-40",
@@ -3364,7 +3877,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-02",
+      "img-008-06",
+      "img-008-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-009-01",
@@ -3422,7 +3944,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-05",
+      "img-009-10",
+      "img-009-19"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-05",
@@ -3481,7 +4012,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-19",
+      "img-009-01",
+      "img-009-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-10",
@@ -3539,7 +4079,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-01",
+      "img-009-05",
+      "img-009-19"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-009-19",
@@ -3597,7 +4146,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-05",
+      "img-009-01",
+      "img-009-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-01",
@@ -3653,7 +4211,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-09",
+      "img-010-01c",
+      "img-010-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-010-01c",
@@ -3710,7 +4277,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-01",
+      "img-010-06",
+      "img-010-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-06",
@@ -3769,7 +4345,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-01",
+      "img-010-01c",
+      "img-010-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-09",
@@ -3826,7 +4411,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-01",
+      "img-010-01c",
+      "img-010-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-31",
@@ -3883,7 +4477,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-01",
+      "img-010-01c",
+      "img-010-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-03",
@@ -3942,7 +4545,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-06",
+      "img-011-12",
+      "img-011-25"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-06",
@@ -4001,7 +4613,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-03",
+      "img-011-12",
+      "img-011-25"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-12",
@@ -4060,7 +4681,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-25",
+      "img-011-03",
+      "img-011-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-25",
@@ -4118,7 +4748,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-12",
+      "img-011-03",
+      "img-011-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-012-01",
@@ -4176,7 +4815,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-14",
+      "img-012-03",
+      "img-012-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-012-03",
@@ -4234,7 +4882,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-01",
+      "img-012-08",
+      "img-012-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-08",
@@ -4292,7 +4949,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-14",
+      "img-012-01",
+      "img-012-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-012-14",
@@ -4349,7 +5015,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-012-08",
+      "img-012-01",
+      "img-012-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-013-01",
@@ -4407,7 +5082,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-04",
+      "img-013-11",
+      "img-013-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-04",
@@ -4464,7 +5148,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-24",
+      "img-013-01",
+      "img-013-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-013-11",
@@ -4520,7 +5213,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-37",
+      "img-013-01",
+      "img-013-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-013-14",
@@ -4577,7 +5279,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-01",
+      "img-013-04",
+      "img-013-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-24",
@@ -4635,7 +5346,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-04",
+      "img-013-01",
+      "img-013-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-37",
@@ -4692,7 +5412,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-11",
+      "img-013-01",
+      "img-013-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-02",
@@ -4750,7 +5479,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-20",
+      "img-014-07",
+      "img-014-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-07",
@@ -4808,7 +5546,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-02",
+      "img-014-11",
+      "img-014-18"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-11",
@@ -4865,7 +5612,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-20",
+      "img-014-02",
+      "img-014-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-18",
@@ -4923,7 +5679,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-02",
+      "img-014-07",
+      "img-014-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-20",
@@ -4981,7 +5746,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-02",
+      "img-014-11",
+      "img-014-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-015-01",
@@ -5038,7 +5812,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-10",
+      "img-015-04",
+      "img-015-06"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-015-04",
@@ -5095,7 +5878,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-11",
+      "img-015-01",
+      "img-015-06"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-015-06",
@@ -5153,7 +5945,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-01",
+      "img-015-04",
+      "img-015-10"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-015-10",
@@ -5210,7 +6011,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-10",
+      "img-015-01",
+      "img-015-04"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-015-11",
@@ -5268,7 +6078,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-04",
+      "img-015-01",
+      "img-015-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-02",
@@ -5326,7 +6145,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-25",
+      "img-016-03",
+      "img-016-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-03",
@@ -5384,7 +6212,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-02",
+      "img-016-14",
+      "img-016-18"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-14",
@@ -5443,7 +6280,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-18",
+      "img-016-02",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-18",
@@ -5502,7 +6348,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-14",
+      "img-016-02",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-25",
@@ -5560,7 +6415,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-02",
+      "img-016-03",
+      "img-016-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-01",
@@ -5615,7 +6479,16 @@
     "pov": "upward",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-017-02",
+      "img-017-03",
+      "img-017-44"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-02",
@@ -5673,7 +6546,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-03",
+      "img-017-44"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-03",
@@ -5729,7 +6611,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-02",
+      "img-017-44"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-44",
@@ -5786,7 +6677,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-02",
+      "img-017-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-02",
@@ -11803,9 +12703,9 @@
     "projectSlug": "000 - unusuall_usual",
     "src": "09.jpg",
     "primary": [
-      "cross",
-      "quiet detail",
-      "organic presence"
+      "broken eggs",
+      "street spill",
+      "wasted tenderness"
     ],
     "secondary": [
       "broken",
@@ -11819,9 +12719,9 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "shell",
-      "eggs"
+      "eggs",
+      "shells",
+      "pavement"
     ],
     "environment": [
       "street",
@@ -11832,8 +12732,8 @@
     ],
     "style": [
       "conceptual street photography",
-      "urban poetics",
-      "nature"
+      "urban surrealism",
+      "everyday observation"
     ],
     "composition": [
       "observed scene"
@@ -11842,17 +12742,17 @@
     "colors": [],
     "mood": [
       "neglect",
-      "unease",
-      "calm"
+      "fragility",
+      "unease"
     ],
     "themes": [
       "urban absurdity",
       "everyday symbolism"
     ],
     "symbols": [
-      "cross",
-      "organic form",
-      "seasonal change"
+      "broken yolk",
+      "spillage",
+      "street waste"
     ],
     "texture": [
       "hard surface"
@@ -11862,21 +12762,21 @@
     ],
     "tone": [
       "neglect",
-      "unease"
+      "fragility"
     ],
     "relations": [
-      "cross feels small in scale, yet it carries the larger emotional weight of urban absurdity."
+      "The broken eggs turn the pavement into a small crime scene of domestic waste and accident."
     ],
     "tension": [
-      "fragility versus endurance",
-      "care versus decay"
+      "care versus discard",
+      "organic softness versus hard ground"
     ],
     "reading": [
-      "The image turns cross into a quiet study of neglect, fragility, and seasonal attention."
+      "The image turns a banal spill into an unexpectedly vulnerable scene of rupture and waste."
     ],
     "density": "balanced",
     "intensity": {
-      "neglect": 0.76
+      "neglect": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -11890,9 +12790,9 @@
     "projectSlug": "000 - unusuall_usual",
     "src": "10.jpg",
     "primary": [
-      "mask",
-      "object-body",
-      "uncanny display"
+      "glove and mask",
+      "discarded care",
+      "pandemic residue"
     ],
     "secondary": [
       "blue",
@@ -11906,9 +12806,9 @@
     ],
     "noise": [],
     "objects": [
-      "mask",
-      "stone",
-      "glove"
+      "rubber glove",
+      "face mask",
+      "paving stones"
     ],
     "environment": [
       "street",
@@ -11919,8 +12819,8 @@
     ],
     "style": [
       "conceptual street photography",
-      "urban poetics",
-      "surrogate"
+      "urban surrealism",
+      "everyday observation"
     ],
     "composition": [
       "observed scene"
@@ -11930,18 +12830,18 @@
       "blue"
     ],
     "mood": [
+      "aftermath",
       "uncanny",
-      "irony",
-      "calm"
+      "fatigue"
     ],
     "themes": [
       "urban absurdity",
       "everyday symbolism"
     ],
     "symbols": [
+      "glove",
       "mask",
-      "surrogate body",
-      "artifice"
+      "abandoned protection"
     ],
     "texture": [
       "hard surface"
@@ -11950,21 +12850,21 @@
       "stillness"
     ],
     "tone": [
-      "uncanny",
-      "irony"
+      "aftermath",
+      "uncanny"
     ],
     "relations": [
-      "The human-like object makes mask hover between presence and artifice."
+      "The glove and mask lie apart like a body and its failed defenses after the crisis has already moved on."
     ],
     "tension": [
-      "object versus life"
+      "protection versus abandonment"
     ],
     "reading": [
-      "The image lets mask hover between objecthood and a strangely human kind of presence."
+      "The image makes public health feel like a leftover costume stripped of any wearer."
     ],
     "density": "balanced",
     "intensity": {
-      "uncanny": 0.76
+      "aftermath": 0.82
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -12398,9 +13298,9 @@
     "projectSlug": "000 - unusuall_usual",
     "src": "19.jpg",
     "primary": [
-      "mannequin",
-      "object-body",
-      "uncanny display"
+      "market legs",
+      "commodity body",
+      "street surrealism"
     ],
     "secondary": [
       "market",
@@ -12414,8 +13314,9 @@
     ],
     "noise": [],
     "objects": [
-      "mannequin",
-      "vendor"
+      "vendor",
+      "mannequin legs",
+      "market stall"
     ],
     "environment": [
       "street",
@@ -12426,8 +13327,8 @@
     ],
     "style": [
       "conceptual street photography",
-      "urban poetics",
-      "surrogate"
+      "urban surrealism",
+      "everyday observation"
     ],
     "composition": [
       "observed scene"
@@ -12435,38 +13336,39 @@
     "lighting": [],
     "colors": [],
     "mood": [
-      "uncanny",
-      "irony"
+      "absurdity",
+      "labor",
+      "uncanny"
     ],
     "themes": [
       "urban absurdity",
       "everyday symbolism"
     ],
     "symbols": [
-      "mannequin",
-      "surrogate body",
-      "artifice"
+      "mannequin legs",
+      "market goods",
+      "partial body"
     ],
     "texture": [],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "uncanny",
-      "irony"
+      "absurdity",
+      "labor"
     ],
     "relations": [
-      "The human-like object makes mannequin hover between presence and artifice."
+      "The working vendor and the mannequin legs occupy the same stall as if labor and artificial bodies belonged to one economy."
     ],
     "tension": [
-      "object versus life"
+      "human work versus synthetic body"
     ],
     "reading": [
-      "The image lets mannequin hover between objecthood and a strangely human kind of presence."
+      "Commerce drifts into surrealism here through a pair of detached legs among ordinary market goods."
     ],
     "density": "balanced",
     "intensity": {
-      "uncanny": 0.76
+      "absurdity": 0.8
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -12655,9 +13557,9 @@
     "projectSlug": "001 - window_to_redemption",
     "src": "05.jpg",
     "primary": [
-      "cross",
-      "flight instinct",
-      "urban freedom"
+      "zebra crossing trio",
+      "human pair and pigeon",
+      "overhead timing"
     ],
     "secondary": [
       "bald",
@@ -12671,8 +13573,10 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "pigeon"
+      "man",
+      "woman",
+      "pigeon",
+      "zebra crossing"
     ],
     "environment": [
       "street",
@@ -12685,27 +13589,26 @@
     "style": [
       "overhead street photography",
       "chance choreography",
-      "bird"
+      "urban observation"
     ],
     "composition": [
-      "overhead view",
-      "bird's-eye view"
+      "overhead view"
     ],
     "lighting": [],
     "colors": [],
     "mood": [
       "alertness",
-      "freedom",
-      "velocity"
+      "balance",
+      "chance alignment"
     ],
     "themes": [
       "urban theater",
       "momentary alignment"
     ],
     "symbols": [
-      "cross",
-      "flight",
-      "release"
+      "crosswalk",
+      "pairing",
+      "bird witness"
     ],
     "texture": [
       "feathers"
@@ -12715,20 +13618,20 @@
     ],
     "tone": [
       "alertness",
-      "freedom"
+      "balance"
     ],
     "relations": [
-      "The bird presence shifts cross from simple observation toward instinct, lightness, and release."
+      "The pigeon turns the crossing into a three-part choreography rather than a simple pedestrian moment."
     ],
     "tension": [
-      "gravity versus release"
+      "human order versus animal drift"
     ],
     "reading": [
-      "The image uses cross to translate instinct into a small study of alertness and freedom."
+      "Seen from above, the crossing becomes a brief alignment of couple, bird, and geometry."
     ],
     "density": "balanced",
     "intensity": {
-      "alertness": 0.76
+      "alertness": 0.77
     },
     "pov": "overhead",
     "manipulation": "straight",
@@ -12904,9 +13807,9 @@
     "projectSlug": "001 - window_to_redemption",
     "src": "12.jpg",
     "primary": [
-      "pigeon",
-      "flight instinct",
-      "urban freedom"
+      "bench feast",
+      "pigeon witness",
+      "public appetite"
     ],
     "secondary": [
       "four",
@@ -12920,8 +13823,10 @@
     ],
     "noise": [],
     "objects": [
-      "pigeon",
-      "bench"
+      "people",
+      "pizza slices",
+      "bench",
+      "pigeon"
     ],
     "environment": [
       "street",
@@ -12935,26 +13840,26 @@
     "style": [
       "overhead street photography",
       "chance choreography",
-      "bird"
+      "urban observation"
     ],
     "composition": [
-      "observed scene"
+      "overhead view"
     ],
     "lighting": [],
     "colors": [],
     "mood": [
-      "coldness",
-      "stillness",
-      "alertness"
+      "sociability",
+      "humor",
+      "abundance"
     ],
     "themes": [
       "urban theater",
       "momentary alignment"
     ],
     "symbols": [
-      "pigeon",
-      "flight",
-      "release"
+      "pizza slices",
+      "bench",
+      "pigeon"
     ],
     "texture": [
       "snow",
@@ -12965,21 +13870,21 @@
       "stillness"
     ],
     "tone": [
-      "coldness",
-      "stillness"
+      "sociability",
+      "humor"
     ],
     "relations": [
-      "The bird presence shifts pigeon from simple observation toward instinct, lightness, and release."
+      "The pigeon below the bench makes the meal feel staged for both human company and opportunistic witness."
     ],
     "tension": [
-      "gravity versus release"
+      "shared pleasure versus scavenging presence"
     ],
     "reading": [
-      "The image uses pigeon to translate instinct into a small study of coldness and freedom."
+      "The image turns lunch into an overhead tableau of appetite, excess, and comic observation."
     ],
     "density": "sparse",
     "intensity": {
-      "coldness": 0.76
+      "sociability": 0.8
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -12994,9 +13899,9 @@
     "projectSlug": "001 - window_to_redemption",
     "src": "13.jpg",
     "primary": [
-      "bearded",
-      "urban movement",
-      "kinetic compression"
+      "turning motorcyclist",
+      "compressed street turn",
+      "black-white contrast"
     ],
     "secondary": [
       "bearded",
@@ -13009,7 +13914,12 @@
       "Warsaw"
     ],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "motorcyclist",
+      "motorcycle",
+      "truck",
+      "street"
+    ],
     "environment": [
       "street",
       "Warsaw",
@@ -13021,10 +13931,10 @@
     "style": [
       "overhead street photography",
       "chance choreography",
-      "motion"
+      "urban observation"
     ],
     "composition": [
-      "observed scene"
+      "overhead view"
     ],
     "lighting": [],
     "colors": [
@@ -13033,7 +13943,7 @@
     ],
     "mood": [
       "velocity",
-      "alertness",
+      "focus",
       "compression"
     ],
     "themes": [
@@ -13041,28 +13951,30 @@
       "momentary alignment"
     ],
     "symbols": [
-      "transit line",
-      "passing body"
+      "motorcycle turn",
+      "truck flank",
+      "tight clearance"
     ],
     "texture": [],
     "motion": [
       "transit movement"
     ],
     "tone": [
-      "graphic"
+      "velocity",
+      "focus"
     ],
     "relations": [
-      "Blur compresses bearded into timing, contact, and unstable urban movement."
+      "The rider, truck, and turn compress the street into a scene of negotiated speed."
     ],
     "tension": [
-      "clarity versus movement"
+      "freedom of movement versus urban constraint"
     ],
     "reading": [
-      "The image uses bearded to compress movement into a study of distance and urban timing."
+      "The image condenses motion into a narrow urban decision made in black, white, and momentum."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.71
+      "velocity": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -13077,9 +13989,9 @@
     "projectSlug": "001 - window_to_redemption",
     "src": "16.jpg",
     "primary": [
-      "bench",
-      "urban movement",
-      "kinetic compression"
+      "red dress scooter",
+      "bench alignment",
+      "swift passage"
     ],
     "secondary": [
       "woman",
@@ -13093,7 +14005,10 @@
     ],
     "noise": [],
     "objects": [
-      "bench"
+      "woman",
+      "electric scooter",
+      "bench",
+      "street"
     ],
     "environment": [
       "street",
@@ -13107,11 +14022,10 @@
     "style": [
       "overhead street photography",
       "chance choreography",
-      "motion"
+      "urban observation"
     ],
     "composition": [
-      "overhead view",
-      "bird's-eye view"
+      "overhead view"
     ],
     "lighting": [],
     "colors": [
@@ -13120,36 +14034,37 @@
     "mood": [
       "swiftness",
       "lightness",
-      "improvisation"
+      "urban grace"
     ],
     "themes": [
       "urban theater",
       "momentary alignment"
     ],
     "symbols": [
+      "red dress",
       "bench",
-      "transit line",
-      "passing body"
+      "passing line"
     ],
     "texture": [],
     "motion": [
       "transit movement"
     ],
     "tone": [
-      "graphic"
+      "swiftness",
+      "lightness"
     ],
     "relations": [
-      "Blur compresses bench into timing, contact, and unstable urban movement."
+      "The bench anchors the frame while the rider slices through it in one swift red accent."
     ],
     "tension": [
-      "clarity versus movement"
+      "still street furniture versus moving body"
     ],
     "reading": [
-      "The image uses bench to compress movement into a study of distance and urban timing."
+      "The image turns a quick scooter ride into a precise overhead note of color and flow."
     ],
     "density": "sparse",
     "intensity": {
-      "swiftness": 0.66
+      "swiftness": 0.77
     },
     "pov": "overhead",
     "manipulation": "straight",
@@ -13316,9 +14231,9 @@
     "projectSlug": "002 - ohhhhh_your_god",
     "src": "08.jpg",
     "primary": [
-      "cross",
-      "object-body",
-      "uncanny display"
+      "masked nun",
+      "curved path",
+      "ritual solitude"
     ],
     "secondary": [
       "masked",
@@ -13332,9 +14247,9 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
+      "nun",
       "mask",
-      "stone"
+      "cobblestone path"
     ],
     "environment": [
       "faith",
@@ -13344,28 +14259,28 @@
       "provocation"
     ],
     "style": [
-      "conceptual street photography",
-      "sacred urbanism",
-      "surrogate"
+      "symbolic street photography",
+      "ritual observation",
+      "civic spirituality"
     ],
     "composition": [
-      "isolated subject"
+      "observed scene"
     ],
     "lighting": [],
     "colors": [],
     "mood": [
-      "uncanny",
-      "irony",
-      "calm"
+      "solemnity",
+      "distance",
+      "restraint"
     ],
     "themes": [
       "faith and modernity",
       "ritual in public"
     ],
     "symbols": [
-      "cross",
-      "surrogate body",
-      "artifice"
+      "religious habit",
+      "mask",
+      "curved path"
     ],
     "texture": [
       "hard surface"
@@ -13374,21 +14289,21 @@
       "walking"
     ],
     "tone": [
-      "uncanny",
-      "irony"
+      "solemnity",
+      "distance"
     ],
     "relations": [
-      "The human-like object makes cross hover between presence and artifice."
+      "The curve of the path makes the nun look as if she is tracing a private vow through civic space."
     ],
     "tension": [
-      "object versus life"
+      "ritual identity versus public ground"
     ],
     "reading": [
-      "The image lets cross hover between objecthood and a strangely human kind of presence."
+      "Religious solitude moves through the city here without dissolving into it."
     ],
     "density": "sparse",
     "intensity": {
-      "uncanny": 0.76
+      "solemnity": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -13403,9 +14318,9 @@
     "projectSlug": "002 - ohhhhh_your_god",
     "src": "11.jpg",
     "primary": [
-      "statue",
-      "object-body",
-      "uncanny display"
+      "MORI statue",
+      "snow monument",
+      "mortality reminder"
     ],
     "secondary": [
       "snow",
@@ -13420,7 +14335,8 @@
     "noise": [],
     "objects": [
       "statue",
-      "snow"
+      "snow",
+      "MORI sign"
     ],
     "environment": [
       "faith",
@@ -13431,9 +14347,9 @@
       "winter"
     ],
     "style": [
-      "conceptual street photography",
-      "sacred urbanism",
-      "surrogate"
+      "symbolic street photography",
+      "ritual observation",
+      "civic spirituality"
     ],
     "composition": [
       "observed scene"
@@ -13446,18 +14362,18 @@
       "red"
     ],
     "mood": [
+      "gravity",
       "coldness",
-      "stillness",
-      "wonder"
+      "unease"
     ],
     "themes": [
       "faith and modernity",
       "ritual in public"
     ],
     "symbols": [
-      "statue",
-      "surrogate body",
-      "artifice"
+      "robed statue",
+      "children",
+      "MORI word"
     ],
     "texture": [
       "snow",
@@ -13467,22 +14383,21 @@
       "stillness"
     ],
     "tone": [
-      "coldness",
-      "stillness"
+      "gravity",
+      "coldness"
     ],
     "relations": [
-      "The human-like object makes statue hover between presence and artifice."
+      "Snow softens the sculptural group, but the glowing word below restores the image to mortality."
     ],
     "tension": [
-      "object versus life",
-      "warmth versus cold"
+      "tender monument versus death warning"
     ],
     "reading": [
-      "The image lets statue hover between objecthood and a strangely human kind of presence."
+      "Winter beauty and mortality occupy the same monument here without canceling each other."
     ],
     "density": "balanced",
     "intensity": {
-      "coldness": 0.76
+      "gravity": 0.81
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -13574,9 +14489,9 @@
     "projectSlug": "002 - ohhhhh_your_god",
     "src": "16.jpg",
     "primary": [
-      "cross",
-      "urban movement",
-      "kinetic compression"
+      "cross through bars",
+      "distant steeple",
+      "blocked faith"
     ],
     "secondary": [
       "brick",
@@ -13590,7 +14505,9 @@
     ],
     "noise": [],
     "objects": [
-      "cross"
+      "church steeple",
+      "cross",
+      "metal bars"
     ],
     "environment": [
       "faith",
@@ -13600,9 +14517,9 @@
       "provocation"
     ],
     "style": [
-      "conceptual street photography",
-      "sacred urbanism",
-      "motion"
+      "symbolic street photography",
+      "ritual observation",
+      "civic spirituality"
     ],
     "composition": [
       "observed scene"
@@ -13612,8 +14529,9 @@
       "red"
     ],
     "mood": [
-      "velocity",
-      "compression"
+      "distance",
+      "constraint",
+      "watchfulness"
     ],
     "themes": [
       "faith and modernity",
@@ -13621,8 +14539,8 @@
     ],
     "symbols": [
       "cross",
-      "transit line",
-      "passing body"
+      "bars",
+      "steeple"
     ],
     "texture": [
       "metal",
@@ -13632,21 +14550,21 @@
       "blurred motion"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "distance",
+      "constraint"
     ],
     "relations": [
-      "Blur compresses cross into timing, contact, and unstable urban movement."
+      "The cross appears only through the blur of metal bars, as if spiritual sight has to pass through obstruction."
     ],
     "tension": [
-      "clarity versus movement"
+      "aspiration versus blockage"
     ],
     "reading": [
-      "The image uses cross to compress movement into a study of velocity and urban timing."
+      "The image frames faith as something seen through barriers rather than in open clarity."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "distance": 0.78
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -13660,9 +14578,9 @@
     "projectSlug": "002 - ohhhhh_your_god",
     "src": "18.jpg",
     "primary": [
-      "black cross",
-      "flight instinct",
-      "urban freedom"
+      "bird on cross",
+      "perched faith",
+      "living interruption"
     ],
     "secondary": [
       "black",
@@ -13676,8 +14594,8 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "bird"
+      "bird",
+      "cross"
     ],
     "environment": [
       "faith",
@@ -13687,9 +14605,9 @@
       "provocation"
     ],
     "style": [
-      "conceptual street photography",
-      "sacred urbanism",
-      "bird"
+      "symbolic street photography",
+      "ritual observation",
+      "civic spirituality"
     ],
     "composition": [
       "observed scene"
@@ -13699,17 +14617,18 @@
       "black"
     ],
     "mood": [
-      "alertness",
-      "freedom"
+      "stillness",
+      "irony",
+      "attention"
     ],
     "themes": [
       "faith and modernity",
       "ritual in public"
     ],
     "symbols": [
+      "bird",
       "cross",
-      "flight",
-      "release"
+      "perch"
     ],
     "texture": [
       "feathers"
@@ -13718,21 +14637,21 @@
       "stillness"
     ],
     "tone": [
-      "alertness",
-      "freedom"
+      "stillness",
+      "irony"
     ],
     "relations": [
-      "The bird presence shifts black cross from simple observation toward instinct, lightness, and release."
+      "The bird reduces the monumentality of the cross without emptying it of charge."
     ],
     "tension": [
-      "gravity versus release"
+      "sacred sign versus animal ease"
     ],
     "reading": [
-      "The image uses black cross to translate instinct into a small study of alertness and freedom."
+      "Living instinct briefly occupies a symbol meant to stand above life."
     ],
     "density": "balanced",
     "intensity": {
-      "alertness": 0.76
+      "stillness": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -16730,9 +17649,9 @@
     "projectSlug": "006 - smashed",
     "src": "04.jpg",
     "primary": [
-      "cyclist",
-      "urban movement",
-      "kinetic compression"
+      "neon cyclist",
+      "self-check",
+      "speed field"
     ],
     "secondary": [
       "cyclist",
@@ -16745,7 +17664,11 @@
       "long exposure"
     ],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "cyclist",
+      "neon jacket",
+      "street"
+    ],
     "environment": [
       "experimental",
       "long exposure",
@@ -16756,10 +17679,10 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
-      "frame within frame"
+      "observed scene"
     ],
     "lighting": [
       "night light"
@@ -16770,37 +17693,39 @@
     ],
     "mood": [
       "velocity",
-      "compression"
+      "focus",
+      "instability"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "transit line",
-      "passing body"
+      "neon jacket",
+      "downward glance",
+      "green blur"
     ],
     "texture": [],
     "motion": [
-      "transit movement",
+      "cycling",
       "blurred motion"
     ],
     "tone": [
       "velocity",
-      "compression"
+      "focus"
     ],
     "relations": [
-      "Blur compresses cyclist into timing, contact, and unstable urban movement."
+      "The downward glance interrupts pure speed with a brief moment of bodily awareness."
     ],
     "tension": [
-      "clarity versus movement"
+      "movement versus self-monitoring"
     ],
     "reading": [
-      "The image uses cyclist to compress movement into a study of velocity and urban timing."
+      "The image captures speed as something checked, adjusted, and felt inside the body."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "velocity": 0.8
     },
     "pov": "framed view",
     "manipulation": "motion blur",
@@ -16815,9 +17740,9 @@
     "projectSlug": "006 - smashed",
     "src": "05.jpg",
     "primary": [
-      "bicycle",
-      "urban movement",
-      "kinetic compression"
+      "red bicycle",
+      "white-cap rider",
+      "soft acceleration"
     ],
     "secondary": [
       "woman",
@@ -16831,8 +17756,8 @@
     ],
     "noise": [],
     "objects": [
-      "bicycle",
-      "glasses"
+      "woman",
+      "bicycle"
     ],
     "environment": [
       "experimental",
@@ -16844,7 +17769,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -16856,40 +17781,41 @@
     ],
     "mood": [
       "velocity",
-      "compression"
+      "ease",
+      "fluidity"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "bicycle",
-      "transit line",
-      "passing body"
+      "red bicycle",
+      "white cap",
+      "motion blur"
     ],
     "texture": [
       "glass"
     ],
     "motion": [
-      "transit movement",
+      "cycling",
       "blurred motion"
     ],
     "tone": [
       "velocity",
-      "compression"
+      "ease"
     ],
     "relations": [
-      "Blur compresses bicycle into timing, contact, and unstable urban movement."
+      "The soft blur keeps the rider legible while letting the street melt around her pace."
     ],
     "tension": [
-      "clarity versus movement"
+      "clarity versus blur"
     ],
     "reading": [
-      "The image uses bicycle to compress movement into a study of velocity and urban timing."
+      "The image turns cycling into a smooth passage of color, balance, and forward ease."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "velocity": 0.78
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -16904,9 +17830,9 @@
     "projectSlug": "006 - smashed",
     "src": "06.jpg",
     "primary": [
-      "bicycle",
-      "urban movement",
-      "kinetic compression"
+      "older cyclist",
+      "rear basket",
+      "enduring speed"
     ],
     "secondary": [
       "older",
@@ -16920,7 +17846,9 @@
     ],
     "noise": [],
     "objects": [
-      "bicycle"
+      "older man",
+      "bicycle",
+      "rear basket"
     ],
     "environment": [
       "experimental",
@@ -16932,7 +17860,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -16941,7 +17869,7 @@
     "colors": [],
     "mood": [
       "velocity",
-      "compression",
+      "endurance",
       "dignity"
     ],
     "themes": [
@@ -16949,31 +17877,31 @@
       "urban transit"
     ],
     "symbols": [
-      "bicycle",
-      "transit line",
-      "passing body"
+      "rear basket",
+      "older rider",
+      "street blur"
     ],
     "texture": [],
     "motion": [
-      "transit movement",
+      "cycling",
       "blurred motion"
     ],
     "tone": [
       "velocity",
-      "compression"
+      "endurance"
     ],
     "relations": [
-      "Blur compresses bicycle into timing, contact, and unstable urban movement."
+      "The blur does not erase the rider's age; it makes endurance part of the speed."
     ],
     "tension": [
-      "clarity versus movement"
+      "age versus pace"
     ],
     "reading": [
-      "The image uses bicycle to compress movement into a study of velocity and urban timing."
+      "The image ties motion to persistence rather than youth."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "endurance": 0.79
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -16988,9 +17916,9 @@
     "projectSlug": "006 - smashed",
     "src": "08.jpg",
     "primary": [
-      "tram",
-      "urban movement",
-      "kinetic compression"
+      "paused cyclists",
+      "yellow tram",
+      "stalled motion"
     ],
     "secondary": [
       "two",
@@ -17004,8 +17932,9 @@
     ],
     "noise": [],
     "objects": [
-      "tram",
-      "bicycle"
+      "women",
+      "bicycles",
+      "tram"
     ],
     "environment": [
       "experimental",
@@ -17017,7 +17946,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17027,17 +17956,18 @@
       "yellow"
     ],
     "mood": [
-      "velocity",
-      "compression"
+      "suspension",
+      "coordination",
+      "urban rhythm"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "tram",
-      "transit line",
-      "passing body"
+      "bicycles",
+      "yellow tram",
+      "waiting"
     ],
     "texture": [
       "metal"
@@ -17046,21 +17976,21 @@
       "transit movement"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "suspension",
+      "coordination"
     ],
     "relations": [
-      "Blur compresses tram into timing, contact, and unstable urban movement."
+      "The stopped bicycles and the tram behind them make stillness feel temporary and charged."
     ],
     "tension": [
-      "clarity versus movement"
+      "pause versus transit flow"
     ],
     "reading": [
-      "The image uses tram to compress movement into a study of velocity and urban timing."
+      "The image finds motion in the moment just before movement resumes."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "suspension": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -17075,9 +18005,9 @@
     "projectSlug": "006 - smashed",
     "src": "10.jpg",
     "primary": [
-      "cross",
-      "urban movement",
-      "kinetic compression"
+      "crossing blur",
+      "traffic wall",
+      "urban smear"
     ],
     "secondary": [
       "blurred",
@@ -17091,7 +18021,9 @@
     ],
     "noise": [],
     "objects": [
-      "cross"
+      "pedestrian",
+      "cars",
+      "van"
     ],
     "environment": [
       "experimental",
@@ -17103,7 +18035,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17114,16 +18046,17 @@
     ],
     "mood": [
       "velocity",
-      "compression"
+      "pressure",
+      "instability"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "cross",
-      "transit line",
-      "passing body"
+      "crossing body",
+      "cars",
+      "dark van"
     ],
     "texture": [],
     "motion": [
@@ -17132,20 +18065,20 @@
     ],
     "tone": [
       "velocity",
-      "compression"
+      "pressure"
     ],
     "relations": [
-      "Blur compresses cross into timing, contact, and unstable urban movement."
+      "The pedestrian blur feels caught between machines that remain harder and heavier than the human figure."
     ],
     "tension": [
-      "clarity versus movement"
+      "body versus traffic mass"
     ],
     "reading": [
-      "The image uses cross to compress movement into a study of velocity and urban timing."
+      "The image makes crossing the street feel like passing through mechanical pressure."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "pressure": 0.8
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -17160,9 +18093,9 @@
     "projectSlug": "006 - smashed",
     "src": "12.jpg",
     "primary": [
-      "cross",
-      "quiet detail",
-      "organic presence"
+      "hooded crossing",
+      "soft blur",
+      "vulnerable pace"
     ],
     "secondary": [
       "hooded",
@@ -17176,8 +18109,8 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "tree"
+      "hooded figure",
+      "street"
     ],
     "environment": [
       "experimental",
@@ -17191,7 +18124,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "nature"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17199,18 +18132,18 @@
     "lighting": [],
     "colors": [],
     "mood": [
+      "vulnerability",
       "velocity",
-      "compression",
-      "contemplation"
+      "distance"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "cross",
-      "organic form",
-      "seasonal change"
+      "hood",
+      "wide street",
+      "soft blur"
     ],
     "texture": [],
     "motion": [
@@ -17218,21 +18151,21 @@
       "blurred motion"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "vulnerability",
+      "velocity"
     ],
     "relations": [
-      "cross feels small in scale, yet it carries the larger emotional weight of speed."
+      "The soft blur makes the crossing feel less aggressive than exposed."
     ],
     "tension": [
-      "fragility versus endurance"
+      "small body versus open roadway"
     ],
     "reading": [
-      "The image turns cross into a quiet study of velocity, fragility, and seasonal attention."
+      "The image frames movement as a vulnerable negotiation with urban scale."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "vulnerability": 0.78
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -17247,9 +18180,9 @@
     "projectSlug": "006 - smashed",
     "src": "13.jpg",
     "primary": [
-      "suitcase",
-      "urban movement",
-      "kinetic compression"
+      "rolling suitcase",
+      "late passage",
+      "motion fatigue"
     ],
     "secondary": [
       "older",
@@ -17263,6 +18196,7 @@
     ],
     "noise": [],
     "objects": [
+      "older man",
       "suitcase"
     ],
     "environment": [
@@ -17275,7 +18209,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17283,40 +18217,40 @@
     "lighting": [],
     "colors": [],
     "mood": [
-      "velocity",
-      "compression",
-      "dignity"
+      "fatigue",
+      "movement",
+      "persistence"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "suitcase",
-      "transit line",
-      "passing body"
+      "rolling suitcase",
+      "street blur",
+      "forward pull"
     ],
     "texture": [],
     "motion": [
       "walking",
-      "blurred motion"
+      "rolling movement"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "fatigue",
+      "movement"
     ],
     "relations": [
-      "Blur compresses suitcase into timing, contact, and unstable urban movement."
+      "The suitcase extends the body into a dragged line of movement and effort."
     ],
     "tension": [
-      "clarity versus movement"
+      "travel versus weariness"
     ],
     "reading": [
-      "The image uses suitcase to compress movement into a study of velocity and urban timing."
+      "The image makes passage look heavy without becoming immobile."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "fatigue": 0.77
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -17331,9 +18265,9 @@
     "projectSlug": "006 - smashed",
     "src": "14.jpg",
     "primary": [
-      "two",
-      "urban movement",
-      "kinetic compression"
+      "black figures passing",
+      "crosscurrent",
+      "urban brushstroke"
     ],
     "secondary": [
       "two",
@@ -17346,7 +18280,9 @@
       "long exposure"
     ],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "two pedestrians"
+    ],
     "environment": [
       "experimental",
       "long exposure",
@@ -17357,7 +18293,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17368,36 +18304,39 @@
     ],
     "mood": [
       "velocity",
-      "compression"
+      "friction",
+      "anonymity"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "transit line",
-      "passing body"
+      "black clothes",
+      "passing bodies",
+      "motion streak"
     ],
     "texture": [],
     "motion": [
+      "walking",
       "blurred motion"
     ],
     "tone": [
       "velocity",
-      "compression"
+      "friction"
     ],
     "relations": [
-      "Blur compresses two into timing, contact, and unstable urban movement."
+      "The two dark figures seem to cut through one another like opposing strokes."
     ],
     "tension": [
-      "clarity versus movement"
+      "encounter versus erasure"
     ],
     "reading": [
-      "The image uses two to compress movement into a study of velocity and urban timing."
+      "The image turns passing bodies into a near-abstract study of urban friction."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "friction": 0.79
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -17412,9 +18351,9 @@
     "projectSlug": "006 - smashed",
     "src": "16.jpg",
     "primary": [
-      "cross",
-      "urban movement",
-      "kinetic compression"
+      "crossing sign and blur",
+      "red-haired streak",
+      "traffic punctuation"
     ],
     "secondary": [
       "pedestrian",
@@ -17428,8 +18367,8 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "sign"
+      "crossing sign",
+      "figure"
     ],
     "environment": [
       "experimental",
@@ -17441,7 +18380,7 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "motion"
+      "urban transit"
     ],
     "composition": [
       "observed scene"
@@ -17451,41 +18390,41 @@
       "red"
     ],
     "mood": [
+      "alertness",
       "velocity",
-      "compression"
+      "punctuation"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "cross",
-      "transit line",
-      "passing body"
+      "sign",
+      "red hair",
+      "zebra crossing"
     ],
     "texture": [
       "metal"
     ],
     "motion": [
-      "walking",
       "blurred motion"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "alertness",
+      "velocity"
     ],
     "relations": [
-      "Blur compresses cross into timing, contact, and unstable urban movement."
+      "The static sign and the moving red-haired streak split the frame between instruction and impulse."
     ],
     "tension": [
-      "clarity versus movement"
+      "rule versus bodily movement"
     ],
     "reading": [
-      "The image uses cross to compress movement into a study of velocity and urban timing."
+      "Traffic language collides here with a fleeting red-haired human accent."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "alertness": 0.78
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -17500,9 +18439,9 @@
     "projectSlug": "006 - smashed",
     "src": "18.jpg",
     "primary": [
-      "green cross",
-      "quiet detail",
-      "organic presence"
+      "green jackets crossing",
+      "school rush",
+      "collective motion"
     ],
     "secondary": [
       "group",
@@ -17516,8 +18455,9 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "tree"
+      "children",
+      "jackets",
+      "street"
     ],
     "environment": [
       "experimental",
@@ -17531,10 +18471,10 @@
     "style": [
       "motion-blur street photography",
       "kinetic observation",
-      "nature"
+      "urban transit"
     ],
     "composition": [
-      "dense grouping"
+      "observed scene"
     ],
     "lighting": [],
     "colors": [
@@ -17542,39 +18482,39 @@
     ],
     "mood": [
       "velocity",
-      "compression",
-      "contemplation"
+      "collectivity",
+      "brightness"
     ],
     "themes": [
       "speed",
       "urban transit"
     ],
     "symbols": [
-      "cross",
-      "organic form",
-      "seasonal change"
+      "green jackets",
+      "crossing group",
+      "street"
     ],
     "texture": [],
     "motion": [
-      "walking"
+      "walking",
+      "group movement"
     ],
     "tone": [
       "velocity",
-      "compression"
+      "collectivity"
     ],
     "relations": [
-      "green cross feels small in scale, yet it carries the larger emotional weight of speed."
+      "The children move as a loose unit, turning the crossing into a burst of coordinated color."
     ],
     "tension": [
-      "fragility versus endurance",
-      "individuality versus collective flow"
+      "group energy versus traffic order"
     ],
     "reading": [
-      "The image turns green cross into a quiet study of velocity, fragility, and seasonal attention."
+      "The image treats collective movement as a brief urban flare of rhythm and color."
     ],
     "density": "dense",
     "intensity": {
-      "velocity": 0.76
+      "collectivity": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -18642,9 +19582,9 @@
     "projectSlug": "008 - arty",
     "src": "04.jpg",
     "primary": [
-      "bird",
-      "flight instinct",
-      "urban freedom"
+      "chimneys and birds",
+      "industrial flock",
+      "vertical score"
     ],
     "secondary": [
       "three",
@@ -18658,8 +19598,9 @@
     ],
     "noise": [],
     "objects": [
-      "bird",
-      "chimney"
+      "chimneys",
+      "birds",
+      "sky"
     ],
     "environment": [
       "street",
@@ -18670,8 +19611,8 @@
     ],
     "style": [
       "poetic found-object photography",
-      "conceptual stillness",
-      "bird"
+      "observational metaphor",
+      "quiet tension"
     ],
     "composition": [
       "observed scene"
@@ -18679,17 +19620,18 @@
     "lighting": [],
     "colors": [],
     "mood": [
-      "alertness",
-      "freedom"
+      "watchfulness",
+      "contrast",
+      "openness"
     ],
     "themes": [
       "transformation",
       "found symbolism"
     ],
     "symbols": [
-      "bird",
-      "flight",
-      "release"
+      "chimneys",
+      "birds",
+      "vertical repetition"
     ],
     "texture": [
       "metal",
@@ -18699,21 +19641,21 @@
       "flight"
     ],
     "tone": [
-      "alertness",
-      "freedom"
+      "watchfulness",
+      "contrast"
     ],
     "relations": [
-      "The bird presence shifts bird from simple observation toward instinct, lightness, and release."
+      "The birds make the chimneys feel less fixed and more like part of a shared aerial system."
     ],
     "tension": [
-      "gravity versus release"
+      "industry versus flight"
     ],
     "reading": [
-      "The image uses bird to translate instinct into a small study of alertness and freedom."
+      "The image stages a quiet conversation between industrial verticals and moving life."
     ],
     "density": "balanced",
     "intensity": {
-      "alertness": 0.76
+      "contrast": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -18808,9 +19750,9 @@
     "projectSlug": "008 - arty",
     "src": "09.jpg",
     "primary": [
-      "red bent",
-      "quiet detail",
-      "organic presence"
+      "bent branch",
+      "urban backdrop",
+      "foreground defiance"
     ],
     "secondary": [
       "bent",
@@ -18823,7 +19765,10 @@
       "daily life"
     ],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "branch",
+      "skyline"
+    ],
     "environment": [
       "street",
       "daily life",
@@ -18833,8 +19778,8 @@
     ],
     "style": [
       "poetic found-object photography",
-      "conceptual stillness",
-      "nature"
+      "observational metaphor",
+      "quiet tension"
     ],
     "composition": [
       "observed scene"
@@ -18844,38 +19789,39 @@
       "red"
     ],
     "mood": [
-      "velocity",
-      "compression",
-      "contemplation"
+      "tenacity",
+      "distance",
+      "focus"
     ],
     "themes": [
       "transformation",
       "found symbolism"
     ],
     "symbols": [
-      "organic form",
-      "seasonal change"
+      "branch",
+      "city blur",
+      "bent form"
     ],
     "texture": [],
     "motion": [
       "blurred motion"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "tenacity",
+      "distance"
     ],
     "relations": [
-      "red bent feels small in scale, yet it carries the larger emotional weight of transformation."
+      "The sharp branch holds its own against a city reduced to background haze."
     ],
     "tension": [
-      "fragility versus endurance"
+      "organic line versus urban mass"
     ],
     "reading": [
-      "The image turns red bent into a quiet study of velocity, fragility, and seasonal attention."
+      "The image gives the fragile foreground more authority than the skyline behind it."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "tenacity": 0.76
     },
     "pov": "frontal",
     "manipulation": "motion blur",
@@ -18979,9 +19925,9 @@
     "projectSlug": "008 - arty",
     "src": "12.jpg",
     "primary": [
-      "smoking portrait",
-      "public habit",
-      "self-containment"
+      "embers and smoke",
+      "afterburn",
+      "residual heat"
     ],
     "secondary": [
       "wisps",
@@ -18995,7 +19941,9 @@
     ],
     "noise": [],
     "objects": [
-      "smoke"
+      "smoke",
+      "ash",
+      "embers"
     ],
     "environment": [
       "street",
@@ -19006,8 +19954,8 @@
     ],
     "style": [
       "poetic found-object photography",
-      "conceptual stillness",
-      "smoking"
+      "observational metaphor",
+      "quiet tension"
     ],
     "composition": [
       "observed scene"
@@ -19017,16 +19965,18 @@
       "red"
     ],
     "mood": [
-      "detachment",
-      "habit"
+      "afterglow",
+      "unease",
+      "stillness"
     ],
     "themes": [
       "transformation",
       "found symbolism"
     ],
     "symbols": [
+      "embers",
       "smoke",
-      "habit"
+      "cooling fire"
     ],
     "texture": [
       "vapor"
@@ -19035,21 +19985,21 @@
       "flow"
     ],
     "tone": [
-      "detachment",
-      "habit"
+      "afterglow",
+      "unease"
     ],
     "relations": [
-      "Smoke and posture turn smoking portrait into a small public ritual rather than a private habit."
+      "Smoke rises as the only movement left after the fire has already spent its force."
     ],
     "tension": [
-      "habit versus self-control"
+      "heat versus exhaustion"
     ],
     "reading": [
-      "The image lets smoking portrait carry the weight of detachment, routine, and public exposure."
+      "The image turns what remains after burning into its own quiet event."
     ],
     "density": "balanced",
     "intensity": {
-      "detachment": 0.76
+      "afterglow": 0.78
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -19758,9 +20708,9 @@
     "projectSlug": "008 - arty",
     "src": "26.jpg",
     "primary": [
-      "water",
-      "quiet detail",
-      "organic presence"
+      "water beads",
+      "sunlit railing",
+      "brief brilliance"
     ],
     "secondary": [
       "water",
@@ -19774,7 +20724,8 @@
     ],
     "noise": [],
     "objects": [
-      "water"
+      "water droplets",
+      "railing"
     ],
     "environment": [
       "street",
@@ -19786,8 +20737,8 @@
     ],
     "style": [
       "poetic found-object photography",
-      "conceptual stillness",
-      "nature"
+      "observational metaphor",
+      "quiet tension"
     ],
     "composition": [
       "observed scene"
@@ -19799,17 +20750,17 @@
     "colors": [],
     "mood": [
       "wonder",
-      "distance",
-      "contemplation"
+      "precision",
+      "lightness"
     ],
     "themes": [
       "transformation",
       "found symbolism"
     ],
     "symbols": [
-      "water",
-      "organic form",
-      "seasonal change"
+      "droplets",
+      "metal railing",
+      "sunlight"
     ],
     "texture": [
       "metal",
@@ -19820,20 +20771,20 @@
     ],
     "tone": [
       "wonder",
-      "distance"
+      "precision"
     ],
     "relations": [
-      "water feels small in scale, yet it carries the larger emotional weight of transformation."
+      "The droplets convert an ordinary railing into a temporary line of tiny lights."
     ],
     "tension": [
-      "fragility versus endurance"
+      "transience versus structure"
     ],
     "reading": [
-      "The image turns water into a quiet study of wonder, fragility, and seasonal attention."
+      "The image finds luminosity in a detail too small to last."
     ],
     "density": "balanced",
     "intensity": {
-      "wonder": 0.76
+      "wonder": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -20097,9 +21048,9 @@
     "projectSlug": "008 - arty",
     "src": "34.jpg",
     "primary": [
-      "tree",
-      "quiet detail",
-      "organic presence"
+      "streetlamp in woods",
+      "urban relic",
+      "winter sentinel"
     ],
     "secondary": [
       "old",
@@ -20113,9 +21064,9 @@
     ],
     "noise": [],
     "objects": [
-      "tree",
-      "snow",
-      "lamp"
+      "streetlamp",
+      "trees",
+      "snow"
     ],
     "environment": [
       "street",
@@ -20128,8 +21079,8 @@
     ],
     "style": [
       "poetic found-object photography",
-      "conceptual stillness",
-      "nature"
+      "observational metaphor",
+      "quiet tension"
     ],
     "composition": [
       "observed scene"
@@ -20139,18 +21090,18 @@
     ],
     "colors": [],
     "mood": [
+      "isolation",
       "coldness",
-      "stillness",
-      "contemplation"
+      "watchfulness"
     ],
     "themes": [
       "transformation",
       "found symbolism"
     ],
     "symbols": [
-      "tree",
-      "organic form",
-      "seasonal change"
+      "streetlamp",
+      "tree trunks",
+      "snow"
     ],
     "texture": [
       "snow",
@@ -20160,22 +21111,21 @@
       "stillness"
     ],
     "tone": [
-      "coldness",
-      "stillness"
+      "isolation",
+      "coldness"
     ],
     "relations": [
-      "tree feels small in scale, yet it carries the larger emotional weight of transformation."
+      "The lamp looks stranded among the trees, as if the city had left behind a single instrument of attention."
     ],
     "tension": [
-      "fragility versus endurance",
-      "warmth versus cold"
+      "urban artifact versus forest stillness"
     ],
     "reading": [
-      "The image turns tree into a quiet study of coldness, fragility, and seasonal attention."
+      "The image treats the streetlamp as a misplaced witness inside winter woods."
     ],
     "density": "balanced",
     "intensity": {
-      "coldness": 0.76
+      "isolation": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -23561,9 +24511,9 @@
     "projectSlug": "012 - smart times",
     "src": "10.jpg",
     "primary": [
-      "phone",
-      "urban movement",
-      "kinetic compression"
+      "phone beside bicycles",
+      "split attention",
+      "street pause"
     ],
     "secondary": [
       "man",
@@ -23578,7 +24528,8 @@
     "noise": [],
     "objects": [
       "phone",
-      "bicycle"
+      "bicycles",
+      "rider"
     ],
     "environment": [
       "technology",
@@ -23588,9 +24539,9 @@
       "urban"
     ],
     "style": [
-      "phone-era street photography",
-      "social observation",
-      "motion"
+      "observational street photography",
+      "social attention study",
+      "urban timing"
     ],
     "composition": [
       "observed scene"
@@ -23601,8 +24552,8 @@
     ],
     "mood": [
       "absorption",
-      "distance",
-      "velocity"
+      "distraction",
+      "urban timing"
     ],
     "themes": [
       "mediation",
@@ -23610,8 +24561,8 @@
     ],
     "symbols": [
       "phone",
-      "transit line",
-      "passing body"
+      "bicycle cluster",
+      "waiting body"
     ],
     "texture": [],
     "motion": [
@@ -23619,20 +24570,20 @@
     ],
     "tone": [
       "absorption",
-      "distance"
+      "distraction"
     ],
     "relations": [
-      "Blur compresses phone into timing, contact, and unstable urban movement."
+      "The phone holds one attention stream while bicycles and riders keep the surrounding street in motion."
     ],
     "tension": [
-      "clarity versus movement"
+      "digital focus versus physical transit"
     ],
     "reading": [
-      "The image uses phone to compress movement into a study of absorption and urban timing."
+      "The image turns street life into a split-screen between movement and mediated attention."
     ],
     "density": "balanced",
     "intensity": {
-      "absorption": 0.76
+      "absorption": 0.78
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -26859,9 +27810,9 @@
     "projectSlug": "016 - star dust",
     "src": "01.jpg",
     "primary": [
-      "water",
-      "quiet detail",
-      "organic presence"
+      "crouching by water",
+      "tentative contact",
+      "river edge"
     ],
     "secondary": [
       "young",
@@ -26875,8 +27826,9 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
       "water",
-      "stone"
+      "stone blocks"
     ],
     "environment": [
       "cosmos",
@@ -26888,8 +27840,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "nature"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -26897,18 +27849,18 @@
     "lighting": [],
     "colors": [],
     "mood": [
+      "curiosity",
       "calm",
-      "wonder",
-      "contemplation"
+      "delicacy"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "water",
-      "organic form",
-      "seasonal change"
+      "touching hand",
+      "water edge",
+      "stone blocks"
     ],
     "texture": [
       "hard surface",
@@ -26918,21 +27870,21 @@
       "flow"
     ],
     "tone": [
-      "calm",
-      "wonder"
+      "curiosity",
+      "calm"
     ],
     "relations": [
-      "water feels small in scale, yet it carries the larger emotional weight of fragility."
+      "Her gesture makes the river feel close enough to test, but not fully claim."
     ],
     "tension": [
-      "fragility versus endurance"
+      "contact versus distance"
     ],
     "reading": [
-      "The image turns water into a quiet study of calm, fragility, and seasonal attention."
+      "The image finds intimacy in a small, careful reach toward water."
     ],
     "density": "balanced",
     "intensity": {
-      "calm": 0.76
+      "curiosity": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -27564,9 +28516,9 @@
     "projectSlug": "016 - star dust",
     "src": "16.jpg",
     "primary": [
-      "tree",
-      "quiet detail",
-      "organic presence"
+      "winter quartet",
+      "sunlit passage",
+      "ordinary choreography"
     ],
     "secondary": [
       "four",
@@ -27580,8 +28532,8 @@
     ],
     "noise": [],
     "objects": [
-      "tree",
-      "coat"
+      "pedestrians",
+      "street"
     ],
     "environment": [
       "cosmos",
@@ -27595,8 +28547,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "nature"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -27608,40 +28560,39 @@
     ],
     "colors": [],
     "mood": [
-      "coldness",
-      "stillness",
-      "contemplation"
+      "warmth",
+      "movement",
+      "everyday grace"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "tree",
-      "organic form",
-      "seasonal change"
+      "winter coats",
+      "sunlight",
+      "group movement"
     ],
     "texture": [],
     "motion": [
       "walking"
     ],
     "tone": [
-      "coldness",
-      "stillness"
+      "warmth",
+      "movement"
     ],
     "relations": [
-      "tree feels small in scale, yet it carries the larger emotional weight of fragility."
+      "The pedestrians share the same light without collapsing into a single group identity."
     ],
     "tension": [
-      "fragility versus endurance",
-      "warmth versus cold"
+      "individual paths versus common atmosphere"
     ],
     "reading": [
-      "The image turns tree into a quiet study of coldness, fragility, and seasonal attention."
+      "The image turns an ordinary street walk into a mild choreography of light and season."
     ],
     "density": "balanced",
     "intensity": {
-      "coldness": 0.76
+      "warmth": 0.76
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -27656,9 +28607,9 @@
     "projectSlug": "016 - star dust",
     "src": "17.jpg",
     "primary": [
-      "tree",
-      "quiet detail",
-      "organic presence"
+      "municipal trio",
+      "work pause",
+      "street camaraderie"
     ],
     "secondary": [
       "three",
@@ -27672,7 +28623,8 @@
     ],
     "noise": [],
     "objects": [
-      "tree"
+      "workers",
+      "street"
     ],
     "environment": [
       "cosmos",
@@ -27685,8 +28637,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "nature"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -27694,37 +28646,39 @@
     "lighting": [],
     "colors": [],
     "mood": [
-      "contemplation"
+      "companionship",
+      "pause",
+      "groundedness"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "tree",
-      "organic form",
-      "seasonal change"
+      "workers",
+      "conversation",
+      "workwear"
     ],
     "texture": [],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "contemplation",
-      "human"
+      "companionship",
+      "pause"
     ],
     "relations": [
-      "tree feels small in scale, yet it carries the larger emotional weight of fragility."
+      "Their pause in conversation makes labor briefly visible as social life rather than task alone."
     ],
     "tension": [
-      "fragility versus endurance"
+      "work duty versus human ease"
     ],
     "reading": [
-      "The image turns tree into a quiet study of contemplation, fragility, and seasonal attention."
+      "The image gives municipal labor a moment of warmth and ordinary fellowship."
     ],
     "density": "balanced",
     "intensity": {
-      "contemplation": 0.76
+      "companionship": 0.78
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -27739,9 +28693,9 @@
     "projectSlug": "016 - star dust",
     "src": "19.jpg",
     "primary": [
-      "cross",
-      "urban movement",
-      "kinetic compression"
+      "red light and crossing sign",
+      "halted permission",
+      "urban instruction"
     ],
     "secondary": [
       "pedestrian",
@@ -27755,8 +28709,8 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "sign"
+      "traffic light",
+      "crossing sign"
     ],
     "environment": [
       "cosmos",
@@ -27767,8 +28721,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "motion"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -27778,17 +28732,18 @@
       "red"
     ],
     "mood": [
-      "velocity",
-      "compression"
+      "suspension",
+      "clarity",
+      "control"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "cross",
-      "transit line",
-      "passing body"
+      "red light",
+      "crossing icon",
+      "street order"
     ],
     "texture": [
       "metal"
@@ -27797,21 +28752,21 @@
       "walking"
     ],
     "tone": [
-      "velocity",
-      "compression"
+      "suspension",
+      "clarity"
     ],
     "relations": [
-      "Blur compresses cross into timing, contact, and unstable urban movement."
+      "The red light and crossing sign stage a small argument between movement invited and movement delayed."
     ],
     "tension": [
-      "clarity versus movement"
+      "permission versus stoppage"
     ],
     "reading": [
-      "The image uses cross to compress movement into a study of velocity and urban timing."
+      "The image turns traffic language into a compact lesson in urban control."
     ],
     "density": "balanced",
     "intensity": {
-      "velocity": 0.76
+      "suspension": 0.76
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -27826,9 +28781,9 @@
     "projectSlug": "016 - star dust",
     "src": "20.jpg",
     "primary": [
-      "red crow",
-      "flight instinct",
-      "urban freedom"
+      "green beanie glance",
+      "crowd sideways",
+      "private thought"
     ],
     "secondary": [
       "short",
@@ -27842,7 +28797,9 @@
     ],
     "noise": [],
     "objects": [
-      "crow"
+      "person",
+      "green beanie",
+      "crowd"
     ],
     "environment": [
       "cosmos",
@@ -27853,11 +28810,11 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "bird"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
-      "dense grouping"
+      "observed scene"
     ],
     "lighting": [],
     "colors": [
@@ -27865,39 +28822,39 @@
       "green"
     ],
     "mood": [
+      "inwardness",
       "alertness",
-      "freedom"
+      "distance"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "crow",
-      "flight",
-      "release"
+      "side glance",
+      "green beanie",
+      "crowd field"
     ],
     "texture": [],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "alertness",
-      "freedom"
+      "inwardness",
+      "alertness"
     ],
     "relations": [
-      "The bird presence shifts red crow from simple observation toward instinct, lightness, and release."
+      "The sideways glance separates one mind from the crowd without removing the body from it."
     ],
     "tension": [
-      "gravity versus release",
-      "individuality versus collective flow"
+      "individual thought versus collective presence"
     ],
     "reading": [
-      "The image uses red crow to translate instinct into a small study of alertness and freedom."
+      "The image catches a private interiority still moving inside public density."
     ],
     "density": "dense",
     "intensity": {
-      "alertness": 0.76
+      "inwardness": 0.78
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -27912,9 +28869,9 @@
     "projectSlug": "016 - star dust",
     "src": "21.jpg",
     "primary": [
-      "flower",
-      "quiet detail",
-      "organic presence"
+      "flower wreath smiles",
+      "festive tenderness",
+      "shared lightness"
     ],
     "secondary": [
       "two",
@@ -27928,7 +28885,8 @@
     ],
     "noise": [],
     "objects": [
-      "flower"
+      "women",
+      "flower wreaths"
     ],
     "environment": [
       "cosmos",
@@ -27939,8 +28897,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "nature"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -27948,39 +28906,39 @@
     "lighting": [],
     "colors": [],
     "mood": [
-      "calm",
-      "wonder",
-      "contemplation"
+      "joy",
+      "tenderness",
+      "lightness"
     ],
     "themes": [
       "fragility",
       "ordinary grace"
     ],
     "symbols": [
-      "flower",
-      "organic form",
-      "seasonal change"
+      "flower wreaths",
+      "smiles",
+      "shared celebration"
     ],
     "texture": [],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "calm",
-      "wonder"
+      "joy",
+      "tenderness"
     ],
     "relations": [
-      "flower feels small in scale, yet it carries the larger emotional weight of fragility."
+      "The wreaths and smiles let festivity arrive as something generous rather than theatrical."
     ],
     "tension": [
-      "fragility versus endurance"
+      "ornament versus sincerity"
     ],
     "reading": [
-      "The image turns flower into a quiet study of calm, fragility, and seasonal attention."
+      "The image treats celebration as a form of human softness rather than spectacle."
     ],
     "density": "balanced",
     "intensity": {
-      "calm": 0.76
+      "joy": 0.79
     },
     "pov": "frontal",
     "manipulation": "straight",
@@ -28154,9 +29112,9 @@
     "projectSlug": "016 - star dust",
     "src": "26.jpg",
     "primary": [
-      "mask",
-      "object-body",
-      "uncanny display"
+      "masked passerby and leaves",
+      "urban camouflage",
+      "partial concealment"
     ],
     "secondary": [
       "masked",
@@ -28170,8 +29128,9 @@
     ],
     "noise": [],
     "objects": [
-      "mask",
-      "leaf"
+      "masked man",
+      "tote bag",
+      "leaves"
     ],
     "environment": [
       "cosmos",
@@ -28182,8 +29141,8 @@
     ],
     "style": [
       "observational street photography",
-      "social lyricism",
-      "surrogate"
+      "humanist lyricism",
+      "ordinary grace"
     ],
     "composition": [
       "observed scene"
@@ -28193,8 +29152,9 @@
       "green"
     ],
     "mood": [
-      "uncanny",
-      "irony"
+      "distance",
+      "concealment",
+      "alertness"
     ],
     "themes": [
       "fragility",
@@ -28202,29 +29162,29 @@
     ],
     "symbols": [
       "mask",
-      "surrogate body",
-      "artifice"
+      "green leaves",
+      "tote bag"
     ],
     "texture": [],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "uncanny",
-      "irony"
+      "distance",
+      "concealment"
     ],
     "relations": [
-      "The human-like object makes mask hover between presence and artifice."
+      "The leaves and mask both conceal in different ways, making the figure partly merge with the edge of the street."
     ],
     "tension": [
-      "object versus life"
+      "visibility versus camouflage"
     ],
     "reading": [
-      "The image lets mask hover between objecthood and a strangely human kind of presence."
+      "Public anonymity borrows cover here from both fabric and foliage."
     ],
     "density": "balanced",
     "intensity": {
-      "uncanny": 0.76
+      "distance": 0.77
     },
     "pov": "frontal",
     "manipulation": "straight",
