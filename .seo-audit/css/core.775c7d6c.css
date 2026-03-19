@@ -1,0 +1,27 @@
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --muted: rgba(255, 255, 255, 0.7);
+  --overlay: rgba(0, 0, 0, 0.45);
+  --sidebar-width: 320px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+body {
+  overflow: hidden;
+}
+.page-shell,
+.page-landing {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}

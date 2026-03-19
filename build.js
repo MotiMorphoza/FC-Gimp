@@ -237,10 +237,11 @@ class SuperBuild {
           manifestData,
           version: BUILD_VERSION,
           assets,
-          htmlFile
+          htmlFile,
+          tempDir
         });
 
-        html = orchestrator.buildHead(html);
+        html = await orchestrator.buildHead(html);
         fs.writeFileSync(filePath, html, 'utf8');
       }
 

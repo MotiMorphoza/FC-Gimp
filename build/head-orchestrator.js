@@ -1,19 +1,34 @@
 // build/head-orchestrator.js
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
+
 const { SITE_ORIGIN } = require('./site-config');
 
+const IMAGE_DIMENSION_CACHE = new Map();
+
+function escapeAttribute(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 class HeadOrchestrator {
-  constructor({ logger, renameMap, manifestData, version, assets, htmlFile }) {
+  constructor({ logger, renameMap, manifestData, version, assets, htmlFile, tempDir }) {
     this.logger       = logger;
     this.renameMap    = renameMap;
     this.manifestData = manifestData;
     this.version      = version;
     this.assets       = assets || {};
     this.htmlFile     = htmlFile;
+    this.tempDir      = tempDir || '';
   }
 
-  buildHead(html) {
+  async buildHead(html) {
     const headMatch = html.match(/(<head[^>]*>)([\s\S]*?)(<\/head>)/i);
     if (!headMatch) throw new Error(`No <head> tag found in ${this.htmlFile}`);
 
@@ -26,39 +41,40 @@ class HeadOrchestrator {
     tags.push('<meta name="theme-color" content="#000000">');
 
     const titleMatch = innerContent.match(/<title>[\s\S]*?<\/title>/i);
-    const titleTag   = titleMatch ? titleMatch[0] : '<title>MotoSynteza</title>';
-    tags.push(titleTag);
-
-    const cleanTitle = titleTag.replace(/<\/?title>/gi, '').trim();
+    const cleanTitle = titleMatch
+      ? titleMatch[0].replace(/<\/?title>/gi, '').trim()
+      : 'MotoSynteza';
     const projectMeta = this.getProjectMeta();
     const effectiveTitle = projectMeta?.title
-      ? `${projectMeta.title} - MotoSynteza`
+      ? `${projectMeta.title} – ${projectMeta?.seo?.titleDescriptor || 'Conceptual Street Photography Series'}`
       : cleanTitle;
+    tags.push(`<title>${escapeAttribute(effectiveTitle)}</title>`);
 
     const description =
+      (projectMeta?.seo?.metaDescription && String(projectMeta.seo.metaDescription).trim()) ||
       (projectMeta?.description && String(projectMeta.description).trim()) ||
       this.extractMeta(innerContent, 'description') ||
       'MotoSynteza - conceptual photography and visual storytelling.';
-    tags.push(`<meta name="description" content="${description}">`);
+    tags.push(`<meta name="description" content="${escapeAttribute(description)}">`);
 
     const canonical = this.buildCanonical();
-    if (canonical) tags.push(`<link rel="canonical" href="${canonical}">`);
+    if (canonical) tags.push(`<link rel="canonical" href="${escapeAttribute(canonical)}">`);
 
     const robots = this.getRobotsMeta();
-    if (robots) tags.push(`<meta name="robots" content="${robots}">`);
+    if (robots) tags.push(`<meta name="robots" content="${escapeAttribute(robots)}">`);
 
-    tags.push(`<meta property="og:title" content="${effectiveTitle}">`);
-    tags.push(`<meta property="og:description" content="${description}">`);
+    tags.push(`<meta property="og:title" content="${escapeAttribute(effectiveTitle)}">`);
+    tags.push(`<meta property="og:description" content="${escapeAttribute(description)}">`);
     tags.push('<meta property="og:type" content="website">');
-    if (canonical) tags.push(`<meta property="og:url" content="${canonical}">`);
+    if (canonical) tags.push(`<meta property="og:url" content="${escapeAttribute(canonical)}">`);
 
     const ogImage = this.getOgImage(projectMeta);
-    if (ogImage) tags.push(`<meta property="og:image" content="${ogImage}">`);
+    if (ogImage) tags.push(`<meta property="og:image" content="${escapeAttribute(ogImage)}">`);
 
     tags.push('<meta name="twitter:card" content="summary_large_image">');
-    tags.push(`<meta name="twitter:title" content="${effectiveTitle}">`);
-    tags.push(`<meta name="twitter:description" content="${description}">`);
-    if (ogImage) tags.push(`<meta name="twitter:image" content="${ogImage}">`);
+    tags.push(`<meta name="twitter:title" content="${escapeAttribute(effectiveTitle)}">`);
+    tags.push(`<meta name="twitter:description" content="${escapeAttribute(description)}">`);
+    if (ogImage) tags.push(`<meta name="twitter:image" content="${escapeAttribute(ogImage)}">`);
 
     const mainCssPaths = this.getMainCssPaths();
     if (mainCssPaths.length) {
@@ -98,7 +114,7 @@ class HeadOrchestrator {
     const heroPreload = this.getHeroPreload();
     if (heroPreload) tags.push(heroPreload);
 
-    const jsonLd = this.getJsonLd(projectMeta);
+    const jsonLd = await this.getJsonLd(projectMeta);
     if (jsonLd) {
       tags.push(`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`);
     }
@@ -278,10 +294,10 @@ class HeadOrchestrator {
     return null;
   }
 
-  getJsonLd(projectMeta) {
+  async getJsonLd(projectMeta) {
     if (this.isProject() && projectMeta?.slug) {
       const canonical = this.buildCanonical();
-      const imageObjects = this.buildProjectImageObjects(projectMeta);
+      const imageObjects = await this.buildProjectImageObjects(projectMeta);
       const about = Array.isArray(projectMeta?.seo?.about)
         ? projectMeta.seo.about
             .map((item) => String(item || '').trim())
@@ -301,7 +317,7 @@ class HeadOrchestrator {
         '@context': 'https://schema.org',
         '@type': 'ImageGallery',
         name: projectMeta.title || 'MotoSynteza Project',
-        description: projectMeta.description || 'MotoSynteza photography project',
+        description: projectMeta?.seo?.metaDescription || projectMeta.description || 'MotoSynteza photography project',
         url: canonical || undefined,
         about: about.length ? about : undefined,
         keywords: keywords || undefined,
@@ -322,13 +338,13 @@ class HeadOrchestrator {
     };
   }
 
-  buildProjectImageObjects(projectMeta) {
+  async buildProjectImageObjects(projectMeta) {
     if (!projectMeta?.slug || !Array.isArray(projectMeta.images)) {
       return [];
     }
 
-    return projectMeta.images
-      .map((image, index) => {
+    const imageObjects = await Promise.all(
+      projectMeta.images.map(async (image, index) => {
         const src = typeof image === 'string' ? image : image?.src;
         if (!src) return null;
 
@@ -348,18 +364,49 @@ class HeadOrchestrator {
               .slice(0, 5)
               .join(', ')
           : '';
+        const dimensions = await this.getProjectImageDimensions(resolved);
+        const absoluteUrl = this.buildAbsoluteUrl(resolved);
 
         return {
           '@type': 'ImageObject',
           name,
-          contentUrl: this.buildAbsoluteUrl(resolved),
+          contentUrl: absoluteUrl,
+          thumbnailUrl: absoluteUrl,
           caption: caption || undefined,
           description,
           keywords: keywords || undefined,
+          width: dimensions?.width || undefined,
+          height: dimensions?.height || undefined,
           representativeOfPage: seo?.representativeOfPage ? true : undefined
         };
       })
-      .filter(Boolean);
+    );
+
+    return imageObjects.filter(Boolean);
+  }
+
+  async getProjectImageDimensions(relativePath = '') {
+    if (!this.tempDir || !relativePath) return null;
+
+    const normalized = String(relativePath).replace(/^\/+/, '');
+    const imagePath = path.join(this.tempDir, normalized);
+    if (!fs.existsSync(imagePath)) return null;
+
+    if (IMAGE_DIMENSION_CACHE.has(imagePath)) {
+      return IMAGE_DIMENSION_CACHE.get(imagePath);
+    }
+
+    try {
+      const metadata = await sharp(imagePath).metadata();
+      const dimensions = metadata?.width && metadata?.height
+        ? { width: metadata.width, height: metadata.height }
+        : null;
+      IMAGE_DIMENSION_CACHE.set(imagePath, dimensions);
+      return dimensions;
+    } catch (_error) {
+      IMAGE_DIMENSION_CACHE.set(imagePath, null);
+      return null;
+    }
   }
 
   buildAbsoluteUrl(relativePath = '') {

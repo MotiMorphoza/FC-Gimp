@@ -54,14 +54,6 @@ const VISUAL_PRIMARY_HINTS = [
   'window'
 ];
 
-const NOTE_BLOCKLIST = [
-  /\bstarts reading as\b/i,
-  /\bbegins to read as\b/i,
-  /\bthe ordinary presence of\b/i,
-  /\bsmall emblem of\b/i,
-  /\breading as\b/i
-];
-
 const MOTIF_LABELS = new Map([
   ['bird', 'Birds'],
   ['bike', 'Bicycles'],
@@ -124,6 +116,82 @@ const CONCEPT_REWRITES = new Map([
   ['urban absurdity', 'finding absurdity inside ordinary public space'],
   ['urban nature', 'letting nature press back into the city'],
   ['vulnerability', 'keeping fragility close to the frame']
+]);
+
+const CONCEPT_LABELS = new Map([
+  ['alienation', 'urban detachment'],
+  ['authority', 'public power'],
+  ['beauty', 'everyday beauty'],
+  ['connection', 'human connection'],
+  ['daily life', 'daily life'],
+  ['everyday symbolism', 'everyday symbolism'],
+  ['freedom', 'small freedoms'],
+  ['humor', 'urban humor'],
+  ['identity', 'shifting identity'],
+  ['loneliness', 'urban loneliness'],
+  ['modern life', 'modern life'],
+  ['movement', 'restless motion'],
+  ['nature', 'nature in the city'],
+  ['observation', 'watchful observation'],
+  ['ordinary life', 'ordinary public life'],
+  ['pattern', 'visual repetition'],
+  ['poetic', 'poetic drift'],
+  ['politics', 'civic tension'],
+  ['public space', 'public space'],
+  ['rain', 'weather-soaked streets'],
+  ['reflection', 'reflections'],
+  ['reflections', 'reflections'],
+  ['society', 'social order'],
+  ['solitude', 'public solitude'],
+  ['surreal', 'surreal street moments'],
+  ['surveillance', 'watchfulness'],
+  ['technology', 'daily technology'],
+  ['time', 'passing time'],
+  ['urban absurdity', 'urban absurdity'],
+  ['urban nature', 'urban nature'],
+  ['vulnerability', 'small fragility']
+]);
+
+const TONE_LABELS = new Map([
+  ['alienation', 'detached'],
+  ['authority', 'tense'],
+  ['beauty', 'lyrical'],
+  ['connection', 'tender'],
+  ['humor', 'wry'],
+  ['loneliness', 'quiet'],
+  ['movement', 'restless'],
+  ['nature', 'calm'],
+  ['observation', 'watchful'],
+  ['poetic', 'poetic'],
+  ['politics', 'charged'],
+  ['public space', 'watchful'],
+  ['rain', 'muted'],
+  ['reflection', 'reflective'],
+  ['reflections', 'reflective'],
+  ['solitude', 'quiet'],
+  ['surreal', 'offbeat'],
+  ['surveillance', 'uneasy'],
+  ['time', 'contemplative'],
+  ['urban absurdity', 'offbeat'],
+  ['vulnerability', 'fragile']
+]);
+
+const SETTING_LABELS = new Map([
+  ['alley', 'in city alleys'],
+  ['bridge', 'around city bridges'],
+  ['cemetery', 'in a cemetery setting'],
+  ['crosswalk', 'at city crossings'],
+  ['facade', 'against city facades'],
+  ['park', 'in public parks'],
+  ['public square', 'in public squares'],
+  ['river', 'along the river'],
+  ['shop window', 'in shopfront scenes'],
+  ['snow', 'in winter streets'],
+  ['station', 'around transit platforms'],
+  ['street', 'in city streets'],
+  ['tram', 'around tram lines'],
+  ['wall', 'against urban walls'],
+  ['window', 'around windows and facades']
 ]);
 
 function uniqueStrings(items = []) {
@@ -216,6 +284,17 @@ function humanizeMotif(term) {
   return MOTIF_LABELS.get(normalized) || capitalize(term);
 }
 
+function isWeakMotifTerm(term) {
+  const normalized = normalizeTerm(term);
+  return !normalized || GENERIC_VISUAL_TERMS.has(normalized) || CONCEPT_LABELS.has(normalized);
+}
+
+function getTopMotifTerm(aggregates = {}) {
+  return sortedEntries(aggregates.motifs || termCountMap())
+    .map(([term]) => term)
+    .find((term) => !isWeakMotifTerm(term)) || '';
+}
+
 function rewriteConcept(value) {
   const raw = String(value || '').trim();
   const normalized = normalizeTerm(raw);
@@ -241,22 +320,179 @@ function rewriteConcept(value) {
   return '';
 }
 
-function cleanEditorialSentence(value) {
-  const normalized = String(value || '')
-    .replace(/\s+/g, ' ')
-    .replace(/\s+([,.;!?])/g, '$1')
-    .trim();
+function countWords(value) {
+  return String(value || '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .length;
+}
 
+function hasAnyTerm(meta = {}, terms = []) {
+  const haystack = uniqueStrings([
+    ...(meta.primary || []),
+    ...(meta.objects || []),
+    ...(meta.environment || []),
+    ...(meta.mood || []),
+    ...(meta.themes || []),
+    ...(meta.tension || [])
+  ]).map((item) => normalizeTerm(item));
+
+  return terms.some((term) => haystack.includes(normalizeTerm(term)));
+}
+
+function getConceptLabel(value) {
+  const normalized = normalizeTerm(value);
   if (!normalized) return '';
-  if (NOTE_BLOCKLIST.some((pattern) => pattern.test(normalized))) return '';
+  if (CONCEPT_LABELS.has(normalized)) return CONCEPT_LABELS.get(normalized);
+  if (normalized.includes('loneliness') || normalized.includes('solitude')) return 'urban loneliness';
+  if (normalized.includes('reflection')) return 'reflections';
+  if (normalized.includes('surveillance')) return 'watchfulness';
+  if (normalized.includes('nature')) return 'urban nature';
+  if (normalized.includes('movement')) return 'restless motion';
+  if (normalized.includes('absurd')) return 'urban absurdity';
+  return normalized;
+}
 
-  const clipped = normalized.length > 220 ? `${normalized.slice(0, 217).trimEnd()}...` : normalized;
-  return ensureSentence(clipped);
+function getToneLabel(value) {
+  const normalized = normalizeTerm(value);
+  if (!normalized) return '';
+  if (TONE_LABELS.has(normalized)) return TONE_LABELS.get(normalized);
+  if (normalized.includes('loneliness') || normalized.includes('solitude')) return 'quiet';
+  if (normalized.includes('surveillance')) return 'uneasy';
+  if (normalized.includes('reflection')) return 'reflective';
+  if (normalized.includes('humor') || normalized.includes('absurd')) return 'offbeat';
+  return '';
+}
+
+function getSettingLabel(aggregates = {}) {
+  const topSetting = sortedEntries(aggregates.environmentTerms || termCountMap())
+    .map(([term]) => term)
+    .find((term) => SETTING_LABELS.has(term));
+
+  return topSetting ? SETTING_LABELS.get(topSetting) : '';
+}
+
+function buildIntentQualifier(meta = {}) {
+  const urbanish = hasAnyTerm(meta, [
+    'city', 'street', 'urban', 'building', 'window', 'public space', 'public square', 'tram'
+  ]);
+
+  if (hasAnyTerm(meta, ['loneliness', 'solitude', 'alienation'])) {
+    return urbanish ? 'urban loneliness scene' : 'quiet solitude scene';
+  }
+
+  if (hasAnyTerm(meta, ['observation', 'surveillance'])) {
+    return urbanish ? 'street observation scene' : 'watchful scene';
+  }
+
+  if (hasAnyTerm(meta, ['reflection', 'reflections'])) {
+    return urbanish ? 'reflective city scene' : 'reflective scene';
+  }
+
+  if (hasAnyTerm(meta, ['authority', 'politics', 'public space', 'society'])) {
+    return 'public tension scene';
+  }
+
+  if (hasAnyTerm(meta, ['surreal', 'urban absurdity', 'everyday symbolism'])) {
+    return urbanish ? 'surreal street scene' : 'offbeat scene';
+  }
+
+  if (hasAnyTerm(meta, ['nature', 'urban nature', 'freedom'])) {
+    return urbanish ? 'urban nature scene' : 'quiet nature scene';
+  }
+
+  if (hasAnyTerm(meta, ['movement', 'time'])) {
+    return urbanish ? 'fleeting city scene' : 'moment-in-passing scene';
+  }
+
+  if (hasAnyTerm(meta, ['rain'])) {
+    return 'rainy street scene';
+  }
+
+  return '';
+}
+
+function appendIntentQualifier(baseSentence, qualifier) {
+  const base = String(baseSentence || '').trim().replace(/[.!?]+$/g, '');
+  const suffix = String(qualifier || '').trim();
+  if (!base || !suffix) return ensureSentence(baseSentence);
+
+  const combined = `${base}, ${suffix}`;
+  if (countWords(combined) > 18) {
+    return ensureSentence(base);
+  }
+
+  return ensureSentence(combined);
+}
+
+function buildRelatedAnchorText(title = '', sharedMotif = '', sharedConcept = '') {
+  const conceptLabel = getConceptLabel(sharedConcept);
+  if (conceptLabel) {
+    return `${toTitleCase(conceptLabel)} series – ${title}`;
+  }
+
+  if (sharedMotif) {
+    return `${humanizeMotif(sharedMotif)} series – ${title}`;
+  }
+
+  return `Related gallery – ${title}`;
+}
+
+function buildGalleryTitleDescriptor(aggregates = {}) {
+  const motif = getTopMotifTerm(aggregates);
+  const concept = sortedEntries(aggregates.concepts || termCountMap())
+    .map(([term]) => term)
+    .find(Boolean) || '';
+
+  if (motif && concept) {
+    return `${humanizeMotif(motif)} and ${toTitleCase(getConceptLabel(concept))}`;
+  }
+
+  if (motif) {
+    return `${humanizeMotif(motif)} Conceptual Street Photography`;
+  }
+
+  if (concept) {
+    return `${toTitleCase(getConceptLabel(concept))} Conceptual Street Photography`;
+  }
+
+  return 'Conceptual Street Photography Series';
+}
+
+function buildGalleryMetaDescription(project, aggregates = {}) {
+  const base = ensureSentence(project.description || '');
+  const motif = getTopMotifTerm(aggregates);
+  const concept = sortedEntries(aggregates.concepts || termCountMap())
+    .map(([term]) => term)
+    .find(Boolean) || '';
+  const mood = sortedEntries(aggregates.moodTerms || termCountMap())
+    .map(([term]) => getToneLabel(term))
+    .find(Boolean) || getToneLabel(concept);
+  const setting = getSettingLabel(aggregates);
+
+  const details = [];
+  if (motif) details.push(humanizeMotif(motif).toLowerCase());
+  if (concept) details.push(getConceptLabel(concept));
+
+  if (!details.length && !setting && !mood) {
+    return base || 'MotoSynteza conceptual street photography gallery.';
+  }
+
+  let sentence = 'A conceptual street photography series';
+  if (details.length === 1) sentence += ` shaped by ${details[0]}`;
+  if (details.length >= 2) sentence += ` shaped by ${details[0]} and ${details[1]}`;
+  if (setting) sentence += ` ${setting}`;
+  if (mood) sentence += ` with a ${mood} tone`;
+
+  return [base, ensureSentence(sentence)].filter(Boolean).join(' ');
 }
 
 function collectProjectAggregates(entries = []) {
   const motifs = termCountMap();
   const concepts = termCountMap();
+  const environmentTerms = termCountMap();
+  const moodTerms = termCountMap();
   const themeTerms = termCountMap();
   const symbolTerms = termCountMap();
 
@@ -265,85 +501,54 @@ function collectProjectAggregates(entries = []) {
     (entry.objects || []).forEach((term) => addCount(motifs, term, 4));
     (entry.environment || [])
       .filter((term) => !GENERIC_VISUAL_TERMS.has(normalizeTerm(term)))
-      .forEach((term) => addCount(motifs, term, 1));
+      .forEach((term) => {
+        addCount(motifs, term, 1);
+        addCount(environmentTerms, term, 1);
+      });
 
     (entry.tension || []).forEach((term) => addCount(concepts, term, 4));
     (entry.themes || []).forEach((term) => addCount(concepts, term, 2));
-    (entry.mood || []).forEach((term) => addCount(concepts, term, 1));
+    (entry.mood || []).forEach((term) => {
+      addCount(concepts, term, 1);
+      addCount(moodTerms, term, 1);
+    });
 
     (entry.themes || []).forEach((term) => addCount(themeTerms, term, 1));
     (entry.symbols || []).forEach((term) => addCount(symbolTerms, term, 1));
   });
 
-  return { motifs, concepts, themeTerms, symbolTerms };
+  return { motifs, concepts, environmentTerms, moodTerms, themeTerms, symbolTerms };
 }
 
 function buildProjectLead(project, aggregates) {
-  const motif = sortedEntries(aggregates.motifs).find(([term]) => !GENERIC_VISUAL_TERMS.has(term))?.[0] || '';
-  const concept = sortedEntries(aggregates.concepts)
-    .map(([term]) => rewriteConcept(term))
-    .find(Boolean) || '';
+  const motif = getTopMotifTerm(aggregates);
+  const conceptTerm = sortedEntries(aggregates.concepts).map(([term]) => term).find(Boolean) || '';
+  const concept = rewriteConcept(conceptTerm);
+  const conceptLabel = getConceptLabel(conceptTerm);
+  const slugSeed = String(project.slug || project.title || '').length % 3;
+  const motifLabel = motif ? humanizeMotif(motif) : '';
 
   if (motif && concept) {
-    return ensureSentence(`${humanizeMotif(motif)} keep returning here, ${concept}`);
+    if (slugSeed === 0) return ensureSentence(`${motifLabel} return throughout the gallery, ${concept}`);
+    if (slugSeed === 1) return ensureSentence(`${motifLabel} thread through these images, ${concept}`);
+    return ensureSentence(`${motifLabel} give the sequence its pulse, ${concept}`);
   }
 
   if (motif) {
-    return ensureSentence(`${humanizeMotif(motif)} keep returning here, giving the gallery its visual rhythm`);
+    if (slugSeed === 0) return ensureSentence(`${motifLabel} return as a quiet visual thread through the gallery`);
+    if (slugSeed === 1) return ensureSentence(`${motifLabel} keep the gallery grounded in a steady visual rhythm`);
+    return ensureSentence(`${motifLabel} give the gallery a recurring visual anchor`);
   }
 
-  if (concept) {
-    return ensureSentence(`The gallery moves through the image world ${concept.replace(/^holding\s+/i, 'while holding ')}`);
+  if (conceptLabel) {
+    if (slugSeed === 0) return ensureSentence(`The gallery moves gently through scenes of ${conceptLabel}`);
+    if (slugSeed === 1) return ensureSentence(`The sequence stays close to moments of ${conceptLabel}`);
+    return ensureSentence(`The gallery keeps its attention on small signs of ${conceptLabel}`);
   }
 
   if (project.description) {
-    return ensureSentence('The gallery stays close to small details and the tensions they quietly release');
+    return ensureSentence('The gallery stays close to small details and the pressure they quietly hold');
   }
-
-  return '';
-}
-
-function imageScore(meta = {}) {
-  const score = meta.score && typeof meta.score === 'object' ? meta.score : {};
-  const impact = Number(score.impact) || 0;
-  const originality = Number(score.originality) || 0;
-  const emotion = Number(score.emotion) || 0;
-  return impact * 2 + originality + emotion;
-}
-
-function selectSemanticNoteSources(entries = []) {
-  const scored = entries
-    .map((entry, index) => {
-      const base = imageScore(entry);
-      const relationBonus = (entry.relations || []).length ? 2 : 0;
-      const symbolBonus = (entry.symbols || []).length ? 1 : 0;
-      const readingBonus = (entry.reading || []).length ? 1 : 0;
-      return {
-        src: entry.src,
-        index,
-        score: base + relationBonus + symbolBonus + readingBonus
-      };
-    })
-    .sort((left, right) => right.score - left.score || left.index - right.index);
-
-  const selected = new Set();
-  const cover = entries[0];
-  if (cover) selected.add(cover.src);
-
-  scored.forEach((item) => {
-    if (selected.size >= 5) return;
-    selected.add(item.src);
-  });
-
-  return selected;
-}
-
-function deriveSemanticNote(meta = {}) {
-  const reading = cleanEditorialSentence((meta.reading || [])[0] || '');
-  if (reading) return reading;
-
-  const relation = cleanEditorialSentence((meta.relations || [])[0] || '');
-  if (relation) return relation;
 
   return '';
 }
@@ -382,6 +587,7 @@ function buildAltFallback(projectTitle, meta = {}, index = 0) {
   const environment = uniqueStrings(meta.environment || []).filter((term) => !GENERIC_VISUAL_TERMS.has(normalizeTerm(term)));
   const colors = uniqueStrings(meta.colors || []);
   const lighting = uniqueStrings(meta.lighting || []);
+  const qualifier = buildIntentQualifier(meta);
 
   const subject = primary || (objects.length >= 2 ? `${objects[0]} and ${objects[1]}` : objects[0]) || '';
   const env = environment[0] || '';
@@ -389,23 +595,23 @@ function buildAltFallback(projectTitle, meta = {}, index = 0) {
   const light = lighting[0] || '';
 
   if (subject && env && light) {
-    return ensureSentence(`${capitalize(subject)} in ${env} under ${light}`);
+    return appendIntentQualifier(`${capitalize(subject)} in ${env} under ${light}`, qualifier);
   }
 
   if (subject && env && color) {
-    return ensureSentence(`${capitalize(subject)} in ${color} tones against ${env}`);
+    return appendIntentQualifier(`${capitalize(subject)} in ${color} tones against ${env}`, qualifier);
   }
 
   if (subject && env) {
-    return ensureSentence(`${capitalize(subject)} in ${env}`);
+    return appendIntentQualifier(`${capitalize(subject)} in ${env}`, qualifier);
   }
 
   if (subject && light) {
-    return ensureSentence(`${capitalize(subject)} in ${light}`);
+    return appendIntentQualifier(`${capitalize(subject)} in ${light}`, qualifier);
   }
 
   if (subject) {
-    return ensureSentence(`${capitalize(subject)} photographed in the gallery`);
+    return appendIntentQualifier(`${capitalize(subject)} photographed in the gallery`, qualifier);
   }
 
   return `${projectTitle} image ${index + 1}`;
@@ -445,16 +651,18 @@ function buildGalleryAbout(aggregates) {
 }
 
 function buildRelatedContext(sharedMotif = '', sharedConcept = '') {
-  if (sharedMotif && sharedConcept) {
-    return ensureSentence(`Continues the thread of ${sharedMotif} and ${sharedConcept}`);
+  const conceptLabel = getConceptLabel(sharedConcept);
+
+  if (sharedMotif && conceptLabel) {
+    return ensureSentence(`Another gallery where ${sharedMotif} carry a similar ${conceptLabel} charge`);
   }
 
   if (sharedMotif) {
     return ensureSentence(`Another gallery shaped by ${sharedMotif}`);
   }
 
-  if (sharedConcept) {
-    return ensureSentence(`Another gallery drawn toward ${sharedConcept}`);
+  if (conceptLabel) {
+    return ensureSentence(`Another gallery drawn toward ${conceptLabel}`);
   }
 
   return ensureSentence('A nearby gallery with a related visual tension');
@@ -464,12 +672,12 @@ function buildSharedMotif(sourceAggregates, targetAggregates) {
   const sourceTerms = new Set(
     sortedEntries(sourceAggregates.motifs)
       .map(([term]) => term)
-      .filter((term) => !GENERIC_VISUAL_TERMS.has(term))
+      .filter((term) => !isWeakMotifTerm(term))
   );
 
   const targetTerm = sortedEntries(targetAggregates.motifs)
     .map(([term]) => term)
-    .find((term) => sourceTerms.has(term));
+    .find((term) => !isWeakMotifTerm(term) && sourceTerms.has(term));
 
   return targetTerm ? humanizeMotif(targetTerm).toLowerCase() : '';
 }
@@ -519,15 +727,12 @@ function buildProjectSeoMap(projects = [], dataset = []) {
   projects.forEach((project) => {
     const entries = entriesByProject.get(project.slug) || [];
     const aggregates = aggregatesByProject.get(project.slug) || collectProjectAggregates([]);
-    const selectedNoteSources = selectSemanticNoteSources(entries);
     const imageSeoByStem = new Map();
 
     entries.forEach((entry, index) => {
       const finalAlt = String(entry.alt || '').trim() || buildAltFallback(project.title, entry, index);
-      const note = selectedNoteSources.has(entry.src) ? deriveSemanticNote(entry) : '';
       imageSeoByStem.set(normalizeStem(entry.src), {
         finalAlt,
-        note,
         name: buildImageName(entry, finalAlt, index),
         keywords: buildImageKeywords(entry),
         representativeOfPage: index === 0
@@ -561,6 +766,7 @@ function buildProjectSeoMap(projects = [], dataset = []) {
           slug: targetSlug,
           title: targetProject.title,
           href: buildCanonicalGalleryUrl(targetSlug),
+          anchorText: buildRelatedAnchorText(targetProject.title, sharedMotif, sharedConcept),
           context: buildRelatedContext(sharedMotif, sharedConcept),
           weight
         };
@@ -570,6 +776,8 @@ function buildProjectSeoMap(projects = [], dataset = []) {
 
     seoMap.set(project.slug, {
       lead: buildProjectLead(project, aggregates),
+      titleDescriptor: buildGalleryTitleDescriptor(aggregates),
+      metaDescription: buildGalleryMetaDescription(project, aggregates),
       keywords: buildGalleryKeywords(aggregates),
       about: buildGalleryAbout(aggregates),
       relatedLinks,
@@ -587,6 +795,8 @@ function applyProjectSeoData(projects = [], seoMap = new Map()) {
 
     project.seo = {
       lead: seo.lead,
+      titleDescriptor: seo.titleDescriptor,
+      metaDescription: seo.metaDescription,
       keywords: [...seo.keywords],
       about: [...seo.about],
       relatedLinks: seo.relatedLinks.map((link) => ({ ...link }))
@@ -602,14 +812,12 @@ function applyProjectSeoData(projects = [], seoMap = new Map()) {
         seo: imageSeo
           ? {
               name: imageSeo.name,
-              note: imageSeo.note,
               keywords: [...imageSeo.keywords],
               representativeOfPage: Boolean(imageSeo.representativeOfPage),
-              description: imageSeo.note || finalAlt
+              description: finalAlt
             }
           : {
               name: buildImageName({}, finalAlt, index),
-              note: '',
               keywords: [],
               representativeOfPage: index === 0,
               description: finalAlt
@@ -629,8 +837,7 @@ function buildImageCode(project, total, index) {
 
 function renderCaptionHtml(image) {
   const humanCaption = String(image.caption || '').trim();
-  const note = String(image?.seo?.note || '').trim();
-  const text = humanCaption || note;
+  const text = humanCaption;
 
   if (!text) {
     return '<figcaption class="project-caption"></figcaption>';
@@ -656,7 +863,7 @@ function renderRelatedLinksHtml(project) {
   const items = relatedLinks
     .map((link) => `
       <a class="project-related-link" href="${escapeAttribute(link.href)}">
-        <span class="project-related-title">${escapeHtml(link.title)}</span>
+        <span class="project-related-title">${escapeHtml(link.anchorText || link.title)}</span>
         <span class="project-related-copy">${escapeHtml(link.context)}</span>
       </a>
     `.trim())

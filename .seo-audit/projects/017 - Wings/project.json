@@ -1,0 +1,114 @@
+{
+  "title": "Wings",
+  "codePrefix": "WNG",
+  "description": "One of humanity’s most greatest desires \n has always been the urge to fly. \n All it takes is a pair of wings, right? \n (And an enormous engine, in our case..) \n\n Birds: \n — dwellers of treetops \n — inhabitants of lakes \n — tireless recyclers of the city’s leftovers. \n Fasten your seatbelts; \n the captain wishes you a pleasant flight.",
+  "tags": [
+    "birds",
+    "animals",
+    "flight",
+    "urban nature",
+    "freedom"
+  ],
+  "images": [
+    {
+      "src": "01.webp",
+      "caption": "",
+      "alt": "Five white birds flying above bare branches in black and white"
+    },
+    {
+      "src": "01A.webp",
+      "caption": "",
+      "alt": "Two hooded crows perched on a metal railing"
+    },
+    {
+      "src": "01B.webp",
+      "caption": "",
+      "alt": "Close-up of a crested duck in profile against a dark background"
+    },
+    {
+      "src": "01C.webp",
+      "caption": "",
+      "alt": "Pigeons flying past a round street sign"
+    },
+    {
+      "src": "01D.webp",
+      "caption": "",
+      "alt": "Hooded crow hovering above a street sign against blue sky"
+    },
+    {
+      "src": "02.webp",
+      "caption": "",
+      "alt": "White pigeon flapping above other pigeons in melting snow"
+    },
+    {
+      "src": "03.webp",
+      "caption": "",
+      "alt": "Mallard duck rising from green water with wings spread"
+    },
+    {
+      "src": "05.webp",
+      "caption": "",
+      "alt": "Mandarin duck perched on a rock"
+    },
+    {
+      "src": "06.webp",
+      "caption": "",
+      "alt": "Single pigeon walking across packed snow"
+    },
+    {
+      "src": "06A.webp",
+      "caption": "",
+      "alt": "Male and female mallards standing on frozen ice"
+    },
+    {
+      "src": "06B.webp",
+      "caption": "",
+      "alt": "Starling perched on a wire fence post"
+    },
+    {
+      "src": "06C.webp",
+      "caption": "",
+      "alt": "Sparrow perched on a pale railing"
+    },
+    {
+      "src": "06D.webp",
+      "caption": "",
+      "alt": "Row of gulls perched along a rooftop edge in black and white"
+    },
+    {
+      "src": "07.webp",
+      "caption": "",
+      "alt": "White gulls scattered across a blue sky near bare branches"
+    },
+    {
+      "src": "15.webp",
+      "caption": "",
+      "alt": "Stork gliding overhead against a clear sky"
+    },
+    {
+      "src": "16.webp",
+      "caption": "",
+      "alt": "White bird with black-tipped wings gliding against a blue sky"
+    },
+    {
+      "src": "16A.webp",
+      "caption": "",
+      "alt": "Gray heron gliding with wings spread against a blue sky"
+    },
+    {
+      "src": "16B.webp",
+      "caption": "",
+      "alt": "Person feeding pigeons in the snow"
+    },
+    {
+      "src": "17.webp",
+      "caption": "",
+      "alt": "Blur of pigeons bursting into flight on a city street"
+    },
+    {
+      "src": "44.webp",
+      "caption": "",
+      "alt": "Dark bird silhouettes flying across a dusky sky"
+    }
+  ]
+}

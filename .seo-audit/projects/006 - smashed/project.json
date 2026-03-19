@@ -1,0 +1,109 @@
+{
+  "title": "Smashed",
+  "codePrefix": "SMA",
+  "description": "Experiments with photographic techniques – long exposure and subject tracking.",
+  "tags": [
+    "experimental",
+    "long exposure",
+    "motion",
+    "abstraction",
+    "tracking"
+  ],
+  "images": [
+    {
+      "src": "01.webp",
+      "caption": "",
+      "alt": "Two young adults riding a single bicycle together in motion blur"
+    },
+    {
+      "src": "02.webp",
+      "caption": "",
+      "alt": "Two young women sharing a city bicycle in motion blur"
+    },
+    {
+      "src": "03.webp",
+      "caption": "",
+      "alt": "Woman in a red striped top and yellow headscarf riding through an intersection in motion blur"
+    },
+    {
+      "src": "04.webp",
+      "caption": "",
+      "alt": "Cyclist in a neon jacket glancing down at an arm while riding through a blurred green background"
+    },
+    {
+      "src": "05.webp",
+      "caption": "",
+      "alt": "Woman in a white cap and sunglasses pedaling a red bicycle in soft motion blur"
+    },
+    {
+      "src": "06.webp",
+      "caption": "",
+      "alt": "Older man riding a bicycle with a rear basket in heavy motion blur"
+    },
+    {
+      "src": "07.webp",
+      "caption": "",
+      "alt": "Cyclist in a helmet riding past a blurred white van in black and white"
+    },
+    {
+      "src": "08.webp",
+      "caption": "",
+      "alt": "Two women stopped on bicycles with a yellow tram behind them"
+    },
+    {
+      "src": "09.webp",
+      "caption": "",
+      "alt": "Yellow tram streaking across the frame in motion blur"
+    },
+    {
+      "src": "10.webp",
+      "caption": "",
+      "alt": "Blurred pedestrian crossing in front of cars and a dark van"
+    },
+    {
+      "src": "11.webp",
+      "caption": "",
+      "alt": "Yellow-coated figure blurred between black bollards"
+    },
+    {
+      "src": "12.webp",
+      "caption": "",
+      "alt": "Hooded pedestrian crossing a wide street in soft motion blur"
+    },
+    {
+      "src": "13.webp",
+      "caption": "",
+      "alt": "Older man walking with a rolling suitcase in motion blur"
+    },
+    {
+      "src": "14.webp",
+      "caption": "",
+      "alt": "Two black-clad pedestrians passing each other in motion blur"
+    },
+    {
+      "src": "15.webp",
+      "caption": "",
+      "alt": "Two women blurred past parked bicycles, one wearing a bright red coat"
+    },
+    {
+      "src": "16.webp",
+      "caption": "",
+      "alt": "Pedestrian crossing sign beside a blurred red-haired figure on a zebra crossing"
+    },
+    {
+      "src": "17.webp",
+      "caption": "",
+      "alt": "Person in a long trench coat crossing a zebra crossing while holding up a phone"
+    },
+    {
+      "src": "18.webp",
+      "caption": "",
+      "alt": "Group of children in bright green jackets crossing a street"
+    },
+    {
+      "src": "19.webp",
+      "caption": "",
+      "alt": "Yellow tram rushing past a zebra crossing with pedestrians"
+    }
+  ]
+}

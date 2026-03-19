@@ -1,0 +1,127 @@
+/* ===== PJAX FADE OVERLAY ===== */
+#pageFade {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 9999;
+}
+
+#pageFade.active {
+  opacity: 1;
+}
+
+/* ===================================================================
+   IMAGE PROTECTION TOAST
+   Appears centered at the bottom of the viewport on right-click.
+=================================================================== */
+.ms-img-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  z-index: 10000;
+
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ms-img-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cart-add-toast {
+  position: fixed;
+  right: 18px;
+  bottom: 78px;
+  z-index: 10001;
+  background: rgba(8, 8, 8, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.cart-add-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating-cart-indicator {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 10000;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.floating-cart-indicator:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(20, 20, 20, 0.9);
+}
+
+/* ===================================================================
+   KEYBOARD FOCUS STATES  -  accessibility baseline
+=================================================================== */
+
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.project-gallery img:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 4px;
+  cursor: pointer;
+}
+
+.sidebar nav a:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+@media (max-width: 700px) {
+  .floating-cart-indicator {
+    display: none;
+  }
+
+  .cart-add-toast {
+    bottom: calc(68px + env(safe-area-inset-bottom));
+  }
+}
