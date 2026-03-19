@@ -340,6 +340,25 @@ const PROJECT_SEO_OVERRIDES = new Map([
   }]
 ]);
 
+const IMAGE_SEO_TEXT_OVERRIDES = new Map([
+  ['000 - unusuall_usual/02', { name: 'Excavator Claw' }],
+  ['002 - ohhhhh_your_god/15', { name: 'Cross' }],
+  ['003 - demon_stration/31', { name: 'Police Crossing' }],
+  ['003 - demon_stration/32', { name: 'Police Crossing' }],
+  ['003 - demon_stration/37', { name: 'Crossing and Dog' }],
+  ['004 - windows_eyes_of_the_modern_soul/24', { name: 'Mural Facade' }],
+  ['006 - smashed/05', { name: 'Bicycle and Sunglasses' }],
+  ['012 - smart times/02', { name: 'Woman Taking a Selfie' }],
+  ['012 - smart times/13', { name: 'Cross-legged Scene' }],
+  ['013 - natural taste/18', { name: 'Wall and Vine' }],
+  ['014 - stat you/02', { name: 'Stone Figure and Crane' }],
+  ['014 - stat you/15', { name: 'Flowers and Sunglasses' }],
+  ['014 - stat you/20', { name: 'Skull and Glasses' }],
+  ['015 - brain blow/02', { name: 'Rainbow Over City Buildings' }],
+  ['015 - brain blow/04', { name: 'Rainbow Prism' }],
+  ['016 - star dust/11', { name: 'Woman in Glasses' }]
+]);
+
 const RELATED_PHRASE_LABELS = new Map([
   ['alienation', 'Urban detachment scenes'],
   ['authority', 'Public authority scenes'],
@@ -583,6 +602,85 @@ function keywordTitleCase(value) {
     .join(' ');
 }
 
+function getImageSeoTextOverride(projectSlug = '', src = '') {
+  return IMAGE_SEO_TEXT_OVERRIDES.get(`${projectSlug}/${normalizeStem(src)}`) || null;
+}
+
+function buildImageNameFromAlt(finalAlt = '', index = 0) {
+  const baseAlt = cleanText(finalAlt)
+    .replace(/[.!?]+$/g, '')
+    .split(/\s*,\s*/)[0]
+    .replace(/^(a|an|the)\s+/i, '')
+    .trim();
+
+  if (baseAlt) {
+    const words = [];
+    for (const word of baseAlt.split(/\s+/)) {
+      const normalized = normalizeTerm(word);
+      if (!normalized) continue;
+      if (words.length >= 6) break;
+      if (words.length >= 3 && ['in', 'on', 'at', 'by', 'with', 'through', 'under', 'against', 'near'].includes(normalized)) break;
+      words.push(word);
+    }
+
+    const candidate = keywordTitleCase(words.join(' '));
+    if (candidate) return candidate;
+  }
+
+  return `Image ${index + 1}`;
+}
+
+function sanitizeImageName(name = '', { projectSlug = '', src = '', finalAlt = '', index = 0 } = {}) {
+  const override = getImageSeoTextOverride(projectSlug, src);
+  if (override?.name) {
+    return override.name;
+  }
+
+  let cleaned = cleanText(name)
+    .replace(/\bglasse\b/gi, 'glasses')
+    .replace(/\bcros\b/gi, 'cross')
+    .trim();
+
+  if (/(\band|\bfrom|\btaking|\btoward a)$/i.test(cleaned)) {
+    cleaned = buildImageNameFromAlt(finalAlt, index);
+  }
+
+  return keywordTitleCase(cleaned) || `Image ${index + 1}`;
+}
+
+function sanitizeImageKeyword(term = '', finalAlt = '') {
+  const cleaned = cleanText(term);
+  const normalized = normalizeTerm(cleaned);
+  const alt = normalizeTerm(finalAlt);
+
+  if (!normalized) return '';
+  if (normalized === 'glasse') return 'glasses';
+
+  if (normalized === 'cros') {
+    if (/\bcross-legged\b/.test(alt)) return 'cross-legged';
+    if (/\bcrossing\b|\bcrosswalk\b|\bzebra crossing\b/.test(alt)) return 'crossing';
+    if (/\bcross\b|\bcrucifix\b/.test(alt)) return 'cross';
+    return '';
+  }
+
+  return cleaned;
+}
+
+function sanitizeImageKeywords(keywords = [], finalAlt = '') {
+  const seen = new Set();
+  const sanitized = [];
+
+  keywords.forEach((term) => {
+    const candidate = sanitizeImageKeyword(term, finalAlt);
+    const normalized = normalizeTerm(candidate);
+    if (!normalized || seen.has(normalized)) return;
+    seen.add(normalized);
+    sanitized.push(candidate);
+  });
+
+  return filterKeywordTerms(sanitized).slice(0, 5);
+}
+
 function getSettingLabel(aggregates = {}) {
   const topSetting = sortedEntries(aggregates.environmentTerms || termCountMap())
     .map(([term]) => term)
@@ -799,46 +897,26 @@ function buildProjectLead(project, aggregates) {
   return '';
 }
 
-function buildImageKeywords(meta = {}) {
+function buildImageKeywords(meta = {}, finalAlt = '') {
   const concept = firstMeaningful(meta.themes || []);
-  return filterKeywordTerms([
+  return sanitizeImageKeywords([
     ...getVisualPrimary(meta),
     ...(meta.objects || []),
     ...(meta.environment || []).filter((term) => !GENERIC_VISUAL_TERMS.has(normalizeTerm(term))),
     ...(meta.colors || []).slice(0, 1),
     concept ? getConceptLabel(concept) : ''
-  ]).slice(0, 5);
+  ], finalAlt);
 }
 
-function buildImageName(meta = {}, finalAlt = '', index = 0) {
+function buildImageName(meta = {}, finalAlt = '', index = 0, projectSlug = '', src = '') {
   const primary = firstMeaningful(getVisualPrimary(meta));
-  if (primary) return keywordTitleCase(primary);
+  if (primary) return sanitizeImageName(keywordTitleCase(primary), { projectSlug, src, finalAlt, index });
 
   const objects = filterKeywordTerms(meta.objects || []);
-  if (objects.length >= 2) return keywordTitleCase(`${objects[0]} and ${objects[1]}`);
-  if (objects[0]) return keywordTitleCase(objects[0]);
+  if (objects.length >= 2) return sanitizeImageName(`${objects[0]} and ${objects[1]}`, { projectSlug, src, finalAlt, index });
+  if (objects[0]) return sanitizeImageName(objects[0], { projectSlug, src, finalAlt, index });
 
-  const baseAlt = cleanText(finalAlt)
-    .replace(/[.!?]+$/g, '')
-    .split(/\s*,\s*/)[0]
-    .replace(/^(a|an|the)\s+/i, '')
-    .trim();
-
-  if (baseAlt) {
-    const words = [];
-    for (const word of baseAlt.split(/\s+/)) {
-      const normalized = normalizeTerm(word);
-      if (!normalized) continue;
-      if (words.length >= 6) break;
-      if (words.length >= 3 && ['in', 'on', 'at', 'by', 'with', 'through', 'under', 'against', 'near'].includes(normalized)) break;
-      words.push(word);
-    }
-
-    const candidate = keywordTitleCase(words.join(' '));
-    if (candidate) return candidate;
-  }
-
-  return `Image ${index + 1}`;
+  return sanitizeImageName(buildImageNameFromAlt(finalAlt, index), { projectSlug, src, finalAlt, index });
 }
 
 function buildAltFallback(projectTitle, meta = {}, index = 0) {
@@ -1016,14 +1094,14 @@ function buildProjectSeoMap(projects = [], dataset = []) {
     const imageSeoByStem = new Map();
 
     entries.forEach((entry, index) => {
-      const finalAlt = String(entry.alt || '').trim() || buildAltFallback(project.title, entry, index);
-      imageSeoByStem.set(normalizeStem(entry.src), {
-        finalAlt,
-        name: buildImageName(entry, finalAlt, index),
-        keywords: buildImageKeywords(entry),
-        representativeOfPage: index === 0
+        const finalAlt = String(entry.alt || '').trim() || buildAltFallback(project.title, entry, index);
+        imageSeoByStem.set(normalizeStem(entry.src), {
+          finalAlt,
+          name: buildImageName(entry, finalAlt, index, project.slug, entry.src),
+          keywords: buildImageKeywords(entry, finalAlt),
+          representativeOfPage: index === 0
+        });
       });
-    });
 
     const relationWeights = new Map();
     entries.forEach((entry) => {
@@ -1091,7 +1169,6 @@ function applyProjectSeoData(projects = [], seoMap = new Map()) {
     if (!seo) return;
 
     project.seo = {
-      lead: seo.lead,
       titleDescriptor: seo.titleDescriptor,
       metaDescription: seo.metaDescription,
       keywords: [...seo.keywords],
@@ -1181,7 +1258,6 @@ function renderProjectSeedMarkup(project) {
     <section class="project-context">
       <h1 class="project-context-title">${escapeHtml(project.title)}</h1>
       ${project.description ? `<p class="project-context-description">${escapeHtml(project.description)}</p>` : ''}
-      ${project?.seo?.lead ? `<p class="project-context-lead">${escapeHtml(project.seo.lead)}</p>` : ''}
     </section>
   `.trim();
 

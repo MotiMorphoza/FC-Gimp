@@ -752,7 +752,7 @@ function buildProjectSemanticState(projectData, dataset = []) {
   };
 }
 
-function renderProjectContext(contextEl, projectData, lead = "") {
+function renderProjectContext(contextEl, projectData) {
   if (!contextEl) return;
   contextEl.innerHTML = "";
 
@@ -766,13 +766,6 @@ function renderProjectContext(contextEl, projectData, lead = "") {
     description.className = "project-context-description";
     description.textContent = projectData.description;
     contextEl.appendChild(description);
-  }
-
-  if (lead) {
-    const leadEl = document.createElement("p");
-    leadEl.className = "project-context-lead";
-    leadEl.textContent = lead;
-    contextEl.appendChild(leadEl);
   }
 }
 
@@ -1565,7 +1558,7 @@ async function initProjectPage() {
 
       const semanticState = buildProjectSemanticState(data, dataset);
 
-      renderProjectContext(contextEl, data, semanticState.lead);
+      renderProjectContext(contextEl, data);
       renderProjectGallery(gallery, data, semanticState);
       renderProjectRelatedLinks(relatedEl, semanticState.relatedLinks);
     } catch (err) {
