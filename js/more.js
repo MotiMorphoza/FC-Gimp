@@ -11,6 +11,10 @@
       if (view === VIEW_MORPHOZA || view === VIEW_HUMAN_WRITES) {
         return view;
       }
+      const hash = String(url.hash || "").replace(/^#/, "").trim().toLowerCase();
+      if (hash === VIEW_MORPHOZA || hash === VIEW_HUMAN_WRITES) {
+        return hash;
+      }
       return VIEW_HOME;
     } catch {
       return VIEW_HOME;
