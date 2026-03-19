@@ -1,8 +1,9 @@
 (function () {
   const TAG_MAP = {
-    happy: ["happy", "happiness", "joy", "joyful", "cheerful", "delight", "delightful", "playful", "playfulness", "warmth", "lightness", "companionship"],
-    lonely: ["lonely", "loneliness", "isolated", "isolation", "solitude", "alienation", "emptiness"],
-    sad: ["sad", "sadness", "melancholy", "sorrow", "grief", "lonely", "loneliness", "solitude", "alienation", "detachment", "fatigue"],
+    happy: ["happy", "happiness", "joy", "joyful", "cheerful", "delight", "delightful", "playful", "playfulness", "warmth", "lightness", "companionship", "tenderness", "openness", "smile", "smiling", "laughter", "laughing"],
+    lonely: ["lonely", "loneliness", "isolated", "isolation", "solitude", "alienation", "emptiness", "distance", "withdrawal", "silence", "anonymity"],
+    sad: ["sad", "sadness", "melancholy", "sorrow", "grief", "lonely", "loneliness", "solitude", "alienation", "detachment", "fatigue", "withdrawal", "reserve", "fragility"],
+    quiet: ["quiet", "quietness", "silence", "stillness", "restraint", "calm", "hushed", "muted", "contemplation"],
     urban: ["urban", "city", "street", "metropolitan", "public space", "sidewalk"],
     hand: ["hand", "hands", "gesture", "palm", "fingers", "glove", "peace sign"],
     people: ["people", "person", "persons", "human", "humans", "figure", "figures", "pedestrian", "pedestrians"],
@@ -15,7 +16,7 @@
     absurd: ["absurd", "absurdity", "surreal", "irony", "ironic", "humor", "humour", "wit"],
     symbol: ["symbol", "symbols", "symbolic", "metaphor", "allegory", "sign"],
     dark: ["dark", "black", "shadow", "shadowy", "gloom"],
-    calm: ["calm", "quiet", "stillness", "peace", "meditative", "soft"],
+    calm: ["calm", "quiet", "quietness", "stillness", "peace", "meditative", "soft", "gentleness", "clarity", "patience", "contemplation", "suspension"],
     color: ["color", "colour", "colored", "colourful", "vivid", "multicolor", "multicolour"],
     monochrome: ["monochrome", "black and white", "black-and-white", "grayscale", "greyscale"]
   };

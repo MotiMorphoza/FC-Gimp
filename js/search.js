@@ -42,7 +42,30 @@ const PLURAL_PEOPLE_HINTS = ["people", "pedestrians", "children", "officers", "w
 const WOMAN_VISUAL_HINTS = ["woman", "women", "female", "nun", "nuns", "girl", "girls", "mother", "mothers"];
 const MAN_VISUAL_HINTS = ["man", "men", "male", "priest", "priests", "monk", "monks", "boy", "boys", "father", "fathers"];
 const CHILD_VISUAL_HINTS = ["child", "children", "kid", "kids", "girl", "girls", "boy", "boys", "baby", "babies"];
+const PLURAL_GENDER_HINTS = ["women", "men", "girls", "boys", "children", "babies", "nuns", "priests", "cyclists", "riders", "vendors", "workers", "smokers", "performers", "officers"];
+const NUMBERED_PEOPLE_HINTS = [
+  { hints: ["five"], count: 5 },
+  { hints: ["four"], count: 4 },
+  { hints: ["three"], count: 3 },
+  { hints: ["two", "pair", "couple", "both"], count: 2 },
+  { hints: ["single", "lone", "solitary"], count: 1 }
+];
 const STRICT_OBJECT_QUERY_CLASSES = new Set(["object"]);
+const EMOTION_QUERY_FIELDS = {
+  mood: 7,
+  tone: 6,
+  themes: 4,
+  tension: 4,
+  reading: 3,
+  relations: 2,
+  projectDescription: 1
+};
+const EMOTION_QUERY_CANONICALS = new Set(["happy", "sad", "calm", "lonely", "quiet"]);
+const ISOLATION_VARIANTS = [
+  "solitude", "lonely", "loneliness", "isolation", "detachment", "distance",
+  "withdrawal", "anonymity", "silence", "quietness", "separation", "alone"
+];
+const ISOLATION_COMPOSITION_VARIANTS = ["isolated subject", "frame within frame"];
 
 const SEARCH_STATE = {
   loadPromise: null,
@@ -96,6 +119,61 @@ function textHasAnyHint(text, hints = []) {
   return hints.some((hint) => textHasHint(text, hint));
 }
 
+function textHasPossessiveHint(text, hints = []) {
+  const normalizedText = String(text || "").toLowerCase();
+  return hints.some((hint) => {
+    const token = String(hint || "").toLowerCase().trim();
+    if (!token || token.includes(" ")) return false;
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp(`\\b${escaped}(?:'s|s')\\b`, "i").test(normalizedText);
+  });
+}
+
+function textHasDirectHumanHint(text, hints = []) {
+  return textHasAnyHint(text, hints) && !textHasPossessiveHint(text, hints);
+}
+
+function deriveApproxPeopleCount(text, hasPeople, gender = [], ageGroup = []) {
+  const normalizedText = String(text || "");
+  if (!hasPeople) return 0;
+  if (textHasAnyHint(normalizedText, CROWD_VISUAL_HINTS)) return 5;
+
+  let count = 1;
+
+  NUMBERED_PEOPLE_HINTS.forEach(({ hints, count: hintCount }) => {
+    if (hintCount > count && textHasAnyHint(normalizedText, hints)) {
+      count = hintCount;
+    }
+  });
+
+  if (textHasAnyHint(normalizedText, PLURAL_PEOPLE_HINTS) || textHasAnyHint(normalizedText, PLURAL_GENDER_HINTS)) {
+    count = Math.max(count, 3);
+  }
+
+  const categoryHits = [
+    (gender || []).includes("woman"),
+    (gender || []).includes("man"),
+    (ageGroup || []).includes("child")
+  ].filter(Boolean).length;
+
+  if (categoryHits >= 2) {
+    count = Math.max(count, categoryHits);
+  }
+
+  const leadPeopleMentions = [
+    textHasAnyHint(normalizedText, WOMAN_VISUAL_HINTS),
+    textHasAnyHint(normalizedText, MAN_VISUAL_HINTS),
+    textHasAnyHint(normalizedText, CHILD_VISUAL_HINTS),
+    textHasAnyHint(normalizedText, ["person", "figure", "pedestrian", "rider", "cyclist", "smoker", "vendor", "worker", "officer", "performer"])
+  ].filter(Boolean).length;
+
+  if (leadPeopleMentions >= 2) {
+    count = Math.max(count, Math.min(leadPeopleMentions, 4));
+  }
+
+  return count;
+}
+
 function deriveVisualProfile(image) {
   const { normalizeTerm } = getTagHelpers();
   const primary = normalizeArray(image.primary);
@@ -117,59 +195,55 @@ function deriveVisualProfile(image) {
   const hasPeople = explicitHasPeople != null
     ? explicitHasPeople
     : textHasAnyHint(combinedText, HUMAN_VISUAL_HINTS);
-  const humanHintCount = HUMAN_VISUAL_HINTS.filter((hint) => textHasHint(combinedText, hint)).length;
-
-  const peopleCount = Number.isFinite(image.people_count)
-    ? Number(image.people_count)
-    : textHasAnyHint(combinedText, CROWD_VISUAL_HINTS) ? 5
-      : textHasAnyHint(combinedText, PLURAL_PEOPLE_HINTS) ? 3
-      : (/\band\b/.test(combinedText) && humanHintCount >= 2) ? 2
-      : hasPeople ? 1 : 0;
 
   const gender = normalizeMaybeArray(image.gender);
   if (!gender.length) {
-    if (textHasAnyHint(combinedText, ["woman", "women", "female", "nun", "nuns"])) {
+    if (textHasDirectHumanHint(image.alt, ["woman", "women", "female", "nun", "nuns"])) {
       gender.push("woman");
     }
-    if (textHasAnyHint(combinedText, ["man", "men", "male", "priest", "priests"])) {
+    if (textHasDirectHumanHint(image.alt, ["man", "men", "male", "priest", "priests"])) {
       gender.push("man");
     }
   }
 
   const ageGroup = normalizeMaybeArray(image.age_group);
   if (!ageGroup.length) {
-    if (textHasAnyHint(combinedText, ["child", "children", "boy", "boys", "girl", "girls", "baby", "babies"])) {
+    if (textHasDirectHumanHint(image.alt, ["child", "children", "boy", "boys", "girl", "girls", "baby", "babies"])) {
       ageGroup.push("child");
     } else if (hasPeople) {
       ageGroup.push("adult");
     }
   }
 
+  const peopleCount = Number.isFinite(image.people_count)
+    ? Number(image.people_count)
+    : deriveApproxPeopleCount(combinedText, hasPeople, gender, ageGroup);
+
+  let peopleProminence = String(image.people_prominence || "").trim().toLowerCase();
+  if (!peopleProminence) {
+    const leadText = String(image.alt || "").split(/\s+/).slice(0, 8).join(" ");
+    peopleProminence = hasPeople
+      ? textHasDirectHumanHint(leadText, HUMAN_VISUAL_HINTS) ? "primary" : "secondary"
+      : "none";
+  }
+
   let peopleFocus = String(image.people_focus || "").trim().toLowerCase();
   if (!peopleFocus) {
-    const leadText = combinedText.split(/\s+/).slice(0, 12).join(" ");
+    const leadText = String(image.alt || "").split(/\s+/).slice(0, 12).join(" ");
     if (textHasAnyHint(combinedText, CROWD_VISUAL_HINTS) || Number(peopleCount) >= 4) {
       peopleFocus = "crowd";
-    } else if (textHasAnyHint(leadText, CHILD_VISUAL_HINTS)) {
+    } else if (textHasDirectHumanHint(leadText, CHILD_VISUAL_HINTS)) {
       peopleFocus = "child";
-    } else if (textHasAnyHint(leadText, WOMAN_VISUAL_HINTS) && !textHasAnyHint(leadText, MAN_VISUAL_HINTS)) {
+    } else if (textHasDirectHumanHint(leadText, WOMAN_VISUAL_HINTS) && !textHasDirectHumanHint(leadText, MAN_VISUAL_HINTS)) {
       peopleFocus = "woman";
-    } else if (textHasAnyHint(leadText, MAN_VISUAL_HINTS) && !textHasAnyHint(leadText, WOMAN_VISUAL_HINTS)) {
+    } else if (textHasDirectHumanHint(leadText, MAN_VISUAL_HINTS) && !textHasDirectHumanHint(leadText, WOMAN_VISUAL_HINTS)) {
       peopleFocus = "man";
-    } else if (hasPeople && Number(peopleCount) === 1) {
+    } else if (hasPeople && Number(peopleCount) === 1 && peopleProminence === "primary") {
       if (gender.includes("woman") && !gender.includes("man")) peopleFocus = "woman";
       else if (gender.includes("man") && !gender.includes("woman")) peopleFocus = "man";
       else if (ageGroup.includes("child")) peopleFocus = "child";
       else peopleFocus = "person";
     }
-  }
-
-  let peopleProminence = String(image.people_prominence || "").trim().toLowerCase();
-  if (!peopleProminence) {
-    const leadText = combinedText.split(/\s+/).slice(0, 8).join(" ");
-    peopleProminence = hasPeople
-      ? textHasAnyHint(leadText, HUMAN_VISUAL_HINTS) ? "primary" : "secondary"
-      : "none";
   }
 
   const colorMode = String(image.color_mode || "").trim().toLowerCase() ||
@@ -446,9 +520,14 @@ function matchHardVisualTerm(indexedImage, termGroup) {
         : { matched: false, score: 0 };
     }
     if (canonical === "alone") {
-      return (visual.has_people && Number(visual.people_count) === 1 && visual.people_prominence === "primary")
-        ? { matched: true, score: 14 }
-        : { matched: false, score: 0 };
+      if (!(visual.has_people && Number(visual.people_count) === 1 && visual.people_prominence === "primary")) {
+        return { matched: false, score: 0 };
+      }
+      if (!hasIsolationCue(indexedImage)) {
+        return { matched: false, score: 0 };
+      }
+
+      return { matched: true, score: 18 };
     }
     if (canonical === "woman" || canonical === "man") {
       if (!(visual.gender || []).includes(canonical)) {
@@ -459,11 +538,15 @@ function matchHardVisualTerm(indexedImage, termGroup) {
         return { matched: true, score: visual.people_prominence === "primary" ? 18 : 12 };
       }
 
-      if (!visual.people_focus || visual.people_focus === "person") {
-        return { matched: true, score: visual.people_prominence === "primary" ? 11 : 7 };
+      if (visual.people_prominence !== "primary") {
+        return { matched: false, score: 0 };
       }
 
-      return { matched: true, score: 3 };
+      if ((!visual.people_focus || visual.people_focus === "person") && Number(visual.people_count) === 1) {
+        return { matched: true, score: 11 };
+      }
+
+      return { matched: false, score: 0 };
     }
     if (canonical === "child") {
       if (!(visual.age_group || []).includes("child")) {
@@ -474,7 +557,11 @@ function matchHardVisualTerm(indexedImage, termGroup) {
         return { matched: true, score: visual.people_prominence === "primary" ? 18 : 12 };
       }
 
-      return { matched: true, score: visual.people_prominence === "primary" ? 8 : 5 };
+      if (visual.people_prominence === "primary" && Number(visual.people_count) === 1) {
+        return { matched: true, score: 8 };
+      }
+
+      return { matched: false, score: 0 };
     }
   }
 
@@ -583,6 +670,40 @@ function scoreField(indexedImage, fieldName, termGroup) {
   return { matched, score };
 }
 
+function isEmotionQuery(termGroup) {
+  return termGroup.kind !== "hard" && EMOTION_QUERY_CANONICALS.has(termGroup.canonical);
+}
+
+function scoreEmotionTerm(indexedImage, termGroup) {
+  let matched = false;
+  let score = 0;
+
+  Object.entries(EMOTION_QUERY_FIELDS).forEach(([fieldName, weight]) => {
+    const values = indexedImage.fields[fieldName] || [];
+    if (!values.length) return;
+
+    values.forEach((value) => {
+      if (!matchValue(value, getTagHelpers().stemTerm(value), termGroup.variants, termGroup.canonical)) return;
+      matched = true;
+      score += weight;
+    });
+  });
+
+  return { matched, score };
+}
+
+function hasIsolationCue(indexedImage) {
+  return (
+    includesVariant(indexedImage.image.mood, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.tone, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.themes, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.tension, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.relations, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.reading, ISOLATION_VARIANTS, "solitude") ||
+    includesVariant(indexedImage.image.composition, ISOLATION_COMPOSITION_VARIANTS, "isolated subject")
+  );
+}
+
 function isNegativeMatch(indexedImage, termGroup) {
   if (termGroup.kind === "hard") {
     return matchHardVisualTerm(indexedImage, termGroup).matched;
@@ -627,6 +748,10 @@ function scoreImage(indexedImage, parsedQuery) {
       const hardResult = matchHardVisualTerm(indexedImage, termGroup);
       termMatched = hardResult.matched;
       termScore = hardResult.score;
+    } else if (isEmotionQuery(termGroup)) {
+      const emotionResult = scoreEmotionTerm(indexedImage, termGroup);
+      termMatched = emotionResult.matched;
+      termScore = emotionResult.score;
     } else {
       Object.keys(indexedImage.fields).forEach((fieldName) => {
         if (fieldName === "negative") return;
@@ -750,6 +875,15 @@ function searchImages(indexedImages, query) {
 
           matchedTerms += 1;
           score += hardResult.score;
+          return;
+        }
+
+        if (isEmotionQuery(termGroup)) {
+          const emotionResult = scoreEmotionTerm(indexedImage, termGroup);
+          if (!emotionResult.matched) return;
+          matchedTerms += 1;
+          matchedSoftTerms += 1;
+          score += emotionResult.score;
           return;
         }
 

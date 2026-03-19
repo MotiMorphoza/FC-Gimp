@@ -53,15 +53,24 @@ function isNoPeople(result) {
 }
 
 function isWoman(result) {
-  return (result.image.visual.gender || []).includes('woman');
+  return (result.image.visual.gender || []).includes('woman')
+    && result.image.visual.people_prominence === 'primary'
+    && ['woman', 'person', ''].includes(result.image.visual.people_focus || '');
 }
 
 function isMan(result) {
-  return (result.image.visual.gender || []).includes('man');
+  return (result.image.visual.gender || []).includes('man')
+    && result.image.visual.people_prominence === 'primary'
+    && ['man', 'person', ''].includes(result.image.visual.people_focus || '');
 }
 
 function isChild(result) {
-  return (result.image.visual.age_group || []).includes('child');
+  return (result.image.visual.age_group || []).includes('child')
+    && result.image.visual.people_prominence === 'primary';
+}
+
+function isAlone(result) {
+  return Boolean(result.image.visual.has_people) && Number(result.image.visual.people_count) === 1 && result.image.visual.people_prominence === 'primary';
 }
 
 function isNature(result) {
@@ -111,6 +120,11 @@ function runRegression(rootDir) {
       query: 'child',
       minCount: 5,
       validate: (results) => results.slice(0, 5).every(isChild)
+    },
+    {
+      query: 'alone',
+      minCount: 10,
+      validate: (results) => results.slice(0, 5).every(isAlone)
     },
     {
       query: 'crowd',
@@ -176,6 +190,16 @@ function runRegression(rootDir) {
       query: 'dog close up',
       exactCount: 0,
       validate: (results) => results.length === 0
+    },
+    {
+      query: 'calm',
+      minCount: 20,
+      validate: (results) => results.slice(0, 5).every((result) => ['mood', 'tone', 'themes', 'reading'].some((field) => (result.image[field] || []).length))
+    },
+    {
+      query: 'quiet',
+      minCount: 20,
+      validate: (results) => results.slice(0, 5).every((result) => ['mood', 'tone', 'themes', 'reading'].some((field) => (result.image[field] || []).length))
     },
     {
       query: 'happy',

@@ -93,8 +93,14 @@ const WOMAN_HINTS = ['woman', 'women', 'female', 'nun', 'nuns', 'girl', 'girls',
 const MAN_HINTS = ['man', 'men', 'male', 'priest', 'priests', 'monk', 'monks', 'boy', 'boys', 'king'];
 const CHILD_HINTS = ['child', 'children', 'kid', 'kids', 'boy', 'boys', 'girl', 'girls', 'baby', 'babies'];
 const CROWD_HINTS = ['crowd', 'protesters', 'choir', 'marchers', 'group'];
-const PLURAL_PEOPLE_HINTS = ['people', 'pedestrians', 'children', 'officers', 'workers', 'vendors'];
-const PAIR_HINTS = ['two', 'pair', 'couple', 'both'];
+const PLURAL_PEOPLE_HINTS = ['people', 'pedestrians', 'children', 'officers', 'workers', 'vendors', 'women', 'men', 'girls', 'boys', 'performers', 'smokers'];
+const NUMBERED_PEOPLE_HINTS = [
+  { hints: ['five'], count: 5 },
+  { hints: ['four'], count: 4 },
+  { hints: ['three'], count: 3 },
+  { hints: ['two', 'pair', 'couple', 'both'], count: 2 },
+  { hints: ['single', 'lone', 'solitary'], count: 1 }
+];
 const INDOOR_HINTS = ['indoor', 'indoors', 'interior', 'kitchen', 'room', 'bedroom', 'studio', 'table'];
 const OUTDOOR_HINTS = ['outdoor', 'outdoors', 'street', 'park', 'bench', 'crosswalk', 'tram', 'snow', 'sky', 'river', 'pond', 'sidewalk', 'bridge'];
 const DOMESTIC_HINTS = ['kitchen', 'room', 'bedroom', 'table', 'domestic', 'home', 'house'];
@@ -108,6 +114,20 @@ const WIDE_HINTS = ['wide shot', 'wide view', 'wide scene', 'wide frame', 'panor
 function includesAny(text, hints = []) {
   const normalizedText = String(text || '').toLowerCase();
   return hints.some((hint) => hasNormalizedTerm(normalizedText, hint));
+}
+
+function hasPossessiveHint(text, hints = []) {
+  const normalizedText = String(text || '').toLowerCase();
+  return hints.some((hint) => {
+    const token = String(hint || '').toLowerCase().trim();
+    if (!token || token.includes(' ')) return false;
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`\\b${escaped}(?:'s|s')\\b`, 'i').test(normalizedText);
+  });
+}
+
+function includesDirectHumanHint(text, hints = []) {
+  return includesAny(text, hints) && !hasPossessiveHint(text, hints);
 }
 
 function uniqueStrings(items = []) {
@@ -164,6 +184,47 @@ function cleanSemanticValue(value) {
   if (!normalized) return '';
   const corrected = VALUE_CORRECTIONS.get(normalized.toLowerCase());
   return corrected || normalized;
+}
+
+function deriveApproxPeopleCount(text, hasPeople, gender = [], ageGroup = []) {
+  const normalizedText = String(text || '').toLowerCase();
+  if (!hasPeople) return 0;
+  if (includesAny(normalizedText, CROWD_HINTS)) return 5;
+
+  let count = 1;
+
+  NUMBERED_PEOPLE_HINTS.forEach(({ hints, count: hintCount }) => {
+    if (hintCount > count && includesAny(normalizedText, hints)) {
+      count = hintCount;
+    }
+  });
+
+  if (includesAny(normalizedText, PLURAL_PEOPLE_HINTS)) {
+    count = Math.max(count, 3);
+  }
+
+  const categoryHits = [
+    (gender || []).includes('woman'),
+    (gender || []).includes('man'),
+    (ageGroup || []).includes('child')
+  ].filter(Boolean).length;
+
+  if (categoryHits >= 2) {
+    count = Math.max(count, categoryHits);
+  }
+
+  const leadPeopleMentions = [
+    includesAny(normalizedText, WOMAN_HINTS),
+    includesAny(normalizedText, MAN_HINTS),
+    includesAny(normalizedText, CHILD_HINTS),
+    includesAny(normalizedText, ['person', 'figure', 'pedestrian', 'rider', 'cyclist', 'smoker', 'vendor', 'worker', 'officer', 'performer'])
+  ].filter(Boolean).length;
+
+  if (leadPeopleMentions >= 2) {
+    count = Math.max(count, Math.min(leadPeopleMentions, 4));
+  }
+
+  return count;
 }
 
 function normalizeStem(value) {
@@ -254,27 +315,11 @@ function deriveColors(alt) {
 
 function derivePeopleProfile(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
-  const woman = includesAny(normalizedAlt, WOMAN_HINTS);
-  const man = includesAny(normalizedAlt, MAN_HINTS);
-  const child = includesAny(normalizedAlt, CHILD_HINTS);
+  const woman = includesDirectHumanHint(alt, WOMAN_HINTS);
+  const man = includesDirectHumanHint(alt, MAN_HINTS);
+  const child = includesDirectHumanHint(alt, CHILD_HINTS);
   const crowd = includesAny(normalizedAlt, CROWD_HINTS);
   const hasPeople = includesAny(normalizedAlt, HUMAN_HINTS);
-  const humanHintCount = HUMAN_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
-
-  let peopleCount = 0;
-  if (!hasPeople) {
-    peopleCount = 0;
-  } else if (crowd) {
-    peopleCount = 5;
-  } else if (includesAny(normalizedAlt, PLURAL_PEOPLE_HINTS)) {
-    peopleCount = 3;
-  } else if (/\band\b/.test(normalizedAlt) && humanHintCount >= 2) {
-    peopleCount = 2;
-  } else if (includesAny(normalizedAlt, PAIR_HINTS) || ((woman || man) && / and /.test(normalizedAlt))) {
-    peopleCount = 2;
-  } else {
-    peopleCount = 1;
-  }
 
   const gender = uniqueStrings([
     woman ? 'woman' : '',
@@ -286,11 +331,30 @@ function derivePeopleProfile(alt) {
     hasPeople && !child ? 'adult' : ''
   ]);
 
+  const peopleCount = deriveApproxPeopleCount(normalizedAlt, hasPeople, gender, ageGroup);
+  const leadWindow = normalizedAlt.split(/\s+/).slice(0, 8).join(' ');
+  const focusWindow = normalizedAlt.split(/\s+/).slice(0, 12).join(' ');
+
   let prominence = 'none';
   if (hasPeople) {
-    const leadWindow = normalizedAlt.split(/\s+/).slice(0, 8).join(' ');
-    prominence = includesAny(leadWindow, HUMAN_HINTS) ? 'primary' : 'secondary';
+    prominence = includesDirectHumanHint(leadWindow, HUMAN_HINTS) ? 'primary' : 'secondary';
     if (crowd) prominence = 'primary';
+  }
+
+  let focus = '';
+  if (crowd || peopleCount >= 4) {
+    focus = 'crowd';
+  } else if (includesDirectHumanHint(focusWindow, CHILD_HINTS)) {
+    focus = 'child';
+  } else if (includesDirectHumanHint(focusWindow, WOMAN_HINTS) && !includesDirectHumanHint(focusWindow, MAN_HINTS)) {
+    focus = 'woman';
+  } else if (includesDirectHumanHint(focusWindow, MAN_HINTS) && !includesDirectHumanHint(focusWindow, WOMAN_HINTS)) {
+    focus = 'man';
+  } else if (hasPeople && Number(peopleCount) === 1 && prominence === 'primary') {
+    if (gender.includes('woman') && !gender.includes('man')) focus = 'woman';
+    else if (gender.includes('man') && !gender.includes('woman')) focus = 'man';
+    else if (ageGroup.includes('child')) focus = 'child';
+    else focus = 'person';
   }
 
   return {
@@ -299,12 +363,7 @@ function derivePeopleProfile(alt) {
     gender,
     age_group: ageGroup,
     people_prominence: prominence,
-    people_focus: crowd
-      ? 'crowd'
-      : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), CHILD_HINTS) ? 'child'
-        : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), WOMAN_HINTS) && !includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), MAN_HINTS) ? 'woman'
-          : includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), MAN_HINTS) && !includesAny(normalizedAlt.split(/\s+/).slice(0, 12).join(' '), WOMAN_HINTS) ? 'man'
-            : ''
+    people_focus: focus
   };
 }
 
