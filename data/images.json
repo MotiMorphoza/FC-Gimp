@@ -57,14 +57,14 @@
       "color"
     ],
     "related": [
+      "img-000-26",
       "img-000-11",
-      "img-000-20",
-      "img-000-23"
+      "img-000-13"
     ],
     "score": {
       "impact": 8,
       "originality": 8,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -124,14 +124,14 @@
       "color"
     ],
     "related": [
-      "img-000-01",
-      "img-000-20",
-      "img-000-23"
+      "img-000-12",
+      "img-000-26",
+      "img-000-01"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -193,8 +193,8 @@
     ],
     "related": [
       "img-000-24",
-      "img-000-01",
-      "img-000-11"
+      "img-000-26",
+      "img-000-01"
     ],
     "score": {
       "impact": 8,
@@ -260,12 +260,12 @@
     ],
     "related": [
       "img-000-26",
-      "img-000-01",
-      "img-000-11"
+      "img-000-13",
+      "img-000-17"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 9,
       "emotion": 8
     }
   },
@@ -326,8 +326,8 @@
     ],
     "related": [
       "img-000-20",
-      "img-000-01",
-      "img-000-11"
+      "img-000-16",
+      "img-000-03"
     ],
     "score": {
       "impact": 7,
@@ -393,13 +393,13 @@
       "color"
     ],
     "related": [
-      "img-000-23",
-      "img-004-01",
-      "img-000-01"
+      "img-000-17",
+      "img-000-21",
+      "img-003-14"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 9,
       "emotion": 9
     }
   },
@@ -461,13 +461,13 @@
     ],
     "related": [
       "img-001-04",
-      "img-001-03",
-      "img-001-07"
+      "img-001-18",
+      "img-001-02"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
-      "emotion": 9
+      "originality": 7,
+      "emotion": 8
     }
   },
   {
@@ -528,9 +528,9 @@
       "color"
     ],
     "related": [
-      "img-001-01",
-      "img-001-04",
-      "img-001-07"
+      "img-001-06",
+      "img-001-05",
+      "img-001-11"
     ],
     "score": {
       "impact": 7,
@@ -597,7 +597,7 @@
     "related": [
       "img-001-01",
       "img-001-15",
-      "img-001-03"
+      "img-001-18"
     ],
     "score": {
       "impact": 8,
@@ -662,9 +662,9 @@
       "people"
     ],
     "related": [
-      "img-001-32",
-      "img-001-01",
-      "img-001-03"
+      "img-002-08",
+      "img-001-18",
+      "img-001-10"
     ],
     "score": {
       "impact": 8,
@@ -731,8 +731,8 @@
     ],
     "related": [
       "img-001-04",
-      "img-001-01",
-      "img-001-03"
+      "img-001-13",
+      "img-001-18"
     ],
     "score": {
       "impact": 8,
@@ -796,9 +796,9 @@
       "color"
     ],
     "related": [
+      "img-001-18",
       "img-001-07",
-      "img-001-01",
-      "img-001-03"
+      "img-001-02"
     ],
     "score": {
       "impact": 7,
@@ -863,13 +863,13 @@
       "color"
     ],
     "related": [
-      "img-002-05",
-      "img-002-06",
-      "img-002-13"
+      "img-002-10",
+      "img-002-11",
+      "img-002-02"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 7,
       "emotion": 8
     }
   },
@@ -930,13 +930,13 @@
       "color"
     ],
     "related": [
-      "img-002-13",
-      "img-002-01",
-      "img-002-05"
+      "img-002-02",
+      "img-002-04",
+      "img-002-13"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
+      "impact": 8,
+      "originality": 8,
       "emotion": 7
     }
   },
@@ -998,13 +998,13 @@
       "color"
     ],
     "related": [
-      "img-002-01",
       "img-002-13",
-      "img-002-15"
+      "img-002-15",
+      "img-002-18"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 7,
       "emotion": 7
     }
   },
@@ -1067,13 +1067,13 @@
     ],
     "related": [
       "img-002-01",
-      "img-002-03",
-      "img-002-05"
+      "img-002-17",
+      "img-002-10"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
-      "emotion": 8
+      "emotion": 7
     }
   },
   {
@@ -1132,12 +1132,12 @@
       "color"
     ],
     "related": [
-      "img-002-01",
-      "img-002-03",
-      "img-002-05"
+      "img-002-18",
+      "img-002-16",
+      "img-002-02"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 8
     }
@@ -1199,14 +1199,14 @@
       "color"
     ],
     "related": [
-      "img-002-01",
-      "img-002-05",
-      "img-002-13"
+      "img-002-16",
+      "img-002-04",
+      "img-002-07"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 7
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
     }
   },
   {
@@ -1267,13 +1267,13 @@
       "color"
     ],
     "related": [
+      "img-003-14",
       "img-003-08",
-      "img-003-10",
-      "img-003-39"
+      "img-003-10"
     ],
     "score": {
-      "impact": 8,
-      "originality": 9,
+      "impact": 9,
+      "originality": 8,
       "emotion": 9
     }
   },
@@ -1336,12 +1336,12 @@
     ],
     "related": [
       "img-003-10",
-      "img-003-01",
-      "img-003-08"
+      "img-003-03",
+      "img-003-16"
     ],
     "score": {
-      "impact": 8,
-      "originality": 9,
+      "impact": 9,
+      "originality": 8,
       "emotion": 9
     }
   },
@@ -1404,12 +1404,12 @@
     ],
     "related": [
       "img-003-39",
-      "img-003-01",
-      "img-003-10"
+      "img-003-14",
+      "img-003-01"
     ],
     "score": {
-      "impact": 8,
-      "originality": 9,
+      "impact": 9,
+      "originality": 8,
       "emotion": 9
     }
   },
@@ -1471,14 +1471,14 @@
       "color"
     ],
     "related": [
+      "img-003-12",
       "img-015-10",
-      "img-003-01",
-      "img-003-06"
+      "img-003-14"
     ],
     "score": {
       "impact": 9,
-      "originality": 9,
-      "emotion": 7
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -1539,13 +1539,13 @@
       "color"
     ],
     "related": [
-      "img-003-01",
-      "img-003-06",
-      "img-003-08"
+      "img-003-38",
+      "img-003-09",
+      "img-003-14"
     ],
     "score": {
-      "impact": 8,
-      "originality": 9,
+      "impact": 9,
+      "originality": 8,
       "emotion": 7
     }
   },
@@ -1608,13 +1608,13 @@
     ],
     "related": [
       "img-003-29",
-      "img-003-01",
-      "img-003-06"
+      "img-003-23",
+      "img-003-14"
     ],
     "score": {
-      "impact": 8,
+      "impact": 9,
       "originality": 9,
-      "emotion": 8
+      "emotion": 7
     }
   },
   {
@@ -1674,14 +1674,14 @@
       "color"
     ],
     "related": [
-      "img-003-25",
-      "img-003-01",
-      "img-003-06"
+      "img-003-11",
+      "img-003-37",
+      "img-003-02"
     ],
     "score": {
-      "impact": 8,
+      "impact": 9,
       "originality": 9,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -1741,13 +1741,13 @@
       "color"
     ],
     "related": [
-      "img-003-01",
-      "img-003-06",
-      "img-003-08"
+      "img-003-30",
+      "img-003-09",
+      "img-003-18"
     ],
     "score": {
       "impact": 9,
-      "originality": 9,
+      "originality": 8,
       "emotion": 7
     }
   },
@@ -1808,12 +1808,12 @@
     ],
     "related": [
       "img-003-08",
-      "img-003-01",
-      "img-003-10"
+      "img-003-14",
+      "img-003-01"
     ],
     "score": {
-      "impact": 8,
-      "originality": 9,
+      "impact": 9,
+      "originality": 8,
       "emotion": 7
     }
   },
@@ -1874,13 +1874,13 @@
       "color"
     ],
     "related": [
-      "img-000-26",
-      "img-004-14",
-      "img-004-22"
+      "img-004-04",
+      "img-004-07",
+      "img-004-16"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 9,
       "emotion": 8
     }
   },
@@ -1940,14 +1940,14 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-09",
-      "img-004-10"
+      "img-004-04",
+      "img-004-28",
+      "img-004-21"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 7
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
     }
   },
   {
@@ -2007,13 +2007,13 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-02",
-      "img-004-10"
+      "img-004-15",
+      "img-004-21",
+      "img-004-22"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 7,
       "emotion": 7
     }
   },
@@ -2072,14 +2072,14 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-02",
-      "img-004-09"
+      "img-004-12",
+      "img-004-19",
+      "img-004-28"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 8
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
     }
   },
   {
@@ -2138,14 +2138,14 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-02",
-      "img-004-09"
+      "img-004-11",
+      "img-004-21",
+      "img-004-22"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
-      "emotion": 8
+      "emotion": 7
     }
   },
   {
@@ -2204,13 +2204,13 @@
       "color"
     ],
     "related": [
-      "img-004-01",
+      "img-004-21",
       "img-004-22",
-      "img-004-02"
+      "img-004-15"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
+      "impact": 8,
+      "originality": 8,
       "emotion": 8
     }
   },
@@ -2271,14 +2271,14 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-14",
-      "img-004-02"
+      "img-004-21",
+      "img-004-15",
+      "img-004-01"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 8
+      "impact": 9,
+      "originality": 9,
+      "emotion": 9
     }
   },
   {
@@ -2336,13 +2336,13 @@
       "color"
     ],
     "related": [
-      "img-004-01",
-      "img-004-02",
-      "img-004-09"
+      "img-004-07",
+      "img-004-05",
+      "img-004-21"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 7,
       "emotion": 7
     }
   },
@@ -2403,14 +2403,14 @@
       "color"
     ],
     "related": [
+      "img-005-07",
       "img-005-06",
-      "img-005-02",
-      "img-005-05"
+      "img-005-09"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -2472,12 +2472,12 @@
     ],
     "related": [
       "img-005-05",
-      "img-005-01",
-      "img-005-06"
+      "img-005-03",
+      "img-005-04"
     ],
     "score": {
       "impact": 7,
-      "originality": 8,
+      "originality": 7,
       "emotion": 9
     }
   },
@@ -2538,12 +2538,12 @@
     ],
     "related": [
       "img-005-02",
-      "img-005-01",
-      "img-005-06"
+      "img-005-07",
+      "img-005-03"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 9,
       "emotion": 9
     }
   },
@@ -2603,14 +2603,14 @@
       "color"
     ],
     "related": [
+      "img-005-08",
       "img-005-01",
-      "img-005-02",
       "img-005-05"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -2670,9 +2670,9 @@
       "color"
     ],
     "related": [
-      "img-006-03",
-      "img-006-09",
-      "img-006-11"
+      "img-006-02",
+      "img-006-05",
+      "img-006-12"
     ],
     "score": {
       "impact": 8,
@@ -2738,11 +2738,11 @@
     ],
     "related": [
       "img-006-01",
-      "img-006-09",
-      "img-006-11"
+      "img-006-12",
+      "img-006-08"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
       "emotion": 7
     }
@@ -2802,9 +2802,9 @@
       "color"
     ],
     "related": [
-      "img-006-01",
-      "img-006-03",
-      "img-006-11"
+      "img-006-08",
+      "img-006-19",
+      "img-006-01"
     ],
     "score": {
       "impact": 7,
@@ -2869,9 +2869,9 @@
       "color"
     ],
     "related": [
-      "img-006-01",
-      "img-006-03",
-      "img-006-09"
+      "img-006-10",
+      "img-006-16",
+      "img-006-04"
     ],
     "score": {
       "impact": 7,
@@ -2937,14 +2937,14 @@
       "color"
     ],
     "related": [
+      "img-006-16",
       "img-006-01",
-      "img-006-03",
-      "img-006-09"
+      "img-006-12"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
-      "emotion": 7
+      "originality": 7,
+      "emotion": 9
     }
   },
   {
@@ -3005,9 +3005,9 @@
       "color"
     ],
     "related": [
-      "img-007-02",
-      "img-007-06",
-      "img-007-13"
+      "img-007-17",
+      "img-007-07",
+      "img-007-09"
     ],
     "score": {
       "impact": 7,
@@ -3073,14 +3073,14 @@
       "color"
     ],
     "related": [
+      "img-007-18",
       "img-007-17",
-      "img-007-01",
-      "img-007-06"
+      "img-007-07"
     ],
     "score": {
       "impact": 7,
-      "originality": 8,
-      "emotion": 8
+      "originality": 7,
+      "emotion": 9
     }
   },
   {
@@ -3141,13 +3141,13 @@
       "color"
     ],
     "related": [
-      "img-007-01",
-      "img-007-02",
-      "img-007-13"
+      "img-007-09",
+      "img-007-07",
+      "img-007-07a"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 7,
       "emotion": 7
     }
   },
@@ -3209,9 +3209,9 @@
       "color"
     ],
     "related": [
-      "img-007-01",
-      "img-007-02",
-      "img-007-06"
+      "img-007-14",
+      "img-007-17",
+      "img-007-07"
     ],
     "score": {
       "impact": 7,
@@ -3275,12 +3275,12 @@
       "color"
     ],
     "related": [
-      "img-007-01",
-      "img-007-02",
-      "img-007-06"
+      "img-007-08",
+      "img-007-17",
+      "img-007-22"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
       "emotion": 7
     }
@@ -3344,13 +3344,13 @@
     ],
     "related": [
       "img-007-02",
-      "img-007-01",
-      "img-007-06"
+      "img-007-18",
+      "img-007-07"
     ],
     "score": {
       "impact": 8,
-      "originality": 7,
-      "emotion": 8
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -3410,14 +3410,14 @@
       "color"
     ],
     "related": [
-      "img-007-06",
-      "img-007-01",
-      "img-007-02"
+      "img-007-22",
+      "img-007-07a",
+      "img-007-06"
     ],
     "score": {
       "impact": 8,
       "originality": 8,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -3477,14 +3477,14 @@
       "color"
     ],
     "related": [
-      "img-008-06",
-      "img-008-08",
-      "img-008-17"
+      "img-008-23",
+      "img-008-26",
+      "img-008-36"
     ],
     "score": {
-      "impact": 8,
-      "originality": 8,
-      "emotion": 7
+      "impact": 7,
+      "originality": 9,
+      "emotion": 9
     }
   },
   {
@@ -3545,8 +3545,8 @@
     ],
     "related": [
       "img-008-38",
-      "img-008-02",
-      "img-008-08"
+      "img-008-39",
+      "img-008-01"
     ],
     "score": {
       "impact": 7,
@@ -3610,14 +3610,14 @@
       "color"
     ],
     "related": [
-      "img-008-02",
-      "img-008-06",
-      "img-008-17"
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
-      "emotion": 7
+      "emotion": 8
     }
   },
   {
@@ -3677,12 +3677,12 @@
       "color"
     ],
     "related": [
-      "img-008-02",
-      "img-008-06",
-      "img-008-08"
+      "img-008-01",
+      "img-008-27",
+      "img-008-02"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 7
     }
@@ -3744,13 +3744,13 @@
       "people"
     ],
     "related": [
-      "img-008-02",
-      "img-008-06",
-      "img-008-08"
+      "img-008-03",
+      "img-008-01",
+      "img-008-27"
     ],
     "score": {
-      "impact": 8,
-      "originality": 8,
+      "impact": 7,
+      "originality": 9,
       "emotion": 7
     }
   },
@@ -3811,12 +3811,12 @@
       "color"
     ],
     "related": [
-      "img-008-06",
-      "img-008-02",
-      "img-008-08"
+      "img-008-03",
+      "img-008-39",
+      "img-008-06"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 7
     }
@@ -3878,14 +3878,14 @@
       "color"
     ],
     "related": [
-      "img-008-02",
-      "img-008-06",
-      "img-008-08"
+      "img-008-19",
+      "img-008-23",
+      "img-008-01"
     ],
     "score": {
       "impact": 7,
       "originality": 8,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -3945,13 +3945,13 @@
       "color"
     ],
     "related": [
-      "img-009-05",
-      "img-009-10",
-      "img-009-19"
+      "img-009-12",
+      "img-009-02",
+      "img-009-04"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 7,
       "emotion": 7
     }
   },
@@ -4013,12 +4013,12 @@
       "color"
     ],
     "related": [
-      "img-009-19",
-      "img-009-01",
-      "img-009-10"
+      "img-009-02",
+      "img-009-16",
+      "img-009-04"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 7
     }
@@ -4080,13 +4080,13 @@
       "color"
     ],
     "related": [
-      "img-009-01",
-      "img-009-05",
-      "img-009-19"
+      "img-009-12",
+      "img-009-02",
+      "img-009-04"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 7,
       "emotion": 8
     }
   },
@@ -4147,14 +4147,14 @@
       "color"
     ],
     "related": [
-      "img-009-05",
-      "img-009-01",
-      "img-009-10"
+      "img-009-12",
+      "img-009-06",
+      "img-009-09"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 7
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
     }
   },
   {
@@ -4213,13 +4213,13 @@
     ],
     "related": [
       "img-010-09",
-      "img-010-01c",
-      "img-010-06"
+      "img-010-07",
+      "img-010-02"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
-      "emotion": 8
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
     }
   },
   {
@@ -4278,13 +4278,13 @@
       "color"
     ],
     "related": [
-      "img-010-01",
-      "img-010-06",
-      "img-010-09"
+      "img-010-03",
+      "img-010-01a",
+      "img-010-13"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
+      "impact": 8,
+      "originality": 9,
       "emotion": 7
     }
   },
@@ -4346,13 +4346,13 @@
       "color"
     ],
     "related": [
+      "img-010-09",
       "img-010-01",
-      "img-010-01c",
-      "img-010-09"
+      "img-010-02"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
+      "impact": 8,
+      "originality": 9,
       "emotion": 7
     }
   },
@@ -4413,13 +4413,13 @@
     ],
     "related": [
       "img-010-01",
-      "img-010-01c",
-      "img-010-06"
+      "img-010-07",
+      "img-010-03"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 7
+      "impact": 9,
+      "originality": 10,
+      "emotion": 9
     }
   },
   {
@@ -4478,13 +4478,13 @@
       "color"
     ],
     "related": [
-      "img-010-01",
-      "img-010-01c",
-      "img-010-06"
+      "img-010-07",
+      "img-010-08",
+      "img-010-12"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 8,
+      "originality": 9,
       "emotion": 8
     }
   },
@@ -4546,13 +4546,13 @@
       "color"
     ],
     "related": [
-      "img-011-06",
-      "img-011-12",
-      "img-011-25"
+      "img-011-05",
+      "img-011-10",
+      "img-011-14"
     ],
     "score": {
       "impact": 8,
-      "originality": 8,
+      "originality": 9,
       "emotion": 9
     }
   },
@@ -4614,14 +4614,14 @@
       "color"
     ],
     "related": [
-      "img-011-03",
-      "img-011-12",
-      "img-011-25"
+      "img-011-08",
+      "img-011-15",
+      "img-011-22"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -4682,9 +4682,9 @@
       "color"
     ],
     "related": [
-      "img-011-25",
-      "img-011-03",
-      "img-011-06"
+      "img-016-08",
+      "img-011-11",
+      "img-011-13"
     ],
     "score": {
       "impact": 7,
@@ -4749,9 +4749,9 @@
       "color"
     ],
     "related": [
-      "img-011-12",
-      "img-011-03",
-      "img-011-06"
+      "img-011-08",
+      "img-011-16",
+      "img-011-13"
     ],
     "score": {
       "impact": 7,
@@ -4816,13 +4816,13 @@
       "color"
     ],
     "related": [
-      "img-012-14",
-      "img-012-03",
-      "img-012-08"
+      "img-012-05",
+      "img-012-06",
+      "img-012-07"
     ],
     "score": {
       "impact": 7,
-      "originality": 7,
+      "originality": 8,
       "emotion": 7
     }
   },
@@ -4883,9 +4883,9 @@
       "color"
     ],
     "related": [
-      "img-012-01",
-      "img-012-08",
-      "img-012-14"
+      "img-012-11",
+      "img-012-04",
+      "img-012-05"
     ],
     "score": {
       "impact": 7,
@@ -4950,12 +4950,12 @@
       "color"
     ],
     "related": [
-      "img-012-14",
-      "img-012-01",
-      "img-012-03"
+      "img-012-04",
+      "img-012-05",
+      "img-012-06"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 7,
       "emotion": 7
     }
@@ -5016,14 +5016,14 @@
       "people"
     ],
     "related": [
-      "img-012-08",
-      "img-012-01",
-      "img-012-03"
+      "img-012-05",
+      "img-012-06",
+      "img-012-07"
     ],
     "score": {
       "impact": 7,
-      "originality": 7,
-      "emotion": 7
+      "originality": 8,
+      "emotion": 8
     }
   },
   {
@@ -5083,9 +5083,9 @@
       "color"
     ],
     "related": [
-      "img-013-04",
-      "img-013-11",
-      "img-013-14"
+      "img-013-02",
+      "img-013-03",
+      "img-013-30"
     ],
     "score": {
       "impact": 7,
@@ -5150,13 +5150,13 @@
     ],
     "related": [
       "img-013-24",
-      "img-013-01",
-      "img-013-11"
+      "img-013-23",
+      "img-013-17"
     ],
     "score": {
       "impact": 8,
       "originality": 7,
-      "emotion": 7
+      "emotion": 8
     }
   },
   {
@@ -5214,14 +5214,14 @@
       "color"
     ],
     "related": [
+      "img-013-12",
       "img-013-37",
-      "img-013-01",
-      "img-013-04"
+      "img-013-05"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -5280,9 +5280,9 @@
       "color"
     ],
     "related": [
-      "img-013-01",
-      "img-013-04",
-      "img-013-11"
+      "img-013-13",
+      "img-013-16",
+      "img-013-24"
     ],
     "score": {
       "impact": 7,
@@ -5347,13 +5347,13 @@
       "color"
     ],
     "related": [
-      "img-013-04",
-      "img-013-01",
-      "img-013-11"
+      "img-013-23",
+      "img-013-22",
+      "img-013-17"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
+      "impact": 9,
+      "originality": 9,
       "emotion": 9
     }
   },
@@ -5414,13 +5414,13 @@
     ],
     "related": [
       "img-013-11",
-      "img-013-01",
-      "img-013-04"
+      "img-013-10",
+      "img-013-06"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -5480,12 +5480,12 @@
       "color"
     ],
     "related": [
-      "img-014-20",
-      "img-014-07",
-      "img-014-11"
+      "img-014-05",
+      "img-014-04",
+      "img-014-20"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 7
     }
@@ -5547,12 +5547,12 @@
       "color"
     ],
     "related": [
-      "img-014-02",
-      "img-014-11",
-      "img-014-18"
+      "img-014-05",
+      "img-014-01",
+      "img-014-04"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 7
     }
@@ -5613,12 +5613,12 @@
       "color"
     ],
     "related": [
-      "img-014-20",
-      "img-014-02",
-      "img-014-07"
+      "img-014-13",
+      "img-014-16",
+      "img-014-20"
     ],
     "score": {
-      "impact": 7,
+      "impact": 8,
       "originality": 8,
       "emotion": 8
     }
@@ -5680,14 +5680,14 @@
       "color"
     ],
     "related": [
-      "img-014-02",
-      "img-014-07",
-      "img-014-11"
+      "img-014-05",
+      "img-014-10",
+      "img-014-19"
     ],
     "score": {
       "impact": 7,
       "originality": 8,
-      "emotion": 7
+      "emotion": 9
     }
   },
   {
@@ -5747,14 +5747,14 @@
       "color"
     ],
     "related": [
-      "img-014-02",
+      "img-014-04",
       "img-014-11",
-      "img-014-07"
+      "img-014-13"
     ],
     "score": {
       "impact": 7,
       "originality": 8,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -5813,14 +5813,14 @@
       "color"
     ],
     "related": [
-      "img-015-10",
-      "img-015-04",
-      "img-015-06"
+      "img-015-07",
+      "img-015-05",
+      "img-015-08"
     ],
     "score": {
       "impact": 9,
       "originality": 8,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -5880,13 +5880,13 @@
     ],
     "related": [
       "img-015-11",
-      "img-015-01",
-      "img-015-06"
+      "img-015-03",
+      "img-015-07"
     ],
     "score": {
       "impact": 9,
       "originality": 8,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -5946,14 +5946,14 @@
       "color"
     ],
     "related": [
-      "img-015-01",
-      "img-015-04",
-      "img-015-10"
+      "img-015-03",
+      "img-015-07",
+      "img-015-01"
     ],
     "score": {
       "impact": 9,
-      "originality": 9,
-      "emotion": 8
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -6013,13 +6013,13 @@
     ],
     "related": [
       "img-003-10",
-      "img-015-01",
-      "img-015-04"
+      "img-015-09",
+      "img-015-07"
     ],
     "score": {
       "impact": 9,
-      "originality": 9,
-      "emotion": 8
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -6080,13 +6080,13 @@
     ],
     "related": [
       "img-015-04",
-      "img-015-01",
-      "img-015-06"
+      "img-015-05",
+      "img-015-08"
     ],
     "score": {
       "impact": 8,
       "originality": 7,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -6147,13 +6147,13 @@
     ],
     "related": [
       "img-016-25",
-      "img-016-03",
-      "img-016-14"
+      "img-016-16",
+      "img-016-03"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 8
+      "emotion": 9
     }
   },
   {
@@ -6213,14 +6213,14 @@
       "color"
     ],
     "related": [
-      "img-016-02",
-      "img-016-14",
-      "img-016-18"
+      "img-016-08",
+      "img-016-13",
+      "img-016-04"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
-      "emotion": 8
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -6282,13 +6282,13 @@
     ],
     "related": [
       "img-016-18",
-      "img-016-02",
+      "img-016-28",
       "img-016-03"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 8
+      "emotion": 7
     }
   },
   {
@@ -6349,14 +6349,14 @@
       "color"
     ],
     "related": [
+      "img-016-28",
       "img-016-14",
-      "img-016-02",
       "img-016-03"
     ],
     "score": {
-      "impact": 7,
-      "originality": 8,
-      "emotion": 8
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
     }
   },
   {
@@ -6416,9 +6416,9 @@
       "color"
     ],
     "related": [
+      "img-016-08",
       "img-016-02",
-      "img-016-03",
-      "img-016-14"
+      "img-016-27"
     ],
     "score": {
       "impact": 7,
@@ -6480,14 +6480,14 @@
     "manipulation": "monochrome",
     "negative": [],
     "related": [
-      "img-017-02",
-      "img-017-03",
-      "img-017-44"
+      "img-008-01",
+      "img-017-07",
+      "img-017-16"
     ],
     "score": {
-      "impact": 7,
-      "originality": 7,
-      "emotion": 7
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
     }
   },
   {
@@ -6547,14 +6547,14 @@
       "color"
     ],
     "related": [
+      "img-017-17",
       "img-017-01",
-      "img-017-03",
-      "img-017-44"
+      "img-017-06"
     ],
     "score": {
       "impact": 7,
       "originality": 7,
-      "emotion": 7
+      "emotion": 8
     }
   },
   {
@@ -6612,9 +6612,9 @@
       "color"
     ],
     "related": [
-      "img-017-01",
-      "img-017-02",
-      "img-017-44"
+      "img-017-16",
+      "img-017-16a",
+      "img-017-01"
     ],
     "score": {
       "impact": 7,
@@ -6678,9 +6678,9 @@
       "color"
     ],
     "related": [
-      "img-017-01",
-      "img-017-02",
-      "img-017-03"
+      "img-017-06d",
+      "img-017-16a",
+      "img-017-01"
     ],
     "score": {
       "impact": 7,
@@ -6744,7 +6744,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-26",
+      "img-000-01",
+      "img-000-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-000-03",
@@ -6803,7 +6812,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-26",
+      "img-000-13",
+      "img-000-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-06",
@@ -6861,7 +6879,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-17",
+      "img-000-18",
+      "img-000-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-07",
@@ -6919,7 +6946,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-09",
+      "img-000-17",
+      "img-000-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-13",
@@ -6977,7 +7013,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-14",
+      "img-000-26",
+      "img-000-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-16",
@@ -7035,7 +7080,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-18",
+      "img-000-04",
+      "img-000-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-02",
@@ -7094,7 +7148,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-18",
+      "img-001-06",
+      "img-001-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-06",
@@ -7152,7 +7215,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-03",
+      "img-001-05",
+      "img-001-18"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-11",
@@ -7210,7 +7282,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-12",
+      "img-001-03",
+      "img-001-18"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-18",
@@ -7267,7 +7348,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-32",
+      "img-001-07",
+      "img-001-02"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-02",
@@ -7324,7 +7414,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-18",
+      "img-002-13",
+      "img-002-01"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-09",
@@ -7381,7 +7480,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-08",
+      "img-002-13",
+      "img-002-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-10",
@@ -7439,7 +7547,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-11",
+      "img-002-01",
+      "img-002-02"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-12",
@@ -7496,7 +7613,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-02",
+      "img-002-08",
+      "img-002-09"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-17",
@@ -7554,7 +7680,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-06",
+      "img-002-10",
+      "img-002-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-03",
@@ -7613,7 +7748,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-06",
+      "img-003-16",
+      "img-003-38"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-04",
@@ -7671,7 +7815,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-03",
+      "img-003-13",
+      "img-003-14"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-09",
@@ -7729,7 +7882,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-14",
+      "img-003-01",
+      "img-003-08"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-12",
@@ -7788,7 +7950,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-10",
+      "img-003-14",
+      "img-003-01"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-003-16",
@@ -7846,7 +8017,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-14",
+      "img-003-01",
+      "img-003-06"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-18",
@@ -7905,7 +8085,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-08",
+      "img-003-09",
+      "img-003-36"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-23",
@@ -7964,7 +8153,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-27",
+      "img-003-14",
+      "img-003-11"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-24",
@@ -8022,7 +8220,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-14",
+      "img-003-11",
+      "img-003-27"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-30",
@@ -8081,7 +8288,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-14",
+      "img-003-36",
+      "img-003-29"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-38",
@@ -8140,7 +8356,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-06",
+      "img-003-03",
+      "img-003-16"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-03",
@@ -8198,7 +8423,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-04",
+      "img-004-21",
+      "img-004-22"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-11",
@@ -8256,7 +8490,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-13",
+      "img-004-24",
+      "img-004-21"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-12",
@@ -8313,7 +8556,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-10",
+      "img-004-21",
+      "img-004-22"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-15",
@@ -8371,7 +8623,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-21",
+      "img-004-22",
+      "img-004-01"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-24",
@@ -8427,7 +8688,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-11",
+      "img-004-21",
+      "img-004-22"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-28",
@@ -8485,7 +8755,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-04",
+      "img-004-07",
+      "img-004-16"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-005-03",
@@ -8542,7 +8821,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-02",
+      "img-005-05",
+      "img-005-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-005-04",
@@ -8600,7 +8888,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-07",
+      "img-005-02",
+      "img-005-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-005-08",
@@ -8658,7 +8955,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-06",
+      "img-005-05",
+      "img-005-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-02",
@@ -8717,7 +9023,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-13",
+      "img-006-12"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-07",
@@ -8774,7 +9089,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-006-12",
+      "img-006-01",
+      "img-006-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-006-15",
@@ -8833,7 +9157,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-08",
+      "img-006-01",
+      "img-006-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-19",
@@ -8891,7 +9224,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-09",
+      "img-006-01",
+      "img-006-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-03",
@@ -8948,7 +9290,16 @@
     "negative": [
       "people"
     ],
-    "related": []
+    "related": [
+      "img-007-04",
+      "img-007-11",
+      "img-007-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-007-05",
@@ -9007,7 +9358,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-18",
+      "img-007-08",
+      "img-007-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-12",
@@ -9065,7 +9425,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-01",
+      "img-007-08",
+      "img-007-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-15",
@@ -9123,7 +9492,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-08",
+      "img-007-04",
+      "img-007-11"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-22",
@@ -9182,7 +9560,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-23",
+      "img-007-06",
+      "img-007-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-01",
@@ -9237,7 +9624,16 @@
     "pov": "upward",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-008-03",
+      "img-008-26"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-07",
@@ -9293,7 +9689,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-30",
+      "img-008-01",
+      "img-008-27"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-10",
@@ -9350,7 +9755,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-11",
+      "img-008-01",
+      "img-008-27"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-19",
@@ -9408,7 +9822,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-40",
+      "img-008-23",
+      "img-008-001"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-23",
@@ -9465,7 +9888,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-02",
+      "img-008-19",
+      "img-008-26"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-27",
@@ -9522,7 +9954,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-37",
+      "img-008-12",
+      "img-008-01"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-31",
@@ -9579,7 +10020,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-01",
+      "img-008-27",
+      "img-008-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-36",
@@ -9637,7 +10087,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-03",
+      "img-008-01",
+      "img-008-02"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-001",
@@ -9694,7 +10153,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-19",
+      "img-008-01",
+      "img-008-27"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-03",
@@ -9753,7 +10221,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-04",
+      "img-009-09",
+      "img-009-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-04",
@@ -9811,7 +10288,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-06",
+      "img-009-09",
+      "img-009-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-11",
@@ -9869,7 +10355,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-13",
+      "img-009-12",
+      "img-009-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-18",
@@ -9928,7 +10423,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-04",
+      "img-009-09",
+      "img-009-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-02",
@@ -9985,7 +10489,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-01a",
+      "img-010-01b"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-010-07",
@@ -10041,7 +10554,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-09",
+      "img-010-01",
+      "img-010-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-010-08",
@@ -10098,7 +10620,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-07",
+      "img-010-12",
+      "img-010-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-010-14",
@@ -10155,7 +10686,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-07",
+      "img-010-08",
+      "img-010-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-010-01b",
@@ -10212,7 +10752,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-02",
+      "img-010-03",
+      "img-010-01a"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-01",
@@ -10270,7 +10819,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-22",
+      "img-011-06",
+      "img-011-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-04",
@@ -10328,7 +10886,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-24",
+      "img-011-23",
+      "img-011-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-08",
@@ -10386,7 +10953,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-06",
+      "img-011-10",
+      "img-011-16"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-11",
@@ -10444,7 +11020,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-16",
+      "img-011-20",
+      "img-011-09"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-19",
@@ -10502,7 +11087,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-03",
+      "img-011-05",
+      "img-011-21"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-24",
@@ -10560,7 +11154,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-04",
+      "img-011-23",
+      "img-011-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-012-02",
@@ -10617,7 +11220,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-09",
+      "img-012-04",
+      "img-012-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-012-09",
@@ -10676,7 +11288,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-08",
+      "img-012-04",
+      "img-012-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-012-11",
@@ -10734,7 +11355,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-05",
+      "img-012-06",
+      "img-012-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-13",
@@ -10792,7 +11422,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-04",
+      "img-012-05",
+      "img-012-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-06",
@@ -10849,7 +11488,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-07",
+      "img-013-10",
+      "img-013-27"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-12",
@@ -10906,7 +11554,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-11",
+      "img-013-10",
+      "img-013-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-16",
@@ -10961,7 +11618,16 @@
     "pov": "close-up",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-013-14",
+      "img-013-35",
+      "img-013-24"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-19",
@@ -11018,7 +11684,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-36",
+      "img-013-30",
+      "img-013-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-25",
@@ -11075,7 +11750,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-24",
+      "img-013-23",
+      "img-013-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-013-28",
@@ -11132,7 +11816,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-07",
+      "img-013-08",
+      "img-013-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-35",
@@ -11190,7 +11883,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-09",
+      "img-013-16",
+      "img-013-19"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-04",
@@ -11247,7 +11949,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-06",
+      "img-014-20",
+      "img-014-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-10",
@@ -11304,7 +12015,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-05",
+      "img-014-13",
+      "img-014-18"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-014-13",
@@ -11361,7 +12081,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-10",
+      "img-014-11",
+      "img-014-16"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-16",
@@ -11418,7 +12147,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-01",
+      "img-014-11",
+      "img-014-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-014-19",
@@ -11475,7 +12213,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-08",
+      "img-014-18",
+      "img-014-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-015-02",
@@ -11532,7 +12279,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-03",
+      "img-015-07",
+      "img-015-01"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-015-03",
@@ -11589,7 +12345,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-05",
+      "img-015-08",
+      "img-015-09"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 10,
+      "emotion": 9
+    }
   },
   {
     "id": "img-015-07",
@@ -11646,7 +12411,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-01",
+      "img-015-05",
+      "img-015-08"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-015-09",
@@ -11704,7 +12478,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-05",
+      "img-015-08",
+      "img-015-10"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-04",
@@ -11762,7 +12545,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-03",
+      "img-016-08",
+      "img-016-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-08",
@@ -11820,7 +12612,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-03",
+      "img-016-27",
+      "img-011-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-12",
@@ -11878,7 +12679,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-20",
+      "img-016-26",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-23",
@@ -11936,7 +12746,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-21",
+      "img-016-24",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-28",
@@ -11995,7 +12814,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-18",
+      "img-016-14",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-01b",
@@ -12052,7 +12880,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06",
+      "img-017-05",
+      "img-017-01c"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-16a",
@@ -12110,7 +12947,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06d",
+      "img-017-44",
+      "img-017-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-17",
@@ -12167,7 +13013,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-02",
+      "img-017-01c",
+      "img-017-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-004-21",
@@ -12224,7 +13079,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-22",
+      "img-004-15",
+      "img-004-01"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-007-07a",
@@ -12282,7 +13146,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-06",
+      "img-007-23",
+      "img-007-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-39",
@@ -12340,7 +13213,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-30",
+      "img-008-11",
+      "img-008-38"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-23",
@@ -12398,7 +13280,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-04",
+      "img-011-24",
+      "img-011-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-23",
@@ -12456,7 +13347,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-24",
+      "img-013-17",
+      "img-013-04"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-000-04",
@@ -12539,7 +13439,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-14",
+      "img-000-26",
+      "img-000-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-05",
@@ -12619,7 +13528,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-18",
+      "img-000-08",
+      "img-000-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-08",
@@ -12696,7 +13614,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-18",
+      "img-000-05",
+      "img-000-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-09",
@@ -12783,7 +13710,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-17",
+      "img-000-07",
+      "img-000-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-10",
@@ -12871,7 +13807,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-19",
+      "img-000-26",
+      "img-000-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-12",
@@ -12960,7 +13905,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-37",
+      "img-000-11",
+      "img-000-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-14",
@@ -13040,7 +13994,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-13",
+      "img-000-04",
+      "img-000-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-15",
@@ -13123,7 +14086,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-18",
+      "img-000-05",
+      "img-000-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-17",
@@ -13212,7 +14184,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-21",
+      "img-008-03",
+      "img-003-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-18",
@@ -13291,7 +14272,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-05",
+      "img-000-08",
+      "img-000-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-000-19",
@@ -13376,7 +14366,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-10",
+      "img-000-26",
+      "img-000-01"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-000-21",
@@ -13462,7 +14461,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-17",
+      "img-004-04",
+      "img-004-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-000-25",
@@ -13550,7 +14558,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-01a",
+      "img-010-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-05",
@@ -13639,7 +14656,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-06",
+      "img-001-03",
+      "img-001-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-08",
@@ -13718,7 +14744,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-10",
+      "img-001-07",
+      "img-001-18"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-10",
@@ -13800,7 +14835,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-08",
+      "img-001-07",
+      "img-001-18"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-001-12",
@@ -13892,7 +14936,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-11",
+      "img-001-03",
+      "img-001-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-13",
@@ -13982,7 +15035,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-15",
+      "img-001-16",
+      "img-001-18"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-001-16",
@@ -14072,7 +15134,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-05",
+      "img-001-12",
+      "img-001-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-002-04",
@@ -14145,7 +15216,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-07",
+      "img-002-14",
+      "img-002-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-002-07",
@@ -14224,7 +15304,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-04",
+      "img-002-14",
+      "img-002-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-002-08",
@@ -14311,7 +15400,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-001-07",
+      "img-002-09",
+      "img-002-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-11",
@@ -14405,7 +15503,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-10",
+      "img-002-01",
+      "img-002-02"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-14",
@@ -14482,7 +15589,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-04",
+      "img-002-07",
+      "img-002-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-002-16",
@@ -14571,7 +15687,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-13",
+      "img-002-15",
+      "img-002-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-002-18",
@@ -14658,7 +15783,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-002-02",
+      "img-002-13",
+      "img-002-15"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-02",
@@ -14746,7 +15880,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-05",
+      "img-003-37",
+      "img-003-07"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-05",
@@ -14833,7 +15976,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-02",
+      "img-003-07",
+      "img-003-26"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-07",
@@ -14921,7 +16073,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-05",
+      "img-003-26",
+      "img-003-31"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-11",
@@ -15010,7 +16171,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-35",
+      "img-003-13",
+      "img-003-19"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 10,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-13",
@@ -15098,7 +16268,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-11",
+      "img-003-28",
+      "img-003-17"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-14",
@@ -15186,7 +16365,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-07",
+      "img-000-17",
+      "img-000-21"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 10,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-17",
@@ -15270,7 +16458,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-22",
+      "img-003-13",
+      "img-003-19"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-19",
@@ -15356,7 +16553,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-20",
+      "img-003-21",
+      "img-003-11"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-20",
@@ -15441,7 +16647,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-19",
+      "img-003-21",
+      "img-003-11"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-21",
@@ -15527,7 +16742,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-19",
+      "img-003-20",
+      "img-003-11"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-22",
@@ -15610,7 +16834,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-17",
+      "img-003-13",
+      "img-003-19"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-26",
@@ -15699,7 +16932,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-05",
+      "img-003-07",
+      "img-003-31"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-27",
@@ -15781,7 +17023,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-11",
+      "img-003-13",
+      "img-003-17"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 10,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-28",
@@ -15864,7 +17115,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-13",
+      "img-003-11",
+      "img-003-27"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-31",
@@ -15953,7 +17213,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-32",
+      "img-003-37",
+      "img-003-05"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-32",
@@ -16042,7 +17311,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-31",
+      "img-003-37",
+      "img-003-05"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-33",
@@ -16132,7 +17410,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-34",
+      "img-003-05",
+      "img-003-07"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-34",
@@ -16223,7 +17510,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-33",
+      "img-003-05",
+      "img-003-07"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-003-35",
@@ -16313,7 +17609,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-11",
+      "img-003-19",
+      "img-003-20"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-003-37",
@@ -16402,7 +17707,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-31",
+      "img-003-32",
+      "img-003-02"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-04",
@@ -16490,7 +17804,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-07",
+      "img-004-16",
+      "img-004-20"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-05",
@@ -16569,7 +17892,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-06",
+      "img-004-08",
+      "img-004-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-06",
@@ -16646,7 +17978,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-05",
+      "img-004-08",
+      "img-004-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-07",
@@ -16730,7 +18071,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-004-04",
+      "img-004-16",
+      "img-004-20"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-08",
@@ -16806,7 +18156,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-05",
+      "img-004-06",
+      "img-004-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-16",
@@ -16893,7 +18252,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-20",
+      "img-004-27",
+      "img-004-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-17",
@@ -16971,7 +18339,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-004-25",
+      "img-004-05",
+      "img-004-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-18",
@@ -17054,7 +18431,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-05",
+      "img-004-06",
+      "img-004-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-19",
@@ -17133,7 +18519,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-15",
+      "img-004-05",
+      "img-004-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-20",
@@ -17222,7 +18617,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-16",
+      "img-004-27",
+      "img-004-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-004-23",
@@ -17302,7 +18706,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-25",
+      "img-004-05",
+      "img-004-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-25",
@@ -17381,7 +18794,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-004-17",
+      "img-004-23",
+      "img-004-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-004-27",
@@ -17469,7 +18891,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-004-16",
+      "img-004-20",
+      "img-004-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-005-07",
@@ -17558,7 +18989,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-14",
+      "img-000-17",
+      "img-000-21"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-005-09",
@@ -17642,7 +19082,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-005-07",
+      "img-005-01",
+      "img-005-04"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-04",
@@ -17733,7 +19182,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-12",
+      "img-006-10",
+      "img-006-18"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-05",
@@ -17823,7 +19281,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-06",
+      "img-006-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-06",
@@ -17909,7 +19376,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-13",
+      "img-006-05",
+      "img-006-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-08",
@@ -17998,7 +19474,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-03",
+      "img-006-15",
+      "img-006-09"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-006-10",
@@ -18086,7 +19571,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-04",
+      "img-006-01",
+      "img-006-12"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-12",
@@ -18173,7 +19667,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-18",
+      "img-006-04",
+      "img-006-01"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-13",
@@ -18258,7 +19761,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-06",
+      "img-006-02",
+      "img-006-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-006-14",
@@ -18344,7 +19856,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-12",
+      "img-006-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-16",
@@ -18432,7 +19953,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-01",
+      "img-006-12",
+      "img-006-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-006-18",
@@ -18522,7 +20052,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-006-12",
+      "img-006-04",
+      "img-006-01"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-04",
@@ -18608,7 +20147,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-03",
+      "img-007-11",
+      "img-007-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-07",
@@ -18696,7 +20244,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-09",
+      "img-007-14",
+      "img-007-20"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-007-08",
@@ -18784,7 +20341,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-04",
+      "img-007-11",
+      "img-007-15"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-09",
@@ -18871,7 +20437,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-06",
+      "img-007-07",
+      "img-007-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-10",
@@ -18961,7 +20536,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-09",
+      "img-007-20",
+      "img-007-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-11",
@@ -19049,7 +20633,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-04",
+      "img-007-08",
+      "img-007-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-14",
@@ -19140,7 +20733,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-07",
+      "img-007-09",
+      "img-007-20"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-18",
@@ -19230,7 +20832,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-02",
+      "img-007-17",
+      "img-007-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-007-19",
@@ -19317,7 +20928,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-18",
+      "img-007-20",
+      "img-007-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-007-20",
@@ -19403,7 +21023,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-07",
+      "img-007-09",
+      "img-007-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-007-21",
@@ -19487,7 +21116,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-007-06",
+      "img-007-17",
+      "img-007-23"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-03",
@@ -19575,7 +21213,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-17",
+      "img-003-14",
+      "img-005-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-04",
@@ -19662,7 +21309,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-34",
+      "img-008-01",
+      "img-008-27"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-05",
@@ -19743,7 +21399,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-22",
+      "img-008-28",
+      "img-008-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-09",
@@ -19828,7 +21493,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-01",
+      "img-008-03",
+      "img-008-36"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-11",
@@ -19918,7 +21592,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-008-12",
+      "img-008-03",
+      "img-008-10"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-12",
@@ -20006,7 +21689,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-11",
+      "img-008-27",
+      "img-008-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-13",
@@ -20079,7 +21771,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-15",
+      "img-008-16"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-15",
@@ -20157,7 +21858,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-16"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-16",
@@ -20232,7 +21942,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-18",
@@ -20312,7 +22031,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-20",
@@ -20387,7 +22115,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-21",
@@ -20466,7 +22203,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-22",
@@ -20545,7 +22291,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-28",
+      "img-008-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-24",
@@ -20624,7 +22379,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-25",
@@ -20701,7 +22465,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-26",
@@ -20791,7 +22564,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-01",
+      "img-008-02",
+      "img-008-23"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-28",
@@ -20870,7 +22652,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-22",
+      "img-008-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-30",
@@ -20959,7 +22750,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-003-13",
+      "img-003-11",
+      "img-015-05"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-008-33",
@@ -21041,7 +22841,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-34",
@@ -21132,7 +22941,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-37",
+      "img-008-04",
+      "img-008-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-008-35",
@@ -21216,7 +23034,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-008-05",
+      "img-008-13",
+      "img-008-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-008-37",
@@ -21303,7 +23130,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-12",
+      "img-008-21",
+      "img-008-34"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-02",
@@ -21390,7 +23226,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-05",
+      "img-009-07",
+      "img-009-06"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-06",
@@ -21477,7 +23322,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-04",
+      "img-009-14",
+      "img-009-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-07",
@@ -21564,7 +23418,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-16",
+      "img-009-08",
+      "img-009-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-009-08",
@@ -21651,7 +23514,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-09",
+      "img-009-07",
+      "img-009-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-09",
@@ -21739,7 +23611,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-08",
+      "img-009-15",
+      "img-009-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-12",
@@ -21824,7 +23705,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-13",
+      "img-009-17",
+      "img-009-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-13",
@@ -21909,7 +23799,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-12",
+      "img-009-07",
+      "img-009-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-14",
@@ -21994,7 +23893,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-16",
+      "img-009-06",
+      "img-009-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-009-15",
@@ -22079,7 +23987,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-09",
+      "img-009-08",
+      "img-009-17"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-009-16",
@@ -22164,7 +24081,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-14",
+      "img-009-07",
+      "img-009-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-009-17",
@@ -22249,7 +24175,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-009-12",
+      "img-009-09",
+      "img-009-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-03",
@@ -22341,7 +24276,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-01a",
+      "img-010-05",
+      "img-010-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-010-05",
@@ -22432,7 +24376,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-29",
+      "img-010-30"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-12",
@@ -22517,7 +24470,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-000-21",
+      "img-004-04",
+      "img-004-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-010-13",
@@ -22603,7 +24565,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-01a",
+      "img-010-08a"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-01a",
@@ -22690,7 +24661,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-13",
+      "img-010-08a"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-08a",
@@ -22780,7 +24760,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-010-01a",
+      "img-010-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-010-29",
@@ -22869,7 +24858,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-30",
+      "img-010-05",
+      "img-010-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-010-30",
@@ -22959,7 +24957,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-010-29",
+      "img-010-03",
+      "img-010-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-02",
@@ -23050,7 +25057,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-07",
+      "img-011-10",
+      "img-011-16"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-05",
@@ -23138,7 +25154,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-03",
+      "img-011-10",
+      "img-011-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-07",
@@ -23225,7 +25250,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-02",
+      "img-011-10",
+      "img-011-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-09",
@@ -23311,7 +25345,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-16",
+      "img-011-21",
+      "img-011-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-011-10",
@@ -23398,7 +25441,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-03",
+      "img-011-05",
+      "img-011-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-13",
@@ -23483,7 +25535,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-17",
+      "img-011-22",
+      "img-011-25"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-14",
@@ -23568,7 +25629,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-03",
+      "img-011-05",
+      "img-011-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-15",
@@ -23658,7 +25728,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-06",
+      "img-011-03",
+      "img-011-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-16",
@@ -23744,7 +25823,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-09",
+      "img-011-21",
+      "img-011-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-17",
@@ -23828,7 +25916,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-13",
+      "img-011-22",
+      "img-011-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-18",
@@ -23914,7 +26011,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-13",
+      "img-011-17",
+      "img-011-22"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-011-20",
@@ -23997,7 +26103,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-16",
+      "img-011-11",
+      "img-011-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-21",
@@ -24082,7 +26197,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-16",
+      "img-011-14",
+      "img-011-09"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-011-22",
@@ -24167,7 +26291,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-011-13",
+      "img-011-01",
+      "img-011-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-012-04",
@@ -24250,7 +26383,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-12",
+      "img-012-05",
+      "img-012-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-05",
@@ -24333,7 +26475,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-06",
+      "img-012-07",
+      "img-012-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-06",
@@ -24419,7 +26570,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-05",
+      "img-012-07",
+      "img-012-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-07",
@@ -24504,7 +26664,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-05",
+      "img-012-06",
+      "img-012-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-012-10",
@@ -24591,7 +26760,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-04",
+      "img-012-05",
+      "img-012-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-012-12",
@@ -24675,7 +26853,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-012-04",
+      "img-012-05",
+      "img-012-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-02",
@@ -24769,7 +26956,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-03",
+      "img-013-01",
+      "img-013-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-03",
@@ -24855,7 +27051,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-02",
+      "img-013-01",
+      "img-013-30"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-05",
@@ -24940,7 +27145,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-11",
+      "img-013-27",
+      "img-013-31"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-07",
@@ -25021,7 +27235,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-08",
+      "img-013-10",
+      "img-013-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-08",
@@ -25103,7 +27326,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-07",
+      "img-013-10",
+      "img-013-28"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-09",
@@ -25187,7 +27419,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-10",
+      "img-013-06",
+      "img-013-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-10",
@@ -25275,7 +27516,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-07",
+      "img-013-06",
+      "img-013-27"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-13",
@@ -25361,7 +27611,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-24",
+      "img-013-22",
+      "img-013-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-15",
@@ -25452,7 +27711,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-02",
+      "img-013-27",
+      "img-013-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-17",
@@ -25539,7 +27807,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-010-03",
+      "img-000-25",
+      "img-010-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-013-18",
@@ -25628,7 +27905,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-38",
+      "img-013-26",
+      "img-013-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-20",
@@ -25714,7 +28000,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-30",
+      "img-013-21",
+      "img-013-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-21",
@@ -25803,7 +28098,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-17",
+      "img-013-30",
+      "img-013-20"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-22",
@@ -25890,7 +28194,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-24",
+      "img-013-26",
+      "img-013-23"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-26",
@@ -25975,7 +28288,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-18",
+      "img-013-22",
+      "img-013-23"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-27",
@@ -26063,7 +28385,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-10",
+      "img-013-06",
+      "img-013-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-29",
@@ -26148,7 +28479,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-30",
+      "img-013-21",
+      "img-013-24"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-30",
@@ -26236,7 +28576,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-21",
+      "img-013-20",
+      "img-013-10"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-31",
@@ -26320,7 +28669,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-30",
+      "img-013-01",
+      "img-013-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-32",
@@ -26405,7 +28763,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-12",
+      "img-013-31",
+      "img-013-37"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-013-33",
@@ -26490,7 +28857,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-38",
+      "img-013-01",
+      "img-013-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-34",
@@ -26572,7 +28948,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-11",
+      "img-013-02",
+      "img-013-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-36",
@@ -26662,7 +29047,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-19",
+      "img-013-17",
+      "img-013-30"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-013-38",
@@ -26753,7 +29147,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-013-18",
+      "img-013-33",
+      "img-013-24"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-01",
@@ -26841,7 +29244,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-05",
+      "img-014-06",
+      "img-014-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-014-03",
@@ -26928,7 +29340,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-014-09",
+      "img-014-01",
+      "img-014-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-05",
@@ -27018,7 +29439,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-01",
+      "img-014-08",
+      "img-014-10"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-014-06",
@@ -27108,7 +29538,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-01",
+      "img-014-04",
+      "img-014-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-08",
@@ -27193,7 +29632,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-05",
+      "img-014-01",
+      "img-014-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-09",
@@ -27280,7 +29728,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-03",
+      "img-014-05",
+      "img-014-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-12",
@@ -27368,7 +29825,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-05",
+      "img-014-01",
+      "img-014-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-14",
@@ -27454,7 +29920,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-05",
+      "img-014-01",
+      "img-014-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-014-15",
@@ -27542,7 +30017,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-17",
+      "img-014-05",
+      "img-014-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-014-17",
@@ -27630,7 +30114,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-014-15",
+      "img-014-05",
+      "img-014-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 9,
+      "emotion": 7
+    }
   },
   {
     "id": "img-015-05",
@@ -27717,7 +30210,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-08",
+      "img-003-19",
+      "img-003-20"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-015-08",
@@ -27803,7 +30305,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-015-05",
+      "img-003-19",
+      "img-003-20"
+    ],
+    "score": {
+      "impact": 9,
+      "originality": 8,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-01",
@@ -27892,7 +30403,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-05",
@@ -27968,7 +30488,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-06",
+      "img-016-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-06",
@@ -28045,7 +30574,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-07",
@@ -28120,7 +30658,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-09",
@@ -28200,7 +30747,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-10",
@@ -28274,7 +30830,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-11",
@@ -28354,7 +30919,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-13",
@@ -28429,7 +31003,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-05",
+      "img-016-06",
+      "img-016-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 9,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-15",
@@ -28509,7 +31092,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-000-12",
+      "img-008-37"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-16",
@@ -28600,7 +31192,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-02",
+      "img-016-17",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-016-17",
@@ -28686,7 +31287,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-16",
+      "img-016-03",
+      "img-016-08"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-19",
@@ -28774,7 +31384,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-03",
+      "img-016-08",
+      "img-016-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-016-20",
@@ -28862,7 +31481,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-12",
+      "img-016-26",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-21",
@@ -28946,7 +31574,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-22",
+      "img-016-23",
+      "img-016-24"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-22",
@@ -29020,7 +31657,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-24",
@@ -29105,7 +31751,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-21",
+      "img-016-23",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-016-26",
@@ -29192,7 +31847,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-20",
+      "img-016-12",
+      "img-016-03"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-016-27",
@@ -29275,7 +31939,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-29",
@@ -29352,7 +32025,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-016-30",
@@ -29433,7 +32115,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-016-13",
+      "img-016-05",
+      "img-016-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-017-05",
@@ -29519,7 +32210,16 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06",
+      "img-017-01b",
+      "img-017-01c"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-06",
@@ -29609,7 +32309,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06a",
+      "img-017-16b",
+      "img-017-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-017-07",
@@ -29700,7 +32409,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-16",
+      "img-017-06d"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-15",
@@ -29784,7 +32502,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-16",
+      "img-017-07",
+      "img-017-01d"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-16",
@@ -29874,7 +32601,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-07",
+      "img-017-15"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-01a",
@@ -29959,7 +32695,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06a",
+      "img-017-06b",
+      "img-017-06c"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-017-01c",
@@ -30047,7 +32792,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01d",
+      "img-017-06",
+      "img-017-05"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-01d",
@@ -30137,7 +32891,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01c",
+      "img-017-06",
+      "img-017-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-06a",
@@ -30223,7 +32986,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06",
+      "img-017-01a",
+      "img-017-16b"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   },
   {
     "id": "img-017-06b",
@@ -30306,7 +33078,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01a",
+      "img-017-06a",
+      "img-017-01"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-06c",
@@ -30389,7 +33170,16 @@
     "negative": [
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-01",
+      "img-017-06",
+      "img-017-07"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    }
   },
   {
     "id": "img-017-06d",
@@ -30476,7 +33266,16 @@
     "pov": "frontal",
     "manipulation": "monochrome",
     "negative": [],
-    "related": []
+    "related": [
+      "img-017-07",
+      "img-017-16a",
+      "img-017-44"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 8,
+      "emotion": 8
+    }
   },
   {
     "id": "img-017-16b",
@@ -30568,6 +33367,15 @@
       "people",
       "color"
     ],
-    "related": []
+    "related": [
+      "img-017-06",
+      "img-017-06a",
+      "img-017-01c"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 9
+    }
   }
 ]
