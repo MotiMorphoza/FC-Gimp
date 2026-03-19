@@ -178,6 +178,11 @@ function runRegression(rootDir) {
       validate: (results) => results.length === 0
     },
     {
+      query: 'happy',
+      minCount: 20,
+      validate: (results) => results.slice(0, 5).every((result) => ['mood', 'tone', 'themes', 'reading'].some((field) => (result.image[field] || []).length))
+    },
+    {
       query: 'sad',
       minCount: 20,
       validate: (results) => results.slice(0, 5).every((result) => ['mood', 'tone', 'tension', 'reading'].some((field) => (result.image[field] || []).length))

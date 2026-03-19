@@ -1257,7 +1257,6 @@ function renderProjectSeedMarkup(project) {
   const contextHtml = `
     <section class="project-context">
       <h1 class="project-context-title">${escapeHtml(project.title)}</h1>
-      ${project.description ? `<p class="project-context-description">${escapeHtml(project.description)}</p>` : ''}
     </section>
   `.trim();
 

@@ -760,13 +760,6 @@ function renderProjectContext(contextEl, projectData) {
   title.className = "project-context-title";
   title.textContent = projectData.title || "";
   contextEl.appendChild(title);
-
-  if (projectData.description) {
-    const description = document.createElement("p");
-    description.className = "project-context-description";
-    description.textContent = projectData.description;
-    contextEl.appendChild(description);
-  }
 }
 
 function renderProjectCaption(captionEl, text = "") {

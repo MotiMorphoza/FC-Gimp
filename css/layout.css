@@ -550,21 +550,25 @@
 }
 
 .main-intro-link {
-  color: inherit;
+  color: rgba(233, 196, 134, 0.96);
   text-decoration: none;
   display: inline-block;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(233, 196, 134, 0.3);
   transition:
     color 0.2s ease,
     border-color 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    transform 0.24s ease,
+    text-shadow 0.24s ease;
 }
 
 .main-intro-link:hover,
 .main-intro-link:focus-visible {
-  color: #fffaf1;
-  border-color: rgba(255, 248, 236, 0.72);
+  color: #fff7ea;
+  border-color: rgba(255, 241, 218, 0.72);
   opacity: 1;
+  transform: translateY(-1px);
+  text-shadow: 0 0 14px rgba(233, 196, 134, 0.22);
 }
 
 .main-intro-outro {

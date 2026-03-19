@@ -1,5 +1,6 @@
 (function () {
   const TAG_MAP = {
+    happy: ["happy", "happiness", "joy", "joyful", "cheerful", "delight", "delightful", "playful", "playfulness", "warmth", "lightness", "companionship"],
     lonely: ["lonely", "loneliness", "isolated", "isolation", "solitude", "alienation", "emptiness"],
     sad: ["sad", "sadness", "melancholy", "sorrow", "grief", "lonely", "loneliness", "solitude", "alienation", "detachment", "fatigue"],
     urban: ["urban", "city", "street", "metropolitan", "public space", "sidewalk"],
