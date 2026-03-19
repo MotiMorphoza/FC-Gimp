@@ -16,6 +16,7 @@ const { generateShopIndex }      = require('./build/shop-index-generator');
 const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
+const { writeImageSearchDataset } = require('./build/image-search-generator');
 const { SITE_HOSTNAME, SITE_ORIGIN } = require('./build/site-config');
 
 class SuperBuild {
@@ -94,6 +95,7 @@ class SuperBuild {
       this.logger.info(`Validated ${projects.length} projects`);
       this.logImageMetadataCoverage(projects);
       this.generateStaticProjectPages(projects, tempDir);
+      this.generateImageSearchDataset(projects, tempDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Generate manifests
@@ -340,6 +342,15 @@ class SuperBuild {
     });
 
     this.logger.info(`Generated ${projects.length} static project pages`);
+  }
+
+  generateImageSearchDataset(projects, tempDir) {
+    writeImageSearchDataset({
+      projects,
+      rootDir: this.rootDir,
+      tempDir,
+      logger: this.logger
+    });
   }
 
   escapeXml(value) {

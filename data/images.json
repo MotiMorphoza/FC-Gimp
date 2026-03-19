@@ -1,0 +1,5791 @@
+[
+  {
+    "id": "img-000-01",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "01.jpg",
+    "primary": [
+      "urban rush",
+      "care work",
+      "motion blur"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "urgency",
+      "strain",
+      "compression"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "stroller",
+      "phone",
+      "fragmented body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "urgency",
+      "strain"
+    ],
+    "relations": [
+      "The stroller and the phone compete for attention within the same hurried gesture."
+    ],
+    "tension": [
+      "care versus distraction",
+      "control versus speed"
+    ],
+    "reading": [
+      "A cropped rushing figure turns caregiving into a portrait of urban overload."
+    ],
+    "density": "focused",
+    "intensity": {
+      "urgency": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-000-11",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "11.jpg",
+    "primary": [
+      "bird",
+      "statue hand",
+      "urban absurdity"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irony",
+      "stillness",
+      "wit"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "bird",
+      "weapon-like hand",
+      "precarious balance"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irony",
+      "stillness"
+    ],
+    "relations": [
+      "A fragile bird settles on an aggressive human-made gesture."
+    ],
+    "tension": [
+      "violence versus tenderness",
+      "monument versus life"
+    ],
+    "reading": [
+      "The monument becomes absurdly human when a pigeon claims its sharpened hand as a resting place."
+    ],
+    "density": "focused",
+    "intensity": {
+      "irony": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-000-20",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "20.jpg",
+    "primary": [
+      "pink flower",
+      "pedestrian",
+      "urban tenderness"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "tenderness",
+      "surprise",
+      "lightness"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "flower",
+      "bridge",
+      "crossing"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "tenderness",
+      "surprise"
+    ],
+    "relations": [
+      "A single oversized flower interrupts the anonymity of a bridge crossing."
+    ],
+    "tension": [
+      "softness versus infrastructure",
+      "private emotion versus public movement"
+    ],
+    "reading": [
+      "The flower turns an ordinary crossing into a fleeting act of tenderness above the city rush."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tenderness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-000-23",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "23.jpg",
+    "primary": [
+      "warning sign",
+      "winter void",
+      "minimalism"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "distance",
+      "emptiness",
+      "cold"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "warning sign",
+      "frozen water",
+      "forbidden entry"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "distance",
+      "emptiness"
+    ],
+    "relations": [
+      "The sign addresses a landscape that feels empty of any human listener."
+    ],
+    "tension": [
+      "danger versus calm",
+      "command versus emptiness"
+    ],
+    "reading": [
+      "A public warning stands alone before frozen water, as if regulation has outlived the crowd."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "distance": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-000-24",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "24.jpg",
+    "primary": [
+      "embrace",
+      "root vegetables",
+      "anthropomorphic form"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "tenderness",
+      "playfulness",
+      "intimacy"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "embrace",
+      "paired bodies",
+      "earth-grown form"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "tenderness",
+      "playfulness"
+    ],
+    "relations": [
+      "Two vegetables appear to lean into each other like an embracing couple."
+    ],
+    "tension": [
+      "ordinary matter versus human projection"
+    ],
+    "reading": [
+      "The still life becomes quietly romantic once the vegetables begin to read as bodies."
+    ],
+    "density": "focused",
+    "intensity": {
+      "tenderness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-000-26",
+    "projectSlug": "000 - unusuall_usual",
+    "src": "26.jpg",
+    "primary": [
+      "window",
+      "isolation",
+      "solitary figure"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "loneliness",
+      "silence",
+      "distance"
+    ],
+    "themes": [
+      "urban absurdity",
+      "everyday symbolism"
+    ],
+    "symbols": [
+      "window",
+      "circle",
+      "threshold"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "loneliness",
+      "silence"
+    ],
+    "relations": [
+      "The figure exists only as a distant presence contained by a circular opening."
+    ],
+    "tension": [
+      "inside versus outside",
+      "visibility versus separation"
+    ],
+    "reading": [
+      "Seen through a round opening, the bundled figure feels less like a person than a sealed private world."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "loneliness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-01",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "01.jpg",
+    "primary": [
+      "umbrella",
+      "overhead solitude",
+      "white figure"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "quietness",
+      "detachment",
+      "grace"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "umbrella",
+      "crossing path",
+      "smallness"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "quietness",
+      "detachment"
+    ],
+    "relations": [
+      "The pale umbrella lets the lone figure hover softly above the hard ground."
+    ],
+    "tension": [
+      "protection versus exposure"
+    ],
+    "reading": [
+      "From above, the walker becomes a delicate punctuation mark inside the wet geometry of the city."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "quietness": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-03",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "03.jpg",
+    "primary": [
+      "cyclist",
+      "Batman shirt",
+      "urban absurdity"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "playfulness",
+      "alertness",
+      "humor"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "superhero emblem",
+      "lane markings",
+      "directional system"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "playfulness",
+      "alertness"
+    ],
+    "relations": [
+      "The superhero logo collides with the strict visual grammar of the road."
+    ],
+    "tension": [
+      "play versus regulation",
+      "individual style versus system"
+    ],
+    "reading": [
+      "The cyclist becomes a comic-book interruption inside the controlled language of traffic design."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "playfulness": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-04",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "04.jpg",
+    "primary": [
+      "shadow",
+      "long coat",
+      "graphic solitude"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "drama",
+      "detachment",
+      "mystery"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "shadow",
+      "coat",
+      "disembodied presence"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "drama",
+      "detachment"
+    ],
+    "relations": [
+      "The shadow looks heavier and more declarative than the body carrying it."
+    ],
+    "tension": [
+      "body versus projection",
+      "presence versus abstraction"
+    ],
+    "reading": [
+      "Reduced to coat and shadow, the passerby feels like a fleeting noir apparition."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "drama": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-07",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "07.jpg",
+    "primary": [
+      "nun",
+      "curved path",
+      "ritual solitude"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "solemnity",
+      "distance",
+      "restraint"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "habit",
+      "curve",
+      "masked face"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "solemnity",
+      "distance"
+    ],
+    "relations": [
+      "The sweeping curve of the ground amplifies the nun's singular passage through space."
+    ],
+    "tension": [
+      "faith versus public anonymity",
+      "ritual clothing versus secular street"
+    ],
+    "reading": [
+      "Her path reads like a private vow traced across the open civic ground."
+    ],
+    "density": "focused",
+    "intensity": {
+      "solemnity": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-15",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "15.jpg",
+    "primary": [
+      "cyclist shadow",
+      "spare wheel",
+      "graphic balance"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "resourcefulness",
+      "focus",
+      "urban rhythm"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "wheel",
+      "shadow",
+      "cycle"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "resourcefulness",
+      "focus"
+    ],
+    "relations": [
+      "The spare wheel doubles the bicycle and turns the rider into a moving repair kit."
+    ],
+    "tension": [
+      "preparation versus fragility",
+      "movement versus breakdown"
+    ],
+    "reading": [
+      "The overhead angle turns a practical commute into a graphic lesson in readiness and balance."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "resourcefulness": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-001-32",
+    "projectSlug": "001 - window_to_redemption",
+    "src": "32.jpg",
+    "primary": [
+      "yellow tram",
+      "winter roundabout",
+      "urban pattern"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "clarity",
+      "control",
+      "distance"
+    ],
+    "themes": [
+      "urban theater",
+      "momentary alignment"
+    ],
+    "symbols": [
+      "circle",
+      "tram line",
+      "loop"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "clarity",
+      "control"
+    ],
+    "relations": [
+      "The tram slips around the circle like a toy moving through a diagram."
+    ],
+    "tension": [
+      "human scale versus city system"
+    ],
+    "reading": [
+      "Seen from above, winter transit becomes a clean choreography of circles, lines, and timing."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "clarity": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-01",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "01.jpg",
+    "primary": [
+      "cross",
+      "shadow",
+      "sacred projection"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "gravity",
+      "reverence",
+      "unease"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "cross",
+      "shadow",
+      "projection"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "gravity",
+      "reverence"
+    ],
+    "relations": [
+      "The cross becomes larger and more authoritative through its shadow than through its body."
+    ],
+    "tension": [
+      "object versus aura",
+      "belief versus spectacle"
+    ],
+    "reading": [
+      "Light turns the cross into both object and apparition, doubling devotion through projection."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "gravity": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-03",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "03.jpg",
+    "primary": [
+      "crucifix",
+      "electronic waste",
+      "collision of eras"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "dislocation",
+      "irony",
+      "shock"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "crucifix",
+      "waste heap",
+      "obsolete machine"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "dislocation",
+      "irony"
+    ],
+    "relations": [
+      "The holy figure is trapped inside the logic of discard and obsolescence."
+    ],
+    "tension": [
+      "sacred versus trash",
+      "timeless symbol versus technological turnover"
+    ],
+    "reading": [
+      "The crucifix survives, but only as another stranded component inside a heap of modern leftovers."
+    ],
+    "density": "dense",
+    "intensity": {
+      "dislocation": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-05",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "05.jpg",
+    "primary": [
+      "procession",
+      "wooden cross",
+      "public ritual"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "devotion",
+      "friction",
+      "collective focus"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "cross",
+      "no-entry sign",
+      "processional line"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "devotion",
+      "friction"
+    ],
+    "relations": [
+      "The religious procession passes directly through the secular language of prohibition."
+    ],
+    "tension": [
+      "faith versus regulation",
+      "ritual versus traffic code"
+    ],
+    "reading": [
+      "From above, devotion and urban signage collide in a single charged civic diagram."
+    ],
+    "density": "dense",
+    "intensity": {
+      "devotion": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-06",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "06.jpg",
+    "primary": [
+      "white robes",
+      "red roses",
+      "long shadows"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "ceremony",
+      "fragility",
+      "quiet intensity"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "rose",
+      "shadow",
+      "white robe"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "ceremony",
+      "fragility"
+    ],
+    "relations": [
+      "The red roses puncture the disciplined white rhythm of the line."
+    ],
+    "tension": [
+      "purity versus performance",
+      "childhood versus ritual weight"
+    ],
+    "reading": [
+      "The curved line of bodies and shadows turns devotion into a precise public choreography."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "ceremony": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-13",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "13.jpg",
+    "primary": [
+      "billboard golfer",
+      "church cross",
+      "symbolic mismatch"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irony",
+      "distance",
+      "critical wit"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "cross",
+      "athlete",
+      "billboard"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irony",
+      "distance"
+    ],
+    "relations": [
+      "The athlete and the cross share the skyline as rival promises of aspiration."
+    ],
+    "tension": [
+      "spiritual salvation versus consumer aspiration"
+    ],
+    "reading": [
+      "Advertising and faith stand shoulder to shoulder, each asking to be believed."
+    ],
+    "density": "focused",
+    "intensity": {
+      "irony": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-002-15",
+    "projectSlug": "002 - ohhhhh_your_god",
+    "src": "15.jpg",
+    "primary": [
+      "bare feet",
+      "church tower",
+      "framing"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irreverence",
+      "playfulness",
+      "curiosity"
+    ],
+    "themes": [
+      "faith and modernity",
+      "ritual in public"
+    ],
+    "symbols": [
+      "feet",
+      "steeple",
+      "cross"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irreverence",
+      "playfulness"
+    ],
+    "relations": [
+      "The body casually brackets a sacred tower, turning reverence into a personal game of scale."
+    ],
+    "tension": [
+      "sacred distance versus bodily immediacy"
+    ],
+    "reading": [
+      "The church remains in the distance, but the body insists on entering the devotional frame."
+    ],
+    "density": "focused",
+    "intensity": {
+      "irreverence": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-01",
+    "projectSlug": "003 - demon_stration",
+    "src": "01.jpg",
+    "primary": [
+      "protester",
+      "police encirclement",
+      "red hair"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "defiance",
+      "vulnerability",
+      "heat"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "red hair",
+      "ring of uniforms",
+      "exposed face"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "defiance",
+      "vulnerability"
+    ],
+    "relations": [
+      "A single vivid figure holds the visual center while the state closes in from all sides."
+    ],
+    "tension": [
+      "individual versus apparatus",
+      "visibility versus intimidation"
+    ],
+    "reading": [
+      "The red-haired protester reads like a spark trapped inside a tightening ring of authority."
+    ],
+    "density": "dense",
+    "intensity": {
+      "defiance": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-06",
+    "projectSlug": "003 - demon_stration",
+    "src": "06.jpg",
+    "primary": [
+      "blue hood",
+      "police line",
+      "civil courage"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "resolve",
+      "unease",
+      "loneliness"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "hood",
+      "riot line",
+      "standing ground"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "resolve",
+      "unease"
+    ],
+    "relations": [
+      "Her solitary stance measures the scale of the force facing her."
+    ],
+    "tension": [
+      "citizen versus state",
+      "stillness versus imminent force"
+    ],
+    "reading": [
+      "The frame holds a simple but severe equation: one blue figure against organized power."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "resolve": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-08",
+    "projectSlug": "003 - demon_stration",
+    "src": "08.jpg",
+    "primary": [
+      "yellow tulip",
+      "protest tenderness",
+      "masked officers"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "gentleness",
+      "defiance",
+      "hope"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "flower",
+      "riot gear",
+      "extended hand"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "gentleness",
+      "defiance"
+    ],
+    "relations": [
+      "The flower becomes a tiny counter-weapon in front of hard protective gear."
+    ],
+    "tension": [
+      "softness versus force",
+      "gift versus threat"
+    ],
+    "reading": [
+      "A tulip, held at chest height, transforms protest into an act of insistently human restraint."
+    ],
+    "density": "focused",
+    "intensity": {
+      "gentleness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-10",
+    "projectSlug": "003 - demon_stration",
+    "src": "10.jpg",
+    "primary": [
+      "rainbow flag",
+      "police vans",
+      "occupation of space"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "collective power",
+      "visibility",
+      "defiance"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "rainbow flag",
+      "police line",
+      "territorial claim"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "collective power",
+      "visibility"
+    ],
+    "relations": [
+      "The flag operates like a living roof laid over the infrastructure of control."
+    ],
+    "tension": [
+      "collective joy versus policing",
+      "fluid fabric versus rigid vehicles"
+    ],
+    "reading": [
+      "From above, the rainbow flag stops being a sign and becomes a temporary occupation of civic airspace."
+    ],
+    "density": "dense",
+    "intensity": {
+      "collective power": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-15",
+    "projectSlug": "003 - demon_stration",
+    "src": "15.jpg",
+    "primary": [
+      "bird masks",
+      "performance protest",
+      "blue toilets"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "absurdity",
+      "theater",
+      "provocation"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "bird mask",
+      "wing",
+      "public costume"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "absurdity",
+      "theater"
+    ],
+    "relations": [
+      "The performers hijack a banal civic backdrop with ceremonial animal presence."
+    ],
+    "tension": [
+      "carnival versus bureaucracy",
+      "ritual costume versus portable utility"
+    ],
+    "reading": [
+      "Their birdlike costumes turn protest into street myth, half ritual and half prank."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "absurdity": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-25",
+    "projectSlug": "003 - demon_stration",
+    "src": "25.jpg",
+    "primary": [
+      "reflection",
+      "police and child",
+      "double reality"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "uncertainty",
+      "fragility",
+      "suspension"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "glass",
+      "child",
+      "uniform"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "uncertainty",
+      "fragility"
+    ],
+    "relations": [
+      "The child and the police share the same pane but not the same stable reality."
+    ],
+    "tension": [
+      "protection versus threat",
+      "surface versus event"
+    ],
+    "reading": [
+      "Seen in reflection, authority and innocence become part of the same unstable civic mirror."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "uncertainty": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "reflection",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-29",
+    "projectSlug": "003 - demon_stration",
+    "src": "29.jpg",
+    "primary": [
+      "gloves",
+      "police uniform",
+      "contained violence"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "restraint",
+      "coldness",
+      "alertness"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "gloves",
+      "clasped hands",
+      "uniform"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "restraint",
+      "coldness"
+    ],
+    "relations": [
+      "The clasped gloves suggest both hygiene and imminent control."
+    ],
+    "tension": [
+      "care-coded material versus coercive role"
+    ],
+    "reading": [
+      "A tiny detail of uniformed hands condenses the whole contradiction of sanitized power."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-36",
+    "projectSlug": "003 - demon_stration",
+    "src": "36.jpg",
+    "primary": [
+      "animal liberation flag",
+      "overhead crowd",
+      "collective ideology"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "conviction",
+      "density",
+      "momentum"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "black flag",
+      "encircling crowd",
+      "written demand"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "conviction",
+      "density"
+    ],
+    "relations": [
+      "The banner becomes the dark center around which the bodies organize themselves."
+    ],
+    "tension": [
+      "individual bodies versus collective text"
+    ],
+    "reading": [
+      "From above, the protest reads as a social organism gathering around a single moral declaration."
+    ],
+    "density": "dense",
+    "intensity": {
+      "conviction": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-003-39",
+    "projectSlug": "003 - demon_stration",
+    "src": "39.jpg",
+    "primary": [
+      "peace sign",
+      "blurred crowd",
+      "individual signal"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "hope",
+      "defiance",
+      "instability"
+    ],
+    "themes": [
+      "resistance",
+      "civic tension"
+    ],
+    "symbols": [
+      "peace sign",
+      "raised hand"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "hope",
+      "defiance"
+    ],
+    "relations": [
+      "A single hand emerges from the crowd to make the only clearly legible statement."
+    ],
+    "tension": [
+      "individual sign versus collective blur"
+    ],
+    "reading": [
+      "The peace sign survives the motion and confusion as a brief pocket of clarity."
+    ],
+    "density": "focused",
+    "intensity": {
+      "hope": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-01",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "01.jpg",
+    "primary": [
+      "window",
+      "blue arch",
+      "isolation"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "quiet",
+      "distance",
+      "containment"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "window",
+      "eye",
+      "threshold"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "quiet",
+      "distance"
+    ],
+    "relations": [
+      "One colored opening holds the entire emotional charge of the wall around it."
+    ],
+    "tension": [
+      "opening versus closure",
+      "presence versus absence"
+    ],
+    "reading": [
+      "The lone blue window behaves like an eye holding back its private interior."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "quiet": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-02",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "02.jpg",
+    "primary": [
+      "snowed window",
+      "winter shelter",
+      "buried opening"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "cold",
+      "withdrawal",
+      "stillness"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "buried window",
+      "ice fringe",
+      "winter shell"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "cold",
+      "withdrawal"
+    ],
+    "relations": [
+      "The snow nearly absorbs the window back into the roof that shelters it."
+    ],
+    "tension": [
+      "shelter versus suffocation"
+    ],
+    "reading": [
+      "Winter does not simply surround the opening here; it almost swallows it."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "cold": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-09",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "09.jpg",
+    "primary": [
+      "slit windows",
+      "system anonymity",
+      "blank wall"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "emptiness",
+      "control",
+      "detachment"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "slit window",
+      "sealed facade",
+      "narrow gaze"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "emptiness",
+      "control"
+    ],
+    "relations": [
+      "The wall dominates so strongly that the windows feel like reluctant punctures rather than invitations."
+    ],
+    "tension": [
+      "visibility versus concealment",
+      "human scale versus system scale"
+    ],
+    "reading": [
+      "The image makes architecture feel less like shelter than a disciplined surface of withheld life."
+    ],
+    "density": "very sparse",
+    "intensity": {
+      "emptiness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-10",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "10.jpg",
+    "primary": [
+      "broken window",
+      "weathering",
+      "decay"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "weariness",
+      "neglect",
+      "silence"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "broken pane",
+      "hanging board"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "weariness",
+      "neglect"
+    ],
+    "relations": [
+      "The missing pane and dangling board suggest a history of maintenance that has given up."
+    ],
+    "tension": [
+      "shelter versus ruin"
+    ],
+    "reading": [
+      "The window still stands, but everything in it speaks of a slow withdrawal of attention."
+    ],
+    "density": "focused",
+    "intensity": {
+      "weariness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-13",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "13.jpg",
+    "primary": [
+      "diamond panes",
+      "torn curtain",
+      "private damage"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "fragility",
+      "suspicion",
+      "quiet decay"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "torn curtain",
+      "shattered pane",
+      "diamond grid"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "fragility",
+      "suspicion"
+    ],
+    "relations": [
+      "The torn curtain turns the broken window into a reluctant glimpse of damaged privacy."
+    ],
+    "tension": [
+      "domestic interior versus public exposure"
+    ],
+    "reading": [
+      "The elegance of the diamond pattern survives, but only as a frame for rupture."
+    ],
+    "density": "focused",
+    "intensity": {
+      "fragility": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-14",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "14.jpg",
+    "primary": [
+      "shattered reflection",
+      "yellow facade",
+      "fractured vision"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "instability",
+      "urban unease",
+      "distance"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "shattered glass",
+      "reflected home"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "instability",
+      "urban unease"
+    ],
+    "relations": [
+      "The reflected building is visible only as a set of splintered fragments."
+    ],
+    "tension": [
+      "image versus damage",
+      "wholeness versus fracture"
+    ],
+    "reading": [
+      "The city appears here only through breakage, as if perception itself has become brittle."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "instability": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "reflection",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-22",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "22.jpg",
+    "primary": [
+      "billboard face",
+      "apartment towers",
+      "watching city"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "surveillance",
+      "distance",
+      "urban melancholy"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "face",
+      "tower block",
+      "watchful image"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "surveillance",
+      "distance"
+    ],
+    "relations": [
+      "The giant face appears to haunt the residential towers that frame it."
+    ],
+    "tension": [
+      "human face versus impersonal housing",
+      "advertised intimacy versus urban anonymity"
+    ],
+    "reading": [
+      "Between the apartment blocks, the billboard face becomes a mute witness to collective urban life."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "surveillance": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-004-26",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "src": "26.jpg",
+    "primary": [
+      "crucifix",
+      "balconies",
+      "sacred versus domestic"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "solemnity",
+      "displacement",
+      "tension"
+    ],
+    "themes": [
+      "observation",
+      "containment"
+    ],
+    "symbols": [
+      "cross",
+      "balcony grid"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "solemnity",
+      "displacement"
+    ],
+    "relations": [
+      "The crucifix reads as an older moral vocabulary pinned against repetitive housing units."
+    ],
+    "tension": [
+      "sacred symbol versus secular routine"
+    ],
+    "reading": [
+      "The cross remains visible, but only as a dark interruption inside the endless rhythm of balconies."
+    ],
+    "density": "focused",
+    "intensity": {
+      "solemnity": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-005-01",
+    "projectSlug": "005 - doggy style",
+    "src": "01.jpg",
+    "primary": [
+      "dog with stick",
+      "covered bridge",
+      "companionship"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "companionship",
+      "curiosity",
+      "forward motion"
+    ],
+    "themes": [
+      "companionship",
+      "animal agency"
+    ],
+    "symbols": [
+      "stick",
+      "bridge",
+      "paired path"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "companionship",
+      "curiosity"
+    ],
+    "relations": [
+      "The dog carries its own playful purpose while staying tethered to the human route."
+    ],
+    "tension": [
+      "domestic bond versus animal autonomy"
+    ],
+    "reading": [
+      "The curving bridge turns an ordinary dog walk into a small narrative of partnership and direction."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "companionship": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-005-02",
+    "projectSlug": "005 - doggy style",
+    "src": "02.jpg",
+    "primary": [
+      "small dog",
+      "snow field",
+      "distance on leash"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "isolation",
+      "determination",
+      "tenderness"
+    ],
+    "themes": [
+      "companionship",
+      "animal agency"
+    ],
+    "symbols": [
+      "leash",
+      "snow field",
+      "small body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "isolation",
+      "determination"
+    ],
+    "relations": [
+      "The taut leash becomes a visible line of negotiation between dog and owner."
+    ],
+    "tension": [
+      "smallness versus open space",
+      "pull versus restraint"
+    ],
+    "reading": [
+      "Against the blank snow, the little dog's insistence feels both comic and touching."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "isolation": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-005-05",
+    "projectSlug": "005 - doggy style",
+    "src": "05.jpg",
+    "primary": [
+      "dog at balcony",
+      "quiet watchfulness",
+      "domestic frame"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "patience",
+      "tenderness",
+      "stillness"
+    ],
+    "themes": [
+      "companionship",
+      "animal agency"
+    ],
+    "symbols": [
+      "ledge",
+      "chin rest",
+      "window threshold"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "patience",
+      "tenderness"
+    ],
+    "relations": [
+      "The dog occupies the balcony like a thoughtful sentinel with nowhere urgent to go."
+    ],
+    "tension": [
+      "inside comfort versus outside world"
+    ],
+    "reading": [
+      "A simple resting pose turns into a miniature study of patient attention."
+    ],
+    "density": "focused",
+    "intensity": {
+      "patience": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-005-06",
+    "projectSlug": "005 - doggy style",
+    "src": "06.jpg",
+    "primary": [
+      "dog in water",
+      "play",
+      "splash energy"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "joy",
+      "energy",
+      "freedom"
+    ],
+    "themes": [
+      "companionship",
+      "animal agency"
+    ],
+    "symbols": [
+      "stick",
+      "splash",
+      "running body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "joy",
+      "energy"
+    ],
+    "relations": [
+      "The dog and the water seem equally animated by the same burst of play."
+    ],
+    "tension": [
+      "control versus abandon"
+    ],
+    "reading": [
+      "The photograph catches a perfect instant when play becomes almost sculptural in water."
+    ],
+    "density": "focused",
+    "intensity": {
+      "joy": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-006-01",
+    "projectSlug": "006 - smashed",
+    "src": "01.jpg",
+    "primary": [
+      "shared bicycle",
+      "motion blur",
+      "youthful closeness"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "freedom",
+      "intimacy",
+      "velocity"
+    ],
+    "themes": [
+      "speed",
+      "urban transit"
+    ],
+    "symbols": [
+      "shared bicycle",
+      "blur trail"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "freedom",
+      "intimacy"
+    ],
+    "relations": [
+      "The doubled bicycle ride makes movement feel communal rather than individual."
+    ],
+    "tension": [
+      "balance versus instability",
+      "closeness versus speed"
+    ],
+    "reading": [
+      "The blur preserves just enough detail to make the ride feel both reckless and tender."
+    ],
+    "density": "focused",
+    "intensity": {
+      "freedom": 0.82
+    },
+    "pov": "side view",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-006-03",
+    "projectSlug": "006 - smashed",
+    "src": "03.jpg",
+    "primary": [
+      "red stripes",
+      "cyclist blur",
+      "kinetic color"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "velocity",
+      "heat",
+      "urban rhythm"
+    ],
+    "themes": [
+      "speed",
+      "urban transit"
+    ],
+    "symbols": [
+      "striped shirt",
+      "spinning wheels"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "velocity",
+      "heat"
+    ],
+    "relations": [
+      "The vivid clothing keeps the rider identifiable even as the city dissolves around her."
+    ],
+    "tension": [
+      "identity versus blur",
+      "body versus speed"
+    ],
+    "reading": [
+      "Color survives the blur and turns the cyclist into a streak of personality."
+    ],
+    "density": "focused",
+    "intensity": {
+      "velocity": 0.82
+    },
+    "pov": "side view",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-006-09",
+    "projectSlug": "006 - smashed",
+    "src": "09.jpg",
+    "primary": [
+      "yellow tram",
+      "speed",
+      "urban stream"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "haste",
+      "compression",
+      "urban flow"
+    ],
+    "themes": [
+      "speed",
+      "urban transit"
+    ],
+    "symbols": [
+      "tram body",
+      "speed smear"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "haste",
+      "compression"
+    ],
+    "relations": [
+      "The tram stops reading as a vehicle and starts reading as a streak of civic time."
+    ],
+    "tension": [
+      "transport utility versus abstraction"
+    ],
+    "reading": [
+      "The photograph compresses public transit into pure momentum."
+    ],
+    "density": "focused",
+    "intensity": {
+      "haste": 0.82
+    },
+    "pov": "side view",
+    "manipulation": "motion blur",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-006-11",
+    "projectSlug": "006 - smashed",
+    "src": "11.jpg",
+    "primary": [
+      "yellow figure",
+      "bollards",
+      "urban blur"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "instability",
+      "rush",
+      "alertness"
+    ],
+    "themes": [
+      "speed",
+      "urban transit"
+    ],
+    "symbols": [
+      "bollards",
+      "safety yellow",
+      "passing body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "instability",
+      "rush"
+    ],
+    "relations": [
+      "The bright figure slips between rigid bollards like a warning come to life."
+    ],
+    "tension": [
+      "fluid body versus fixed obstacles"
+    ],
+    "reading": [
+      "The scene feels less like walking than like a brief collision between order and human motion."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "instability": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-006-17",
+    "projectSlug": "006 - smashed",
+    "src": "17.jpg",
+    "primary": [
+      "trench coat",
+      "zebra crossing",
+      "phone as shield"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "detachment",
+      "preoccupation",
+      "urban drift"
+    ],
+    "themes": [
+      "speed",
+      "urban transit"
+    ],
+    "symbols": [
+      "phone",
+      "zebra stripes",
+      "raised arm"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "detachment",
+      "preoccupation"
+    ],
+    "relations": [
+      "The phone rises like a private screen between the body and the city it is crossing."
+    ],
+    "tension": [
+      "presence versus distraction",
+      "movement versus inwardness"
+    ],
+    "reading": [
+      "Even in mid-crossing, the figure seems more connected to the screen than to the street."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "detachment": 0.82
+    },
+    "pov": "side view",
+    "manipulation": "motion blur",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-01",
+    "projectSlug": "007 - umbrellas",
+    "src": "01.jpg",
+    "primary": [
+      "umbrella cyclist",
+      "rainy movement",
+      "red scarf"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "resilience",
+      "style",
+      "improvisation"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "umbrella",
+      "bicycle",
+      "scarf"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "resilience",
+      "style"
+    ],
+    "relations": [
+      "The rider balances mobility and protection in a single improvised posture."
+    ],
+    "tension": [
+      "speed versus shelter",
+      "control versus weather"
+    ],
+    "reading": [
+      "The umbrella does not stop the ride; it becomes part of its choreography."
+    ],
+    "density": "focused",
+    "intensity": {
+      "resilience": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-02",
+    "projectSlug": "007 - umbrellas",
+    "src": "02.jpg",
+    "primary": [
+      "yellow umbrella",
+      "mist",
+      "pharmacy green"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "melancholy",
+      "shelter",
+      "urban dream"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "umbrella",
+      "green cross",
+      "fog"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "melancholy",
+      "shelter"
+    ],
+    "relations": [
+      "The yellow umbrella carries warmth through a street otherwise dissolved into vapor."
+    ],
+    "tension": [
+      "visibility versus fog",
+      "warmth versus urban chill"
+    ],
+    "reading": [
+      "The scene feels like a small pocket of survival drifting through neon mist."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "melancholy": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-06",
+    "projectSlug": "007 - umbrellas",
+    "src": "06.jpg",
+    "primary": [
+      "pink umbrella",
+      "zebra crossing",
+      "graphic interruption"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "playfulness",
+      "urgency",
+      "clarity"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "umbrella",
+      "crosswalk stripes",
+      "passing body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "playfulness",
+      "urgency"
+    ],
+    "relations": [
+      "The pink umbrella holds steady while another body streaks past in haste."
+    ],
+    "tension": [
+      "poise versus rush",
+      "single note versus moving background"
+    ],
+    "reading": [
+      "A bright umbrella turns the crosswalk into a graphic stage for passing weather and motion."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "playfulness": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-13",
+    "projectSlug": "007 - umbrellas",
+    "src": "13.jpg",
+    "primary": [
+      "black umbrella silhouette",
+      "yellow tram",
+      "urban noir"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "waiting",
+      "detachment",
+      "cinematic tension"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "umbrella",
+      "tram stripe",
+      "stop sign"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "waiting",
+      "detachment"
+    ],
+    "relations": [
+      "The umbrella remains fixed while the tram slides by as a bright band of urban time."
+    ],
+    "tension": [
+      "waiting versus movement",
+      "shadow figure versus bright machine"
+    ],
+    "reading": [
+      "The scene condenses city weather, waiting, and transit into a nearly cinematic silhouette."
+    ],
+    "density": "focused",
+    "intensity": {
+      "waiting": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-16",
+    "projectSlug": "007 - umbrellas",
+    "src": "16.jpg",
+    "primary": [
+      "orange umbrella",
+      "monochrome crowd",
+      "singled-out color"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "anonymity",
+      "exception",
+      "quiet drama"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "orange umbrella",
+      "cluster"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "anonymity",
+      "exception"
+    ],
+    "relations": [
+      "One warm umbrella becomes a visual pulse inside an otherwise anonymous field."
+    ],
+    "tension": [
+      "individual mark versus collective blur"
+    ],
+    "reading": [
+      "The image proves how little color is needed to make individuality flare up inside a crowd."
+    ],
+    "density": "dense",
+    "intensity": {
+      "anonymity": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-17",
+    "projectSlug": "007 - umbrellas",
+    "src": "17.jpg",
+    "primary": [
+      "umbrellas and candlelight",
+      "wet blue pavement",
+      "processional mood"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "ritual calm",
+      "melancholy",
+      "collective quiet"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "candle",
+      "umbrella",
+      "reflection"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "ritual calm",
+      "melancholy"
+    ],
+    "relations": [
+      "The umbrellas shelter a line of tiny flames that make the crowd feel ceremonial."
+    ],
+    "tension": [
+      "rain versus flame",
+      "collective movement versus intimate light"
+    ],
+    "reading": [
+      "The blue pavement and candle points turn a rainy crossing into a fragile procession."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "ritual calm": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-007-23",
+    "projectSlug": "007 - umbrellas",
+    "src": "23.jpg",
+    "primary": [
+      "rainbow umbrella",
+      "nails",
+      "radiant object"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "wonder",
+      "playfulness",
+      "slight menace"
+    ],
+    "themes": [
+      "shelter",
+      "anonymity"
+    ],
+    "symbols": [
+      "umbrella halo",
+      "radiating nails",
+      "shield"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "wonder",
+      "playfulness"
+    ],
+    "relations": [
+      "The umbrella reads at once as a sheltering object and as a radiant target."
+    ],
+    "tension": [
+      "protection versus puncture",
+      "playfulness versus threat"
+    ],
+    "reading": [
+      "Mounted on the wall, the umbrella becomes a strange urban relic, half halo and half trap."
+    ],
+    "density": "focused",
+    "intensity": {
+      "wonder": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-02",
+    "projectSlug": "008 - arty",
+    "src": "02.jpg",
+    "primary": [
+      "broken doorway",
+      "sunset palms",
+      "threshold longing"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "longing",
+      "escape",
+      "wonder"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "doorway",
+      "palms",
+      "sunset"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "longing",
+      "escape"
+    ],
+    "relations": [
+      "The damaged doorway turns the sunset outside into a vision one can approach but not inhabit."
+    ],
+    "tension": [
+      "decay versus paradise",
+      "inside versus elsewhere"
+    ],
+    "reading": [
+      "The image offers a broken threshold that frames a nearly cinematic promise of elsewhere."
+    ],
+    "density": "focused",
+    "intensity": {
+      "longing": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-06",
+    "projectSlug": "008 - arty",
+    "src": "06.jpg",
+    "primary": [
+      "red cloak",
+      "yellow stairwell",
+      "theatrical entrance"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "mystery",
+      "drama",
+      "mythic play"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "cloak",
+      "stairwell",
+      "descent"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "mystery",
+      "drama"
+    ],
+    "relations": [
+      "The cloaked figure appears to emerge from pure color rather than from architecture."
+    ],
+    "tension": [
+      "ordinary stairwell versus staged apparition"
+    ],
+    "reading": [
+      "A banal stairwell suddenly behaves like a theater set for a private myth."
+    ],
+    "density": "focused",
+    "intensity": {
+      "mystery": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-08",
+    "projectSlug": "008 - arty",
+    "src": "08.jpg",
+    "primary": [
+      "eggplant slices",
+      "suspended line",
+      "domestic abstraction"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "quiet humor",
+      "domestic calm",
+      "restraint"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "hanging slices",
+      "line",
+      "preparation ritual"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "quiet humor",
+      "domestic calm"
+    ],
+    "relations": [
+      "Ordinary kitchen labor becomes abstract once the slices are lifted into air."
+    ],
+    "tension": [
+      "domestic task versus formal elegance"
+    ],
+    "reading": [
+      "What could be a simple drying process becomes a minimalist score of shapes and pauses."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "quiet humor": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-17",
+    "projectSlug": "008 - arty",
+    "src": "17.jpg",
+    "primary": [
+      "open birdcages",
+      "emptiness",
+      "released containment"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "absence",
+      "possibility",
+      "quiet freedom"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "open cage",
+      "empty interior",
+      "paired doors"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "absence",
+      "possibility"
+    ],
+    "relations": [
+      "The cages say freedom only through the emptiness they now contain."
+    ],
+    "tension": [
+      "captivity versus release",
+      "object presence versus vanished inhabitant"
+    ],
+    "reading": [
+      "Nothing occupies the cages, and that emptiness becomes the real subject of the image."
+    ],
+    "density": "focused",
+    "intensity": {
+      "absence": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-29",
+    "projectSlug": "008 - arty",
+    "src": "29.jpg",
+    "primary": [
+      "underpass light",
+      "approaching figures",
+      "threshold"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "anticipation",
+      "uncertainty",
+      "release"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "tunnel",
+      "bright exit",
+      "paired bodies"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "anticipation",
+      "uncertainty"
+    ],
+    "relations": [
+      "The two figures read as being drawn forward by the light rather than by destination."
+    ],
+    "tension": [
+      "darkness versus emergence",
+      "unknown interior versus open exit"
+    ],
+    "reading": [
+      "The underpass turns into a simple but potent image of moving from obscurity toward arrival."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "anticipation": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-38",
+    "projectSlug": "008 - arty",
+    "src": "38.jpg",
+    "primary": [
+      "dark stairway",
+      "blue window",
+      "ascent toward light"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "mystery",
+      "hope",
+      "suspension"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "stairs",
+      "window",
+      "blue aperture"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "mystery",
+      "hope"
+    ],
+    "relations": [
+      "The blue window acts like a destination or promise at the top of an otherwise opaque passage."
+    ],
+    "tension": [
+      "darkness versus revelation",
+      "enclosure versus escape"
+    ],
+    "reading": [
+      "The image turns a staircase into an inward drama of climbing toward a single cold light."
+    ],
+    "density": "focused",
+    "intensity": {
+      "mystery": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-008-40",
+    "projectSlug": "008 - arty",
+    "src": "40.jpg",
+    "primary": [
+      "sunken boat",
+      "tilt",
+      "abandoned vessel"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "abandonment",
+      "melancholy",
+      "drift"
+    ],
+    "themes": [
+      "transformation",
+      "found symbolism"
+    ],
+    "symbols": [
+      "boat",
+      "tilted hull",
+      "distant bridge"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "abandonment",
+      "melancholy"
+    ],
+    "relations": [
+      "The bridges in the distance mock the boat that can no longer travel."
+    ],
+    "tension": [
+      "journey versus immobilization",
+      "waterway versus ruin"
+    ],
+    "reading": [
+      "The boat remains in the landscape as a memory of movement that has already failed."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "abandonment": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-009-01",
+    "projectSlug": "009 - KING NO SMO",
+    "src": "01.jpg",
+    "primary": [
+      "pipe smoker",
+      "red scarf",
+      "public ritual"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "stoicism",
+      "habit",
+      "presence"
+    ],
+    "themes": [
+      "habit",
+      "public ritual"
+    ],
+    "symbols": [
+      "pipe",
+      "scarf",
+      "weathered face"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "stoicism",
+      "habit"
+    ],
+    "relations": [
+      "The pipe and scarf give the portrait the density of a self-fashioned persona."
+    ],
+    "tension": [
+      "warm style versus bodily wear"
+    ],
+    "reading": [
+      "The smoker feels less like a candid subject than like someone carrying a practiced public character."
+    ],
+    "density": "focused",
+    "intensity": {
+      "stoicism": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-009-05",
+    "projectSlug": "009 - KING NO SMO",
+    "src": "05.jpg",
+    "primary": [
+      "smoking woman",
+      "cloud image",
+      "visual echo"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "detachment",
+      "irony",
+      "quiet addiction"
+    ],
+    "themes": [
+      "habit",
+      "public ritual"
+    ],
+    "symbols": [
+      "cloud",
+      "smoke",
+      "profile"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "detachment",
+      "irony"
+    ],
+    "relations": [
+      "The cloud behind her turns smoke into a larger image of drift and self-projection."
+    ],
+    "tension": [
+      "real smoke versus printed fantasy",
+      "private habit versus public image"
+    ],
+    "reading": [
+      "The photograph lets the advertisement behind her become part of the psychology of smoking itself."
+    ],
+    "density": "focused",
+    "intensity": {
+      "detachment": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-009-10",
+    "projectSlug": "009 - KING NO SMO",
+    "src": "10.jpg",
+    "primary": [
+      "smoking shadows",
+      "yellow wall",
+      "disembodied ritual"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "distance",
+      "habit",
+      "ghostly wit"
+    ],
+    "themes": [
+      "habit",
+      "public ritual"
+    ],
+    "symbols": [
+      "shadows",
+      "cigarette gesture",
+      "flat wall"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "distance",
+      "habit"
+    ],
+    "relations": [
+      "Only the shadows remain, but the smoking ritual stays instantly legible."
+    ],
+    "tension": [
+      "presence versus absence",
+      "body versus projection"
+    ],
+    "reading": [
+      "The scene turns smoking into a shadow language that survives without the smokers themselves."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "distance": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-009-19",
+    "projectSlug": "009 - KING NO SMO",
+    "src": "19.jpg",
+    "primary": [
+      "smoking woman",
+      "white bird",
+      "fleeting intrusion"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "suspension",
+      "restlessness",
+      "quiet longing"
+    ],
+    "themes": [
+      "habit",
+      "public ritual"
+    ],
+    "symbols": [
+      "bird",
+      "cigarette",
+      "wall"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "suspension",
+      "restlessness"
+    ],
+    "relations": [
+      "The bird passes through the frame like a brief alternative to the woman's stillness."
+    ],
+    "tension": [
+      "airborne freedom versus static dependence"
+    ],
+    "reading": [
+      "The cigarette pins the body in place while the white bird opens a fleeting exit route through the image."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "suspension": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-010-01",
+    "projectSlug": "010 - reflection",
+    "src": "01.jpg",
+    "primary": [
+      "streetlamp reflection",
+      "puddle",
+      "inverted city"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "meditation",
+      "fragility",
+      "curiosity"
+    ],
+    "themes": [
+      "double vision",
+      "perception"
+    ],
+    "symbols": [
+      "puddle mirror",
+      "lamp silhouette"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "meditation",
+      "fragility"
+    ],
+    "relations": [
+      "The puddle holds a complete ornamental form inside an otherwise ordinary patch of pavement."
+    ],
+    "tension": [
+      "solid city versus liquid image"
+    ],
+    "reading": [
+      "The photograph finds a whole second city inside a shallow surface of rainwater."
+    ],
+    "density": "focused",
+    "intensity": {
+      "meditation": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "reflection",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-010-01c",
+    "projectSlug": "010 - reflection",
+    "src": "01C.jpg",
+    "primary": [
+      "tree reflection",
+      "ripples",
+      "disrupted mirror"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "instability",
+      "contemplation",
+      "quiet tension"
+    ],
+    "themes": [
+      "double vision",
+      "perception"
+    ],
+    "symbols": [
+      "ripples",
+      "branches",
+      "broken mirror"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "instability",
+      "contemplation"
+    ],
+    "relations": [
+      "The ripples keep the reflected trees visible while refusing to let them settle."
+    ],
+    "tension": [
+      "recognition versus dissolution"
+    ],
+    "reading": [
+      "The image captures the moment when reflection stops recording and begins to rethink the world it mirrors."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "instability": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "reflection",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-010-06",
+    "projectSlug": "010 - reflection",
+    "src": "06.jpg",
+    "primary": [
+      "fisherman reflection",
+      "double body",
+      "still water"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "patience",
+      "silence",
+      "concentration"
+    ],
+    "themes": [
+      "double vision",
+      "perception"
+    ],
+    "symbols": [
+      "fishing line",
+      "mirror body",
+      "shore edge"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "patience",
+      "silence"
+    ],
+    "relations": [
+      "The reflection extends the fisherman into a second quieter body beneath him."
+    ],
+    "tension": [
+      "body versus echo",
+      "action versus waiting"
+    ],
+    "reading": [
+      "The rod suggests action, but the doubled figure makes the image feel entirely about waiting."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "patience": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "reflection",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-010-09",
+    "projectSlug": "010 - reflection",
+    "src": "09.jpg",
+    "primary": [
+      "traffic mirror",
+      "curved building reflection",
+      "distorted city"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "surveillance",
+      "curiosity",
+      "urban play"
+    ],
+    "themes": [
+      "double vision",
+      "perception"
+    ],
+    "symbols": [
+      "mirror",
+      "curve",
+      "street apparatus"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "surveillance",
+      "curiosity"
+    ],
+    "relations": [
+      "The mirror bends architecture into something both useful and hallucinatory."
+    ],
+    "tension": [
+      "practical device versus poetic distortion"
+    ],
+    "reading": [
+      "A simple traffic mirror turns the city into a rounded hallucination of itself."
+    ],
+    "density": "focused",
+    "intensity": {
+      "surveillance": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "reflection",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-010-31",
+    "projectSlug": "010 - reflection",
+    "src": "31.jpg",
+    "primary": [
+      "orange windows",
+      "reflected geometry",
+      "architectural abstraction"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "cool order",
+      "distance",
+      "formal calm"
+    ],
+    "themes": [
+      "double vision",
+      "perception"
+    ],
+    "symbols": [
+      "window pair",
+      "mirror plane"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "cool order",
+      "distance"
+    ],
+    "relations": [
+      "The reflection flattens the building until windows behave like abstract painted shapes."
+    ],
+    "tension": [
+      "architecture versus image",
+      "depth versus flatness"
+    ],
+    "reading": [
+      "What begins as a building ends as a quiet composition of color and mirrored planes."
+    ],
+    "density": "focused",
+    "intensity": {
+      "cool order": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "reflection",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-011-03",
+    "projectSlug": "011 - golden age",
+    "src": "03.jpg",
+    "primary": [
+      "elderly woman",
+      "crosswalk stripes",
+      "cane"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "determination",
+      "vulnerability",
+      "dignity"
+    ],
+    "themes": [
+      "aging in public",
+      "dignity"
+    ],
+    "symbols": [
+      "cane",
+      "crosswalk",
+      "striped threshold"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "determination",
+      "vulnerability"
+    ],
+    "relations": [
+      "The stripes amplify the concentration and effort embedded in every small step."
+    ],
+    "tension": [
+      "fragility versus determination",
+      "body versus public pace"
+    ],
+    "reading": [
+      "The image honors how much resolve can be contained in a single ordinary crossing."
+    ],
+    "density": "focused",
+    "intensity": {
+      "determination": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-011-06",
+    "projectSlug": "011 - golden age",
+    "src": "06.jpg",
+    "primary": [
+      "old man",
+      "shopping trolley",
+      "rubble"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "resilience",
+      "weariness",
+      "survival"
+    ],
+    "themes": [
+      "aging in public",
+      "dignity"
+    ],
+    "symbols": [
+      "trolley",
+      "rubble",
+      "bent body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "resilience",
+      "weariness"
+    ],
+    "relations": [
+      "The trolley and rubble together make the city seem materially heavy for the person crossing it."
+    ],
+    "tension": [
+      "persistence versus exhaustion",
+      "human body versus damaged city"
+    ],
+    "reading": [
+      "The photograph compresses labor, age, and urban neglect into one unsentimental passage."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "resilience": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-011-12",
+    "projectSlug": "011 - golden age",
+    "src": "12.jpg",
+    "primary": [
+      "man on bench",
+      "hidden solitude",
+      "park camouflage"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "solitude",
+      "withdrawal",
+      "rest"
+    ],
+    "themes": [
+      "aging in public",
+      "dignity"
+    ],
+    "symbols": [
+      "bench",
+      "hidden figure",
+      "bush screen"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "solitude",
+      "withdrawal"
+    ],
+    "relations": [
+      "The bushes shelter the seated figure but also almost erase him from public view."
+    ],
+    "tension": [
+      "rest versus disappearance",
+      "visibility versus concealment"
+    ],
+    "reading": [
+      "The bench offers rest, but the surrounding foliage makes that rest feel dangerously close to invisibility."
+    ],
+    "density": "focused",
+    "intensity": {
+      "solitude": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-011-25",
+    "projectSlug": "011 - golden age",
+    "src": "25.jpg",
+    "primary": [
+      "child and elder",
+      "passing generations",
+      "bench encounter"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "tenderness",
+      "contrast",
+      "continuity"
+    ],
+    "themes": [
+      "aging in public",
+      "dignity"
+    ],
+    "symbols": [
+      "bike",
+      "bench",
+      "yellow helmet"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "tenderness",
+      "contrast"
+    ],
+    "relations": [
+      "The child's forward motion and the older woman's seated stillness form a compact image of life stages."
+    ],
+    "tension": [
+      "youthful momentum versus aged pause"
+    ],
+    "reading": [
+      "Without drama, the frame makes generational contrast feel both poignant and perfectly ordinary."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tenderness": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-012-01",
+    "projectSlug": "012 - smart times",
+    "src": "01.jpg",
+    "primary": [
+      "mural face",
+      "small woman",
+      "pink wall"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irony",
+      "smallness",
+      "spectacle"
+    ],
+    "themes": [
+      "mediation",
+      "attention"
+    ],
+    "symbols": [
+      "painted face",
+      "pink field",
+      "small passerby"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irony",
+      "smallness"
+    ],
+    "relations": [
+      "The real woman shrinks beneath a giant fabricated face that dominates the wall."
+    ],
+    "tension": [
+      "human presence versus image saturation"
+    ],
+    "reading": [
+      "The mural does not decorate the street; it overwhelms it, reducing the passerby to an afterthought."
+    ],
+    "density": "focused",
+    "intensity": {
+      "irony": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-012-03",
+    "projectSlug": "012 - smart times",
+    "src": "03.jpg",
+    "primary": [
+      "smartphone frame",
+      "secondary screen",
+      "mediated seeing"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "mediation",
+      "distance",
+      "novelty"
+    ],
+    "themes": [
+      "mediation",
+      "attention"
+    ],
+    "symbols": [
+      "phone screen",
+      "captured face",
+      "drink"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "mediation",
+      "distance"
+    ],
+    "relations": [
+      "The phone claims priority over the person it is supposedly documenting."
+    ],
+    "tension": [
+      "live encounter versus screen encounter"
+    ],
+    "reading": [
+      "The image is really about seeing through devices, not about the man inside the device."
+    ],
+    "density": "focused",
+    "intensity": {
+      "mediation": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-012-08",
+    "projectSlug": "012 - smart times",
+    "src": "08.jpg",
+    "primary": [
+      "phone in mirror",
+      "circular frame",
+      "self-containment"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "absorption",
+      "detachment",
+      "quiet theater"
+    ],
+    "themes": [
+      "mediation",
+      "attention"
+    ],
+    "symbols": [
+      "mirror circle",
+      "phone",
+      "enclosed figure"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "absorption",
+      "detachment"
+    ],
+    "relations": [
+      "The circular mirror turns the phone conversation into a self-contained stage."
+    ],
+    "tension": [
+      "connection versus enclosure"
+    ],
+    "reading": [
+      "The mirror does not open the scene; it seals the speaker inside her own orbit of communication."
+    ],
+    "density": "focused",
+    "intensity": {
+      "absorption": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-012-14",
+    "projectSlug": "012 - smart times",
+    "src": "14.jpg",
+    "primary": [
+      "phone walker",
+      "NEW CITY DISORDERS",
+      "screen distraction"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irony",
+      "detachment",
+      "urban fatigue"
+    ],
+    "themes": [
+      "mediation",
+      "attention"
+    ],
+    "symbols": [
+      "phone",
+      "graffiti slogan",
+      "walking body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irony",
+      "detachment"
+    ],
+    "relations": [
+      "The slogan names disorder while the phone quietly performs it."
+    ],
+    "tension": [
+      "public statement versus private absorption"
+    ],
+    "reading": [
+      "The passerby and the graffiti complete each other: one writes disorder, the other lives it."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "irony": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-01",
+    "projectSlug": "013 - natural taste",
+    "src": "01.jpg",
+    "primary": [
+      "empty bench",
+      "tree shadow",
+      "winter pause"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "quietness",
+      "loneliness",
+      "clarity"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "bench",
+      "bare tree",
+      "shadow"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "quietness",
+      "loneliness"
+    ],
+    "relations": [
+      "The empty bench and the tree shadow feel like two versions of the same solitary presence."
+    ],
+    "tension": [
+      "rest versus abandonment",
+      "light versus winter barrenness"
+    ],
+    "reading": [
+      "A bench, a tree, and a shadow become enough to describe an entire emotional season."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "quietness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-04",
+    "projectSlug": "013 - natural taste",
+    "src": "04.jpg",
+    "primary": [
+      "round tree ring",
+      "overhead pattern",
+      "seasonal diagram"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "order",
+      "seasonal calm",
+      "contemplation"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "circle",
+      "tree core",
+      "paired benches"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "order",
+      "seasonal calm"
+    ],
+    "relations": [
+      "The benches frame the tree as if surrounding a small seasonal mandala."
+    ],
+    "tension": [
+      "organic center versus human arrangement"
+    ],
+    "reading": [
+      "Seen from above, autumn becomes a precise circular diagram of time settling around a tree."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "order": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-11",
+    "projectSlug": "013 - natural taste",
+    "src": "11.jpg",
+    "primary": [
+      "dandelion glow",
+      "backlight",
+      "fragile radiance"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "wonder",
+      "delicacy",
+      "transience"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "seed head",
+      "light halo"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "wonder",
+      "delicacy"
+    ],
+    "relations": [
+      "Light reveals how fragile structures can hold so much visual force."
+    ],
+    "tension": [
+      "fragility versus radiance"
+    ],
+    "reading": [
+      "The dandelions appear to carry their own small suns, bright precisely because they are so temporary."
+    ],
+    "density": "focused",
+    "intensity": {
+      "wonder": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-14",
+    "projectSlug": "013 - natural taste",
+    "src": "14.jpg",
+    "primary": [
+      "wind-bent shrub",
+      "figure illusion",
+      "desolate field"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "unease",
+      "solitude",
+      "resilience"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "bent figure",
+      "wind pressure"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "unease",
+      "solitude"
+    ],
+    "relations": [
+      "The shrub looks almost human because it seems to register pressure and endurance."
+    ],
+    "tension": [
+      "plant form versus human projection",
+      "resilience versus exposure"
+    ],
+    "reading": [
+      "In the open field, the dark shrub becomes a lonely body leaning into weather."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "unease": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-24",
+    "projectSlug": "013 - natural taste",
+    "src": "24.jpg",
+    "primary": [
+      "heart stone",
+      "bone balance",
+      "ritual arrangement"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "contemplation",
+      "mortality",
+      "tenderness"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "heart stone",
+      "bone",
+      "water flow"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "contemplation",
+      "mortality"
+    ],
+    "relations": [
+      "The heart and the bone turn the stream into a quiet altar of contrast."
+    ],
+    "tension": [
+      "love versus mortality",
+      "stability versus flow"
+    ],
+    "reading": [
+      "A simple found arrangement becomes a meditation on affection, loss, and the passage around them."
+    ],
+    "density": "focused",
+    "intensity": {
+      "contemplation": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-013-37",
+    "projectSlug": "013 - natural taste",
+    "src": "37.jpg",
+    "primary": [
+      "woven nest",
+      "suspension",
+      "fragile architecture"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "wonder",
+      "care",
+      "delicacy"
+    ],
+    "themes": [
+      "seasonality",
+      "quiet transformation"
+    ],
+    "symbols": [
+      "nest",
+      "suspension",
+      "empty vessel"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "wonder",
+      "care"
+    ],
+    "relations": [
+      "The nest feels impossibly light and carefully engineered at once."
+    ],
+    "tension": [
+      "fragility versus structural intelligence"
+    ],
+    "reading": [
+      "Hanging from a thin branch, the nest becomes a perfect image of careful making against risk."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "wonder": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-014-02",
+    "projectSlug": "014 - stat you",
+    "src": "02.jpg",
+    "primary": [
+      "stone figure",
+      "construction crane",
+      "time clash"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "irony",
+      "aspiration",
+      "displacement"
+    ],
+    "themes": [
+      "substitution",
+      "artificial life"
+    ],
+    "symbols": [
+      "raised hand",
+      "crane arm",
+      "unfinished future"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "irony",
+      "aspiration"
+    ],
+    "relations": [
+      "The statue appears to reach toward the crane as though addressing the future replacing it."
+    ],
+    "tension": [
+      "monument versus development",
+      "memory versus construction"
+    ],
+    "reading": [
+      "The image stages a conversation between carved permanence and temporary industrial ambition."
+    ],
+    "density": "focused",
+    "intensity": {
+      "irony": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-014-07",
+    "projectSlug": "014 - stat you",
+    "src": "07.jpg",
+    "primary": [
+      "draped bust",
+      "ghost figure",
+      "erased identity"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "haunting",
+      "silence",
+      "ambiguity"
+    ],
+    "themes": [
+      "substitution",
+      "artificial life"
+    ],
+    "symbols": [
+      "cloth veil",
+      "headless form",
+      "ghost"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "haunting",
+      "silence"
+    ],
+    "relations": [
+      "The cloth both protects the bust and turns it into a ghost of itself."
+    ],
+    "tension": [
+      "presence versus erasure",
+      "monument versus disappearance"
+    ],
+    "reading": [
+      "The sculpture survives only as a veiled absence, more ghost than memorial."
+    ],
+    "density": "focused",
+    "intensity": {
+      "haunting": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-014-11",
+    "projectSlug": "014 - stat you",
+    "src": "11.jpg",
+    "primary": [
+      "statue with sword",
+      "glass skyscraper",
+      "shadow authority"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "authority",
+      "unease",
+      "historical residue"
+    ],
+    "themes": [
+      "substitution",
+      "artificial life"
+    ],
+    "symbols": [
+      "sword",
+      "raised arm",
+      "glass tower"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "authority",
+      "unease"
+    ],
+    "relations": [
+      "The commanding gesture remains intact, but the mirrored tower drains it of certainty."
+    ],
+    "tension": [
+      "heroic monument versus corporate future"
+    ],
+    "reading": [
+      "The statue still performs authority, yet the skyscraper behind it makes that authority feel displaced."
+    ],
+    "density": "focused",
+    "intensity": {
+      "authority": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-014-18",
+    "projectSlug": "014 - stat you",
+    "src": "18.jpg",
+    "primary": [
+      "toy giraffe",
+      "real giraffe",
+      "screened reality"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "playfulness",
+      "wonder",
+      "conceptual wit"
+    ],
+    "themes": [
+      "substitution",
+      "artificial life"
+    ],
+    "symbols": [
+      "toy animal",
+      "screen animal",
+      "copy"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "playfulness",
+      "wonder"
+    ],
+    "relations": [
+      "The small toy seems to face its larger digital counterpart like a simplified self-portrait."
+    ],
+    "tension": [
+      "object versus image",
+      "small scale versus vast scale"
+    ],
+    "reading": [
+      "The photograph humorously collapses zoo, toy, and screen into a single question of what counts as real presence."
+    ],
+    "density": "focused",
+    "intensity": {
+      "playfulness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-014-20",
+    "projectSlug": "014 - stat you",
+    "src": "20.jpg",
+    "primary": [
+      "skull",
+      "broken glasses",
+      "printed eye"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "unease",
+      "irony",
+      "curiosity"
+    ],
+    "themes": [
+      "substitution",
+      "artificial life"
+    ],
+    "symbols": [
+      "skull",
+      "eye",
+      "broken lens"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "unease",
+      "irony"
+    ],
+    "relations": [
+      "The missing sight of the skull is comically replaced by a printed eye trapped in cracked glasses."
+    ],
+    "tension": [
+      "death versus vision",
+      "object versus identity"
+    ],
+    "reading": [
+      "The arrangement is playful on the surface, but its real subject is the persistence of looking after life is gone."
+    ],
+    "density": "focused",
+    "intensity": {
+      "unease": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-015-01",
+    "projectSlug": "015 - brain blow",
+    "src": "01.jpg",
+    "primary": [
+      "rainbow arch",
+      "snowy square",
+      "public hope"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "uplift",
+      "defiance",
+      "public warmth"
+    ],
+    "themes": [
+      "visibility",
+      "collective joy"
+    ],
+    "symbols": [
+      "rainbow arch",
+      "tram line",
+      "snowfield"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "uplift",
+      "defiance"
+    ],
+    "relations": [
+      "The rainbow spans the square like a temporary promise laid over winter routine."
+    ],
+    "tension": [
+      "winter austerity versus chromatic optimism"
+    ],
+    "reading": [
+      "The installation does not decorate the square; it changes its emotional climate."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "uplift": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-015-04",
+    "projectSlug": "015 - brain blow",
+    "src": "04.jpg",
+    "primary": [
+      "rainbow prism",
+      "wet roadway",
+      "accidental apparition"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "wonder",
+      "surprise",
+      "lightness"
+    ],
+    "themes": [
+      "visibility",
+      "collective joy"
+    ],
+    "symbols": [
+      "rainbow prism",
+      "wet road",
+      "light trace"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "wonder",
+      "surprise"
+    ],
+    "relations": [
+      "The rainbow appears as if the street itself briefly decided to glow."
+    ],
+    "tension": [
+      "ordinary surface versus miraculous event"
+    ],
+    "reading": [
+      "A mundane roadway becomes magical for the duration of a passing prism."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "wonder": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-015-06",
+    "projectSlug": "015 - brain blow",
+    "src": "06.jpg",
+    "primary": [
+      "rainbow umbrella",
+      "grayscale street",
+      "selected color"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "optimism",
+      "resistance",
+      "clarity"
+    ],
+    "themes": [
+      "visibility",
+      "collective joy"
+    ],
+    "symbols": [
+      "rainbow umbrella",
+      "desaturated street"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "optimism",
+      "resistance"
+    ],
+    "relations": [
+      "Color survives here not as decoration but as a decision to stand apart."
+    ],
+    "tension": [
+      "joy versus bleakness",
+      "visibility versus erasure"
+    ],
+    "reading": [
+      "The rainbow umbrella does more than brighten the scene; it refuses the grayscale logic surrounding it."
+    ],
+    "density": "focused",
+    "intensity": {
+      "optimism": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-015-10",
+    "projectSlug": "015 - brain blow",
+    "src": "10.jpg",
+    "primary": [
+      "rainbow flag",
+      "police vans",
+      "collective occupation"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "defiance",
+      "solidarity",
+      "power"
+    ],
+    "themes": [
+      "visibility",
+      "collective joy"
+    ],
+    "symbols": [
+      "flag field",
+      "police line"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "defiance",
+      "solidarity"
+    ],
+    "relations": [
+      "The flag becomes so large it starts to rival the authority of the vehicles beside it."
+    ],
+    "tension": [
+      "collective color versus institutional order"
+    ],
+    "reading": [
+      "From above, the flag reads not as a sign but as a territory temporarily claimed."
+    ],
+    "density": "dense",
+    "intensity": {
+      "defiance": 0.82
+    },
+    "pov": "overhead",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-015-11",
+    "projectSlug": "015 - brain blow",
+    "src": "11.jpg",
+    "primary": [
+      "glowing umbrella",
+      "radiating nails",
+      "urban icon"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "wonder",
+      "tension",
+      "playful menace"
+    ],
+    "themes": [
+      "visibility",
+      "collective joy"
+    ],
+    "symbols": [
+      "umbrella",
+      "halo",
+      "spikes"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "wonder",
+      "tension"
+    ],
+    "relations": [
+      "The umbrella radiates like a halo, but the surrounding nails keep that aura uneasy."
+    ],
+    "tension": [
+      "shelter versus danger",
+      "soft canopy versus sharp field"
+    ],
+    "reading": [
+      "The image turns an umbrella into a luminous icon of both safety and vulnerability."
+    ],
+    "density": "focused",
+    "intensity": {
+      "wonder": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-016-02",
+    "projectSlug": "016 - star dust",
+    "src": "02.jpg",
+    "primary": [
+      "flower seller",
+      "yellow tulips",
+      "street dignity"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "dignity",
+      "fatigue",
+      "warmth"
+    ],
+    "themes": [
+      "fragility",
+      "ordinary grace"
+    ],
+    "symbols": [
+      "tulips",
+      "seller stool",
+      "yellow abundance"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "dignity",
+      "fatigue"
+    ],
+    "relations": [
+      "The tulips radiate outward while the seller remains still at their center."
+    ],
+    "tension": [
+      "brightness of goods versus weariness of labor"
+    ],
+    "reading": [
+      "The portrait balances commercial display with the quiet endurance of the person behind it."
+    ],
+    "density": "dense",
+    "intensity": {
+      "dignity": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-016-03",
+    "projectSlug": "016 - star dust",
+    "src": "03.jpg",
+    "primary": [
+      "woman with bags",
+      "neon slogan",
+      "judgment"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "weariness",
+      "reflection",
+      "social tension"
+    ],
+    "themes": [
+      "fragility",
+      "ordinary grace"
+    ],
+    "symbols": [
+      "bags",
+      "trolley",
+      "neon advice"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "weariness",
+      "reflection"
+    ],
+    "relations": [
+      "The sign speaks above her as if offering a moral commentary on the scene below."
+    ],
+    "tension": [
+      "public message versus lived difficulty"
+    ],
+    "reading": [
+      "The photograph lets civic language and private burden occupy the same fragile bench of meaning."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "weariness": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-016-14",
+    "projectSlug": "016 - star dust",
+    "src": "14.jpg",
+    "primary": [
+      "pink hood",
+      "phone",
+      "winter self-fashioning"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "assertion",
+      "focus",
+      "self-possession"
+    ],
+    "themes": [
+      "fragility",
+      "ordinary grace"
+    ],
+    "symbols": [
+      "fur hood",
+      "phone",
+      "pink aura"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "assertion",
+      "focus"
+    ],
+    "relations": [
+      "The hood frames the woman like a self-made stage while the phone anchors her to daily reality."
+    ],
+    "tension": [
+      "ornament versus routine",
+      "public display versus private task"
+    ],
+    "reading": [
+      "A quick street moment turns into a compact portrait of self-styling against winter."
+    ],
+    "density": "focused",
+    "intensity": {
+      "assertion": 0.82
+    },
+    "pov": "close-up",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-016-18",
+    "projectSlug": "016 - star dust",
+    "src": "18.jpg",
+    "primary": [
+      "wheelchair user",
+      "guide dog",
+      "shared navigation"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "trust",
+      "focus",
+      "quiet dignity"
+    ],
+    "themes": [
+      "fragility",
+      "ordinary grace"
+    ],
+    "symbols": [
+      "guide dog",
+      "wheelchair",
+      "street window"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "trust",
+      "focus"
+    ],
+    "relations": [
+      "Human and dog form a practical partnership whose grace lies in its total concentration."
+    ],
+    "tension": [
+      "dependence versus independence",
+      "assistance versus autonomy"
+    ],
+    "reading": [
+      "The image is tender not because it sentimentalizes, but because it shows trust as a working system."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "trust": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-016-25",
+    "projectSlug": "016 - star dust",
+    "src": "25.jpg",
+    "primary": [
+      "slumped figure",
+      "funeral billboard",
+      "urban exhaustion"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "fatigue",
+      "unease",
+      "dark humor"
+    ],
+    "themes": [
+      "fragility",
+      "ordinary grace"
+    ],
+    "symbols": [
+      "funeral sign",
+      "collapsed posture",
+      "bench"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "fatigue",
+      "unease"
+    ],
+    "relations": [
+      "The billboard and the slumped body lock into a bleak accidental dialogue."
+    ],
+    "tension": [
+      "advertised death versus lived exhaustion"
+    ],
+    "reading": [
+      "The frame is funny only because it comes so close to being cruelly true."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "fatigue": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "people",
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-017-01",
+    "projectSlug": "017 - Wings",
+    "src": "01.jpg",
+    "primary": [
+      "white birds",
+      "bare branches",
+      "monochrome lift"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "release",
+      "lightness",
+      "quiet wonder"
+    ],
+    "themes": [
+      "freedom",
+      "instinct"
+    ],
+    "symbols": [
+      "flight",
+      "bare branches",
+      "open sky"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "release",
+      "lightness"
+    ],
+    "relations": [
+      "The birds appear to slip upward out of the grip of the bare branches below."
+    ],
+    "tension": [
+      "rooted branches versus airborne release"
+    ],
+    "reading": [
+      "The black-and-white scene keeps only the essentials: branch, sky, and the possibility of lifting away."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "release": 0.82
+    },
+    "pov": "upward",
+    "manipulation": "monochrome",
+    "negative": [],
+    "related": []
+  },
+  {
+    "id": "img-017-02",
+    "projectSlug": "017 - Wings",
+    "src": "02.jpg",
+    "primary": [
+      "white pigeon",
+      "burst of wings",
+      "snow crowd"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "surprise",
+      "energy",
+      "release"
+    ],
+    "themes": [
+      "freedom",
+      "instinct"
+    ],
+    "symbols": [
+      "white wings",
+      "snow field",
+      "breakaway body"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "surprise",
+      "energy"
+    ],
+    "relations": [
+      "One bird breaks upward while the rest of the flock remains bound to the ground."
+    ],
+    "tension": [
+      "lift versus weight",
+      "individual release versus group stillness"
+    ],
+    "reading": [
+      "The frame catches the exact instant when a common city bird becomes briefly radiant."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "surprise": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-017-03",
+    "projectSlug": "017 - Wings",
+    "src": "03.jpg",
+    "primary": [
+      "mallard takeoff",
+      "wings spread",
+      "green water"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "vitality",
+      "force",
+      "focus"
+    ],
+    "themes": [
+      "freedom",
+      "instinct"
+    ],
+    "symbols": [
+      "spread wings",
+      "water surface"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "vitality",
+      "force"
+    ],
+    "relations": [
+      "The water still clings to the bird even as the wings insist on leaving it."
+    ],
+    "tension": [
+      "water weight versus airborne force"
+    ],
+    "reading": [
+      "The photograph captures the strain-filled instant when swimming turns into flight."
+    ],
+    "density": "focused",
+    "intensity": {
+      "vitality": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  },
+  {
+    "id": "img-017-44",
+    "projectSlug": "017 - Wings",
+    "src": "44.jpg",
+    "primary": [
+      "bird silhouettes",
+      "dusky sky",
+      "minimal flight"
+    ],
+    "secondary": [],
+    "noise": [],
+    "objects": [],
+    "environment": [],
+    "style": [],
+    "composition": [],
+    "lighting": [],
+    "colors": [],
+    "mood": [
+      "mystery",
+      "quiet freedom",
+      "distance"
+    ],
+    "themes": [
+      "freedom",
+      "instinct"
+    ],
+    "symbols": [
+      "silhouette flight",
+      "darkening sky"
+    ],
+    "texture": [],
+    "motion": [],
+    "tone": [
+      "mystery",
+      "quiet freedom"
+    ],
+    "relations": [
+      "The silhouettes remain anonymous, but their movement keeps the scene emotionally open."
+    ],
+    "tension": [
+      "darkness versus motion",
+      "distance versus connection"
+    ],
+    "reading": [
+      "At dusk the birds lose detail and become pure signs of departure."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "mystery": 0.82
+    },
+    "pov": "upward",
+    "manipulation": "straight",
+    "negative": [
+      "color"
+    ],
+    "related": []
+  }
+]

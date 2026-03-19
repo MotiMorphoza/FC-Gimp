@@ -99,8 +99,14 @@ function syncSidebarSearchState(scope = document) {
 function navigateToSearchPage(query = "", menu = null) {
   const target = buildSearchPageUrl(query);
   const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const isSearchPage = String(document.body?.dataset?.page || "").trim() === "search";
 
   menu?.classList.remove("open");
+
+  if (isSearchPage && typeof window.updateSearchPageQuery === "function") {
+    window.updateSearchPageQuery(query);
+    return;
+  }
 
   if (target === current) {
     if (typeof window.initSearchPage === "function") {
@@ -126,10 +132,15 @@ function bindSidebarSearch(scope = document) {
   const inputs = scope.querySelectorAll("[data-sidebar-search-input]");
 
   const getQuery = () => scope.querySelector("[data-sidebar-search-input]")?.value || "";
+  const isSearchPage = () => String(document.body?.dataset?.page || "").trim() === "search";
 
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       setSidebarSearchValue(input.value, scope);
+
+      if (isSearchPage() && typeof window.scheduleSearchPageQueryUpdate === "function") {
+        window.scheduleSearchPageQueryUpdate(input.value);
+      }
     });
   });
 
