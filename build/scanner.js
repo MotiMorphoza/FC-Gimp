@@ -66,9 +66,11 @@ class Scanner {
 
     const files = fs.readdirSync(rootDir);
     const htmlFiles = [];
+    const excludedHtmlFiles = new Set(['search-debug.html']);
 
     for (const file of files) {
       if (!file.endsWith('.html')) continue;
+      if (excludedHtmlFiles.has(file)) continue;
 
       const fullPath = path.join(rootDir, file);
 

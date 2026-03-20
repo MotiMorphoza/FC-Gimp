@@ -24,7 +24,7 @@ const ARRAY_FIELDS = [
   'related'
 ];
 
-const STRING_FIELDS = ['density', 'pov', 'manipulation'];
+const STRING_FIELDS = ['density', 'pov', 'manipulation', 'subject_scale'];
 const OBJECT_FIELDS = ['intensity', 'score', 'object_roles'];
 
 const STOP_WORDS = new Set([
@@ -107,6 +107,8 @@ const DOMESTIC_HINTS = ['kitchen', 'room', 'bedroom', 'table', 'domestic', 'home
 const STREET_HINTS = ['street', 'crosswalk', 'sidewalk', 'tram', 'intersection', 'public square', 'public space'];
 const DIRECT_STREET_HINTS = ['street', 'crosswalk', 'sidewalk', 'intersection', 'curb', 'bollard', 'bollards', 'shop window', 'storefront window', 'pedestrian bridge', 'tram tracks', 'tram stop'];
 const NATURE_HINTS = ['tree', 'trees', 'flower', 'flowers', 'bird', 'birds', 'duck', 'gull', 'stork', 'heron', 'river', 'pond', 'water', 'grass', 'leaf', 'leaves'];
+const NATURE_ENV_HINTS = ['tree', 'trees', 'branch', 'branches', 'flower', 'flowers', 'grass', 'leaf', 'leaves', 'river', 'pond', 'water', 'field', 'garden', 'park', 'shore', 'mud', 'bark', 'vine', 'vines'];
+const URBAN_ENV_HINTS = ['city', 'urban', 'building', 'buildings', 'facade', 'facades', 'billboard', 'billboards', 'balcony', 'balconies', 'traffic', 'pavement', 'road', 'bench', 'shop', 'storefront', 'bus stop', 'tram', 'trams', 'tracks', 'crossing'];
 const COLORFUL_HINTS = ['rainbow', 'colorful', 'colourful', 'vivid', 'bright', 'multicolor', 'multicolour'];
 const CLOSE_UP_HINTS = ['close-up', 'close up', 'close crop'];
 const DETAIL_HINTS = ['detail', 'detail study'];
@@ -428,21 +430,25 @@ function deriveEnvironmentProfile(project, alt, environment = []) {
   const normalizedAlt = String(alt || '').toLowerCase();
   const environmentType = [];
   const settingType = [];
-  const natureHintCount = NATURE_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
-  const urbanHintCount = STREET_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
+  const natureHintCount = NATURE_ENV_HINTS.filter((hint) => includesAny(normalizedAlt, [hint])).length;
+  const streetCue = includesAny(normalizedAlt, DIRECT_STREET_HINTS);
+  const urbanCue = streetCue || includesAny(normalizedAlt, URBAN_ENV_HINTS);
+  const waterCue = includesAny(normalizedAlt, ['river', 'pond', 'water', 'puddle', 'fountain', 'shore']);
+  const parkCue = includesAny(normalizedAlt, ['park', 'garden']);
+  const natureCue = natureHintCount >= 2 || parkCue || waterCue;
+  const indoorCue = includesAny(normalizedAlt, INDOOR_HINTS);
+  const domesticCue = includesAny(normalizedAlt, DOMESTIC_HINTS);
+  const outdoorCue = includesAny(normalizedAlt, OUTDOOR_HINTS) || streetCue || waterCue || natureCue;
 
-  if (includesAny(normalizedAlt, INDOOR_HINTS)) environmentType.push('indoor');
-  if (includesAny(normalizedAlt, OUTDOOR_HINTS) || (environment || []).some((term) => ['city', 'street', 'park', 'water edge', 'winter'].includes(String(term).toLowerCase()))) {
-    environmentType.push('outdoor');
-  }
-  if (includesAny(normalizedAlt, STREET_HINTS) || (environment || []).some((term) => ['street', 'city', 'urban', 'public space'].includes(String(term).toLowerCase()))) {
+  if (indoorCue) environmentType.push('indoor');
+  if (outdoorCue) environmentType.push('outdoor');
+  if (streetCue) {
     environmentType.push('street', 'urban');
     settingType.push('street');
+  } else if (urbanCue) {
+    environmentType.push('urban');
   }
-  if (
-    (environment || []).some((term) => ['nature', 'urban nature', 'water edge'].includes(String(term).toLowerCase())) ||
-    natureHintCount >= (urbanHintCount ? 3 : 2)
-  ) {
+  if (natureCue) {
     environmentType.push('nature');
   }
   if (includesAny(normalizedAlt, DOMESTIC_HINTS)) {
@@ -489,6 +495,23 @@ function deriveShotType(alt, composition = [], pov = '') {
   return '';
 }
 
+function deriveSubjectScale(alt, shotType = '') {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  if (shotType === 'detail' || includesAny(normalizedAlt, ['detail', 'close-up', 'close up', 'cropped'])) {
+    return 'detail';
+  }
+  if (shotType === 'close_up' || shotType === 'portrait') {
+    return 'close';
+  }
+  if (shotType === 'wide' || includesAny(normalizedAlt, ['seen from above', 'overhead view', 'wide shot', 'wide view', 'wide scene'])) {
+    return 'wide';
+  }
+  if (includesAny(normalizedAlt, ['half-length', 'waist-up', 'mid-shot', 'medium shot'])) {
+    return 'medium';
+  }
+  return 'medium';
+}
+
 function deriveComposition(alt) {
   return deriveFieldByIncludes(alt, [
     { match: ['seen from above', 'overhead view'], values: ['overhead view', 'bird\'s-eye view'] },
@@ -505,10 +528,14 @@ function deriveLighting(alt) {
   return deriveFieldByIncludes(alt, [
     { match: ['sunset', 'sun flare', 'glowing orange'], values: ['sunset light'] },
     { match: ['night', 'neon', 'glowing word'], values: ['night light'] },
-    { match: ['daylight', 'daytime'], values: ['daylight'] },
-    { match: ['shadow', 'shadows'], values: ['directional light'] },
+    { match: ['daylight', 'daytime', 'sunny'], values: ['daylight'] },
+    { match: ['shadow', 'shadows'], values: ['directional light', 'shadowed light'] },
     { match: ['backlit'], values: ['backlit light'] },
-    { match: ['snow', 'winter'], values: ['cold daylight'] }
+    { match: ['snow', 'winter'], values: ['cold daylight'] },
+    { match: ['fog', 'mist', 'overcast', 'cloudy'], values: ['soft light'] },
+    { match: ['dark', 'dim'], values: ['low light'] },
+    { match: ['lit', 'glowing', 'lamp', 'lamps'], values: ['artificial light'] },
+    { match: ['window light'], values: ['window light'] }
   ]);
 }
 
@@ -535,15 +562,15 @@ function deriveTextureHints(alt) {
 }
 
 function deriveEnvironment(project, alt) {
-  const base = uniqueStrings(project.tags || []);
   return uniqueStrings([
-    ...base,
     ...deriveFieldByIncludes(alt, [
       { match: ['street', 'city', 'intersection', 'crosswalk'], values: ['city', 'street'] },
       { match: ['park', 'bench', 'tree'], values: ['park'] },
       { match: ['snow', 'winter'], values: ['winter'] },
       { match: ['water', 'pond', 'river', 'puddle'], values: ['water edge'] },
-      { match: ['wall', 'facade', 'window', 'building'], values: ['architecture'] }
+      { match: ['wall', 'facade', 'window', 'building', 'billboard', 'balcony'], values: ['architecture'] },
+      { match: ['kitchen', 'room', 'bedroom', 'table'], values: ['interior', 'domestic'] },
+      { match: ['bridge', 'tram', 'tracks'], values: ['transit'] }
     ])
   ]);
 }
@@ -578,6 +605,7 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
   const colorProfile = deriveColorProfile(image.alt, colors, manipulation);
   const environmentProfile = deriveEnvironmentProfile(project, image.alt, environment);
   const shotType = deriveShotType(image.alt, composition, pov);
+  const subjectScale = deriveSubjectScale(image.alt, shotType);
   const objectRoles = deriveObjectRoles(image.alt, projectTags, altTokens, objects);
   const screenVisible = deriveScreenVisible(image.alt);
 
@@ -622,6 +650,7 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
     ...colorProfile,
     ...environmentProfile,
     shot_type: shotType,
+    subject_scale: subjectScale,
     screen_visible: screenVisible
   };
 }
@@ -653,7 +682,13 @@ function normalizeManualEntry(entry) {
   normalized.src = String(normalized.src || '').trim();
   normalized.id = String(normalized.id || '').trim();
   normalized.age_stage = typeof normalized.age_stage === 'string' ? normalized.age_stage.trim() : '';
-  normalized.screen_visible = typeof normalized.screen_visible === 'boolean' ? normalized.screen_visible : Boolean(normalized.screen_visible);
+  if (Object.prototype.hasOwnProperty.call(normalized, 'screen_visible')) {
+    normalized.screen_visible = typeof normalized.screen_visible === 'boolean'
+      ? normalized.screen_visible
+      : Boolean(normalized.screen_visible);
+  } else {
+    normalized.screen_visible = undefined;
+  }
 
   return normalized;
 }
@@ -719,20 +754,31 @@ function mergeEntry(baseEntry, override = {}) {
   return merged;
 }
 
-function generateImageSearchDataset(projects, rootDir, logger) {
-  const overrides = loadManualMetadata(rootDir, logger);
+function generateBaseImageSearchDataset(projects) {
   const dataset = [];
 
   projects.forEach((project, projectIndex) => {
     (project.images || []).forEach((image, imageIndex) => {
       const baseEntry = deriveBaseEntry(project, image, projectIndex, imageIndex);
-      const overrideKey = `${project.slug}::${normalizeStem(image.src)}`;
-      const override = overrides.get(overrideKey) || null;
-      dataset.push(mergeEntry(baseEntry, override));
+      dataset.push(baseEntry);
     });
   });
 
   return dataset;
+}
+
+function generateImageSearchDataset(projects, rootDir, logger, options = {}) {
+  const baseDataset = generateBaseImageSearchDataset(projects);
+  if (options.baseOnly) {
+    return baseDataset;
+  }
+
+  const overrides = loadManualMetadata(rootDir, logger);
+  return baseDataset.map((baseEntry) => {
+    const overrideKey = `${baseEntry.projectSlug}::${normalizeStem(baseEntry.src)}`;
+    const override = overrides.get(overrideKey) || null;
+    return mergeEntry(baseEntry, override);
+  });
 }
 
 function writeImageSearchDataset({ projects, rootDir, tempDir, logger }) {
@@ -753,6 +799,7 @@ module.exports = {
   ARRAY_FIELDS,
   STRING_FIELDS,
   OBJECT_FIELDS,
+  generateBaseImageSearchDataset,
   generateImageSearchDataset,
   writeImageSearchDataset
 };

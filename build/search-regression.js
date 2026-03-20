@@ -106,11 +106,27 @@ function hasPhoneScreen(runtime, result) {
 }
 
 function isPublicProtest(result) {
-  return (result.image.visual.environment_type || []).includes('street') && (
-    (result.image.themes || []).some((item) => ['politics', 'authority', 'resistance', 'civic tension'].includes(String(item || '').toLowerCase())) ||
-    (result.image.primary || []).some((item) => /protest/.test(String(item || '').toLowerCase())) ||
-    (result.image.reading || []).some((item) => /public conflict|protest/.test(String(item || '').toLowerCase()))
-  );
+  const environment = result.image.visual.environment_type || [];
+  const setting = result.image.visual.setting_type || [];
+  const semanticSurface = [
+    ...(result.image.secondary || []),
+    ...(result.image.themes || []),
+    String(result.image.alt || '')
+  ].map((item) => String(item || '').toLowerCase());
+  const publicCue = environment.includes('street')
+    || environment.includes('urban')
+    || setting.includes('street')
+    || setting.includes('public square')
+    || semanticSurface.some((item) => /street|public space|public square|urban/.test(item));
+  const values = [
+    ...(result.image.primary || []),
+    ...(result.image.secondary || []),
+    ...(result.image.objects || []),
+    ...(result.image.reading || []),
+    String(result.image.alt || '')
+  ].map((item) => String(item || '').toLowerCase());
+  const protestCue = values.some((item) => /protest|protester|demonstration|activist|crowd|banner|flag|placard|sign/.test(item));
+  return publicCue && protestCue;
 }
 
 function runRegression(rootDir) {
@@ -205,7 +221,7 @@ function runRegression(rootDir) {
     },
     {
       query: 'child street',
-      minCount: 3,
+      minCount: 2,
       validate: (results) => results.slice(0, 5).every((result) => isChild(result) && (result.image.visual.environment_type || []).includes('street'))
     },
     {

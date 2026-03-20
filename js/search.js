@@ -21,7 +21,7 @@ const SEARCH_ARRAY_FIELDS = [
   "related"
 ];
 
-const SEARCH_STRING_FIELDS = ["density", "pov", "manipulation", "alt", "caption", "projectTitle", "projectDescription"];
+const SEARCH_STRING_FIELDS = ["density", "pov", "manipulation", "subject_scale", "alt", "caption", "projectTitle", "projectDescription"];
 const FIELD_WEIGHTS = {
   primary: 5,
   secondary: 3,
@@ -298,7 +298,7 @@ function deriveVisualProfile(image) {
   }
 
   const environmentType = normalizeMaybeArray(image.environment_type);
-  if (!environmentType.length) {
+  if (!environmentType.length && !image._explicit_environment_type) {
     const natureHintCount = ["river", "pond", "water", "grass", "leaf", "leaves", "flower", "flowers", "tree", "trees", "branch", "branches"]
       .filter((hint) => textHasHint(combinedText, hint))
       .length;
@@ -321,7 +321,7 @@ function deriveVisualProfile(image) {
   }
 
   const settingType = normalizeMaybeArray(image.setting_type);
-  if (!settingType.length) {
+  if (!settingType.length && !image._explicit_setting_type) {
     if (textHasAnyHint(combinedText, ["street", "crosswalk", "sidewalk", "intersection"])) settingType.push("street");
     if (textHasAnyHint(combinedText, ["park"])) settingType.push("park");
     if (textHasAnyHint(combinedText, ["public square"])) settingType.push("public square");
@@ -356,6 +356,7 @@ function deriveVisualProfile(image) {
     environment_type: normalizeArray(environmentType),
     setting_type: normalizeArray(settingType),
     shot_type: shotType,
+    subject_scale: String(image.subject_scale || "").trim().toLowerCase(),
     screen_visible: typeof image.screen_visible === "boolean" ? image.screen_visible : textHasAnyHint(combinedText, PHONE_SCREEN_VISUAL_HINTS),
     object_roles: normalizeObjectMap(image.object_roles)
   };
@@ -395,7 +396,10 @@ function normalizeImage(image, index) {
     dominant_colors: normalizeMaybeArray(image?.dominant_colors),
     environment_type: normalizeMaybeArray(image?.environment_type),
     setting_type: normalizeMaybeArray(image?.setting_type),
+    _explicit_environment_type: Object.prototype.hasOwnProperty.call(image || {}, 'environment_type'),
+    _explicit_setting_type: Object.prototype.hasOwnProperty.call(image || {}, 'setting_type'),
     shot_type: String(image?.shot_type || "").trim(),
+    subject_scale: String(image?.subject_scale || "").trim(),
     people_focus: String(image?.people_focus || "").trim(),
     screen_visible: typeof image?.screen_visible === "boolean" ? image.screen_visible : Boolean(image?.screen_visible),
     object_roles: normalizeObjectMap(image?.object_roles)
@@ -764,15 +768,41 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
     }
 
     if (canonical === "public protest") {
-      const protestMatch = (
-        includesVariant(indexedImage.image.themes, ["politics", "authority", "resistance", "civic tension"], "resistance") ||
-        includesVariant(indexedImage.image.primary, ["protest", "protester", "protesters"], "protest") ||
-        includesVariant(indexedImage.image.reading, ["protest", "public conflict"], "protest")
+      const protestValues = [
+        ...indexedImage.image.secondary,
+        ...indexedImage.image.objects,
+        ...(indexedImage.image.alt ? [indexedImage.image.alt] : [])
+      ];
+      const protestPrimary = includesVariant(indexedImage.image.primary, ["protest", "protester", "protesters", "demonstration", "activists"], "protest");
+      const protestReading = includesVariant(indexedImage.image.reading, ["protest", "demonstration", "protesters", "activists"], "protest");
+      const explicitCrowdCue = includesVariant(
+        protestValues,
+        ["crowd", "protester", "protesters", "demonstration", "activists", "marchers", "banner", "banners"],
+        "protester"
       );
-      const publicMatch = (visual.environment_type || []).includes("street") || (visual.environment_type || []).includes("urban");
-      return protestMatch && publicMatch
-        ? { matched: true, score: 16 }
-        : { matched: false, score: 0 };
+      const signCue = includesVariant(
+        protestValues,
+        ["placard", "placards", "protest sign", "banner", "banners", "sign"],
+        "banner"
+      );
+      const flagCue = includesVariant(
+        protestValues,
+        ["flag", "flags", "rainbow flag"],
+        "flag"
+      );
+      const streetCue = (visual.setting_type || []).includes("street")
+        || (visual.setting_type || []).includes("public square")
+        || (visual.environment_type || []).includes("street")
+        || includesVariant(indexedImage.image.secondary, ["street", "public space", "public square"], "street");
+      const collectiveCue = Number(visual.people_count) >= 4 || visual.people_focus === "crowd";
+      const strongProtestMatch = protestPrimary || protestReading || explicitCrowdCue || signCue || (flagCue && collectiveCue);
+      if (strongProtestMatch && streetCue) {
+        return { matched: true, score: collectiveCue ? 18 : 16 };
+      }
+      if (flagCue && streetCue) {
+        return { matched: true, score: 11 };
+      }
+      return { matched: false, score: 0 };
     }
   }
 
