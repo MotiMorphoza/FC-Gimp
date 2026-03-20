@@ -160,7 +160,8 @@ async function generateMorphozaVideos({
   outputPath,
   fallbackSourcePaths = [],
   logger,
-  delayMs = DEFAULT_DELAY_MS
+  delayMs = DEFAULT_DELAY_MS,
+  preferExistingTitles = false
 }) {
   const source = normalizeSourcePayload(readJson(sourcePath, []));
   const existing = readJson(outputPath, []);
@@ -188,6 +189,16 @@ async function generateMorphozaVideos({
     const { railKey, videoId } = queue[index];
     const existingTitle = existingMap.get(videoId) || '';
     let title = isRealTitle(existingTitle) ? existingTitle : FALLBACK_TITLE;
+
+    if (preferExistingTitles && isRealTitle(existingTitle)) {
+      title = existingTitle;
+      summary.preserved += 1;
+      if (logger?.info) {
+        logger.info(`[morphoza] ${videoId} ? title preserved from existing file`);
+      }
+      result[railKey].push({ id: videoId, title });
+      continue;
+    }
 
     try {
       const fetched = await fetchVideoTitleWithRetry(videoId);

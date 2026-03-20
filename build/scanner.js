@@ -8,6 +8,7 @@ class Scanner {
       '.git',
       '__pycache__',
       'node_modules',
+      'dist',
       'docs',
       '.build-temp',
       '.docs-backup'

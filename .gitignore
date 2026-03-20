@@ -1,2 +1,5 @@
 docs/
+dist/
+.build-temp/
+.docs-backup/
 node_modules/

@@ -5,7 +5,7 @@
  *
  * Build-time module for MotoSynteza.
  * Scans all /projects/<slug>/ directories, validates project.json files,
- * generates descending image codes, and writes /docs/shop/index.json.
+ * generates descending image codes, and writes /shop/index.json in the build output.
  *
  * Descending logic:
  *   Given N images, image[0] gets code PREFIX-00N, image[N-1] gets PREFIX-001.
@@ -75,7 +75,7 @@ function generateImageCode(prefix, total, index) {
  *
  * @param {object} opts
  * @param {string} opts.projectsDir   - absolute path to /projects source
- * @param {string} opts.outputDir     - absolute path to /docs/shop
+ * @param {string} opts.outputDir     - absolute path to /shop in the build output
  * @param {string} [opts.buildVersion] - hash string to embed / use as filename suffix
  * @param {boolean} [opts.hashFilename] - if true, write index.<hash>.json instead of index.json
  *

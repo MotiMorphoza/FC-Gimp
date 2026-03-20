@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.motosynteza.art/sitemap.xml
-Host: www.motosynteza.art

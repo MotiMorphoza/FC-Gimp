@@ -65,68 +65,69 @@ class SuperBuild {
       this.logger.info('Starting build process');
 
       this.validateSource();
-      await this.buildMorphozaVideos();
-      this.buildHumanWritesContent();
 
-      const tempDir = this.deployer.initTempDir(this.rootDir);
-      this.deployer.copyToTemp(this.rootDir, tempDir);
-      this.writeCustomDomainFile(tempDir);
+      const buildDir = this.deployer.initBuildDir(this.rootDir);
+      this.deployer.copyToBuild(this.rootDir, buildDir);
+
+      await this.buildMorphozaVideos(buildDir);
+      this.buildHumanWritesContent(buildDir);
+      this.writeCustomDomainFile(buildDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Convert project images  JPG/PNG → WebP
       //
-      // Must run AFTER copyToTemp (works on the temp copy, never touches src/)
+      // Must run AFTER copyToBuild (works on the build copy, never touches src/)
       // and BEFORE scanProjectsFromRoot (scanner must see .webp + updated JSON)
       //
       // Handles both layouts:
-      //   src/projects/  (standard)  → writes to tempDir/projects/, removes
-      //                                tempDir/src/projects/ so the scanner's
+      //   src/projects/  (standard)  → writes to buildDir/projects/, removes
+      //                                buildDir/src/projects/ so the scanner's
       //                                getProjectsSourceDir() falls back to
-      //                                tempDir/projects/ (which gets deployed
-      //                                to docs/projects/).
-      //   projects/      (flat)      → converts in-place inside tempDir/projects/
+      //                                buildDir/projects/ (which gets copied
+      //                                to docs/projects/ at deploy time).
+      //   projects/      (flat)      → converts in-place inside buildDir/projects/
       // ─────────────────────────────────────────────────────────────────────
-      await convertProjectImages(tempDir, this.logger);
+      await convertProjectImages(buildDir, this.logger);
 
       // ─────────────────────────────────────────────────────────────────────
       // Validate projects
-      // Scanner now finds tempDir/projects/ with .webp images and updated JSON
+      // Scanner now finds buildDir/projects/ with .webp images and updated JSON
       // ─────────────────────────────────────────────────────────────────────
-      const projects = this.scanner.scanProjectsFromRoot(tempDir);
+      const projects = this.scanner.scanProjectsFromRoot(buildDir);
       this.logger.info(`Validated ${projects.length} projects`);
       this.logImageMetadataCoverage(projects);
-      const imageSearchDataset = this.generateImageSearchDataset(projects, tempDir);
+      const imageSearchDataset = this.generateImageSearchDataset(projects, buildDir);
       const projectSeoMap = buildProjectSeoMap(projects, imageSearchDataset);
       applyProjectSeoData(projects, projectSeoMap);
-      this.generateStaticProjectPages(projects, tempDir);
+      this.generateStaticProjectPages(projects, buildDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Generate manifests
       // ─────────────────────────────────────────────────────────────────────
-      this.generateProjectsManifest(projects, tempDir);
+      this.generateProjectsManifest(projects, buildDir);
 
       const manifestData = this.manifestGenerator.createManifestData(
         this.scanner,
-        path.join(tempDir, 'images'),
-        tempDir
+        path.join(buildDir, 'images'),
+        buildDir
       );
       applyProjectSeoData(manifestData.projects || [], projectSeoMap);
 
-      const manifestPath = path.join(tempDir, 'js', 'image-manifest.js');
+      const manifestPath = path.join(buildDir, 'js', 'image-manifest.js');
       this.manifestGenerator.generate(manifestData, manifestPath);
       const manifestContent = fs.readFileSync(manifestPath, 'utf8');
-      const versionInputs = this.collectVersionInputs(tempDir);
+      const versionInputs = this.collectVersionInputs(buildDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Versioning (preliminary pass – before asset hashing)
       // ─────────────────────────────────────────────────────────────────────
       const prelimVersion = this.versioning.generateVersion(new Map(), manifestContent, versionInputs);
-      this.versioning.createVersionFile(tempDir, prelimVersion);
+      this.versioning.createVersionFile(buildDir, prelimVersion);
 
       // ─────────────────────────────────────────────────────────────────────
-      // Hash CSS / JS / images in tempDir/images  (NOT project images)
+      // Hash CSS / JS / images in buildDir/images  (NOT project images)
       // ─────────────────────────────────────────────────────────────────────
-      this.hasher.hashAssets(tempDir, this.scanner);
+      this.hasher.hashAssets(buildDir, this.scanner);
       const renameMap = this.hasher.getRenameMap();
 
       // ─────────────────────────────────────────────────────────────────────
@@ -134,7 +135,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       const BUILD_VERSION = this.versioning.generateVersion(renameMap, manifestContent, versionInputs);
 
-      const jsDir = path.join(tempDir, 'js');
+      const jsDir = path.join(buildDir, 'js');
       const jsFiles = fs.readdirSync(jsDir).sort();
       const hashedVersionFile = jsFiles.find(f =>
         /^build-version\.[a-f0-9]{8}\.js$/.test(f)
@@ -149,20 +150,20 @@ class SuperBuild {
       }
 
       // ─────────────────────────────────────────────────────────────────────
-      // Generate shop/index.json (reads tempDir/projects/*.json – already webp)
+      // Generate shop/index.json (reads buildDir/projects/*.json – already webp)
       // ─────────────────────────────────────────────────────────────────────
-      await this.buildShopIndex(tempDir, BUILD_VERSION);
+      await this.buildShopIndex(buildDir, BUILD_VERSION);
 
       // ─────────────────────────────────────────────────────────────────────
       // Rewrite HTML
       // ─────────────────────────────────────────────────────────────────────
-      const htmlFiles = this.scanner.findHtmlFiles(tempDir);
-      this.htmlProcessor.processHtmlFiles(htmlFiles, tempDir, renameMap);
+      const htmlFiles = this.scanner.findHtmlFiles(buildDir);
+      this.htmlProcessor.processHtmlFiles(htmlFiles, buildDir, renameMap);
 
       // ─────────────────────────────────────────────────────────────────────
       // Rewrite partials
       // ─────────────────────────────────────────────────────────────────────
-      const partialsDir = path.join(tempDir, 'partials');
+      const partialsDir = path.join(buildDir, 'partials');
       if (fs.existsSync(partialsDir)) {
         fs.readdirSync(partialsDir)
           .filter(f => f.endsWith('.html'))
@@ -170,7 +171,7 @@ class SuperBuild {
             this.htmlProcessor.processFragment(
               path.join(partialsDir, f),
               renameMap,
-              tempDir
+              buildDir
             );
           });
       }
@@ -178,7 +179,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       // Rewrite CSS url()
       // ─────────────────────────────────────────────────────────────────────
-      const cssDir = path.join(tempDir, 'css');
+      const cssDir = path.join(buildDir, 'css');
       if (fs.existsSync(cssDir)) {
         fs.readdirSync(cssDir)
           .filter(f => f.endsWith('.css'))
@@ -228,7 +229,7 @@ class SuperBuild {
       };
 
       for (const htmlFile of htmlFiles) {
-        const filePath = path.join(tempDir, htmlFile);
+        const filePath = path.join(buildDir, htmlFile);
         let html = fs.readFileSync(filePath, 'utf8');
 
         const orchestrator = new HeadOrchestrator({
@@ -238,25 +239,28 @@ class SuperBuild {
           version: BUILD_VERSION,
           assets,
           htmlFile,
-          tempDir
+          tempDir: buildDir
         });
 
         html = await orchestrator.buildHead(html);
         fs.writeFileSync(filePath, html, 'utf8');
       }
 
-      this.generateRobotsAndSitemap(tempDir, projects);
+      this.generateRobotsAndSitemap(buildDir, projects);
 
       // ─────────────────────────────────────────────────────────────────────
-      // Verify & Deploy
+      // Verify & summarize build output
       // ─────────────────────────────────────────────────────────────────────
-      this.htmlProcessor.verifyReferences(htmlFiles, tempDir);
-      this.deployer.deploy(this.rootDir);
-      this.logger.printSummary(path.join(this.rootDir, 'docs'));
+      this.htmlProcessor.verifyReferences(htmlFiles, buildDir);
+      this.logger.printSummary(buildDir);
 
     } catch (error) {
       this.logger.error(`Build failed: ${error.message}`);
-      this.deployer.cleanup(this.rootDir);
+      try {
+        this.deployer.cleanupBuildDir(this.rootDir);
+      } catch (cleanupError) {
+        this.logger.warn(`Build cleanup failed: ${cleanupError.message}`);
+      }
       process.exit(1);
     }
   }
@@ -264,34 +268,24 @@ class SuperBuild {
   // ─────────────────────────────────────────────────────────────────────────
   // Shop index
   // ─────────────────────────────────────────────────────────────────────────
-  async buildMorphozaVideos() {
+  async buildMorphozaVideos(buildDir) {
     const sourcePath = path.join(this.rootDir, 'data', 'morphoza-videos.json');
-    const localOutputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
-    const deployedOutputPath = path.join(this.rootDir, 'docs', 'data', 'morphoza-videos.generated.json');
+    const outputPath = path.join(buildDir, 'data', 'morphoza-videos.generated.json');
+    const fallbackOutputPath = path.join(this.rootDir, 'data', 'morphoza-videos.generated.json');
 
     await generateMorphozaVideos({
       sourcePath,
-      outputPath: localOutputPath,
+      outputPath,
+      fallbackSourcePaths: [fallbackOutputPath],
       logger: this.logger,
-      delayMs: 300
+      delayMs: 300,
+      preferExistingTitles: true
     });
-
-    const localJson = fs.readFileSync(localOutputPath, 'utf8');
-    const deployedJson = fs.existsSync(deployedOutputPath)
-      ? fs.readFileSync(deployedOutputPath, 'utf8')
-      : null;
-
-    fs.mkdirSync(path.dirname(deployedOutputPath), { recursive: true });
-
-    if (deployedJson !== localJson) {
-      fs.writeFileSync(deployedOutputPath, localJson, 'utf8');
-      this.logger.info('[morphoza] copied local generated file into docs/data');
-    }
   }
 
-  buildHumanWritesContent() {
+  buildHumanWritesContent(buildDir) {
     const sourceRoot = path.join(this.rootDir, 'data', 'hw');
-    const outputPath = path.join(sourceRoot, 'generated', 'human-writes.generated.json');
+    const outputPath = path.join(buildDir, 'data', 'hw', 'generated', 'human-writes.generated.json');
 
     generateHumanWritesContent({
       sourceRoot,
