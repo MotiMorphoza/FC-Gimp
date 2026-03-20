@@ -164,6 +164,7 @@
     country: String(raw.country || ""),
     email: String(raw.email || ""),
     name: String(raw.name || ""),
+    phone: String(raw.phone || ""),
     street: String(raw.street || ""),
     city: String(raw.city || ""),
     postal: String(raw.postal || ""),
@@ -190,6 +191,10 @@
   }
 
   function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
+
+  function isPhoneValid(v) {
+    return /^[+()\-\s0-9]{6,}$/.test(String(v || "").trim());
+  }
 
 
 function isAddressValid(ui) {
@@ -312,6 +317,7 @@ function isAddressValid(ui) {
     country: country,
     email: String(app.refs.emailInput.value || ""),
     name: String(app.refs.nameInput.value || ""),
+    phone: String(app.refs.phoneInput.value || ""),
     street: String(app.refs.streetInput.value || ""),
     city: String(app.refs.cityInput.value || ""),
     postal: String(app.refs.postalInput.value || ""),
@@ -402,6 +408,14 @@ function isAddressValid(ui) {
   nameWrap.appendChild(nameInput);
   checkout.appendChild(nameWrap);
 
+  var phoneWrap = h("div", { className: "shop-field" });
+  phoneWrap.appendChild(h("label", { className: "shop-label", for: "shop-phone-v2", text: "Phone" }));
+  var phoneInput = h("input", { id: "shop-phone-v2", className: "shop-input", type: "tel", placeholder: "Phone number" });
+  var phoneMsg = h("span", { className: "shop-validation-msg", id: "shop-phone-v2-msg" });
+  phoneWrap.appendChild(phoneInput);
+  phoneWrap.appendChild(phoneMsg);
+  checkout.appendChild(phoneWrap);
+
   var streetWrap = h("div", { className: "shop-field" });
   streetWrap.appendChild(h("label", { className: "shop-label", for: "shop-street-v2", text: "Street address" }));
   var streetInput = h("input", { id: "shop-street-v2", className: "shop-input", type: "text", placeholder: "Street address" });
@@ -446,6 +460,8 @@ function isAddressValid(ui) {
     emailInput: emailInput,
     emailMsg: emailMsg,
     nameInput: nameInput,
+    phoneInput: phoneInput,
+    phoneMsg: phoneMsg,
     streetInput: streetInput,
     cityInput: cityInput,
     postalInput: postalInput,
@@ -568,6 +584,7 @@ function isAddressValid(ui) {
   return (
     rowsFromCart(store).length > 0 &&
     isValidEmail(ui.email) &&
+    isPhoneValid(ui.phone) &&
     findCountryByName(ui.country) !== null &&
     isAddressValid(ui)
   );
@@ -595,6 +612,7 @@ function isAddressValid(ui) {
       requestDateText: requestDate.toLocaleString(),
       email: ui.email,
       name: ui.name,
+      phone: ui.phone,
       country: ui.country,
       street: ui.street,
       city: ui.city,
@@ -645,7 +663,7 @@ function isAddressValid(ui) {
   }
 
   function sendOrderRequestEmail(payload) {
-    if (!cfg().emailjsServiceId || !cfg().emailjsTemplateSeller || !cfg().emailjsPublicKey) {
+    if (!cfg().emailjsServiceId || !cfg().emailjsTemplateCustomer || !cfg().emailjsTemplateSeller || !cfg().emailjsPublicKey) {
       return Promise.reject(new Error("EmailJS config missing"));
     }
     if (!emailJsAllowedDomain()) {
@@ -682,7 +700,7 @@ function isAddressValid(ui) {
         customer_street: payload.street || "",
         customer_postal: payload.postal || "",
         customer_address: [payload.street, payload.city, payload.postal, payload.country].filter(Boolean).join(", "),
-        customer_phone: "",
+        customer_phone: payload.phone || "",
         order_notes: payload.notes ? payload.notes : "-",
         project_titles: titles.length ? titles.join(", ") : "-",
         items_breakdown: breakdown || "-",
@@ -693,12 +711,89 @@ function isAddressValid(ui) {
         total_shown_to_customer: money(payload.total)
       };
 
-      return window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateSeller, params);
+      return Promise.all([
+        window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateCustomer, params),
+        window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateSeller, params)
+      ]);
     });
   }
 
+  function showOrderRequestSentModal(order) {
+    var overlay = document.createElement("div");
+    overlay.className = "shop-thankyou-overlay";
+
+    var modal = document.createElement("div");
+    modal.className = "shop-thankyou-modal";
+
+    var title = document.createElement("h2");
+    title.textContent = "Order Request Sent";
+
+    var msg = document.createElement("p");
+    msg.textContent = "Your order request has been sent.";
+
+    var followUp = document.createElement("p");
+    followUp.textContent = "Final confirmation, shipping details, and payment method will be sent by email.";
+
+    var orderIdEl = document.createElement("p");
+    orderIdEl.style.fontSize = "13px";
+    orderIdEl.style.opacity = "0.65";
+    orderIdEl.textContent = "Request: " + order.requestId;
+
+    var detailsTitle = document.createElement("h3");
+    detailsTitle.textContent = "Order details";
+
+    var list = document.createElement("div");
+    list.className = "shop-thankyou-items";
+
+    order.rows.forEach(function (row) {
+      var line = document.createElement("div");
+      var titleText = row.title ? " | " + row.title : "";
+      line.textContent = row.code + titleText + " | " + row.size + " x " + row.qty + " | " + money(row.lineTotal);
+      list.appendChild(line);
+    });
+
+    var totalsEl = document.createElement("div");
+    totalsEl.className = "shop-thankyou-total";
+    totalsEl.textContent = "Total shown: " + money(order.total);
+
+    var btn = document.createElement("button");
+    btn.className = "shop-thankyou-close";
+    btn.textContent = "Back to Projects";
+
+    function closeModal() {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.removeEventListener("keydown", onKey);
+    }
+
+    function onKey(e) { if (e.key === "Escape") closeModal(); }
+
+    btn.addEventListener("click", function () {
+      closeModal();
+      if (typeof window.loadPage === "function") {
+        window.loadPage("projects.html");
+      } else {
+        window.location.href = "projects.html";
+      }
+    });
+
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener("keydown", onKey);
+
+    modal.appendChild(title);
+    modal.appendChild(msg);
+    modal.appendChild(followUp);
+    modal.appendChild(orderIdEl);
+    modal.appendChild(detailsTitle);
+    modal.appendChild(list);
+    modal.appendChild(totalsEl);
+    modal.appendChild(btn);
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  }
+
   function submitOrderRequest() {
-    ["email", "name", "street", "city", "postal"].forEach(function (field) {
+    ["email", "name", "phone", "street", "city", "postal"].forEach(function (field) {
       app.touched[field] = true;
     });
 
@@ -713,16 +808,16 @@ function isAddressValid(ui) {
     app.request.submitting = true;
     render();
 
-    sendOrderRequestEmail(buildOrderRequestPayload(store, ui)).then(function () {
+    var payload = buildOrderRequestPayload(store, ui);
+
+    sendOrderRequestEmail(payload).then(function () {
       var now = loadStore();
       now.cart = {};
       now.select = {};
       saveStore(now);
       app.request.submitting = false;
-      setRequestFeedback("success", [
-        "Your order request has been sent.",
-        "Final confirmation, shipping details, and payment method will be sent by email."
-      ]);
+      clearRequestFeedback();
+      showOrderRequestSentModal(payload);
       render();
     }).catch(function () {
       app.request.submitting = false;
@@ -746,6 +841,8 @@ function isAddressValid(ui) {
     app.refs.emailInput.setAttribute("aria-invalid", (app.touched.email && !isValidEmail(ui.email)) ? "true" : "false");
     app.refs.emailMsg.textContent = (app.touched.email && !isValidEmail(ui.email) && ui.email) ? "Please enter a valid email address" : "";
     app.refs.nameInput.setAttribute("aria-invalid", (app.touched.name && ui.name.trim().length <= 1) ? "true" : "false");
+    app.refs.phoneInput.setAttribute("aria-invalid", (app.touched.phone && !isPhoneValid(ui.phone)) ? "true" : "false");
+    app.refs.phoneMsg.textContent = (app.touched.phone && !isPhoneValid(ui.phone) && ui.phone) ? "Please enter a valid phone number" : "";
     app.refs.streetInput.setAttribute("aria-invalid", (app.touched.street && ui.street.trim().length <= 3) ? "true" : "false");
     app.refs.cityInput.setAttribute("aria-invalid", (app.touched.city && ui.city.trim().length <= 1) ? "true" : "false");
     app.refs.postalInput.setAttribute("aria-invalid", (app.touched.postal && ui.postal.trim().length <= 1) ? "true" : "false");
@@ -801,15 +898,17 @@ function isAddressValid(ui) {
 
       bindEvents();
       app.refs.nameInput.value = ui.name;
+      app.refs.phoneInput.value = ui.phone;
       app.refs.streetInput.value = ui.street;
       app.refs.cityInput.value = ui.city;
       app.refs.postalInput.value = ui.postal;
       app.refs.nameInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+      app.refs.phoneInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
       app.refs.streetInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
       app.refs.cityInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
       app.refs.postalInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
       // Mark fields as touched on first blur so validation shows only after interaction
-      ["email", "name", "street", "city", "postal"].forEach(function(field) {
+      ["email", "name", "phone", "street", "city", "postal"].forEach(function(field) {
         var input = app.refs[field + "Input"];
         if (input) input.addEventListener("blur", function() { app.touched[field] = true; render(); }, { once: true });
       });

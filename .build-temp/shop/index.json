@@ -1,0 +1,3034 @@
+{
+  "generatedAt": "2026-03-20T16:35:36.845Z",
+  "buildVersion": "c32205eee6df",
+  "projects": [
+    {
+      "projectCode": "UU",
+      "title": "usual uNuSuAll",
+      "description": "A collection of small moments from everyday life — presented from an original perspective with a touch of humor, drama, and poetry.",
+      "folder": "projects/000 - unusuall_usual",
+      "images": [
+        {
+          "code": "UU-025",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Motion-blurred close-up of a woman pushing a stroller with a red phone in her hand",
+          "thumbnailUrl": "projects/000 - unusuall_usual/01.webp"
+        },
+        {
+          "code": "UU-024",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Demolition excavator claw tearing concrete from a collapsing building",
+          "thumbnailUrl": "projects/000 - unusuall_usual/02.webp"
+        },
+        {
+          "code": "UU-023",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Paddleboarder on a river seen past a fallen blue swimming sign",
+          "thumbnailUrl": "projects/000 - unusuall_usual/03.webp"
+        },
+        {
+          "code": "UU-022",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Distant high-rise tower emerging from fog above city rooftops",
+          "thumbnailUrl": "projects/000 - unusuall_usual/04.webp"
+        },
+        {
+          "code": "UU-021",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Yellow and blue public trash bin with a bottle balanced on top",
+          "thumbnailUrl": "projects/000 - unusuall_usual/05.webp"
+        },
+        {
+          "code": "UU-020",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Striped cat sniffing a discarded red armchair filled with empty bottles",
+          "thumbnailUrl": "projects/000 - unusuall_usual/06.webp"
+        },
+        {
+          "code": "UU-019",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Small holy card lying in dirty snow beside a cigarette filter",
+          "thumbnailUrl": "projects/000 - unusuall_usual/07.webp"
+        },
+        {
+          "code": "UU-018",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Crushed Mozart chocolate wrapper melting into wet asphalt",
+          "thumbnailUrl": "projects/000 - unusuall_usual/08.webp"
+        },
+        {
+          "code": "UU-017",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Broken eggs spilled across dark pavement with yolk and crushed shells",
+          "thumbnailUrl": "projects/000 - unusuall_usual/09.webp"
+        },
+        {
+          "code": "UU-016",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Blue rubber glove lying above a dirty disposable face mask on paving stones",
+          "thumbnailUrl": "projects/000 - unusuall_usual/10.webp"
+        },
+        {
+          "code": "UU-015",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Pigeon perched on a long metal blade held by a statue hand",
+          "thumbnailUrl": "projects/000 - unusuall_usual/11.webp"
+        },
+        {
+          "code": "UU-014",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Solar panel edged with snow and hanging icicles against a blue sky",
+          "thumbnailUrl": "projects/000 - unusuall_usual/12.webp"
+        },
+        {
+          "code": "UU-013",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Setting sun aligned inside a power pylon over a snowy horizon",
+          "thumbnailUrl": "projects/000 - unusuall_usual/13.webp"
+        },
+        {
+          "code": "UU-012",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Factory chimney silhouette with two bright lights glowing at sunset",
+          "thumbnailUrl": "projects/000 - unusuall_usual/14.webp"
+        },
+        {
+          "code": "UU-011",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "White steam billowing from a red chimney into a clear blue sky",
+          "thumbnailUrl": "projects/000 - unusuall_usual/15.webp"
+        },
+        {
+          "code": "UU-010",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Birch tree trunk with knots and bark forming a face-like expression",
+          "thumbnailUrl": "projects/000 - unusuall_usual/16.webp"
+        },
+        {
+          "code": "UU-009",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Unfinished apartment building facade with repeating balconies and blue-covered windows",
+          "thumbnailUrl": "projects/000 - unusuall_usual/17.webp"
+        },
+        {
+          "code": "UU-008",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Three penguin-shaped skating aids outside a door beneath a first aid sign",
+          "thumbnailUrl": "projects/000 - unusuall_usual/18.webp"
+        },
+        {
+          "code": "UU-007",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Market vendor sorting goods beside two mannequin legs displayed on her stall",
+          "thumbnailUrl": "projects/000 - unusuall_usual/19.webp"
+        },
+        {
+          "code": "UU-006",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Pedestrian carrying a large pink flower across a bridge above traffic",
+          "thumbnailUrl": "projects/000 - unusuall_usual/20.webp"
+        },
+        {
+          "code": "UU-005",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Silhouette decal of a climber rappelling on a Peugeot van window",
+          "thumbnailUrl": "projects/000 - unusuall_usual/21.webp"
+        },
+        {
+          "code": "UU-004",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "No swimming sign beside a partially frozen snowy pond",
+          "thumbnailUrl": "projects/000 - unusuall_usual/23.webp"
+        },
+        {
+          "code": "UU-003",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Two intertwined root vegetables resembling an embracing couple on a white background",
+          "thumbnailUrl": "projects/000 - unusuall_usual/24.webp"
+        },
+        {
+          "code": "UU-002",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Symmetrical reflection of trees and houses in still water",
+          "thumbnailUrl": "projects/000 - unusuall_usual/25.webp"
+        },
+        {
+          "code": "UU-001",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Person in a winter coat seen through a round window in a dark wall",
+          "thumbnailUrl": "projects/000 - unusuall_usual/26.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "WTR",
+      "title": "Window to Redemption",
+      "description": "A series of photographs taken from a single window overlooking Savior Square in Warsaw. \nLife is a theater that continues without any pause; \nonly the camera can freeze moments in time.",
+      "folder": "projects/001 - window_to_redemption",
+      "images": [
+        {
+          "code": "WTR-016",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Figure in white walking under a beige umbrella across wet paving stones seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/01.webp"
+        },
+        {
+          "code": "WTR-015",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Elderly man with a cane walking past tram tracks toward a red no-entry sign seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/02.webp"
+        },
+        {
+          "code": "WTR-014",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Cyclist in a Batman sweatshirt riding through a marked bike lane beneath traffic signs",
+          "thumbnailUrl": "projects/001 - window_to_redemption/03.webp"
+        },
+        {
+          "code": "WTR-013",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Person carrying a dark coat and casting a long shadow across sunlit pavement",
+          "thumbnailUrl": "projects/001 - window_to_redemption/04.webp"
+        },
+        {
+          "code": "WTR-012",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Bald man and woman crossing a zebra crossing with a pigeon nearby seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/05.webp"
+        },
+        {
+          "code": "WTR-011",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Man feeding a woman from a paper cup as they walk across a zebra crossing",
+          "thumbnailUrl": "projects/001 - window_to_redemption/06.webp"
+        },
+        {
+          "code": "WTR-010",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Masked nun in a dark habit walking across a curved cobblestone path",
+          "thumbnailUrl": "projects/001 - window_to_redemption/07.webp"
+        },
+        {
+          "code": "WTR-009",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Woman holding hands with two little girls dressed in pink and floral headbands",
+          "thumbnailUrl": "projects/001 - window_to_redemption/08.webp"
+        },
+        {
+          "code": "WTR-008",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Two adults walking on either side of a child in a pink stroller seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/10.webp"
+        },
+        {
+          "code": "WTR-007",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Four people on a bench eating long slices of pizza beneath a leafy tree seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/11.webp"
+        },
+        {
+          "code": "WTR-006",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Four people sharing long slices of pizza on a bench with a pigeon below",
+          "thumbnailUrl": "projects/001 - window_to_redemption/12.webp"
+        },
+        {
+          "code": "WTR-005",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Bearded man on a black motorcycle turning beside a white truck",
+          "thumbnailUrl": "projects/001 - window_to_redemption/13.webp"
+        },
+        {
+          "code": "WTR-004",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Cyclist seen from above carrying a spare wheel on his back as his shadow stretches beside him",
+          "thumbnailUrl": "projects/001 - window_to_redemption/15.webp"
+        },
+        {
+          "code": "WTR-003",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Woman in a red dress riding an electric scooter past a bench seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/16.webp"
+        },
+        {
+          "code": "WTR-002",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Police car seen from above with 007 painted on its roof",
+          "thumbnailUrl": "projects/001 - window_to_redemption/18.webp"
+        },
+        {
+          "code": "WTR-001",
+          "src": "32.webp",
+          "caption": "",
+          "alt": "Yellow tram curving around a snow-covered roundabout seen from above",
+          "thumbnailUrl": "projects/001 - window_to_redemption/32.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "OYG",
+      "title": "Ohhhhh Your God",
+      "description": "A visual commentary on the religious show, \nprovoking tension between faith & identity. \nBelieve me... \nDON'T believe anybody.",
+      "folder": "projects/002 - ohhhhh_your_god",
+      "images": [
+        {
+          "code": "OYG-018",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Church cross casting a large cross-shaped shadow on an illuminated stone wall",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/01.webp"
+        },
+        {
+          "code": "OYG-017",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Black bird perched on the arm of a church cross above an ornate column",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/02.webp"
+        },
+        {
+          "code": "OYG-016",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Gold-toned crucifix figure tangled in a pile of scrap electronics and metal",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/03.webp"
+        },
+        {
+          "code": "OYG-015",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Crucifix standing before a modern apartment block",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/04.webp"
+        },
+        {
+          "code": "OYG-014",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Religious procession carrying a large wooden cross past a red no-entry sign seen from above",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/05.webp"
+        },
+        {
+          "code": "OYG-013",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Row of white-robed girls holding red roses with long shadows across a curved street",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/06.webp"
+        },
+        {
+          "code": "OYG-012",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Truck covered with anti-abortion billboard graphics at a city intersection",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/07.webp"
+        },
+        {
+          "code": "OYG-011",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Masked nun walking alone across a curved cobblestone path",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/08.webp"
+        },
+        {
+          "code": "OYG-010",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Priest in a long black cassock standing beneath clustered street signs",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/09.webp"
+        },
+        {
+          "code": "OYG-009",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Snow-covered sculptural group above the glowing word MEMENTO",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/10.webp"
+        },
+        {
+          "code": "OYG-008",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Snow-covered robed statue with children above the glowing word MORI",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/11.webp"
+        },
+        {
+          "code": "OYG-007",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Church silhouette framed by a glowing orange sun at sunset",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/12.webp"
+        },
+        {
+          "code": "OYG-006",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Large golfer billboard rising beside a church cross",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/13.webp"
+        },
+        {
+          "code": "OYG-005",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Priests in white robes carrying a gold monstrance during a religious procession",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/14.webp"
+        },
+        {
+          "code": "OYG-004",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Bare feet framing a distant church tower topped with a cross",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/15.webp"
+        },
+        {
+          "code": "OYG-003",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Brick church steeple topped with a cross seen between blurred metal bars",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/16.webp"
+        },
+        {
+          "code": "OYG-002",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Choir members in red robes holding sheet music seen from above",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/17.webp"
+        },
+        {
+          "code": "OYG-001",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Black bird perched on top of a church cross",
+          "thumbnailUrl": "projects/002 - ohhhhh_your_god/18.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "DS",
+      "title": "Demon Stration",
+      "description": "Confrontation between symbols of authority and resistance, examining how the political theatre shapes public perception.",
+      "folder": "projects/003 - demon_stration",
+      "images": [
+        {
+          "code": "DS-039",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Red-haired protester surrounded by uniformed police officers",
+          "thumbnailUrl": "projects/003 - demon_stration/01.webp"
+        },
+        {
+          "code": "DS-038",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Masked police officer being photographed with a smartphone",
+          "thumbnailUrl": "projects/003 - demon_stration/02.webp"
+        },
+        {
+          "code": "DS-037",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Line of masked police officers armed with long guns standing along a city street",
+          "thumbnailUrl": "projects/003 - demon_stration/03.webp"
+        },
+        {
+          "code": "DS-036",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Police line seen from behind beneath a red flag on an old city street",
+          "thumbnailUrl": "projects/003 - demon_stration/04.webp"
+        },
+        {
+          "code": "DS-035",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Row of masked police officers standing shoulder to shoulder",
+          "thumbnailUrl": "projects/003 - demon_stration/05.webp"
+        },
+        {
+          "code": "DS-034",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Woman in a blue hooded coat facing a line of police officers",
+          "thumbnailUrl": "projects/003 - demon_stration/06.webp"
+        },
+        {
+          "code": "DS-033",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Adult pushing a stroller while a small child walks toward a line of police officers",
+          "thumbnailUrl": "projects/003 - demon_stration/07.webp"
+        },
+        {
+          "code": "DS-032",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Masked protester holding a yellow tulip in front of police officers",
+          "thumbnailUrl": "projects/003 - demon_stration/08.webp"
+        },
+        {
+          "code": "DS-031",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Woman in a red cape holding a wooden cross before masked police officers",
+          "thumbnailUrl": "projects/003 - demon_stration/09.webp"
+        },
+        {
+          "code": "DS-030",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Giant rainbow flag stretched above police vans",
+          "thumbnailUrl": "projects/003 - demon_stration/10.webp"
+        },
+        {
+          "code": "DS-029",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Protest crowd beneath rainbow flags and a cardboard sign",
+          "thumbnailUrl": "projects/003 - demon_stration/11.webp"
+        },
+        {
+          "code": "DS-028",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Performer in an Iron Man costume carrying a rainbow flag",
+          "thumbnailUrl": "projects/003 - demon_stration/12.webp"
+        },
+        {
+          "code": "DS-027",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Woman in a red dress and black mask holding a flagpole",
+          "thumbnailUrl": "projects/003 - demon_stration/13.webp"
+        },
+        {
+          "code": "DS-026",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Woman carrying a Polish flag past reflective windows",
+          "thumbnailUrl": "projects/003 - demon_stration/14.webp"
+        },
+        {
+          "code": "DS-025",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Three performers in bird masks and winged costumes posing before blue portable toilets",
+          "thumbnailUrl": "projects/003 - demon_stration/15.webp"
+        },
+        {
+          "code": "DS-024",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Masked man in a jacket with a skull print facing a police officer",
+          "thumbnailUrl": "projects/003 - demon_stration/16.webp"
+        },
+        {
+          "code": "DS-023",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Overhead view of protesters carrying a NIE dla atomu MAMY WEGIEL banner",
+          "thumbnailUrl": "projects/003 - demon_stration/17.webp"
+        },
+        {
+          "code": "DS-022",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Young protesters holding a COAL IS NOT COOL sign",
+          "thumbnailUrl": "projects/003 - demon_stration/18.webp"
+        },
+        {
+          "code": "DS-021",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Protester pushing a stroller and holding an IDE DLA SYNA sign",
+          "thumbnailUrl": "projects/003 - demon_stration/19.webp"
+        },
+        {
+          "code": "DS-020",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Two women holding climate protest signs about old age and climate change",
+          "thumbnailUrl": "projects/003 - demon_stration/20.webp"
+        },
+        {
+          "code": "DS-019",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Protester holding a KASA NIE ZASTAPI CHLEBA sign seen from above",
+          "thumbnailUrl": "projects/003 - demon_stration/21.webp"
+        },
+        {
+          "code": "DS-018",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Overhead view of marchers carrying a long banner reading Kochamy Polske, a nie faszyzm!",
+          "thumbnailUrl": "projects/003 - demon_stration/22.webp"
+        },
+        {
+          "code": "DS-017",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Masked person in a keffiyeh at a street demonstration",
+          "thumbnailUrl": "projects/003 - demon_stration/23.webp"
+        },
+        {
+          "code": "DS-016",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Two people draped in Israeli flags facing a masked protester",
+          "thumbnailUrl": "projects/003 - demon_stration/24.webp"
+        },
+        {
+          "code": "DS-015",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Reflections of police officers and a child in a storefront window",
+          "thumbnailUrl": "projects/003 - demon_stration/25.webp"
+        },
+        {
+          "code": "DS-014",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Woman standing by a fence with blurred police officers beyond it",
+          "thumbnailUrl": "projects/003 - demon_stration/26.webp"
+        },
+        {
+          "code": "DS-013",
+          "src": "27.webp",
+          "caption": "",
+          "alt": "Cyclist and pedestrian passing through a yellow archway",
+          "thumbnailUrl": "projects/003 - demon_stration/27.webp"
+        },
+        {
+          "code": "DS-012",
+          "src": "28.webp",
+          "caption": "",
+          "alt": "Close-up of a masked man with a grinning face covering",
+          "thumbnailUrl": "projects/003 - demon_stration/28.webp"
+        },
+        {
+          "code": "DS-011",
+          "src": "29.webp",
+          "caption": "",
+          "alt": "Blue medical gloves clasped over a police uniform",
+          "thumbnailUrl": "projects/003 - demon_stration/29.webp"
+        },
+        {
+          "code": "DS-010",
+          "src": "30.webp",
+          "caption": "",
+          "alt": "Overhead view of demonstrators circling a roundabout in the rain",
+          "thumbnailUrl": "projects/003 - demon_stration/30.webp"
+        },
+        {
+          "code": "DS-009",
+          "src": "31.webp",
+          "caption": "",
+          "alt": "Line of helmeted police crossing a zebra crossing seen from above",
+          "thumbnailUrl": "projects/003 - demon_stration/31.webp"
+        },
+        {
+          "code": "DS-008",
+          "src": "32.webp",
+          "caption": "",
+          "alt": "Formation of police in yellow vests crossing a zebra crossing",
+          "thumbnailUrl": "projects/003 - demon_stration/32.webp"
+        },
+        {
+          "code": "DS-007",
+          "src": "33.webp",
+          "caption": "",
+          "alt": "Armed police officers standing beside a yellow tram",
+          "thumbnailUrl": "projects/003 - demon_stration/33.webp"
+        },
+        {
+          "code": "DS-006",
+          "src": "34.webp",
+          "caption": "",
+          "alt": "Elderly woman beside an armed police officer and a yellow tram",
+          "thumbnailUrl": "projects/003 - demon_stration/34.webp"
+        },
+        {
+          "code": "DS-005",
+          "src": "35.webp",
+          "caption": "",
+          "alt": "Crowd gathered around a red no-entry sign seen from above",
+          "thumbnailUrl": "projects/003 - demon_stration/35.webp"
+        },
+        {
+          "code": "DS-004",
+          "src": "36.webp",
+          "caption": "",
+          "alt": "Overhead crowd surrounding a black Animal Liberation Human Liberation flag",
+          "thumbnailUrl": "projects/003 - demon_stration/36.webp"
+        },
+        {
+          "code": "DS-003",
+          "src": "37.webp",
+          "caption": "",
+          "alt": "Line of helmeted police crossing a zebra as a woman and dog pass",
+          "thumbnailUrl": "projects/003 - demon_stration/37.webp"
+        },
+        {
+          "code": "DS-002",
+          "src": "38.webp",
+          "caption": "",
+          "alt": "Person wearing a white bucket with a smiley face drawn on it",
+          "thumbnailUrl": "projects/003 - demon_stration/38.webp"
+        },
+        {
+          "code": "DS-001",
+          "src": "39.webp",
+          "caption": "",
+          "alt": "Raised hand making a peace sign in a blurred crowd",
+          "thumbnailUrl": "projects/003 - demon_stration/39.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "WEMS",
+      "title": "Windows: Eyes of the Modern Soul",
+      "description": "Frames, frames, frames. \nWe see the world through them. \nIt is our “WINDOWS operating system.” ",
+      "folder": "projects/004 - windows_eyes_of_the_modern_soul",
+      "images": [
+        {
+          "code": "WEMS-028",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Tall blue-arched window set in a cracked weathered wall",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/01.webp"
+        },
+        {
+          "code": "WEMS-027",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Snow-buried dormer window lined with icicles",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/02.webp"
+        },
+        {
+          "code": "WEMS-026",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Dark patterned office facade with staggered windows",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/03.webp"
+        },
+        {
+          "code": "WEMS-025",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Repeating rows of rectangular office windows",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/04.webp"
+        },
+        {
+          "code": "WEMS-024",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Repeating balconies with red railings across an apartment block",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/05.webp"
+        },
+        {
+          "code": "WEMS-023",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Glass high-rise facade with diagonal metal lines",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/06.webp"
+        },
+        {
+          "code": "WEMS-022",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Repeating windows across a monochrome apartment block",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/07.webp"
+        },
+        {
+          "code": "WEMS-021",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Slanted apartment facade with repeating recessed balconies and satellite dishes",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/08.webp"
+        },
+        {
+          "code": "WEMS-020",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Narrow slit windows on a blank beige wall",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/09.webp"
+        },
+        {
+          "code": "WEMS-019",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Weathered multi-pane window with one broken section and a board hanging from it",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/10.webp"
+        },
+        {
+          "code": "WEMS-018",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Tilted old window framed by tangled bare branches",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/11.webp"
+        },
+        {
+          "code": "WEMS-017",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Broken upper-floor windows in a crumbling brick building",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/12.webp"
+        },
+        {
+          "code": "WEMS-016",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Broken diamond-pane window with a torn curtain inside",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/13.webp"
+        },
+        {
+          "code": "WEMS-015",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Yellow apartment block reflected in shattered windowpanes",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/14.webp"
+        },
+        {
+          "code": "WEMS-014",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Apartment windows seen through black iron fence spikes",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/15.webp"
+        },
+        {
+          "code": "WEMS-013",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Tall weathered courtyard facade with stacked windows",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/16.webp"
+        },
+        {
+          "code": "WEMS-012",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Black-and-white view of a tall tower block rising upward",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/17.webp"
+        },
+        {
+          "code": "WEMS-011",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Traffic light and blue arrow sign in front of a concrete building facade",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/18.webp"
+        },
+        {
+          "code": "WEMS-010",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Crumbling mural wall beside rows of apartment balconies",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/19.webp"
+        },
+        {
+          "code": "WEMS-009",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Layered city rooftops and apartment windows seen from above",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/20.webp"
+        },
+        {
+          "code": "WEMS-008",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Billboard portrait beneath two apartment windows and balcony shadows",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/21.webp"
+        },
+        {
+          "code": "WEMS-007",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Giant black-and-white face billboard between apartment towers",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/22.webp"
+        },
+        {
+          "code": "WEMS-006",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Seated billboard figure above worn city rooftops",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/23.webp"
+        },
+        {
+          "code": "WEMS-005",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Large mural of a figure painted across a building facade",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/24.webp"
+        },
+        {
+          "code": "WEMS-004",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Tall WARS billboard rising between historic rooftops and modern towers",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/25.webp"
+        },
+        {
+          "code": "WEMS-003",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Crucifix silhouetted against apartment balconies",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/26.webp"
+        },
+        {
+          "code": "WEMS-002",
+          "src": "27.webp",
+          "caption": "",
+          "alt": "Black-and-white courtyard framed by weathered apartment walls and windows",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/27.webp"
+        },
+        {
+          "code": "WEMS-001",
+          "src": "28.webp",
+          "caption": "",
+          "alt": "Dark open window in a rough brick wall",
+          "thumbnailUrl": "projects/004 - windows_eyes_of_the_modern_soul/28.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "DGS",
+      "title": "Doggy Style",
+      "description": "A playful photo series of man’s best friend, capturing humor, movement, and the unique personality of dogs within the urban environment.",
+      "folder": "projects/005 - doggy style",
+      "images": [
+        {
+          "code": "DGS-009",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Woman walking a dog carrying a stick across a covered pedestrian bridge",
+          "thumbnailUrl": "projects/005 - doggy style/01.webp"
+        },
+        {
+          "code": "DGS-008",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Small white dog straining at a long leash on a snowy slope beside its owner",
+          "thumbnailUrl": "projects/005 - doggy style/02.webp"
+        },
+        {
+          "code": "DGS-007",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Dog trotting past a gate as a car blurs behind it",
+          "thumbnailUrl": "projects/005 - doggy style/03.webp"
+        },
+        {
+          "code": "DGS-006",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Woman in a mustard knit hat with a small dog framed between black bollards",
+          "thumbnailUrl": "projects/005 - doggy style/04.webp"
+        },
+        {
+          "code": "DGS-005",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Small dog resting its chin on a curved balcony ledge beneath pussy willow branches",
+          "thumbnailUrl": "projects/005 - doggy style/05.webp"
+        },
+        {
+          "code": "DGS-004",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Black dog running through shallow water with a stick",
+          "thumbnailUrl": "projects/005 - doggy style/06.webp"
+        },
+        {
+          "code": "DGS-003",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Dog in a coat sniffing a woman's boot beside a shop window",
+          "thumbnailUrl": "projects/005 - doggy style/07.webp"
+        },
+        {
+          "code": "DGS-002",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "White dog leaping in the water toward a tennis ball",
+          "thumbnailUrl": "projects/005 - doggy style/08.webp"
+        },
+        {
+          "code": "DGS-001",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Small brown dog on a leash walking along a sunny sidewalk",
+          "thumbnailUrl": "projects/005 - doggy style/09.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "SMA",
+      "title": "Smashed",
+      "description": "Experiments with photographic techniques – long exposure and subject tracking.",
+      "folder": "projects/006 - smashed",
+      "images": [
+        {
+          "code": "SMA-019",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Two young adults riding a single bicycle together in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/01.webp"
+        },
+        {
+          "code": "SMA-018",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Two young women sharing a city bicycle in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/02.webp"
+        },
+        {
+          "code": "SMA-017",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Woman in a red striped top and yellow headscarf riding through an intersection in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/03.webp"
+        },
+        {
+          "code": "SMA-016",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Cyclist in a neon jacket glancing down at an arm while riding through a blurred green background",
+          "thumbnailUrl": "projects/006 - smashed/04.webp"
+        },
+        {
+          "code": "SMA-015",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Woman in a white cap and sunglasses pedaling a red bicycle in soft motion blur",
+          "thumbnailUrl": "projects/006 - smashed/05.webp"
+        },
+        {
+          "code": "SMA-014",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Older man riding a bicycle with a rear basket in heavy motion blur",
+          "thumbnailUrl": "projects/006 - smashed/06.webp"
+        },
+        {
+          "code": "SMA-013",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Cyclist in a helmet riding past a blurred white van in black and white",
+          "thumbnailUrl": "projects/006 - smashed/07.webp"
+        },
+        {
+          "code": "SMA-012",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Two women stopped on bicycles with a yellow tram behind them",
+          "thumbnailUrl": "projects/006 - smashed/08.webp"
+        },
+        {
+          "code": "SMA-011",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Yellow tram streaking across the frame in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/09.webp"
+        },
+        {
+          "code": "SMA-010",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Blurred pedestrian crossing in front of cars and a dark van",
+          "thumbnailUrl": "projects/006 - smashed/10.webp"
+        },
+        {
+          "code": "SMA-009",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Yellow-coated figure blurred between black bollards",
+          "thumbnailUrl": "projects/006 - smashed/11.webp"
+        },
+        {
+          "code": "SMA-008",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Hooded pedestrian crossing a wide street in soft motion blur",
+          "thumbnailUrl": "projects/006 - smashed/12.webp"
+        },
+        {
+          "code": "SMA-007",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Older man walking with a rolling suitcase in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/13.webp"
+        },
+        {
+          "code": "SMA-006",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Two black-clad pedestrians passing each other in motion blur",
+          "thumbnailUrl": "projects/006 - smashed/14.webp"
+        },
+        {
+          "code": "SMA-005",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Two women blurred past parked bicycles, one wearing a bright red coat",
+          "thumbnailUrl": "projects/006 - smashed/15.webp"
+        },
+        {
+          "code": "SMA-004",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Pedestrian crossing sign beside a blurred red-haired figure on a zebra crossing",
+          "thumbnailUrl": "projects/006 - smashed/16.webp"
+        },
+        {
+          "code": "SMA-003",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Person in a long trench coat crossing a zebra crossing while holding up a phone",
+          "thumbnailUrl": "projects/006 - smashed/17.webp"
+        },
+        {
+          "code": "SMA-002",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Group of children in bright green jackets crossing a street",
+          "thumbnailUrl": "projects/006 - smashed/18.webp"
+        },
+        {
+          "code": "SMA-001",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Yellow tram rushing past a zebra crossing with pedestrians",
+          "thumbnailUrl": "projects/006 - smashed/19.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "UMB",
+      "title": "Umbrellas :)",
+      "description": "Small moving shelters. \nFragments of color drifting through rain that reveal rhythm, solitude, and fleeting encounters in the city.",
+      "folder": "projects/007 - umbrellas",
+      "images": [
+        {
+          "code": "UMB-024",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Woman cycling beneath a black umbrella and red plaid scarf",
+          "thumbnailUrl": "projects/007 - umbrellas/01.webp"
+        },
+        {
+          "code": "UMB-023",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Person with a yellow umbrella in a misty street beneath green pharmacy lights",
+          "thumbnailUrl": "projects/007 - umbrellas/02.webp"
+        },
+        {
+          "code": "UMB-022",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Two older women talking beneath umbrellas in black and white",
+          "thumbnailUrl": "projects/007 - umbrellas/03.webp"
+        },
+        {
+          "code": "UMB-021",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Two dark umbrellas seen from above on wet pavement",
+          "thumbnailUrl": "projects/007 - umbrellas/04.webp"
+        },
+        {
+          "code": "UMB-020",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Blurred umbrellas in heavy rain",
+          "thumbnailUrl": "projects/007 - umbrellas/05.webp"
+        },
+        {
+          "code": "UMB-019",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Bright pink umbrella crossing a zebra crossing beside a passing runner",
+          "thumbnailUrl": "projects/007 - umbrellas/06.webp"
+        },
+        {
+          "code": "UMB-018",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Woman under a pink umbrella walking past a man in a white cap",
+          "thumbnailUrl": "projects/007 - umbrellas/07.webp"
+        },
+        {
+          "code": "UMB-017",
+          "src": "07A.webp",
+          "caption": "",
+          "alt": "Pink umbrella beside a street drain seen from above",
+          "thumbnailUrl": "projects/007 - umbrellas/07A.webp"
+        },
+        {
+          "code": "UMB-016",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Floral umbrella carried across gray pavement",
+          "thumbnailUrl": "projects/007 - umbrellas/08.webp"
+        },
+        {
+          "code": "UMB-015",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Pale umbrella and red bag crossing a dark zebra crossing",
+          "thumbnailUrl": "projects/007 - umbrellas/09.webp"
+        },
+        {
+          "code": "UMB-014",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Woman with a pale umbrella and pink skirt crossing tram tracks",
+          "thumbnailUrl": "projects/007 - umbrellas/10.webp"
+        },
+        {
+          "code": "UMB-013",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Three pedestrians crossing tracks with white and black umbrellas",
+          "thumbnailUrl": "projects/007 - umbrellas/11.webp"
+        },
+        {
+          "code": "UMB-012",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Woman in a red coat carrying a colorful umbrella in the rain",
+          "thumbnailUrl": "projects/007 - umbrellas/12.webp"
+        },
+        {
+          "code": "UMB-011",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Dark umbrella silhouette beside a yellow tram and bus stop sign",
+          "thumbnailUrl": "projects/007 - umbrellas/13.webp"
+        },
+        {
+          "code": "UMB-010",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Person carrying a red-and-white umbrella beside a blurred yellow tram",
+          "thumbnailUrl": "projects/007 - umbrellas/14.webp"
+        },
+        {
+          "code": "UMB-009",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Overhead view of a march filled with umbrellas",
+          "thumbnailUrl": "projects/007 - umbrellas/15.webp"
+        },
+        {
+          "code": "UMB-008",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Black-and-white crowd of umbrellas with one orange umbrella glowing",
+          "thumbnailUrl": "projects/007 - umbrellas/16.webp"
+        },
+        {
+          "code": "UMB-007",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Line of pedestrians with umbrellas and candlelight reflected on wet blue pavement",
+          "thumbnailUrl": "projects/007 - umbrellas/17.webp"
+        },
+        {
+          "code": "UMB-006",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Umbrella-carrying pedestrian walking through bright rain mist beside other passersby",
+          "thumbnailUrl": "projects/007 - umbrellas/18.webp"
+        },
+        {
+          "code": "UMB-005",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Man checking his phone beneath a black umbrella by a fountain",
+          "thumbnailUrl": "projects/007 - umbrellas/19.webp"
+        },
+        {
+          "code": "UMB-004",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Figure holding a black umbrella before a fountain spray",
+          "thumbnailUrl": "projects/007 - umbrellas/20.webp"
+        },
+        {
+          "code": "UMB-003",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Two people carrying an ornate umbrella upside down",
+          "thumbnailUrl": "projects/007 - umbrellas/21.webp"
+        },
+        {
+          "code": "UMB-002",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Rainbow umbrella against a grayscale street scene",
+          "thumbnailUrl": "projects/007 - umbrellas/22.webp"
+        },
+        {
+          "code": "UMB-001",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Lit rainbow umbrella mounted on a wall with nails radiating around it",
+          "thumbnailUrl": "projects/007 - umbrellas/23.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "ART",
+      "title": "Arty facts",
+      "description": "Art hides inside ordinary facts of daily life.",
+      "folder": "projects/008 - arty",
+      "images": [
+        {
+          "code": "ART-039",
+          "src": "001.webp",
+          "caption": "",
+          "alt": "Pickle standing inside a peeled banana peel in front of a glass jar",
+          "thumbnailUrl": "projects/008 - arty/001.webp"
+        },
+        {
+          "code": "ART-038",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Three white birds flying above bare tree branches in black and white",
+          "thumbnailUrl": "projects/008 - arty/01.webp"
+        },
+        {
+          "code": "ART-037",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Palm trees at sunset seen through a broken green doorway",
+          "thumbnailUrl": "projects/008 - arty/02.webp"
+        },
+        {
+          "code": "ART-036",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Weathered rural building with leaning doors and broken windows",
+          "thumbnailUrl": "projects/008 - arty/03.webp"
+        },
+        {
+          "code": "ART-035",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Three metal chimneys with birds flying in the background",
+          "thumbnailUrl": "projects/008 - arty/04.webp"
+        },
+        {
+          "code": "ART-034",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Red paper lantern hanging beside a black garden lamp",
+          "thumbnailUrl": "projects/008 - arty/05.webp"
+        },
+        {
+          "code": "ART-033",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Red-cloaked figure on a yellow stairwell",
+          "thumbnailUrl": "projects/008 - arty/06.webp"
+        },
+        {
+          "code": "ART-032",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Red strawberries tucked among the thorny leaves of an aloe plant",
+          "thumbnailUrl": "projects/008 - arty/07.webp"
+        },
+        {
+          "code": "ART-031",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Slices of eggplant clipped along a thin line against a warm background",
+          "thumbnailUrl": "projects/008 - arty/08.webp"
+        },
+        {
+          "code": "ART-030",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Bent branch in sharp focus against a blurred city skyline",
+          "thumbnailUrl": "projects/008 - arty/09.webp"
+        },
+        {
+          "code": "ART-029",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Black kettle steaming over an outdoor fire",
+          "thumbnailUrl": "projects/008 - arty/10.webp"
+        },
+        {
+          "code": "ART-028",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Plastic shopping crate hanging above a smoky outdoor fire in black and white",
+          "thumbnailUrl": "projects/008 - arty/11.webp"
+        },
+        {
+          "code": "ART-027",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Wisps of smoke rising above ash and charred embers",
+          "thumbnailUrl": "projects/008 - arty/12.webp"
+        },
+        {
+          "code": "ART-026",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Close-up of a hand resting on bare skin",
+          "thumbnailUrl": "projects/008 - arty/13.webp"
+        },
+        {
+          "code": "ART-025",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Two travelers pulling rolling suitcases in black and white",
+          "thumbnailUrl": "projects/008 - arty/15.webp"
+        },
+        {
+          "code": "ART-024",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Pair of worn black shoes on a gritty, stained floor",
+          "thumbnailUrl": "projects/008 - arty/16.webp"
+        },
+        {
+          "code": "ART-023",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Two white birdcages standing open against a brick wall",
+          "thumbnailUrl": "projects/008 - arty/17.webp"
+        },
+        {
+          "code": "ART-022",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Green plastic bag stretched over a gray trash bin",
+          "thumbnailUrl": "projects/008 - arty/18.webp"
+        },
+        {
+          "code": "ART-021",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Plastic chair on a broken wooden dock floating on calm water",
+          "thumbnailUrl": "projects/008 - arty/19.webp"
+        },
+        {
+          "code": "ART-020",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Two pale green perforated seats mounted against a dry hedge",
+          "thumbnailUrl": "projects/008 - arty/20.webp"
+        },
+        {
+          "code": "ART-019",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "White plastic chair beside large shoreline boulders",
+          "thumbnailUrl": "projects/008 - arty/21.webp"
+        },
+        {
+          "code": "ART-018",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Oversized floor lamp standing outdoors among benches",
+          "thumbnailUrl": "projects/008 - arty/22.webp"
+        },
+        {
+          "code": "ART-017",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Purple string lights above a snowy park path and a lone streetlamp",
+          "thumbnailUrl": "projects/008 - arty/23.webp"
+        },
+        {
+          "code": "ART-016",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Blue padlock fastened to a rusted chain",
+          "thumbnailUrl": "projects/008 - arty/24.webp"
+        },
+        {
+          "code": "ART-015",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Close-up of a vintage alarm clock",
+          "thumbnailUrl": "projects/008 - arty/25.webp"
+        },
+        {
+          "code": "ART-014",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Water droplets glowing on a sunlit metal railing",
+          "thumbnailUrl": "projects/008 - arty/26.webp"
+        },
+        {
+          "code": "ART-013",
+          "src": "27.webp",
+          "caption": "",
+          "alt": "Snow-covered stone steps leading uphill through trees",
+          "thumbnailUrl": "projects/008 - arty/27.webp"
+        },
+        {
+          "code": "ART-012",
+          "src": "28.webp",
+          "caption": "",
+          "alt": "Arched stair corridor lit by hanging lamps",
+          "thumbnailUrl": "projects/008 - arty/28.webp"
+        },
+        {
+          "code": "ART-011",
+          "src": "29.webp",
+          "caption": "",
+          "alt": "Two figures walking toward bright light in an underpass",
+          "thumbnailUrl": "projects/008 - arty/29.webp"
+        },
+        {
+          "code": "ART-010",
+          "src": "30.webp",
+          "caption": "",
+          "alt": "Polish flag beside blurred streetlamps and a rooftop edge",
+          "thumbnailUrl": "projects/008 - arty/30.webp"
+        },
+        {
+          "code": "ART-009",
+          "src": "31.webp",
+          "caption": "",
+          "alt": "Two yellow trams crossing at a wet intersection",
+          "thumbnailUrl": "projects/008 - arty/31.webp"
+        },
+        {
+          "code": "ART-008",
+          "src": "33.webp",
+          "caption": "",
+          "alt": "Traffic lights hanging in front of a red-and-white construction crane",
+          "thumbnailUrl": "projects/008 - arty/33.webp"
+        },
+        {
+          "code": "ART-007",
+          "src": "34.webp",
+          "caption": "",
+          "alt": "Old streetlamp among tree trunks in snowy woods",
+          "thumbnailUrl": "projects/008 - arty/34.webp"
+        },
+        {
+          "code": "ART-006",
+          "src": "35.webp",
+          "caption": "",
+          "alt": "Orange football goal standing in front of a weathered brick wall and black gate",
+          "thumbnailUrl": "projects/008 - arty/35.webp"
+        },
+        {
+          "code": "ART-005",
+          "src": "36.webp",
+          "caption": "",
+          "alt": "Airplane passing a setting sun aligned above a dark chimney",
+          "thumbnailUrl": "projects/008 - arty/36.webp"
+        },
+        {
+          "code": "ART-004",
+          "src": "37.webp",
+          "caption": "",
+          "alt": "Two empty wooden chairs standing in the snow",
+          "thumbnailUrl": "projects/008 - arty/37.webp"
+        },
+        {
+          "code": "ART-003",
+          "src": "38.webp",
+          "caption": "",
+          "alt": "Dark stairway leading up to a bright blue window",
+          "thumbnailUrl": "projects/008 - arty/38.webp"
+        },
+        {
+          "code": "ART-002",
+          "src": "39.webp",
+          "caption": "",
+          "alt": "Graffiti-covered black door set in a red brick archway",
+          "thumbnailUrl": "projects/008 - arty/39.webp"
+        },
+        {
+          "code": "ART-001",
+          "src": "40.webp",
+          "caption": "",
+          "alt": "Sunken boat tilted on a riverbank beneath distant bridges",
+          "thumbnailUrl": "projects/008 - arty/40.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "KNS",
+      "title": "king No Smo",
+      "description": "Small moments between inhaling and exhaling. \nA feeling of strength that hides vulnerability. \nSmoking connects people.",
+      "folder": "projects/009 - KING NO SMO",
+      "images": [
+        {
+          "code": "KNS-019",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Older man in a flat cap and red scarf smoking a pipe",
+          "thumbnailUrl": "projects/009 - KING NO SMO/01.webp"
+        },
+        {
+          "code": "KNS-018",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Wooden NO SMOKING sign hanging above an outdoor scene with seated smokers",
+          "thumbnailUrl": "projects/009 - KING NO SMO/02.webp"
+        },
+        {
+          "code": "KNS-017",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Hooded smoker exhaling into the cold air beside a yellow sign",
+          "thumbnailUrl": "projects/009 - KING NO SMO/03.webp"
+        },
+        {
+          "code": "KNS-016",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Curly-haired man reclining with smoke drifting across metal bars in front of him",
+          "thumbnailUrl": "projects/009 - KING NO SMO/04.webp"
+        },
+        {
+          "code": "KNS-015",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Woman in profile smoking beside a cloud image",
+          "thumbnailUrl": "projects/009 - KING NO SMO/05.webp"
+        },
+        {
+          "code": "KNS-014",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Older woman in a knit hat holding a cigarette as smoke drifts across her face",
+          "thumbnailUrl": "projects/009 - KING NO SMO/06.webp"
+        },
+        {
+          "code": "KNS-013",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Older man reading a leaflet while smoke drifts from his mouth",
+          "thumbnailUrl": "projects/009 - KING NO SMO/07.webp"
+        },
+        {
+          "code": "KNS-012",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Bald man smoking on a bench while looking down at his phone",
+          "thumbnailUrl": "projects/009 - KING NO SMO/08.webp"
+        },
+        {
+          "code": "KNS-011",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Curly-haired man smoking outside a building",
+          "thumbnailUrl": "projects/009 - KING NO SMO/09.webp"
+        },
+        {
+          "code": "KNS-010",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Shadows of two people smoking cast onto a yellow wall",
+          "thumbnailUrl": "projects/009 - KING NO SMO/10.webp"
+        },
+        {
+          "code": "KNS-009",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Two older people lighting cigarettes face to face",
+          "thumbnailUrl": "projects/009 - KING NO SMO/11.webp"
+        },
+        {
+          "code": "KNS-008",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Young man lighting a cigarette while a woman beside him watches",
+          "thumbnailUrl": "projects/009 - KING NO SMO/12.webp"
+        },
+        {
+          "code": "KNS-007",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Two men in conversation while one of them smokes",
+          "thumbnailUrl": "projects/009 - KING NO SMO/13.webp"
+        },
+        {
+          "code": "KNS-006",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Older man in a flat cap smoking in profile",
+          "thumbnailUrl": "projects/009 - KING NO SMO/14.webp"
+        },
+        {
+          "code": "KNS-005",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Bearded man in a cap with a cigarette and hanging necklaces",
+          "thumbnailUrl": "projects/009 - KING NO SMO/15.webp"
+        },
+        {
+          "code": "KNS-004",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Older man in a flat cap smoking in side profile",
+          "thumbnailUrl": "projects/009 - KING NO SMO/16.webp"
+        },
+        {
+          "code": "KNS-003",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Young woman lighting a cigarette",
+          "thumbnailUrl": "projects/009 - KING NO SMO/17.webp"
+        },
+        {
+          "code": "KNS-002",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Red coat and black lace-up boots with a cigarette held behind one hand",
+          "thumbnailUrl": "projects/009 - KING NO SMO/18.webp"
+        },
+        {
+          "code": "KNS-001",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Woman leaning against a stone wall with a cigarette as a white bird flies past",
+          "thumbnailUrl": "projects/009 - KING NO SMO/19.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "RFL",
+      "title": "Reflections",
+      "description": "Moments where reality folds back onto itself. \nGlass and water, turning the ordinary world into layered echoes of light, distortion, and silenced observation.",
+      "folder": "projects/010 - reflection",
+      "images": [
+        {
+          "code": "RFL-018",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Reflection of an ornate streetlamp in a shallow puddle on stone pavement",
+          "thumbnailUrl": "projects/010 - reflection/01.webp"
+        },
+        {
+          "code": "RFL-017",
+          "src": "01A.webp",
+          "caption": "",
+          "alt": "Streetlamp and bare branches reflected in a dark puddle",
+          "thumbnailUrl": "projects/010 - reflection/01A.webp"
+        },
+        {
+          "code": "RFL-016",
+          "src": "01B.webp",
+          "caption": "",
+          "alt": "Red Millennium sign reflected in a shallow puddle",
+          "thumbnailUrl": "projects/010 - reflection/01B.webp"
+        },
+        {
+          "code": "RFL-015",
+          "src": "01C.webp",
+          "caption": "",
+          "alt": "Ripples spreading through the reflection of bare trees in water",
+          "thumbnailUrl": "projects/010 - reflection/01C.webp"
+        },
+        {
+          "code": "RFL-014",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Yellow building reflected in dirty snow and meltwater",
+          "thumbnailUrl": "projects/010 - reflection/02.webp"
+        },
+        {
+          "code": "RFL-013",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Trees and a yellow building mirrored in calm water",
+          "thumbnailUrl": "projects/010 - reflection/03.webp"
+        },
+        {
+          "code": "RFL-012",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Wooden bench mirrored in floodwater across a muddy park lawn",
+          "thumbnailUrl": "projects/010 - reflection/05.webp"
+        },
+        {
+          "code": "RFL-011",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Fisherman and his reflection stretching across still water",
+          "thumbnailUrl": "projects/010 - reflection/06.webp"
+        },
+        {
+          "code": "RFL-010",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Round building reflected in a patch of melting snow",
+          "thumbnailUrl": "projects/010 - reflection/07.webp"
+        },
+        {
+          "code": "RFL-009",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Domed roof reflected in a narrow puddle",
+          "thumbnailUrl": "projects/010 - reflection/08.webp"
+        },
+        {
+          "code": "RFL-008",
+          "src": "08A.webp",
+          "caption": "",
+          "alt": "No-turn traffic sign and tree reflected in a puddle on paving stones",
+          "thumbnailUrl": "projects/010 - reflection/08A.webp"
+        },
+        {
+          "code": "RFL-007",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Curved building facade reflected in a round traffic mirror",
+          "thumbnailUrl": "projects/010 - reflection/09.webp"
+        },
+        {
+          "code": "RFL-006",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Modern glass facade reflecting another building and windows",
+          "thumbnailUrl": "projects/010 - reflection/12.webp"
+        },
+        {
+          "code": "RFL-005",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Street and cream-colored building reflected in a parked car door",
+          "thumbnailUrl": "projects/010 - reflection/13.webp"
+        },
+        {
+          "code": "RFL-004",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Lit office tower reflected in the glass of a neighboring skyscraper",
+          "thumbnailUrl": "projects/010 - reflection/14.webp"
+        },
+        {
+          "code": "RFL-003",
+          "src": "29.webp",
+          "caption": "",
+          "alt": "Yellow-lit windows reflected across dark glass panels",
+          "thumbnailUrl": "projects/010 - reflection/29.webp"
+        },
+        {
+          "code": "RFL-002",
+          "src": "30.webp",
+          "caption": "",
+          "alt": "Row of lit windows mirrored in a dark building facade",
+          "thumbnailUrl": "projects/010 - reflection/30.webp"
+        },
+        {
+          "code": "RFL-001",
+          "src": "31.webp",
+          "caption": "",
+          "alt": "Two orange-framed windows reflected in polished stone panels",
+          "thumbnailUrl": "projects/010 - reflection/31.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "GLD",
+      "title": "Golden age",
+      "description": "Life\nis what happens before we die.\n(Confused Use).",
+      "folder": "projects/011 - golden age",
+      "images": [
+        {
+          "code": "GLD-025",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Older woman waving while carrying a white plastic bag",
+          "thumbnailUrl": "projects/011 - golden age/01.webp"
+        },
+        {
+          "code": "GLD-024",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Older woman in a brown fur coat and hat on a city street",
+          "thumbnailUrl": "projects/011 - golden age/02.webp"
+        },
+        {
+          "code": "GLD-023",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Older woman in a purple skirt crossing a striped crosswalk with a cane",
+          "thumbnailUrl": "projects/011 - golden age/03.webp"
+        },
+        {
+          "code": "GLD-022",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Shadow of a person using walking poles on the pavement",
+          "thumbnailUrl": "projects/011 - golden age/04.webp"
+        },
+        {
+          "code": "GLD-021",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Elderly woman with a cane standing beside a vegan cafe sign seen from above",
+          "thumbnailUrl": "projects/011 - golden age/05.webp"
+        },
+        {
+          "code": "GLD-020",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Older man dragging a shopping trolley past a pile of rubble",
+          "thumbnailUrl": "projects/011 - golden age/06.webp"
+        },
+        {
+          "code": "GLD-019",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Man in a dark coat walking beneath a row of streetlights",
+          "thumbnailUrl": "projects/011 - golden age/07.webp"
+        },
+        {
+          "code": "GLD-018",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Older woman crossing the street with a shopping trolley and balloons",
+          "thumbnailUrl": "projects/011 - golden age/08.webp"
+        },
+        {
+          "code": "GLD-017",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Older man pushing an overloaded trolley along a roadside sidewalk",
+          "thumbnailUrl": "projects/011 - golden age/09.webp"
+        },
+        {
+          "code": "GLD-016",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Elderly woman hurrying through the street with a handbag",
+          "thumbnailUrl": "projects/011 - golden age/10.webp"
+        },
+        {
+          "code": "GLD-015",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Older market seller reclining on a folding chair beside crates of produce",
+          "thumbnailUrl": "projects/011 - golden age/11.webp"
+        },
+        {
+          "code": "GLD-014",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Older man sitting alone on a bench hidden among bushes",
+          "thumbnailUrl": "projects/011 - golden age/12.webp"
+        },
+        {
+          "code": "GLD-013",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Three older women sitting together on a bench",
+          "thumbnailUrl": "projects/011 - golden age/13.webp"
+        },
+        {
+          "code": "GLD-012",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Woman with a cane walking beside an older man while another woman walks away",
+          "thumbnailUrl": "projects/011 - golden age/14.webp"
+        },
+        {
+          "code": "GLD-011",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Blurred close-up of two older pedestrians in winter clothes",
+          "thumbnailUrl": "projects/011 - golden age/15.webp"
+        },
+        {
+          "code": "GLD-010",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Close-up portraits of an older man and woman in a crowd",
+          "thumbnailUrl": "projects/011 - golden age/16.webp"
+        },
+        {
+          "code": "GLD-009",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Two older women in soft hats talking face to face",
+          "thumbnailUrl": "projects/011 - golden age/17.webp"
+        },
+        {
+          "code": "GLD-008",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Woman with bright red hair smiling outdoors",
+          "thumbnailUrl": "projects/011 - golden age/18.webp"
+        },
+        {
+          "code": "GLD-007",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Man wearing a red fish hat beside pink flowers",
+          "thumbnailUrl": "projects/011 - golden age/19.webp"
+        },
+        {
+          "code": "GLD-006",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Two older men seated on public transport, one rubbing his forehead",
+          "thumbnailUrl": "projects/011 - golden age/20.webp"
+        },
+        {
+          "code": "GLD-005",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Older man preparing to cross while a woman sits on a chair at the curb",
+          "thumbnailUrl": "projects/011 - golden age/21.webp"
+        },
+        {
+          "code": "GLD-004",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Two elderly women in colorful coats sitting by an iron fence",
+          "thumbnailUrl": "projects/011 - golden age/22.webp"
+        },
+        {
+          "code": "GLD-003",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "White-bearded man reading a newspaper with an Israeli flag on the page",
+          "thumbnailUrl": "projects/011 - golden age/23.webp"
+        },
+        {
+          "code": "GLD-002",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Solitary person walking down a snowy park path",
+          "thumbnailUrl": "projects/011 - golden age/24.webp"
+        },
+        {
+          "code": "GLD-001",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Child on a balance bike wearing a yellow helmet passing an elderly woman on a bench",
+          "thumbnailUrl": "projects/011 - golden age/25.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "SMT",
+      "title": "Smart Times",
+      "description": "He sees you, he knows you.\nHe passes through walls.\nProcessing your data,\nhe answers your calls.\n\nHe listens and records,\nhe knows where you are.\nWithout him, my friend,\nyou won’t get very far.\n\nHe made you addicted —\nlife is pink like gum —\nthat sticks to your pants...\nyes, it all was a scam.\n\nHe’s smart, you are not.\nYou can’t think on your own.\nOh no...\nyou’re a victim\nof your cellular phone.",
+      "folder": "projects/012 - smart times",
+      "images": [
+        {
+          "code": "SMT-014",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Older woman standing beside a giant mural face on a bright pink wall",
+          "thumbnailUrl": "projects/012 - smart times/01.webp"
+        },
+        {
+          "code": "SMT-013",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Woman in a fur hood taking a selfie while holding a takeaway cup",
+          "thumbnailUrl": "projects/012 - smart times/02.webp"
+        },
+        {
+          "code": "SMT-012",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Smartphone screen photographing a man in a sombrero holding a drink",
+          "thumbnailUrl": "projects/012 - smart times/03.webp"
+        },
+        {
+          "code": "SMT-011",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Woman in a scarf checking her phone while holding a folder",
+          "thumbnailUrl": "projects/012 - smart times/04.webp"
+        },
+        {
+          "code": "SMT-010",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Blonde woman concentrating on a smartphone screen",
+          "thumbnailUrl": "projects/012 - smart times/05.webp"
+        },
+        {
+          "code": "SMT-009",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Woman in sunglasses talking on her phone",
+          "thumbnailUrl": "projects/012 - smart times/06.webp"
+        },
+        {
+          "code": "SMT-008",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Man in a red jacket speaking on a mobile phone",
+          "thumbnailUrl": "projects/012 - smart times/07.webp"
+        },
+        {
+          "code": "SMT-007",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Woman talking on a blue phone reflected in a circular wall mirror",
+          "thumbnailUrl": "projects/012 - smart times/08.webp"
+        },
+        {
+          "code": "SMT-006",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Woman in a knit hat looking at her phone beside a blue glass wall",
+          "thumbnailUrl": "projects/012 - smart times/09.webp"
+        },
+        {
+          "code": "SMT-005",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Man checking his phone beside bicycles and a rider in a black skirt",
+          "thumbnailUrl": "projects/012 - smart times/10.webp"
+        },
+        {
+          "code": "SMT-004",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Man walking with a Polish flag while looking at his phone",
+          "thumbnailUrl": "projects/012 - smart times/11.webp"
+        },
+        {
+          "code": "SMT-003",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Young woman focused on her phone across a table from an older woman drinking",
+          "thumbnailUrl": "projects/012 - smart times/12.webp"
+        },
+        {
+          "code": "SMT-002",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Child photographing a woman seated cross-legged inside a pavilion-like structure",
+          "thumbnailUrl": "projects/012 - smart times/13.webp"
+        },
+        {
+          "code": "SMT-001",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Woman walking past NEW CITY DISORDERS graffiti while looking at her phone",
+          "thumbnailUrl": "projects/012 - smart times/14.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "NT",
+      "title": "Natural Taste",
+      "description": "Beauty exists all around. \nInspiration, Satisfaction and Relaxation.",
+      "folder": "projects/013 - natural taste",
+      "images": [
+        {
+          "code": "NT-038",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Bare tree and empty bench casting shadows on a white wall in winter",
+          "thumbnailUrl": "projects/013 - natural taste/01.webp"
+        },
+        {
+          "code": "NT-037",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Snow-covered bench with a few leaves on the seat",
+          "thumbnailUrl": "projects/013 - natural taste/02.webp"
+        },
+        {
+          "code": "NT-036",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Black bench surrounded by fallen autumn leaves",
+          "thumbnailUrl": "projects/013 - natural taste/03.webp"
+        },
+        {
+          "code": "NT-035",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Overhead view of a round bare tree ringed with yellow leaves between two benches",
+          "thumbnailUrl": "projects/013 - natural taste/04.webp"
+        },
+        {
+          "code": "NT-034",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Close-up of a dandelion seed head",
+          "thumbnailUrl": "projects/013 - natural taste/05.webp"
+        },
+        {
+          "code": "NT-033",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Full moon above a silhouetted tree line and a flock of birds",
+          "thumbnailUrl": "projects/013 - natural taste/06.webp"
+        },
+        {
+          "code": "NT-032",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Close-up of the full moon",
+          "thumbnailUrl": "projects/013 - natural taste/07.webp"
+        },
+        {
+          "code": "NT-031",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Half moon against a dark sky",
+          "thumbnailUrl": "projects/013 - natural taste/08.webp"
+        },
+        {
+          "code": "NT-030",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Thin crescent moon against black sky",
+          "thumbnailUrl": "projects/013 - natural taste/09.webp"
+        },
+        {
+          "code": "NT-029",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Daytime moon beside a white airplane contrail",
+          "thumbnailUrl": "projects/013 - natural taste/10.webp"
+        },
+        {
+          "code": "NT-028",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Backlit dandelion seed heads glowing in warm sunlight",
+          "thumbnailUrl": "projects/013 - natural taste/11.webp"
+        },
+        {
+          "code": "NT-027",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Sun flare above tall reed plumes in a field",
+          "thumbnailUrl": "projects/013 - natural taste/12.webp"
+        },
+        {
+          "code": "NT-026",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Tiny red leaves sprouting from a cut tree stump",
+          "thumbnailUrl": "projects/013 - natural taste/13.webp"
+        },
+        {
+          "code": "NT-025",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Wind-bent dark shrub shaped like a figure against pale grass",
+          "thumbnailUrl": "projects/013 - natural taste/14.webp"
+        },
+        {
+          "code": "NT-024",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Snow-covered branches filling the frame",
+          "thumbnailUrl": "projects/013 - natural taste/15.webp"
+        },
+        {
+          "code": "NT-023",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Twisted tree roots and branches in black and white",
+          "thumbnailUrl": "projects/013 - natural taste/16.webp"
+        },
+        {
+          "code": "NT-022",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Leaves and grasses reflected on still pond water in black and white",
+          "thumbnailUrl": "projects/013 - natural taste/17.webp"
+        },
+        {
+          "code": "NT-021",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Climbing vines spreading across a textured wall",
+          "thumbnailUrl": "projects/013 - natural taste/18.webp"
+        },
+        {
+          "code": "NT-020",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Rain ripples spreading around a fir branch floating in shallow water",
+          "thumbnailUrl": "projects/013 - natural taste/19.webp"
+        },
+        {
+          "code": "NT-019",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Concentric rain ripples covering pale water",
+          "thumbnailUrl": "projects/013 - natural taste/20.webp"
+        },
+        {
+          "code": "NT-018",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Curled golden leaf floating on gray water",
+          "thumbnailUrl": "projects/013 - natural taste/21.webp"
+        },
+        {
+          "code": "NT-017",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Balanced heart-shaped stone on a riverside rock",
+          "thumbnailUrl": "projects/013 - natural taste/22.webp"
+        },
+        {
+          "code": "NT-016",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Animal bone balanced on a small stone in flowing water",
+          "thumbnailUrl": "projects/013 - natural taste/23.webp"
+        },
+        {
+          "code": "NT-015",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Heart-shaped stone and balanced animal bone on rocks in flowing water",
+          "thumbnailUrl": "projects/013 - natural taste/24.webp"
+        },
+        {
+          "code": "NT-014",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Flat stone etched with a simple face and spiral lines",
+          "thumbnailUrl": "projects/013 - natural taste/25.webp"
+        },
+        {
+          "code": "NT-013",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Small cairn of rounded stones in the grass",
+          "thumbnailUrl": "projects/013 - natural taste/26.webp"
+        },
+        {
+          "code": "NT-012",
+          "src": "27.webp",
+          "caption": "",
+          "alt": "White seashell resting on a dark porous rock",
+          "thumbnailUrl": "projects/013 - natural taste/27.webp"
+        },
+        {
+          "code": "NT-011",
+          "src": "28.webp",
+          "caption": "",
+          "alt": "Rows of upright haystacks in a green field with mountains in the distance",
+          "thumbnailUrl": "projects/013 - natural taste/28.webp"
+        },
+        {
+          "code": "NT-010",
+          "src": "29.webp",
+          "caption": "",
+          "alt": "Dry maple leaf resting on purple flowers",
+          "thumbnailUrl": "projects/013 - natural taste/29.webp"
+        },
+        {
+          "code": "NT-009",
+          "src": "30.webp",
+          "caption": "",
+          "alt": "Yellow flowers rising from shallow water",
+          "thumbnailUrl": "projects/013 - natural taste/30.webp"
+        },
+        {
+          "code": "NT-008",
+          "src": "31.webp",
+          "caption": "",
+          "alt": "Cluster of small purple wildflowers in soft focus",
+          "thumbnailUrl": "projects/013 - natural taste/31.webp"
+        },
+        {
+          "code": "NT-007",
+          "src": "32.webp",
+          "caption": "",
+          "alt": "Mixed bouquet of wildflowers in a glass jar",
+          "thumbnailUrl": "projects/013 - natural taste/32.webp"
+        },
+        {
+          "code": "NT-006",
+          "src": "33.webp",
+          "caption": "",
+          "alt": "White daffodils with yellow centers",
+          "thumbnailUrl": "projects/013 - natural taste/33.webp"
+        },
+        {
+          "code": "NT-005",
+          "src": "34.webp",
+          "caption": "",
+          "alt": "Spiky dried seed head against a soft background",
+          "thumbnailUrl": "projects/013 - natural taste/34.webp"
+        },
+        {
+          "code": "NT-004",
+          "src": "35.webp",
+          "caption": "",
+          "alt": "Pale thistle skeleton standing among rocks and greenery",
+          "thumbnailUrl": "projects/013 - natural taste/35.webp"
+        },
+        {
+          "code": "NT-003",
+          "src": "36.webp",
+          "caption": "",
+          "alt": "Green stem beside a smooth stone beneath clear water",
+          "thumbnailUrl": "projects/013 - natural taste/36.webp"
+        },
+        {
+          "code": "NT-002",
+          "src": "37.webp",
+          "caption": "",
+          "alt": "Woven hanging nest suspended from a thin branch",
+          "thumbnailUrl": "projects/013 - natural taste/37.webp"
+        },
+        {
+          "code": "NT-001",
+          "src": "38.webp",
+          "caption": "",
+          "alt": "Bright green vine growing beside black metal bars and a concrete wall",
+          "thumbnailUrl": "projects/013 - natural taste/38.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "SY",
+      "title": "Stat You",
+      "description": "You shall not make for yourself an image in the form of anything in heaven above or on the earth beneath or in the waters below. You shall not bow down to them or worship them; for I the Lord your God am a jealous God. \nExodus 20:4-6 ",
+      "folder": "projects/014 - stat you",
+      "images": [
+        {
+          "code": "SY-020",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "White statue of a childlike figure standing against blurred trees",
+          "thumbnailUrl": "projects/014 - stat you/01.webp"
+        },
+        {
+          "code": "SY-019",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Monumental stone figure reaching toward a construction crane",
+          "thumbnailUrl": "projects/014 - stat you/02.webp"
+        },
+        {
+          "code": "SY-018",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Weathered stone statue pointing upward in black and white",
+          "thumbnailUrl": "projects/014 - stat you/03.webp"
+        },
+        {
+          "code": "SY-017",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Statue holding a cross with a seagull against a blue sky",
+          "thumbnailUrl": "projects/014 - stat you/04.webp"
+        },
+        {
+          "code": "SY-016",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Stone rooftop statue beneath a bird crossing a deep blue sky",
+          "thumbnailUrl": "projects/014 - stat you/05.webp"
+        },
+        {
+          "code": "SY-015",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Bronze seated bust dusted with snow in a park",
+          "thumbnailUrl": "projects/014 - stat you/06.webp"
+        },
+        {
+          "code": "SY-014",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "White cloth draped over a bust like a ghostly figure",
+          "thumbnailUrl": "projects/014 - stat you/07.webp"
+        },
+        {
+          "code": "SY-013",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Reclining sculpture beside a bench and a bicycle",
+          "thumbnailUrl": "projects/014 - stat you/08.webp"
+        },
+        {
+          "code": "SY-012",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Close-up of a weathered reclining stone statue",
+          "thumbnailUrl": "projects/014 - stat you/09.webp"
+        },
+        {
+          "code": "SY-011",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "White dragon-like sculpture poised behind metal crowd barriers",
+          "thumbnailUrl": "projects/014 - stat you/10.webp"
+        },
+        {
+          "code": "SY-010",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Dark statue raising a sword before a glass skyscraper",
+          "thumbnailUrl": "projects/014 - stat you/11.webp"
+        },
+        {
+          "code": "SY-009",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Mannequin heads and torsos in hats and scarves at a street market",
+          "thumbnailUrl": "projects/014 - stat you/12.webp"
+        },
+        {
+          "code": "SY-008",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Row of mannequin legs weighted down with concrete blocks",
+          "thumbnailUrl": "projects/014 - stat you/13.webp"
+        },
+        {
+          "code": "SY-007",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Clothing rack and mannequin torsos at a street market",
+          "thumbnailUrl": "projects/014 - stat you/14.webp"
+        },
+        {
+          "code": "SY-006",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Two mannequins in wigs and sunglasses posed beside flowers",
+          "thumbnailUrl": "projects/014 - stat you/15.webp"
+        },
+        {
+          "code": "SY-005",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Porcelain doll in a lace dress with a furry doll behind it",
+          "thumbnailUrl": "projects/014 - stat you/16.webp"
+        },
+        {
+          "code": "SY-004",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Gold carnival mask beside a bright blue feather boa",
+          "thumbnailUrl": "projects/014 - stat you/17.webp"
+        },
+        {
+          "code": "SY-003",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Yellow giraffe figure beside a real giraffe on a laptop screen",
+          "thumbnailUrl": "projects/014 - stat you/18.webp"
+        },
+        {
+          "code": "SY-002",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Wood slice arranged like a face with sunglasses, headphones, and a Santa hat",
+          "thumbnailUrl": "projects/014 - stat you/19.webp"
+        },
+        {
+          "code": "SY-001",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Animal skull propped behind broken glasses with a printed eye in one lens",
+          "thumbnailUrl": "projects/014 - stat you/20.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "BB",
+      "title": "Brain Blow",
+      "description": "A tribute to the famous rainbow of Plac Zbawiciela in Warsaw, Poland.",
+      "folder": "projects/015 - brain blow",
+      "images": [
+        {
+          "code": "BB-011",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Rainbow installation arching over a snowy city square with a yellow tram below",
+          "thumbnailUrl": "projects/015 - brain blow/01.webp"
+        },
+        {
+          "code": "BB-010",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Rainbow arching over city buildings and church towers",
+          "thumbnailUrl": "projects/015 - brain blow/02.webp"
+        },
+        {
+          "code": "BB-009",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Rainbow balloon arch framing a busy city street",
+          "thumbnailUrl": "projects/015 - brain blow/03.webp"
+        },
+        {
+          "code": "BB-008",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Rainbow prism cast across a wet circular roadway and grass",
+          "thumbnailUrl": "projects/015 - brain blow/04.webp"
+        },
+        {
+          "code": "BB-007",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Top curve of a rainbow arch seen from above beside a protest sign",
+          "thumbnailUrl": "projects/015 - brain blow/05.webp"
+        },
+        {
+          "code": "BB-006",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Rainbow umbrella brightening a black-and-white street scene",
+          "thumbnailUrl": "projects/015 - brain blow/06.webp"
+        },
+        {
+          "code": "BB-005",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Rainbow umbrella resting in a street bin beside traffic signs",
+          "thumbnailUrl": "projects/015 - brain blow/07.webp"
+        },
+        {
+          "code": "BB-004",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Rainbow fan raised beside a protest sign reading NIEPODLEGLEZ DLA WSZYSTKICH",
+          "thumbnailUrl": "projects/015 - brain blow/08.webp"
+        },
+        {
+          "code": "BB-003",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Performer in a metallic rainbow costume carrying a rainbow flag",
+          "thumbnailUrl": "projects/015 - brain blow/09.webp"
+        },
+        {
+          "code": "BB-002",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Huge rainbow flag seen from above beside a line of police vans",
+          "thumbnailUrl": "projects/015 - brain blow/10.webp"
+        },
+        {
+          "code": "BB-001",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Rainbow umbrella glowing overhead with nails radiating around it",
+          "thumbnailUrl": "projects/015 - brain blow/11.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "STD",
+      "title": "Star Dust",
+      "description": "We are planets inside a planet, \nfractals within fractals. \nEach one dressed in its own frock coat.",
+      "folder": "projects/016 - star dust",
+      "images": [
+        {
+          "code": "STD-030",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Young woman crouching on stone blocks and touching the water",
+          "thumbnailUrl": "projects/016 - star dust/01.webp"
+        },
+        {
+          "code": "STD-029",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "Older flower seller in a yellow jacket sitting behind bunches of yellow tulips",
+          "thumbnailUrl": "projects/016 - star dust/02.webp"
+        },
+        {
+          "code": "STD-028",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Woman sitting beside bags and a shopping trolley beneath a neon sign reading DOCENIAJ nie oceniaj",
+          "thumbnailUrl": "projects/016 - star dust/03.webp"
+        },
+        {
+          "code": "STD-027",
+          "src": "04.webp",
+          "caption": "",
+          "alt": "Bundled person feeding pigeons on wet pavement",
+          "thumbnailUrl": "projects/016 - star dust/04.webp"
+        },
+        {
+          "code": "STD-026",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Worker in a reflective vest tossing a black trash bag into a sanitation truck",
+          "thumbnailUrl": "projects/016 - star dust/05.webp"
+        },
+        {
+          "code": "STD-025",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Two sanitation workers seen from behind in blue and yellow uniforms",
+          "thumbnailUrl": "projects/016 - star dust/06.webp"
+        },
+        {
+          "code": "STD-024",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "Two men playing cricket in a city park",
+          "thumbnailUrl": "projects/016 - star dust/07.webp"
+        },
+        {
+          "code": "STD-023",
+          "src": "08.webp",
+          "caption": "",
+          "alt": "Man sitting alone on a park bench seen from behind in autumn leaves",
+          "thumbnailUrl": "projects/016 - star dust/08.webp"
+        },
+        {
+          "code": "STD-022",
+          "src": "09.webp",
+          "caption": "",
+          "alt": "Woman in a brown coat leaning on a bridge railing",
+          "thumbnailUrl": "projects/016 - star dust/09.webp"
+        },
+        {
+          "code": "STD-021",
+          "src": "10.webp",
+          "caption": "",
+          "alt": "Seated woman checking her bag while another woman walks past",
+          "thumbnailUrl": "projects/016 - star dust/10.webp"
+        },
+        {
+          "code": "STD-020",
+          "src": "11.webp",
+          "caption": "",
+          "alt": "Smiling woman in glasses wearing a hat with pom-poms",
+          "thumbnailUrl": "projects/016 - star dust/11.webp"
+        },
+        {
+          "code": "STD-019",
+          "src": "12.webp",
+          "caption": "",
+          "alt": "Person in a fur-trimmed hood walking toward a yellow street sign",
+          "thumbnailUrl": "projects/016 - star dust/12.webp"
+        },
+        {
+          "code": "STD-018",
+          "src": "13.webp",
+          "caption": "",
+          "alt": "Close-up of a woman framed by a fur-lined hood",
+          "thumbnailUrl": "projects/016 - star dust/13.webp"
+        },
+        {
+          "code": "STD-017",
+          "src": "14.webp",
+          "caption": "",
+          "alt": "Woman with a vivid pink fur hood holding a phone and wallet",
+          "thumbnailUrl": "projects/016 - star dust/14.webp"
+        },
+        {
+          "code": "STD-016",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Three pedestrians in winter hats and scarves walking together",
+          "thumbnailUrl": "projects/016 - star dust/15.webp"
+        },
+        {
+          "code": "STD-015",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "Four pedestrians walking along a sunlit street in winter coats",
+          "thumbnailUrl": "projects/016 - star dust/16.webp"
+        },
+        {
+          "code": "STD-014",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Three municipal workers chatting on a city street",
+          "thumbnailUrl": "projects/016 - star dust/17.webp"
+        },
+        {
+          "code": "STD-013",
+          "src": "18.webp",
+          "caption": "",
+          "alt": "Wheelchair user traveling with a guide dog past a camera-store window",
+          "thumbnailUrl": "projects/016 - star dust/18.webp"
+        },
+        {
+          "code": "STD-012",
+          "src": "19.webp",
+          "caption": "",
+          "alt": "Pedestrian crossing sign beside a red traffic light",
+          "thumbnailUrl": "projects/016 - star dust/19.webp"
+        },
+        {
+          "code": "STD-011",
+          "src": "20.webp",
+          "caption": "",
+          "alt": "Short-haired person in a green beanie looking sideways in a crowd",
+          "thumbnailUrl": "projects/016 - star dust/20.webp"
+        },
+        {
+          "code": "STD-010",
+          "src": "21.webp",
+          "caption": "",
+          "alt": "Two women wearing flower wreaths smiling outdoors",
+          "thumbnailUrl": "projects/016 - star dust/21.webp"
+        },
+        {
+          "code": "STD-009",
+          "src": "22.webp",
+          "caption": "",
+          "alt": "Women seated on public transport, one reading a newspaper",
+          "thumbnailUrl": "projects/016 - star dust/22.webp"
+        },
+        {
+          "code": "STD-008",
+          "src": "23.webp",
+          "caption": "",
+          "alt": "Person with balloons walking along a grayscale street",
+          "thumbnailUrl": "projects/016 - star dust/23.webp"
+        },
+        {
+          "code": "STD-007",
+          "src": "24.webp",
+          "caption": "",
+          "alt": "Two children riding a scooter and a balance bike seen from above",
+          "thumbnailUrl": "projects/016 - star dust/24.webp"
+        },
+        {
+          "code": "STD-006",
+          "src": "25.webp",
+          "caption": "",
+          "alt": "Person slumped on a bench beneath a funeral home billboard",
+          "thumbnailUrl": "projects/016 - star dust/25.webp"
+        },
+        {
+          "code": "STD-005",
+          "src": "26.webp",
+          "caption": "",
+          "alt": "Masked bald man with a tote bag standing beside bright green leaves",
+          "thumbnailUrl": "projects/016 - star dust/26.webp"
+        },
+        {
+          "code": "STD-004",
+          "src": "27.webp",
+          "caption": "",
+          "alt": "Person in orange trousers seated on a bench hidden by green leaves",
+          "thumbnailUrl": "projects/016 - star dust/27.webp"
+        },
+        {
+          "code": "STD-003",
+          "src": "28.webp",
+          "caption": "",
+          "alt": "Worker welding overhead with sparks flying",
+          "thumbnailUrl": "projects/016 - star dust/28.webp"
+        },
+        {
+          "code": "STD-002",
+          "src": "29.webp",
+          "caption": "",
+          "alt": "Shirtless man kicking a volleyball on the river beach",
+          "thumbnailUrl": "projects/016 - star dust/29.webp"
+        },
+        {
+          "code": "STD-001",
+          "src": "30.webp",
+          "caption": "",
+          "alt": "Adult and two children running across a sandy riverside",
+          "thumbnailUrl": "projects/016 - star dust/30.webp"
+        }
+      ]
+    },
+    {
+      "projectCode": "WNG",
+      "title": "Wings",
+      "description": "One of humanity’s greatest desires \n has always been the urge to fly. \n All it takes is a pair of wings, right? \n (And an enormous engine, in our case...) \n\n Birds: \n — dwellers of treetops \n — inhabitants of lakes \n — tireless recyclers of the city’s leftovers. \n Fasten your seatbelts; \n the captain wishes you a pleasant flight.",
+      "folder": "projects/017 - Wings",
+      "images": [
+        {
+          "code": "WNG-020",
+          "src": "01.webp",
+          "caption": "",
+          "alt": "Five white birds flying above bare branches in black and white",
+          "thumbnailUrl": "projects/017 - Wings/01.webp"
+        },
+        {
+          "code": "WNG-019",
+          "src": "01A.webp",
+          "caption": "",
+          "alt": "Two hooded crows perched on a metal railing",
+          "thumbnailUrl": "projects/017 - Wings/01A.webp"
+        },
+        {
+          "code": "WNG-018",
+          "src": "01B.webp",
+          "caption": "",
+          "alt": "Close-up of a crested duck in profile against a dark background",
+          "thumbnailUrl": "projects/017 - Wings/01B.webp"
+        },
+        {
+          "code": "WNG-017",
+          "src": "01C.webp",
+          "caption": "",
+          "alt": "Pigeons flying past a round street sign",
+          "thumbnailUrl": "projects/017 - Wings/01C.webp"
+        },
+        {
+          "code": "WNG-016",
+          "src": "01D.webp",
+          "caption": "",
+          "alt": "Hooded crow hovering above a street sign against blue sky",
+          "thumbnailUrl": "projects/017 - Wings/01D.webp"
+        },
+        {
+          "code": "WNG-015",
+          "src": "02.webp",
+          "caption": "",
+          "alt": "White pigeon flapping above other pigeons in melting snow",
+          "thumbnailUrl": "projects/017 - Wings/02.webp"
+        },
+        {
+          "code": "WNG-014",
+          "src": "03.webp",
+          "caption": "",
+          "alt": "Mallard duck rising from green water with wings spread",
+          "thumbnailUrl": "projects/017 - Wings/03.webp"
+        },
+        {
+          "code": "WNG-013",
+          "src": "05.webp",
+          "caption": "",
+          "alt": "Mandarin duck perched on a rock",
+          "thumbnailUrl": "projects/017 - Wings/05.webp"
+        },
+        {
+          "code": "WNG-012",
+          "src": "06.webp",
+          "caption": "",
+          "alt": "Single pigeon walking across packed snow",
+          "thumbnailUrl": "projects/017 - Wings/06.webp"
+        },
+        {
+          "code": "WNG-011",
+          "src": "06A.webp",
+          "caption": "",
+          "alt": "Male and female mallards standing on frozen ice",
+          "thumbnailUrl": "projects/017 - Wings/06A.webp"
+        },
+        {
+          "code": "WNG-010",
+          "src": "06B.webp",
+          "caption": "",
+          "alt": "Starling perched on a wire fence post",
+          "thumbnailUrl": "projects/017 - Wings/06B.webp"
+        },
+        {
+          "code": "WNG-009",
+          "src": "06C.webp",
+          "caption": "",
+          "alt": "Sparrow perched on a pale railing",
+          "thumbnailUrl": "projects/017 - Wings/06C.webp"
+        },
+        {
+          "code": "WNG-008",
+          "src": "06D.webp",
+          "caption": "",
+          "alt": "Row of gulls perched along a rooftop edge in black and white",
+          "thumbnailUrl": "projects/017 - Wings/06D.webp"
+        },
+        {
+          "code": "WNG-007",
+          "src": "07.webp",
+          "caption": "",
+          "alt": "White gulls scattered across a blue sky near bare branches",
+          "thumbnailUrl": "projects/017 - Wings/07.webp"
+        },
+        {
+          "code": "WNG-006",
+          "src": "15.webp",
+          "caption": "",
+          "alt": "Stork gliding overhead against a clear sky",
+          "thumbnailUrl": "projects/017 - Wings/15.webp"
+        },
+        {
+          "code": "WNG-005",
+          "src": "16.webp",
+          "caption": "",
+          "alt": "White bird with black-tipped wings gliding against a blue sky",
+          "thumbnailUrl": "projects/017 - Wings/16.webp"
+        },
+        {
+          "code": "WNG-004",
+          "src": "16A.webp",
+          "caption": "",
+          "alt": "Gray heron gliding with wings spread against a blue sky",
+          "thumbnailUrl": "projects/017 - Wings/16A.webp"
+        },
+        {
+          "code": "WNG-003",
+          "src": "16B.webp",
+          "caption": "",
+          "alt": "Person feeding pigeons in the snow",
+          "thumbnailUrl": "projects/017 - Wings/16B.webp"
+        },
+        {
+          "code": "WNG-002",
+          "src": "17.webp",
+          "caption": "",
+          "alt": "Blur of pigeons bursting into flight on a city street",
+          "thumbnailUrl": "projects/017 - Wings/17.webp"
+        },
+        {
+          "code": "WNG-001",
+          "src": "44.webp",
+          "caption": "",
+          "alt": "Dark bird silhouettes flying across a dusky sky",
+          "thumbnailUrl": "projects/017 - Wings/44.webp"
+        }
+      ]
+    }
+  ]
+}
