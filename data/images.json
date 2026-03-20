@@ -33777,7 +33777,7 @@
       "chair"
     ],
     "object_roles": {
-      "cross": "primary",
+      "cross": "secondary",
       "chair": "secondary"
     },
     "environment": [],

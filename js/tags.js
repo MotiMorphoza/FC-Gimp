@@ -44,6 +44,7 @@
     dog: { queryClass: "object", variants: ["dog", "dogs", "puppy", "puppies", "canine"], precisionProfile: "strict" },
     animal: { queryClass: "object", variants: ["animal", "animals", "dog", "dogs", "cat", "cats", "bird", "birds", "duck", "gull", "stork", "heron", "pigeon"], precisionProfile: "balanced" },
     bird: { queryClass: "object", variants: ["bird", "birds", "pigeon", "pigeons", "duck", "ducks", "gull", "gulls", "seagull", "seagulls", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "crow", "crows"], precisionProfile: "strict" },
+    cross: { queryClass: "object", variants: ["cross", "crosses", "crucifix"], precisionProfile: "strict" },
     window: { queryClass: "object", variants: ["window", "windows", "pane", "panes", "windowpane", "windowpanes", "shop window", "storefront window"], precisionProfile: "strict" },
     umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas", "parasol", "parasols"], precisionProfile: "strict" },
     wall: { queryClass: "object", variants: ["wall", "walls", "facade", "facades"], precisionProfile: "generic", generic: true },
@@ -118,6 +119,7 @@
     const token = normalizeTerm(String(value || "").replace(/_/g, " ")).replace(/\s+/g, " ");
     if (!token) return "";
     if (token.endsWith("ies") && token.length > 4) return `${token.slice(0, -3)}y`;
+    if (token.endsWith("ss") && token.length > 3) return token;
     if (token.endsWith("es") && token.length > 4) return token.slice(0, -2);
     if (token.endsWith("s") && token.length > 3) return token.slice(0, -1);
     return token;

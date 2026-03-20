@@ -114,6 +114,14 @@ const CLOSE_UP_HINTS = ['close-up', 'close up', 'close crop'];
 const DETAIL_HINTS = ['detail', 'detail study'];
 const WIDE_HINTS = ['wide shot', 'wide view', 'wide scene', 'wide frame', 'panoramic'];
 const PHONE_SCREEN_ACTION_HINTS = ['checking', 'looking at', 'focused on', 'concentrating on', 'texting', 'scrolling', 'photographing'];
+const CROSS_OBJECT_HINTS = [
+  'church cross', 'wooden cross', 'large wooden cross', 'red cross', 'green cross',
+  'crucifix', 'cross arm', 'cross shadow', 'cross reflection', 'cross-bearing',
+  'holding a cross', 'holding cross', 'carrying a cross', 'carry a cross',
+  'topped with a cross', 'bird on cross', 'perched on the arm of a church cross',
+  'perched on top of a church cross', 'statue holding a cross', 'cross silhouetted',
+  'silhouetted cross'
+];
 
 function includesAny(text, hints = []) {
   const normalizedText = String(text || '').toLowerCase();
@@ -306,13 +314,30 @@ function deriveObjects(alt) {
   const normalizedAlt = String(alt || '').toLowerCase();
   return uniqueStrings(
     OBJECT_FAMILIES
-      .filter(({ match }) => includesAny(normalizedAlt, match))
+      .filter(({ canonical, match }) => matchesObjectFamily(normalizedAlt, canonical, match))
       .map(({ canonical }) => canonical)
   );
 }
 
-function matchesCanonicalFamily(values = [], family = []) {
-  return (Array.isArray(values) ? values : []).some((value) => includesAny(String(value || '').toLowerCase(), family));
+function matchesObjectFamily(text = '', canonical = '', family = []) {
+  const normalizedText = String(text || '').toLowerCase();
+  if (!normalizedText) return false;
+
+  if (canonical === 'cross') {
+    if (includesAny(normalizedText, ['crosswalk', 'crosswalks', 'crossing', 'crossings', 'across', 'cross-legged', 'crosscurrent'])) {
+      return false;
+    }
+    if (includesAny(normalizedText, CROSS_OBJECT_HINTS)) {
+      return true;
+    }
+    return /\bcross\b/.test(normalizedText) && !/\bto\s+cross\b/.test(normalizedText);
+  }
+
+  return includesAny(normalizedText, family);
+}
+
+function matchesCanonicalFamily(values = [], canonical = '', family = []) {
+  return (Array.isArray(values) ? values : []).some((value) => matchesObjectFamily(String(value || '').toLowerCase(), canonical, family));
 }
 
 function deriveObjectRoles(alt, primary = [], secondary = [], objects = []) {
@@ -321,11 +346,11 @@ function deriveObjectRoles(alt, primary = [], secondary = [], objects = []) {
   const roles = {};
 
   OBJECT_FAMILIES.forEach(({ canonical, match }) => {
-    const inPrimary = matchesCanonicalFamily(primary, match);
-    const inSecondary = matchesCanonicalFamily(secondary, match);
+    const inPrimary = matchesCanonicalFamily(primary, canonical, match);
+    const inSecondary = matchesCanonicalFamily(secondary, canonical, match);
     const inObjects = (objects || []).includes(canonical);
-    const leadMatch = includesAny(leadAlt, match);
-    const altMatch = includesAny(normalizedAlt, match);
+    const leadMatch = matchesObjectFamily(leadAlt, canonical, match);
+    const altMatch = matchesObjectFamily(normalizedAlt, canonical, match);
 
     if ((inPrimary || leadMatch) && (inObjects || altMatch || inPrimary)) {
       roles[canonical] = 'primary';
