@@ -27,7 +27,7 @@
     refs: null,
     highlightCode: "",
     touched: {},
-    paypal: { sdkPromise: null, rendering: false, rendered: false, actions: null, processing: false, timer: null }
+    request: { submitting: false, kind: "", lines: [] }
   };
 
   function h(tag, attrs) {
@@ -215,7 +215,8 @@ function isAddressValid(ui) {
         (p.images || []).forEach(function (img) {
           app.codeMap.set(String(img.code || "").toUpperCase(), {
             thumb: String(img.thumbnailUrl || ""),
-            alt: String(img.alt || img.caption || img.code || "")
+            alt: String(img.alt || img.caption || img.code || ""),
+            title: String(p.title || "")
           });
         });
       });
@@ -425,15 +426,12 @@ function isAddressValid(ui) {
   nWrap.appendChild(notesInput); 
   checkout.appendChild(nWrap);
 
-  var paypalWrap = h("div", { className: "shop-paypal-wrapper" });
-  var paypalContainer = h("div", { id: "paypal-button-container" });
-  var paypalOverlay = h("div", { className: "shop-paypal-overlay", "aria-hidden": "true", text: "Complete checkout details to enable PayPal." });
-  paypalWrap.appendChild(paypalContainer); 
-  paypalWrap.appendChild(paypalOverlay); 
-  checkout.appendChild(paypalWrap);
-
-  var paypalMsg = h("p", { className: "shop-intro-para shop-paypal-message", text: "" }); 
-  checkout.appendChild(paypalMsg);
+  var requestActions = h("div", { className: "shop-request-actions" });
+  var requestBtn = h("button", { type: "button", className: "shop-add-btn shop-request-btn", text: "Send Order Request" });
+  var requestStatus = h("div", { className: "shop-request-status", "aria-live": "polite" });
+  requestActions.appendChild(requestBtn);
+  checkout.appendChild(requestActions);
+  checkout.appendChild(requestStatus);
 
   root.appendChild(checkout);
 
@@ -452,10 +450,8 @@ function isAddressValid(ui) {
     cityInput: cityInput,
     postalInput: postalInput,
     notesInput: notesInput,
-    paypalWrap: paypalWrap,
-    paypalContainer: paypalContainer,
-    paypalOverlay: paypalOverlay,
-    paypalMsg: paypalMsg
+    requestBtn: requestBtn,
+    requestStatus: requestStatus
     };
     }  
     
@@ -568,13 +564,7 @@ function isAddressValid(ui) {
     });
   }
 
-  function setOverlay(text, visible) {
-    app.refs.paypalOverlay.textContent = text || "";
-    app.refs.paypalOverlay.classList.toggle("is-visible", !!visible);
-    app.refs.paypalOverlay.setAttribute("aria-hidden", visible ? "false" : "true");
-  }
-
- function canCheckout(store, ui) {
+ function canSubmitOrderRequest(store, ui) {
   return (
     rowsFromCart(store).length > 0 &&
     isValidEmail(ui.email) &&
@@ -583,6 +573,60 @@ function isAddressValid(ui) {
   );
 }
 
+  function buildOrderRequestPayload(store, ui) {
+    var rows = rowsFromCart(store).map(function (row) {
+      var meta = app.codeMap.get(row.code) || {};
+      return {
+        code: row.code,
+        title: String(meta.title || ""),
+        size: row.size,
+        qty: row.qty,
+        price: row.price,
+        lineTotal: row.qty * row.price
+      };
+    });
+    var subtotal = rows.reduce(function (sum, row) { return sum + row.lineTotal; }, 0);
+    var shipping = shippingFor(subtotal, ui.country);
+    var total = subtotal + shipping;
+    var requestDate = new Date();
+
+    return {
+      requestId: "MS-REQ-" + requestDate.getTime(),
+      requestDateText: requestDate.toLocaleString(),
+      email: ui.email,
+      name: ui.name,
+      country: ui.country,
+      street: ui.street,
+      city: ui.city,
+      postal: ui.postal,
+      notes: ui.notes,
+      rows: rows,
+      subtotal: subtotal,
+      shipping: shipping,
+      total: total
+    };
+  }
+
+  function clearRequestFeedback() {
+    app.request.kind = "";
+    app.request.lines = [];
+  }
+
+  function setRequestFeedback(kind, lines) {
+    app.request.kind = kind || "";
+    app.request.lines = Array.isArray(lines) ? lines.slice() : (lines ? [String(lines)] : []);
+  }
+
+  function renderRequestStatus() {
+    clear(app.refs.requestStatus);
+    if (!app.request.kind || !app.request.lines.length) return;
+
+    var notice = h("div", { className: "shop-notice shop-notice--" + app.request.kind });
+    app.request.lines.forEach(function (line) {
+      notice.appendChild(h("p", { text: line }));
+    });
+    app.refs.requestStatus.appendChild(notice);
+  }
 
   function emailJsAllowedDomain() {
     var allow = cfg().emailjsAllowedDomains;
@@ -600,210 +644,92 @@ function isAddressValid(ui) {
     });
   }
 
-  function sendEmailReceipt(payload) {
-    if (!cfg().emailjsServiceId || !cfg().emailjsTemplateCustomer || !cfg().emailjsTemplateSeller || !cfg().emailjsPublicKey) return;
-    if (!emailJsAllowedDomain()) return;
+  function sendOrderRequestEmail(payload) {
+    if (!cfg().emailjsServiceId || !cfg().emailjsTemplateSeller || !cfg().emailjsPublicKey) {
+      return Promise.reject(new Error("EmailJS config missing"));
+    }
+    if (!emailJsAllowedDomain()) {
+      return Promise.reject(new Error("EmailJS domain blocked"));
+    }
 
-    loadScriptOnce("https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js").then(function () {
-      if (!window.emailjs) return;
-      try { window.emailjs.init(cfg().emailjsPublicKey); } catch (_e) { return; }
+    return loadScriptOnce("https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js").then(function () {
+      if (!window.emailjs) throw new Error("EmailJS failed to load");
+      window.emailjs.init(cfg().emailjsPublicKey);
 
-      var breakdown = payload.rows.map(function (r) {
-        return r.code + " [" + r.size + "] x" + r.qty + " = " + money(r.qty * r.price);
+      var titles = [];
+      var breakdown = payload.rows.map(function (row) {
+        if (row.title && titles.indexOf(row.title) === -1) titles.push(row.title);
+        return [
+          row.code,
+          row.title ? row.title : "Untitled project",
+          row.size,
+          "Qty " + row.qty,
+          "Unit " + money(row.price),
+          "Line " + money(row.lineTotal)
+        ].join(" | ");
       }).join("\n");
 
       var params = {
-        order_id: payload.orderId,
-        order_date: new Date().toLocaleString(),
-        transaction_id: payload.transactionId,
+        request_type: "Order Request",
+        request_id: payload.requestId,
+        order_id: payload.requestId,
+        request_date: payload.requestDateText,
+        order_date: payload.requestDateText,
         customer_name: payload.name || "",
         customer_email: payload.email || "",
-        customer_address: payload.address || "",
+        customer_country: payload.country || "",
+        customer_city: payload.city || "",
+        customer_street: payload.street || "",
+        customer_postal: payload.postal || "",
+        customer_address: [payload.street, payload.city, payload.postal, payload.country].filter(Boolean).join(", "),
+        customer_phone: "",
         order_notes: payload.notes ? payload.notes : "-",
-        items_breakdown: breakdown,
+        project_titles: titles.length ? titles.join(", ") : "-",
+        items_breakdown: breakdown || "-",
         item_count: String(payload.rows.length),
         subtotal: money(payload.subtotal),
         shipping: payload.shipping === 0 ? "Free" : money(payload.shipping),
-        total: money(payload.total)
+        total: money(payload.total),
+        total_shown_to_customer: money(payload.total)
       };
 
-      Promise.all([
-        window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateCustomer, params),
-        window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateSeller, params)
-      ]).catch(function () {});
-    }).catch(function () {});
+      return window.emailjs.send(cfg().emailjsServiceId, cfg().emailjsTemplateSeller, params);
+    });
   }
 
-  function syncPayPalState(store, ui) {
-    if (!rowsFromCart(store).length) { app.refs.paypalWrap.style.display = "none"; return; }
-    app.refs.paypalWrap.style.display = "";
-    if (app.paypal.processing) { setOverlay("Processing...", true); return; }
+  function submitOrderRequest() {
+    ["email", "name", "street", "city", "postal"].forEach(function (field) {
+      app.touched[field] = true;
+    });
 
-    if (app.paypal.actions) {
-      try {
-        if (canCheckout(store, ui)) {
-          app.paypal.actions.enable();
-        } else {
-          app.paypal.actions.disable();
-        }
-      } catch (_e) {}
-    }
+    var store = loadStore();
+    var ui = uiState();
 
-    if (canCheckout(store, ui)) setOverlay("", false); else setOverlay("Complete checkout details to enable PayPal.", true);
+    clearRequestFeedback();
+    render();
+
+    if (app.request.submitting || !canSubmitOrderRequest(store, ui)) return;
+
+    app.request.submitting = true;
+    render();
+
+    sendOrderRequestEmail(buildOrderRequestPayload(store, ui)).then(function () {
+      var now = loadStore();
+      now.cart = {};
+      now.select = {};
+      saveStore(now);
+      app.request.submitting = false;
+      setRequestFeedback("success", [
+        "Your order request has been sent.",
+        "Final confirmation, shipping details, and payment method will be sent by email."
+      ]);
+      render();
+    }).catch(function () {
+      app.request.submitting = false;
+      setRequestFeedback("error", "Could not send your order request. Please try again.");
+      render();
+    });
   }
-
-  function resetPayPal() {
-    if (app.paypal.timer) { clearTimeout(app.paypal.timer); app.paypal.timer = null; }
-    app.paypal.rendering = false; app.paypal.rendered = false; app.paypal.actions = null; app.paypal.processing = false;
-    if (app.refs) clear(app.refs.paypalContainer);
-  }
-
-  function ensurePayPal(store, ui) {
-    if (!rowsFromCart(store).length) {
-      // Cart empty - hide the wrapper but do NOT destroy the rendered buttons.
-      // Destroying and re-rendering the container causes SDK instability.
-      app.refs.paypalWrap.style.display = "none";
-      return;
-    }
-    app.refs.paypalWrap.style.display = "";
-    if (app.paypal.rendered && !app.refs.paypalContainer.firstChild) {
-      app.paypal.rendered = false;
-      app.paypal.actions = null;
-    }
-    if (app.paypal.rendered || app.paypal.rendering) { syncPayPalState(store, ui); return; }
-    app.paypal.rendering = true;
-    if (!app.paypal.sdkPromise) {
-      var src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(cfg().paypalClientId || "") + "&currency=" + encodeURIComponent(String((cfg().currency || "EUR")).toUpperCase());
-      app.paypal.sdkPromise = loadScriptOnce(src);
-    }
-    app.paypal.sdkPromise.then(function () {
-      if (!window.paypal || typeof window.paypal.Buttons !== "function") { app.paypal.rendering = false; app.refs.paypalMsg.textContent = "PayPal SDK failed to load."; return; }
-      clear(app.refs.paypalContainer);
-      var buttons = window.paypal.Buttons({
-        onInit: function (_d, actions) { app.paypal.actions = actions; syncPayPalState(loadStore(), loadUi()); },
-        onClick: function (_d, actions) { if (!canCheckout(loadStore(), loadUi())) return actions.reject(); return actions.resolve(); },
-        createOrder: function (_d, actions) {
-          var s = loadStore(); var u = loadUi(); var rows = rowsFromCart(s);
-          var subtotal = rows.reduce(function (sum, r) { return sum + (r.qty * r.price); }, 0);
-          var shipping = shippingFor(subtotal, u.country); var total = subtotal + shipping;
-          var cc = String((cfg().currency || "EUR")).toUpperCase();
-          return actions.order.create({ purchase_units: [{ amount: { currency_code: cc, value: total.toFixed(2), breakdown: { item_total: { currency_code: cc, value: subtotal.toFixed(2) }, shipping: { currency_code: cc, value: shipping.toFixed(2) } } }, items: rows.map(function (r) { return { name: r.code + " (" + r.size + ")", quantity: String(r.qty), unit_amount: { currency_code: cc, value: Number(r.price).toFixed(2) } }; }) }] });
-        },
-        onApprove: function (_d, actions) {
-          app.paypal.processing = true; setOverlay("Processing...", true);
-          return actions.order.capture().then(function (details) {
-            var s = loadStore();
-            var u = loadUi();
-            var rows = rowsFromCart(s);
-            var subtotal = rows.reduce(function (sum, r) { return sum + (r.qty * r.price); }, 0);
-            var shipping = shippingFor(subtotal, u.country);
-            var total = subtotal + shipping;
-            var orderId = "MS-" + Date.now();
-            sendEmailReceipt({
-              orderId: orderId,
-              transactionId: details && details.id ? details.id : "",
-              email: u.email,
-              name: u.name,
-              address: [u.street, u.city, u.postal, u.country].filter(Boolean).join(", "),
-              notes: u.notes,
-              rows: rows,
-              subtotal: subtotal,
-              shipping: shipping,
-              total: total
-            });
-
-            var now = loadStore(); now.cart = {}; now.select = {}; saveStore(now);
-            showThankYou({ rows: rows, total: total, orderId: orderId });
-            resetPayPal(); render();
-          }).catch(function () {
-            app.paypal.processing = false; app.refs.paypalMsg.textContent = "Payment failed. Please try again.";
-            app.paypal.timer = setTimeout(function () { resetPayPal(); render(); }, 300);
-          });
-        },
-        onError: function () { app.refs.paypalMsg.textContent = "PayPal error. Please try again."; app.paypal.timer = setTimeout(function () { resetPayPal(); render(); }, 300); },
-        onCancel: function () { app.paypal.processing = false; syncPayPalState(loadStore(), loadUi()); }
-      });
-      if (!buttons.isEligible || !buttons.isEligible()) { app.paypal.rendering = false; app.refs.paypalMsg.textContent = "PayPal is unavailable."; return; }
-      buttons.render("#paypal-button-container").then(function () { app.paypal.rendering = false; app.paypal.rendered = true; syncPayPalState(loadStore(), loadUi()); }).catch(function () { app.paypal.rendering = false; app.paypal.rendered = false; app.refs.paypalMsg.textContent = "Could not render PayPal."; });
-    }).catch(function () { app.paypal.rendering = false; app.refs.paypalMsg.textContent = "Could not load PayPal."; });
-  }
-
-
-
-function showThankYou(order) {
-  var orderId = order.orderId || ("MS-" + Date.now());
-
-  var overlay = document.createElement("div");
-  overlay.className = "shop-thankyou-overlay";
-
-  var modal = document.createElement("div");
-  modal.className = "shop-thankyou-modal";
-
-  var title = document.createElement("h2");
-  title.textContent = "Thank You";
-
-  var msg = document.createElement("p");
-  msg.textContent = "Payment completed successfully.";
-
-  var orderIdEl = document.createElement("p");
-  orderIdEl.style.fontSize = "13px";
-  orderIdEl.style.opacity = "0.65";
-  orderIdEl.textContent = "Order: " + orderId;
-
-  var detailsTitle = document.createElement("h3");
-  detailsTitle.textContent = "Order details";
-
-  var list = document.createElement("div");
-  list.className = "shop-thankyou-items";
-
-  order.rows.forEach(function(r) {
-    var line = document.createElement("div");
-    line.textContent = r.code + " \u2014 " + r.size + " \u00d7 " + r.qty + " = " + money(r.qty * r.price);
-    list.appendChild(line);
-  });
-
-  var totalsEl = document.createElement("div");
-  totalsEl.className = "shop-thankyou-total";
-  totalsEl.textContent = "Total: " + money(order.total);
-
-  var emailMsg = document.createElement("p");
-  emailMsg.textContent = "A confirmation email has been sent. Please check your inbox.";
-
-  var btn = document.createElement("button");
-  btn.className = "shop-thankyou-close";
-  btn.textContent = "Back to Projects";
-
-  function closeModal() {
-    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    document.removeEventListener("keydown", onKey);
-  }
-
-  function onKey(e) { if (e.key === "Escape") closeModal(); }
-
-  btn.addEventListener("click", function() {
-    closeModal();
-    if (typeof window.loadPage === "function") {
-      window.loadPage("projects.html");
-    } else {
-      window.location.href = "projects.html";
-    }
-  });
-
-  overlay.addEventListener("click", function(e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener("keydown", onKey);
-
-  modal.appendChild(title);
-  modal.appendChild(msg);
-  modal.appendChild(orderIdEl);
-  modal.appendChild(detailsTitle);
-  modal.appendChild(list);
-  modal.appendChild(totalsEl);
-  modal.appendChild(emailMsg);
-  modal.appendChild(btn);
-
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
-}
 
 
   function render() {
@@ -814,37 +740,49 @@ function showThankYou(order) {
     renderSelect(store);
     renderCart(store);
     renderTotals(store, ui);
+    var countryInvalid = rowsFromCart(store).length > 0 && findCountryByName(ui.country) === null;
+    app.refs.countryInput.setAttribute("aria-invalid", countryInvalid ? "true" : "false");
+    if (app.refs.countrySelect) app.refs.countrySelect.setAttribute("aria-invalid", countryInvalid ? "true" : "false");
     app.refs.emailInput.setAttribute("aria-invalid", (app.touched.email && !isValidEmail(ui.email)) ? "true" : "false");
     app.refs.emailMsg.textContent = (app.touched.email && !isValidEmail(ui.email) && ui.email) ? "Please enter a valid email address" : "";
     app.refs.nameInput.setAttribute("aria-invalid", (app.touched.name && ui.name.trim().length <= 1) ? "true" : "false");
     app.refs.streetInput.setAttribute("aria-invalid", (app.touched.street && ui.street.trim().length <= 3) ? "true" : "false");
     app.refs.cityInput.setAttribute("aria-invalid", (app.touched.city && ui.city.trim().length <= 1) ? "true" : "false");
     app.refs.postalInput.setAttribute("aria-invalid", (app.touched.postal && ui.postal.trim().length <= 1) ? "true" : "false");
-    ensurePayPal(store, ui);
-    syncPayPalState(store, ui);
+    app.refs.requestBtn.disabled = app.request.submitting || !canSubmitOrderRequest(store, ui);
+    app.refs.requestBtn.textContent = app.request.submitting ? "Sending..." : "Send Order Request";
+    renderRequestStatus();
   }
 
   function bindEvents() {
     app.refs.countryInput.addEventListener("input", function () {
       syncCountryControls(app.refs.countryInput.value, "input");
+      clearRequestFeedback();
       render();
     });
     app.refs.countryInput.addEventListener("change", function () {
       syncCountryControls(app.refs.countryInput.value, "input");
+      clearRequestFeedback();
       render();
     });
     if (app.refs.countrySelect) {
       app.refs.countrySelect.addEventListener("change", function () {
         syncCountryControls(app.refs.countrySelect.value, "select");
+        clearRequestFeedback();
         render();
       });
     }
-    app.refs.emailInput.addEventListener("input", render);
-    app.refs.emailInput.addEventListener("blur", render);
-    app.refs.notesInput.addEventListener("input", render);
-    app.refs.clearBtn.addEventListener("click", function () { if (!window.confirm("Are you sure you want to clear the cart?")) return; var now = loadStore(); now.cart = {}; saveStore(now); resetPayPal(); render(); });
+    app.refs.emailInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+    app.refs.emailInput.addEventListener("blur", function () { clearRequestFeedback(); render(); });
+    app.refs.notesInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+    app.refs.clearBtn.addEventListener("click", function () { if (!window.confirm("Are you sure you want to clear the cart?")) return; var now = loadStore(); now.cart = {}; saveStore(now); clearRequestFeedback(); render(); });
+    app.refs.requestBtn.addEventListener("click", submitOrderRequest);
     if (window.__SHOP_STORE_LISTENER_V2__) window.removeEventListener("moto:shop-store-updated", window.__SHOP_STORE_LISTENER_V2__);
-    window.__SHOP_STORE_LISTENER_V2__ = function (e) { if (e && e.detail && e.detail.code) app.highlightCode = String(e.detail.code || "").toUpperCase(); render(); };
+    window.__SHOP_STORE_LISTENER_V2__ = function (e) {
+      if (e && e.detail && e.detail.code) app.highlightCode = String(e.detail.code || "").toUpperCase();
+      if (!app.request.submitting) clearRequestFeedback();
+      render();
+    };
     window.addEventListener("moto:shop-store-updated", window.__SHOP_STORE_LISTENER_V2__);
   }
 
@@ -855,7 +793,8 @@ function showThankYou(order) {
     if (root.getAttribute("data-shop-mounting") === "1") return;
     root.setAttribute("data-shop-mounting", "1");
     loadShopIndex().then(function () {
-      resetPayPal();
+      app.request.submitting = false;
+      clearRequestFeedback();
       app.refs = buildShop(root);
       var ui = loadUi();
       syncCountryControls(ui.country, "init"); app.refs.emailInput.value = ui.email; app.refs.notesInput.value = ui.notes;
@@ -865,10 +804,10 @@ function showThankYou(order) {
       app.refs.streetInput.value = ui.street;
       app.refs.cityInput.value = ui.city;
       app.refs.postalInput.value = ui.postal;
-      app.refs.nameInput.addEventListener("input", render);
-      app.refs.streetInput.addEventListener("input", render);
-      app.refs.cityInput.addEventListener("input", render);
-      app.refs.postalInput.addEventListener("input", render);
+      app.refs.nameInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+      app.refs.streetInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+      app.refs.cityInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+      app.refs.postalInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
       // Mark fields as touched on first blur so validation shows only after interaction
       ["email", "name", "street", "city", "postal"].forEach(function(field) {
         var input = app.refs[field + "Input"];

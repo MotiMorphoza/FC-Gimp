@@ -18,7 +18,8 @@ var SHOP_CONFIG = {
     international: { base: 27.00, freeAbove: 222.00 }
   },
 
-  paypalClientId:          'ARxRd7iNprUdgAfIialpz8CTQu9H8kMP5RN8rlHlnxtUQEeiURoj4nZrkNX1NqgJDn34wGA0zUMxTvxM',
+  // Legacy checkout reference:
+  // paypalClientId:       'ARxRd7iNprUdgAfIialpz8CTQu9H8kMP5RN8rlHlnxtUQEeiURoj4nZrkNX1NqgJDn34wGA0zUMxTvxM',
   emailjsServiceId:        'service_a5a988a',
   emailjsTemplateCustomer: 'template_lnqp67u',
   emailjsTemplateSeller:   'template_wmram69',

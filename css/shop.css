@@ -800,38 +800,17 @@
   font-size: 0.90rem;
 }
 
-/* PayPal separator */
-.shop-paypal-separator {
-  border: none;
-  border-top: 1px solid #2a2a2a;
-  margin: 1.5rem 0;
+.shop-request-actions {
+  margin-top: 1.5rem;
 }
 
-/* PayPal container */
-#paypal-button-container {
-  min-height: 45px;
-  margin-top: 0.5rem;
+.shop-request-btn {
+  width: 100%;
 }
 
-.shop-paypal-wrapper {
-  position: relative;
+.shop-request-status {
+  margin-top: 0.85rem;
 }
-
-.shop-paypal-overlay {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 3px;
-  z-index: 10;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.80rem;
-  color: #aaa;
-  letter-spacing: 0.05em;
-}
-
-.shop-paypal-overlay.is-visible { display: flex; }
 
 /* Status / notices */
 .shop-notice {
@@ -845,6 +824,8 @@
 .shop-notice--error   { background: rgba(155,58,58,0.12);   border-color: #9b3a3a; color: #e08080; }
 .shop-notice--success { background: rgba(40,120,60,0.12);   border-color: #2e6b3e; color: #7ec99a; }
 .shop-notice--info    { background: rgba(60,80,120,0.12);   border-color: #3a5f9b; color: #80a8e0; }
+.shop-request-status .shop-notice p { margin: 0; }
+.shop-request-status .shop-notice p + p { margin-top: 0.45rem; }
 
 /* Order confirmation */
 .shop-confirmation {
@@ -1089,7 +1070,7 @@
     flex-wrap: wrap;
   }
 
-  .shop-paypal-wrapper {
+  .shop-request-actions {
     margin: 0;
   }
 }
@@ -1182,9 +1163,7 @@
 .shop-v7 .shop-add-btn, .shop-v7 .shop-select-size { min-height: 34px; }
 .shop-v7 .shop-clear-cart-btn { background: #b30000; color: #fff; border: none; padding: 8px 14px; cursor: pointer; }
 .shop-v7 .shop-clear-cart-btn:hover { background: #ff0000; }
-.shop-v7 .shop-paypal-wrapper { position: relative; min-height: 60px; }
-.shop-v7 .shop-paypal-overlay { position: absolute; inset: 0; background: rgba(0, 8, 22, .85); color: #9ec9ff; display: none; align-items: center; justify-content: center; text-align: center; padding: 8px; z-index: 2; }
-.shop-v7 .shop-paypal-overlay.is-visible { display: flex; }
+.shop-v7 .shop-request-btn { min-height: 42px; }
 .shop-v7 tr.added { outline: 1px solid rgba(108,255,154,.7); }
 @media (max-width: 860px) {
   .shop-v7 .shop-prices-table { font-size: 13px; }
@@ -1192,55 +1171,4 @@
   .shop-v7 .shop-cart-table thead { display: none; }
   .shop-v7 .shop-cart-table tr { display: block; border-bottom: 1px solid rgba(255,255,255,.1); padding: 10px 0; }
   .shop-v7 .shop-cart-table td { display: block; border: 0; padding: 6px 0; }
-}
-
-/* ===== Shop THANK YOU ===== */
-
-
-.shop-thankyou-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  overflow-y:auto;
-  padding:24px 16px;
-  z-index:9999;
-}
-
-.shop-thankyou-modal{
-  background:#111;
-  color:#fff;
-  padding:32px;
-  max-width:520px;
-  width:90%;
-  max-height:calc(100dvh - 48px);
-  overflow-y:auto;
-  border-radius:8px;
-  text-align:center;
-  margin:auto 0;
-}
-
-.shop-thankyou-modal h2{
-  margin-top:0;
-  font-size:28px;
-}
-
-.shop-thankyou-items{
-  margin:20px 0;
-  text-align:left;
-  font-size:14px;
-}
-
-.shop-thankyou-total{
-  margin-top:10px;
-  font-weight:bold;
-}
-
-.shop-thankyou-close{
-  margin-top:20px;
-  padding:10px 20px;
-  font-size:14px;
-  cursor:pointer;
 }
