@@ -96,6 +96,9 @@ const ISOLATION_VARIANTS = [
   "withdrawal", "anonymity", "silence", "quietness", "separation", "alone"
 ];
 const ISOLATION_COMPOSITION_VARIANTS = ["isolated subject", "frame within frame"];
+const GENERIC_STANDALONE_TERMS = new Set(["people", "street", "urban", "outdoor", "wall"]);
+const DIRECT_STREET_VISUAL_HINTS = ["street", "crosswalk", "sidewalk", "intersection", "curb", "bollard", "bollards", "shop window", "storefront window", "pedestrian bridge", "tram tracks", "tram stop"];
+const PHONE_SCREEN_VISUAL_HINTS = ["screen", "display", "phone screen", "smartphone screen", "mobile phone screen", "checking", "looking at", "focused on", "concentrating on", "texting", "scrolling", "photographing"];
 
 const SEARCH_STATE = {
   loadPromise: null,
@@ -132,6 +135,15 @@ function normalizeMaybeArray(values) {
   if (Array.isArray(values)) return normalizeArray(values);
   if (values == null || values === "") return [];
   return normalizeArray([values]);
+}
+
+function normalizeObjectMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, role]) => [String(key || "").trim().toLowerCase(), String(role || "").trim().toLowerCase()])
+      .filter(([key, role]) => key && role)
+  );
 }
 
 function includesVariant(values, variants, canonical) {
@@ -336,13 +348,16 @@ function deriveVisualProfile(image) {
     people_count: peopleCount,
     gender: normalizeArray(gender),
     age_group: normalizeArray(ageGroup),
+    age_stage: String(image.age_stage || "").trim().toLowerCase(),
     people_focus: peopleFocus || "",
     people_prominence: peopleProminence || "none",
     color_mode: colorMode || "color",
     dominant_colors: normalizeArray(dominantColors),
     environment_type: normalizeArray(environmentType),
     setting_type: normalizeArray(settingType),
-    shot_type: shotType
+    shot_type: shotType,
+    screen_visible: typeof image.screen_visible === "boolean" ? image.screen_visible : textHasAnyHint(combinedText, PHONE_SCREEN_VISUAL_HINTS),
+    object_roles: normalizeObjectMap(image.object_roles)
   };
 }
 
@@ -374,13 +389,16 @@ function normalizeImage(image, index) {
     people_count: Number.isFinite(image?.people_count) ? Number(image.people_count) : null,
     gender: normalizeMaybeArray(image?.gender),
     age_group: normalizeMaybeArray(image?.age_group),
+    age_stage: String(image?.age_stage || "").trim(),
     people_prominence: String(image?.people_prominence || "").trim(),
     color_mode: String(image?.color_mode || "").trim(),
     dominant_colors: normalizeMaybeArray(image?.dominant_colors),
     environment_type: normalizeMaybeArray(image?.environment_type),
     setting_type: normalizeMaybeArray(image?.setting_type),
     shot_type: String(image?.shot_type || "").trim(),
-    people_focus: String(image?.people_focus || "").trim()
+    people_focus: String(image?.people_focus || "").trim(),
+    screen_visible: typeof image?.screen_visible === "boolean" ? image.screen_visible : Boolean(image?.screen_visible),
+    object_roles: normalizeObjectMap(image?.object_roles)
   };
 
   SEARCH_ARRAY_FIELDS.forEach((field) => {
@@ -511,6 +529,11 @@ function matchValue(value, stemmedValue, variants, canonical) {
 }
 
 function getObjectProminence(indexedImage, termGroup) {
+  const explicitRole = indexedImage?.image?.visual?.object_roles?.[termGroup.canonical] || indexedImage?.image?.object_roles?.[termGroup.canonical];
+  if (explicitRole === "primary") return "primary";
+  if (explicitRole === "secondary") return "secondary";
+  if (explicitRole === "incidental") return "background";
+
   const leadAlt = String(indexedImage.image.alt || "").split(/\s+/).slice(0, 10).join(" ");
   const allAlt = String(indexedImage.image.alt || "");
   const variants = [...termGroup.variants, termGroup.canonical].filter(Boolean);
@@ -535,14 +558,51 @@ function getObjectProminence(indexedImage, termGroup) {
   return "none";
 }
 
-function matchHardVisualTerm(indexedImage, termGroup) {
+function isStandaloneGenericHardQuery(termGroup, parsedQuery) {
+  return Boolean(
+    parsedQuery &&
+    parsedQuery.positive.length === 1 &&
+    termGroup.kind === "hard" &&
+    (termGroup.generic || GENERIC_STANDALONE_TERMS.has(termGroup.canonical))
+  );
+}
+
+function hasUrbanCorroboration(indexedImage) {
+  const visual = indexedImage.image.visual || {};
+  return (
+    (visual.setting_type || []).includes("street") ||
+    (visual.setting_type || []).includes("public square") ||
+    ["sign", "tram", "car", "window", "bench", "bike"].some((canonical) => {
+      const role = visual.object_roles?.[canonical] || indexedImage.image.object_roles?.[canonical];
+      return role === "primary" || role === "secondary";
+    })
+  );
+}
+
+function hasDirectStreetCue(indexedImage) {
+  const alt = String(indexedImage?.image?.alt || "");
+  return textHasAnyHint(alt, DIRECT_STREET_VISUAL_HINTS);
+}
+
+function hasPhoneScreenCue(indexedImage) {
+  const alt = String(indexedImage?.image?.alt || "");
+  const reading = normalizeArray(indexedImage?.image?.reading).join(" ");
+  const visual = indexedImage?.image?.visual || {};
+  if (Boolean(visual.screen_visible)) return true;
+  return textHasAnyHint(`${alt} ${reading}`, PHONE_SCREEN_VISUAL_HINTS);
+}
+
+function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
   const visual = indexedImage.image.visual || {};
   const canonical = termGroup.canonical;
   const queryClass = termGroup.queryClass;
+  const standaloneGeneric = isStandaloneGenericHardQuery(termGroup, parsedQuery);
 
   if (queryClass === "people") {
     if (canonical === "people") {
-      return visual.has_people ? { matched: true, score: visual.people_prominence === "primary" ? 14 : 10 } : { matched: false, score: 0 };
+      if (!visual.has_people) return { matched: false, score: 0 };
+      if (standaloneGeneric && visual.people_prominence !== "primary") return { matched: false, score: 0 };
+      return { matched: true, score: visual.people_prominence === "primary" ? 14 : 10 };
     }
     if (canonical === "crowd") {
       return (visual.has_people && Number(visual.people_count) >= 4)
@@ -618,9 +678,10 @@ function matchHardVisualTerm(indexedImage, termGroup) {
     const environmentType = visual.environment_type || [];
     const settingType = visual.setting_type || [];
     if (canonical === "urban") {
-      return (environmentType.includes("urban") || environmentType.includes("street"))
-        ? { matched: true, score: 13 }
-        : { matched: false, score: 0 };
+      const matched = environmentType.includes("urban") || environmentType.includes("street");
+      if (!matched) return { matched: false, score: 0 };
+      if (standaloneGeneric && !hasUrbanCorroboration(indexedImage)) return { matched: false, score: 0 };
+      return { matched: true, score: standaloneGeneric ? 10 : 13 };
     }
 
     if (canonical === "nature") {
@@ -633,8 +694,21 @@ function matchHardVisualTerm(indexedImage, termGroup) {
       return { matched: true, score: 5 };
     }
 
+    if (canonical === "outdoor") {
+      const matched = environmentType.includes("outdoor");
+      if (!matched) return { matched: false, score: 0 };
+      if (standaloneGeneric && !(settingType.length || environmentType.includes("nature") || environmentType.includes("street"))) {
+        return { matched: false, score: 0 };
+      }
+      return { matched: true, score: standaloneGeneric ? 10 : 13 };
+    }
+
     const matched = environmentType.includes(canonical) || settingType.includes(canonical);
-    return matched ? { matched: true, score: 13 } : { matched: false, score: 0 };
+    if (!matched) return { matched: false, score: 0 };
+    if (standaloneGeneric && canonical === "street" && !settingType.includes("street")) {
+      return { matched: false, score: 0 };
+    }
+    return { matched: true, score: standaloneGeneric ? 10 : 13 };
   }
 
   if (queryClass === "object") {
@@ -648,10 +722,58 @@ function matchHardVisualTerm(indexedImage, termGroup) {
     }
 
     const prominence = getObjectProminence(indexedImage, termGroup);
+    if (standaloneGeneric && prominence !== "primary") return { matched: false, score: 0 };
     if (prominence === "primary") return { matched: true, score: 16 };
     if (prominence === "secondary") return { matched: true, score: 10 };
     if (prominence === "background" && !STRICT_OBJECT_QUERY_CLASSES.has(queryClass)) return { matched: true, score: 4 };
     return { matched: false, score: 0 };
+  }
+
+  if (queryClass === "phrase") {
+    if (canonical === "street dog") {
+      const dogProminence = getObjectProminence(indexedImage, { canonical: "dog", variants: ["dog", "dogs", "puppy", "puppies"] });
+      const streetMatch = hasDirectStreetCue(indexedImage);
+      return dogProminence !== "none" && streetMatch
+        ? { matched: true, score: dogProminence === "primary" ? 18 : 12 }
+        : { matched: false, score: 0 };
+    }
+
+    if (canonical === "old man") {
+      const ageStage = String(visual.age_stage || indexedImage.image.age_stage || "").toLowerCase();
+      const dominantOlderMan = (visual.people_focus === "man") || Number(visual.people_count) === 1;
+      return (visual.gender || []).includes("man") && visual.people_prominence === "primary" && ageStage === "older" && dominantOlderMan
+        ? { matched: true, score: 18 }
+        : { matched: false, score: 0 };
+    }
+
+    if (canonical === "phone screen") {
+      const phoneProminence = getObjectProminence(indexedImage, { canonical: "phone", variants: ["phone", "phones", "smartphone", "smartphones", "mobile phone"] });
+      return phoneProminence !== "none" && hasPhoneScreenCue(indexedImage)
+        ? { matched: true, score: phoneProminence === "primary" ? 18 : 12 }
+        : { matched: false, score: 0 };
+    }
+
+    if (canonical === "window reflection") {
+      const windowProminence = getObjectProminence(indexedImage, { canonical: "window", variants: ["window", "windows", "pane", "panes", "windowpane"] });
+      const reflectionMatch = String(indexedImage.image.manipulation || "").toLowerCase() === "reflection" ||
+        includesVariant(indexedImage.image.composition, ["reflection"], "reflection") ||
+        includesVariant(indexedImage.image.style, ["reflection study"], "reflection");
+      return windowProminence !== "none" && reflectionMatch
+        ? { matched: true, score: windowProminence === "primary" ? 18 : 12 }
+        : { matched: false, score: 0 };
+    }
+
+    if (canonical === "public protest") {
+      const protestMatch = (
+        includesVariant(indexedImage.image.themes, ["politics", "authority", "resistance", "civic tension"], "resistance") ||
+        includesVariant(indexedImage.image.primary, ["protest", "protester", "protesters"], "protest") ||
+        includesVariant(indexedImage.image.reading, ["protest", "public conflict"], "protest")
+      );
+      const publicMatch = (visual.environment_type || []).includes("street") || (visual.environment_type || []).includes("urban");
+      return protestMatch && publicMatch
+        ? { matched: true, score: 16 }
+        : { matched: false, score: 0 };
+    }
   }
 
   if (queryClass === "shot") {
@@ -770,7 +892,7 @@ function hasIsolationCue(indexedImage) {
 
 function isNegativeMatch(indexedImage, termGroup) {
   if (termGroup.kind === "hard") {
-    return matchHardVisualTerm(indexedImage, termGroup).matched;
+    return matchHardVisualTerm(indexedImage, termGroup, null).matched;
   }
 
   const explicitNegative = (indexedImage.fields.negative || []).some((value) =>
@@ -809,7 +931,7 @@ function scoreImage(indexedImage, parsedQuery) {
     let termScore = 0;
 
     if (termGroup.kind === "hard") {
-      const hardResult = matchHardVisualTerm(indexedImage, termGroup);
+      const hardResult = matchHardVisualTerm(indexedImage, termGroup, parsedQuery);
       termMatched = hardResult.matched;
       termScore = hardResult.score;
     } else if (isEmotionQuery(termGroup)) {
@@ -931,7 +1053,7 @@ function searchImages(indexedImages, query) {
 
       parsedQuery.positive.forEach((termGroup) => {
         if (termGroup.kind === "hard") {
-          const hardResult = matchHardVisualTerm(indexedImage, termGroup);
+          const hardResult = matchHardVisualTerm(indexedImage, termGroup, parsedQuery);
           if (!hardResult.matched) {
             hardMismatch = true;
             return;
@@ -985,6 +1107,212 @@ function searchImages(indexedImages, query) {
     parsedQuery,
     mode: "or",
     results: orMatches
+  };
+}
+
+function debugScoreField(indexedImage, fieldName, termGroup) {
+  const values = indexedImage.fields[fieldName] || [];
+  const matches = [];
+
+  values.forEach((value) => {
+    if (!matchValue(value, getTagHelpers().stemTerm(value), termGroup.variants, termGroup.canonical)) return;
+    matches.push(value);
+  });
+
+  return {
+    matched: matches.length > 0,
+    score: matches.length * (FIELD_WEIGHTS[fieldName] || 2),
+    matches
+  };
+}
+
+function debugScoreEmotionTerm(indexedImage, termGroup) {
+  const breakdown = [];
+  const baseResult = scoreEmotionTerm(indexedImage, termGroup);
+  const profile = EMOTION_QUERY_PROFILES[termGroup.canonical] || null;
+
+  Object.entries(EMOTION_QUERY_FIELDS).forEach(([fieldName, weight]) => {
+    const values = indexedImage.fields[fieldName] || [];
+    if (!values.length) return;
+
+    const direct = [];
+    const primary = [];
+    const secondary = [];
+    const counter = [];
+
+    values.forEach((value) => {
+      const stemmed = getTagHelpers().stemTerm(value);
+      if (matchValue(value, stemmed, termGroup.variants, termGroup.canonical)) direct.push(value);
+      if (profile?.primary?.some((variant) => matchValue(value, stemmed, [variant], variant))) primary.push(value);
+      if (profile?.secondary?.some((variant) => matchValue(value, stemmed, [variant], variant))) secondary.push(value);
+      if (profile?.counter?.some((variant) => matchValue(value, stemmed, [variant], variant))) counter.push(value);
+    });
+
+    if (!(direct.length || primary.length || secondary.length || counter.length)) return;
+
+    breakdown.push({
+      field: fieldName,
+      weight,
+      direct,
+      primary,
+      secondary,
+      counter
+    });
+  });
+
+  return {
+    ...baseResult,
+    breakdown
+  };
+}
+
+function buildHardDebugDetails(indexedImage, termGroup, parsedQuery, hardResult) {
+  const visual = indexedImage.image.visual || {};
+  return {
+    queryClass: termGroup.queryClass,
+    precisionProfile: termGroup.precisionProfile || "",
+    genericStandalone: isStandaloneGenericHardQuery(termGroup, parsedQuery),
+    matched: hardResult.matched,
+    score: hardResult.score,
+    visual: {
+      people_focus: visual.people_focus || "",
+      people_prominence: visual.people_prominence || "",
+      people_count: visual.people_count ?? 0,
+      gender: visual.gender || [],
+      age_group: visual.age_group || [],
+      age_stage: visual.age_stage || "",
+      color_mode: visual.color_mode || "",
+      dominant_colors: visual.dominant_colors || [],
+      environment_type: visual.environment_type || [],
+      setting_type: visual.setting_type || [],
+      shot_type: visual.shot_type || "",
+      screen_visible: Boolean(visual.screen_visible),
+      object_role: visual.object_roles?.[termGroup.canonical] || indexedImage.image.object_roles?.[termGroup.canonical] || ""
+    }
+  };
+}
+
+function debugScoreImage(indexedImage, parsedQuery) {
+  if (!parsedQuery.normalized) {
+    return { matched: true, score: 0, matchCount: 0, terms: [], bonus: { multi: 0, premium: 0 } };
+  }
+
+  const negativeMatches = parsedQuery.negative
+    .filter((termGroup) => isNegativeMatch(indexedImage, termGroup))
+    .map((termGroup) => termGroup.canonical);
+
+  if (negativeMatches.length) {
+    return {
+      matched: false,
+      score: -Infinity,
+      matchCount: 0,
+      negativeMatches,
+      terms: [],
+      bonus: { multi: 0, premium: 0 }
+    };
+  }
+
+  let score = 0;
+  let matchCount = 0;
+  const termDebug = [];
+
+  for (const termGroup of parsedQuery.positive) {
+    if (termGroup.kind === "hard") {
+      const hardResult = matchHardVisualTerm(indexedImage, termGroup, parsedQuery);
+      termDebug.push({
+        token: termGroup.token,
+        canonical: termGroup.canonical,
+        kind: "hard",
+        ...buildHardDebugDetails(indexedImage, termGroup, parsedQuery, hardResult)
+      });
+      if (!hardResult.matched) {
+        return { matched: false, score: 0, matchCount, terms: termDebug, bonus: { multi: 0, premium: 0 } };
+      }
+      score += hardResult.score;
+      matchCount += 1;
+      continue;
+    }
+
+    if (isEmotionQuery(termGroup)) {
+      const emotionResult = debugScoreEmotionTerm(indexedImage, termGroup);
+      termDebug.push({
+        token: termGroup.token,
+        canonical: termGroup.canonical,
+        kind: "emotion",
+        matched: emotionResult.matched,
+        score: emotionResult.score,
+        fields: emotionResult.breakdown
+      });
+      if (!emotionResult.matched) {
+        return { matched: false, score: 0, matchCount, terms: termDebug, bonus: { multi: 0, premium: 0 } };
+      }
+      score += emotionResult.score;
+      matchCount += 1;
+      continue;
+    }
+
+    const fieldBreakdown = [];
+    let termMatched = false;
+    let termScore = 0;
+
+    Object.keys(indexedImage.fields).forEach((fieldName) => {
+      if (fieldName === "negative") return;
+      const fieldResult = debugScoreField(indexedImage, fieldName, termGroup);
+      if (!fieldResult.matched) return;
+      termMatched = true;
+      termScore += fieldResult.score;
+      fieldBreakdown.push({ field: fieldName, score: fieldResult.score, matches: fieldResult.matches });
+    });
+
+    termDebug.push({
+      token: termGroup.token,
+      canonical: termGroup.canonical,
+      kind: "soft",
+      matched: termMatched,
+      score: termScore,
+      fields: fieldBreakdown
+    });
+
+    if (!termMatched) {
+      return { matched: false, score: 0, matchCount, terms: termDebug, bonus: { multi: 0, premium: 0 } };
+    }
+
+    score += termScore;
+    matchCount += 1;
+  }
+
+  const multiBonus = parsedQuery.positive.length > 1 && matchCount === parsedQuery.positive.length
+    ? parsedQuery.positive.length * 2
+    : 0;
+  const premiumBonus = getPremiumBoost(indexedImage);
+  score += multiBonus + premiumBonus;
+
+  return {
+    matched: true,
+    score,
+    matchCount,
+    terms: termDebug,
+    bonus: {
+      multi: multiBonus,
+      premium: premiumBonus
+    }
+  };
+}
+
+function searchImagesDetailed(indexedImages, query) {
+  const { parseQuery } = getTagHelpers();
+  const parsedQuery = parseQuery(query);
+  const rawResults = searchImages(indexedImages, query);
+
+  const results = rawResults.results.map((indexedImage) => ({
+    ...indexedImage,
+    _debug: debugScoreImage(indexedImage, parsedQuery)
+  }));
+
+  return {
+    ...rawResults,
+    parsedQuery,
+    results
   };
 }
 
@@ -1182,5 +1510,13 @@ async function initSearchPage() {
 window.initSearchPage = initSearchPage;
 window.scheduleSearchPageQueryUpdate = scheduleSearchPageQueryUpdate;
 window.updateSearchPageQuery = updateSearchPageQuery;
+window.MotoSearchRuntime = {
+  loadSearchIndex,
+  searchImages,
+  searchImagesDetailed,
+  normalizeImage,
+  indexImage,
+  getObjectProminence
+};
 
 document.addEventListener("DOMContentLoaded", initSearchPage);

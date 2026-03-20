@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MotoSynteza - Search Debug</title>
+    <meta name="description" content="Internal debug page for auditing MotoSynteza search ranking and field matches." />
+  </head>
+  <body class="page-shell" data-page="search-debug">
+    <main class="search-debug-page" aria-label="MotoSynteza search debug">
+      <section class="search-debug-shell">
+        <header class="search-debug-hero">
+          <p class="search-debug-eyebrow">Internal only</p>
+          <h1>Search Audit</h1>
+          <p class="search-debug-intro">Inspect why results returned, which fields matched, and how each score was built.</p>
+        </header>
+
+        <section class="search-debug-controls">
+          <label class="search-debug-label" for="search-debug-input">Query</label>
+          <div class="search-debug-input-row">
+            <input id="search-debug-input" class="search-debug-input" type="search" placeholder="Try window reflection, alone, street dog, old man..." autocomplete="off" />
+            <button id="search-debug-run" class="search-debug-run" type="button">Run</button>
+          </div>
+          <p id="search-debug-summary" class="search-debug-summary" aria-live="polite"></p>
+        </section>
+
+        <section class="search-debug-golden">
+          <h2>Golden Queries</h2>
+          <div id="search-debug-golden-list" class="search-debug-golden-list"></div>
+        </section>
+
+        <section id="search-debug-results" class="search-debug-results"></section>
+      </section>
+    </main>
+
+    <script src="js/tags.js"></script>
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/search-debug.js"></script>
+  </body>
+</html>

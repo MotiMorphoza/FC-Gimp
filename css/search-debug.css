@@ -1,0 +1,224 @@
+.search-debug-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(118, 169, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, #090909 0%, #050505 100%);
+}
+
+.search-debug-shell {
+  width: min(1480px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.search-debug-hero,
+.search-debug-controls,
+.search-debug-golden,
+.search-debug-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.96);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+}
+
+.search-debug-hero,
+.search-debug-controls,
+.search-debug-golden {
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.search-debug-eyebrow {
+  margin: 0 0 8px;
+  color: #89c4ff;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.search-debug-hero h1,
+.search-debug-golden h2 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.search-debug-intro,
+.search-debug-summary,
+.search-debug-muted {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+
+.search-debug-intro,
+.search-debug-summary {
+  margin: 10px 0 0;
+}
+
+.search-debug-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.search-debug-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.search-debug-input,
+.search-debug-run {
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(7, 7, 7, 0.96);
+  color: #fff;
+}
+
+.search-debug-input {
+  padding: 0 14px;
+  font-size: 1rem;
+}
+
+.search-debug-run {
+  padding: 0 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.search-debug-golden-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.search-debug-chip {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 15, 15, 0.96);
+  color: rgba(255, 255, 255, 0.86);
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.search-debug-results {
+  display: grid;
+  gap: 16px;
+}
+
+.search-debug-card {
+  padding: 18px;
+}
+
+.search-debug-card-head {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.search-debug-card-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.search-debug-card-meta {
+  margin: 0;
+  color: #89c4ff;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.search-debug-score {
+  display: grid;
+  gap: 6px;
+  text-align: right;
+  min-width: 120px;
+}
+
+.search-debug-score strong {
+  font-size: 1.2rem;
+}
+
+.search-debug-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.search-debug-panel {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 4, 4, 0.96);
+}
+
+.search-debug-panel h3 {
+  margin: 0 0 10px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.search-debug-list,
+.search-debug-term-list {
+  display: grid;
+  gap: 8px;
+}
+
+.search-debug-row {
+  display: grid;
+  gap: 4px;
+}
+
+.search-debug-row code,
+.search-debug-token {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.search-debug-term {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 9, 9, 0.9);
+}
+
+.search-debug-kv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.search-debug-kv span {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 1100px) {
+  .search-debug-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .search-debug-shell {
+    width: min(100%, calc(100% - 20px));
+  }
+
+  .search-debug-input-row,
+  .search-debug-card-head {
+    grid-template-columns: 1fr;
+  }
+
+  .search-debug-score {
+    text-align: left;
+  }
+}

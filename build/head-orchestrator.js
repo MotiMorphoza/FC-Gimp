@@ -109,6 +109,11 @@ class HeadOrchestrator {
       tags.push(`<link rel="stylesheet" href="${searchCss}">`);
     }
 
+    const searchDebugCss = this.getSearchDebugCss();
+    if (searchDebugCss) {
+      tags.push(`<link rel="stylesheet" href="${searchDebugCss}">`);
+    }
+
     tags.push(...this.buildFavicons());
 
     const heroPreload = this.getHeroPreload();
@@ -159,7 +164,7 @@ class HeadOrchestrator {
   }
 
   getRobotsMeta() {
-    if (this.isSearch() || this.isGenericProject()) {
+    if (this.isSearch() || this.isSearchDebug() || this.isGenericProject()) {
       return 'noindex,follow';
     }
 
@@ -199,8 +204,13 @@ class HeadOrchestrator {
   }
 
   getSearchCss() {
-    if (!this.isSearch()) return null;
+    if (!(this.isSearch() || this.isSearchDebug())) return null;
     return this.renameMap.get('css/search.css') || null;
+  }
+
+  getSearchDebugCss() {
+    if (!this.isSearchDebug()) return null;
+    return this.renameMap.get('css/search-debug.css') || null;
   }
 
   buildFavicons() {
@@ -434,6 +444,7 @@ class HeadOrchestrator {
   isMain()     { return this.getFileName() === 'main.html'; }
   isProjectsList() { return this.getFileName() === 'projects.html'; }
   isSearch()   { return this.getFileName() === 'search.html'; }
+  isSearchDebug() { return this.getFileName() === 'search-debug.html'; }
   isMore()     { return this.getFileName() === 'more.html'; }
   isGenericProject() { return this.getFileName() === 'project.html'; }
   isProject()  {

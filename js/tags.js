@@ -22,52 +22,65 @@
   };
 
   const HARD_VISUAL_MAP = {
-    woman: { queryClass: "people", variants: ["woman", "women", "female"] },
-    man: { queryClass: "people", variants: ["man", "men", "male"] },
-    child: { queryClass: "people", variants: ["child", "children", "kid", "kids", "boy", "boys", "girl", "girls", "baby", "babies"] },
-    crowd: { queryClass: "people", variants: ["crowd", "crowds", "group", "groups", "people", "pedestrians", "protesters", "marchers", "choir", "procession", "gathering"] },
-    people: { queryClass: "people", variants: ["people", "person", "persons", "human", "humans", "figure", "figures", "pedestrian", "pedestrians"] },
-    alone: { queryClass: "people", variants: ["alone", "solitary", "single person"] },
-    blue: { queryClass: "color", variants: ["blue", "azure", "cobalt", "cyan"] },
-    red: { queryClass: "color", variants: ["red", "scarlet", "crimson"] },
-    yellow: { queryClass: "color", variants: ["yellow", "gold", "golden"] },
-    color: { queryClass: "color_mode", variants: ["color", "colour", "blue", "red", "yellow", "green", "orange", "purple", "pink"] },
-    "black and white": { queryClass: "color_mode", variants: ["black and white", "black-and-white", "bw"] },
-    monochrome: { queryClass: "color_mode", variants: ["monochrome", "grayscale", "greyscale"] },
-    colorful: { queryClass: "color_mode", variants: ["colorful", "colourful", "vivid", "multicolor", "multicolour", "rainbow"] },
-    indoor: { queryClass: "environment", variants: ["indoor", "indoors", "inside", "interior", "room", "kitchen", "studio"] },
-    outdoor: { queryClass: "environment", variants: ["outdoor", "outdoors", "outside", "open air"] },
-    street: { queryClass: "environment", variants: ["street", "sidewalk", "crosswalk", "intersection"] },
-    urban: { queryClass: "environment", variants: ["urban", "city", "public space", "public square"] },
-    nature: { queryClass: "environment", variants: ["nature", "natural", "park", "garden", "field", "river", "pond", "water edge", "tree", "trees", "branch", "branches", "flower", "flowers", "grass"] },
-    domestic: { queryClass: "environment", variants: ["domestic", "home", "house", "apartment", "kitchen", "room"] },
-    dog: { queryClass: "object", variants: ["dog", "dogs", "puppy", "puppies", "canine"] },
-    animal: { queryClass: "object", variants: ["animal", "animals", "dog", "dogs", "cat", "cats", "bird", "birds", "duck", "gull", "stork", "heron", "pigeon"] },
-    bird: { queryClass: "object", variants: ["bird", "birds", "pigeon", "pigeons", "duck", "ducks", "gull", "gulls", "seagull", "seagulls", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "crow", "crows"] },
-    window: { queryClass: "object", variants: ["window", "windows", "pane", "panes", "windowpane", "windowpanes", "shop window", "storefront window"] },
-    umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas", "parasol", "parasols"] },
-    car: { queryClass: "object", variants: ["car", "cars", "vehicle", "vehicles", "taxi", "taxis"] },
-    bike: { queryClass: "object", variants: ["bike", "bikes", "bicycle", "bicycles", "cyclist", "cyclists", "rider", "riders"] },
-    bicycle: { queryClass: "object", variants: ["bicycle", "bicycles", "bike", "bikes", "cyclist", "cyclists", "rider", "riders"] },
-    tree: { queryClass: "object", variants: ["tree", "trees", "branch", "branches", "trunk", "trunks"] },
-    phone: { queryClass: "object", variants: ["phone", "phones", "smartphone", "smartphones", "cellphone", "cellphones", "mobile phone", "mobile phones"] },
-    cigarette: { queryClass: "object", variants: ["cigarette", "cigarettes", "smoke", "smoking", "smoker", "smokers"] },
-    smoking: { queryClass: "object", variants: ["smoking", "smoke", "smoker", "smokers", "cigarette", "cigarettes"] },
-    "close up": { queryClass: "shot", variants: ["close up", "close-up", "close crop"] },
-    "wide shot": { queryClass: "shot", variants: ["wide shot", "wide view", "wide scene", "wide frame"] },
-    detail: { queryClass: "shot", variants: ["detail", "detail study"] },
-    portrait: { queryClass: "shot", variants: ["portrait", "face portrait"] }
+    woman: { queryClass: "people", variants: ["woman", "women", "female"], precisionProfile: "strict" },
+    man: { queryClass: "people", variants: ["man", "men", "male"], precisionProfile: "strict" },
+    child: { queryClass: "people", variants: ["child", "children", "kid", "kids", "boy", "boys", "girl", "girls", "baby", "babies"], precisionProfile: "strict" },
+    crowd: { queryClass: "people", variants: ["crowd", "crowds", "group", "groups", "people", "pedestrians", "protesters", "marchers", "choir", "procession", "gathering"], precisionProfile: "strict" },
+    people: { queryClass: "people", variants: ["people", "person", "persons", "human", "humans", "figure", "figures", "pedestrian", "pedestrians"], precisionProfile: "generic", generic: true },
+    alone: { queryClass: "people", variants: ["alone", "solitary", "single person"], precisionProfile: "strict" },
+    blue: { queryClass: "color", variants: ["blue", "azure", "cobalt", "cyan"], precisionProfile: "balanced" },
+    red: { queryClass: "color", variants: ["red", "scarlet", "crimson"], precisionProfile: "balanced" },
+    yellow: { queryClass: "color", variants: ["yellow", "gold", "golden"], precisionProfile: "balanced" },
+    color: { queryClass: "color_mode", variants: ["color", "colour", "blue", "red", "yellow", "green", "orange", "purple", "pink"], precisionProfile: "balanced" },
+    "black and white": { queryClass: "color_mode", variants: ["black and white", "black-and-white", "bw"], precisionProfile: "strict" },
+    monochrome: { queryClass: "color_mode", variants: ["monochrome", "grayscale", "greyscale"], precisionProfile: "strict" },
+    colorful: { queryClass: "color_mode", variants: ["colorful", "colourful", "vivid", "multicolor", "multicolour", "rainbow"], precisionProfile: "balanced" },
+    indoor: { queryClass: "environment", variants: ["indoor", "indoors", "inside", "interior", "room", "kitchen", "studio"], precisionProfile: "balanced" },
+    outdoor: { queryClass: "environment", variants: ["outdoor", "outdoors", "outside", "open air"], precisionProfile: "generic", generic: true },
+    street: { queryClass: "environment", variants: ["street", "sidewalk", "crosswalk", "intersection"], precisionProfile: "generic", generic: true },
+    urban: { queryClass: "environment", variants: ["urban", "city", "public space", "public square"], precisionProfile: "generic", generic: true },
+    nature: { queryClass: "environment", variants: ["nature", "natural", "park", "garden", "field", "river", "pond", "water edge", "tree", "trees", "branch", "branches", "flower", "flowers", "grass"], precisionProfile: "balanced" },
+    domestic: { queryClass: "environment", variants: ["domestic", "home", "house", "apartment", "kitchen", "room"], precisionProfile: "balanced" },
+    dog: { queryClass: "object", variants: ["dog", "dogs", "puppy", "puppies", "canine"], precisionProfile: "strict" },
+    animal: { queryClass: "object", variants: ["animal", "animals", "dog", "dogs", "cat", "cats", "bird", "birds", "duck", "gull", "stork", "heron", "pigeon"], precisionProfile: "balanced" },
+    bird: { queryClass: "object", variants: ["bird", "birds", "pigeon", "pigeons", "duck", "ducks", "gull", "gulls", "seagull", "seagulls", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "crow", "crows"], precisionProfile: "strict" },
+    window: { queryClass: "object", variants: ["window", "windows", "pane", "panes", "windowpane", "windowpanes", "shop window", "storefront window"], precisionProfile: "strict" },
+    umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas", "parasol", "parasols"], precisionProfile: "strict" },
+    wall: { queryClass: "object", variants: ["wall", "walls", "facade", "facades"], precisionProfile: "generic", generic: true },
+    car: { queryClass: "object", variants: ["car", "cars", "vehicle", "vehicles", "taxi", "taxis"], precisionProfile: "strict" },
+    bike: { queryClass: "object", variants: ["bike", "bikes", "bicycle", "bicycles", "cyclist", "cyclists", "rider", "riders"], precisionProfile: "strict" },
+    bicycle: { queryClass: "object", variants: ["bicycle", "bicycles", "bike", "bikes", "cyclist", "cyclists", "rider", "riders"], precisionProfile: "strict" },
+    tree: { queryClass: "object", variants: ["tree", "trees", "branch", "branches", "trunk", "trunks"], precisionProfile: "strict" },
+    phone: { queryClass: "object", variants: ["phone", "phones", "smartphone", "smartphones", "cellphone", "cellphones", "mobile phone", "mobile phones"], precisionProfile: "strict" },
+    cigarette: { queryClass: "object", variants: ["cigarette", "cigarettes", "smoke", "smoking", "smoker", "smokers"], precisionProfile: "strict" },
+    smoking: { queryClass: "object", variants: ["smoking", "smoke", "smoker", "smokers", "cigarette", "cigarettes"], precisionProfile: "strict" },
+    "close up": { queryClass: "shot", variants: ["close up", "close-up", "close crop"], precisionProfile: "strict" },
+    "wide shot": { queryClass: "shot", variants: ["wide shot", "wide view", "wide scene", "wide frame"], precisionProfile: "strict" },
+    detail: { queryClass: "shot", variants: ["detail", "detail study"], precisionProfile: "strict" },
+    portrait: { queryClass: "shot", variants: ["portrait", "face portrait"], precisionProfile: "strict" },
+    "street dog": { queryClass: "phrase", variants: ["street dog", "dog on the street"], precisionProfile: "strict", components: ["street", "dog"] },
+    "old man": { queryClass: "phrase", variants: ["old man", "older man", "elderly man"], precisionProfile: "strict", components: ["man", "older"] },
+    "phone screen": { queryClass: "phrase", variants: ["phone screen", "smartphone screen", "mobile phone screen"], precisionProfile: "strict", components: ["phone", "screen"] },
+    "window reflection": { queryClass: "phrase", variants: ["window reflection", "reflected window", "window reflections"], precisionProfile: "strict", components: ["window", "reflection"] },
+    "public protest": { queryClass: "phrase", variants: ["public protest", "street protest"], precisionProfile: "balanced", components: ["public", "protest"] }
   };
 
   const PHRASE_VARIANTS = [
     ["black and white", ["black and white", "black-and-white", "black white"]],
     ["close up", ["close up", "close-up"]],
     ["wide shot", ["wide shot", "wide view", "wide scene", "wide frame"]],
+    ["street dog", ["street dog", "dog on the street"]],
+    ["old man", ["old man", "older man", "elderly man"]],
+    ["phone screen", ["phone screen", "smartphone screen", "mobile phone screen"]],
+    ["window reflection", ["window reflection", "reflected window", "window reflections"]],
+    ["public protest", ["public protest", "street protest"]],
     ["no people", ["no people"]],
     ["no color", ["no color", "no colour"]],
     ["no cars", ["no cars", "no car"]],
     ["no animals", ["no animals", "no animal"]]
   ];
+
+  const QUERY_INTENT_ORDER = ["phrase", "people", "object", "environment", "color", "shot", "emotion", "conceptual"];
 
   const STOP_WORDS = new Set([
     "a", "an", "and", "at", "be", "for", "from", "in", "into", "is", "it", "of",
@@ -202,7 +215,10 @@
         canonical: hardDefinition.canonical,
         variants: expandHardToken(rawToken),
         kind: "hard",
-        queryClass: hardDefinition.queryClass
+        queryClass: hardDefinition.queryClass,
+        precisionProfile: hardDefinition.precisionProfile || "balanced",
+        generic: Boolean(hardDefinition.generic),
+        components: Array.isArray(hardDefinition.components) ? [...hardDefinition.components] : []
       };
     }
 
@@ -211,8 +227,43 @@
       canonical: canonicalizeToken(rawToken),
       variants: expandSoftToken(rawToken),
       kind: forcedKind || "soft",
-      queryClass: ""
+      queryClass: "",
+      precisionProfile: "conceptual",
+      generic: false,
+      components: []
     };
+  }
+
+  function buildIntentBuckets(positiveTokens = []) {
+    const buckets = {
+      phrase: 0,
+      people: 0,
+      object: 0,
+      environment: 0,
+      color: 0,
+      shot: 0,
+      emotion: 0,
+      conceptual: 0
+    };
+
+    positiveTokens.forEach((token) => {
+      if (token.kind === "hard") {
+        if (token.queryClass === "color" || token.queryClass === "color_mode") buckets.color += 1;
+        else if (Object.hasOwn(buckets, token.queryClass)) buckets[token.queryClass] += 1;
+        else buckets.conceptual += 1;
+        return;
+      }
+
+      if (["happy", "sad", "calm", "lonely", "quiet"].includes(token.canonical)) {
+        buckets.emotion += 1;
+        return;
+      }
+
+      buckets.conceptual += 1;
+    });
+
+    const dominantIntent = QUERY_INTENT_ORDER.find((bucket) => buckets[bucket] > 0) || "conceptual";
+    return { buckets, dominantIntent };
   }
 
   function parseQuery(query) {
@@ -239,13 +290,17 @@
       positiveTokens.push(buildTermGroup(token));
     }
 
+    const { buckets, dominantIntent } = buildIntentBuckets(positiveTokens);
+
     return {
       raw: query,
       normalized: normalized.replace(/_/g, " "),
       positive: positiveTokens,
       negative: negativeTokens,
       hasHardPositive: positiveTokens.some((token) => token.kind === "hard"),
-      hasSoftPositive: positiveTokens.some((token) => token.kind !== "hard")
+      hasSoftPositive: positiveTokens.some((token) => token.kind !== "hard"),
+      intentBuckets: buckets,
+      dominantIntent
     };
   }
 

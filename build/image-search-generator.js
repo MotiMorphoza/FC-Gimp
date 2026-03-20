@@ -25,7 +25,7 @@ const ARRAY_FIELDS = [
 ];
 
 const STRING_FIELDS = ['density', 'pov', 'manipulation'];
-const OBJECT_FIELDS = ['intensity', 'score'];
+const OBJECT_FIELDS = ['intensity', 'score', 'object_roles'];
 
 const STOP_WORDS = new Set([
   'a', 'an', 'and', 'as', 'at', 'above', 'across', 'against', 'along', 'around',
@@ -105,11 +105,13 @@ const INDOOR_HINTS = ['indoor', 'indoors', 'interior', 'kitchen', 'room', 'bedro
 const OUTDOOR_HINTS = ['outdoor', 'outdoors', 'street', 'park', 'bench', 'crosswalk', 'tram', 'snow', 'sky', 'river', 'pond', 'sidewalk', 'bridge'];
 const DOMESTIC_HINTS = ['kitchen', 'room', 'bedroom', 'table', 'domestic', 'home', 'house'];
 const STREET_HINTS = ['street', 'crosswalk', 'sidewalk', 'tram', 'intersection', 'public square', 'public space'];
+const DIRECT_STREET_HINTS = ['street', 'crosswalk', 'sidewalk', 'intersection', 'curb', 'bollard', 'bollards', 'shop window', 'storefront window', 'pedestrian bridge', 'tram tracks', 'tram stop'];
 const NATURE_HINTS = ['tree', 'trees', 'flower', 'flowers', 'bird', 'birds', 'duck', 'gull', 'stork', 'heron', 'river', 'pond', 'water', 'grass', 'leaf', 'leaves'];
 const COLORFUL_HINTS = ['rainbow', 'colorful', 'colourful', 'vivid', 'bright', 'multicolor', 'multicolour'];
 const CLOSE_UP_HINTS = ['close-up', 'close up', 'close crop'];
 const DETAIL_HINTS = ['detail', 'detail study'];
 const WIDE_HINTS = ['wide shot', 'wide view', 'wide scene', 'wide frame', 'panoramic'];
+const PHONE_SCREEN_ACTION_HINTS = ['checking', 'looking at', 'focused on', 'concentrating on', 'texting', 'scrolling', 'photographing'];
 
 function includesAny(text, hints = []) {
   const normalizedText = String(text || '').toLowerCase();
@@ -307,6 +309,40 @@ function deriveObjects(alt) {
   );
 }
 
+function matchesCanonicalFamily(values = [], family = []) {
+  return (Array.isArray(values) ? values : []).some((value) => includesAny(String(value || '').toLowerCase(), family));
+}
+
+function deriveObjectRoles(alt, primary = [], secondary = [], objects = []) {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const leadAlt = normalizedAlt.split(/\s+/).slice(0, 10).join(' ');
+  const roles = {};
+
+  OBJECT_FAMILIES.forEach(({ canonical, match }) => {
+    const inPrimary = matchesCanonicalFamily(primary, match);
+    const inSecondary = matchesCanonicalFamily(secondary, match);
+    const inObjects = (objects || []).includes(canonical);
+    const leadMatch = includesAny(leadAlt, match);
+    const altMatch = includesAny(normalizedAlt, match);
+
+    if ((inPrimary || leadMatch) && (inObjects || altMatch || inPrimary)) {
+      roles[canonical] = 'primary';
+      return;
+    }
+
+    if (inSecondary || inObjects) {
+      roles[canonical] = 'secondary';
+      return;
+    }
+
+    if (altMatch) {
+      roles[canonical] = 'incidental';
+    }
+  });
+
+  return roles;
+}
+
 function deriveColors(alt) {
   return uniqueStrings(
     COLOR_HINTS.filter((term) => includesAny(String(alt || '').toLowerCase(), [term]))
@@ -330,6 +366,9 @@ function derivePeopleProfile(alt) {
     child ? 'child' : '',
     hasPeople && !child ? 'adult' : ''
   ]);
+  const ageStage = includesAny(normalizedAlt, ['older', 'elderly', 'old man', 'old woman'])
+    ? 'older'
+    : '';
 
   const peopleCount = deriveApproxPeopleCount(normalizedAlt, hasPeople, gender, ageGroup);
   const leadWindow = normalizedAlt.split(/\s+/).slice(0, 8).join(' ');
@@ -362,6 +401,7 @@ function derivePeopleProfile(alt) {
     people_count: peopleCount,
     gender,
     age_group: ageGroup,
+    age_stage: ageStage,
     people_prominence: prominence,
     people_focus: focus
   };
@@ -419,6 +459,14 @@ function deriveEnvironmentProfile(project, alt, environment = []) {
     environment_type: uniqueStrings(environmentType),
     setting_type: uniqueStrings(settingType)
   };
+}
+
+function deriveScreenVisible(alt) {
+  const normalizedAlt = String(alt || '').toLowerCase();
+  const phoneMention = includesAny(normalizedAlt, ['phone', 'smartphone', 'mobile phone', 'cellphone']);
+  if (!phoneMention) return false;
+  if (includesAny(normalizedAlt, ['screen', 'display', 'phone screen', 'smartphone screen', 'mobile phone screen'])) return true;
+  return PHONE_SCREEN_ACTION_HINTS.some((hint) => normalizedAlt.includes(hint));
 }
 
 function deriveShotType(alt, composition = [], pov = '') {
@@ -530,6 +578,8 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
   const colorProfile = deriveColorProfile(image.alt, colors, manipulation);
   const environmentProfile = deriveEnvironmentProfile(project, image.alt, environment);
   const shotType = deriveShotType(image.alt, composition, pov);
+  const objectRoles = deriveObjectRoles(image.alt, projectTags, altTokens, objects);
+  const screenVisible = deriveScreenVisible(image.alt);
 
   return {
     id,
@@ -567,10 +617,12 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
     manipulation,
     negative: deriveNegativeHints(image.alt),
     related: [],
+    object_roles: objectRoles,
     ...peopleProfile,
     ...colorProfile,
     ...environmentProfile,
-    shot_type: shotType
+    shot_type: shotType,
+    screen_visible: screenVisible
   };
 }
 
@@ -600,6 +652,8 @@ function normalizeManualEntry(entry) {
   normalized.projectSlug = String(normalized.projectSlug || '').trim();
   normalized.src = String(normalized.src || '').trim();
   normalized.id = String(normalized.id || '').trim();
+  normalized.age_stage = typeof normalized.age_stage === 'string' ? normalized.age_stage.trim() : '';
+  normalized.screen_visible = typeof normalized.screen_visible === 'boolean' ? normalized.screen_visible : Boolean(normalized.screen_visible);
 
   return normalized;
 }
@@ -656,6 +710,11 @@ function mergeEntry(baseEntry, override = {}) {
       ...(safeOverride[field] || {})
     };
   });
+
+  merged.age_stage = safeOverride.age_stage || baseEntry.age_stage || '';
+  merged.screen_visible = typeof safeOverride.screen_visible === 'boolean'
+    ? safeOverride.screen_visible
+    : Boolean(baseEntry.screen_visible);
 
   return merged;
 }

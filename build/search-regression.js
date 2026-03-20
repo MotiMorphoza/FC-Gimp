@@ -81,6 +81,38 @@ function isMonochromeBird(runtime, result) {
   return result.image.visual.color_mode === 'bw' && hasObjectMatch(runtime, result, 'bird');
 }
 
+function hasWindowReflection(runtime, result) {
+  return hasObjectMatch(runtime, result, 'window') && (
+    String(result.image.manipulation || '').toLowerCase() === 'reflection' ||
+    (result.image.composition || []).includes('reflection') ||
+    (result.image.style || []).includes('reflection study')
+  );
+}
+
+function isOlderMan(result) {
+  return isMan(result) && String(result.image.visual.age_stage || '').toLowerCase() === 'older';
+}
+
+function isStreetDog(runtime, result) {
+  const directStreetCue = /\b(street|crosswalk|sidewalk|intersection|curb|bollards?|shop window|storefront window|pedestrian bridge|tram tracks|tram stop)\b/i.test(String(result.image.alt || ''));
+  return hasObjectMatch(runtime, result, 'dog') && directStreetCue;
+}
+
+function hasPhoneScreen(runtime, result) {
+  const screenCue = /\b(screen|display|checking|looking at|focused on|concentrating on|texting|scrolling|photographing)\b/i.test(
+    `${String(result.image.alt || '')} ${Array.isArray(result.image.reading) ? result.image.reading.join(' ') : ''}`
+  );
+  return hasObjectMatch(runtime, result, 'phone') && (Boolean(result.image.visual.screen_visible) || screenCue);
+}
+
+function isPublicProtest(result) {
+  return (result.image.visual.environment_type || []).includes('street') && (
+    (result.image.themes || []).some((item) => ['politics', 'authority', 'resistance', 'civic tension'].includes(String(item || '').toLowerCase())) ||
+    (result.image.primary || []).some((item) => /protest/.test(String(item || '').toLowerCase())) ||
+    (result.image.reading || []).some((item) => /public conflict|protest/.test(String(item || '').toLowerCase()))
+  );
+}
+
 function runRegression(rootDir) {
   const runtime = loadSearchRuntime(rootDir);
   const indexedImages = buildIndex(rootDir, runtime);
@@ -107,9 +139,19 @@ function runRegression(rootDir) {
       validate: (results) => results.slice(0, 5).every((result) => hasObjectMatch(runtime, result, 'window'))
     },
     {
+      query: 'window reflection',
+      minCount: 3,
+      validate: (results) => results.slice(0, 5).every((result) => hasWindowReflection(runtime, result))
+    },
+    {
       query: 'woman',
       minCount: 10,
       validate: (results) => results.slice(0, 5).every(isWoman)
+    },
+    {
+      query: 'old man',
+      minCount: 3,
+      validate: (results) => results.slice(0, 5).every(isOlderMan)
     },
     {
       query: 'man',
@@ -157,6 +199,11 @@ function runRegression(rootDir) {
       validate: (results) => results.slice(0, 5).every((result) => isWoman(result) && hasObjectMatch(runtime, result, 'umbrella'))
     },
     {
+      query: 'street dog',
+      minCount: 2,
+      validate: (results) => results.slice(0, 5).every((result) => isStreetDog(runtime, result))
+    },
+    {
       query: 'child street',
       minCount: 3,
       validate: (results) => results.slice(0, 5).every((result) => isChild(result) && (result.image.visual.environment_type || []).includes('street'))
@@ -175,6 +222,11 @@ function runRegression(rootDir) {
       query: 'phone',
       minCount: 8,
       validate: (results) => results.slice(0, 5).every((result) => hasObjectMatch(runtime, result, 'phone'))
+    },
+    {
+      query: 'phone screen',
+      minCount: 2,
+      validate: (results) => results.slice(0, 5).every((result) => hasPhoneScreen(runtime, result))
     },
     {
       query: 'car',
@@ -220,6 +272,11 @@ function runRegression(rootDir) {
       query: 'urban absurdity',
       minCount: 20,
       validate: (results) => results.length >= 20
+    },
+    {
+      query: 'public protest',
+      minCount: 5,
+      validate: (results) => results.slice(0, 5).every(isPublicProtest)
     },
     {
       query: 'cold minimalism',
