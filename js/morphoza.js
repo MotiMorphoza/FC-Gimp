@@ -51,6 +51,15 @@
     return document.body?.dataset?.page || "";
   }
 
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
   function isSupportedPage() {
     return SUPPORTED_PAGE_IDS.has(getCurrentPageId());
   }
@@ -381,20 +390,21 @@
   function createEmptyRailMarkup(railKey) {
     const title = getRailTitle(railKey);
     return `
-      <div class="morphoza-empty-state" role="note" aria-label="${title} rail is empty">
-        <p class="morphoza-empty-copy">${title} is ready for its first video.</p>
+      <div class="morphoza-empty-state" role="note" aria-label="${escapeHtml(title)} rail is empty">
+        <p class="morphoza-empty-copy">${escapeHtml(title)} is ready for its first video.</p>
       </div>
     `;
   }
 
   function createItemMarkup(video, index, railKey) {
+    const safeTitle = escapeHtml(video.title);
     return `
       <article class="morphoza-item" data-video-index="${index}" data-rail-key="${railKey}" data-video-id="${video.id}">
-        <button class="morphoza-item-button" type="button" aria-label="${video.title}">
+        <button class="morphoza-item-button" type="button" aria-label="${safeTitle}">
           <div class="morphoza-item-figure">
-            <img src="${getThumbUrl(video.id)}" alt="${video.title}" loading="lazy" decoding="async">
+            <img src="${getThumbUrl(video.id)}" alt="${safeTitle}" loading="lazy" decoding="async">
           </div>
-          <p class="morphoza-item-title">${video.title}</p>
+          <p class="morphoza-item-title">${safeTitle}</p>
         </button>
       </article>
     `;
@@ -803,6 +813,7 @@
 
   function showError(message) {
     if (!state.host) return;
+    const safeMessage = escapeHtml(message || "Unable to load Morphoza module.");
 
     state.host.innerHTML = `
       <section class="morphoza-view" aria-label="Moti Morphoza unavailable">
@@ -812,7 +823,7 @@
         <div class="morphoza-player-view">
           <button class="morphoza-back" type="button" disabled>MODULE STATUS</button>
           <div class="morphoza-player-frame morphoza-player-frame--message">
-            <p>${String(message || "Unable to load Morphoza module.")}</p>
+            <p>${safeMessage}</p>
           </div>
         </div>
       </section>

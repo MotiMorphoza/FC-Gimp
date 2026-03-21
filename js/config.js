@@ -20,6 +20,7 @@ var SHOP_CONFIG = {
 
   // Legacy checkout reference:
   // paypalClientId:       'ARxRd7iNprUdgAfIialpz8CTQu9H8kMP5RN8rlHlnxtUQEeiURoj4nZrkNX1NqgJDn34wGA0zUMxTvxM',
+  // EmailJS must also be restricted provider-side: domain allowlist, rate/quota limits, and abuse monitoring.
   emailjsServiceId:        'service_a5a988a',
   emailjsTemplateCustomer: 'template_lnqp67u',
   emailjsTemplateSeller:   'template_wmram69',

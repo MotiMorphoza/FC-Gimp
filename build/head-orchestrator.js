@@ -67,6 +67,13 @@ function escapeAttribute(value) {
     .replace(/>/g, '&gt;');
 }
 
+function serializeJsonLd(value) {
+  return JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
+}
+
 class HeadOrchestrator {
   constructor({ logger, renameMap, manifestData, version, assets, htmlFile, tempDir }) {
     this.logger       = logger;
@@ -177,7 +184,7 @@ class HeadOrchestrator {
 
     const jsonLd = await this.getJsonLd(projectMeta);
     if (jsonLd) {
-      tags.push(`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`);
+      tags.push(`<script type="application/ld+json">${serializeJsonLd(jsonLd)}</script>`);
     }
 
     if (this.assets.versionScriptPath) {
