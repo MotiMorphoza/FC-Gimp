@@ -11,54 +11,9 @@
   ],
   "images": [
     {
-      "src": "01.jpg",
-      "caption": "",
-      "alt": "Monochrome sweep of bridge railings and cables curving into the distance"
-    },
-    {
-      "src": "02.jpg",
-      "caption": "",
-      "alt": "Close-up of white vent slats bending into a wave-like black-and-white pattern"
-    },
-    {
-      "src": "03.jpg",
-      "caption": "",
-      "alt": "Distorted vertical reflections stretching across a rain puddle"
-    },
-    {
-      "src": "04.jpg",
-      "caption": "",
-      "alt": "Curved park bench glowing in yellow light and shadow"
-    },
-    {
-      "src": "05.jpg",
-      "caption": "",
-      "alt": "Rounded brick wall with a narrow arched opening"
-    },
-    {
-      "src": "06.jpg",
-      "caption": "",
-      "alt": "Close-up of pale stone blocks fitted into dark mortar lines"
-    },
-    {
-      "src": "07.jpg",
-      "caption": "",
-      "alt": "Row of weathered blue barrels leaning along an earthen slope"
-    },
-    {
-      "src": "08.jpg",
-      "caption": "",
-      "alt": "Grid of rusted blue barrels stacked outdoors in dry grass"
-    },
-    {
       "src": "09.jpg",
       "caption": "",
       "alt": "Extreme close-up of red strawberries with yellow seeds"
-    },
-    {
-      "src": "10.jpg",
-      "caption": "",
-      "alt": "Cable-stayed bridge mirrored symmetrically in still water"
     }
   ]
 }

@@ -372,6 +372,34 @@ const PROJECT_SEO_OVERRIDES = new Map([
     lead: 'Walkers, drifters, commuters, and solitary silhouettes keep moving through the frame until transit itself becomes the subject.',
     about: ['pedestrians in motion', 'urban departures', 'passing figures'],
     keywords: ['street photography movement', 'pedestrians walking', 'urban departures', 'passing figures']
+  }],
+  ['023 - palace', {
+    titleDescriptor: 'Warsaw Landmark Studies',
+    metaDescription: 'A conceptual urban photography series built around Warsaw\'s Palace of Culture and Science seen through demolition, reflection, signage, weather, and skyline. The tower keeps returning as a monument of time, memory, and changing city form.',
+    lead: 'The gallery circles one landmark through weather, framing devices, ruins, billboards, and skyline distance until the tower becomes a measure of the whole city.',
+    about: ['Warsaw landmark', 'urban monument', 'changing skyline'],
+    keywords: ['Palace of Culture and Science', 'Warsaw architecture photography', 'Warsaw skyline', 'urban landmark photography']
+  }],
+  ['024 - dust bw', {
+    titleDescriptor: 'Monochrome Street Fragments',
+    metaDescription: 'A black-and-white street photography series built from rough portraits, drifting figures, public encounters, labor, leisure, and social unease. The gallery moves between intimacy, observation, and the unstable edge of everyday urban life.',
+    lead: 'Monochrome portraits, passing scenes, and street fragments gather into a gallery of social texture, restlessness, and off-balance contact.',
+    about: ['black and white street photography', 'urban fragments', 'social portraiture'],
+    keywords: ['black and white street photography', 'monochrome street portraits', 'urban fragments', 'observational photography']
+  }],
+  ['025 - raport', {
+    titleDescriptor: 'Police Encounter Study',
+    metaDescription: 'A compact documentary street series centered on a police encounter with a family resting on city steps. Gestures, paperwork, children, and waiting bodies turn a brief intervention into a study of authority, care, and public exposure.',
+    lead: 'The gallery stays close to one public encounter and lets small gestures between police officers, parents, and children carry the whole tension.',
+    about: ['public encounter', 'documentary street photography', 'authority and care'],
+    keywords: ['documentary street photography', 'police encounter', 'public intervention', 'urban documentary photography']
+  }],
+  ['020 - quite fency', {
+    titleDescriptor: 'Fence And Surface Studies',
+    metaDescription: 'A conceptual photography series built around fences, railings, reflective water, weathered wood, bridge structures, and repeated urban surfaces. The gallery moves between abstraction and observation until barriers and textures become the main subject.',
+    lead: 'Bridge ribs, iron curls, puddle reflections, fence silhouettes, and worn materials turn everyday structures into studies of rhythm, exclusion, and urban abstraction.',
+    about: ['fences and surfaces', 'urban abstraction', 'material rhythm'],
+    keywords: ['fence photography', 'urban abstraction', 'surface studies', 'architectural detail photography']
   }]
 ]);
 

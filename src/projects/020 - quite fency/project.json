@@ -1,0 +1,109 @@
+{
+  "title": "Quite Fency",
+  "codePrefix": "QFE",
+  "description": "A conceptual photography series built around fences, railings, reflective water, weathered wood, bridge structures, and repeated urban surfaces. The gallery moves between abstraction and observation until barriers and textures become the main subject.",
+  "tags": [
+    "fences",
+    "urban abstraction",
+    "surfaces",
+    "materials",
+    "patterns"
+  ],
+  "images": [
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Two older women sitting on stools behind a fence outside a pale station wall"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Private property sign fixed to a black iron fence in winter"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Private property sign mounted on a red brick wall behind blurred dark fence bars"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Curved park bench glowing in yellow light and shadow"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Monochrome sweep of bridge railings and cables curving into the distance"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Close-up of a black wrought-iron curl with raindrops against a blurred beige background"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Pointed iron fence silhouetted against a winter sunset and bare trees"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Black iron fence spikes silhouetted against apartment windows and a blue sky"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Green branch pushing past black bars beside a rough concrete wall"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Blurred yellow and red tulips below a tall iron fence and pale stone wall"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Long row of pale stone columns and ceiling bays receding through an empty arcade"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Rows of rusted curved rods repeating across a flat surface"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Close-up of weathered yellow painted wooden planks"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Distorted vertical reflections stretching across a rain puddle"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Close-up of white vent slats bending into a wave-like black-and-white pattern"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Wavy white pavement stripes bending across a black ground"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Blue-tinted triangular glass facade patterned with black lines and brass nodes"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Reflections sliding across a glass facade of diamond-shaped panes and metal nodes"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Rusty chain looped through a weathered green padlock on a metal bar"
+    }
+  ]
+}

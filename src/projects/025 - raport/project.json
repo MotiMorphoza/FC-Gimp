@@ -1,0 +1,44 @@
+{
+  "title": "Raport",
+  "codePrefix": "RPT",
+  "description": "A compact documentary street series centered on a police encounter with a family resting on city steps. Gestures, paperwork, children, and waiting bodies turn a brief intervention into a study of authority, care, and public exposure.",
+  "tags": [
+    "documentary",
+    "police",
+    "street photography",
+    "public encounter",
+    "urban life"
+  ],
+  "images": [
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Police officer speaking with a family seated on church steps beside a stroller"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Police officer facing a seated family while a bearded man adjusts his hat on the steps"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Police officer kneeling to show something to a small child beside a stroller on the steps"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Police officer crouching beside two boys seated on church steps"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Police officer holding paperwork while a seated woman reaches toward him from behind a stone column"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Two police officers beside a bearded man with a crutch while a seated boy points away"
+    }
+  ]
+}

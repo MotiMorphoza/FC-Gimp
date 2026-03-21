@@ -30689,6 +30689,76 @@
     "alt": "Curved building facade reflected in a round traffic mirror"
   },
   {
+    "id": "img-011-010-reflection-10",
+    "projectSlug": "010 - reflection",
+    "src": "10.jpg",
+    "alt": "Cable-stayed bridge mirrored symmetrically in still water",
+    "caption": "",
+    "noise": [
+      "reflection study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "observational photography",
+      "reflection study"
+    ],
+    "density": "focused",
+    "primary": [
+      "bridge reflection",
+      "still water",
+      "symmetry"
+    ],
+    "secondary": [
+      "cable-stayed bridge",
+      "golden light",
+      "river surface"
+    ],
+    "environment": [
+      "water",
+      "bridge",
+      "outdoor"
+    ],
+    "setting_type": [
+      "reflection"
+    ],
+    "dominant_colors": [
+      "blue",
+      "gold",
+      "white"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "calm",
+      "balance",
+      "clarity"
+    ],
+    "themes": [
+      "reflection",
+      "symmetry"
+    ],
+    "symbols": [
+      "bridge tower",
+      "mirror surface"
+    ],
+    "relations": [
+      "The bridge and its reflection meet in near symmetry across a still waterline."
+    ],
+    "reading": [
+      "A large piece of infrastructure becomes a tranquil mirrored form."
+    ],
+    "tension": [
+      "engineering versus stillness"
+    ],
+    "intensity": {
+      "calm": 0.78
+    }
+  },
+  {
     "id": "img-010-12",
     "projectSlug": "010 - reflection",
     "src": "12.jpg",
@@ -34436,6 +34506,146 @@
       "emotion": 9
     },
     "alt": "Child on a small bicycle passing an older woman seated on a bench"
+  },
+  {
+    "id": "img-012-011-golden-age-people DSC_0122",
+    "projectSlug": "011 - golden age",
+    "src": "people DSC_0122.jpg",
+    "alt": "Older man in a dark fedora and heavy coat walking in side profile beside bridge railings",
+    "caption": "",
+    "noise": [
+      "humanist street portrait"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "humanist street photography",
+      "late-life portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "fedora walker",
+      "bridge railings",
+      "side profile"
+    ],
+    "secondary": [
+      "heavy coat",
+      "older man",
+      "measured step"
+    ],
+    "environment": [
+      "bridge",
+      "street",
+      "outdoor"
+    ],
+    "setting_type": [
+      "bridge"
+    ],
+    "dominant_colors": [
+      "brown",
+      "gray",
+      "black"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "dignity",
+      "reserve",
+      "continuity"
+    ],
+    "themes": [
+      "late-life movement",
+      "public endurance"
+    ],
+    "symbols": [
+      "fedora",
+      "railings"
+    ],
+    "relations": [
+      "The railings extend the man's side profile into a steady rhythm of forward motion."
+    ],
+    "tension": [
+      "formal self-presentation versus age"
+    ],
+    "reading": [
+      "Ordinary walking treated as bearing and persistence."
+    ],
+    "intensity": {
+      "dignity": 0.78
+    }
+  },
+  {
+    "id": "img-012-011-golden-age-people DSC_0210BW",
+    "projectSlug": "011 - golden age",
+    "src": "people DSC_0210BW.jpg",
+    "alt": "Older woman in a plaid jacket and knit cap gripping a cane with gloved hands",
+    "caption": "",
+    "noise": [
+      "humanist street portrait"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "humanist street photography",
+      "late-life portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "woman with cane",
+      "gloved hands",
+      "plaid jacket"
+    ],
+    "secondary": [
+      "knit cap",
+      "tight crop",
+      "late-life support"
+    ],
+    "environment": [
+      "street",
+      "outdoor",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "fragility",
+      "resolve",
+      "concentration"
+    ],
+    "themes": [
+      "aging body",
+      "support and endurance"
+    ],
+    "symbols": [
+      "cane",
+      "gloved grip"
+    ],
+    "relations": [
+      "The grip on the cane becomes the emotional center of the portrait."
+    ],
+    "tension": [
+      "frailty versus resolve"
+    ],
+    "reading": [
+      "Monochrome sharpens attention to posture and touch."
+    ],
+    "intensity": {
+      "resolve": 0.82
+    }
   },
   {
     "id": "img-012-01",
@@ -47089,139 +47299,6 @@
     "alt": "Wheelchair user traveling with a guide dog past a camera-store window"
   },
   {
-    "id": "img-016-19",
-    "projectSlug": "016 - star dust",
-    "src": "19.jpg",
-    "primary": [
-      "red light and crossing sign",
-      "halted permission",
-      "urban instruction"
-    ],
-    "secondary": [
-      "pedestrian",
-      "crossing",
-      "sign",
-      "red",
-      "traffic",
-      "light",
-      "cosmos",
-      "people"
-    ],
-    "noise": [],
-    "objects": [
-      "traffic light",
-      "crossing sign",
-      "sign",
-      "person"
-    ],
-    "object_roles": {
-      "sign": "primary",
-      "traffic light": "primary",
-      "crossing sign": "primary",
-      "person": "secondary"
-    },
-    "environment": [
-      "street",
-      "urban",
-      "outdoor"
-    ],
-    "environment_type": [
-      "urban",
-      "outdoor"
-    ],
-    "setting_type": [
-      "street"
-    ],
-    "style": [
-      "observational street photography",
-      "humanist lyricism",
-      "ordinary grace"
-    ],
-    "composition": [
-      "pairing",
-      "graphic juxtaposition"
-    ],
-    "lighting": [
-      "daylight"
-    ],
-    "colors": [
-      "red",
-      "blue",
-      "yellow",
-      "white"
-    ],
-    "dominant_colors": [
-      "red"
-    ],
-    "color_mode": "color",
-    "mood": [
-      "suspension",
-      "clarity",
-      "control"
-    ],
-    "themes": [
-      "fragility",
-      "ordinary grace"
-    ],
-    "symbols": [
-      "red light",
-      "crossing icon",
-      "street order"
-    ],
-    "texture": [
-      "metal"
-    ],
-    "motion": [
-      "walking"
-    ],
-    "tone": [
-      "suspension",
-      "clarity"
-    ],
-    "relations": [
-      "The red light and crossing sign stage a small argument between movement invited and movement delayed."
-    ],
-    "tension": [
-      "permission versus stoppage"
-    ],
-    "reading": [
-      "The image turns traffic language into a compact lesson in urban control."
-    ],
-    "density": "balanced",
-    "intensity": {
-      "suspension": 0.76
-    },
-    "pov": "frontal",
-    "manipulation": "straight",
-    "shot_type": "",
-    "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "primary",
-    "has_people": true,
-    "people_count": 3,
-    "gender": [],
-    "age_group": [
-      "adult"
-    ],
-    "age_stage": "",
-    "screen_visible": false,
-    "negative": [
-      "people",
-      "color"
-    ],
-    "related": [
-      "img-016-03",
-      "img-016-08",
-      "img-016-13"
-    ],
-    "score": {
-      "impact": 8,
-      "originality": 7,
-      "emotion": 7
-    },
-    "alt": "Pedestrian crossing sign beside a red traffic light"
-  },
-  {
     "id": "img-016-20",
     "projectSlug": "016 - star dust",
     "src": "20.jpg",
@@ -53445,6 +53522,76 @@
     "screen_visible": false
   },
   {
+    "id": "img-019-018-one-color-16",
+    "projectSlug": "018 - one color",
+    "src": "16.jpg",
+    "alt": "Row of weathered blue barrels leaning along an earthen slope in selective color",
+    "caption": "",
+    "noise": [
+      "single-color study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "selective color photography",
+      "color emphasis study"
+    ],
+    "density": "focused",
+    "primary": [
+      "blue barrels",
+      "selective color",
+      "leaning row"
+    ],
+    "secondary": [
+      "earthen slope",
+      "rust marks",
+      "roadside edge"
+    ],
+    "environment": [
+      "roadside",
+      "industrial edge",
+      "outdoor"
+    ],
+    "setting_type": [
+      "industrial edge"
+    ],
+    "dominant_colors": [
+      "blue",
+      "gray",
+      "brown"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "insistence",
+      "wear",
+      "focus"
+    ],
+    "themes": [
+      "single color emphasis",
+      "industrial residue"
+    ],
+    "symbols": [
+      "barrels",
+      "blue stripe"
+    ],
+    "relations": [
+      "The selective blue pulls the barrel line out of an otherwise muted roadside scene."
+    ],
+    "reading": [
+      "The image treats one color as the force that organizes the whole frame."
+    ],
+    "tension": [
+      "vivid color versus decay"
+    ],
+    "intensity": {
+      "focus": 0.8
+    }
+  },
+  {
     "id": "img-020-019-quite-handy-01",
     "projectSlug": "019 - quite handy",
     "src": "01.jpg",
@@ -54489,466 +54636,6 @@
     }
   },
   {
-    "id": "img-021-020-abstractisimo-01",
-    "projectSlug": "020 - abstractisimo",
-    "src": "01.jpg",
-    "alt": "Monochrome sweep of bridge railings and cables curving into the distance",
-    "primary": [
-      "curving railings",
-      "bridge rhythm",
-      "monochrome sweep"
-    ],
-    "environment": [
-      "architecture",
-      "bridge"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "bridge"
-    ],
-    "dominant_colors": [
-      "gray",
-      "black"
-    ],
-    "color_mode": "bw",
-    "shot_type": "wide",
-    "subject_scale": "wide",
-    "style": [
-      "abstract observation",
-      "material study"
-    ],
-    "mood": [
-      "discipline",
-      "flow",
-      "distance"
-    ],
-    "themes": [
-      "repetition",
-      "structure"
-    ],
-    "symbols": [
-      "curving railings",
-      "bridge cables"
-    ],
-    "relations": [
-      "The repeating railings turn infrastructure into a slow monochrome wave."
-    ],
-    "tension": [
-      "engineering versus lyricism",
-      "weight versus flow"
-    ],
-    "density": "dense",
-    "intensity": {
-      "structure": 0.84
-    },
-    "manipulation": "monochrome"
-  },
-  {
-    "id": "img-021-020-abstractisimo-02",
-    "projectSlug": "020 - abstractisimo",
-    "src": "02.jpg",
-    "alt": "Close-up of white vent slats bending into a wave-like black-and-white pattern",
-    "primary": [
-      "vent slats",
-      "wave pattern",
-      "white curve"
-    ],
-    "environment": [
-      "architectural detail",
-      "abstract field"
-    ],
-    "environment_type": [
-      "abstract",
-      "urban"
-    ],
-    "setting_type": [
-      "architectural detail"
-    ],
-    "dominant_colors": [
-      "white",
-      "black"
-    ],
-    "color_mode": "bw",
-    "shot_type": "detail",
-    "subject_scale": "close",
-    "style": [
-      "abstract observation",
-      "material study"
-    ],
-    "mood": [
-      "precision",
-      "calm",
-      "optical tension"
-    ],
-    "themes": [
-      "pattern",
-      "reduction"
-    ],
-    "symbols": [
-      "slats",
-      "wave line"
-    ],
-    "relations": [
-      "The bent slats make a fixed vent feel almost fluid."
-    ],
-    "tension": [
-      "rigidity versus flow",
-      "function versus abstraction"
-    ],
-    "density": "dense",
-    "intensity": {
-      "pattern": 0.87
-    }
-  },
-  {
-    "id": "img-021-020-abstractisimo-03",
-    "projectSlug": "020 - abstractisimo",
-    "src": "03.jpg",
-    "alt": "Distorted vertical reflections stretching across a rain puddle",
-    "primary": [
-      "puddle reflection",
-      "warped verticals",
-      "liquid facade"
-    ],
-    "environment": [
-      "street",
-      "water edge"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "water edge"
-    ],
-    "dominant_colors": [
-      "olive",
-      "black",
-      "gray"
-    ],
-    "color_mode": "color",
-    "shot_type": "detail",
-    "subject_scale": "close",
-    "style": [
-      "abstract observation",
-      "urban abstraction"
-    ],
-    "mood": [
-      "instability",
-      "watchfulness",
-      "quiet"
-    ],
-    "themes": [
-      "reflection",
-      "distortion"
-    ],
-    "symbols": [
-      "warped facade",
-      "rain puddle"
-    ],
-    "relations": [
-      "The puddle bends hard architectural lines into a wavering surface event."
-    ],
-    "tension": [
-      "solidity versus distortion",
-      "architecture versus weather"
-    ],
-    "density": "balanced",
-    "intensity": {
-      "instability": 0.82
-    },
-    "manipulation": "reflection"
-  },
-  {
-    "id": "img-021-020-abstractisimo-04",
-    "projectSlug": "020 - abstractisimo",
-    "src": "04.jpg",
-    "alt": "Curved park bench glowing in yellow light and shadow",
-    "primary": [
-      "curved bench",
-      "yellow glow",
-      "empty seat"
-    ],
-    "environment": [
-      "park",
-      "urban object"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "park"
-    ],
-    "dominant_colors": [
-      "yellow",
-      "brown",
-      "black"
-    ],
-    "color_mode": "color",
-    "shot_type": "detail",
-    "subject_scale": "close",
-    "style": [
-      "abstract observation",
-      "material study"
-    ],
-    "mood": [
-      "warmth",
-      "stillness",
-      "anticipation"
-    ],
-    "themes": [
-      "pause",
-      "curve"
-    ],
-    "symbols": [
-      "empty bench",
-      "curved slats"
-    ],
-    "relations": [
-      "Light turns the empty bench into a small theatrical object."
-    ],
-    "tension": [
-      "warmth versus emptiness",
-      "use versus abstraction"
-    ],
-    "density": "focused",
-    "intensity": {
-      "warmth": 0.75
-    }
-  },
-  {
-    "id": "img-021-020-abstractisimo-05",
-    "projectSlug": "020 - abstractisimo",
-    "src": "05.jpg",
-    "alt": "Rounded brick wall with a narrow arched opening",
-    "primary": [
-      "rounded wall",
-      "arched opening",
-      "brick curve"
-    ],
-    "environment": [
-      "architecture",
-      "outdoor"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "wall"
-    ],
-    "dominant_colors": [
-      "brown",
-      "gray"
-    ],
-    "color_mode": "color",
-    "shot_type": "medium",
-    "style": [
-      "abstract observation",
-      "material study"
-    ],
-    "mood": [
-      "weight",
-      "containment",
-      "silence"
-    ],
-    "themes": [
-      "structure",
-      "containment"
-    ],
-    "symbols": [
-      "arched void",
-      "brick skin"
-    ],
-    "relations": [
-      "The tiny opening punctures a wall that otherwise behaves like a continuous curve."
-    ],
-    "tension": [
-      "mass versus opening",
-      "protection versus access"
-    ],
-    "density": "balanced",
-    "intensity": {
-      "weight": 0.8
-    }
-  },
-  {
-    "id": "img-021-020-abstractisimo-06",
-    "projectSlug": "020 - abstractisimo",
-    "src": "06.jpg",
-    "alt": "Close-up of pale stone blocks fitted into dark mortar lines",
-    "primary": [
-      "stone grid",
-      "dark mortar",
-      "fitted blocks"
-    ],
-    "environment": [
-      "architectural detail",
-      "wall"
-    ],
-    "environment_type": [
-      "abstract",
-      "urban"
-    ],
-    "setting_type": [
-      "wall"
-    ],
-    "dominant_colors": [
-      "beige",
-      "gray",
-      "black"
-    ],
-    "color_mode": "color",
-    "shot_type": "detail",
-    "subject_scale": "close",
-    "style": [
-      "abstract observation",
-      "material study"
-    ],
-    "mood": [
-      "order",
-      "stillness",
-      "attention"
-    ],
-    "themes": [
-      "pattern",
-      "surface"
-    ],
-    "symbols": [
-      "mortar lines",
-      "stone grid"
-    ],
-    "relations": [
-      "The mortar lines do the drawing while the stone blocks hold the weight."
-    ],
-    "tension": [
-      "irregular stone versus strict grid",
-      "material weight versus graphic order"
-    ],
-    "density": "dense",
-    "intensity": {
-      "order": 0.79
-    }
-  },
-  {
-    "id": "img-021-020-abstractisimo-07",
-    "projectSlug": "020 - abstractisimo",
-    "src": "07.jpg",
-    "alt": "Row of weathered blue barrels leaning along an earthen slope",
-    "primary": [
-      "leaning barrels",
-      "blue row",
-      "industrial line"
-    ],
-    "environment": [
-      "industrial edge",
-      "outdoor"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "yard"
-    ],
-    "dominant_colors": [
-      "blue",
-      "brown",
-      "rust"
-    ],
-    "color_mode": "color",
-    "shot_type": "wide",
-    "style": [
-      "abstract observation",
-      "urban abstraction"
-    ],
-    "mood": [
-      "neglect",
-      "rhythm",
-      "dryness"
-    ],
-    "themes": [
-      "repetition",
-      "wear"
-    ],
-    "symbols": [
-      "blue barrels",
-      "leaning line"
-    ],
-    "relations": [
-      "The barrels lean together like a weathered procession along the slope."
-    ],
-    "tension": [
-      "industry versus erosion",
-      "order versus slump"
-    ],
-    "density": "balanced",
-    "intensity": {
-      "rhythm": 0.78
-    }
-  },
-  {
-    "id": "img-021-020-abstractisimo-08",
-    "projectSlug": "020 - abstractisimo",
-    "src": "08.jpg",
-    "alt": "Grid of rusted blue barrels stacked outdoors in dry grass",
-    "primary": [
-      "stacked barrels",
-      "blue grid",
-      "rust pattern"
-    ],
-    "environment": [
-      "industrial yard",
-      "outdoor"
-    ],
-    "environment_type": [
-      "outdoor",
-      "urban"
-    ],
-    "setting_type": [
-      "yard"
-    ],
-    "dominant_colors": [
-      "blue",
-      "brown",
-      "rust"
-    ],
-    "color_mode": "color",
-    "shot_type": "medium",
-    "style": [
-      "abstract observation",
-      "urban abstraction"
-    ],
-    "mood": [
-      "accumulation",
-      "wear",
-      "stillness"
-    ],
-    "themes": [
-      "pattern",
-      "wear"
-    ],
-    "symbols": [
-      "barrel wall",
-      "oxidized surface"
-    ],
-    "relations": [
-      "The stacked barrels turn industrial storage into a rusted color grid."
-    ],
-    "tension": [
-      "mass storage versus abstraction",
-      "utility versus pattern"
-    ],
-    "density": "dense",
-    "intensity": {
-      "accumulation": 0.8
-    }
-  },
-  {
     "id": "img-021-020-abstractisimo-09",
     "projectSlug": "020 - abstractisimo",
     "src": "09.jpg",
@@ -55006,65 +54693,1334 @@
     }
   },
   {
-    "id": "img-021-020-abstractisimo-10",
-    "projectSlug": "020 - abstractisimo",
-    "src": "10.jpg",
-    "alt": "Cable-stayed bridge mirrored symmetrically in still water",
-    "primary": [
-      "bridge reflection",
-      "still water",
-      "symmetrical span"
-    ],
-    "environment": [
-      "water edge",
-      "architecture"
+    "id": "img-021-020-quite-fency-01",
+    "projectSlug": "020 - quite fency",
+    "src": "01.jpg",
+    "alt": "Two older women sitting on stools behind a fence outside a pale station wall",
+    "caption": "",
+    "noise": [
+      "surface study"
     ],
     "environment_type": [
       "outdoor",
-      "urban",
-      "nature"
-    ],
-    "setting_type": [
-      "bridge",
-      "water edge"
-    ],
-    "dominant_colors": [
-      "blue",
-      "gold",
-      "green"
+      "urban"
     ],
     "color_mode": "color",
-    "shot_type": "wide",
-    "subject_scale": "wide",
     "style": [
-      "abstract observation",
+      "conceptual photography",
       "urban abstraction"
     ],
+    "density": "focused",
+    "primary": [
+      "two older women",
+      "fence screen",
+      "seated pause"
+    ],
+    "secondary": [
+      "small stools",
+      "pale wall",
+      "conversation"
+    ],
+    "environment": [
+      "fence",
+      "courtyard",
+      "architecture"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "red",
+      "gray",
+      "white"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
     "mood": [
-      "calm",
+      "waiting",
+      "distance",
+      "familiarity"
+    ],
+    "themes": [
+      "social life through barriers",
+      "public pause"
+    ],
+    "symbols": [
+      "fence grid",
+      "paired stools"
+    ],
+    "relations": [
+      "The fence keeps the women visible but inaccessible, turning a casual conversation into a screened tableau."
+    ],
+    "reading": [
+      "Human contact is observed through the logic of the barrier."
+    ],
+    "tension": [
+      "companionship versus separation"
+    ],
+    "intensity": {
+      "distance": 0.75
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-02",
+    "projectSlug": "020 - quite fency",
+    "src": "02.jpg",
+    "alt": "Private property sign fixed to a black iron fence in winter",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "private property sign",
+      "iron fence",
+      "winter barrier"
+    ],
+    "secondary": [
+      "snow traces",
+      "black spikes",
+      "urban boundary"
+    ],
+    "environment": [
+      "fence",
+      "street edge",
+      "outdoor"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "restriction",
+      "coldness",
+      "distance"
+    ],
+    "themes": [
+      "private territory",
+      "urban exclusion"
+    ],
+    "symbols": [
+      "warning sign",
+      "iron spikes"
+    ],
+    "relations": [
+      "The sign turns the fence into a spoken prohibition rather than a simple physical barrier."
+    ],
+    "reading": [
+      "Private property is framed here as both text and weapon-like silhouette."
+    ],
+    "tension": [
+      "public view versus private claim"
+    ],
+    "intensity": {
+      "restriction": 0.84
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-03",
+    "projectSlug": "020 - quite fency",
+    "src": "03.jpg",
+    "alt": "Private property sign mounted on a red brick wall behind blurred dark fence bars",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "private property sign",
+      "red brick wall",
+      "foreground bars"
+    ],
+    "secondary": [
+      "blurred fence",
+      "wall texture",
+      "territorial notice"
+    ],
+    "environment": [
+      "wall",
+      "fence",
+      "outdoor"
+    ],
+    "setting_type": [
+      "wall"
+    ],
+    "dominant_colors": [
+      "red",
+      "white",
+      "black"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "warning",
+      "hardness",
+      "closure"
+    ],
+    "themes": [
+      "layered exclusion",
+      "urban fortification"
+    ],
+    "symbols": [
+      "warning plaque",
+      "brick wall"
+    ],
+    "relations": [
+      "The blurred bars in front make the wall sign feel like one layer of refusal among several."
+    ],
+    "reading": [
+      "Property is enforced here by stacked surfaces and repeated signals."
+    ],
+    "tension": [
+      "message versus obstruction"
+    ],
+    "intensity": {
+      "closure": 0.83
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-04",
+    "projectSlug": "020 - quite fency",
+    "src": "04.jpg",
+    "alt": "Curved park bench glowing in yellow light and shadow",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "curved bench",
+      "yellow light",
+      "dark slats"
+    ],
+    "secondary": [
+      "empty seating",
+      "park design",
+      "sweeping line"
+    ],
+    "environment": [
+      "park",
+      "bench",
+      "outdoor"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "dominant_colors": [
+      "brown",
+      "gold",
+      "black"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "stillness",
+      "warmth",
+      "formality"
+    ],
+    "themes": [
+      "urban design",
+      "abstract curve"
+    ],
+    "symbols": [
+      "bench slats",
+      "sweeping curve"
+    ],
+    "relations": [
+      "The bench reads less as furniture than as a flowing line across the frame."
+    ],
+    "reading": [
+      "Useful design becomes sculptural pattern."
+    ],
+    "tension": [
+      "public use versus abstraction"
+    ],
+    "intensity": {
+      "form": 0.76
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-05",
+    "projectSlug": "020 - quite fency",
+    "src": "05.jpg",
+    "alt": "Monochrome sweep of bridge railings and cables curving into the distance",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "bridge railings",
+      "curving cables",
+      "monochrome structure"
+    ],
+    "secondary": [
+      "bridge underside",
+      "industrial rhythm",
+      "repetition"
+    ],
+    "environment": [
+      "bridge",
+      "architecture",
+      "city"
+    ],
+    "setting_type": [
+      "bridge"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray",
+      "white"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "discipline",
+      "gravity",
+      "abstraction"
+    ],
+    "themes": [
+      "structural rhythm",
+      "urban abstraction"
+    ],
+    "symbols": [
+      "cables",
+      "railings"
+    ],
+    "relations": [
+      "The bridge dissolves into repeating ribs and cables until structure becomes pattern."
+    ],
+    "reading": [
+      "An architectural form pushed toward near-abstraction."
+    ],
+    "tension": [
+      "engineering versus fluid rhythm"
+    ],
+    "intensity": {
+      "abstraction": 0.83
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-06",
+    "projectSlug": "020 - quite fency",
+    "src": "06.jpg",
+    "alt": "Close-up of a black wrought-iron curl with raindrops against a blurred beige background",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "wrought-iron curl",
+      "raindrops",
+      "black detail"
+    ],
+    "secondary": [
+      "blurred background",
+      "wet metal",
+      "ornamental hook"
+    ],
+    "environment": [
+      "fence",
+      "rain",
+      "outdoor"
+    ],
+    "setting_type": [
+      "barrier detail"
+    ],
+    "dominant_colors": [
+      "black",
+      "beige",
+      "blue"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "quietness",
       "precision",
-      "expanse"
+      "restraint"
+    ],
+    "themes": [
+      "ornament and control",
+      "weathered metal"
+    ],
+    "symbols": [
+      "iron curl",
+      "water drops"
+    ],
+    "relations": [
+      "Raindrops soften a hard iron detail without removing its defensive shape."
+    ],
+    "reading": [
+      "A boundary detail made tactile by weather."
+    ],
+    "tension": [
+      "ornament versus barrier"
+    ],
+    "intensity": {
+      "precision": 0.74
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-07",
+    "projectSlug": "020 - quite fency",
+    "src": "07.jpg",
+    "alt": "Pointed iron fence silhouetted against a winter sunset and bare trees",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "pointed fence",
+      "winter sunset",
+      "bare trees"
+    ],
+    "secondary": [
+      "silhouette",
+      "spiked barrier",
+      "urban skyline edge"
+    ],
+    "environment": [
+      "fence",
+      "sunset",
+      "city"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "black",
+      "gold",
+      "blue"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "severity",
+      "distance",
+      "solemnity"
+    ],
+    "themes": [
+      "barrier and landscape",
+      "urban twilight"
+    ],
+    "symbols": [
+      "spikes",
+      "bare branches"
+    ],
+    "relations": [
+      "The fence cuts the sunset into repeated dark points against winter light."
+    ],
+    "reading": [
+      "Evening beauty is held behind a graphic line of exclusion."
+    ],
+    "tension": [
+      "beauty versus restriction"
+    ],
+    "intensity": {
+      "severity": 0.82
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-08",
+    "projectSlug": "020 - quite fency",
+    "src": "08.jpg",
+    "alt": "Black iron fence spikes silhouetted against apartment windows and a blue sky",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "iron fence spikes",
+      "apartment windows",
+      "blue sky"
+    ],
+    "secondary": [
+      "black silhouette",
+      "residential block",
+      "vertical bars"
+    ],
+    "environment": [
+      "fence",
+      "residential facade",
+      "outdoor"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "black",
+      "blue",
+      "white"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "severity",
+      "distance",
+      "control"
+    ],
+    "themes": [
+      "urban confinement",
+      "residential exclusion"
+    ],
+    "symbols": [
+      "spikes",
+      "windows"
+    ],
+    "relations": [
+      "The apartment facade sits calmly behind the sharp fence, making ordinary housing look screened and inaccessible."
+    ],
+    "reading": [
+      "Domestic architecture is reframed as something viewed through a hostile threshold."
+    ],
+    "tension": [
+      "home versus barrier"
+    ],
+    "intensity": {
+      "severity": 0.81
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-09",
+    "projectSlug": "020 - quite fency",
+    "src": "09.jpg",
+    "alt": "Green branch pushing past black bars beside a rough concrete wall",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "green branch",
+      "black bars",
+      "rough wall"
+    ],
+    "secondary": [
+      "fresh leaves",
+      "concrete texture",
+      "small escape"
+    ],
+    "environment": [
+      "fence",
+      "wall",
+      "outdoor"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "green",
+      "gray",
+      "black"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "resilience",
+      "quiet resistance",
+      "freshness"
+    ],
+    "themes": [
+      "nature against control",
+      "minor freedom"
+    ],
+    "symbols": [
+      "branch",
+      "bars"
+    ],
+    "relations": [
+      "The branch slips outward from the bars and lets new growth interrupt the hard wall beside it."
+    ],
+    "reading": [
+      "A small image of escape inside a gallery built around barriers."
+    ],
+    "tension": [
+      "growth versus containment"
+    ],
+    "intensity": {
+      "resistance": 0.8
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-10",
+    "projectSlug": "020 - quite fency",
+    "src": "10.jpg",
+    "alt": "Blurred yellow and red tulips below a tall iron fence and pale stone wall",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "iron fence",
+      "tulip foreground",
+      "stone wall"
+    ],
+    "secondary": [
+      "yellow flowers",
+      "red flowers",
+      "institutional facade"
+    ],
+    "environment": [
+      "fence",
+      "garden edge",
+      "outdoor"
+    ],
+    "setting_type": [
+      "fence"
+    ],
+    "dominant_colors": [
+      "yellow",
+      "red",
+      "blue"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "distance",
+      "ornament",
+      "control"
+    ],
+    "themes": [
+      "beauty and barrier",
+      "cultivated exclusion"
+    ],
+    "symbols": [
+      "tulips",
+      "spikes"
+    ],
+    "relations": [
+      "Soft flowers fill the foreground while the fence rises behind them as the sharper organizing line."
+    ],
+    "reading": [
+      "The image pairs cultivated color with a rigid barrier and lets both occupy the same ornamental frame."
+    ],
+    "tension": [
+      "beauty versus restriction"
+    ],
+    "intensity": {
+      "contrast": 0.79
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-11",
+    "projectSlug": "020 - quite fency",
+    "src": "11.jpg",
+    "alt": "Long row of pale stone columns and ceiling bays receding through an empty arcade",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "stone columns",
+      "empty arcade",
+      "receding perspective"
+    ],
+    "secondary": [
+      "ceiling bays",
+      "pale facade",
+      "architectural rhythm"
+    ],
+    "environment": [
+      "arcade",
+      "architecture",
+      "city"
+    ],
+    "setting_type": [
+      "arcade"
+    ],
+    "dominant_colors": [
+      "beige",
+      "gray",
+      "white"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "stillness",
+      "discipline",
+      "distance"
+    ],
+    "themes": [
+      "architectural rhythm",
+      "public emptiness"
+    ],
+    "symbols": [
+      "columns",
+      "vanishing line"
+    ],
+    "relations": [
+      "The repeated columns and ceiling panels pull the eye down an empty corridor of measured space."
+    ],
+    "reading": [
+      "Classical architecture is treated here as a study in repetition and controlled depth."
+    ],
+    "tension": [
+      "monumentality versus emptiness"
+    ],
+    "intensity": {
+      "distance": 0.78
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-12",
+    "projectSlug": "020 - quite fency",
+    "src": "12.jpg",
+    "alt": "Rows of rusted curved rods repeating across a flat surface",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "rusted rods",
+      "curved repetition",
+      "industrial pattern"
+    ],
+    "secondary": [
+      "aged metal",
+      "repeating hooks",
+      "flat grid"
+    ],
+    "environment": [
+      "metal surface",
+      "industrial detail",
+      "outdoor"
+    ],
+    "setting_type": [
+      "industrial detail"
+    ],
+    "dominant_colors": [
+      "brown",
+      "rust",
+      "gray"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "discipline",
+      "decay",
+      "precision"
+    ],
+    "themes": [
+      "industrial rhythm",
+      "material repetition"
+    ],
+    "symbols": [
+      "curved rods",
+      "rust"
+    ],
+    "relations": [
+      "Each bent rod repeats the same gesture until rust and rhythm become the whole image."
+    ],
+    "reading": [
+      "A utilitarian surface becomes a patient study of repetition."
+    ],
+    "tension": [
+      "order versus decay"
+    ],
+    "intensity": {
+      "repetition": 0.78
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-13",
+    "projectSlug": "020 - quite fency",
+    "src": "13.jpg",
+    "alt": "Close-up of weathered yellow painted wooden planks",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "painted wood",
+      "yellow surface",
+      "vertical planks"
+    ],
+    "secondary": [
+      "peeling paint",
+      "weathered grain",
+      "aged texture"
+    ],
+    "environment": [
+      "wall",
+      "surface",
+      "outdoor"
+    ],
+    "setting_type": [
+      "wall"
+    ],
+    "dominant_colors": [
+      "yellow",
+      "brown",
+      "gray"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "wear",
+      "warmth",
+      "attention"
+    ],
+    "themes": [
+      "material aging",
+      "surface detail"
+    ],
+    "symbols": [
+      "peeling paint",
+      "wood grain"
+    ],
+    "relations": [
+      "The cracked paint reveals the wood beneath and turns decay into texture."
+    ],
+    "reading": [
+      "A wall surface treated as a record of time and weather."
+    ],
+    "tension": [
+      "color versus erosion"
+    ],
+    "intensity": {
+      "wear": 0.77
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-14",
+    "projectSlug": "020 - quite fency",
+    "src": "14.jpg",
+    "alt": "Distorted vertical reflections stretching across a rain puddle",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "vertical reflections",
+      "rain puddle",
+      "distorted surface"
+    ],
+    "secondary": [
+      "light streaks",
+      "wet ground",
+      "rippling mirror"
+    ],
+    "environment": [
+      "puddle",
+      "street",
+      "outdoor"
+    ],
+    "setting_type": [
+      "reflection"
+    ],
+    "dominant_colors": [
+      "gold",
+      "black",
+      "gray"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "instability",
+      "quietness",
+      "abstraction"
     ],
     "themes": [
       "reflection",
-      "structure"
+      "urban distortion"
     ],
     "symbols": [
-      "bridge twin",
-      "still water"
+      "mirror surface",
+      "vertical streaks"
     ],
     "relations": [
-      "The bridge and its reflection meet as nearly equal structures on either side of the waterline."
+      "The puddle breaks rigid vertical forms into wavering bands of light."
+    ],
+    "reading": [
+      "The city appears only as a trembling reflection."
     ],
     "tension": [
-      "engineering versus calm nature",
-      "weight versus mirror lightness"
+      "structure versus distortion"
     ],
-    "density": "balanced",
     "intensity": {
-      "calm": 0.81
-    },
-    "manipulation": "reflection"
+      "instability": 0.79
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-15",
+    "projectSlug": "020 - quite fency",
+    "src": "15.jpg",
+    "alt": "Close-up of white vent slats bending into a wave-like black-and-white pattern",
+    "caption": "",
+    "primary": [
+      "white vent slats",
+      "wavelike bend",
+      "black interior void"
+    ],
+    "secondary": [
+      "close detail",
+      "repeating fins",
+      "architectural vent"
+    ],
+    "noise": [
+      "surface study"
+    ],
+    "environment": [
+      "architecture",
+      "surface",
+      "urban"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "architectural detail"
+    ],
+    "dominant_colors": [
+      "white",
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "shot_type": "close",
+    "subject_scale": "close",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "mood": [
+      "precision",
+      "coolness",
+      "optical tension"
+    ],
+    "themes": [
+      "architectural rhythm",
+      "graphic abstraction"
+    ],
+    "symbols": [
+      "slats",
+      "void"
+    ],
+    "relations": [
+      "The vent curves just enough to turn hard slats into a soft wave across a dark opening."
+    ],
+    "reading": [
+      "A functional detail becomes a near-abstract black-and-white pattern."
+    ],
+    "tension": [
+      "rigid structure versus flowing line"
+    ],
+    "density": "focused",
+    "intensity": {
+      "graphic": 0.8
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-16",
+    "projectSlug": "020 - quite fency",
+    "src": "16.jpg",
+    "alt": "Wavy white pavement stripes bending across a black ground",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "wavy stripes",
+      "black ground",
+      "graphic rhythm"
+    ],
+    "secondary": [
+      "pavement marking",
+      "bending lines",
+      "striped field"
+    ],
+    "environment": [
+      "street",
+      "pavement",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "order",
+      "motion",
+      "optical tension"
+    ],
+    "themes": [
+      "graphic abstraction",
+      "urban rhythm"
+    ],
+    "symbols": [
+      "stripes",
+      "wave"
+    ],
+    "relations": [
+      "A simple street marking turns into an optical field of bending lines."
+    ],
+    "reading": [
+      "Public infrastructure reduced to pure graphic movement."
+    ],
+    "tension": [
+      "regulation versus drift"
+    ],
+    "intensity": {
+      "graphic": 0.81
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-17",
+    "projectSlug": "020 - quite fency",
+    "src": "17.jpg",
+    "alt": "Blue-tinted triangular glass facade patterned with black lines and brass nodes",
+    "caption": "",
+    "primary": [
+      "triangular glass grid",
+      "black lines",
+      "brass nodes"
+    ],
+    "secondary": [
+      "blue tint",
+      "facade pattern",
+      "diagonal structure"
+    ],
+    "noise": [
+      "surface study"
+    ],
+    "environment": [
+      "glass facade",
+      "architecture",
+      "city"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "facade"
+    ],
+    "dominant_colors": [
+      "blue",
+      "black",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "mood": [
+      "coolness",
+      "order",
+      "clarity"
+    ],
+    "themes": [
+      "geometric order",
+      "architectural skin"
+    ],
+    "symbols": [
+      "triangles",
+      "nodes"
+    ],
+    "relations": [
+      "The black grid and brass dots organize the blue glass into a taut geometric field."
+    ],
+    "reading": [
+      "Architecture is treated as a crisp matrix of lines, joints, and cool color."
+    ],
+    "tension": [
+      "transparency versus structure"
+    ],
+    "density": "focused",
+    "intensity": {
+      "order": 0.77
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-18",
+    "projectSlug": "020 - quite fency",
+    "src": "18.jpg",
+    "alt": "Reflections sliding across a glass facade of diamond-shaped panes and metal nodes",
+    "caption": "",
+    "primary": [
+      "glass reflections",
+      "diamond panes",
+      "metal nodes"
+    ],
+    "secondary": [
+      "curved reflection",
+      "building grid",
+      "blue-green glass"
+    ],
+    "noise": [
+      "surface study"
+    ],
+    "environment": [
+      "glass facade",
+      "reflection",
+      "city"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "facade"
+    ],
+    "dominant_colors": [
+      "blue",
+      "green",
+      "black"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "mood": [
+      "fluidity",
+      "coolness",
+      "complexity"
+    ],
+    "themes": [
+      "reflection",
+      "architectural skin"
+    ],
+    "symbols": [
+      "diamond grid",
+      "metal dots"
+    ],
+    "relations": [
+      "The reflected building bends across the diamond panes and loosens the grid without breaking it."
+    ],
+    "reading": [
+      "A rigid facade becomes unstable once reflection starts to move through it."
+    ],
+    "tension": [
+      "solid structure versus liquid reflection"
+    ],
+    "density": "focused",
+    "intensity": {
+      "fluidity": 0.79
+    }
+  },
+  {
+    "id": "img-021-020-quite-fency-19",
+    "projectSlug": "020 - quite fency",
+    "src": "19.jpg",
+    "alt": "Rusty chain looped through a weathered green padlock on a metal bar",
+    "caption": "",
+    "noise": [
+      "surface study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "conceptual photography",
+      "urban abstraction"
+    ],
+    "density": "focused",
+    "primary": [
+      "rusty chain",
+      "green padlock",
+      "locked bar"
+    ],
+    "secondary": [
+      "weathered metal",
+      "close detail",
+      "corroded surface"
+    ],
+    "environment": [
+      "barrier",
+      "metal",
+      "outdoor"
+    ],
+    "setting_type": [
+      "lock detail"
+    ],
+    "dominant_colors": [
+      "brown",
+      "green",
+      "gray"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "constraint",
+      "wear",
+      "severity"
+    ],
+    "themes": [
+      "access control",
+      "material decay"
+    ],
+    "symbols": [
+      "padlock",
+      "chain"
+    ],
+    "relations": [
+      "Corrosion and locking hardware combine to make control feel old, stubborn, and still active."
+    ],
+    "reading": [
+      "A small locking detail carries the full force of exclusion."
+    ],
+    "tension": [
+      "security versus decay"
+    ],
+    "intensity": {
+      "constraint": 0.82
+    }
   },
   {
     "id": "img-022-021-shadows-01",
@@ -56042,6 +56998,77 @@
     "density": "sparse",
     "intensity": {
       "uncertainty": 0.86
+    }
+  },
+  {
+    "id": "img-023-022-dont-stay-6",
+    "projectSlug": "022 - dont stay",
+    "src": "6.jpg",
+    "alt": "Seated man curled inside a fur-lined hood on a nighttime sidewalk beside empty bottles",
+    "caption": "",
+    "noise": [
+      "passing figure study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "night"
+    ],
+    "color_mode": "color",
+    "style": [
+      "street photography",
+      "movement study"
+    ],
+    "density": "focused",
+    "primary": [
+      "hooded man",
+      "empty bottles",
+      "night sidewalk"
+    ],
+    "secondary": [
+      "fur-lined hood",
+      "curled posture",
+      "street fatigue"
+    ],
+    "environment": [
+      "street",
+      "night",
+      "sidewalk"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "black",
+      "brown",
+      "gray"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "withdrawal",
+      "fatigue",
+      "isolation"
+    ],
+    "themes": [
+      "urban abandonment",
+      "night survival"
+    ],
+    "symbols": [
+      "bottles",
+      "hood"
+    ],
+    "relations": [
+      "The bottles and the curled body make the sidewalk feel like temporary shelter."
+    ],
+    "tension": [
+      "public exposure versus self-protection"
+    ],
+    "reading": [
+      "The movement series slows into a harder register of urban exhaustion."
+    ],
+    "intensity": {
+      "isolation": 0.86
     }
   },
   {
@@ -57173,71 +58200,3355 @@
     "id": "img-023-022-dont-stay-23",
     "projectSlug": "022 - dont stay",
     "src": "23.jpg",
-    "alt": "Seated man curled inside a fur-lined hood on a nighttime sidewalk beside empty bottles",
-    "primary": [
-      "hooded sleeper",
-      "night bench",
-      "street exhaustion"
-    ],
-    "secondary": [
-      "empty bottles",
-      "fur-lined hood",
-      "quiet sidewalk"
-    ],
+    "alt": "Woman with an I Love Torun tote passing a blonde woman on a pedestrian bridge above traffic",
+    "caption": "",
     "noise": [
-      "night afterlife"
-    ],
-    "environment": [
-      "street",
-      "night",
-      "city"
+      "passing figure study"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
+    "color_mode": "color",
+    "style": [
+      "street photography",
+      "movement study"
+    ],
+    "density": "focused",
+    "primary": [
+      "pedestrian bridge crossing",
+      "tote bag slogan",
+      "passing women"
+    ],
+    "secondary": [
+      "blonde woman",
+      "traffic below",
+      "mid-stride encounter"
+    ],
+    "environment": [
+      "pedestrian bridge",
+      "street",
+      "traffic"
+    ],
     "setting_type": [
-      "sidewalk"
+      "bridge"
     ],
     "dominant_colors": [
-      "yellow",
-      "brown",
+      "gray",
+      "black",
+      "blue"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "transit",
+      "distance",
+      "brief contact"
+    ],
+    "themes": [
+      "passing figures",
+      "urban crossing"
+    ],
+    "symbols": [
+      "tote bag",
+      "bridge rail"
+    ],
+    "relations": [
+      "The slogan flashes as one woman passes another without any real meeting."
+    ],
+    "tension": [
+      "contact versus anonymity"
+    ],
+    "reading": [
+      "The gallery returns to people moving past each other without settling."
+    ],
+    "intensity": {
+      "transit": 0.77
+    }
+  },
+  {
+    "id": "img-023-022-dont-stay-24",
+    "projectSlug": "022 - dont stay",
+    "src": "24.jpg",
+    "alt": "Overhead black-and-white street scene with a cyclist, pedestrians, and a Zbawiciela sign",
+    "caption": "",
+    "noise": [
+      "passing figure study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "street photography",
+      "movement study"
+    ],
+    "density": "focused",
+    "primary": [
+      "overhead street scene",
+      "cyclist",
+      "pedestrian spread"
+    ],
+    "secondary": [
+      "street sign",
+      "crossing paths",
+      "black-and-white view"
+    ],
+    "environment": [
+      "street",
+      "intersection",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "distance",
+      "circulation",
+      "observation"
+    ],
+    "themes": [
+      "urban flow",
+      "overhead mapping"
+    ],
+    "symbols": [
+      "cyclist",
+      "street sign"
+    ],
+    "relations": [
+      "From above, the cyclist and pedestrians become separate currents in one ordered field."
+    ],
+    "tension": [
+      "individual paths versus shared grid"
+    ],
+    "reading": [
+      "A more diagrammatic view of public motion."
+    ],
+    "intensity": {
+      "observation": 0.78
+    }
+  },
+  {
+    "id": "img-023-022-dont-stay-Urban DSC_0080 walking sign 0330",
+    "projectSlug": "022 - dont stay",
+    "src": "Urban DSC_0080 walking sign 0330.jpg",
+    "alt": "Overhead view of a bundled pedestrian walking past a blue crossing sign while holding a phone",
+    "caption": "",
+    "noise": [
+      "passing figure study"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "color_mode": "color",
+    "style": [
+      "street photography",
+      "movement study"
+    ],
+    "density": "focused",
+    "primary": [
+      "bundled pedestrian",
+      "blue crossing sign",
+      "phone in hand"
+    ],
+    "secondary": [
+      "overhead street view",
+      "winter pavement",
+      "mid-stride motion"
+    ],
+    "environment": [
+      "street",
+      "crosswalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "blue",
+      "gray",
       "black"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "transit",
+      "coolness",
+      "distance"
+    ],
+    "themes": [
+      "urban movement",
+      "sign and body"
+    ],
+    "symbols": [
+      "crossing sign",
+      "phone"
+    ],
+    "relations": [
+      "The real pedestrian moves beside an official walking icon, turning the street into a small double image of motion."
+    ],
+    "reading": [
+      "The gallery folds a passing body together with the graphic language that directs it."
+    ],
+    "tension": [
+      "lived movement versus regulated movement"
+    ],
+    "intensity": {
+      "transit": 0.78
+    }
+  },
+  {
+    "id": "img-024-023-palace-01",
+    "projectSlug": "023 - palace",
+    "src": "01.jpg",
+    "alt": "Palace of Culture and Science clock tower rising above Warsaw under a stormy sky",
+    "primary": [
+      "clock tower",
+      "landmark portrait",
+      "storm light"
+    ],
+    "secondary": [
+      "modern tower",
+      "tilted frame",
+      "gray sky"
+    ],
+    "noise": [
+      "architectural portrait"
+    ],
+    "environment": [
+      "city",
+      "architecture",
+      "skyline"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "gray",
+      "beige",
+      "blue"
     ],
     "color_mode": "color",
     "shot_type": "medium",
     "subject_scale": "medium",
     "style": [
-      "movement-led street photography",
-      "humanist observation"
+      "architectural observation",
+      "urban landmark study"
     ],
     "mood": [
-      "exhaustion",
-      "withdrawal",
-      "night cold"
+      "solemnity",
+      "elevation",
+      "tension"
     ],
     "themes": [
-      "stoppage",
-      "urban fatigue"
+      "monument",
+      "urban memory"
     ],
     "symbols": [
-      "fur hood",
-      "empty bottles",
-      "bench edge"
+      "clock face",
+      "spire"
     ],
     "relations": [
-      "After a gallery of walking bodies, the bent figure marks a hard stop at the edge of the street."
+      "The tower stands slightly tilted against a bruised sky, making the landmark feel both stable and exposed."
     ],
     "tension": [
-      "rest versus collapse",
-      "public exposure versus self-protection"
+      "monumentality versus weather",
+      "historic tower versus modern skyline"
     ],
     "reading": [
-      "The series ends on a body that can no longer keep moving, turning pause into a form of vulnerability."
+      "The image treats the Palace less as a postcard icon than as a watchful vertical body inside a volatile sky."
     ],
     "density": "focused",
     "intensity": {
-      "exhaustion": 0.88
+      "solemnity": 0.82
+    }
+  },
+  {
+    "id": "img-024-023-palace-02",
+    "projectSlug": "023 - palace",
+    "src": "02.jpg",
+    "alt": "Palace of Culture and Science rising behind demolition rubble under a yellow sky",
+    "primary": [
+      "demolition rubble",
+      "clock tower",
+      "historic persistence"
+    ],
+    "secondary": [
+      "yellow sky",
+      "broken concrete",
+      "construction debris"
+    ],
+    "noise": [
+      "demolition frame"
+    ],
+    "environment": [
+      "construction site",
+      "city",
+      "architecture"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "construction site"
+    ],
+    "dominant_colors": [
+      "yellow",
+      "brown",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "architectural observation",
+      "urban landmark study"
+    ],
+    "mood": [
+      "collision",
+      "unease",
+      "survival"
+    ],
+    "themes": [
+      "urban change",
+      "monument"
+    ],
+    "symbols": [
+      "rubble",
+      "clock tower"
+    ],
+    "relations": [
+      "The broken foreground turns the Palace into a survivor rising behind the city's ongoing erasure."
+    ],
+    "tension": [
+      "destruction versus endurance",
+      "new city versus old emblem"
+    ],
+    "reading": [
+      "The tower reads as both witness and remainder when seen above fresh demolition."
+    ],
+    "density": "dense",
+    "intensity": {
+      "unease": 0.84
+    },
+    "manipulation": "color cast"
+  },
+  {
+    "id": "img-024-023-palace-03",
+    "projectSlug": "023 - palace",
+    "src": "03.jpg",
+    "alt": "Hard Rock Cafe guitar sign standing in front of the Palace of Culture and Science",
+    "primary": [
+      "guitar sign",
+      "clock tower",
+      "commercial landmark"
+    ],
+    "secondary": [
+      "Hard Rock logo",
+      "gray sky",
+      "street icon"
+    ],
+    "noise": [
+      "signage contrast"
+    ],
+    "environment": [
+      "street",
+      "city",
+      "architecture"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "dominant_colors": [
+      "red",
+      "brown",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "urban observation",
+      "landmark juxtaposition"
+    ],
+    "mood": [
+      "irony",
+      "spectacle",
+      "play"
+    ],
+    "themes": [
+      "commercial image",
+      "monument"
+    ],
+    "symbols": [
+      "guitar sign",
+      "clock tower"
+    ],
+    "relations": [
+      "The giant guitar competes with the Palace, turning two kinds of urban branding into a single vertical duet."
+    ],
+    "tension": [
+      "commerce versus civic monument",
+      "novelty versus permanence"
+    ],
+    "reading": [
+      "The frame makes Warsaw's landmark share the stage with imported spectacle rather than dominate it."
+    ],
+    "density": "focused",
+    "intensity": {
+      "spectacle": 0.78
+    }
+  },
+  {
+    "id": "img-024-023-palace-04",
+    "projectSlug": "023 - palace",
+    "src": "04.jpg",
+    "alt": "White outline of the Palace of Culture and Science on blue glass with the real spire behind",
+    "primary": [
+      "glass reflection",
+      "white silhouette",
+      "real spire"
+    ],
+    "secondary": [
+      "blue facade",
+      "graphic outline",
+      "double tower"
+    ],
+    "noise": [
+      "reflection study"
+    ],
+    "environment": [
+      "storefront",
+      "city",
+      "reflection"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "storefront"
+    ],
+    "dominant_colors": [
+      "blue",
+      "white",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "architectural observation",
+      "reflection study"
+    ],
+    "mood": [
+      "doubling",
+      "precision",
+      "lightness"
+    ],
+    "themes": [
+      "representation",
+      "urban memory"
+    ],
+    "symbols": [
+      "white silhouette",
+      "blue glass"
+    ],
+    "relations": [
+      "The printed outline and the real spire overlap until the landmark appears as both icon and physical structure."
+    ],
+    "tension": [
+      "image versus building",
+      "graphic flatness versus depth"
+    ],
+    "reading": [
+      "The Palace becomes a logo of itself before it returns as architecture behind the glass."
+    ],
+    "density": "focused",
+    "intensity": {
+      "doubling": 0.81
+    },
+    "manipulation": "reflection"
+  },
+  {
+    "id": "img-024-023-palace-05",
+    "projectSlug": "023 - palace",
+    "src": "05.jpg",
+    "alt": "Blurred Palace of Culture and Science seen through a rain-covered window",
+    "primary": [
+      "rain-covered glass",
+      "blurred tower",
+      "weather veil"
+    ],
+    "secondary": [
+      "water droplets",
+      "soft focus",
+      "gray sky"
+    ],
+    "noise": [
+      "rain screen"
+    ],
+    "environment": [
+      "window",
+      "city",
+      "weather"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "brown"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "atmospheric observation",
+      "landmark study"
+    ],
+    "mood": [
+      "distance",
+      "melancholy",
+      "softness"
+    ],
+    "themes": [
+      "weather",
+      "urban memory"
+    ],
+    "symbols": [
+      "raindrops",
+      "blurred tower"
+    ],
+    "relations": [
+      "The rain takes focus away from the Palace and makes weather the true subject through which the landmark must be remembered."
+    ],
+    "tension": [
+      "clarity versus obscurity",
+      "monument versus atmosphere"
+    ],
+    "reading": [
+      "Seen through water, the tower becomes less an object than a memory struggling to stay visible."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "melancholy": 0.83
+    },
+    "manipulation": "rain"
+  },
+  {
+    "id": "img-024-023-palace-06",
+    "projectSlug": "023 - palace",
+    "src": "06.jpg",
+    "alt": "Palace of Culture and Science framed between glass towers and a ruined concrete building",
+    "primary": [
+      "ruined facade",
+      "clock tower",
+      "glass towers"
+    ],
+    "secondary": [
+      "broken windows",
+      "modern office blocks",
+      "construction scar"
+    ],
+    "noise": [
+      "urban contrast"
+    ],
+    "environment": [
+      "city",
+      "architecture",
+      "construction edge"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "construction site"
+    ],
+    "dominant_colors": [
+      "beige",
+      "blue",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "urban landmark study"
+    ],
+    "mood": [
+      "friction",
+      "transition",
+      "exposure"
+    ],
+    "themes": [
+      "urban change",
+      "old and new"
+    ],
+    "symbols": [
+      "ruined facade",
+      "clock tower"
+    ],
+    "relations": [
+      "The damaged building and slick towers squeeze the Palace into a narrow slot between ruin and redevelopment."
+    ],
+    "tension": [
+      "decay versus redevelopment",
+      "landmark continuity versus urban replacement"
+    ],
+    "reading": [
+      "The landmark survives here not in isolation but inside a harsh argument between demolition and glass capital."
+    ],
+    "density": "dense",
+    "intensity": {
+      "friction": 0.85
+    }
+  },
+  {
+    "id": "img-024-023-palace-07",
+    "projectSlug": "023 - palace",
+    "src": "07.jpg",
+    "alt": "Palace of Culture and Science and a blue high-rise seen through a metal fence",
+    "primary": [
+      "clock tower",
+      "metal fence",
+      "modern high-rise"
+    ],
+    "secondary": [
+      "foreground bars",
+      "apartment roofs",
+      "blue facade"
+    ],
+    "noise": [
+      "framed view"
+    ],
+    "environment": [
+      "city",
+      "architecture",
+      "residential edge"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "blue",
+      "beige",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "framed urban view"
+    ],
+    "mood": [
+      "distance",
+      "containment",
+      "watchfulness"
+    ],
+    "themes": [
+      "barrier",
+      "urban memory"
+    ],
+    "symbols": [
+      "fence bars",
+      "clock face"
+    ],
+    "relations": [
+      "The fence bars interrupt the view and make the Palace feel simultaneously public, distant, and withheld."
+    ],
+    "tension": [
+      "access versus separation",
+      "landmark clarity versus obstruction"
+    ],
+    "reading": [
+      "The city landmark is fully visible and yet still kept at a remove by ordinary urban barriers."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "distance": 0.79
+    }
+  },
+  {
+    "id": "img-024-023-palace-08",
+    "projectSlug": "023 - palace",
+    "src": "08.jpg",
+    "alt": "Palace of Culture and Science clock tower beside a billboard for The Traitors",
+    "primary": [
+      "billboard",
+      "clock tower",
+      "media spectacle"
+    ],
+    "secondary": [
+      "The Traitors sign",
+      "gray sky",
+      "monochrome tower"
+    ],
+    "noise": [
+      "advertising clash"
+    ],
+    "environment": [
+      "street",
+      "billboard",
+      "city"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "billboard"
+    ],
+    "dominant_colors": [
+      "black",
+      "blue",
+      "gray"
+    ],
+    "color_mode": "color",
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "style": [
+      "urban observation",
+      "landmark juxtaposition"
+    ],
+    "mood": [
+      "intrusion",
+      "irony",
+      "competition"
+    ],
+    "themes": [
+      "media image",
+      "monument"
+    ],
+    "symbols": [
+      "billboard frame",
+      "clock tower"
+    ],
+    "relations": [
+      "The billboard edge and the tower compete for authority, as if entertainment branding were trying to overwrite civic time."
+    ],
+    "tension": [
+      "advertising versus monument",
+      "spectacle versus permanence"
+    ],
+    "reading": [
+      "The Palace remains legible, but only after pushing through the noisy demand of the billboard beside it."
+    ],
+    "density": "focused",
+    "intensity": {
+      "intrusion": 0.82
+    }
+  },
+  {
+    "id": "img-024-023-palace-09",
+    "projectSlug": "023 - palace",
+    "src": "09.jpg",
+    "alt": "Warsaw skyline under low clouds with the Palace of Culture and Science at right",
+    "primary": [
+      "Warsaw skyline",
+      "low clouds",
+      "landmark distance"
+    ],
+    "secondary": [
+      "roofline",
+      "business towers",
+      "blue opening"
+    ],
+    "noise": [
+      "panoramic cityscape"
+    ],
+    "environment": [
+      "skyline",
+      "city",
+      "rooftop"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "beige"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "cityscape"
+    ],
+    "mood": [
+      "expanse",
+      "coolness",
+      "suspension"
+    ],
+    "themes": [
+      "skyline",
+      "urban memory"
+    ],
+    "symbols": [
+      "cloud band",
+      "isolated tower"
+    ],
+    "relations": [
+      "The Palace stands at the skyline edge while low clouds flatten the rest of the city into a temporary weather front."
+    ],
+    "tension": [
+      "monument versus skyline field",
+      "clear landmark versus unstable weather"
+    ],
+    "reading": [
+      "The tower becomes a fixed vertical note inside a city that otherwise feels washed into one atmospheric plane."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "expanse": 0.78
+    }
+  },
+  {
+    "id": "img-024-023-palace-10",
+    "projectSlug": "023 - palace",
+    "src": "10.jpg",
+    "alt": "Palace of Culture and Science glowing in late light among the Warsaw skyline",
+    "primary": [
+      "golden skyline",
+      "landmark tower",
+      "late light"
+    ],
+    "secondary": [
+      "high-rises",
+      "roofline",
+      "warm facades"
+    ],
+    "noise": [
+      "evening cityscape"
+    ],
+    "environment": [
+      "skyline",
+      "city",
+      "rooftop"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "gold",
+      "blue",
+      "beige"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "cityscape"
+    ],
+    "mood": [
+      "clarity",
+      "warmth",
+      "poise"
+    ],
+    "themes": [
+      "skyline",
+      "urban monument"
+    ],
+    "symbols": [
+      "late light",
+      "tower silhouette"
+    ],
+    "relations": [
+      "The late sun lets the Palace hold its own among newer towers without losing its older weight."
+    ],
+    "tension": [
+      "historic emblem versus contemporary skyline",
+      "warm light versus hard geometry"
+    ],
+    "reading": [
+      "Rather than dominate the skyline, the Palace enters it as one strong note in a broader urban chord."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "clarity": 0.8
+    }
+  },
+  {
+    "id": "img-024-023-palace-11",
+    "projectSlug": "023 - palace",
+    "src": "11.jpg",
+    "alt": "Sunstar over the Warsaw skyline with the Palace of Culture and Science in silhouette",
+    "primary": [
+      "sunstar",
+      "sunset skyline",
+      "tower silhouette"
+    ],
+    "secondary": [
+      "tilted horizon",
+      "roofline",
+      "darkening city"
+    ],
+    "noise": [
+      "sun flare"
+    ],
+    "environment": [
+      "sunset skyline",
+      "city",
+      "rooftop"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "gold",
+      "black",
+      "blue"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "atmospheric cityscape"
+    ],
+    "mood": [
+      "drama",
+      "release",
+      "distance"
+    ],
+    "themes": [
+      "time",
+      "evening transition"
+    ],
+    "symbols": [
+      "sunstar",
+      "silhouette tower"
+    ],
+    "relations": [
+      "The burst of sun turns the skyline into a brief stage where the Palace appears as a dark final punctuation mark."
+    ],
+    "tension": [
+      "daylight versus nightfall",
+      "flare versus silhouette"
+    ],
+    "reading": [
+      "The tower is least descriptive here and most symbolic, reduced to a vertical sign at the edge of sunset."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "drama": 0.84
+    },
+    "manipulation": "lens flare"
+  },
+  {
+    "id": "img-024-023-palace-12",
+    "projectSlug": "023 - palace",
+    "src": "12.jpg",
+    "alt": "Illuminated clock faces of the Palace of Culture and Science at night",
+    "primary": [
+      "illuminated clock faces",
+      "night tower",
+      "dark sky"
+    ],
+    "secondary": [
+      "two clock faces",
+      "spire",
+      "black background"
+    ],
+    "noise": [
+      "night close-up"
+    ],
+    "environment": [
+      "architecture",
+      "night",
+      "sky"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "night"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gold"
+    ],
+    "color_mode": "color",
+    "shot_type": "close",
+    "subject_scale": "close",
+    "style": [
+      "architectural observation",
+      "night study"
+    ],
+    "mood": [
+      "solemnity",
+      "focus",
+      "stillness"
+    ],
+    "themes": [
+      "time",
+      "monument"
+    ],
+    "symbols": [
+      "clock faces",
+      "lit crown"
+    ],
+    "relations": [
+      "At night the twin clocks isolate the tower's function as a keeper of time more than a keeper of space."
+    ],
+    "tension": [
+      "darkness versus illumination",
+      "distance versus precision"
+    ],
+    "reading": [
+      "The close crop strips the Palace down to time, light, and the insistence of visibility in darkness."
+    ],
+    "density": "focused",
+    "intensity": {
+      "stillness": 0.82
+    }
+  },
+  {
+    "id": "img-024-023-palace-DSCF3907a",
+    "projectSlug": "023 - palace",
+    "src": "DSCF3907a.jpg",
+    "alt": "Warsaw skyline in violet haze with the Palace of Culture and Science rising above winter rooftops",
+    "caption": "",
+    "noise": [
+      "atmospheric skyline"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "color_mode": "color",
+    "style": [
+      "architectural observation",
+      "urban landmark study"
+    ],
+    "density": "focused",
+    "primary": [
+      "Warsaw skyline",
+      "violet haze",
+      "Palace tower"
+    ],
+    "secondary": [
+      "winter rooftops",
+      "distant high-rises",
+      "soft dusk"
+    ],
+    "environment": [
+      "skyline",
+      "city",
+      "rooftop"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "violet",
+      "blue",
+      "beige"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "mood": [
+      "distance",
+      "stillness",
+      "atmosphere"
+    ],
+    "themes": [
+      "urban memory",
+      "landmark distance"
+    ],
+    "symbols": [
+      "tower silhouette",
+      "roofscape"
+    ],
+    "relations": [
+      "The Palace rises through violet haze and becomes the clearest vertical note in a softened cityscape."
+    ],
+    "reading": [
+      "The landmark appears less monumental than atmospheric, suspended inside winter dusk."
+    ],
+    "tension": [
+      "clarity versus haze"
+    ],
+    "intensity": {
+      "atmosphere": 0.79
+    }
+  },
+  {
+    "id": "img-024-023-palace-urban-dsc-0453",
+    "projectSlug": "023 - palace",
+    "src": "urban DSC_0453.jpg",
+    "alt": "Warsaw skyline silhouetted at sunset with the Palace of Culture and Science at the right edge",
+    "caption": "",
+    "primary": [
+      "sunset skyline",
+      "Palace silhouette",
+      "dark high-rises"
+    ],
+    "secondary": [
+      "golden horizon",
+      "city outline",
+      "evening cloud band"
+    ],
+    "noise": [
+      "sunset skyline"
+    ],
+    "environment": [
+      "skyline",
+      "city",
+      "rooftop"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "skyline"
+    ],
+    "dominant_colors": [
+      "gold",
+      "black",
+      "blue"
+    ],
+    "color_mode": "color",
+    "shot_type": "wide",
+    "subject_scale": "wide",
+    "style": [
+      "architectural observation",
+      "urban landmark study"
+    ],
+    "mood": [
+      "drama",
+      "distance",
+      "stillness"
+    ],
+    "themes": [
+      "urban memory",
+      "landmark silhouette"
+    ],
+    "symbols": [
+      "tower silhouette",
+      "sunset horizon"
+    ],
+    "relations": [
+      "The Palace holds the far right edge while the rest of the skyline sinks into dark evening silhouette."
+    ],
+    "reading": [
+      "The landmark appears here as one dark note inside a broader sunset cityscape."
+    ],
+    "tension": [
+      "glow versus silhouette"
+    ],
+    "density": "focused",
+    "intensity": {
+      "drama": 0.82
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-01",
+    "projectSlug": "024 - dust bw",
+    "src": "01.jpg",
+    "alt": "Overhead view of a masked woman in a zebra-striped coat walking across stone pavement",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "zebra coat",
+      "masked walker",
+      "overhead crossing"
+    ],
+    "secondary": [
+      "stone pavement",
+      "graphic pattern",
+      "winter stride"
+    ],
+    "environment": [
+      "street",
+      "pavement",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "distance",
+      "alertness",
+      "surveillance"
+    ],
+    "themes": [
+      "urban anonymity",
+      "surface pattern"
+    ],
+    "symbols": [
+      "mask",
+      "animal print"
+    ],
+    "relations": [
+      "Pattern turns the passerby into a moving sign on bare pavement."
+    ],
+    "tension": [
+      "camouflage versus display"
+    ],
+    "reading": [
+      "An overhead study of disguise and display."
+    ],
+    "intensity": {
+      "distance": 0.77
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-02",
+    "projectSlug": "024 - dust bw",
+    "src": "02.jpg",
+    "alt": "Older violinist playing on the street in front of a currency exchange kiosk",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "street violinist",
+      "currency kiosk",
+      "public performance"
+    ],
+    "secondary": [
+      "older musician",
+      "winter sidewalk",
+      "passing economy"
+    ],
+    "environment": [
+      "street",
+      "storefront",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "concentration",
+      "dignity",
+      "melancholy"
+    ],
+    "themes": [
+      "labor in public",
+      "fragile performance"
+    ],
+    "symbols": [
+      "violin",
+      "exchange sign"
+    ],
+    "relations": [
+      "Music and money share the same strip of sidewalk."
+    ],
+    "tension": [
+      "art versus commerce"
+    ],
+    "reading": [
+      "A small performance holding its ground against hard signage."
+    ],
+    "intensity": {
+      "concentration": 0.8
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-03",
+    "projectSlug": "024 - dust bw",
+    "src": "03.jpg",
+    "alt": "Man in a loose raincoat striding past a trash bin beneath a McDonalds sign",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "striding man",
+      "trash bin",
+      "fast passage"
+    ],
+    "secondary": [
+      "raincoat",
+      "McDonalds sign",
+      "street edge"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "storefront"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "restlessness",
+      "abrasion",
+      "momentum"
+    ],
+    "themes": [
+      "urban speed",
+      "commercial backdrop"
+    ],
+    "symbols": [
+      "trash bin",
+      "fast-food sign"
+    ],
+    "relations": [
+      "A hurried body cuts through waste and brand language."
+    ],
+    "tension": [
+      "movement versus clutter"
+    ],
+    "reading": [
+      "Everyday city friction condensed into one blunt stride."
+    ],
+    "intensity": {
+      "friction": 0.78
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-04",
+    "projectSlug": "024 - dust bw",
+    "src": "04.jpg",
+    "alt": "Person fishing on a sandy bank with a bent rod against an empty horizon",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "lone fisher",
+      "bent rod",
+      "open horizon"
+    ],
+    "secondary": [
+      "sandy bank",
+      "small body",
+      "waiting posture"
+    ],
+    "environment": [
+      "shore",
+      "water",
+      "outdoor"
+    ],
+    "setting_type": [
+      "shore"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "small",
+    "mood": [
+      "patience",
+      "solitude",
+      "quiet"
+    ],
+    "themes": [
+      "waiting",
+      "human scale"
+    ],
+    "symbols": [
+      "fishing rod",
+      "empty horizon"
+    ],
+    "relations": [
+      "The figure leans into effort while the horizon gives almost nothing back."
+    ],
+    "tension": [
+      "effort versus emptiness"
+    ],
+    "reading": [
+      "Leisure turned into a sparse study of persistence."
+    ],
+    "intensity": {
+      "quiet": 0.74
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-05",
+    "projectSlug": "024 - dust bw",
+    "src": "05.jpg",
+    "alt": "Bearded man in sunglasses and a fur hat facing the camera in winter light",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "fur hat portrait",
+      "bearded man",
+      "direct gaze"
+    ],
+    "secondary": [
+      "sunglasses",
+      "winter light",
+      "weathered face"
+    ],
+    "environment": [
+      "street",
+      "outdoor",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "defiance",
+      "self-possession",
+      "stillness"
+    ],
+    "themes": [
+      "street portraiture",
+      "public presence"
+    ],
+    "symbols": [
+      "fur hat",
+      "dark glasses"
+    ],
+    "relations": [
+      "The frontal pose turns the portrait into an assertion."
+    ],
+    "tension": [
+      "opacity versus presence"
+    ],
+    "reading": [
+      "A face armored by costume and attitude."
+    ],
+    "intensity": {
+      "presence": 0.84
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-06",
+    "projectSlug": "024 - dust bw",
+    "src": "06.jpg",
+    "alt": "Two children sharing a round swing in a shaded playground",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "children on swing",
+      "shared play",
+      "round basket"
+    ],
+    "secondary": [
+      "playground shade",
+      "paired bodies",
+      "summer pause"
+    ],
+    "environment": [
+      "playground",
+      "park",
+      "outdoor"
+    ],
+    "setting_type": [
+      "playground"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "tenderness",
+      "calm",
+      "trust"
+    ],
+    "themes": [
+      "childhood",
+      "shared balance"
+    ],
+    "symbols": [
+      "swing",
+      "circle"
+    ],
+    "relations": [
+      "The circular swing holds both children in one shared zone."
+    ],
+    "tension": [
+      "motion versus stillness"
+    ],
+    "reading": [
+      "A brief image of companionship and suspension."
+    ],
+    "intensity": {
+      "tenderness": 0.76
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-07",
+    "projectSlug": "024 - dust bw",
+    "src": "07.jpg",
+    "alt": "Dark-haired man peering around a wall toward a smiling woman in a knit hat",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "peering man",
+      "smiling woman",
+      "partial reveal"
+    ],
+    "secondary": [
+      "wall edge",
+      "knit hat",
+      "sideways glance"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "playfulness",
+      "curiosity",
+      "hesitation"
+    ],
+    "themes": [
+      "brief encounter",
+      "urban theater"
+    ],
+    "symbols": [
+      "wall edge",
+      "half-seen face"
+    ],
+    "relations": [
+      "The wall splits the image into pursuit and response."
+    ],
+    "tension": [
+      "hidden versus visible"
+    ],
+    "reading": [
+      "Flirtation and uncertainty meet at the edge of a wall."
+    ],
+    "intensity": {
+      "playfulness": 0.73
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-08",
+    "projectSlug": "024 - dust bw",
+    "src": "08.jpg",
+    "alt": "Man and woman leaning toward each other in conversation on a city sidewalk",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "close conversation",
+      "paired figures",
+      "leaning bodies"
+    ],
+    "secondary": [
+      "sidewalk edge",
+      "street talk",
+      "mid-gesture pause"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "attention",
+      "intimacy",
+      "absorption"
+    ],
+    "themes": [
+      "human contact",
+      "urban conversation"
+    ],
+    "symbols": [
+      "inclined bodies",
+      "shared axis"
+    ],
+    "relations": [
+      "Both figures bend inward and create a temporary private zone."
+    ],
+    "tension": [
+      "public space versus private attention"
+    ],
+    "reading": [
+      "The street briefly stops being only a place of circulation."
+    ],
+    "intensity": {
+      "absorption": 0.75
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-09",
+    "projectSlug": "024 - dust bw",
+    "src": "09.jpg",
+    "alt": "Young man in a quilted jacket staring ahead while an older man stands blurred behind him",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "young man portrait",
+      "fixed stare",
+      "blurred elder"
+    ],
+    "secondary": [
+      "quilted jacket",
+      "layered depth",
+      "street pause"
+    ],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "detachment",
+      "thoughtfulness",
+      "distance"
+    ],
+    "themes": [
+      "generational layering",
+      "urban solitude"
+    ],
+    "symbols": [
+      "blurred witness",
+      "frontal gaze"
+    ],
+    "relations": [
+      "The younger face holds focus while the older figure recedes behind it."
+    ],
+    "tension": [
+      "focus versus blur",
+      "youth versus age"
+    ],
+    "reading": [
+      "A split image of separate temporalities on one street."
+    ],
+    "intensity": {
+      "distance": 0.79
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-10",
+    "projectSlug": "024 - dust bw",
+    "src": "10.jpg",
+    "alt": "Woman sitting alone beside an empty cafe table at night",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "night"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "woman alone",
+      "empty cafe table",
+      "night waiting"
+    ],
+    "secondary": [
+      "glass storefront",
+      "vacant chair",
+      "street quiet"
+    ],
+    "environment": [
+      "cafe terrace",
+      "night",
+      "street"
+    ],
+    "setting_type": [
+      "cafe"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "loneliness",
+      "suspension",
+      "fatigue"
+    ],
+    "themes": [
+      "waiting",
+      "urban isolation"
+    ],
+    "symbols": [
+      "empty chair",
+      "small table"
+    ],
+    "relations": [
+      "The empty table doubles the woman's solitude."
+    ],
+    "tension": [
+      "public seating versus private isolation"
+    ],
+    "reading": [
+      "Night turns casual seating into suspended company."
+    ],
+    "intensity": {
+      "loneliness": 0.83
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-11",
+    "projectSlug": "024 - dust bw",
+    "src": "11.jpg",
+    "alt": "Overhead view of a man bending over a menu stand on cobblestones",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "bent man",
+      "menu stand",
+      "overhead study"
+    ],
+    "secondary": [
+      "cobblestones",
+      "reading posture",
+      "single errand"
+    ],
+    "environment": [
+      "street",
+      "cobblestones",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "small",
+    "mood": [
+      "concentration",
+      "routine",
+      "quiet"
+    ],
+    "themes": [
+      "reading in public",
+      "small decision"
+    ],
+    "symbols": [
+      "menu board",
+      "bent back"
+    ],
+    "relations": [
+      "The overhead angle reduces the body to an intent curve facing one sign."
+    ],
+    "tension": [
+      "choice versus uncertainty"
+    ],
+    "reading": [
+      "A minor urban action becomes almost diagrammatic."
+    ],
+    "intensity": {
+      "concentration": 0.7
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-12",
+    "projectSlug": "024 - dust bw",
+    "src": "12.jpg",
+    "alt": "Woman in profile passing a giant billboard face reflected in glass",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "profile walker",
+      "billboard face",
+      "glass reflection"
+    ],
+    "secondary": [
+      "street edge",
+      "advertising portrait",
+      "moving profile"
+    ],
+    "environment": [
+      "street",
+      "storefront",
+      "reflection"
+    ],
+    "setting_type": [
+      "storefront"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "comparison",
+      "dislocation",
+      "coolness"
+    ],
+    "themes": [
+      "real body versus media image",
+      "urban doubling"
+    ],
+    "symbols": [
+      "billboard face",
+      "reflection"
+    ],
+    "relations": [
+      "The passing woman is measured against an oversized commercial face."
+    ],
+    "tension": [
+      "living body versus printed image"
+    ],
+    "reading": [
+      "Ordinary passage competes with the permanence of advertising."
+    ],
+    "intensity": {
+      "dislocation": 0.8
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-13",
+    "projectSlug": "024 - dust bw",
+    "src": "13.jpg",
+    "alt": "Man rowing a small boat with one oar while holding a bottle",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "rowing man",
+      "small boat",
+      "bottle in hand"
+    ],
+    "secondary": [
+      "single oar",
+      "water surface",
+      "imbalanced motion"
+    ],
+    "environment": [
+      "water",
+      "outdoor",
+      "shore"
+    ],
+    "setting_type": [
+      "water"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "improvisation",
+      "freedom",
+      "instability"
+    ],
+    "themes": [
+      "precarious leisure",
+      "off-balance survival"
+    ],
+    "symbols": [
+      "boat",
+      "bottle"
+    ],
+    "relations": [
+      "One hand rows while the other keeps hold of the bottle."
+    ],
+    "tension": [
+      "control versus drift"
+    ],
+    "reading": [
+      "A simple boat ride becomes a study of imbalance."
+    ],
+    "intensity": {
+      "instability": 0.78
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-14",
+    "projectSlug": "024 - dust bw",
+    "src": "14.jpg",
+    "alt": "Close-up of a young woman resting her chin on folded arms",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "indoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "resting woman",
+      "folded arms",
+      "close portrait"
+    ],
+    "secondary": [
+      "soft gaze",
+      "bare skin",
+      "quiet pause"
+    ],
+    "environment": [
+      "interior",
+      "close space",
+      "human presence"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "introspection",
+      "softness",
+      "vulnerability"
+    ],
+    "themes": [
+      "private pause",
+      "rest"
+    ],
+    "symbols": [
+      "folded arms",
+      "lowered posture"
+    ],
+    "relations": [
+      "The folded arms make the portrait feel sheltered."
+    ],
+    "tension": [
+      "intimacy versus reserve"
+    ],
+    "reading": [
+      "One of the gallery's quietest images."
+    ],
+    "intensity": {
+      "vulnerability": 0.8
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-15",
+    "projectSlug": "024 - dust bw",
+    "src": "15.jpg",
+    "alt": "Young woman lit from one side in deep shadow beneath a shelf of books",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "indoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "shadow portrait",
+      "side light",
+      "young woman"
+    ],
+    "secondary": [
+      "bookshelf edge",
+      "half-lit face",
+      "dark interior"
+    ],
+    "environment": [
+      "interior",
+      "bookshelf",
+      "room"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "mystery",
+      "quiet intensity",
+      "gravity"
+    ],
+    "themes": [
+      "partial visibility",
+      "inner life"
+    ],
+    "symbols": [
+      "shadow line",
+      "books"
+    ],
+    "relations": [
+      "Light catches only part of the face and lets the rest merge with shadow."
+    ],
+    "tension": [
+      "light versus obscurity"
+    ],
+    "reading": [
+      "Attention itself becomes the main drama."
+    ],
+    "intensity": {
+      "gravity": 0.82
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-16",
+    "projectSlug": "024 - dust bw",
+    "src": "16.jpg",
+    "alt": "Woman in a knit hat looking past the camera in winter light",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "knit hat portrait",
+      "winter face",
+      "averted gaze"
+    ],
+    "secondary": [
+      "cold light",
+      "outdoor portrait",
+      "calm posture"
+    ],
+    "environment": [
+      "street",
+      "outdoor",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "stillness",
+      "reserve",
+      "clarity"
+    ],
+    "themes": [
+      "public portraiture",
+      "contained presence"
+    ],
+    "symbols": [
+      "knit hat",
+      "off-camera look"
+    ],
+    "relations": [
+      "The portrait stays close while refusing direct address."
+    ],
+    "tension": [
+      "visibility versus withdrawal"
+    ],
+    "reading": [
+      "A simple winter portrait holding emotional space without drama."
+    ],
+    "intensity": {
+      "reserve": 0.74
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-17",
+    "projectSlug": "024 - dust bw",
+    "src": "17.jpg",
+    "alt": "Young man in a patterned hoodie and knit cap speaking on the street",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "hoodie portrait",
+      "speaking mouth",
+      "street youth"
+    ],
+    "secondary": [
+      "patterned fabric",
+      "knit cap",
+      "mid-sentence energy"
+    ],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "close",
+    "subject_scale": "close",
+    "mood": [
+      "animation",
+      "confidence",
+      "immediacy"
+    ],
+    "themes": [
+      "youth presence",
+      "street speech"
+    ],
+    "symbols": [
+      "hood",
+      "open mouth"
+    ],
+    "relations": [
+      "The patterned clothes and speaking expression keep the portrait active."
+    ],
+    "tension": [
+      "speech versus still image"
+    ],
+    "reading": [
+      "Identity caught in the middle of becoming audible."
+    ],
+    "intensity": {
+      "immediacy": 0.79
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-18",
+    "projectSlug": "024 - dust bw",
+    "src": "18.jpg",
+    "alt": "Young man in a denim jacket with a headscarfed statue blurred behind him",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "denim jacket portrait",
+      "young man",
+      "blurred statue"
+    ],
+    "secondary": [
+      "headscarfed monument",
+      "street background",
+      "casual stance"
+    ],
+    "environment": [
+      "street",
+      "city",
+      "monument"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "composure",
+      "distance",
+      "layering"
+    ],
+    "themes": [
+      "living body versus monument",
+      "urban memory"
+    ],
+    "symbols": [
+      "statue",
+      "denim jacket"
+    ],
+    "relations": [
+      "The blurred monument introduces a second figure from another order of time."
+    ],
+    "tension": [
+      "youth versus monument"
+    ],
+    "reading": [
+      "Casual present-day presence paired with civic residue."
+    ],
+    "intensity": {
+      "layering": 0.77
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-19",
+    "projectSlug": "024 - dust bw",
+    "src": "19.jpg",
+    "alt": "Older woman with a shopping trolley crossing in front of a young man and a blurred female poster",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "shopping trolley",
+      "crossing woman",
+      "poster face"
+    ],
+    "secondary": [
+      "young man",
+      "street overlap",
+      "commercial backdrop"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "compression",
+      "busyness",
+      "social contrast"
+    ],
+    "themes": [
+      "generational overlap",
+      "public circulation"
+    ],
+    "symbols": [
+      "shopping trolley",
+      "advertising face"
+    ],
+    "relations": [
+      "The trolley-bearing woman cuts across a layered field of youth and billboard femininity."
+    ],
+    "tension": [
+      "need versus display",
+      "age versus image culture"
+    ],
+    "reading": [
+      "Several social types collide without ever meeting."
+    ],
+    "intensity": {
+      "compression": 0.8
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-20",
+    "projectSlug": "024 - dust bw",
+    "src": "20.jpg",
+    "alt": "Man searching through a heap of discarded clothes while another figure walks away behind him",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "discarded clothes",
+      "searching man",
+      "street survival"
+    ],
+    "secondary": [
+      "walking figure",
+      "fabric pile",
+      "urban neglect"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "need",
+      "exposure",
+      "unease"
+    ],
+    "themes": [
+      "poverty",
+      "scavenging"
+    ],
+    "symbols": [
+      "clothing heap",
+      "bent body"
+    ],
+    "relations": [
+      "One figure digs into the cast-off pile while another leaves the scene."
+    ],
+    "tension": [
+      "necessity versus indifference"
+    ],
+    "reading": [
+      "A blunt confrontation with material precarity."
+    ],
+    "intensity": {
+      "unease": 0.88
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-21",
+    "projectSlug": "024 - dust bw",
+    "src": "21.jpg",
+    "alt": "Young man swinging a flat board overhead while another runner blurs behind him",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "raised board",
+      "young man",
+      "blurred runner"
+    ],
+    "secondary": [
+      "athletic motion",
+      "open path",
+      "sudden gesture"
+    ],
+    "environment": [
+      "park",
+      "outdoor",
+      "path"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "volatility",
+      "energy",
+      "play"
+    ],
+    "themes": [
+      "gesture and force",
+      "youth movement"
+    ],
+    "symbols": [
+      "raised board",
+      "blur trail"
+    ],
+    "relations": [
+      "The overhead swing and the runner turn the frame into competing trajectories."
+    ],
+    "tension": [
+      "play versus threat"
+    ],
+    "reading": [
+      "The scene hovers between sport and sudden aggression."
+    ],
+    "intensity": {
+      "volatility": 0.81
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-22",
+    "projectSlug": "024 - dust bw",
+    "src": "22.jpg",
+    "alt": "Man in a dark coat looking down into his wallet on a city sidewalk",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "wallet check",
+      "downward gaze",
+      "dark coat"
+    ],
+    "secondary": [
+      "sidewalk pause",
+      "hands at chest",
+      "small accounting"
+    ],
+    "environment": [
+      "street",
+      "sidewalk",
+      "city"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "concern",
+      "focus",
+      "reserve"
+    ],
+    "themes": [
+      "money and routine",
+      "private calculation"
+    ],
+    "symbols": [
+      "wallet",
+      "lowered head"
+    ],
+    "relations": [
+      "The city drops away while the man measures his situation against his wallet."
+    ],
+    "tension": [
+      "public space versus private concern"
+    ],
+    "reading": [
+      "A mundane check becomes a portrait of contained uncertainty."
+    ],
+    "intensity": {
+      "concern": 0.75
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-23",
+    "projectSlug": "024 - dust bw",
+    "src": "23.jpg",
+    "alt": "Man on a balcony lift pruning leafless vines with a long pole",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "balcony lift",
+      "pruning man",
+      "leafless vines"
+    ],
+    "secondary": [
+      "long pole",
+      "apartment facade",
+      "maintenance work"
+    ],
+    "environment": [
+      "building facade",
+      "balcony",
+      "city"
+    ],
+    "setting_type": [
+      "balcony"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "labor",
+      "precision",
+      "distance"
+    ],
+    "themes": [
+      "maintenance",
+      "domestic exterior"
+    ],
+    "symbols": [
+      "lift platform",
+      "bare vines"
+    ],
+    "relations": [
+      "The worker floats between balconies while thinning a web of vines."
+    ],
+    "tension": [
+      "care versus exposure"
+    ],
+    "reading": [
+      "The street gaze shifts upward toward ordinary labor."
+    ],
+    "intensity": {
+      "labor": 0.72
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-24",
+    "projectSlug": "024 - dust bw",
+    "src": "24.jpg",
+    "alt": "Child on a playground swing looking sideways while a woman walks away",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "child on swing",
+      "departing woman",
+      "sideways look"
+    ],
+    "secondary": [
+      "playground frame",
+      "distance between bodies",
+      "small pause"
+    ],
+    "environment": [
+      "playground",
+      "park",
+      "outdoor"
+    ],
+    "setting_type": [
+      "playground"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "watchfulness",
+      "separation",
+      "quiet"
+    ],
+    "themes": [
+      "childhood distance",
+      "care and departure"
+    ],
+    "symbols": [
+      "swing seat",
+      "walking away"
+    ],
+    "relations": [
+      "The child stays suspended while the adult body continues outward."
+    ],
+    "tension": [
+      "attachment versus separation"
+    ],
+    "reading": [
+      "A small drama of attention and leaving."
+    ],
+    "intensity": {
+      "separation": 0.76
+    }
+  },
+  {
+    "id": "img-025-024-dust-bw-25",
+    "projectSlug": "024 - dust bw",
+    "src": "25.jpg",
+    "alt": "Woman wrapped in a dark shawl walking through fog across an open field",
+    "caption": "",
+    "noise": [
+      "monochrome street fragment"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "dominant_colors": [
+      "black",
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "style": [
+      "black and white street photography",
+      "observational street portraiture"
+    ],
+    "density": "focused",
+    "primary": [
+      "shawled walker",
+      "fog field",
+      "dark silhouette"
+    ],
+    "secondary": [
+      "open ground",
+      "winter mist",
+      "small human figure"
+    ],
+    "environment": [
+      "field",
+      "fog",
+      "outdoor"
+    ],
+    "setting_type": [
+      "field"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "small",
+    "mood": [
+      "mystery",
+      "isolation",
+      "drift"
+    ],
+    "themes": [
+      "solitary passage",
+      "landscape and body"
+    ],
+    "symbols": [
+      "shawl",
+      "fog veil"
+    ],
+    "relations": [
+      "The wrapped figure barely consolidates against the fog."
+    ],
+    "tension": [
+      "presence versus disappearance"
+    ],
+    "reading": [
+      "The gallery opens outward into near-erasure."
+    ],
+    "intensity": {
+      "disappearance": 0.86
+    }
+  },
+  {
+    "id": "img-026-025-raport-01",
+    "projectSlug": "025 - raport",
+    "src": "01.jpg",
+    "alt": "Police officer speaking with a family seated on church steps beside a stroller",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "police officer",
+      "seated family",
+      "stroller"
+    ],
+    "secondary": [
+      "church steps",
+      "conversation",
+      "public pause"
+    ],
+    "environment": [
+      "steps",
+      "street",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "tension",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "authority and care",
+      "public exposure"
+    ],
+    "symbols": [
+      "uniform",
+      "stroller"
+    ],
+    "relations": [
+      "The officer stands while the family stays seated, making hierarchy visible through posture."
+    ],
+    "tension": [
+      "authority versus vulnerability"
+    ],
+    "reading": [
+      "The encounter looks both ordinary and uneven."
+    ],
+    "intensity": {
+      "tension": 0.82
+    }
+  },
+  {
+    "id": "img-026-025-raport-02",
+    "projectSlug": "025 - raport",
+    "src": "02.jpg",
+    "alt": "Police officer facing a seated family while a bearded man adjusts his hat on the steps",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "police officer",
+      "bearded man",
+      "family on steps"
+    ],
+    "secondary": [
+      "hat gesture",
+      "seated bodies",
+      "stone stairs"
+    ],
+    "environment": [
+      "steps",
+      "street",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "scrutiny",
+      "uncertainty",
+      "patience"
+    ],
+    "themes": [
+      "public negotiation",
+      "family under watch"
+    ],
+    "symbols": [
+      "hat adjustment",
+      "uniform stance"
+    ],
+    "relations": [
+      "A minor hat gesture registers as self-composure under official attention."
+    ],
+    "tension": [
+      "self-presentation versus judgment"
+    ],
+    "reading": [
+      "Small gestures carry the weight of being addressed by authority."
+    ],
+    "intensity": {
+      "scrutiny": 0.79
+    }
+  },
+  {
+    "id": "img-026-025-raport-03",
+    "projectSlug": "025 - raport",
+    "src": "03.jpg",
+    "alt": "Police officer kneeling to show something to a small child beside a stroller on the steps",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "kneeling officer",
+      "small child",
+      "stroller"
+    ],
+    "secondary": [
+      "lowered posture",
+      "church steps",
+      "document in hand"
+    ],
+    "environment": [
+      "steps",
+      "street",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "ambiguity",
+      "care",
+      "watchfulness"
+    ],
+    "themes": [
+      "authority meeting childhood",
+      "public care"
+    ],
+    "symbols": [
+      "kneeling uniform",
+      "stroller frame"
+    ],
+    "relations": [
+      "The officer lowers himself toward the child without removing the power difference."
+    ],
+    "tension": [
+      "care versus control"
+    ],
+    "reading": [
+      "Tenderness and surveillance become hard to separate."
+    ],
+    "intensity": {
+      "ambiguity": 0.83
+    }
+  },
+  {
+    "id": "img-026-025-raport-04",
+    "projectSlug": "025 - raport",
+    "src": "04.jpg",
+    "alt": "Police officer crouching beside two boys seated on church steps",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "crouching officer",
+      "two boys",
+      "step encounter"
+    ],
+    "secondary": [
+      "seated children",
+      "uniformed body",
+      "public contact"
+    ],
+    "environment": [
+      "steps",
+      "street",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "concern",
+      "gentleness",
+      "unease"
+    ],
+    "themes": [
+      "public childhood",
+      "institutional presence"
+    ],
+    "symbols": [
+      "crouched posture",
+      "stone steps"
+    ],
+    "relations": [
+      "The officer comes down to the boys' level while the scene remains unmistakably official."
+    ],
+    "tension": [
+      "soft posture versus hard authority"
+    ],
+    "reading": [
+      "A tight summary of how power presents itself to children."
+    ],
+    "intensity": {
+      "concern": 0.81
+    }
+  },
+  {
+    "id": "img-026-025-raport-05",
+    "projectSlug": "025 - raport",
+    "src": "05.jpg",
+    "alt": "Police officer holding paperwork while a seated woman reaches toward him from behind a stone column",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "paperwork",
+      "reaching woman",
+      "police officer"
+    ],
+    "secondary": [
+      "stone column",
+      "seated body",
+      "document exchange"
+    ],
+    "environment": [
+      "steps",
+      "architecture",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "medium",
+    "subject_scale": "medium",
+    "mood": [
+      "bureaucracy",
+      "friction",
+      "dependence"
+    ],
+    "themes": [
+      "paper and power",
+      "public assistance"
+    ],
+    "symbols": [
+      "paperwork",
+      "outstretched hand"
+    ],
+    "relations": [
+      "The paperwork becomes the formal center while the reaching hand reveals the need around it."
+    ],
+    "tension": [
+      "document versus body"
+    ],
+    "reading": [
+      "A public encounter hardens into paperwork."
+    ],
+    "intensity": {
+      "friction": 0.84
+    }
+  },
+  {
+    "id": "img-026-025-raport-06",
+    "projectSlug": "025 - raport",
+    "src": "06.jpg",
+    "alt": "Two police officers beside a bearded man with a crutch while a seated boy points away",
+    "caption": "",
+    "noise": [
+      "documentary encounter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
+    "color_mode": "color",
+    "style": [
+      "documentary street photography",
+      "public encounter study"
+    ],
+    "density": "focused",
+    "primary": [
+      "two officers",
+      "man with crutch",
+      "pointing boy"
+    ],
+    "secondary": [
+      "bearded figure",
+      "seated child",
+      "grouped encounter"
+    ],
+    "environment": [
+      "steps",
+      "street",
+      "city"
+    ],
+    "setting_type": [
+      "steps"
+    ],
+    "shot_type": "wide",
+    "subject_scale": "medium",
+    "mood": [
+      "pressure",
+      "exposure",
+      "multiplicity"
+    ],
+    "themes": [
+      "public vulnerability",
+      "institutional crowding"
+    ],
+    "symbols": [
+      "crutch",
+      "pointing hand"
+    ],
+    "relations": [
+      "The crutch, the officers, and the pointing gesture pull the scene in different directions."
+    ],
+    "tension": [
+      "mobility versus dependence"
+    ],
+    "reading": [
+      "The episode widens into a layered portrait of fragility under scrutiny."
+    ],
+    "intensity": {
+      "pressure": 0.86
     }
   }
 ]
