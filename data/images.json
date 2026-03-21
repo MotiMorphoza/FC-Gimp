@@ -1768,16 +1768,47 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "protester",
+      "police",
+      "uniform",
+      "street"
+    ],
+    "object_roles": {
+      "protester": "primary",
+      "police": "primary",
+      "uniform": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "encircled subject",
+      "tight crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "blue",
+      "red",
+      "black"
     ],
     "dominant_colors": [
       "red"
@@ -1797,8 +1828,13 @@
       "ring of uniforms",
       "exposed face"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
+    "motion": [
+      "stand-off"
+    ],
     "tone": [
       "defiance",
       "vulnerability"
@@ -1824,7 +1860,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 6,
     "gender": [],
     "age_group": [
       "adult"
@@ -1844,7 +1880,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Red-haired protester surrounded by police officers in blue uniforms"
   },
   {
     "id": "img-003-06",
@@ -1857,18 +1894,47 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [
-      "repetition"
+    "objects": [
+      "woman",
+      "police",
+      "hood",
+      "street"
     ],
-    "lighting": [],
+    "object_roles": {
+      "woman": "primary",
+      "police": "primary",
+      "hood": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "face-off",
+      "mid-distance view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "black",
+      "gray"
     ],
     "dominant_colors": [
       "blue"
@@ -1888,8 +1954,13 @@
       "riot line",
       "standing ground"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
+    "motion": [
+      "stand-off"
+    ],
     "tone": [
       "resolve",
       "unease"
@@ -1912,10 +1983,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 4,
     "gender": [
       "woman"
     ],
@@ -1937,7 +2008,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Woman in a blue hood facing a line of police officers"
   },
   {
     "id": "img-003-08",
@@ -1950,16 +2022,47 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "flower",
+      "police",
+      "mask",
+      "street"
+    ],
+    "object_roles": {
+      "flower": "primary",
+      "police": "primary",
+      "mask": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "symbolic juxtaposition",
+      "close crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "blue",
+      "black"
     ],
     "dominant_colors": [
       "yellow"
@@ -1979,8 +2082,13 @@
       "riot gear",
       "extended hand"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "petals",
+      "fabric"
+    ],
+    "motion": [
+      "offering gesture"
+    ],
     "tone": [
       "gentleness",
       "defiance"
@@ -2026,7 +2134,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Yellow tulip held toward masked police officers"
   },
   {
     "id": "img-003-10",
@@ -2040,20 +2149,47 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flag",
-      "car"
+      "rainbow flag",
+      "crowd",
+      "police van",
+      "street"
     ],
     "object_roles": {
-      "flag": "primary",
-      "car": "primary"
+      "rainbow flag": "primary",
+      "crowd": "primary",
+      "police van": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "overhead view",
+      "fabric sweep"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow",
+      "blue",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -2070,8 +2206,15 @@
       "police line",
       "territorial claim"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal",
+      "asphalt"
+    ],
+    "motion": [
+      "flag movement",
+      "crowd movement"
+    ],
     "tone": [
       "collective power",
       "visibility"
@@ -2094,10 +2237,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 12,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -2115,7 +2258,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Large rainbow flag above police vans and marchers seen from above"
   },
   {
     "id": "img-003-15",
@@ -2129,21 +2273,48 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bird",
-      "mask"
+      "performers",
+      "mask",
+      "cape",
+      "portable toilet",
+      "street"
     ],
     "object_roles": {
-      "bird": "primary",
-      "mask": "primary"
+      "performers": "primary",
+      "mask": "primary",
+      "cape": "secondary",
+      "portable toilet": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "staged tableau"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "red",
+      "white",
+      "gold"
     ],
     "dominant_colors": [
       "blue"
@@ -2164,9 +2335,12 @@
       "public costume"
     ],
     "texture": [
-      "feathers"
+      "plastic",
+      "fabric"
     ],
-    "motion": [],
+    "motion": [
+      "posed gesture"
+    ],
     "tone": [
       "absurdity",
       "theater"
@@ -2189,10 +2363,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 3,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -2210,7 +2384,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Performers in bird masks posing with red capes in front of blue portable toilets"
   },
   {
     "id": "img-003-25",
@@ -2224,31 +2399,49 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "reflection",
+      "police",
+      "child",
       "window",
-      "mirror"
+      "tram"
     ],
     "object_roles": {
+      "reflection": "primary",
+      "police": "primary",
+      "child": "secondary",
       "window": "secondary",
-      "mirror": "primary"
+      "tram": "secondary"
     },
     "environment": [
-      "architecture"
+      "street",
+      "transit",
+      "city",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
-      "street",
-      "window"
+      "transit",
+      "street"
     ],
-    "style": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
     "composition": [
-      "reflection"
+      "reflection",
+      "framed through glass"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -2266,10 +2459,11 @@
       "uniform"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "metal"
     ],
     "motion": [
-      "visual shimmer"
+      "stillness"
     ],
     "tone": [
       "uncertainty",
@@ -2293,7 +2487,7 @@
     "manipulation": "reflection",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "child",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -2316,7 +2510,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Reflection of police officers and a child in a tram window"
   },
   {
     "id": "img-003-29",
@@ -2330,19 +2525,42 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "hand"
+      "gloves",
+      "police",
+      "uniform"
     ],
     "object_roles": {
-      "hand": "primary"
+      "gloves": "primary",
+      "police": "primary",
+      "uniform": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "detail crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "black"
     ],
     "dominant_colors": [
       "blue"
@@ -2362,8 +2580,13 @@
       "clasped hands",
       "uniform"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "latex",
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "restraint",
       "coldness"
@@ -2385,10 +2608,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "person",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 1,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -2406,7 +2629,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Blue latex gloves against a police uniform during a protest"
   },
   {
     "id": "img-003-36",
@@ -2420,19 +2644,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flag"
+      "crowd",
+      "flag",
+      "bicycle",
+      "street"
     ],
     "object_roles": {
-      "flag": "primary"
+      "crowd": "primary",
+      "flag": "primary",
+      "bicycle": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "overhead view",
+      "central flag"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "white",
+      "yellow"
     ],
     "dominant_colors": [
       "black"
@@ -2452,8 +2703,13 @@
       "encircling crowd",
       "written demand"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
+    "motion": [
+      "marching"
+    ],
     "tone": [
       "conviction",
       "density"
@@ -2478,7 +2734,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 30,
     "gender": [],
     "age_group": [
       "adult"
@@ -2498,7 +2754,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Overhead march with an animal liberation flag in the center"
   },
   {
     "id": "img-003-39",
@@ -2513,19 +2770,44 @@
     "noise": [],
     "objects": [
       "hand",
-      "sign"
+      "crowd",
+      "mask"
     ],
     "object_roles": {
       "hand": "primary",
-      "sign": "primary"
+      "crowd": "primary",
+      "mask": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "gesture close-up",
+      "shallow focus"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -2542,9 +2824,12 @@
       "raised hand"
     ],
     "texture": [
-      "metal"
+      "skin",
+      "fabric"
     ],
-    "motion": [],
+    "motion": [
+      "raised gesture"
+    ],
     "tone": [
       "hope",
       "defiance"
@@ -2589,7 +2874,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Raised peace sign against a blurred protest crowd in black and white"
   },
   {
     "id": "img-004-01",
@@ -6643,25 +6929,45 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "woman",
+      "cane",
+      "crosswalk",
+      "shadow"
+    ],
+    "object_roles": {
+      "woman": "primary",
+      "cane": "primary",
+      "crosswalk": "secondary",
+      "shadow": "secondary"
+    },
     "environment": [
+      "street",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "overhead angle",
+      "graphic stripes"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "purple"
+      "white",
+      "purple",
+      "gray"
     ],
     "dominant_colors": [
       "purple"
@@ -6681,7 +6987,10 @@
       "crosswalk",
       "striped threshold"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
     "motion": [
       "walking"
     ],
@@ -6732,7 +7041,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Older woman with a cane crossing striped shadows on a crosswalk"
   },
   {
     "id": "img-011-06",
@@ -6745,15 +7055,42 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "objects": [
+      "man",
+      "shopping trolley",
+      "street"
+    ],
+    "object_roles": {
+      "man": "primary",
+      "shopping trolley": "primary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "diagonal pose"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -6770,8 +7107,14 @@
       "rubble",
       "bent body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "stone",
+      "fabric"
+    ],
+    "motion": [
+      "bending"
+    ],
     "tone": [
       "resilience",
       "weariness"
@@ -6819,7 +7162,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older man bending over a shopping trolley beside broken pavement"
   },
   {
     "id": "img-011-12",
@@ -6833,25 +7177,45 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bench"
+      "man",
+      "bench",
+      "hedge",
+      "park"
     ],
     "object_roles": {
-      "bench": "primary"
+      "man": "primary",
+      "bench": "primary",
+      "hedge": "secondary",
+      "park": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "outdoor",
+      "city",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
-      "urban"
+      "urban",
+      "nature"
     ],
-    "setting_type": [],
-    "style": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
     "composition": [
-      "isolated subject"
+      "partial concealment"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -6868,8 +7232,14 @@
       "hidden figure",
       "bush screen"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "foliage",
+      "fabric",
+      "wood"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "solitude",
       "withdrawal"
@@ -6917,7 +7287,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Older man sitting on a bench half hidden by a hedge"
   },
   {
     "id": "img-011-25",
@@ -6931,26 +7302,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "child",
+      "bicycle",
+      "woman",
       "bench",
-      "bike"
+      "street"
     ],
     "object_roles": {
+      "child": "primary",
+      "bicycle": "primary",
+      "woman": "secondary",
       "bench": "secondary",
-      "bike": "primary"
+      "street": "secondary"
     },
     "environment": [
-      "park"
+      "street",
+      "city",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "overhead view",
+      "generational contrast"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "green",
+      "black"
     ],
     "dominant_colors": [
       "yellow"
@@ -6971,9 +7362,13 @@
       "yellow helmet"
     ],
     "texture": [
-      "metal"
+      "asphalt",
+      "wood"
     ],
-    "motion": [],
+    "motion": [
+      "riding",
+      "watching"
+    ],
     "tone": [
       "tenderness",
       "contrast"
@@ -6995,7 +7390,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "child",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -7003,7 +7398,8 @@
       "woman"
     ],
     "age_group": [
-      "child"
+      "child",
+      "adult"
     ],
     "age_stage": "older",
     "screen_visible": false,
@@ -7020,7 +7416,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Child on a small bicycle passing an older woman seated on a bench"
   },
   {
     "id": "img-012-01",
@@ -7034,22 +7431,43 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "woman",
+      "mural",
       "wall"
     ],
     "object_roles": {
-      "wall": "secondary",
-      "phone": "primary"
+      "woman": "primary",
+      "mural": "primary",
+      "wall": "secondary"
     },
     "environment": [
-      "architecture"
+      "street",
+      "wall",
+      "city",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "scale contrast",
+      "frontal view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "pink"
+      "pink",
+      "black",
+      "beige"
     ],
     "dominant_colors": [
       "pink"
@@ -7070,9 +7488,12 @@
       "small passerby"
     ],
     "texture": [
-      "hard surface"
+      "painted wall",
+      "concrete"
     ],
-    "motion": [],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "irony",
       "smallness"
@@ -7119,7 +7540,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Older woman walking past a giant mural face on a pink wall"
   },
   {
     "id": "img-012-03",
@@ -7133,18 +7555,45 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "phone"
+      "phone",
+      "man",
+      "hat",
+      "drink",
+      "hand"
     ],
     "object_roles": {
-      "phone": "primary"
+      "phone": "primary",
+      "man": "primary",
+      "hat": "secondary",
+      "drink": "secondary",
+      "hand": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "indoor",
+      "domestic"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "screen within image",
+      "close crop"
+    ],
+    "lighting": [
+      "indoor light"
+    ],
+    "colors": [
+      "orange",
+      "blue",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -7161,8 +7610,14 @@
       "captured face",
       "drink"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "glass",
+      "screen glow",
+      "fabric"
+    ],
+    "motion": [
+      "framing gesture"
+    ],
     "tone": [
       "mediation",
       "distance"
@@ -7209,7 +7664,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Smartphone screen photographing a man in a sombrero holding a drink"
   },
   {
     "id": "img-012-08",
@@ -7223,27 +7679,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "wall",
+      "woman",
+      "mirror",
       "phone",
-      "mirror"
+      "wall"
     ],
     "object_roles": {
-      "wall": "secondary",
-      "phone": "primary",
-      "mirror": "secondary"
+      "woman": "primary",
+      "mirror": "primary",
+      "phone": "secondary",
+      "wall": "secondary"
     },
     "environment": [
+      "street",
+      "city",
+      "outdoor",
       "architecture"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [
-      "reflection"
+    "environment_type": [
+      "outdoor",
+      "urban"
     ],
-    "lighting": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "reflection",
+      "circular frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "gray"
     ],
     "dominant_colors": [
       "blue"
@@ -7264,10 +7737,11 @@
       "enclosed figure"
     ],
     "texture": [
-      "hard surface"
+      "glass",
+      "stone"
     ],
     "motion": [
-      "visual shimmer"
+      "phone call"
     ],
     "tone": [
       "absorption",
@@ -7315,7 +7789,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman on a phone reflected inside a circular mirror"
   },
   {
     "id": "img-012-14",
@@ -7329,23 +7804,48 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "phone"
+      "woman",
+      "phone",
+      "graffiti",
+      "trash bin",
+      "wall"
     ],
     "object_roles": {
-      "phone": "primary"
+      "woman": "primary",
+      "phone": "primary",
+      "graffiti": "secondary",
+      "trash bin": "secondary",
+      "wall": "secondary"
     },
     "environment": [
+      "street",
+      "wall",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "text backdrop",
+      "side view"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -7362,7 +7862,10 @@
       "graffiti slogan",
       "walking body"
     ],
-    "texture": [],
+    "texture": [
+      "concrete",
+      "metal"
+    ],
     "motion": [
       "walking"
     ],
@@ -7411,7 +7914,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Woman walking with a phone past graffiti reading 'NEW CITY DISORDERS'"
   },
   {
     "id": "img-013-01",
@@ -8127,17 +8631,44 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "statue",
+      "crane",
+      "sky"
+    ],
     "object_roles": {
-      "statue": "primary"
+      "statue": "primary",
+      "crane": "primary",
+      "sky": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "outdoor",
+      "city",
+      "architecture"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "scale contrast"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "brown",
+      "yellow",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -8155,9 +8686,12 @@
       "unfinished future"
     ],
     "texture": [
-      "hard surface"
+      "stone",
+      "metal"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "irony",
       "aspiration"
@@ -8180,14 +8714,12 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "person",
-    "people_prominence": "primary",
-    "has_people": true,
-    "people_count": 1,
+    "people_focus": "",
+    "people_prominence": "none",
+    "has_people": false,
+    "people_count": 0,
     "gender": [],
-    "age_group": [
-      "adult"
-    ],
+    "age_group": [],
     "age_stage": "",
     "screen_visible": false,
     "negative": [
@@ -8202,7 +8734,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Stone figure beside a construction crane against a sepia sky"
   },
   {
     "id": "img-014-07",
@@ -8215,18 +8748,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "bust",
+      "cloth",
+      "park"
+    ],
     "object_roles": {
-      "statue": "primary"
+      "bust": "primary",
+      "cloth": "primary",
+      "park": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "park",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "frontal portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "white"
+      "white",
+      "green",
+      "brown"
     ],
     "dominant_colors": [
       "white"
@@ -8246,8 +8804,13 @@
       "headless form",
       "ghost"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "cloth",
+      "stone"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "haunting",
       "silence"
@@ -8271,13 +8834,11 @@
     "shot_type": "",
     "subject_scale": "medium",
     "people_focus": "",
-    "people_prominence": "secondary",
-    "has_people": true,
-    "people_count": 1,
+    "people_prominence": "none",
+    "has_people": false,
+    "people_count": 0,
     "gender": [],
-    "age_group": [
-      "adult"
-    ],
+    "age_group": [],
     "age_stage": "",
     "screen_visible": false,
     "negative": [
@@ -8292,7 +8853,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Draped bust outdoors with a white cloth covering its body"
   },
   {
     "id": "img-014-11",
@@ -8306,20 +8868,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "statue"
+      "shadow",
+      "building",
+      "statue",
+      "glass"
     ],
     "object_roles": {
-      "statue": "primary"
+      "shadow": "primary",
+      "building": "primary",
+      "statue": "secondary",
+      "glass": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [
-      "low light"
+    "environment": [
+      "city",
+      "architecture",
+      "outdoor"
     ],
-    "colors": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "shadow silhouette",
+      "vertical frame"
+    ],
+    "lighting": [
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black",
+      "blue"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -8337,9 +8925,12 @@
       "glass tower"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "metal"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "authority",
       "unease"
@@ -8381,7 +8972,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Statue shadow projected onto a glass skyscraper"
   },
   {
     "id": "img-014-18",
@@ -8394,18 +8986,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "origami giraffe",
+      "laptop",
+      "giraffe",
+      "keyboard"
+    ],
     "object_roles": {
-      "statue": "primary"
+      "origami giraffe": "primary",
+      "laptop": "primary",
+      "giraffe": "secondary",
+      "keyboard": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "indoor",
+      "screen"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "screen juxtaposition"
+    ],
+    "lighting": [
+      "screen glow"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "blue",
+      "green"
     ],
     "dominant_colors": [
       "yellow"
@@ -8425,8 +9042,14 @@
       "screen animal",
       "copy"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "paper",
+      "screen glow",
+      "plastic"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "playfulness",
       "wonder"
@@ -8449,16 +9072,14 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "person",
-    "people_prominence": "primary",
-    "has_people": true,
-    "people_count": 1,
+    "people_focus": "",
+    "people_prominence": "none",
+    "has_people": false,
+    "people_count": 0,
     "gender": [],
-    "age_group": [
-      "adult"
-    ],
+    "age_group": [],
     "age_stage": "",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "color"
     ],
@@ -8471,7 +9092,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Yellow origami giraffe standing before a laptop screen with a real giraffe"
   },
   {
     "id": "img-014-20",
@@ -8486,20 +9108,44 @@
     "noise": [],
     "objects": [
       "skull",
-      "glasses"
+      "glasses",
+      "grass",
+      "leaf"
     ],
     "object_roles": {
       "skull": "primary",
       "glasses": "primary",
-      "statue": "primary"
+      "grass": "secondary",
+      "leaf": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "outdoor",
+      "nature",
+      "still life"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "close crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "green",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -8516,8 +9162,14 @@
       "eye",
       "broken lens"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "bone",
+      "glass",
+      "grass"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "unease",
       "irony"
@@ -8560,7 +9212,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Animal skull with broken glasses and a printed eye resting in the grass"
   },
   {
     "id": "img-015-01",
@@ -8574,28 +9227,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "rainbow installation",
+      "snow",
       "tram",
-      "snow"
+      "public square"
     ],
     "object_roles": {
+      "rainbow installation": "primary",
+      "snow": "primary",
       "tram": "secondary",
-      "snow": "primary"
+      "public square": "secondary"
     },
     "environment": [
       "city",
-      "street",
-      "transit"
+      "public art",
+      "winter",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "public square"
+    ],
+    "style": [
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "wide establishing view"
+    ],
+    "lighting": [
+      "cold daylight"
+    ],
     "colors": [
-      "yellow"
+      "rainbow",
+      "white",
+      "gray"
     ],
     "dominant_colors": [
       "yellow"
@@ -8616,10 +9285,11 @@
       "snowfield"
     ],
     "texture": [
+      "snow",
       "metal"
     ],
     "motion": [
-      "transit movement"
+      "stillness"
     ],
     "tone": [
       "uplift",
@@ -8662,7 +9332,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow arch above a snowy city square and tram tracks"
   },
   {
     "id": "img-015-04",
@@ -11464,26 +12135,49 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "police",
+      "rifle",
+      "street",
+      "building"
+    ],
+    "object_roles": {
+      "police": "primary",
+      "rifle": "primary",
+      "street": "secondary",
+      "building": "secondary"
+    },
     "environment": [
+      "street",
+      "protest",
+      "architecture",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
-      "street"
+      "street",
+      "protest"
     ],
-    "style": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
     "composition": [
-      "repetition"
+      "lateral line",
+      "long perspective"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "overcast daylight"
+    ],
+    "colors": [
+      "blue",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11500,8 +12194,13 @@
       "uniform line",
       "civic force"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "stone"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "threat",
       "control"
@@ -11524,10 +12223,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 12,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -11545,7 +12244,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Long line of armed riot police standing along an old city street"
   },
   {
     "id": "img-003-04",
@@ -11559,28 +12259,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flag"
+      "police",
+      "flag",
+      "street"
     ],
     "object_roles": {
-      "flag": "primary"
+      "police": "primary",
+      "flag": "primary",
+      "street": "secondary"
     },
     "environment": [
+      "street",
+      "protest",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
-      "street"
+      "street",
+      "protest"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "rear view",
+      "receding line"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "blue",
+      "red",
+      "gray"
     ],
     "dominant_colors": [
       "red"
@@ -11600,8 +12316,13 @@
       "red banner",
       "historic facades"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "stone"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "foreboding",
       "control"
@@ -11623,10 +12344,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 6,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -11644,7 +12365,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Backs of police officers beneath a red flag in an old street"
   },
   {
     "id": "img-003-09",
@@ -11658,19 +12380,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross"
+      "protester",
+      "cross",
+      "police",
+      "cape"
     ],
     "object_roles": {
-      "cross": "primary"
+      "protester": "primary",
+      "cross": "primary",
+      "police": "secondary",
+      "cape": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "theatrical pose",
+      "street tableau"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "red",
+      "brown",
+      "blue"
     ],
     "dominant_colors": [
       "red"
@@ -11690,8 +12439,15 @@
       "cross",
       "female figure"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "wood",
+      "asphalt"
+    ],
+    "motion": [
+      "standing",
+      "flag-like drape"
+    ],
     "tone": [
       "defiance",
       "theater"
@@ -11713,7 +12469,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "person",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -11738,7 +12494,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Person in a red cape holding a wooden cross beside police"
   },
   {
     "id": "img-003-12",
@@ -11752,18 +12509,48 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flag"
+      "performer",
+      "rainbow flag",
+      "costume",
+      "police van",
+      "street"
     ],
     "object_roles": {
-      "flag": "primary"
+      "performer": "primary",
+      "rainbow flag": "primary",
+      "costume": "secondary",
+      "police van": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "diagonal crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "rainbow",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -11780,8 +12567,14 @@
       "rainbow flag",
       "performance mask"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal"
+    ],
+    "motion": [
+      "walking",
+      "flag movement"
+    ],
     "tone": [
       "playfulness",
       "defiance"
@@ -11804,7 +12597,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "man",
+    "people_focus": "person",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -11829,7 +12622,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Iron Man performer carrying a rainbow flag beside police vans"
   },
   {
     "id": "img-003-16",
@@ -11843,18 +12637,47 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "skull"
+      "person",
+      "jacket",
+      "police",
+      "mask"
     ],
     "object_roles": {
-      "skull": "primary"
+      "person": "primary",
+      "jacket": "primary",
+      "police": "secondary",
+      "mask": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "over-the-shoulder",
+      "confrontation"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "gray",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11871,8 +12694,13 @@
       "police visor",
       "two masks"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "leather"
+    ],
+    "motion": [
+      "stand-off"
+    ],
     "tone": [
       "hostility",
       "defiance"
@@ -11894,7 +12722,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "man",
+    "people_focus": "person",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -11919,7 +12747,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Back view of a person in a skull jacket facing masked officers"
   },
   {
     "id": "img-003-18",
@@ -11933,18 +12762,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "sign"
+      "activists",
+      "sign",
+      "crowd",
+      "street"
     ],
     "object_roles": {
-      "sign": "primary"
+      "activists": "primary",
+      "sign": "primary",
+      "crowd": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "mid-crowd grouping"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "blue",
+      "white"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11962,9 +12819,13 @@
       "public message"
     ],
     "texture": [
-      "metal"
+      "paper",
+      "fabric"
     ],
-    "motion": [],
+    "motion": [
+      "walking",
+      "marching"
+    ],
     "tone": [
       "conviction",
       "youthful urgency"
@@ -11990,7 +12851,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 7,
     "gender": [],
     "age_group": [
       "adult"
@@ -12010,7 +12871,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Young climate activists holding protest signs including 'COAL IS NOT COOL'"
   },
   {
     "id": "img-003-23",
@@ -12023,24 +12885,47 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "person",
+      "mask",
+      "hood",
+      "keffiyeh"
+    ],
+    "object_roles": {
+      "person": "primary",
+      "mask": "primary",
+      "hood": "secondary",
+      "keffiyeh": "secondary"
+    },
     "environment": [
+      "street",
+      "protest",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
-      "street"
+      "street",
+      "protest"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -12057,8 +12942,13 @@
       "masked face",
       "demonstration crowd"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "fur"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "tension",
       "uncertainty"
@@ -12104,7 +12994,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Close portrait of a masked person in a keffiyeh and fur-lined hood"
   },
   {
     "id": "img-003-24",
@@ -12118,18 +13009,47 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flag"
+      "people",
+      "flag",
+      "street",
+      "crowd"
     ],
     "object_roles": {
-      "flag": "primary"
+      "people": "primary",
+      "flag": "primary",
+      "street": "secondary",
+      "crowd": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "paired figures",
+      "street confrontation"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -12146,8 +13066,13 @@
       "masked opponent",
       "ideological standoff"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
+    "motion": [
+      "standing"
+    ],
     "tone": [
       "tension",
       "division"
@@ -12172,7 +13097,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 4,
     "gender": [],
     "age_group": [
       "adult"
@@ -12192,7 +13117,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Two people draped in Israeli flags standing face to face in the street"
   },
   {
     "id": "img-003-30",
@@ -12205,18 +13131,51 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "objects": [
+      "crowd",
+      "roundabout",
+      "umbrella",
+      "police car",
+      "street"
+    ],
+    "object_roles": {
+      "crowd": "primary",
+      "roundabout": "primary",
+      "umbrella": "secondary",
+      "police car": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "rain",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "public square",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
     "composition": [
       "overhead view",
-      "bird's-eye view"
+      "circular pattern"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "rainy daylight"
+    ],
+    "colors": [
+      "green",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -12233,8 +13192,15 @@
       "rain sheen",
       "moving cluster"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "rain",
+      "asphalt",
+      "grass"
+    ],
+    "motion": [
+      "marching",
+      "crowd movement"
+    ],
     "tone": [
       "momentum",
       "distance"
@@ -12257,10 +13223,10 @@
     "manipulation": "straight",
     "shot_type": "wide",
     "subject_scale": "wide",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 30,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -12278,7 +13244,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Overhead view of a rainy roundabout encircled by demonstrators and umbrellas"
   },
   {
     "id": "img-003-38",
@@ -12291,16 +13258,44 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "person",
+      "bucket",
+      "mask"
+    ],
+    "object_roles": {
+      "person": "primary",
+      "bucket": "primary",
+      "mask": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
+      "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "white"
+      "white",
+      "yellow",
+      "black"
     ],
     "dominant_colors": [
       "white"
@@ -12320,8 +13315,12 @@
       "drawn smile",
       "covered face"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "plastic"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "absurdity",
       "humor"
@@ -12367,7 +13366,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Person wearing an upside-down bucket painted with a smiling face"
   },
   {
     "id": "img-004-03",
@@ -16016,15 +17016,41 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "woman",
+      "shopping bag",
+      "street"
+    ],
+    "object_roles": {
+      "woman": "primary",
+      "shopping bag": "primary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "frontal portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
+      "green",
+      "gray",
       "white"
     ],
     "dominant_colors": [
@@ -16045,8 +17071,13 @@
       "shopping bag",
       "street greeting"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "waving",
+      "walking"
+    ],
     "tone": [
       "warmth",
       "openness"
@@ -16093,7 +17124,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Older woman waving with a shopping bag on a city sidewalk"
   },
   {
     "id": "img-011-04",
@@ -16107,23 +17139,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "shadow"
+      "shadow",
+      "flowers",
+      "cane",
+      "pavement"
     ],
     "object_roles": {
-      "shadow": "primary"
+      "shadow": "primary",
+      "flowers": "primary",
+      "cane": "secondary",
+      "pavement": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "shadow study",
+      "overhead view"
+    ],
     "lighting": [
       "directional light",
       "shadowed light"
     ],
-    "colors": [],
+    "colors": [
+      "gray",
+      "red",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16176,7 +17231,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "color"
@@ -16190,7 +17245,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Shadow of an older person with walking poles beside red flowers on pavement"
   },
   {
     "id": "img-011-08",
@@ -16203,24 +17259,45 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [
-      "city",
+    "objects": [
+      "woman",
+      "shopping trolley",
+      "balloons",
       "street"
+    ],
+    "object_roles": {
+      "woman": "primary",
+      "shopping trolley": "primary",
+      "balloons": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "street crossing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "pink"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16237,7 +17314,10 @@
       "shopping trolley",
       "crossing body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "plastic"
+    ],
     "motion": [
       "walking"
     ],
@@ -16287,7 +17367,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older woman crossing with a trolley and balloons"
   },
   {
     "id": "img-011-11",
@@ -16301,18 +17382,42 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "chair"
+      "man",
+      "produce crate",
+      "market stall"
     ],
     "object_roles": {
-      "chair": "primary"
+      "man": "primary",
+      "produce crate": "primary",
+      "market stall": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "market",
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "market"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "low recline"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16329,8 +17434,13 @@
       "produce stacks",
       "seller posture"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "wood",
+      "fabric"
+    ],
+    "motion": [
+      "resting"
+    ],
     "tone": [
       "fatigue",
       "dignity"
@@ -16352,11 +17462,13 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "person",
+    "people_focus": "man",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 1,
-    "gender": [],
+    "gender": [
+      "man"
+    ],
     "age_group": [
       "adult"
     ],
@@ -16375,7 +17487,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Market seller reclining beside produce crates"
   },
   {
     "id": "img-011-19",
@@ -16389,23 +17502,43 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flower"
+      "man",
+      "flowers",
+      "hat",
+      "street"
     ],
     "object_roles": {
-      "flower": "primary"
+      "man": "primary",
+      "flowers": "primary",
+      "hat": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "street portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red",
-      "pink"
+      "purple",
+      "gray"
     ],
     "dominant_colors": [
       "red",
@@ -16426,8 +17559,13 @@
       "pink flowers",
       "self-costume"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "petals"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "playfulness",
       "individuality"
@@ -16459,7 +17597,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -16474,7 +17612,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Older man in a red hat carrying purple flowers"
   },
   {
     "id": "img-011-24",
@@ -16488,27 +17627,47 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "snow"
+      "person",
+      "snow",
+      "path",
+      "park"
     ],
     "object_roles": {
-      "snow": "primary"
+      "person": "primary",
+      "snow": "primary",
+      "path": "secondary",
+      "park": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "winter",
+      "outdoor",
+      "city",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
+      "urban",
       "nature"
     ],
     "setting_type": [
       "park"
     ],
-    "style": [],
-    "composition": [
-      "isolated subject"
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "long distance figure"
+    ],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "white",
+      "black",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16525,7 +17684,10 @@
       "small figure",
       "bare trees"
     ],
-    "texture": [],
+    "texture": [
+      "snow",
+      "fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -16558,7 +17720,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -16573,7 +17735,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Solitary older walker on a snowy park path"
   },
   {
     "id": "img-012-02",
@@ -16585,17 +17748,45 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "woman",
+      "phone",
+      "coffee cup",
+      "hood"
+    ],
     "object_roles": {
-      "phone": "primary"
+      "woman": "primary",
+      "phone": "primary",
+      "coffee cup": "secondary",
+      "hood": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16612,8 +17803,13 @@
       "fur frame",
       "posed face"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur",
+      "fabric"
+    ],
+    "motion": [
+      "raised arm"
+    ],
     "tone": [
       "self-consciousness",
       "coolness"
@@ -16660,7 +17856,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman in a fur hood holding a takeaway cup and raising her phone for a selfie"
   },
   {
     "id": "img-012-09",
@@ -16674,23 +17871,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "wall",
-      "phone"
+      "woman",
+      "phone",
+      "hat",
+      "wall"
     ],
     "object_roles": {
-      "wall": "secondary",
-      "phone": "primary"
+      "woman": "primary",
+      "phone": "primary",
+      "hat": "secondary",
+      "wall": "secondary"
     },
     "environment": [
-      "architecture"
+      "street",
+      "wall",
+      "city",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "side view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "white",
+      "black"
     ],
     "dominant_colors": [
       "blue"
@@ -16711,10 +17929,12 @@
       "color echo"
     ],
     "texture": [
-      "glass",
-      "hard surface"
+      "fabric",
+      "painted wall"
     ],
-    "motion": [],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "detachment",
       "coolness"
@@ -16762,7 +17982,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman in a white hat looking at her phone beside a blue wall"
   },
   {
     "id": "img-012-11",
@@ -16776,20 +17997,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "man",
       "phone",
-      "flag"
+      "flag",
+      "street"
     ],
     "object_roles": {
+      "man": "primary",
       "phone": "primary",
-      "flag": "primary"
+      "flag": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "side view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16806,7 +18051,10 @@
       "phone screen",
       "walking body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
     "motion": [
       "walking"
     ],
@@ -16856,7 +18104,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Young man walking with a Polish flag while checking his phone"
   },
   {
     "id": "img-012-13",
@@ -16870,19 +18119,46 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross"
+      "child",
+      "phone",
+      "woman",
+      "pavilion"
     ],
     "object_roles": {
-      "cross": "primary",
-      "phone": "primary"
+      "child": "primary",
+      "phone": "primary",
+      "woman": "secondary",
+      "pavilion": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "park",
+      "outdoor",
+      "architecture"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "framed scene",
+      "back view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "green",
+      "purple"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16899,8 +18175,13 @@
       "cross-legged pose",
       "interior frame"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "painted wood",
+      "fabric"
+    ],
+    "motion": [
+      "photographing"
+    ],
     "tone": [
       "curiosity",
       "tenderness"
@@ -16922,7 +18203,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "child",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -16930,7 +18211,8 @@
       "woman"
     ],
     "age_group": [
-      "child"
+      "child",
+      "adult"
     ],
     "age_stage": "",
     "screen_visible": false,
@@ -16947,7 +18229,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Child photographing a seated woman inside a red pavilion"
   },
   {
     "id": "img-013-06",
@@ -17775,25 +19058,42 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "statue",
       "cross",
       "bird",
-      "statue"
+      "sky"
     ],
     "object_roles": {
+      "statue": "primary",
       "cross": "primary",
-      "bird": "primary",
-      "statue": "primary"
+      "bird": "secondary",
+      "sky": "secondary"
     },
-    "environment": [],
-    "environment_type": [
-      "outdoor"
+    "environment": [
+      "outdoor",
+      "architecture"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "public square"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "upward gaze"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "gray"
     ],
     "dominant_colors": [
       "blue"
@@ -17813,8 +19113,12 @@
       "seagull perch",
       "stone faith"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "stone"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "reverence",
       "lightness"
@@ -17856,7 +19160,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Cross-bearing statue with a gull perched on the cross against blue sky"
   },
   {
     "id": "img-014-10",
@@ -17870,19 +19175,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "statue"
+      "sculpture",
+      "barrier",
+      "grass",
+      "tree"
     ],
     "object_roles": {
-      "statue": "primary"
+      "sculpture": "primary",
+      "barrier": "primary",
+      "grass": "secondary",
+      "tree": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "park",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "side view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "white"
+      "white",
+      "green",
+      "gray"
     ],
     "dominant_colors": [
       "white"
@@ -17903,9 +19233,13 @@
       "public display"
     ],
     "texture": [
-      "metal"
+      "stone",
+      "metal",
+      "grass"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "wonder",
       "absurdity"
@@ -17927,14 +19261,12 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
-    "people_prominence": "primary",
-    "has_people": true,
-    "people_count": 5,
+    "people_focus": "",
+    "people_prominence": "none",
+    "has_people": false,
+    "people_count": 0,
     "gender": [],
-    "age_group": [
-      "adult"
-    ],
+    "age_group": [],
     "age_stage": "",
     "screen_visible": false,
     "negative": [
@@ -17949,7 +19281,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "White dragon sculpture fenced off on grass in a park"
   },
   {
     "id": "img-014-13",
@@ -17962,19 +19295,42 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "mannequin",
+      "shoes",
+      "display block"
+    ],
     "object_roles": {
-      "statue": "primary"
+      "mannequin": "primary",
+      "shoes": "primary",
+      "display block": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "retail",
+      "indoor"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
     "composition": [
       "repetition"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "display lighting"
+    ],
+    "colors": [
+      "black",
+      "beige",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -17992,9 +19348,13 @@
       "market stall"
     ],
     "texture": [
-      "hard surface"
+      "plastic",
+      "fabric",
+      "concrete"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "unease",
       "absurdity"
@@ -18036,7 +19396,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Rows of mannequin legs and shoes displayed on concrete blocks"
   },
   {
     "id": "img-014-16",
@@ -18049,17 +19410,41 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "doll",
+      "fur"
+    ],
     "object_roles": {
-      "statue": "primary"
+      "doll": "primary",
+      "fur": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "indoor",
+      "still life"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "paired portrait",
+      "tight crop"
+    ],
+    "lighting": [
+      "soft light"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -18076,8 +19461,13 @@
       "lace dress",
       "furry companion"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur",
+      "porcelain"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "unease",
       "tenderness"
@@ -18119,7 +19509,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Porcelain doll and furry doll paired in black and white"
   },
   {
     "id": "img-014-19",
@@ -18133,19 +19524,41 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "glasses"
+      "face object",
+      "headphones",
+      "sunglasses"
     ],
     "object_roles": {
-      "glasses": "primary",
-      "statue": "primary"
+      "face object": "primary",
+      "headphones": "primary",
+      "sunglasses": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "indoor",
+      "still life"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "symbolic object photography",
+      "uncanny urban observation",
+      "surrogate portraiture"
+    ],
+    "composition": [
+      "object portrait"
+    ],
+    "lighting": [
+      "spotlight"
+    ],
+    "colors": [
+      "yellow",
+      "red",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -18162,8 +19575,13 @@
       "headphones",
       "sunglasses"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "wood",
+      "plastic"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "humor",
       "playfulness"
@@ -18205,7 +19623,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Comic face made from a wood slice, sunglasses, and headphones"
   },
   {
     "id": "img-015-02",
@@ -18218,21 +19637,46 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "rainbow",
+      "church tower",
+      "skyline",
+      "building"
+    ],
+    "object_roles": {
+      "rainbow": "primary",
+      "church tower": "primary",
+      "skyline": "secondary",
+      "building": "secondary"
+    },
     "environment": [
       "city",
-      "street",
+      "public art",
+      "outdoor",
       "architecture"
     ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "skyline view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow",
+      "blue",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -18249,8 +19693,13 @@
       "church peaks",
       "arched sky"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "sky",
+      "stone"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "awe",
       "hope"
@@ -18292,7 +19741,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Double rainbow over a city skyline with church towers"
   },
   {
     "id": "img-015-03",
@@ -19758,19 +21208,41 @@
     "secondary": [],
     "noise": [],
     "objects": [
+      "man",
+      "newspaper",
       "flag"
     ],
     "object_roles": {
-      "flag": "primary"
+      "man": "primary",
+      "newspaper": "primary",
+      "flag": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "humanist street photography",
+      "observational street portraiture"
+    ],
+    "composition": [
+      "overhead angle"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "white"
+      "white",
+      "blue",
+      "gray"
     ],
     "dominant_colors": [
       "white"
@@ -19790,8 +21262,13 @@
       "white beard",
       "public reading"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "paper",
+      "fabric"
+    ],
+    "motion": [
+      "reading"
+    ],
     "tone": [
       "absorption",
       "distance"
@@ -19823,7 +21300,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -19838,7 +21315,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Bearded man reading a newspaper with an Israeli flag image"
   },
   {
     "id": "img-013-23",
@@ -22799,24 +24277,44 @@
     ],
     "noise": [],
     "objects": [
-      "phone",
+      "police",
       "mask",
-      "police"
+      "uniform"
     ],
     "object_roles": {
-      "phone": "primary"
+      "police": "primary",
+      "mask": "secondary",
+      "uniform": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "tight crop",
+      "profile view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -22834,8 +24332,7 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "fabric"
     ],
     "motion": [
       "stillness"
@@ -22862,10 +24359,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "person",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 1,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -22882,7 +24379,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Close view of a masked police officer at a street protest"
   },
   {
     "id": "img-003-05",
@@ -22905,23 +24403,45 @@
     ],
     "noise": [],
     "objects": [
-      "mask",
-      "police"
+      "police",
+      "street",
+      "building"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "object_roles": {
+      "police": "primary",
+      "street": "secondary",
+      "building": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "architecture",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "repetition"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "compressed crowding"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
+    "colors": [
+      "blue",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -22939,8 +24459,8 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "fabric",
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -22967,10 +24487,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 10,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -22987,7 +24507,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Cluster of police officers filling a narrow city street during a protest"
   },
   {
     "id": "img-003-07",
@@ -23010,25 +24531,45 @@
     ],
     "noise": [],
     "objects": [
-      "stroller",
-      "police"
+      "protesters",
+      "police",
+      "street"
     ],
     "object_roles": {
-      "stroller": "primary"
+      "protesters": "primary",
+      "police": "primary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "repetition"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "street depth",
+      "tonal contrast"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23046,11 +24587,11 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "fabric",
+      "asphalt"
     ],
     "motion": [
-      "stillness"
+      "crowd movement"
     ],
     "tone": [
       "coldness",
@@ -23074,10 +24615,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "child",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 6,
     "gender": [],
     "age_group": [
       "child"
@@ -23097,7 +24638,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Black-and-white street scene with protesters facing a police line"
   },
   {
     "id": "img-003-11",
@@ -23120,28 +24662,49 @@
     ],
     "noise": [],
     "objects": [
-      "crow",
+      "woman",
       "sign",
+      "rainbow fan",
+      "crowd",
       "flag"
     ],
     "object_roles": {
+      "woman": "primary",
       "sign": "primary",
-      "flag": "primary"
+      "rainbow fan": "secondary",
+      "crowd": "secondary",
+      "flag": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "frame within frame",
-      "dense grouping"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "overhead view",
+      "central figure"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow",
+      "brown",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -23159,10 +24722,12 @@
       "collective body"
     ],
     "texture": [
-      "metal"
+      "paper",
+      "fabric"
     ],
     "motion": [
-      "stillness"
+      "fan movement",
+      "crowd movement"
     ],
     "tone": [
       "alertness",
@@ -23189,8 +24754,10 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
-    "gender": [],
+    "people_count": 8,
+    "gender": [
+      "woman"
+    ],
     "age_group": [
       "adult"
     ],
@@ -23209,7 +24776,8 @@
       "impact": 9,
       "originality": 10,
       "emotion": 7
-    }
+    },
+    "alt": "Woman waving a rainbow fan and holding a protest sign in a crowd"
   },
   {
     "id": "img-003-13",
@@ -23232,25 +24800,45 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
       "flag",
-      "mask"
+      "mask",
+      "dress"
     ],
     "object_roles": {
-      "mask": "primary"
+      "woman": "primary",
+      "flag": "primary",
+      "mask": "secondary",
+      "dress": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "portrait crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black",
-      "red"
+      "red",
+      "white",
+      "black"
     ],
     "dominant_colors": [
       "black",
@@ -23271,9 +24859,11 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "standing"
     ],
     "tone": [
       "tension",
@@ -23322,7 +24912,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Masked woman in a red dress holding a Polish flag"
   },
   {
     "id": "img-003-14",
@@ -23345,28 +24936,49 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
+      "flag",
       "window",
-      "flag"
+      "reflection",
+      "tram"
     ],
     "object_roles": {
-      "window": "primary",
-      "flag": "primary"
+      "woman": "primary",
+      "flag": "primary",
+      "window": "secondary",
+      "reflection": "secondary",
+      "tram": "secondary"
     },
     "environment": [
-      "architecture"
+      "street",
+      "transit",
+      "city",
+      "outdoor"
     ],
-    "environment_type": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
     "setting_type": [
-      "window"
+      "transit",
+      "street"
     ],
     "style": [
-      "political street photography",
-      "public theater",
-      "window"
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "framed through window",
+      "reflection"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23384,7 +24996,8 @@
       "withheld life"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "metal"
     ],
     "motion": [
       "stillness"
@@ -23436,7 +25049,8 @@
       "impact": 9,
       "originality": 10,
       "emotion": 8
-    }
+    },
+    "alt": "Woman with a Polish flag seen through a tram window"
   },
   {
     "id": "img-003-17",
@@ -23460,25 +25074,46 @@
     "noise": [],
     "objects": [
       "banner",
-      "flag"
+      "crowd",
+      "flags",
+      "street"
     ],
     "object_roles": {
-      "flag": "secondary"
+      "banner": "primary",
+      "crowd": "primary",
+      "flags": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
       "overhead view",
-      "bird's-eye view"
+      "text-led frame"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "yellow"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23494,9 +25129,13 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "paper",
+      "asphalt"
+    ],
     "motion": [
-      "stillness"
+      "marching"
     ],
     "tone": [
       "tension",
@@ -23523,7 +25162,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 20,
     "gender": [],
     "age_group": [
       "adult"
@@ -23543,7 +25182,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Marchers beneath a banner reading that coal, not atom, powers the country"
   },
   {
     "id": "img-003-19",
@@ -23566,24 +25206,48 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
       "sign",
-      "stroller"
+      "stroller",
+      "child",
+      "street"
     ],
     "object_roles": {
-      "sign": "secondary",
-      "stroller": "primary"
+      "woman": "primary",
+      "sign": "primary",
+      "stroller": "secondary",
+      "child": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "overhead view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "black",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23600,10 +25264,12 @@
       "collective body"
     ],
     "texture": [
-      "metal"
+      "paper",
+      "fabric",
+      "asphalt"
     ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "tension",
@@ -23630,7 +25296,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 3,
     "gender": [],
     "age_group": [
       "adult"
@@ -23650,7 +25316,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Woman holding a sign beside a stroller and child at a protest"
   },
   {
     "id": "img-003-20",
@@ -23673,22 +25340,47 @@
     ],
     "noise": [],
     "objects": [
-      "sign"
+      "women",
+      "sign",
+      "crowd",
+      "street"
     ],
     "object_roles": {
-      "sign": "primary"
+      "women": "primary",
+      "sign": "primary",
+      "crowd": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "overhead view",
+      "paired figures"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "brown"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23705,10 +25397,12 @@
       "collective body"
     ],
     "texture": [
-      "metal"
+      "paper",
+      "fabric",
+      "stone"
     ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "tension",
@@ -23732,10 +25426,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 2,
     "gender": [
       "woman"
     ],
@@ -23757,7 +25451,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Two women holding hand-lettered signs about climate change"
   },
   {
     "id": "img-003-21",
@@ -23780,25 +25475,47 @@
     ],
     "noise": [],
     "objects": [
-      "sign"
+      "crowd",
+      "sign",
+      "flag",
+      "street"
     ],
     "object_roles": {
-      "sign": "primary"
+      "crowd": "primary",
+      "sign": "primary",
+      "flag": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
       "overhead view",
-      "bird's-eye view"
+      "dense grouping"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "brown",
+      "rainbow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23815,10 +25532,12 @@
       "collective body"
     ],
     "texture": [
-      "metal"
+      "paper",
+      "fabric",
+      "asphalt"
     ],
     "motion": [
-      "stillness"
+      "marching"
     ],
     "tone": [
       "tension",
@@ -23845,7 +25564,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 6,
     "gender": [],
     "age_group": [
       "adult"
@@ -23865,7 +25584,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Protesters clustered around a large sign in the middle of a march"
   },
   {
     "id": "img-003-22",
@@ -23889,25 +25609,47 @@
     "noise": [],
     "objects": [
       "banner",
-      "flag"
+      "crowd",
+      "placard",
+      "street"
     ],
     "object_roles": {
-      "flag": "primary"
+      "banner": "primary",
+      "crowd": "primary",
+      "placard": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
       "overhead view",
-      "bird's-eye view"
+      "wide banner"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "red",
+      "pink",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23923,9 +25665,13 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "paper",
+      "asphalt"
+    ],
     "motion": [
-      "walking"
+      "marching"
     ],
     "tone": [
       "tension",
@@ -23950,9 +25696,9 @@
     "shot_type": "wide",
     "subject_scale": "wide",
     "people_focus": "crowd",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 12,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -23969,7 +25715,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Overhead march led by a wide anti-fascist banner and placards"
   },
   {
     "id": "img-003-26",
@@ -23992,21 +25739,46 @@
     ],
     "noise": [],
     "objects": [
-      "police"
+      "police",
+      "street",
+      "crowd",
+      "tram"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "object_roles": {
+      "police": "primary",
+      "street": "primary",
+      "crowd": "secondary",
+      "tram": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "rain",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "blurred depth"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
     "colors": [
-      "red"
+      "blue",
+      "gray",
+      "yellow"
     ],
     "dominant_colors": [],
     "color_mode": "color",
@@ -24025,11 +25797,13 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "rain",
+      "asphalt",
+      "fabric"
     ],
     "motion": [
-      "blurred motion"
+      "crowd movement",
+      "blur"
     ],
     "tone": [
       "coldness",
@@ -24053,10 +25827,10 @@
     "manipulation": "motion blur",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 8,
     "gender": [
       "woman"
     ],
@@ -24078,7 +25852,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Blurred line of police and bystanders in a wet old street"
   },
   {
     "id": "img-003-27",
@@ -24101,25 +25876,47 @@
     ],
     "noise": [],
     "objects": [
-      "bike"
+      "bicycle",
+      "person",
+      "phone",
+      "archway",
+      "building"
     ],
     "object_roles": {
-      "bike": "primary"
+      "bicycle": "primary",
+      "person": "primary",
+      "phone": "secondary",
+      "archway": "secondary",
+      "building": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "architecture",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
-      "political street photography",
-      "public theater",
-      "protest"
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
-      "frame within frame"
+      "framed arch",
+      "balanced spacing"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "beige",
+      "blue"
     ],
     "dominant_colors": [
       "yellow"
@@ -24138,9 +25935,13 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "stone",
+      "metal"
+    ],
     "motion": [
-      "transit movement"
+      "cycling",
+      "walking"
     ],
     "tone": [
       "urgent"
@@ -24163,10 +25964,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 2,
     "gender": [],
     "age_group": [
       "adult"
@@ -24186,7 +25987,8 @@
       "impact": 9,
       "originality": 10,
       "emotion": 7
-    }
+    },
+    "alt": "Cyclist and worker using a phone framed by an arched passage"
   },
   {
     "id": "img-003-28",
@@ -24209,22 +26011,47 @@
     ],
     "noise": [],
     "objects": [
-      "mask"
+      "man",
+      "mask",
+      "cap",
+      "jacket"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "object_roles": {
+      "man": "primary",
+      "mask": "primary",
+      "cap": "secondary",
+      "jacket": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "close crop"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "tight portrait",
+      "profile view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -24240,7 +26067,9 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -24291,7 +26120,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Close portrait of a man in a cap wearing a grinning face mask"
   },
   {
     "id": "img-003-31",
@@ -24314,27 +26144,47 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "police"
+      "police",
+      "crosswalk",
+      "helmet",
+      "street"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "police": "primary",
+      "crosswalk": "primary",
+      "helmet": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "setting_type": [
+      "street",
       "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
       "overhead view",
-      "bird's-eye view",
-      "repetition"
+      "diagonal line"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -24352,8 +26202,8 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "asphalt",
+      "fabric"
     ],
     "motion": [
       "walking"
@@ -24380,10 +26230,10 @@
     "manipulation": "straight",
     "shot_type": "wide",
     "subject_scale": "wide",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 6,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -24400,7 +26250,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Overhead line of helmeted police crossing a zebra crossing"
   },
   {
     "id": "img-003-32",
@@ -24423,26 +26274,47 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "police"
+      "police",
+      "safety vest",
+      "crosswalk",
+      "street"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "police": "primary",
+      "safety vest": "primary",
+      "crosswalk": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "winter",
+      "outdoor"
+    ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "repetition"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
+    "composition": [
+      "overhead view",
+      "grid pattern"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "black",
+      "white"
     ],
     "dominant_colors": [
       "yellow"
@@ -24464,7 +26336,8 @@
     ],
     "texture": [
       "snow",
-      "ice"
+      "asphalt",
+      "fabric"
     ],
     "motion": [
       "walking"
@@ -24491,10 +26364,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 20,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -24511,7 +26384,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Snowy overhead view of police in fluorescent vests at a street junction"
   },
   {
     "id": "img-003-33",
@@ -24534,29 +26408,46 @@
     ],
     "noise": [],
     "objects": [
+      "police",
       "tram",
-      "police"
+      "man",
+      "street"
     ],
     "object_roles": {
-      "tram": "primary"
+      "police": "primary",
+      "tram": "primary",
+      "man": "secondary",
+      "street": "secondary"
     },
     "environment": [
-      "transit"
+      "street",
+      "transit",
+      "city",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
-      "protest"
+    "setting_type": [
+      "street",
+      "transit"
     ],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "motion blur",
+      "layered street scene"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "black",
+      "red"
     ],
     "dominant_colors": [
       "yellow"
@@ -24578,11 +26469,10 @@
     ],
     "texture": [
       "metal",
-      "snow",
-      "ice"
+      "fabric"
     ],
     "motion": [
-      "transit movement"
+      "tram movement"
     ],
     "tone": [
       "coldness",
@@ -24606,10 +26496,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 3,
     "gender": [],
     "age_group": [],
     "age_stage": "",
@@ -24626,7 +26516,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Police officers and a passerby with a yellow tram rushing behind them"
   },
   {
     "id": "img-003-34",
@@ -24649,29 +26540,45 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
+      "police",
       "tram",
-      "police"
+      "street"
     ],
     "object_roles": {
-      "tram": "secondary"
+      "woman": "primary",
+      "police": "primary",
+      "tram": "secondary",
+      "street": "secondary"
     },
     "environment": [
-      "transit"
+      "street",
+      "transit",
+      "city",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
-      "protest"
+    "setting_type": [
+      "street",
+      "transit"
     ],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
+    ],
+    "composition": [
+      "paired figures"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "green",
+      "black"
     ],
     "dominant_colors": [
       "yellow"
@@ -24692,12 +26599,11 @@
       "authority"
     ],
     "texture": [
-      "metal",
-      "snow",
-      "ice"
+      "fabric",
+      "metal"
     ],
     "motion": [
-      "transit movement"
+      "standing"
     ],
     "tone": [
       "coldness",
@@ -24721,10 +26627,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 2,
     "gender": [
       "woman"
     ],
@@ -24746,7 +26652,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Older woman standing beside a police officer with a yellow tram behind them"
   },
   {
     "id": "img-003-35",
@@ -24769,28 +26676,44 @@
     ],
     "noise": [],
     "objects": [
-      "crow",
-      "sign"
+      "crowd",
+      "sign",
+      "street"
     ],
     "object_roles": {
-      "sign": "primary"
+      "crowd": "primary",
+      "sign": "primary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street",
       "protest"
+    ],
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
     "composition": [
       "overhead view",
-      "bird's-eye view",
-      "dense grouping"
+      "dense field"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "white",
+      "red",
+      "black"
     ],
     "dominant_colors": [
       "red"
@@ -24810,10 +26733,11 @@
       "collective body"
     ],
     "texture": [
-      "metal"
+      "fabric",
+      "asphalt"
     ],
     "motion": [
-      "stillness"
+      "crowd movement"
     ],
     "tone": [
       "alertness",
@@ -24840,7 +26764,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 40,
     "gender": [],
     "age_group": [
       "adult"
@@ -24860,7 +26784,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Dense overhead crowd gathered around a red no-entry sign"
   },
   {
     "id": "img-003-37",
@@ -24883,28 +26808,49 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
+      "police",
       "dog",
-      "police"
+      "crosswalk",
+      "person",
+      "street"
     ],
     "object_roles": {
-      "dog": "secondary"
+      "police": "primary",
+      "dog": "primary",
+      "crosswalk": "secondary",
+      "person": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "protest",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
+      "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [
-      "political street photography",
-      "public theater",
+    "setting_type": [
+      "street",
       "protest"
     ],
-    "composition": [
-      "repetition"
+    "style": [
+      "documentary protest photography",
+      "observational street photography"
     ],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "overhead view",
+      "layered street scene"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -24922,8 +26868,8 @@
       "authority"
     ],
     "texture": [
-      "snow",
-      "ice"
+      "asphalt",
+      "fabric"
     ],
     "motion": [
       "walking"
@@ -24950,10 +26896,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
-    "people_prominence": "secondary",
+    "people_focus": "crowd",
+    "people_prominence": "primary",
     "has_people": true,
-    "people_count": 1,
+    "people_count": 8,
     "gender": [
       "woman"
     ],
@@ -24975,7 +26921,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Police officers at a crosswalk while a person walks a dog behind them"
   },
   {
     "id": "img-004-04",
@@ -33850,19 +35797,24 @@
     ],
     "noise": [],
     "objects": [
-      "older woman",
-      "fur coat",
+      "woman",
+      "coat",
       "hat",
       "street"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "woman": "primary",
+      "coat": "primary",
+      "hat": "secondary",
+      "street": "secondary"
+    },
     "environment": [
+      "street",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
@@ -33870,13 +35822,18 @@
     ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "street portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "brown"
+      "brown",
+      "gold",
+      "black"
     ],
     "dominant_colors": [
       "brown"
@@ -33896,9 +35853,12 @@
       "hat",
       "public appearance"
     ],
-    "texture": [],
+    "texture": [
+      "fur",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "dignity",
@@ -33947,7 +35907,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older woman in a brown fur coat and hat walking through the city"
   },
   {
     "id": "img-011-05",
@@ -33970,29 +35931,44 @@
     ],
     "noise": [],
     "objects": [
-      "elderly woman",
+      "person",
       "cane",
-      "cafe sign",
-      "sign"
+      "sign",
+      "street"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "person": "primary",
+      "cane": "primary",
+      "sign": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
     "composition": [
-      "overhead view",
-      "bird's-eye view",
-      "graphic juxtaposition"
+      "overhead angle"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34010,10 +35986,11 @@
       "threshold"
     ],
     "texture": [
+      "asphalt",
       "metal"
     ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "vulnerability",
@@ -34036,7 +36013,7 @@
     "manipulation": "straight",
     "shot_type": "wide",
     "subject_scale": "wide",
-    "people_focus": "woman",
+    "people_focus": "person",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 1,
@@ -34061,7 +36038,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Older pedestrian with a cane passing a fallen street sign"
   },
   {
     "id": "img-011-07",
@@ -34085,25 +36063,44 @@
     "noise": [],
     "objects": [
       "man",
-      "streetlights",
+      "fence",
+      "streetlight",
       "street"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "man": "primary",
+      "fence": "primary",
+      "streetlight": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "night",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
     "composition": [
-      "repetition"
+      "long perspective"
     ],
     "lighting": [
-      "low light"
+      "low light",
+      "streetlight"
     ],
-    "colors": [],
+    "colors": [
+      "black",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34120,10 +36117,12 @@
       "dark coat",
       "passing lane"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "asphalt"
+    ],
     "motion": [
-      "walking",
-      "stillness"
+      "walking"
     ],
     "tone": [
       "solitude",
@@ -34156,7 +36155,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -34171,7 +36170,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Older man walking alone at night beneath streetlights and fences"
   },
   {
     "id": "img-011-09",
@@ -34194,15 +36194,22 @@
     ],
     "noise": [],
     "objects": [
-      "older man",
-      "trolley",
-      "sidewalk"
+      "man",
+      "shopping trolley",
+      "street"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "man": "primary",
+      "shopping trolley": "primary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
@@ -34210,12 +36217,18 @@
     ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "side view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34232,9 +36245,12 @@
       "weight",
       "roadside margin"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "endurance",
@@ -34282,7 +36298,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Older man pushing a heavily loaded trolley along the street"
   },
   {
     "id": "img-011-10",
@@ -34305,18 +36322,22 @@
     ],
     "noise": [],
     "objects": [
-      "elderly woman",
+      "woman",
       "handbag",
       "street"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "woman": "primary",
+      "handbag": "primary",
+      "street": "secondary"
+    },
     "environment": [
+      "street",
       "city",
-      "street"
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
@@ -34324,14 +36345,18 @@
     ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
     "composition": [
-      "frame within frame"
+      "motion blur"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34348,9 +36373,11 @@
       "crossing body",
       "street flow"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
-      "walking"
+      "walking fast"
     ],
     "tone": [
       "urgency",
@@ -34398,7 +36425,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older woman hurrying through the city with a handbag"
   },
   {
     "id": "img-011-13",
@@ -34421,28 +36449,42 @@
     ],
     "noise": [],
     "objects": [
-      "older women",
-      "bench"
+      "women",
+      "bench",
+      "park"
     ],
     "object_roles": {
-      "bench": "primary"
+      "women": "primary",
+      "bench": "primary",
+      "park": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "outdoor",
+      "city"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "bench grouping"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "black",
+      "pink"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34459,9 +36501,12 @@
       "conversation",
       "public rest"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "wood"
+    ],
     "motion": [
-      "stillness"
+      "conversation"
     ],
     "tone": [
       "companionship",
@@ -34484,7 +36529,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -34509,7 +36554,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Three older women talking on a bench"
   },
   {
     "id": "img-011-14",
@@ -34532,22 +36578,41 @@
     ],
     "noise": [],
     "objects": [
-      "woman with cane",
-      "older man",
+      "people",
+      "cane",
       "street"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "people": "primary",
+      "cane": "primary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "paired figures"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34564,7 +36629,10 @@
       "paired walk",
       "distance between bodies"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
     "motion": [
       "walking"
     ],
@@ -34589,7 +36657,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -34615,7 +36683,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older couple walking together, one using a cane"
   },
   {
     "id": "img-011-15",
@@ -34638,30 +36707,41 @@
     ],
     "noise": [],
     "objects": [
-      "two pedestrians",
-      "winter clothing"
+      "people",
+      "street",
+      "coat"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "people": "primary",
+      "street": "primary",
+      "coat": "secondary"
+    },
     "environment": [
-      "winter"
+      "street",
+      "winter",
+      "city",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
     "composition": [
-      "close crop",
       "motion blur"
     ],
     "lighting": [
-      "cold daylight",
-      "cold light"
+      "cold daylight"
     ],
     "colors": [
-      "red"
+      "gray",
+      "black"
     ],
     "dominant_colors": [],
     "color_mode": "color",
@@ -34679,9 +36759,13 @@
       "winter layers",
       "passing time"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "asphalt"
+    ],
     "motion": [
-      "blurred motion"
+      "walking",
+      "blur"
     ],
     "tone": [
       "transience",
@@ -34704,7 +36788,7 @@
     "manipulation": "motion blur",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -34727,7 +36811,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Blurred older pedestrians moving through a winter street"
   },
   {
     "id": "img-011-16",
@@ -34750,25 +36835,43 @@
     ],
     "noise": [],
     "objects": [
-      "older man",
-      "older woman",
+      "people",
+      "face",
       "crowd"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "people": "primary",
+      "face": "primary",
+      "crowd": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
     "composition": [
-      "close crop",
-      "dense grouping"
+      "tight crop",
+      "paired portrait"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34785,7 +36888,10 @@
       "shared proximity",
       "crowd pressure"
     ],
-    "texture": [],
+    "texture": [
+      "skin",
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -34813,7 +36919,7 @@
     "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 5,
+    "people_count": 2,
     "gender": [
       "woman",
       "man"
@@ -34836,7 +36942,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Close portrait of two older faces in a city crowd"
   },
   {
     "id": "img-011-17",
@@ -34859,21 +36966,42 @@
     ],
     "noise": [],
     "objects": [
-      "two older women",
-      "hats"
+      "women",
+      "hat",
+      "coat"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "women": "primary",
+      "hat": "primary",
+      "coat": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "close pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "beige",
+      "pink",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -34890,9 +37018,12 @@
       "soft hats",
       "conversation"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "fur"
+    ],
     "motion": [
-      "stillness"
+      "conversation"
     ],
     "tone": [
       "intimacy",
@@ -34915,10 +37046,10 @@
     "manipulation": "straight",
     "shot_type": "portrait",
     "subject_scale": "close",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 2,
     "gender": [
       "woman"
     ],
@@ -34940,7 +37071,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two older women facing each other in close conversation"
   },
   {
     "id": "img-011-18",
@@ -34964,23 +37096,42 @@
     "noise": [],
     "objects": [
       "woman",
-      "red hair"
+      "coat",
+      "hat",
+      "street"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [
+    "object_roles": {
+      "woman": "primary",
+      "coat": "primary",
+      "hat": "secondary",
+      "street": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
       "outdoor"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "street portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "red",
+      "brown",
+      "gray"
     ],
     "dominant_colors": [
       "red"
@@ -35000,9 +37151,12 @@
       "bright hair",
       "face turned outward"
     ],
-    "texture": [],
+    "texture": [
+      "fur",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "vitality",
@@ -35035,7 +37189,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -35050,7 +37204,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Older woman with bright red hair smiling on the street"
   },
   {
     "id": "img-011-20",
@@ -35073,21 +37228,44 @@
     ],
     "noise": [],
     "objects": [
-      "two older men",
-      "public transport"
+      "men",
+      "tram",
+      "window",
+      "seat"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "men": "primary",
+      "tram": "primary",
+      "window": "secondary",
+      "seat": "secondary"
+    },
+    "environment": [
+      "transit",
+      "city",
+      "indoor"
+    ],
+    "environment_type": [
+      "indoor",
+      "urban"
+    ],
+    "setting_type": [
+      "transit"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "framed through window"
+    ],
+    "lighting": [
+      "window light"
+    ],
+    "colors": [
+      "yellow",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35104,7 +37282,10 @@
       "hand on forehead",
       "shared transit"
     ],
-    "texture": [],
+    "texture": [
+      "glass",
+      "metal"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35129,14 +37310,16 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "man",
-    "people_prominence": "none",
-    "has_people": false,
-    "people_count": 0,
+    "people_focus": "crowd",
+    "people_prominence": "primary",
+    "has_people": true,
+    "people_count": 2,
     "gender": [
       "man"
     ],
-    "age_group": [],
+    "age_group": [
+      "adult"
+    ],
     "age_stage": "older",
     "screen_visible": false,
     "negative": [
@@ -35151,7 +37334,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two older men sitting inside a tram behind a window frame"
   },
   {
     "id": "img-011-21",
@@ -35174,20 +37358,22 @@
     ],
     "noise": [],
     "objects": [
-      "older man",
-      "woman on chair",
-      "curb",
-      "cross",
-      "chair"
+      "people",
+      "bench",
+      "street"
     ],
     "object_roles": {
-      "cross": "secondary",
-      "chair": "secondary"
+      "people": "primary",
+      "bench": "primary",
+      "street": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
@@ -35195,12 +37381,20 @@
     ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "paired figures",
+      "threshold framing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35217,9 +37411,14 @@
       "chair",
       "crossing preparation"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "stone",
+      "wood"
+    ],
     "motion": [
-      "stillness"
+      "standing",
+      "waiting"
     ],
     "tone": [
       "hesitation",
@@ -35242,7 +37441,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -35268,7 +37467,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Standing older man and seated older woman paused at a threshold"
   },
   {
     "id": "img-011-22",
@@ -35291,22 +37491,44 @@
     ],
     "noise": [],
     "objects": [
-      "two elderly women",
-      "coats",
-      "iron fence"
+      "women",
+      "bench",
+      "coat",
+      "park"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "women": "primary",
+      "bench": "primary",
+      "coat": "secondary",
+      "park": "secondary"
+    },
+    "environment": [
+      "park",
+      "outdoor",
+      "city"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "humanist street photography",
-      "observational portraiture",
-      "public life"
+      "observational street portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "seated pair"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "blue",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -35323,7 +37545,10 @@
       "resting pair",
       "iron fence"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "wood"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35348,10 +37573,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 3,
+    "people_count": 2,
     "gender": [
       "woman"
     ],
@@ -35373,7 +37598,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two older women in colorful coats sitting together on a bench"
   },
   {
     "id": "img-012-04",
@@ -35396,22 +37622,44 @@
     ],
     "noise": [],
     "objects": [
-      "phone"
+      "woman",
+      "phone",
+      "folder",
+      "street"
     ],
     "object_roles": {
-      "phone": "primary"
+      "woman": "primary",
+      "phone": "primary",
+      "folder": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "phone-era street photography",
-      "social observation",
-      "phone"
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "overcast daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35428,9 +37676,11 @@
       "screen",
       "split attention"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "walking"
     ],
     "tone": [
       "absorption",
@@ -35478,7 +37728,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Woman looking down at her phone while holding papers"
   },
   {
     "id": "img-012-05",
@@ -35501,22 +37752,42 @@
     ],
     "noise": [],
     "objects": [
-      "phone"
+      "woman",
+      "phone",
+      "street"
     ],
     "object_roles": {
-      "phone": "primary"
+      "woman": "primary",
+      "phone": "primary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "phone-era street photography",
-      "social observation",
-      "phone"
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "directional light"
+    ],
+    "colors": [
+      "gold",
+      "brown",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35533,7 +37804,10 @@
       "screen",
       "split attention"
     ],
-    "texture": [],
+    "texture": [
+      "hair",
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35583,7 +37857,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Woman concentrating on her phone in bright sunlight"
   },
   {
     "id": "img-012-06",
@@ -35606,24 +37881,44 @@
     ],
     "noise": [],
     "objects": [
+      "woman",
       "phone",
-      "glasses"
+      "sunglasses",
+      "hood"
     ],
     "object_roles": {
+      "woman": "primary",
       "phone": "primary",
-      "glasses": "primary"
+      "sunglasses": "secondary",
+      "hood": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "phone-era street photography",
-      "social observation",
-      "phone"
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "tight portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "brown",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35641,10 +37936,11 @@
       "split attention"
     ],
     "texture": [
-      "glass"
+      "fabric",
+      "fur"
     ],
     "motion": [
-      "stillness"
+      "phone call"
     ],
     "tone": [
       "absorption",
@@ -35677,7 +37973,7 @@
     "age_group": [
       "adult"
     ],
-    "age_stage": "",
+    "age_stage": "older",
     "screen_visible": false,
     "negative": [
       "people",
@@ -35692,7 +37988,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Older woman in sunglasses speaking on a phone"
   },
   {
     "id": "img-012-07",
@@ -35715,23 +38012,44 @@
     ],
     "noise": [],
     "objects": [
-      "phone"
+      "man",
+      "phone",
+      "hood",
+      "wall"
     ],
     "object_roles": {
-      "phone": "primary"
+      "man": "primary",
+      "phone": "primary",
+      "hood": "secondary",
+      "wall": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [
-      "phone-era street photography",
-      "social observation",
-      "phone"
+    "environment": [
+      "street",
+      "wall",
+      "city",
+      "outdoor"
     ],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "mediation study"
+    ],
+    "composition": [
+      "street portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "red",
+      "blue",
+      "purple"
     ],
     "dominant_colors": [
       "red"
@@ -35751,9 +38069,12 @@
       "screen",
       "split attention"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "painted wall"
+    ],
     "motion": [
-      "stillness"
+      "phone call"
     ],
     "tone": [
       "absorption",
@@ -35801,7 +38122,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Man in a hooded red jacket talking on a phone by a painted wall"
   },
   {
     "id": "img-012-10",
@@ -35824,27 +38146,46 @@
     ],
     "noise": [],
     "objects": [
+      "bicycle",
+      "people",
       "phone",
-      "bicycles",
-      "rider",
-      "bike"
+      "crosswalk",
+      "street"
     ],
     "object_roles": {
-      "phone": "primary",
-      "bike": "primary"
+      "bicycle": "primary",
+      "people": "primary",
+      "phone": "secondary",
+      "crosswalk": "secondary",
+      "street": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
-      "social attention study",
-      "urban timing"
+      "mediation study"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "cropped bodies",
+      "street pause"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "white",
+      "gray"
     ],
     "dominant_colors": [
       "black"
@@ -35864,9 +38205,14 @@
       "bicycle cluster",
       "waiting body"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "asphalt",
+      "fabric"
+    ],
     "motion": [
-      "transit movement"
+      "waiting",
+      "balancing"
     ],
     "tone": [
       "absorption",
@@ -35889,7 +38235,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "man",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -35914,7 +38260,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Two cyclists waiting at a crossing while one checks a phone"
   },
   {
     "id": "img-012-12",
@@ -35937,31 +38284,42 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
-      "phone"
+      "women",
+      "phone",
+      "table",
+      "cup"
     ],
     "object_roles": {
-      "phone": "primary"
+      "women": "primary",
+      "phone": "primary",
+      "table": "secondary",
+      "cup": "secondary"
     },
     "environment": [
-      "interior",
-      "domestic"
+      "indoor",
+      "cafe"
     ],
     "environment_type": [
-      "indoor",
-      "domestic"
+      "indoor"
     ],
     "setting_type": [
-      "domestic"
+      "interior"
     ],
     "style": [
-      "phone-era street photography",
-      "social observation",
-      "phone"
+      "observational street photography",
+      "mediation study"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "paired table scene"
+    ],
+    "lighting": [
+      "indoor light"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "beige"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35978,9 +38336,13 @@
       "screen",
       "split attention"
     ],
-    "texture": [],
+    "texture": [
+      "wood",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "looking down",
+      "drinking"
     ],
     "tone": [
       "absorption",
@@ -36003,10 +38365,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "woman",
+    "people_focus": "crowd",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 1,
+    "people_count": 2,
     "gender": [
       "woman"
     ],
@@ -36028,7 +38390,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Young woman looking at her phone across a table from an older woman drinking"
   },
   {
     "id": "img-013-02",
@@ -39131,26 +41494,38 @@
     "noise": [],
     "objects": [
       "statue",
-      "child figure",
       "tree"
     ],
     "object_roles": {
-      "tree": "primary",
-      "statue": "primary"
+      "statue": "primary",
+      "tree": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "park",
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "isolated figure"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
-      "red"
+      "green"
     ],
     "dominant_colors": [
       "white"
@@ -39170,7 +41545,10 @@
       "frozen life",
       "white surface"
     ],
-    "texture": [],
+    "texture": [
+      "stone",
+      "foliage"
+    ],
     "motion": [
       "stillness"
     ],
@@ -39195,14 +41573,12 @@
     "manipulation": "motion blur",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "person",
-    "people_prominence": "primary",
-    "has_people": true,
-    "people_count": 1,
+    "people_focus": "",
+    "people_prominence": "none",
+    "has_people": false,
+    "people_count": 0,
     "gender": [],
-    "age_group": [
-      "adult"
-    ],
+    "age_group": [],
     "age_stage": "",
     "screen_visible": false,
     "negative": [
@@ -39218,7 +41594,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "White child statue standing among trees"
   },
   {
     "id": "img-014-03",
@@ -39241,27 +41618,41 @@
     ],
     "noise": [],
     "objects": [
-      "stone statue",
-      "raised hand",
-      "statue"
+      "statue",
+      "arm",
+      "sky"
     ],
     "object_roles": {
-      "statue": "primary"
+      "statue": "primary",
+      "arm": "primary",
+      "sky": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "shallow focus",
+      "gesture crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black",
-      "white",
-      "red"
+      "gray",
+      "green"
     ],
     "dominant_colors": [
       "black",
@@ -39283,7 +41674,7 @@
       "instruction"
     ],
     "texture": [
-      "hard surface"
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -39327,7 +41718,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Blurred close view of a pointing stone statue"
   },
   {
     "id": "img-014-05",
@@ -39351,31 +41743,40 @@
     "noise": [],
     "objects": [
       "statue",
-      "bird",
+      "roof",
       "sky"
     ],
     "object_roles": {
-      "bird": "primary",
-      "statue": "primary"
+      "statue": "primary",
+      "roof": "primary",
+      "sky": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "outdoor",
+      "architecture"
+    ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
     "composition": [
-      "open sky",
-      "vertical tension"
+      "minimal skyline"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "white",
+      "gray"
     ],
     "dominant_colors": [
       "blue"
@@ -39396,12 +41797,11 @@
       "sky gap"
     ],
     "texture": [
-      "hard surface",
-      "feathers"
+      "stone",
+      "metal"
     ],
     "motion": [
-      "walking",
-      "flight"
+      "stillness"
     ],
     "tone": [
       "stillness",
@@ -39444,7 +41844,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Small rooftop statue silhouetted against a clear blue sky"
   },
   {
     "id": "img-014-06",
@@ -39468,19 +41869,23 @@
     "noise": [],
     "objects": [
       "bust",
-      "snow"
+      "snow",
+      "park"
     ],
     "object_roles": {
-      "statue": "primary",
-      "snow": "primary"
+      "bust": "primary",
+      "snow": "primary",
+      "park": "secondary"
     },
     "environment": [
       "park",
-      "winter"
+      "winter",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
     "setting_type": [
       "park"
@@ -39490,12 +41895,17 @@
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [
-      "cold daylight",
-      "cold light"
+    "composition": [
+      "frontal portrait"
     ],
-    "colors": [],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "white",
+      "gray",
+      "blue"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -39514,7 +41924,7 @@
     ],
     "texture": [
       "snow",
-      "ice"
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -39560,7 +41970,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Snow-dusted bust in a winter park"
   },
   {
     "id": "img-014-08",
@@ -39584,32 +41995,41 @@
     "noise": [],
     "objects": [
       "sculpture",
-      "bench",
       "bicycle",
-      "bike",
-      "statue"
+      "grass"
     ],
     "object_roles": {
-      "bench": "primary",
-      "bike": "primary",
-      "statue": "primary"
+      "sculpture": "primary",
+      "bicycle": "primary",
+      "grass": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "urban"
+      "urban",
+      "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "low monument view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "green"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -39626,9 +42046,11 @@
       "bench",
       "bicycle"
     ],
-    "texture": [],
+    "texture": [
+      "stone",
+      "metal"
+    ],
     "motion": [
-      "transit movement",
       "stillness"
     ],
     "tone": [
@@ -39672,7 +42094,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Reclining stone sculpture with a bicycle wheel in the background"
   },
   {
     "id": "img-014-09",
@@ -39695,27 +42118,41 @@
     ],
     "noise": [],
     "objects": [
-      "stone statue",
-      "statue"
+      "sculpture",
+      "stone",
+      "grass"
     ],
     "object_roles": {
-      "statue": "primary"
+      "sculpture": "primary",
+      "stone": "primary",
+      "grass": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "park",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
     "composition": [
-      "close crop",
-      "body fragment"
+      "close crop"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "green",
+      "gray"
     ],
     "dominant_colors": [],
     "color_mode": "color",
@@ -39734,7 +42171,7 @@
       "reclining pose"
     ],
     "texture": [
-      "hard surface"
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -39780,7 +42217,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Close view of a weathered reclining stone body"
   },
   {
     "id": "img-014-12",
@@ -39803,34 +42241,44 @@
     ],
     "noise": [],
     "objects": [
-      "mannequin heads",
-      "torsos",
-      "hats",
-      "scarves"
+      "mannequin",
+      "scarf",
+      "hat",
+      "market stall"
     ],
     "object_roles": {
-      "statue": "primary"
+      "mannequin": "primary",
+      "scarf": "primary",
+      "hat": "secondary",
+      "market stall": "secondary"
     },
     "environment": [
-      "city",
-      "street"
+      "market",
+      "retail",
+      "indoor"
     ],
     "environment_type": [
-      "outdoor",
-      "street",
-      "urban"
+      "indoor"
     ],
     "setting_type": [
-      "street"
+      "market"
     ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "clustered display"
+    ],
+    "lighting": [
+      "display lighting"
+    ],
+    "colors": [
+      "pink",
+      "black",
+      "beige"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -39847,7 +42295,10 @@
       "torsos",
       "market stall"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "plastic"
+    ],
     "motion": [
       "stillness"
     ],
@@ -39893,7 +42344,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Mannequin head and torsos surrounded by scarves in a market stall"
   },
   {
     "id": "img-014-14",
@@ -39916,32 +42368,43 @@
     ],
     "noise": [],
     "objects": [
-      "mannequin torsos",
-      "clothing rack"
+      "coat",
+      "mannequin",
+      "market stall"
     ],
     "object_roles": {
-      "statue": "primary"
+      "coat": "primary",
+      "mannequin": "primary",
+      "market stall": "secondary"
     },
     "environment": [
-      "city",
-      "street"
+      "market",
+      "retail",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "street",
       "urban"
     ],
     "setting_type": [
-      "street"
+      "market"
     ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "dense rack"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "brown",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -39958,7 +42421,9 @@
       "clothing rack",
       "missing heads"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -40004,7 +42469,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Coats and mannequins hanging in a crowded market rack"
   },
   {
     "id": "img-014-15",
@@ -40027,32 +42493,45 @@
     ],
     "noise": [],
     "objects": [
-      "mannequins",
-      "wigs",
-      "sunglasses",
+      "mannequin",
       "flowers",
-      "flower",
-      "glasses"
+      "wig",
+      "headscarf"
     ],
     "object_roles": {
-      "flower": "primary",
-      "glasses": "primary",
-      "statue": "primary"
+      "mannequin": "primary",
+      "flowers": "primary",
+      "wig": "secondary",
+      "headscarf": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "retail",
+      "market",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "market"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "paired heads"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "pink",
+      "green",
+      "beige"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -40070,7 +42549,9 @@
       "flowers"
     ],
     "texture": [
-      "glass"
+      "plastic",
+      "petals",
+      "fabric"
     ],
     "motion": [
       "stillness"
@@ -40117,7 +42598,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Two mannequin heads among flowers, one with a bright pink wig"
   },
   {
     "id": "img-014-17",
@@ -40141,25 +42623,40 @@
     "noise": [],
     "objects": [
       "mask",
-      "feather boa"
+      "fabric",
+      "shadow"
     ],
     "object_roles": {
-      "statue": "primary",
-      "mask": "primary"
+      "mask": "primary",
+      "fabric": "secondary",
+      "shadow": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "indoor",
+      "still life"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
     "style": [
       "symbolic object photography",
       "uncanny urban observation",
       "surrogate portraiture"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "object portrait"
+    ],
+    "lighting": [
+      "directional light",
+      "shadowed light"
+    ],
     "colors": [
+      "gold",
       "blue",
-      "gold"
+      "beige"
     ],
     "dominant_colors": [
       "blue",
@@ -40181,7 +42678,8 @@
       "gold surface"
     ],
     "texture": [
-      "feathers"
+      "metallic surface",
+      "fabric"
     ],
     "motion": [
       "stillness"
@@ -40227,7 +42725,8 @@
       "impact": 7,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Golden carnival mask lying on blue fabric in window light"
   },
   {
     "id": "img-015-05",
