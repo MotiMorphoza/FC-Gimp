@@ -5,6 +5,10 @@
   var LEGACY_CART_KEY = "moto_cart_v2";
   var SIZE_ORDER = ["A6", "A5", "A4", "A3", "A2", "A1"];
 
+  function isValidSizeId(sizeId) {
+    return SIZE_ORDER.indexOf(String(sizeId || "").toUpperCase()) !== -1;
+  }
+
   function parseJSON(raw, fallback) {
     try {
       return JSON.parse(raw);
@@ -21,8 +25,8 @@
       var key = String(code || "").trim().toUpperCase();
       if (!key) return;
       var item = src.select[code] || {};
-      var size = String(item.size || "A3").toUpperCase();
-      if (SIZE_ORDER.indexOf(size) === -1) size = "A3";
+      var size = String(item.size || "").toUpperCase();
+      if (size && !isValidSizeId(size)) size = "";
       out.select[key] = { size: size, thumb: String(item.thumb || "") };
     });
 
@@ -114,7 +118,7 @@
     var thumbnailUrl = String((options && options.thumbnailUrl) || (store.select[normalizedCode] && store.select[normalizedCode].thumb) || "");
 
     if (!store.select[normalizedCode]) {
-      store.select[normalizedCode] = { size: "A3", thumb: thumbnailUrl };
+      store.select[normalizedCode] = { size: "", thumb: thumbnailUrl };
     } else if (thumbnailUrl) {
       store.select[normalizedCode].thumb = thumbnailUrl;
     }

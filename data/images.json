@@ -381,7 +381,8 @@
       "water": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -499,7 +500,8 @@
       "indoor"
     ],
     "setting_type": [
-      "domestic"
+      "domestic",
+      "still life"
     ],
     "style": [
       "conceptual still life"
@@ -834,7 +836,10 @@
       "Batman shirt",
       "urban absurdity"
     ],
-    "secondary": [],
+    "secondary": [
+      "movement",
+      "street"
+    ],
     "noise": [],
     "objects": [
       "sign",
@@ -885,7 +890,8 @@
     ],
     "themes": [
       "urban theater",
-      "momentary alignment"
+      "momentary alignment",
+      "public passage"
     ],
     "symbols": [
       "superhero emblem",
@@ -896,7 +902,8 @@
       "metal"
     ],
     "motion": [
-      "transit movement"
+      "transit movement",
+      "cycling"
     ],
     "tone": [
       "playfulness",
@@ -1447,12 +1454,14 @@
     "objects": [
       "wall",
       "cross",
-      "shadow"
+      "shadow",
+      "building"
     ],
     "object_roles": {
       "wall": "secondary",
       "cross": "primary",
-      "shadow": "primary"
+      "shadow": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -1489,7 +1498,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "religion"
     ],
     "symbols": [
       "cross",
@@ -1559,10 +1569,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross"
+      "cross",
+      "crucifix"
     ],
     "object_roles": {
-      "cross": "primary"
+      "cross": "primary",
+      "crucifix": "secondary"
     },
     "environment": [
       "architecture",
@@ -1604,7 +1616,8 @@
     "themes": [
       "faith and modernity",
       "ritual in public",
-      "faith"
+      "faith",
+      "religion"
     ],
     "symbols": [
       "crucifix",
@@ -3285,11 +3298,13 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -3329,7 +3344,10 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "window",
@@ -3672,7 +3690,10 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "broken pane",
@@ -3781,7 +3802,10 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "torn curtain",
@@ -3852,11 +3876,13 @@
     "noise": [],
     "objects": [
       "window",
-      "building"
+      "building",
+      "reflection"
     ],
     "object_roles": {
       "window": "primary",
-      "building": "primary"
+      "building": "primary",
+      "reflection": "secondary"
     },
     "environment": [
       "architecture",
@@ -3895,7 +3921,10 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "shattered glass",
@@ -3967,12 +3996,14 @@
     "noise": [],
     "objects": [
       "sign",
-      "billboard"
+      "billboard",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
       "sign": "primary",
-      "billboard": "primary"
+      "billboard": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -4555,7 +4586,9 @@
       "play",
       "splash energy"
     ],
-    "secondary": [],
+    "secondary": [
+      "animal"
+    ],
     "noise": [],
     "objects": [
       "dog",
@@ -5444,7 +5477,10 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella",
@@ -5514,7 +5550,11 @@
       "zebra crossing",
       "graphic interruption"
     ],
-    "secondary": [],
+    "secondary": [
+      "umbrella",
+      "rain",
+      "urban passage"
+    ],
     "noise": [],
     "objects": [
       "umbrella"
@@ -5528,7 +5568,8 @@
       "outdoor"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -5560,7 +5601,12 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "religion",
+      "urban choreography",
+      "public passage"
     ],
     "symbols": [
       "umbrella",
@@ -5873,10 +5919,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "umbrella"
+      "umbrella",
+      "reflection"
     ],
     "object_roles": {
-      "umbrella": "primary"
+      "umbrella": "primary",
+      "reflection": "secondary"
     },
     "environment": [
       "outdoor",
@@ -5884,7 +5932,8 @@
       "city"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -5919,7 +5968,9 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "observation",
+      "urban choreography"
     ],
     "symbols": [
       "candle",
@@ -5989,7 +6040,10 @@
       "nails",
       "radiant object"
     ],
-    "secondary": [],
+    "secondary": [
+      "umbrella",
+      "rain"
+    ],
     "noise": [],
     "objects": [
       "wall",
@@ -6036,7 +6090,8 @@
     "themes": [
       "shelter",
       "anonymity",
-      "weather"
+      "weather",
+      "public passage"
     ],
     "symbols": [
       "umbrella halo",
@@ -6110,19 +6165,27 @@
     "objects": [
       "hand",
       "tree",
-      "doorway"
+      "doorway",
+      "door",
+      "sun",
+      "plant"
     ],
     "object_roles": {
       "hand": "primary",
       "tree": "primary",
-      "doorway": "primary"
+      "doorway": "primary",
+      "door": "secondary",
+      "sun": "secondary",
+      "plant": "secondary"
     },
     "environment": [
       "outdoor",
-      "architecture"
+      "architecture",
+      "nature"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
       "doorway"
@@ -6132,7 +6195,8 @@
       "observational metaphor"
     ],
     "composition": [
-      "frame within frame"
+      "frame within frame",
+      "framing"
     ],
     "lighting": [
       "sunset light"
@@ -6151,7 +6215,9 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "doorway",
@@ -6353,7 +6419,9 @@
       "outdoor"
     ],
     "setting_type": [
-      "domestic"
+      "domestic",
+      "water edge",
+      "still life"
     ],
     "style": [
       "poetic found-object photography",
@@ -6456,19 +6524,22 @@
     "objects": [
       "wall",
       "cage",
-      "birdcage"
+      "birdcage",
+      "building"
     ],
     "object_roles": {
       "wall": "primary",
       "cage": "primary",
-      "birdcage": "primary"
+      "birdcage": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture",
       "outdoor"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
       "wall"
@@ -6702,7 +6773,8 @@
       "architecture"
     ],
     "environment_type": [
-      "indoor"
+      "indoor",
+      "urban"
     ],
     "setting_type": [
       "interior"
@@ -6734,7 +6806,9 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "observation",
+      "threshold"
     ],
     "symbols": [
       "stairs",
@@ -6801,15 +6875,19 @@
       "tilt",
       "abandoned vessel"
     ],
-    "secondary": [],
+    "secondary": [
+      "sky"
+    ],
     "noise": [],
     "objects": [
       "boat",
-      "bridge"
+      "bridge",
+      "sun"
     ],
     "object_roles": {
       "boat": "primary",
-      "bridge": "secondary"
+      "bridge": "secondary",
+      "sun": "secondary"
     },
     "environment": [
       "outdoor",
@@ -7095,7 +7173,8 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "smoking"
     ],
     "tone": [
       "detachment",
@@ -7156,7 +7235,9 @@
       "yellow wall",
       "disembodied ritual"
     ],
-    "secondary": [],
+    "secondary": [
+      "smoking"
+    ],
     "noise": [],
     "objects": [
       "wall",
@@ -7634,14 +7715,17 @@
     "noise": [],
     "objects": [
       "mirror",
-      "water"
+      "water",
+      "reflection"
     ],
     "object_roles": {
       "mirror": "primary",
-      "water": "primary"
+      "water": "primary",
+      "reflection": "secondary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -7678,7 +7762,9 @@
     ],
     "themes": [
       "double vision",
-      "perception"
+      "perception",
+      "religion",
+      "observation"
     ],
     "symbols": [
       "fishing line",
@@ -7747,7 +7833,9 @@
       "curved building reflection",
       "distorted city"
     ],
-    "secondary": [],
+    "secondary": [
+      "reflection"
+    ],
     "noise": [],
     "objects": [
       "wall",
@@ -8153,7 +8241,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "exposure"
     ],
     "symbols": [
       "trolley",
@@ -9106,11 +9195,13 @@
     "noise": [],
     "objects": [
       "bench",
-      "tree"
+      "tree",
+      "plant"
     ],
     "object_roles": {
       "bench": "secondary",
-      "tree": "primary"
+      "tree": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "park",
@@ -9151,7 +9242,8 @@
     ],
     "themes": [
       "seasonality",
-      "quiet transformation"
+      "quiet transformation",
+      "urban choreography"
     ],
     "symbols": [
       "circle",
@@ -9220,10 +9312,16 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "dandelion"
+      "dandelion",
+      "sun",
+      "plant",
+      "seed head"
     ],
     "object_roles": {
-      "dandelion": "primary"
+      "dandelion": "primary",
+      "sun": "secondary",
+      "plant": "secondary",
+      "seed head": "secondary"
     },
     "environment": [
       "nature",
@@ -9333,11 +9431,13 @@
     "noise": [],
     "objects": [
       "person",
-      "shrub"
+      "shrub",
+      "plant"
     ],
     "object_roles": {
       "person": "secondary",
-      "shrub": "primary"
+      "shrub": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "nature",
@@ -9572,11 +9672,13 @@
     "noise": [],
     "objects": [
       "tree",
-      "nest"
+      "nest",
+      "plant"
     ],
     "object_roles": {
       "tree": "primary",
-      "nest": "primary"
+      "nest": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "nature",
@@ -10567,7 +10669,10 @@
     ],
     "themes": [
       "visibility",
-      "collective joy"
+      "collective joy",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "rainbow umbrella",
@@ -10780,7 +10885,8 @@
       "urban color study"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "overhead view"
     ],
     "lighting": [
       "artificial light"
@@ -10797,7 +10903,10 @@
     ],
     "themes": [
       "visibility",
-      "collective joy"
+      "collective joy",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella",
@@ -11604,11 +11713,13 @@
     "noise": [],
     "objects": [
       "bird",
-      "snow"
+      "snow",
+      "pigeon"
     ],
     "object_roles": {
       "bird": "primary",
-      "snow": "primary"
+      "snow": "primary",
+      "pigeon": "secondary"
     },
     "environment": [
       "winter"
@@ -11660,7 +11771,9 @@
       "feathers"
     ],
     "motion": [
-      "flight"
+      "flight",
+      "flying",
+      "melting"
     ],
     "tone": [
       "surprise",
@@ -11720,14 +11833,17 @@
     "noise": [],
     "objects": [
       "bird",
-      "water"
+      "water",
+      "duck"
     ],
     "object_roles": {
       "bird": "primary",
-      "water": "primary"
+      "water": "primary",
+      "duck": "secondary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -11775,7 +11891,8 @@
       "feathers"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "flying"
     ],
     "tone": [
       "vitality",
@@ -12067,7 +12184,8 @@
       "water": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -12177,10 +12295,14 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cat"
+      "cat",
+      "chair",
+      "bottle"
     ],
     "object_roles": {
-      "cat": "primary"
+      "cat": "primary",
+      "chair": "secondary",
+      "bottle": "secondary"
     },
     "environment": [
       "city",
@@ -12218,7 +12340,11 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "urban wildlife",
+      "urban residue",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "armchair ruin",
@@ -12289,11 +12415,15 @@
     "noise": [],
     "objects": [
       "snow",
-      "cigarette"
+      "cigarette",
+      "holy card",
+      "vehicle"
     ],
     "object_roles": {
       "snow": "primary",
-      "cigarette": "primary"
+      "cigarette": "primary",
+      "holy card": "secondary",
+      "vehicle": "secondary"
     },
     "environment": [
       "winter"
@@ -12331,7 +12461,9 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "habit",
+      "religion"
     ],
     "symbols": [
       "holy image",
@@ -12517,13 +12649,16 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "tree"
+      "tree",
+      "plant"
     ],
     "object_roles": {
-      "tree": "primary"
+      "tree": "primary",
+      "plant": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
@@ -12764,7 +12899,8 @@
       "outdoor"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -12795,7 +12931,9 @@
     ],
     "themes": [
       "urban theater",
-      "momentary alignment"
+      "momentary alignment",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "feeding gesture",
@@ -12807,7 +12945,8 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "feeding"
     ],
     "tone": [
       "warmth",
@@ -14941,20 +15080,24 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "building": "secondary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "outdoor"
     ],
     "environment_type": [
       "urban"
     ],
     "setting_type": [
-      "window"
+      "window",
+      "water edge"
     ],
     "style": [
       "architectural observation",
@@ -14984,7 +15127,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "threshold"
     ],
     "symbols": [
       "window grid",
@@ -15055,18 +15199,22 @@
     "noise": [],
     "objects": [
       "window",
-      "tree"
+      "tree",
+      "plant"
     ],
     "object_roles": {
       "window": "primary",
-      "tree": "primary"
+      "tree": "primary",
+      "plant": "secondary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
     "setting_type": [
       "window"
@@ -15099,7 +15247,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "threshold"
     ],
     "symbols": [
       "branch tangle",
@@ -15214,7 +15363,10 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "empty openings",
@@ -15281,7 +15433,10 @@
       "domestic surveillance",
       "barred view"
     ],
-    "secondary": [],
+    "secondary": [
+      "opening",
+      "architecture"
+    ],
     "noise": [],
     "objects": [
       "window",
@@ -15330,7 +15485,8 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "exposure"
     ],
     "symbols": [
       "fence spikes",
@@ -15524,11 +15680,13 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -15568,7 +15726,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "threshold"
     ],
     "symbols": [
       "open aperture",
@@ -15781,7 +15940,8 @@
     "composition": [
       "overhead view",
       "bird's-eye view",
-      "frame within frame"
+      "frame within frame",
+      "framing"
     ],
     "lighting": [
       "daylight"
@@ -15800,7 +15960,8 @@
     ],
     "themes": [
       "companionship",
-      "animal agency"
+      "animal agency",
+      "urban wildlife"
     ],
     "symbols": [
       "black bollards",
@@ -15990,20 +16151,27 @@
       "two women",
       "urban balance"
     ],
-    "secondary": [],
+    "secondary": [
+      "movement",
+      "street",
+      "urban passage"
+    ],
     "noise": [],
     "objects": [
-      "bike"
+      "bike",
+      "bicycle"
     ],
     "object_roles": {
-      "bike": "primary"
+      "bike": "primary",
+      "bicycle": "secondary"
     },
     "environment": [
       "city",
       "street"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -16034,7 +16202,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "urban choreography"
     ],
     "symbols": [
       "double riders",
@@ -16720,10 +16889,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "umbrella"
+      "umbrella",
+      "vehicle"
     ],
     "object_roles": {
-      "umbrella": "primary"
+      "umbrella": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
       "street",
@@ -16763,7 +16934,9 @@
     "themes": [
       "shelter",
       "anonymity",
-      "weather"
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "red coat",
@@ -17189,15 +17362,18 @@
     "noise": [],
     "objects": [
       "strawberry",
-      "aloe plant"
+      "aloe plant",
+      "plant"
     ],
     "object_roles": {
       "strawberry": "secondary",
-      "aloe plant": "secondary"
+      "aloe plant": "secondary",
+      "plant": "secondary"
     },
     "environment": [
       "outdoor",
-      "garden"
+      "garden",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
@@ -17297,7 +17473,10 @@
       "outdoor steam",
       "improvised warmth"
     ],
-    "secondary": [],
+    "secondary": [
+      "opening",
+      "architecture"
+    ],
     "noise": [],
     "objects": [
       "kettle",
@@ -17309,10 +17488,12 @@
     },
     "environment": [
       "outdoor",
-      "domestic"
+      "domestic",
+      "architecture"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
       "outdoor fire"
@@ -17356,7 +17537,8 @@
     ],
     "motion": [
       "rising smoke",
-      "steaming"
+      "steaming",
+      "drifting"
     ],
     "tone": [
       "warmth",
@@ -17412,7 +17594,9 @@
       "broken dock",
       "floating stillness"
     ],
-    "secondary": [],
+    "secondary": [
+      "furniture"
+    ],
     "noise": [],
     "objects": [
       "chair",
@@ -17463,7 +17647,8 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "exposure"
     ],
     "symbols": [
       "chair on water",
@@ -17537,23 +17722,29 @@
     "objects": [
       "snow",
       "lamp",
-      "lights"
+      "lights",
+      "plant"
     ],
     "object_roles": {
       "snow": "primary",
       "lamp": "primary",
-      "lights": "primary"
+      "lights": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "park",
-      "outdoor"
+      "outdoor",
+      "nature",
+      "city"
     ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
     "setting_type": [
-      "park"
+      "park",
+      "street"
     ],
     "style": [
       "poetic found-object photography",
@@ -17767,7 +17958,9 @@
       "wet intersection",
       "urban timing"
     ],
-    "secondary": [],
+    "secondary": [
+      "urban passage"
+    ],
     "noise": [],
     "objects": [
       "tram"
@@ -17816,7 +18009,8 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "public passage"
     ],
     "symbols": [
       "yellow trams",
@@ -17887,10 +18081,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "chimney"
+      "chimney",
+      "sun"
     ],
     "object_roles": {
-      "chimney": "primary"
+      "chimney": "primary",
+      "sun": "secondary"
     },
     "environment": [
       "outdoor",
@@ -18711,7 +18907,9 @@
       "round building reflection",
       "melting snow mirror"
     ],
-    "secondary": [],
+    "secondary": [
+      "reflection"
+    ],
     "noise": [],
     "objects": [
       "snow"
@@ -18831,11 +19029,15 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "water"
+      "water",
+      "building",
+      "reflection"
     ],
     "object_roles": {
       "mirror": "primary",
-      "water": "primary"
+      "water": "primary",
+      "building": "secondary",
+      "reflection": "secondary"
     },
     "environment": [
       "water edge"
@@ -18876,7 +19078,8 @@
     ],
     "themes": [
       "double vision",
-      "perception"
+      "perception",
+      "observation"
     ],
     "symbols": [
       "dome fragment",
@@ -19173,7 +19376,9 @@
       "plastic bag",
       "public warmth"
     ],
-    "secondary": [],
+    "secondary": [
+      "urban passage"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -20525,10 +20730,14 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "reeds"
+      "reeds",
+      "sun",
+      "plant"
     ],
     "object_roles": {
-      "reeds": "primary"
+      "reeds": "primary",
+      "sun": "secondary",
+      "plant": "secondary"
     },
     "environment": [
       "nature",
@@ -20987,10 +21196,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "haystack"
+      "haystack",
+      "plant"
     ],
     "object_roles": {
-      "haystack": "primary"
+      "haystack": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "nature",
@@ -21102,11 +21313,15 @@
     "noise": [],
     "objects": [
       "stone",
-      "flower"
+      "flower",
+      "plant",
+      "seed head"
     ],
     "object_roles": {
       "stone": "secondary",
-      "flower": "secondary"
+      "flower": "secondary",
+      "plant": "secondary",
+      "seed head": "secondary"
     },
     "environment": [
       "nature",
@@ -22874,10 +23089,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bird"
+      "bird",
+      "duck"
     ],
     "object_roles": {
-      "bird": "primary"
+      "bird": "primary",
+      "duck": "secondary"
     },
     "environment": [
       "water edge",
@@ -22897,7 +23114,8 @@
     ],
     "composition": [
       "isolated subject",
-      "detail study"
+      "detail study",
+      "close-up"
     ],
     "lighting": [
       "low light"
@@ -22987,10 +23205,14 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bird"
+      "bird",
+      "heron",
+      "sky"
     ],
     "object_roles": {
-      "bird": "primary"
+      "bird": "primary",
+      "heron": "secondary",
+      "sky": "secondary"
     },
     "environment": [
       "outdoor",
@@ -23040,7 +23262,8 @@
     ],
     "motion": [
       "flight",
-      "gliding"
+      "gliding",
+      "flying"
     ],
     "tone": [
       "grace",
@@ -23379,7 +23602,10 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella dot",
@@ -23461,7 +23687,8 @@
       "architecture"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
       "street"
@@ -23825,10 +24052,12 @@
     },
     "environment": [
       "city",
-      "street"
+      "street",
+      "architecture"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -23934,10 +24163,12 @@
     ],
     "noise": [],
     "objects": [
-      "bin"
+      "bin",
+      "bottle"
     ],
     "object_roles": {
-      "bin": "primary"
+      "bin": "primary",
+      "bottle": "secondary"
     },
     "environment": [
       "city",
@@ -23977,7 +24208,8 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "urban residue"
     ],
     "symbols": [
       "bin"
@@ -24093,7 +24325,10 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "urban residue",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "wrapper"
@@ -24102,7 +24337,8 @@
       "water surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "melting"
     ],
     "tone": [
       "curiosity",
@@ -24182,7 +24418,8 @@
       "city"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -24212,7 +24449,10 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "religion",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "broken yolk",
@@ -24295,11 +24535,14 @@
       "face mask",
       "paving stones",
       "hand",
-      "mask"
+      "mask",
+      "glove"
     ],
     "object_roles": {
       "hand": "primary",
-      "mask": "primary"
+      "mask": "primary",
+      "face mask": "secondary",
+      "glove": "secondary"
     },
     "environment": [
       "outdoor"
@@ -24335,7 +24578,8 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "urban residue"
     ],
     "symbols": [
       "glove",
@@ -24538,11 +24782,13 @@
     "noise": [],
     "objects": [
       "chimney",
-      "shadow"
+      "shadow",
+      "sun"
     ],
     "object_roles": {
       "shadow": "primary",
-      "chimney": "primary"
+      "chimney": "primary",
+      "sun": "secondary"
     },
     "environment": [
       "outdoor",
@@ -24561,7 +24807,8 @@
       "urban object"
     ],
     "composition": [
-      "silhouette contrast"
+      "silhouette contrast",
+      "silhouette"
     ],
     "lighting": [
       "sunset light",
@@ -24655,10 +24902,12 @@
     ],
     "noise": [],
     "objects": [
-      "chimney"
+      "chimney",
+      "sky"
     ],
     "object_roles": {
-      "chimney": "primary"
+      "chimney": "primary",
+      "sky": "secondary"
     },
     "environment": [
       "outdoor",
@@ -24711,7 +24960,8 @@
     ],
     "motion": [
       "flow",
-      "billowing"
+      "billowing",
+      "drifting"
     ],
     "tone": [
       "curiosity",
@@ -25697,7 +25947,8 @@
     "themes": [
       "urban theater",
       "momentary alignment",
-      "transit"
+      "transit",
+      "urban choreography"
     ],
     "symbols": [
       "stroller"
@@ -26599,7 +26850,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "religion"
     ],
     "symbols": [
       "robed statue",
@@ -29738,14 +29990,16 @@
       "window": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban"
     ],
     "setting_type": [
-      "window"
+      "window",
+      "water edge"
     ],
     "style": [
       "urban minimalism",
@@ -29774,7 +30028,8 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "threshold"
     ],
     "symbols": [
       "window",
@@ -30339,12 +30594,14 @@
     "objects": [
       "window",
       "wall",
-      "facade"
+      "facade",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
       "wall": "primary",
-      "facade": "primary"
+      "facade": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -30381,7 +30638,10 @@
     "themes": [
       "observation",
       "containment",
-      "repetition"
+      "repetition",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "window",
@@ -30516,7 +30776,8 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "flying"
     ],
     "tone": [
       "curiosity",
@@ -31463,10 +31724,12 @@
     ],
     "noise": [],
     "objects": [
-      "dog"
+      "dog",
+      "sun"
     ],
     "object_roles": {
-      "dog": "primary"
+      "dog": "primary",
+      "sun": "secondary"
     },
     "environment": [
       "outdoor",
@@ -31506,7 +31769,9 @@
     "themes": [
       "companionship",
       "animal agency",
-      "transit"
+      "transit",
+      "urban wildlife",
+      "urban choreography"
     ],
     "symbols": [
       "dog",
@@ -31589,10 +31854,12 @@
       "cyclist",
       "neon jacket",
       "street",
-      "bike"
+      "bike",
+      "bicycle"
     ],
     "object_roles": {
-      "bike": "primary"
+      "bike": "primary",
+      "bicycle": "secondary"
     },
     "environment": [
       "outdoor"
@@ -31609,7 +31876,8 @@
       "urban transit"
     ],
     "composition": [
-      "frame within frame"
+      "frame within frame",
+      "framing"
     ],
     "lighting": [
       "night light"
@@ -31715,11 +31983,14 @@
       "woman",
       "bicycle",
       "bike",
-      "glasses"
+      "glasses",
+      "sun"
     ],
     "object_roles": {
       "bike": "secondary",
-      "glasses": "primary"
+      "glasses": "primary",
+      "sun": "secondary",
+      "bicycle": "secondary"
     },
     "environment": [
       "outdoor"
@@ -32111,10 +32382,12 @@
       "pedestrian",
       "cars",
       "van",
-      "car"
+      "car",
+      "vehicle"
     ],
     "object_roles": {
-      "car": "primary"
+      "car": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
       "outdoor",
@@ -32123,7 +32396,8 @@
       "transit"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -32153,7 +32427,9 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "crossing body",
@@ -32900,7 +33176,8 @@
       "city"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -32932,7 +33209,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "urban choreography"
     ],
     "symbols": [
       "umbrellas",
@@ -33149,10 +33427,12 @@
     "objects": [
       "floral umbrella",
       "pavement",
-      "umbrella"
+      "umbrella",
+      "vehicle"
     ],
     "object_roles": {
-      "umbrella": "primary"
+      "umbrella": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
       "outdoor",
@@ -33161,7 +33441,8 @@
       "transit"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -33192,7 +33473,11 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "floral pattern",
@@ -33283,7 +33568,8 @@
       "city"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -33314,7 +33600,12 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "urban residue",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella",
@@ -33395,14 +33686,17 @@
       "umbrella",
       "skirt",
       "tram tracks",
-      "tram"
+      "tram",
+      "vehicle"
     ],
     "object_roles": {
       "umbrella": "primary",
-      "tram": "primary"
+      "tram": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
-      "transit"
+      "transit",
+      "city"
     ],
     "environment_type": [
       "outdoor",
@@ -33437,7 +33731,11 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella",
@@ -33530,10 +33828,12 @@
       "umbrella": "primary"
     },
     "environment": [
-      "transit"
+      "transit",
+      "city"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "street"
@@ -33566,7 +33866,9 @@
     "themes": [
       "shelter",
       "anonymity",
-      "transit"
+      "transit",
+      "religion",
+      "urban choreography"
     ],
     "symbols": [
       "three umbrellas",
@@ -33650,11 +33952,13 @@
     "noise": [],
     "objects": [
       "umbrella",
-      "tram"
+      "tram",
+      "vehicle"
     ],
     "object_roles": {
       "umbrella": "primary",
-      "tram": "primary"
+      "tram": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
       "transit"
@@ -33695,7 +33999,10 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "umbrella",
@@ -33707,7 +34014,8 @@
     ],
     "motion": [
       "transit movement",
-      "blurred motion"
+      "blurred motion",
+      "carrying"
     ],
     "tone": [
       "alertness",
@@ -33779,10 +34087,12 @@
     "objects": [
       "umbrella",
       "rain",
-      "pedestrians"
+      "pedestrians",
+      "vehicle"
     ],
     "object_roles": {
-      "umbrella": "primary"
+      "umbrella": "primary",
+      "vehicle": "secondary"
     },
     "environment": [
       "outdoor",
@@ -33801,7 +34111,8 @@
       "weather choreography"
     ],
     "composition": [
-      "frame within frame"
+      "frame within frame",
+      "framing"
     ],
     "lighting": [
       "soft light",
@@ -33821,7 +34132,10 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather",
+      "passage",
+      "urban choreography"
     ],
     "symbols": [
       "mist",
@@ -33833,7 +34147,8 @@
     ],
     "motion": [
       "walking",
-      "mist"
+      "mist",
+      "carrying"
     ],
     "tone": [
       "atmosphere",
@@ -34336,7 +34651,11 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "observation",
+      "threshold",
+      "fragility",
+      "urban decay"
     ],
     "symbols": [
       "window",
@@ -35523,13 +35842,16 @@
     ],
     "noise": [],
     "objects": [
-      "chair"
+      "chair",
+      "plant"
     ],
     "object_roles": {
-      "chair": "secondary"
+      "chair": "secondary",
+      "plant": "secondary"
     },
     "environment": [
-      "outdoor"
+      "outdoor",
+      "nature"
     ],
     "environment_type": [
       "outdoor"
@@ -35923,7 +36245,8 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "urban residue"
     ],
     "symbols": [
       "padlock"
@@ -36378,13 +36701,16 @@
       "lamp": "primary"
     },
     "environment": [
-      "outdoor"
+      "outdoor",
+      "city"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
-      "rooftop"
+      "rooftop",
+      "street"
     ],
     "style": [
       "poetic found-object photography",
@@ -37001,18 +37327,21 @@
       "sign",
       "smokers",
       "smoke",
-      "cigarette"
+      "cigarette",
+      "chair"
     ],
     "object_roles": {
       "sign": "primary",
-      "cigarette": "primary"
+      "cigarette": "primary",
+      "chair": "secondary"
     },
     "environment": [
       "outdoor",
       "architecture"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
     "setting_type": [
       "window"
@@ -37054,7 +37383,8 @@
       "vapor"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "smoking"
     ],
     "tone": [
       "irony",
@@ -37383,12 +37713,14 @@
       "man",
       "bench",
       "phone",
-      "cigarette"
+      "cigarette",
+      "chair"
     ],
     "object_roles": {
       "phone": "secondary",
       "bench": "primary",
-      "cigarette": "primary"
+      "cigarette": "primary",
+      "chair": "secondary"
     },
     "environment": [
       "park"
@@ -37425,7 +37757,8 @@
     ],
     "themes": [
       "habit",
-      "public ritual"
+      "public ritual",
+      "urban choreography"
     ],
     "symbols": [
       "phone",
@@ -37436,7 +37769,8 @@
       "vapor"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "smoking"
     ],
     "tone": [
       "absorption",
@@ -38658,13 +38992,15 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
       "wall": "primary",
       "mirror": "primary",
-      "water": "primary"
+      "water": "primary",
+      "building": "secondary"
     },
     "environment": [
       "architecture"
@@ -38699,7 +39035,9 @@
     ],
     "themes": [
       "double vision",
-      "perception"
+      "perception",
+      "observation",
+      "threshold"
     ],
     "symbols": [
       "window",
@@ -42430,7 +42768,8 @@
     ],
     "composition": [
       "isolated subject",
-      "close crop"
+      "close crop",
+      "close-up"
     ],
     "lighting": [
       "moonlight"
@@ -42529,10 +42868,12 @@
     ],
     "noise": [],
     "objects": [
-      "moon"
+      "moon",
+      "sky"
     ],
     "object_roles": {
-      "moon": "primary"
+      "moon": "primary",
+      "sky": "secondary"
     },
     "environment": [
       "nature",
@@ -44705,10 +45046,12 @@
     ],
     "noise": [],
     "objects": [
-      "seed head"
+      "seed head",
+      "plant"
     ],
     "object_roles": {
-      "seed head": "primary"
+      "seed head": "primary",
+      "plant": "secondary"
     },
     "environment": [
       "nature",
@@ -45767,7 +46110,8 @@
     ],
     "themes": [
       "substitution",
-      "artificial life"
+      "artificial life",
+      "exposure"
     ],
     "symbols": [
       "stone body",
@@ -48810,13 +49154,18 @@
     "noise": [],
     "objects": [
       "bench",
-      "leaf"
+      "leaf",
+      "chair",
+      "plant"
     ],
     "object_roles": {
-      "bench": "primary"
+      "bench": "primary",
+      "chair": "secondary",
+      "plant": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature"
     ],
     "environment_type": [
       "outdoor",
@@ -48852,7 +49201,8 @@
     "themes": [
       "fragility",
       "ordinary grace",
-      "pause"
+      "pause",
+      "urban choreography"
     ],
     "symbols": [
       "bench"
@@ -48932,14 +49282,17 @@
     "noise": [],
     "objects": [
       "water",
-      "ball"
+      "ball",
+      "volleyball"
     ],
     "object_roles": {
       "water": "primary",
-      "ball": "secondary"
+      "ball": "secondary",
+      "volleyball": "secondary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -49671,7 +50024,9 @@
       "wings",
       "gliding",
       "birds",
-      "animals"
+      "animals",
+      "animal",
+      "sky"
     ],
     "noise": [],
     "objects": [
@@ -49679,7 +50034,8 @@
       "sky"
     ],
     "object_roles": {
-      "bird": "primary"
+      "bird": "primary",
+      "sky": "secondary"
     },
     "environment": [
       "outdoor",
@@ -49733,7 +50089,8 @@
     ],
     "motion": [
       "flight",
-      "gliding"
+      "gliding",
+      "flying"
     ],
     "tone": [
       "freedom",
@@ -50044,7 +50401,9 @@
       "sign",
       "blue",
       "birds",
-      "animals"
+      "animals",
+      "urban passage",
+      "sky"
     ],
     "noise": [],
     "objects": [
@@ -50095,7 +50454,8 @@
     ],
     "themes": [
       "freedom",
-      "instinct"
+      "instinct",
+      "public passage"
     ],
     "symbols": [
       "crow",
@@ -50188,7 +50548,8 @@
     ],
     "setting_type": [
       "street",
-      "sky"
+      "sky",
+      "water edge"
     ],
     "style": [
       "bird photography",
@@ -50545,7 +50906,9 @@
       "edge",
       "black",
       "birds",
-      "animals"
+      "animals",
+      "bird",
+      "animal"
     ],
     "noise": [],
     "objects": [
