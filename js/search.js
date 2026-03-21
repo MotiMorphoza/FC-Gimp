@@ -1010,11 +1010,8 @@ function searchImages(indexedImages, query) {
   if (!parsedQuery.normalized) {
     return {
       parsedQuery,
-      mode: "all",
-      results: [...indexedImages].sort((left, right) =>
-        left.image.projectIndex - right.image.projectIndex ||
-        left.image.imageIndex - right.image.imageIndex
-      )
+      mode: "empty",
+      results: []
     };
   }
 
@@ -1433,12 +1430,12 @@ function renderEmptyState(resultsEl, query) {
   const title = document.createElement("h2");
   title.textContent = query
     ? `No images matched "${query}".`
-    : "No images are available right now.";
+    : "Start with a keyword.";
 
   const copy = document.createElement("p");
   copy.textContent = query
     ? "Try broader terms, or remove a negative phrase like no people."
-    : "Use the sidebar search to explore objects, moods, symbols, and styles.";
+    : "Use the sidebar search to explore objects, moods, symbols, colors, and styles.";
 
   empty.appendChild(title);
   empty.appendChild(copy);
@@ -1466,7 +1463,7 @@ function updateResultsSummary(summaryEl, resultState, totalCount) {
   const query = resultState.parsedQuery.raw.trim();
 
   if (!query) {
-    summaryEl.textContent = `Showing all ${totalCount} images. Use the sidebar to search by object, mood, color, symbol, or absence.`;
+    summaryEl.textContent = `Search across ${totalCount} indexed images by object, mood, color, symbol, or absence.`;
     return;
   }
 

@@ -79,6 +79,12 @@
 
   function parseJSON(raw, fallback) { try { return JSON.parse(raw); } catch (_e) { return fallback; } }
 
+  function getUiStorage() {
+    try { if (window.sessionStorage) return window.sessionStorage; } catch (_e) {}
+    try { if (window.localStorage) return window.localStorage; } catch (_e2) {}
+    return null;
+  }
+
   function placeholder() {
     return "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" fill="#111"/><text x="50%" y="50%" fill="#666" font-size="10" text-anchor="middle" dominant-baseline="middle">NO PREVIEW</text></svg>');
   }
@@ -159,7 +165,8 @@
   }
 
   function loadUi() {
-  var raw = parseJSON(localStorage.getItem(UI_KEY) || "", {});
+  var storage = getUiStorage();
+  var raw = parseJSON((storage && storage.getItem(UI_KEY)) || "", {});
   return {
     country: String(raw.country || ""),
     email: String(raw.email || ""),
@@ -172,7 +179,17 @@
   };
 }
 
-  function saveUi(ui) { try { localStorage.setItem(UI_KEY, JSON.stringify(ui)); } catch (_e) {} }
+  function saveUi(ui) {
+    var storage = getUiStorage();
+    if (!storage) return;
+    try { storage.setItem(UI_KEY, JSON.stringify(ui)); } catch (_e) {}
+  }
+
+  function clearUi() {
+    var storage = getUiStorage();
+    if (!storage) return;
+    try { storage.removeItem(UI_KEY); } catch (_e) {}
+  }
 
   function findCountryByName(name) {
     var n = String(name || "").trim().toLowerCase();
@@ -324,6 +341,20 @@ function isAddressValid(ui) {
     notes: String(app.refs.notesInput.value || "")
   };
 }
+
+  function resetUiForm() {
+    if (!app.refs) return;
+    syncCountryControls("", "reset");
+    app.refs.emailInput.value = "";
+    app.refs.nameInput.value = "";
+    app.refs.phoneInput.value = "";
+    app.refs.streetInput.value = "";
+    app.refs.cityInput.value = "";
+    app.refs.postalInput.value = "";
+    app.refs.notesInput.value = "";
+    app.touched = {};
+    clearUi();
+  }
 
   function buildShop(root) {
   clear(root);
@@ -815,6 +846,7 @@ function isAddressValid(ui) {
       now.cart = {};
       now.select = {};
       saveStore(now);
+      resetUiForm();
       app.request.submitting = false;
       clearRequestFeedback();
       showOrderRequestSentModal(payload);

@@ -324,6 +324,16 @@
 }
 .menu-toggle {
   display: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+.menu-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.95);
+  outline-offset: 2px;
 }
 .sidebar nav {
   width: 100%;
@@ -701,10 +711,12 @@
     transform: translateY(-50%);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     font-size: 0.75rem;
     padding: 4px 6px;
     margin-left: 0;
+    min-height: 36px;
   }
   .menu-label {
     font-size: 0.7rem;

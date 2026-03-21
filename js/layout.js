@@ -32,8 +32,27 @@ async function loadSidebar() {
     const fullscreenButtons = placeholder.querySelectorAll("[data-fullscreen-toggle]");
 
     if (toggle && menu) {
+      const setMenuState = (open) => {
+        menu.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+
+      setMenuState(menu.classList.contains("open"));
+
       toggle.addEventListener("click", () => {
-        menu.classList.toggle("open");
+        setMenuState(!menu.classList.contains("open"));
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          setMenuState(false);
+        });
+      });
+
+      placeholder.querySelectorAll("[data-sidebar-search-trigger]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setMenuState(false);
+        });
       });
     }
 
@@ -41,6 +60,7 @@ async function loadSidebar() {
       button.addEventListener("click", async () => {
         await toggleFullscreenMode();
         menu?.classList.remove("open");
+        toggle?.setAttribute("aria-expanded", "false");
       });
     });
 
@@ -1581,6 +1601,9 @@ async function loadPage(url, push = true) {
     }
 
     syncBodyState(doc, url);
+    if (typeof window.destroySlideshow === "function") {
+      window.destroySlideshow();
+    }
     currentSidebar.replaceWith(newSidebar);
     currentContent.replaceWith(newContent);
     syncOptionalShellElements(doc);

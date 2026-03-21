@@ -1,15 +1,21 @@
 <aside class="sidebar">
   <div class="logo">MotoSynteza</div>
 
-  <div class="menu-toggle">
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    aria-controls="sidebar-menu"
+    aria-expanded="false"
+  >
     <span class="menu-label">MENU</span>
     <span class="menu-icon">&#9776;</span>
-  </div>
+  </button>
 
   <p class="tagline">Art at the speed of light</p>
 
   <nav aria-label="Main navigation">
-    <ul class="menu">
+    <ul class="menu" id="sidebar-menu">
       <li><a href="main.html" data-nav="home">Home</a></li>
       <li><a href="projects.html" data-nav="projects">Galleries</a></li>
       <li><a href="about.html" data-nav="about">About me</a></li>
