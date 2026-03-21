@@ -2,4 +2,8 @@ docs/
 dist/
 .build-temp/
 .docs-backup/
+.seo-audit/
+.alt-contact-sheets/
+.alt-contact-sheets-large/
+.alt-contact-sheets-pages/
 node_modules/

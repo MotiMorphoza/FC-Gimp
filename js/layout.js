@@ -185,6 +185,7 @@ function getActiveNavKey() {
   if (page) {
     if (page === "landing") return "home";
     if (page === "project") return "projects";
+    if (page === "morphoza" || page === "human-writes") return "more";
     if (page === "search") return "";
     return page;
   }
@@ -198,7 +199,7 @@ function getActiveNavKey() {
   if (fileName === "search.html") return "";
   if (fileName === "about.html") return "about";
   if (fileName === "shop.html") return "shop";
-  if (fileName === "more.html") return "more";
+  if (fileName === "more.html" || fileName === "morphoza.html" || fileName === "human-writes.html") return "more";
 
   return "";
 }
@@ -621,10 +622,10 @@ async function loadImageSearchDataset() {
   if (window.__IMAGE_SEARCH_DATASET_PROMISE__) return window.__IMAGE_SEARCH_DATASET_PROMISE__;
 
   const version = window.__BUILD_VERSION__ || Date.now();
-  const candidates = [
-    `data/images-search.generated.json?v=${version}`,
-    `data/images.json?v=${version}`
-  ];
+  const generatedDatasetUrl = `data/images-search.generated.json?v=${version}`;
+  const candidates = window.__BUILD_VERSION__
+    ? [generatedDatasetUrl]
+    : [generatedDatasetUrl, `data/images.json?v=${version}`];
 
   window.__IMAGE_SEARCH_DATASET_PROMISE__ = (async () => {
     for (const url of candidates) {
@@ -903,11 +904,7 @@ function bindProjectCodeTags(gallery) {
         .closest(".project-image-wrapper")
         ?.querySelector("img")
         ?.getAttribute("src") || "";
-      const result = addToCart(codeTag.dataset.code, {
-        sizeIdx: window.DEFAULT_SIZE_IDX,
-        qty: 1,
-        thumbnailUrl: thumb
-      });
+      const result = addToCart(codeTag.dataset.code, { thumbnailUrl: thumb });
       if (!result?.ok) return;
 
       codeTag.classList.add("added");
@@ -926,11 +923,35 @@ function bindProjectCodeTags(gallery) {
 const _lightboxState = {
   images: [],
   index:  0,
+  returnFocusEl: null
 };
 
-function openLightbox(images, index) {
+function closeLightbox({ restoreFocus = true } = {}) {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return;
+
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", "true");
+
+  if (!restoreFocus) {
+    _lightboxState.returnFocusEl = null;
+    return;
+  }
+
+  const returnFocusEl = _lightboxState.returnFocusEl;
+  _lightboxState.returnFocusEl = null;
+  if (returnFocusEl && returnFocusEl.isConnected && typeof returnFocusEl.focus === "function") {
+    returnFocusEl.focus({ preventScroll: true });
+  }
+}
+
+function openLightbox(images, index, triggerEl = null) {
   _lightboxState.images = images;
   _lightboxState.index  = Math.max(0, Math.min(index, images.length - 1));
+  _lightboxState.returnFocusEl =
+    triggerEl instanceof HTMLElement
+      ? triggerEl
+      : (document.activeElement instanceof HTMLElement ? document.activeElement : null);
 
   const lightbox    = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
@@ -939,9 +960,15 @@ function openLightbox(images, index) {
   lightboxImg.src = _lightboxState.images[_lightboxState.index].src;
   lightboxImg.alt = _lightboxState.images[_lightboxState.index].alt || "";
   lightbox.classList.add("active");
+  lightbox.setAttribute("aria-hidden", "false");
 
   // Update data-single so nav arrows hide on single-image sets
   lightbox.dataset.single = images.length <= 1 ? "true" : "false";
+
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+  if (closeBtn && typeof closeBtn.focus === "function") {
+    closeBtn.focus({ preventScroll: true });
+  }
 }
 
 function navigateLightbox(delta) {
@@ -967,21 +994,23 @@ function bindProjectLightbox() {
   const lightbox    = document.getElementById("lightbox");
   const lightboxImg = lightbox?.querySelector("img");
   if (!lightbox || !lightboxImg) return;
+  lightbox.setAttribute("aria-hidden", lightbox.classList.contains("active") ? "false" : "true");
 
   if (!lightbox.dataset.bound) {
     const closeBtn = lightbox.querySelector(".lightbox-close");
 
     lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) lightbox.classList.remove("active");
+      if (e.target === lightbox) closeLightbox();
     });
 
     closeBtn?.addEventListener("click", (e) => {
       e.stopPropagation();
-      lightbox.classList.remove("active");
+      closeLightbox();
     });
 
     const prevBtn = document.createElement("button");
     prevBtn.className = "lightbox-nav lightbox-nav--prev";
+    prevBtn.type = "button";
     prevBtn.setAttribute("aria-label", "Previous image");
     prevBtn.innerHTML = "&#8592;";
     prevBtn.addEventListener("click", (e) => {
@@ -991,6 +1020,7 @@ function bindProjectLightbox() {
 
     const nextBtn = document.createElement("button");
     nextBtn.className = "lightbox-nav lightbox-nav--next";
+    nextBtn.type = "button";
     nextBtn.setAttribute("aria-label", "Next image");
     nextBtn.innerHTML = "&#8594;";
     nextBtn.addEventListener("click", (e) => {
@@ -1028,7 +1058,7 @@ function bindProjectLightbox() {
       if (e.key === "ArrowLeft")  { e.preventDefault(); navigateLightbox(-1); }
       if (e.key === "Escape")     {
         e.preventDefault();
-        lb.classList.remove("active");
+        closeLightbox();
       }
     });
   }
@@ -1047,7 +1077,7 @@ function bindProjectLightbox() {
       const galleryImages = [...document.querySelectorAll(".project-gallery img")];
       const clickedIndex  = galleryImages.indexOf(clickedImage);
 
-      openLightbox(galleryImages, clickedIndex >= 0 ? clickedIndex : 0);
+      openLightbox(galleryImages, clickedIndex >= 0 ? clickedIndex : 0, clickedImage);
     });
 
     document.body.dataset.lightboxDelegated = "true";
@@ -1370,14 +1400,7 @@ async function initProjectPage() {
 
   if (!Array.isArray(window.__PROJECTS__)) {
     try {
-      const version = window.__BUILD_VERSION__ || Date.now();
-      const res = await fetch(`js/projects-manifest.js?v=${version}`, {
-        credentials: "same-origin"
-      });
-      if (res.ok) {
-        const scriptText = await res.text();
-        new Function(scriptText)();
-      }
+      await ensureProjectsManifestLoaded();
     } catch (_e) {
       // Manifest is optional for rendering. Only next/related navigation degrades.
     }
@@ -1413,9 +1436,24 @@ async function initProjectPage() {
       const errEl = document.createElement("div");
       errEl.className = "project-load-error";
       errEl.setAttribute("role", "alert");
-      errEl.innerHTML =
-        "<p>This project could not be loaded.</p>" +
-        "<p>Please <button class=\"project-reload-btn\" onclick=\"window.location.reload()\">reload the page</button> or return to <a href=\"projects.html\">Projects</a>.</p>";
+      const lead = document.createElement("p");
+      lead.textContent = "This project could not be loaded.";
+      const follow = document.createElement("p");
+      follow.appendChild(document.createTextNode("Please "));
+      const reloadBtn = document.createElement("button");
+      reloadBtn.className = "project-reload-btn";
+      reloadBtn.type = "button";
+      reloadBtn.textContent = "reload the page";
+      reloadBtn.addEventListener("click", () => window.location.reload());
+      follow.appendChild(reloadBtn);
+      follow.appendChild(document.createTextNode(" or return to "));
+      const projectsLink = document.createElement("a");
+      projectsLink.href = "projects.html";
+      projectsLink.textContent = "Projects";
+      follow.appendChild(projectsLink);
+      follow.appendChild(document.createTextNode("."));
+      errEl.appendChild(lead);
+      errEl.appendChild(follow);
       gallery.appendChild(errEl);
     }
   }
@@ -1687,6 +1725,36 @@ async function initPage() {
   runMoreInit();
   initFullscreenLightboxSync();
   initPjaxNavigation();
+}
+
+function getProjectsManifestUrl() {
+  const existing = [...document.querySelectorAll('script[src]')]
+    .map((script) => script.getAttribute("src"))
+    .find((src) => /(?:^|\/)projects-manifest(?:\.[a-f0-9]{8})?\.js(?:[?#].*)?$/i.test(String(src || "")));
+
+  if (existing) return existing;
+
+  if (window.__BUILD_VERSION__) {
+    return `js/projects-manifest.js?v=${encodeURIComponent(window.__BUILD_VERSION__)}`;
+  }
+
+  return "js/projects-manifest.js";
+}
+
+async function ensureProjectsManifestLoaded() {
+  if (Array.isArray(window.__PROJECTS__)) return true;
+
+  const src = getProjectsManifestUrl();
+  await new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = false;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+
+  return Array.isArray(window.__PROJECTS__);
 }
 
 /* =========================

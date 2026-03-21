@@ -97,6 +97,7 @@ class SuperBuild {
       this.logger.info(`Validated ${projects.length} projects`);
       this.logImageMetadataCoverage(projects);
       const imageSearchDataset = this.generateImageSearchDataset(projects, buildDir);
+      this.pruneBuildSearchFallback(buildDir);
       const projectSeoMap = buildProjectSeoMap(projects, imageSearchDataset);
       applyProjectSeoData(projects, projectSeoMap);
       this.generateStaticProjectPages(projects, buildDir);
@@ -129,6 +130,7 @@ class SuperBuild {
       // ─────────────────────────────────────────────────────────────────────
       this.hasher.hashAssets(buildDir, this.scanner);
       const renameMap = this.hasher.getRenameMap();
+      this.pruneExcludedHashedAssets(buildDir, renameMap);
 
       // ─────────────────────────────────────────────────────────────────────
       // Final BUILD_VERSION (incorporates rename map)
@@ -365,6 +367,33 @@ class SuperBuild {
       rootDir: this.rootDir,
       tempDir,
       logger: this.logger
+    });
+  }
+
+  pruneBuildSearchFallback(tempDir) {
+    const rawDatasetPath = path.join(tempDir, 'data', 'images.json');
+    if (!fs.existsSync(rawDatasetPath)) return;
+
+    fs.rmSync(rawDatasetPath, { force: true });
+    this.logger.info('[search] Removed raw images dataset from build output');
+  }
+
+  pruneExcludedHashedAssets(tempDir, renameMap) {
+    const excludedAssets = [
+      'css/search-debug.css',
+      'js/search-debug.js'
+    ];
+
+    excludedAssets.forEach((oldPath) => {
+      const resolvedPath = renameMap.get(oldPath) || oldPath;
+      const fullPath = path.join(tempDir, resolvedPath);
+
+      if (fs.existsSync(fullPath)) {
+        fs.rmSync(fullPath, { force: true });
+        this.logger.info(`[build] Pruned excluded asset: ${resolvedPath}`);
+      }
+
+      renameMap.delete(oldPath);
     });
   }
 

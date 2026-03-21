@@ -506,6 +506,7 @@
   transform: translateY(clamp(-3.9rem, -4.5vw, -2.25rem));
 }
 
+.main-intro h1,
 .main-intro p,
 .main-intro li,
 .main-intro-label {
@@ -523,6 +524,7 @@
   font-size: clamp(1.9rem, 3vw, 2.75rem) !important;
   line-height: 1.12 !important;
   font-style: italic;
+  font-weight: 400 !important;
   letter-spacing: 0.03em;
 }
 

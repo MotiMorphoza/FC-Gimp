@@ -973,6 +973,11 @@
   font-weight:bold;
 }
 
+.shop-thankyou-request-id{
+  font-size:13px;
+  opacity:0.65;
+}
+
 .shop-thankyou-close{
   margin-top:20px;
   padding:10px 20px;

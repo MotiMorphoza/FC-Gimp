@@ -126,6 +126,12 @@
 .hw-page--single {
   display: none;
 }
+
+.hw-page--single-static {
+  display: block;
+  margin: 0;
+}
+
 .hw-page-article {
   flex: 1 1 auto;
   height: 100%;

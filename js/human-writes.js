@@ -1403,7 +1403,7 @@
     state.mount.innerHTML = `
       <section class="hw-module" aria-label="Human Writes notebook unavailable">
         <div class="hw-book">
-          <div class="hw-page hw-page--single" style="display:block; margin:0;">
+          <div class="hw-page hw-page--single hw-page--single-static">
             <article class="hw-page-article">
               <p class="hw-running-head">Module status</p>
               <div class="hw-page-body hw-page-body--intro">

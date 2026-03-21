@@ -9,6 +9,42 @@ const { SITE_ORIGIN } = require('./site-config');
 
 const IMAGE_DIMENSION_CACHE = new Map();
 const STATIC_PAGE_META = {
+  'index.html': {
+    title: 'MotoSynteza | Conceptual Photography by Moti Morphoza',
+    description: 'Conceptual photography, visual storytelling, performance, and writing by Moti Morphoza.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'WebPage'
+  },
+  'main.html': {
+    title: 'MotoSynteza | Home',
+    description: 'Enter MotoSynteza and explore conceptual photography, performance videos, and Human Writes by Moti Morphoza.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'WebPage'
+  },
+  'projects.html': {
+    title: 'MotoSynteza Galleries | Conceptual Photography Projects',
+    description: 'Browse conceptual photography and visual storytelling galleries by Moti Morphoza.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'CollectionPage'
+  },
+  'about.html': {
+    title: 'About Moti Morphoza | MotoSynteza',
+    description: 'Learn about Moti Morphoza, the artist behind MotoSynteza, conceptual photography, performance, and visual storytelling.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'AboutPage'
+  },
+  'shop.html': {
+    title: 'Fine Art Prints | MotoSynteza',
+    description: 'Browse fine art prints from MotoSynteza galleries and send an order request for selected image codes.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'CollectionPage'
+  },
+  'more.html': {
+    title: 'More by Moti Morphoza | Performance, Writing, and Projects',
+    description: 'Explore performance videos, Human Writes, and other public channels by Moti Morphoza.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'CollectionPage'
+  },
   'morphoza.html': {
     title: 'Moti Morphoza | Performance Videos',
     description: 'Performance videos, collaborations, and visual experiments by Moti Morphoza.',
@@ -60,10 +96,14 @@ class HeadOrchestrator {
       : 'MotoSynteza';
     const projectMeta = this.getProjectMeta();
     const staticPageMeta = this.getStaticPageMeta();
+    const projectTitleDescriptor = projectMeta?.seo?.titleDescriptor || 'Conceptual Street Photography Series';
     const effectiveTitle = projectMeta?.title
       ? `${projectMeta.title} – ${projectMeta?.seo?.titleDescriptor || 'Conceptual Street Photography Series'}`
       : (staticPageMeta?.title || cleanTitle);
-    tags.push(`<title>${escapeAttribute(effectiveTitle)}</title>`);
+    const resolvedTitle = projectMeta?.title
+      ? `${projectMeta.title} - ${projectTitleDescriptor}`
+      : effectiveTitle;
+    tags.push(`<title>${escapeAttribute(resolvedTitle)}</title>`);
 
     const description =
       (projectMeta?.seo?.metaDescription && String(projectMeta.seo.metaDescription).trim()) ||
@@ -79,7 +119,7 @@ class HeadOrchestrator {
     const robots = this.getRobotsMeta();
     if (robots) tags.push(`<meta name="robots" content="${escapeAttribute(robots)}">`);
 
-    tags.push(`<meta property="og:title" content="${escapeAttribute(effectiveTitle)}">`);
+    tags.push(`<meta property="og:title" content="${escapeAttribute(resolvedTitle)}">`);
     tags.push(`<meta property="og:description" content="${escapeAttribute(description)}">`);
     tags.push('<meta property="og:type" content="website">');
     if (canonical) tags.push(`<meta property="og:url" content="${escapeAttribute(canonical)}">`);
@@ -88,7 +128,7 @@ class HeadOrchestrator {
     if (ogImage) tags.push(`<meta property="og:image" content="${escapeAttribute(ogImage)}">`);
 
     tags.push('<meta name="twitter:card" content="summary_large_image">');
-    tags.push(`<meta name="twitter:title" content="${escapeAttribute(effectiveTitle)}">`);
+    tags.push(`<meta name="twitter:title" content="${escapeAttribute(resolvedTitle)}">`);
     tags.push(`<meta name="twitter:description" content="${escapeAttribute(description)}">`);
     if (ogImage) tags.push(`<meta name="twitter:image" content="${escapeAttribute(ogImage)}">`);
 

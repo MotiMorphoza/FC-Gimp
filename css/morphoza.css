@@ -502,6 +502,14 @@
   display: block;
 }
 
+.morphoza-player-frame--message {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+
 @keyframes morphozaGlow {
   0% {
     opacity: 0.7;

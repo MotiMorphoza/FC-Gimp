@@ -463,10 +463,10 @@ function indexImage(image, order) {
 
 async function fetchSearchDataset() {
   const version = window.__BUILD_VERSION__ ? `?v=${encodeURIComponent(window.__BUILD_VERSION__)}` : "";
-  const sources = [
-    `data/images-search.generated.json${version}`,
-    `data/images.json${version}`
-  ];
+  const generatedDatasetUrl = `data/images-search.generated.json${version}`;
+  const sources = window.__BUILD_VERSION__
+    ? [generatedDatasetUrl]
+    : [generatedDatasetUrl, `data/images.json${version}`];
 
   let lastError = null;
 

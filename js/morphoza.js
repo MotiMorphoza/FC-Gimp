@@ -811,7 +811,7 @@
         </div>
         <div class="morphoza-player-view">
           <button class="morphoza-back" type="button" disabled>MODULE STATUS</button>
-          <div class="morphoza-player-frame" style="display:grid;place-items:center;padding:1.5rem;color:#fff;box-sizing:border-box;">
+          <div class="morphoza-player-frame morphoza-player-frame--message">
             <p>${String(message || "Unable to load Morphoza module.")}</p>
           </div>
         </div>
