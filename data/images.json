@@ -8068,7 +8068,10 @@
       "crosswalk stripes",
       "cane"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -8121,7 +8124,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "mobility support"
     ],
     "symbols": [
       "cane",
@@ -8194,7 +8199,10 @@
       "shopping trolley",
       "rubble"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "man",
@@ -8242,7 +8250,9 @@
     "themes": [
       "aging in public",
       "dignity",
-      "exposure"
+      "exposure",
+      "public aging",
+      "daily labor"
     ],
     "symbols": [
       "trolley",
@@ -8316,7 +8326,10 @@
       "hidden solitude",
       "park camouflage"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "man",
@@ -8367,7 +8380,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "bench",
@@ -8380,7 +8394,8 @@
       "wood"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "sitting"
     ],
     "tone": [
       "solitude",
@@ -8441,7 +8456,10 @@
       "passing generations",
       "bench encounter"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "child",
@@ -8496,7 +8514,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "bike",
@@ -8509,7 +8528,9 @@
     ],
     "motion": [
       "riding",
-      "watching"
+      "watching",
+      "walking",
+      "sitting"
     ],
     "tone": [
       "tenderness",
@@ -8532,10 +8553,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "woman",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 2,
+    "people_count": 1,
     "gender": [
       "woman"
     ],
@@ -8570,7 +8591,10 @@
       "small woman",
       "pink wall"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -8622,7 +8646,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "mediated looking"
     ],
     "symbols": [
       "painted face",
@@ -8694,21 +8720,26 @@
       "secondary screen",
       "mediated seeing"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "phone",
       "man",
       "hat",
       "drink",
-      "hand"
+      "hand",
+      "cup"
     ],
     "object_roles": {
       "phone": "primary",
       "man": "primary",
       "hat": "secondary",
       "drink": "secondary",
-      "hand": "secondary"
+      "hand": "secondary",
+      "cup": "secondary"
     },
     "environment": [
       "indoor",
@@ -8745,7 +8776,10 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "mediated looking",
+      "split attention"
     ],
     "symbols": [
       "phone screen",
@@ -8758,7 +8792,8 @@
       "fabric"
     ],
     "motion": [
-      "framing gesture"
+      "framing gesture",
+      "photographing"
     ],
     "tone": [
       "mediation",
@@ -8818,7 +8853,10 @@
       "circular frame",
       "self-containment"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -8871,7 +8909,10 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "mediated looking",
+      "split attention"
     ],
     "symbols": [
       "mirror circle",
@@ -8917,7 +8958,7 @@
       "adult"
     ],
     "age_stage": "",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "people",
       "color"
@@ -8943,7 +8984,10 @@
       "NEW CITY DISORDERS",
       "screen distraction"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -8997,7 +9041,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -19377,18 +19423,22 @@
       "public warmth"
     ],
     "secondary": [
-      "urban passage"
+      "urban passage",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
       "woman",
       "shopping bag",
-      "street"
+      "street",
+      "bag"
     ],
     "object_roles": {
       "woman": "primary",
       "shopping bag": "primary",
-      "street": "secondary"
+      "street": "secondary",
+      "bag": "secondary"
     },
     "environment": [
       "street",
@@ -19428,7 +19478,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "raised hand",
@@ -19500,7 +19551,10 @@
       "absent body",
       "aged motion trace"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "shadow",
@@ -19552,7 +19606,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "shadow poles",
@@ -19621,7 +19676,10 @@
       "elderly crossing",
       "burden and celebration"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -19671,7 +19729,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "daily labor"
     ],
     "symbols": [
       "balloons",
@@ -19791,7 +19851,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "folding chair",
@@ -19863,7 +19924,10 @@
       "flowers",
       "eccentric survival"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "man",
@@ -19916,7 +19980,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "fish hat",
@@ -19988,7 +20053,10 @@
       "snow path",
       "winter aging"
     ],
-    "secondary": [],
+    "secondary": [
+      "older",
+      "public life"
+    ],
     "noise": [],
     "objects": [
       "person",
@@ -20041,7 +20109,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "solitude"
     ],
     "symbols": [
       "snow corridor",
@@ -20110,19 +20180,24 @@
       "selfie in fur hood",
       "screened self-fashioning"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "woman",
       "phone",
       "coffee cup",
-      "hood"
+      "hood",
+      "cup"
     ],
     "object_roles": {
       "woman": "primary",
       "phone": "primary",
       "coffee cup": "secondary",
-      "hood": "secondary"
+      "hood": "secondary",
+      "cup": "secondary"
     },
     "environment": [
       "street",
@@ -20160,7 +20235,10 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "self-imaging",
+      "split attention"
     ],
     "symbols": [
       "phone mirror",
@@ -20172,7 +20250,8 @@
       "fabric"
     ],
     "motion": [
-      "raised arm"
+      "raised arm",
+      "selfie"
     ],
     "tone": [
       "self-consciousness",
@@ -20206,7 +20285,7 @@
       "adult"
     ],
     "age_stage": "",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "people",
       "color"
@@ -20232,7 +20311,10 @@
       "cool distraction",
       "urban surface"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "woman",
@@ -20285,7 +20367,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone glow",
@@ -20297,7 +20381,8 @@
       "painted wall"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "checking phone"
     ],
     "tone": [
       "detachment",
@@ -20358,7 +20443,10 @@
       "split allegiance",
       "screened patriotism"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "man",
@@ -20408,7 +20496,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "national flag",
@@ -20420,7 +20510,8 @@
       "asphalt"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "checking phone"
     ],
     "tone": [
       "irony",
@@ -20480,7 +20571,10 @@
       "seated woman",
       "learning to frame"
     ],
-    "secondary": [],
+    "secondary": [
+      "phone attention",
+      "screen life"
+    ],
     "noise": [],
     "objects": [
       "child",
@@ -20505,7 +20599,8 @@
       "nature"
     ],
     "setting_type": [
-      "park"
+      "park",
+      "public interior"
     ],
     "style": [
       "observational street photography",
@@ -20532,7 +20627,8 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention"
     ],
     "symbols": [
       "small camera",
@@ -20567,10 +20663,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "woman",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 2,
+    "people_count": 1,
     "gender": [
       "woman"
     ],
@@ -20579,7 +20675,7 @@
       "adult"
     ],
     "age_stage": "",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "people",
       "color"
@@ -23836,7 +23932,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "newspaper flag",
@@ -39734,7 +39831,8 @@
       "coat",
       "hat",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -39787,7 +39885,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "coat",
@@ -39868,7 +39967,9 @@
       "vegan",
       "cafe",
       "life",
-      "existential"
+      "existential",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -39919,7 +40020,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "mobility support"
     ],
     "symbols": [
       "cane",
@@ -39999,7 +40102,9 @@
       "row",
       "streetlights",
       "life",
-      "existential"
+      "existential",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40051,7 +40156,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "solitude"
     ],
     "symbols": [
       "streetlights",
@@ -40131,7 +40238,8 @@
       "trolley",
       "roadside",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40179,7 +40287,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "daily labor"
     ],
     "symbols": [
       "trolley",
@@ -40259,18 +40369,22 @@
       "handbag",
       "life",
       "existential",
-      "people"
+      "people",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
       "woman",
       "handbag",
-      "street"
+      "street",
+      "bag"
     ],
     "object_roles": {
       "woman": "primary",
       "handbag": "primary",
-      "street": "secondary"
+      "street": "secondary",
+      "bag": "secondary"
     },
     "environment": [
       "street",
@@ -40307,7 +40421,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "handbag",
@@ -40318,7 +40433,9 @@
       "fabric"
     ],
     "motion": [
-      "walking fast"
+      "walking fast",
+      "walking",
+      "hurrying"
     ],
     "tone": [
       "urgency",
@@ -40386,7 +40503,8 @@
       "together",
       "bench",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40435,7 +40553,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "companionship"
     ],
     "symbols": [
       "bench",
@@ -40447,7 +40567,9 @@
       "wood"
     ],
     "motion": [
-      "conversation"
+      "conversation",
+      "sitting",
+      "talking"
     ],
     "tone": [
       "companionship",
@@ -40470,7 +40592,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -40515,7 +40637,8 @@
       "man",
       "while",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40563,7 +40686,10 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "mobility support",
+      "companionship"
     ],
     "symbols": [
       "cane",
@@ -40598,7 +40724,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -40644,7 +40770,8 @@
       "pedestrians",
       "winter",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40693,7 +40820,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "blurred faces",
@@ -40729,7 +40857,7 @@
     "manipulation": "motion blur",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 3,
@@ -40772,7 +40900,8 @@
       "woman",
       "crowd",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40822,7 +40951,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "lined faces",
@@ -40903,7 +41033,8 @@
       "hats",
       "talking",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -40952,7 +41083,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "companionship"
     ],
     "symbols": [
       "face-to-face pose",
@@ -40964,7 +41097,8 @@
       "fur"
     ],
     "motion": [
-      "conversation"
+      "conversation",
+      "talking"
     ],
     "tone": [
       "intimacy",
@@ -40987,7 +41121,7 @@
     "manipulation": "straight",
     "shot_type": "portrait",
     "subject_scale": "close",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -41032,7 +41166,9 @@
       "smiling",
       "outdoors",
       "life",
-      "existential"
+      "existential",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -41085,7 +41221,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "smile",
@@ -41097,7 +41234,8 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "smiling"
     ],
     "tone": [
       "vitality",
@@ -41165,7 +41303,8 @@
       "public",
       "transport",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -41190,7 +41329,8 @@
       "urban"
     ],
     "setting_type": [
-      "transit"
+      "transit",
+      "public transport"
     ],
     "style": [
       "humanist street photography",
@@ -41216,7 +41356,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "companionship"
     ],
     "symbols": [
       "bus seat",
@@ -41228,7 +41370,8 @@
       "metal"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "sitting"
     ],
     "tone": [
       "fatigue",
@@ -41251,7 +41394,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -41295,7 +41438,8 @@
       "while",
       "woman",
       "life",
-      "existential"
+      "existential",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -41345,7 +41489,8 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging"
     ],
     "symbols": [
       "curb edge",
@@ -41359,7 +41504,8 @@
     ],
     "motion": [
       "standing",
-      "waiting"
+      "waiting",
+      "sitting"
     ],
     "tone": [
       "hesitation",
@@ -41382,10 +41528,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "woman",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 2,
+    "people_count": 1,
     "gender": [
       "woman",
       "man"
@@ -41428,7 +41574,9 @@
       "coats",
       "sitting",
       "life",
-      "existential"
+      "existential",
+      "older",
+      "public life"
     ],
     "noise": [],
     "objects": [
@@ -41479,7 +41627,9 @@
     ],
     "themes": [
       "aging in public",
-      "dignity"
+      "dignity",
+      "public aging",
+      "companionship"
     ],
     "symbols": [
       "bright coats",
@@ -41491,7 +41641,8 @@
       "wood"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "sitting"
     ],
     "tone": [
       "companionship",
@@ -41514,7 +41665,7 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "people",
     "people_prominence": "primary",
     "has_people": true,
     "people_count": 2,
@@ -41559,20 +41710,24 @@
       "phone",
       "while",
       "technology",
-      "surveillance"
+      "surveillance",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
       "woman",
       "phone",
       "folder",
-      "street"
+      "street",
+      "papers"
     ],
     "object_roles": {
       "woman": "primary",
       "phone": "primary",
       "folder": "secondary",
-      "street": "secondary"
+      "street": "secondary",
+      "papers": "secondary"
     },
     "environment": [
       "street",
@@ -41610,7 +41765,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -41621,7 +41778,8 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "checking phone"
     ],
     "tone": [
       "absorption",
@@ -41689,7 +41847,9 @@
       "screen",
       "technology",
       "phone",
-      "surveillance"
+      "surveillance",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
@@ -41738,7 +41898,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -41750,7 +41912,8 @@
       "fabric"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "checking phone"
     ],
     "tone": [
       "absorption",
@@ -41818,7 +41981,9 @@
       "phone",
       "technology",
       "surveillance",
-      "society"
+      "society",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
@@ -41869,7 +42034,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -41915,7 +42082,7 @@
       "adult"
     ],
     "age_stage": "older",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "people",
       "color"
@@ -41949,7 +42116,9 @@
       "mobile",
       "phone",
       "technology",
-      "surveillance"
+      "surveillance",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
@@ -42003,7 +42172,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -42049,7 +42220,7 @@
       "adult"
     ],
     "age_stage": "",
-    "screen_visible": false,
+    "screen_visible": true,
     "negative": [
       "people",
       "color"
@@ -42083,7 +42254,9 @@
       "bicycles",
       "rider",
       "technology",
-      "surveillance"
+      "surveillance",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
@@ -42091,14 +42264,16 @@
       "people",
       "phone",
       "crosswalk",
-      "street"
+      "street",
+      "crossing"
     ],
     "object_roles": {
       "bicycle": "primary",
       "people": "primary",
       "phone": "secondary",
       "crosswalk": "secondary",
-      "street": "secondary"
+      "street": "secondary",
+      "crossing": "secondary"
     },
     "environment": [
       "street",
@@ -42139,7 +42314,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "phone",
@@ -42153,7 +42330,8 @@
     ],
     "motion": [
       "waiting",
-      "balancing"
+      "balancing",
+      "cycling"
     ],
     "tone": [
       "absorption",
@@ -42221,7 +42399,9 @@
       "phone",
       "table",
       "technology",
-      "surveillance"
+      "surveillance",
+      "phone attention",
+      "screen life"
     ],
     "noise": [],
     "objects": [
@@ -42244,7 +42424,8 @@
       "indoor"
     ],
     "setting_type": [
-      "interior"
+      "interior",
+      "public interior"
     ],
     "style": [
       "observational street photography",
@@ -42270,7 +42451,9 @@
     ],
     "themes": [
       "mediation",
-      "attention"
+      "attention",
+      "digital attention",
+      "split attention"
     ],
     "symbols": [
       "cross",
@@ -42283,7 +42466,8 @@
     ],
     "motion": [
       "looking down",
-      "drinking"
+      "drinking",
+      "checking phone"
     ],
     "tone": [
       "absorption",
@@ -42306,10 +42490,10 @@
     "manipulation": "straight",
     "shot_type": "",
     "subject_scale": "medium",
-    "people_focus": "crowd",
+    "people_focus": "woman",
     "people_prominence": "primary",
     "has_people": true,
-    "people_count": 2,
+    "people_count": 1,
     "gender": [
       "woman"
     ],
