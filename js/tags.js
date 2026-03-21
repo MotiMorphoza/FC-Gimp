@@ -11,6 +11,8 @@
     cold: ["cold", "winter", "icy", "ice", "snow", "frozen", "frigid", "chill"],
     minimalism: ["minimalism", "minimal", "sparse", "empty", "reduced", "clean", "restraint"],
     window: ["window", "windows", "pane", "panes", "windowpane", "windowpanes"],
+    wheel: ["wheel", "wheels", "spare wheel", "bicycle", "bicycles", "bike", "bikes", "wheelchair", "stroller", "pram", "shopping trolley", "trolley", "cart", "scooter", "motorcycle"],
+    sky: ["sky", "skies", "open sky", "blue sky", "night sky", "dusky sky", "skyline", "horizon", "moon", "crescent moon", "full moon", "half moon", "sun", "sunset", "sunrise", "cloud", "clouds", "contrail", "rainbow"],
     bird: ["bird", "birds", "pigeon", "pigeons", "crow", "crows", "gull", "gulls", "duck", "ducks", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "seagull", "seagulls"],
     protest: ["protest", "protester", "protesters", "demonstration", "march", "activism", "resistance"],
     jesus: ["jesus", "christ", "christ figure", "christ statue", "holy card", "sacred heart", "crucifix"],

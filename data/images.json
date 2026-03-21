@@ -20,12 +20,29 @@
       "hand": "secondary",
       "stroller": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "city",
+      "outdoor",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "motion-blur street photography",
+      "street photography"
+    ],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -47,8 +64,14 @@
       "phone",
       "fragmented body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
+    "motion": [
+      "blurred motion",
+      "rolling"
+    ],
     "tone": [
       "urgency",
       "strain"
@@ -96,7 +119,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Motion-blurred close-up of a woman pushing a stroller with a red phone in her hand"
   },
   {
     "id": "img-000-11",
@@ -119,13 +143,34 @@
       "hand": "secondary",
       "statue": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "street"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -146,7 +191,9 @@
       "metal",
       "feathers"
     ],
-    "motion": [],
+    "motion": [
+      "flight"
+    ],
     "tone": [
       "irony",
       "stillness"
@@ -189,7 +236,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Pigeon perched on a long metal blade held by a statue hand"
   },
   {
     "id": "img-000-20",
@@ -216,10 +264,20 @@
       "urban",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation",
+      "street photography"
+    ],
+    "composition": [
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "pink"
     ],
@@ -241,8 +299,13 @@
       "bridge",
       "crossing"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "organic surface"
+    ],
+    "motion": [
+      "walking",
+      "transit movement"
+    ],
     "tone": [
       "tenderness",
       "surprise"
@@ -288,7 +351,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Pedestrian carrying a large pink flower across a bridge above traffic"
   },
   {
     "id": "img-000-23",
@@ -417,14 +481,30 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "root vegetables"
+    ],
+    "object_roles": {
+      "root vegetables": "primary"
+    },
+    "environment": [
+      "indoor"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
+    "style": [
+      "conceptual still life"
+    ],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white"
     ],
@@ -446,8 +526,12 @@
       "paired bodies",
       "earth-grown form"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "organic surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "tenderness",
       "playfulness"
@@ -489,7 +573,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Two intertwined root vegetables resembling an embracing couple on a white background"
   },
   {
     "id": "img-000-26",
@@ -631,15 +716,32 @@
       "window": "primary",
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "park"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "symbolic street photography",
+      "ritual observation"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "beige"
@@ -663,7 +765,11 @@
       "crossing path",
       "smallness"
     ],
-    "texture": [],
+    "texture": [
+      "fabric",
+      "water surface",
+      "hard surface"
+    ],
     "motion": [
       "walking"
     ],
@@ -711,7 +817,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Figure in white walking under a beige umbrella across wet paving stones seen from above"
   },
   {
     "id": "img-001-03",
@@ -852,19 +959,38 @@
       "window": "primary",
       "shadow": "primary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "nature"
+    ],
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "setting_type": [
+      "sky",
+      "street"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view",
+      "open sky"
+    ],
     "lighting": [
       "directional light",
       "shadowed light",
       "low light"
     ],
-    "colors": [],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -884,7 +1010,9 @@
     "texture": [
       "hard surface"
     ],
-    "motion": [],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "drama",
       "detachment"
@@ -929,7 +1057,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Person carrying a dark coat and casting a long shadow across sunlit pavement"
   },
   {
     "id": "img-001-07",
@@ -942,19 +1071,46 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "cross",
+      "nun",
+      "mask"
+    ],
     "object_roles": {
       "window": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment": [
+      "outdoor",
+      "transit",
+      "park",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "park"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view"
+    ],
     "lighting": [
       "low light"
     ],
-    "colors": [],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -971,7 +1127,9 @@
       "curve",
       "masked face"
     ],
-    "texture": [],
+    "texture": [
+      "hard surface"
+    ],
     "motion": [
       "walking"
     ],
@@ -1021,7 +1179,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Masked nun in a dark habit walking across a curved cobblestone path"
   },
   {
     "id": "img-001-15",
@@ -1045,10 +1204,27 @@
       "shadow": "secondary",
       "wheel": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "outdoor",
+      "transit",
+      "park",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "park"
+    ],
+    "style": [
+      "overhead street photography",
+      "chance choreography",
+      "urban observation"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
@@ -1057,7 +1233,11 @@
       "directional light",
       "shadowed light"
     ],
-    "colors": [],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -1074,7 +1254,9 @@
       "shadow",
       "cycle"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "transit movement"
     ],
@@ -1123,7 +1305,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Cyclist seen from above carrying a spare wheel on his back as his shadow stretches beside him"
   },
   {
     "id": "img-001-32",
@@ -1269,15 +1452,29 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "directional light",
       "shadowed light"
     ],
-    "colors": [],
+    "colors": [
+      "red",
+      "black",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -1297,7 +1494,9 @@
     "texture": [
       "hard surface"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "gravity",
       "reverence"
@@ -1340,7 +1539,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Church cross casting a large cross-shaped shadow on an illuminated stone wall"
   },
   {
     "id": "img-002-03",
@@ -1359,12 +1559,31 @@
     "object_roles": {
       "cross": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "architecture",
+      "city",
+      "street",
+      "winter"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "public square"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "gold"
     ],
@@ -1389,7 +1608,9 @@
     "texture": [
       "metal"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "dislocation",
       "irony"
@@ -1434,7 +1655,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Gold-toned crucifix figure tangled in a pile of scrap electronics and metal"
   },
   {
     "id": "img-002-05",
@@ -1455,15 +1677,28 @@
       "cross": "primary",
       "sign": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "public square",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "public square"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -1488,7 +1723,9 @@
     "texture": [
       "metal"
     ],
-    "motion": [],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "devotion",
       "friction"
@@ -1532,7 +1769,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Religious procession carrying a large wooden cross past a red no-entry sign seen from above"
   },
   {
     "id": "img-002-06",
@@ -1684,11 +1922,24 @@
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -1705,8 +1956,12 @@
       "athlete",
       "billboard"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "irony",
       "distance"
@@ -1748,7 +2003,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Large golfer billboard rising beside a church cross"
   },
   {
     "id": "img-002-15",
@@ -1767,13 +2023,34 @@
     "object_roles": {
       "cross": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "architecture",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street",
+      "public square"
+    ],
+    "style": [
+      "architectural observation",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -1790,8 +2067,13 @@
       "steeple",
       "cross"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "irreverence",
       "playfulness"
@@ -1834,7 +2116,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Bare feet framing a distant church tower topped with a cross"
   },
   {
     "id": "img-003-01",
@@ -3325,14 +3608,27 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
     "setting_type": [
       "window"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "architectural observation"
+    ],
+    "composition": [
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -3351,7 +3647,9 @@
     "texture": [
       "glass"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "weariness",
       "neglect"
@@ -3393,7 +3691,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Weathered multi-pane window with one broken section and a board hanging from it"
   },
   {
     "id": "img-004-13",
@@ -3415,14 +3714,27 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
     "setting_type": [
       "window"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "architectural observation"
+    ],
+    "composition": [
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -3442,7 +3754,9 @@
     "texture": [
       "glass"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "fragility",
       "suspicion"
@@ -3484,7 +3798,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Broken diamond-pane window with a torn curtain inside"
   },
   {
     "id": "img-004-14",
@@ -3503,14 +3818,28 @@
     "object_roles": {
       "window": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "architecture",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
+    "style": [
+      "architectural observation",
+      "reflection study"
+    ],
     "composition": [
       "reflection"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "yellow"
     ],
@@ -3531,7 +3860,10 @@
       "shattered glass",
       "reflected home"
     ],
-    "texture": [],
+    "texture": [
+      "glass",
+      "hard surface"
+    ],
     "motion": [
       "visual shimmer"
     ],
@@ -3577,7 +3909,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Yellow apartment block reflected in shattered windowpanes"
   },
   {
     "id": "img-004-22",
@@ -3603,10 +3936,19 @@
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "architectural observation",
+      "street photography"
+    ],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -3630,8 +3972,12 @@
       "tower block",
       "watchful image"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "surveillance",
       "distance"
@@ -3674,7 +4020,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Giant black-and-white face billboard between apartment towers"
   },
   {
     "id": "img-004-26",
@@ -3700,11 +4047,25 @@
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "window"
+    ],
+    "style": [
+      "architectural observation",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "directional light"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -3720,8 +4081,13 @@
       "cross",
       "balcony grid"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "glass",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "solemnity",
       "displacement"
@@ -3763,7 +4129,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Crucifix silhouetted against apartment balconies"
   },
   {
     "id": "img-005-01",
@@ -3903,12 +4270,31 @@
       "dog": "primary",
       "snow": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "park",
+      "nature",
+      "outdoor",
+      "winter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "animal street photography",
+      "rain street photography",
+      "weather choreography"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "cold daylight"
+    ],
     "colors": [
       "white"
     ],
@@ -3930,8 +4316,13 @@
       "snow field",
       "small body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur",
+      "snow"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "isolation",
       "determination"
@@ -3975,7 +4366,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Small white dog straining at a long leash on a snowy slope beside its owner"
   },
   {
     "id": "img-005-05",
@@ -4004,11 +4396,25 @@
       "urban",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "window",
+      "park"
+    ],
+    "style": [
+      "animal street photography",
+      "architectural observation"
+    ],
+    "composition": [
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -4025,8 +4431,14 @@
       "chin rest",
       "window threshold"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur",
+      "glass",
+      "organic surface"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "patience",
       "tenderness"
@@ -4068,7 +4480,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Small dog resting its chin on a curved balcony ledge beneath pussy willow branches"
   },
   {
     "id": "img-005-06",
@@ -4200,15 +4613,33 @@
     "object_roles": {
       "bike": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "motion-blur street photography",
+      "street photography"
+    ],
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -4224,7 +4655,9 @@
       "shared bicycle",
       "blur trail"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "transit movement",
       "blurred motion"
@@ -4274,7 +4707,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two young adults riding a single bicycle together in motion blur"
   },
   {
     "id": "img-006-03",
@@ -4525,9 +4959,16 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
+    "objects": [
+      "person"
+    ],
+    "object_roles": {
+      "person": "primary"
+    },
+    "environment": [
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
       "street",
@@ -4536,9 +4977,17 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "motion-blur street photography"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view",
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "yellow"
@@ -4562,8 +5011,13 @@
       "safety yellow",
       "passing body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "blurred motion",
+      "walking"
+    ],
     "tone": [
       "instability",
       "rush"
@@ -4608,7 +5062,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Yellow-coated figure blurred between black bollards"
   },
   {
     "id": "img-006-17",
@@ -4627,15 +5082,33 @@
     "object_roles": {
       "phone": "secondary"
     },
-    "environment": [],
+    "environment": [
+      "city",
+      "street",
+      "transit",
+      "outdoor"
+    ],
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -4652,7 +5125,9 @@
       "zebra stripes",
       "raised arm"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -4701,7 +5176,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Person in a long trench coat crossing a zebra crossing while holding up a phone"
   },
   {
     "id": "img-007-01",
@@ -4720,12 +5196,29 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "street photography"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "red"
@@ -4749,8 +5242,13 @@
       "bicycle",
       "scarf"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal"
+    ],
+    "motion": [
+      "rolling"
+    ],
     "tone": [
       "resilience",
       "style"
@@ -4798,7 +5296,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman cycling beneath a black umbrella and red plaid scarf"
   },
   {
     "id": "img-007-02",
@@ -4937,14 +5436,30 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "pink"
     ],
@@ -4966,7 +5481,9 @@
       "crosswalk stripes",
       "passing body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -5013,7 +5530,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Bright pink umbrella crossing a zebra crossing beside a passing runner"
   },
   {
     "id": "img-007-13",
@@ -5152,11 +5670,30 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention",
+      "rain street photography",
+      "weather choreography"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view",
+      "group across frame"
+    ],
     "lighting": [
       "artificial light"
     ],
@@ -5184,8 +5721,13 @@
       "orange umbrella",
       "cluster"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "feathers",
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "anonymity",
       "exception"
@@ -5230,7 +5772,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Black-and-white crowd of umbrellas with one orange umbrella glowing"
   },
   {
     "id": "img-007-17",
@@ -5373,14 +5916,30 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky",
+      "wall"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "artificial light"
     ],
-    "colors": [],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -5400,7 +5959,9 @@
     "texture": [
       "hard surface"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "wonder",
       "playfulness"
@@ -5443,7 +6004,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Lit rainbow umbrella mounted on a wall with nails radiating around it"
   },
   {
     "id": "img-008-02",
@@ -6273,12 +6835,32 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation",
+      "portrait street photography",
+      "social observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -6300,8 +6882,12 @@
       "scarf",
       "weathered face"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "stoicism",
       "habit"
@@ -6348,7 +6934,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Older man in a flat cap and red scarf smoking a pipe"
   },
   {
     "id": "img-009-05",
@@ -6367,13 +6954,33 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "portrait street photography",
+      "social observation",
+      "public ritual"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -6390,8 +6997,13 @@
       "smoke",
       "profile"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "vapor",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "detachment",
       "irony"
@@ -6439,7 +7051,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Woman in profile smoking beside a cloud image"
   },
   {
     "id": "img-009-10",
@@ -6585,11 +7198,26 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention",
+      "portrait street photography",
+      "social observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white"
     ],
@@ -6615,7 +7243,9 @@
       "hard surface",
       "feathers"
     ],
-    "motion": [],
+    "motion": [
+      "flight"
+    ],
     "tone": [
       "suspension",
       "restlessness"
@@ -6662,7 +7292,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Woman leaning against a stone wall with a cigarette as a white bird flies past"
   },
   {
     "id": "img-010-01",
@@ -9675,15 +10306,47 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "objects": [
+      "cross",
+      "rainbow"
+    ],
+    "object_roles": {
+      "cross": "primary",
+      "rainbow": "primary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "sky",
+      "park"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -9700,8 +10363,13 @@
       "wet road",
       "light trace"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "water surface",
+      "hard surface"
+    ],
+    "motion": [
+      "water movement"
+    ],
     "tone": [
       "wonder",
       "surprise"
@@ -9743,7 +10411,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow prism cast across a wet circular roadway and grass"
   },
   {
     "id": "img-015-06",
@@ -9881,17 +10550,36 @@
       "flag": "primary",
       "car": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "park",
+      "nature",
+      "outdoor",
+      "winter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view",
       "repetition"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -9907,8 +10595,13 @@
       "flag field",
       "police line"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "snow"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "defiance",
       "solidarity"
@@ -9951,7 +10644,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Huge rainbow flag seen from above beside a line of police vans"
   },
   {
     "id": "img-015-11",
@@ -9970,15 +10664,36 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment": [
+      "city",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "artificial light"
     ],
-    "colors": [],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -9995,8 +10710,12 @@
       "halo",
       "spikes"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "wonder",
       "tension"
@@ -10039,7 +10758,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow umbrella glowing overhead with nails radiating around it"
   },
   {
     "id": "img-016-02",
@@ -10572,10 +11292,20 @@
     "setting_type": [
       "domestic"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "street photography"
+    ],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -10592,8 +11322,12 @@
       "collapsed posture",
       "bench"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "fatigue",
       "unease"
@@ -10638,7 +11372,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Person slumped on a bench beneath a funeral home billboard"
   },
   {
     "id": "img-017-01",
@@ -11112,19 +11847,36 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "excavator claw"
+    ],
+    "object_roles": {
+      "excavator claw": "primary"
+    },
     "environment": [
       "architecture"
     ],
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "window",
+      "street"
+    ],
+    "style": [
+      "architectural observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11144,7 +11896,9 @@
     "texture": [
       "hard surface"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "destruction",
       "tension"
@@ -11187,7 +11941,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Demolition excavator claw tearing concrete from a collapsing building"
   },
   {
     "id": "img-000-03",
@@ -11324,12 +12079,28 @@
     "object_roles": {
       "cat": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "street"
+    ],
+    "style": [
+      "animal street photography",
+      "street photography"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -11351,8 +12122,12 @@
       "animal witness",
       "empty bottles"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "curiosity",
       "neglect"
@@ -11395,7 +12170,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Striped cat sniffing a discarded red armchair filled with empty bottles"
   },
   {
     "id": "img-000-07",
@@ -11528,13 +12304,35 @@
     "object_roles": {
       "snow": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "winter",
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "conceptual street photography",
+      "urban poetics",
+      "urban object"
+    ],
+    "composition": [
+      "frame within frame",
+      "open sky"
+    ],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11551,8 +12349,14 @@
       "captured sun",
       "metal frame"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal",
+      "snow"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "wonder",
       "coldness"
@@ -11595,7 +12399,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Setting sun aligned inside a power pylon over a snowy horizon"
   },
   {
     "id": "img-000-16",
@@ -11621,11 +12426,25 @@
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "conceptual street photography",
+      "urban poetics",
+      "urban object"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11642,8 +12461,12 @@
       "tree skin",
       "watching trunk"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "organic surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "curiosity",
       "playfulness"
@@ -11686,7 +12509,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Birch tree trunk with knots and bark forming a face-like expression"
   },
   {
     "id": "img-001-02",
@@ -11824,19 +12648,41 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "cross",
+      "woman"
+    ],
     "object_roles": {
       "window": "primary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view",
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11853,7 +12699,10 @@
       "crosswalk stripes",
       "paper cup"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -11904,7 +12753,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Man feeding a woman from a paper cup as they walk across a zebra crossing"
   },
   {
     "id": "img-001-11",
@@ -11933,14 +12783,26 @@
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation",
+      "street photography"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -11957,8 +12819,13 @@
       "bench ritual",
       "pigeon witness"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "snow",
+      "organic surface"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "sociability",
       "humor"
@@ -12003,7 +12870,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Four people on a bench eating long slices of pizza beneath a leafy tree seen from above"
   },
   {
     "id": "img-001-18",
@@ -12023,16 +12891,36 @@
       "window": "primary",
       "car": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "winter"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street",
+      "park"
+    ],
+    "style": [
+      "overhead street photography",
+      "chance choreography",
+      "urban observation"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "gray",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -12049,8 +12937,12 @@
       "patrol machine",
       "numbered power"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "snow"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "irony",
       "control"
@@ -12092,7 +12984,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Police car seen from above with 007 painted on its roof"
   },
   {
     "id": "img-002-02",
@@ -12113,12 +13006,31 @@
       "cross": "primary",
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "architecture",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "street",
+      "public square"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black"
     ],
@@ -12143,7 +13055,9 @@
     "texture": [
       "feathers"
     ],
-    "motion": [],
+    "motion": [
+      "flight"
+    ],
     "tone": [
       "stillness",
       "reverence"
@@ -12185,7 +13099,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Black bird perched on the arm of a church cross above an ornate column"
   },
   {
     "id": "img-002-09",
@@ -12436,10 +13351,23 @@
     "object_roles": {
       "shadow": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
     "composition": [
       "frame within frame",
       "silhouette contrast"
@@ -12469,8 +13397,13 @@
       "church outline",
       "evening fire"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "awe",
       "distance"
@@ -12512,7 +13445,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Church silhouette framed by a glowing orange sun at sunset"
   },
   {
     "id": "img-002-17",
@@ -12525,17 +13459,34 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "objects": [
+      "choir"
+    ],
+    "object_roles": {
+      "choir": "primary"
+    },
+    "environment": [
+      "public square",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "public square"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -12557,8 +13508,13 @@
       "sheet music",
       "choral body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "ceremony",
       "warmth"
@@ -12601,7 +13557,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Choir members in red robes holding sheet music seen from above"
   },
   {
     "id": "img-003-03",
@@ -14324,11 +15281,25 @@
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "architectural observation",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "red",
+      "gray"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -14345,8 +15316,12 @@
       "blank facade",
       "scaled body"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "surreal distance",
       "urban spectacle"
@@ -14390,7 +15365,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Large mural of a figure painted across a building facade"
   },
   {
     "id": "img-004-28",
@@ -14527,13 +15503,39 @@
       "dog": "primary",
       "car": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "street"
+    ],
+    "style": [
+      "animal street photography",
+      "motion-blur street photography",
+      "street photography"
+    ],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -14550,7 +15552,10 @@
       "passing car",
       "small body"
     ],
-    "texture": [],
+    "texture": [
+      "fur",
+      "organic surface"
+    ],
     "motion": [
       "blurred motion"
     ],
@@ -14595,7 +15600,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Dog trotting past a gate as a car blurs behind it"
   },
   {
     "id": "img-005-04",
@@ -14614,7 +15620,10 @@
     "object_roles": {
       "dog": "primary"
     },
-    "environment": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
     "environment_type": [
       "outdoor",
       "street",
@@ -14623,9 +15632,17 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "animal street photography"
+    ],
+    "composition": [
+      "overhead view",
+      "bird's-eye view",
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black"
     ],
@@ -14647,8 +15664,12 @@
       "paired figures",
       "sunlit cobbles"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "warmth",
       "playfulness"
@@ -14695,7 +15716,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Woman in a mustard knit hat with a small dog framed between black bollards"
   },
   {
     "id": "img-005-08",
@@ -14835,11 +15857,26 @@
     "environment_type": [
       "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "motion-blur street photography",
+      "street photography"
+    ],
+    "composition": [
+      "motion blur",
+      "frame within frame",
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -14856,7 +15893,9 @@
       "shared frame",
       "city glide"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "transit movement",
       "blurred motion"
@@ -14908,7 +15947,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two young women sharing a city bicycle in motion blur"
   },
   {
     "id": "img-006-07",
@@ -14929,12 +15969,29 @@
       "bike": "primary",
       "car": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "city",
+      "street",
+      "transit",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "motion-blur street photography"
+    ],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "directional light"
+    ],
     "colors": [
       "black",
       "white"
@@ -14958,7 +16015,9 @@
       "white van",
       "monochrome stream"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "transit movement"
     ],
@@ -15005,7 +16064,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Cyclist in a helmet riding past a blurred white van in black and white"
   },
   {
     "id": "img-006-15",
@@ -15024,12 +16084,36 @@
     "object_roles": {
       "bike": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "park",
+      "nature",
+      "outdoor",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "street"
+    ],
+    "style": [
+      "motion-blur street photography",
+      "symbolic street photography",
+      "ritual observation",
+      "street photography"
+    ],
+    "composition": [
+      "motion blur",
+      "pairing",
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -15051,8 +16135,15 @@
       "parked bikes",
       "crossing bodies"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal"
+    ],
+    "motion": [
+      "blurred motion",
+      "walking",
+      "rolling"
+    ],
     "tone": [
       "restlessness",
       "passing contact"
@@ -15100,7 +16191,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Two women blurred past parked bicycles, one wearing a bright red coat"
   },
   {
     "id": "img-006-19",
@@ -15235,12 +16327,32 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "symbolic street photography",
+      "ritual observation"
+    ],
+    "composition": [
+      "pairing",
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -15264,8 +16376,12 @@
       "shared talk",
       "rain ritual"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "companionship",
       "weathered calm"
@@ -15311,7 +16427,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two older women talking beneath umbrellas in black and white"
   },
   {
     "id": "img-007-05",
@@ -15330,13 +16447,35 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "motion-blur street photography",
+      "rain street photography",
+      "weather choreography"
+    ],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -15353,8 +16492,12 @@
       "rain veil",
       "streaked bodies"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "blurred motion"
+    ],
     "tone": [
       "instability",
       "atmosphere"
@@ -15398,7 +16541,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Blurred umbrellas in heavy rain"
   },
   {
     "id": "img-007-12",
@@ -15417,12 +16561,29 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -15444,8 +16605,12 @@
       "umbrella bloom",
       "rain corridor"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "resilience",
       "warmth"
@@ -15492,7 +16657,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman in a red coat carrying a colorful umbrella in the rain"
   },
   {
     "id": "img-007-15",
@@ -15511,16 +16677,40 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "park",
+      "nature",
+      "outdoor",
+      "street"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention",
+      "rain street photography",
+      "weather choreography"
+    ],
     "composition": [
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -15537,8 +16727,13 @@
       "march formation",
       "rain surface"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "feathers",
+      "fabric"
+    ],
+    "motion": [
+      "walking"
+    ],
     "tone": [
       "momentum",
       "collective protection"
@@ -15581,7 +16776,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Overhead view of a march filled with umbrellas"
   },
   {
     "id": "img-007-22",
@@ -15612,10 +16808,21 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "bw",
     "mood": [
@@ -15632,8 +16839,13 @@
       "desaturated city",
       "color beacon"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "organic surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "hope",
       "defiance"
@@ -15677,7 +16889,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow umbrella against a grayscale street scene"
   },
   {
     "id": "img-008-01",
@@ -16740,12 +17953,35 @@
       "sign": "secondary",
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "street"
+    ],
+    "style": [
+      "portrait street photography",
+      "social observation",
+      "public ritual",
+      "street photography"
+    ],
+    "composition": [
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "yellow"
     ],
@@ -16770,7 +18006,9 @@
     "texture": [
       "metal"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "detachment",
       "coldness"
@@ -16816,7 +18054,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Hooded smoker exhaling into the cold air beside a yellow sign"
   },
   {
     "id": "img-009-04",
@@ -16835,13 +18074,37 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation",
+      "portrait street photography",
+      "social observation"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16861,7 +18124,9 @@
     "texture": [
       "metal"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "weariness",
       "detachment"
@@ -16908,7 +18173,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Curly-haired man reclining with smoke drifting across metal bars in front of him"
   },
   {
     "id": "img-009-11",
@@ -16927,13 +18193,38 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
+    "style": [
+      "symbolic street photography",
+      "ritual observation",
+      "portrait street photography",
+      "social observation"
+    ],
+    "composition": [
+      "pairing",
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -16950,8 +18241,13 @@
       "paired faces",
       "cigarette ritual"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "vapor",
+      "hard surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "companionship",
       "habit"
@@ -16996,7 +18292,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two older people lighting cigarettes face to face"
   },
   {
     "id": "img-009-18",
@@ -17017,12 +18314,28 @@
       "hand": "secondary",
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "winter",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
+    "style": [
+      "portrait street photography",
+      "social observation",
+      "public ritual"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "cold daylight"
+    ],
     "colors": [
       "black",
       "red"
@@ -17046,8 +18359,13 @@
       "concealed cigarette",
       "red hemline"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "snow"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "coolness",
       "detachment"
@@ -17091,7 +18409,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Red coat and black lace-up boots with a cigarette held behind one hand"
   },
   {
     "id": "img-010-02",
@@ -17451,22 +18770,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "sky",
+      "snow"
+    ],
     "object_roles": {
       "mirror": "primary",
       "water": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "winter",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "architectural observation",
+      "reflection study"
+    ],
     "composition": [
       "reflection"
     ],
     "lighting": [
       "artificial light"
     ],
-    "colors": [],
+    "colors": [
+      "red",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -17530,7 +18870,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Lit office tower reflected in the glass of a neighboring skyscraper"
   },
   {
     "id": "img-010-01b",
@@ -20398,8 +21739,14 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "rainbow",
+      "tree"
+    ],
+    "object_roles": {
+      "rainbow": "primary",
+      "tree": "primary"
+    },
     "environment": [
       "city",
       "street"
@@ -20412,10 +21759,21 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -20432,8 +21790,12 @@
       "street corridor",
       "color gate"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "organic surface"
+    ],
+    "motion": [
+      "transit movement"
+    ],
     "tone": [
       "energy",
       "joy"
@@ -20475,7 +21837,8 @@
       "impact": 9,
       "originality": 10,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow balloon arch framing a busy city street"
   },
   {
     "id": "img-015-07",
@@ -20610,13 +21973,38 @@
     "object_roles": {
       "flag": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "sky",
+      "park"
+    ],
+    "style": [
+      "rain street photography",
+      "weather choreography",
+      "observational public-art photography",
+      "urban color study"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -20633,8 +22021,14 @@
       "rainbow flag",
       "heroic pose"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fabric",
+      "metal",
+      "organic surface"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "theater",
       "defiance"
@@ -20677,7 +22071,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Performer in a metallic rainbow costume carrying a rainbow flag"
   },
   {
     "id": "img-016-04",
@@ -21182,15 +22577,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "objects": [
+      "mask",
+      "people"
+    ],
+    "object_roles": {
+      "mask": "primary",
+      "people": "primary"
+    },
+    "environment": [
+      "park",
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "observational street photography",
+      "humanist lyricism",
+      "social lyricism"
+    ],
+    "composition": [
+      "group across frame",
+      "open sky"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -21207,7 +22630,9 @@
       "protective mask",
       "metal work"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "flight"
     ],
@@ -21256,7 +22681,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Worker welding overhead with sparks flying"
   },
   {
     "id": "img-017-01b",
@@ -21275,15 +22701,33 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "environment": [
+      "water edge",
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "water edge"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "low light"
     ],
-    "colors": [],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -21303,7 +22747,10 @@
     "texture": [
       "feathers"
     ],
-    "motion": [],
+    "motion": [
+      "flight",
+      "water movement"
+    ],
     "tone": [
       "calm",
       "alertness"
@@ -21345,7 +22792,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Close-up of a crested duck in profile against a dark background"
   },
   {
     "id": "img-017-16a",
@@ -21364,14 +22812,26 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "poetic observation",
+      "animal attention"
+    ],
+    "composition": [
+      "open sky"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "gray",
       "blue"
@@ -21395,7 +22855,9 @@
       "slow glide",
       "air current"
     ],
-    "texture": [],
+    "texture": [
+      "feathers"
+    ],
     "motion": [
       "flight"
     ],
@@ -21441,7 +22903,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Gray heron gliding with wings spread against a blue sky"
   },
   {
     "id": "img-017-17",
@@ -22288,17 +23751,32 @@
     "objects": [
       "bin"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "bin": "primary"
+    },
+    "environment": [
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "street"
+    ],
     "style": [
       "conceptual street photography",
       "urban poetics",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "blue",
       "yellow"
@@ -22319,7 +23797,10 @@
     "symbols": [
       "bin"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -22362,7 +23843,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Yellow and blue public trash bin with a bottle balanced on top"
   },
   {
     "id": "img-000-08",
@@ -22387,18 +23869,37 @@
     "objects": [
       "wrapper"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "wrapper": "primary"
+    },
+    "environment": [
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "street"
+    ],
     "style": [
       "conceptual street photography",
       "urban poetics",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -22412,7 +23913,9 @@
     "symbols": [
       "wrapper"
     ],
-    "texture": [],
+    "texture": [
+      "water surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -22455,7 +23958,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Crushed Mozart chocolate wrapper melting into wet asphalt"
   },
   {
     "id": "img-000-09",
@@ -23319,18 +24823,44 @@
       "mannequin legs",
       "market stall"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "vendor": "primary",
+      "mannequin legs": "primary",
+      "market stall": "secondary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "market"
+    ],
     "style": [
       "conceptual street photography",
       "urban surrealism",
       "everyday observation"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "blue",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -23347,7 +24877,9 @@
       "market goods",
       "partial body"
     ],
-    "texture": [],
+    "texture": [
+      "organic surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -23395,7 +24927,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Market vendor sorting goods beside two mannequin legs displayed on her stall"
   },
   {
     "id": "img-000-21",
@@ -24421,17 +25954,37 @@
     "object_roles": {
       "cross": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "city",
+      "street",
+      "winter"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "public square"
+    ],
     "style": [
       "conceptual street photography",
       "sacred urbanism",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -24443,7 +25996,10 @@
       "ritual in public"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -24486,7 +26042,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Crucifix standing before a modern apartment block"
   },
   {
     "id": "img-002-07",
@@ -24630,10 +26187,26 @@
       "mask",
       "cobblestone path"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "nun": "primary",
+      "mask": "primary",
+      "cobblestone path": "secondary"
+    },
+    "environment": [
+      "architecture",
+      "city",
+      "street",
+      "winter"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "public square"
+    ],
     "style": [
       "symbolic street photography",
       "ritual observation",
@@ -24642,8 +26215,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "gold"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -24712,7 +26291,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Masked nun walking alone across a curved cobblestone path"
   },
   {
     "id": "img-002-11",
@@ -24861,18 +26441,36 @@
       "identity"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "car",
+      "priest"
+    ],
+    "object_roles": {
+      "car": "primary",
+      "priest": "primary"
+    },
+    "environment": [
+      "public square",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "public square"
+    ],
     "style": [
       "conceptual street photography",
       "sacred urbanism",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "gold"
@@ -24891,7 +26489,10 @@
       "ritual in public"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "metal",
+      "hard surface"
+    ],
     "motion": [
       "walking"
     ],
@@ -24939,7 +26540,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Priests in white robes carrying a gold monstrance during a religious procession"
   },
   {
     "id": "img-002-16",
@@ -28568,16 +30170,29 @@
     "object_roles": {
       "window": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "window",
+      "street"
+    ],
     "style": [
       "urban minimalism",
       "architectural observation",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -28598,7 +30213,10 @@
     "symbols": [
       "tower"
     ],
-    "texture": [],
+    "texture": [
+      "glass",
+      "hard surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -28639,7 +30257,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Black-and-white view of a tall tower block rising upward"
   },
   {
     "id": "img-004-18",
@@ -29884,17 +31503,39 @@
     "object_roles": {
       "bike": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "street"
+    ],
     "style": [
       "motion-blur street photography",
       "kinetic observation",
       "urban transit"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -29911,7 +31552,10 @@
       "older rider",
       "street blur"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "organic surface"
+    ],
     "motion": [
       "transit movement",
       "blurred motion",
@@ -29963,7 +31607,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Older man riding a bicycle with a rear basket in heavy motion blur"
   },
   {
     "id": "img-006-08",
@@ -30369,18 +32014,43 @@
       "older man",
       "suitcase"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "older man": "primary",
+      "suitcase": "primary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "park",
+      "street"
+    ],
     "style": [
       "motion-blur street photography",
       "kinetic observation",
       "urban transit"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "motion blur"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -30397,7 +32067,9 @@
       "street blur",
       "forward pull"
     ],
-    "texture": [],
+    "texture": [
+      "organic surface"
+    ],
     "motion": [
       "walking",
       "blurred motion",
@@ -30449,7 +32121,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older man walking with a rolling suitcase in motion blur"
   },
   {
     "id": "img-006-14",
@@ -30474,17 +32147,34 @@
     "objects": [
       "two pedestrians"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "two pedestrians": "primary"
+    },
+    "environment": [
+      "street",
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "motion-blur street photography",
       "kinetic observation",
       "urban transit"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "motion blur",
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black"
     ],
@@ -30506,7 +32196,10 @@
       "passing bodies",
       "motion streak"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "fabric"
+    ],
     "motion": [
       "blurred motion",
       "walking"
@@ -30555,7 +32248,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Two black-clad pedestrians passing each other in motion blur"
   },
   {
     "id": "img-006-16",
@@ -30961,16 +32655,30 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
     "style": [
       "rain street photography",
       "urban color study",
       "weather choreography"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "pink"
@@ -30994,7 +32702,9 @@
       "passing man",
       "weather shield"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -31045,7 +32755,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Woman under a pink umbrella walking past a man in a white cap"
   },
   {
     "id": "img-007-08",
@@ -32083,17 +33794,35 @@
     "object_roles": {
       "umbrella": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "water edge"
+    ],
     "style": [
       "rain street photography",
       "urban color study",
       "weather choreography"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "white",
+      "red"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -32110,7 +33839,9 @@
       "ornament",
       "carried object"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -32158,7 +33889,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Two people carrying an ornate umbrella upside down"
   },
   {
     "id": "img-008-03",
@@ -35012,17 +36744,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35091,7 +36842,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older woman in a knit hat holding a cigarette as smoke drifts across her face"
   },
   {
     "id": "img-009-07",
@@ -35121,17 +36873,35 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35200,7 +36970,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Older man reading a leaflet while smoke drifts from his mouth"
   },
   {
     "id": "img-009-08",
@@ -35482,17 +37253,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35509,7 +37299,10 @@
       "watching companion",
       "first drag"
     ],
-    "texture": [],
+    "texture": [
+      "vapor",
+      "hard surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35560,7 +37353,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Young man lighting a cigarette while a woman beside him watches"
   },
   {
     "id": "img-009-13",
@@ -35589,17 +37383,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35665,7 +37478,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two men in conversation while one of them smokes"
   },
   {
     "id": "img-009-14",
@@ -35695,17 +37509,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35722,7 +37555,9 @@
       "flat cap",
       "smoke line"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35772,7 +37607,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older man in a flat cap smoking in profile"
   },
   {
     "id": "img-009-15",
@@ -35802,17 +37638,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35829,7 +37684,9 @@
       "cigarette",
       "cap"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35879,7 +37736,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Bearded man in a cap with a cigarette and hanging necklaces"
   },
   {
     "id": "img-009-16",
@@ -35909,17 +37767,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -35936,7 +37813,9 @@
       "flat cap",
       "smoke"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35986,7 +37865,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Older man in a flat cap smoking in side profile"
   },
   {
     "id": "img-009-17",
@@ -36016,17 +37896,36 @@
     "object_roles": {
       "cigarette": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor",
+      "park"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "window",
+      "wall"
+    ],
     "style": [
       "portrait street photography",
       "social observation",
       "public ritual"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -36043,7 +37942,10 @@
       "cigarette",
       "downward focus"
     ],
-    "texture": [],
+    "texture": [
+      "vapor",
+      "hard surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -36093,7 +37995,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Young woman lighting a cigarette"
   },
   {
     "id": "img-010-03",
@@ -36145,7 +38048,9 @@
     "composition": [
       "reflection"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "yellow",
       "red"
@@ -36216,7 +38121,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Trees and a yellow building mirrored in calm water"
   },
   {
     "id": "img-010-05",
@@ -36268,7 +38174,9 @@
     "composition": [
       "reflection"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -36335,7 +38243,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Wooden bench mirrored in floodwater across a muddy park lawn"
   },
   {
     "id": "img-010-12",
@@ -36381,9 +38290,17 @@
       "urban abstraction",
       "window"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "frame within frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -36447,7 +38364,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Modern glass facade reflecting another building and windows"
   },
   {
     "id": "img-010-13",
@@ -36499,7 +38417,9 @@
     "composition": [
       "reflection"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -36518,7 +38438,10 @@
       "mirror surface",
       "double image"
     ],
-    "texture": [],
+    "texture": [
+      "glass",
+      "organic surface"
+    ],
     "motion": [
       "visual shimmer"
     ],
@@ -36563,7 +38486,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Street and cream-colored building reflected in a parked car door"
   },
   {
     "id": "img-010-01a",
@@ -36616,7 +38540,11 @@
     "lighting": [
       "low light"
     ],
-    "colors": [],
+    "colors": [
+      "red",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -36679,7 +38607,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Streetlamp and bare branches reflected in a dark puddle"
   },
   {
     "id": "img-010-08a",
@@ -36733,8 +38662,14 @@
     "composition": [
       "reflection"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "gray",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -36800,7 +38735,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "No-turn traffic sign and tree reflected in a puddle on paving stones"
   },
   {
     "id": "img-010-29",
@@ -36834,7 +38770,10 @@
     "environment": [
       "architecture"
     ],
-    "environment_type": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
     "setting_type": [
       "window"
     ],
@@ -36918,7 +38857,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Yellow-lit windows reflected across dark glass panels"
   },
   {
     "id": "img-010-30",
@@ -37039,7 +38979,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Row of lit windows mirrored in a dark building facade"
   },
   {
     "id": "img-011-02",
@@ -44019,9 +45960,17 @@
     "object_roles": {
       "sign": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "color intervention photography",
       "public spectacle",
@@ -44031,8 +45980,12 @@
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -44097,7 +46050,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Top curve of a rainbow arch seen from above beside a protest sign"
   },
   {
     "id": "img-015-08",
@@ -44125,17 +46079,31 @@
     "object_roles": {
       "sign": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "color intervention photography",
       "public spectacle",
       "protest"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "rainbow"
+    ],
     "dominant_colors": [],
     "color_mode": "colorful",
     "mood": [
@@ -44200,7 +46168,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Rainbow fan raised beside a protest sign reading NIEPODLEGLEZ DLA WSZYSTKICH"
   },
   {
     "id": "img-016-01",
@@ -46178,9 +48147,18 @@
     "object_roles": {
       "bike": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
@@ -46190,8 +48168,14 @@
       "overhead view",
       "bird's-eye view"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -46257,7 +48241,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Two children riding a scooter and a balance bike seen from above"
   },
   {
     "id": "img-016-26",
@@ -46284,17 +48269,37 @@
       "tote bag",
       "leaves"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "masked man": "primary",
+      "tote bag": "primary",
+      "leaves": "secondary"
+    },
+    "environment": [
+      "city",
+      "outdoor",
+      "park",
+      "nature"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "street",
+      "park"
+    ],
     "style": [
       "observational street photography",
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "green"
     ],
@@ -46316,7 +48321,9 @@
       "green leaves",
       "tote bag"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -46366,7 +48373,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Masked bald man with a tote bag standing beside bright green leaves"
   },
   {
     "id": "img-016-27",
@@ -46402,14 +48410,20 @@
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "green",
       "orange"
@@ -46430,7 +48444,9 @@
     "symbols": [
       "bench"
     ],
-    "texture": [],
+    "texture": [
+      "organic surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -46476,7 +48492,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Person in orange trousers seated on a bench hidden by green leaves"
   },
   {
     "id": "img-016-29",
@@ -46519,9 +48536,17 @@
       "social lyricism",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -46583,7 +48608,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Shirtless man kicking a volleyball on the river beach"
   },
   {
     "id": "img-016-30",
@@ -46608,18 +48634,37 @@
     "objects": [
       "cross"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "cross": "primary"
+    },
+    "environment": [
+      "water edge",
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "water edge"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
       "urban object"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
+    "composition": [
+      "group across frame"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -46681,7 +48726,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Adult and two children running across a sandy riverside"
   },
   {
     "id": "img-017-05",
@@ -46711,9 +48757,22 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "winter",
+      "city",
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -46722,8 +48781,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -46788,7 +48853,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Mandarin duck perched on a rock"
   },
   {
     "id": "img-017-06",
@@ -46825,7 +48891,10 @@
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -46838,7 +48907,11 @@
       "cold daylight",
       "cold light"
     ],
-    "colors": [],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -46904,7 +48977,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Single pigeon walking across packed snow"
   },
   {
     "id": "img-017-07",
@@ -46937,12 +49011,19 @@
       "bird": "primary",
       "tree": "primary"
     },
-    "environment": [],
+    "environment": [
+      "park",
+      "nature",
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "sky",
+      "park"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -46952,7 +49033,9 @@
       "open sky",
       "dispersed pattern"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "blue",
@@ -47024,7 +49107,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "White gulls scattered across a blue sky near bare branches"
   },
   {
     "id": "img-017-15",
@@ -47054,11 +49138,16 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47068,8 +49157,14 @@
       "upward view",
       "open sky"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47086,7 +49181,9 @@
       "glide",
       "migration"
     ],
-    "texture": [],
+    "texture": [
+      "feathers"
+    ],
     "motion": [
       "flight",
       "gliding"
@@ -47132,7 +49229,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Stork gliding overhead against a clear sky"
   },
   {
     "id": "img-017-16",
@@ -47161,11 +49259,16 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
+    "environment": [
+      "outdoor",
+      "nature"
+    ],
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47175,7 +49278,9 @@
       "upward view",
       "open sky"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white",
@@ -47249,7 +49354,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "White bird with black-tipped wings gliding against a blue sky"
   },
   {
     "id": "img-017-01a",
@@ -47279,9 +49385,19 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "city",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47290,8 +49406,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47355,7 +49477,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two hooded crows perched on a metal railing"
   },
   {
     "id": "img-017-01c",
@@ -47407,8 +49530,14 @@
     "composition": [
       "framed motion"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47473,7 +49602,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Pigeons flying past a round street sign"
   },
   {
     "id": "img-017-01d",
@@ -47526,7 +49656,9 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "blue"
     ],
@@ -47595,7 +49727,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Hooded crow hovering above a street sign against blue sky"
   },
   {
     "id": "img-017-06a",
@@ -47624,9 +49757,17 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "winter",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47635,8 +49776,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "cold daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47704,7 +49851,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Male and female mallards standing on frozen ice"
   },
   {
     "id": "img-017-06b",
@@ -47733,9 +49881,21 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "winter",
+      "city",
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47744,8 +49904,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47762,7 +49928,10 @@
       "perch",
       "latent takeoff"
     ],
-    "texture": [],
+    "texture": [
+      "feathers",
+      "snow"
+    ],
     "motion": [
       "stillness"
     ],
@@ -47807,7 +49976,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Starling perched on a wire fence post"
   },
   {
     "id": "img-017-06c",
@@ -47837,9 +50007,22 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "winter",
+      "city",
+      "street",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature",
+      "street"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47848,8 +50031,14 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -47866,7 +50055,10 @@
       "railing",
       "exposed perch"
     ],
-    "texture": [],
+    "texture": [
+      "feathers",
+      "metal"
+    ],
     "motion": [
       "stillness"
     ],
@@ -47911,7 +50103,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Sparrow perched on a pale railing"
   },
   {
     "id": "img-017-06d",
@@ -47941,9 +50134,19 @@
     "object_roles": {
       "bird": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "architecture",
+      "outdoor"
+    ],
+    "environment_type": [
+      "urban",
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
@@ -47953,7 +50156,9 @@
       "repetition",
       "horizon line"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -48022,7 +50227,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Row of gulls perched along a rooftop edge in black and white"
   },
   {
     "id": "img-017-16b",
@@ -48060,18 +50266,27 @@
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street",
+      "sky"
+    ],
     "style": [
       "bird photography",
       "poetic observation",
       "animal attention"
     ],
-    "composition": [],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "cold daylight",
       "cold light"
     ],
-    "colors": [],
+    "colors": [
+      "white",
+      "blue",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -48140,6 +50355,7 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Person feeding pigeons in the snow"
   }
 ]
