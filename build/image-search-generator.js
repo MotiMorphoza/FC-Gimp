@@ -780,7 +780,13 @@ function mergeEntry(baseEntry, override = {}) {
   const safeOverride = override || {};
   const merged = {
     ...baseEntry,
-    id: safeOverride.id || baseEntry.id
+    id: safeOverride.id || baseEntry.id,
+    alt: typeof safeOverride.alt === 'string' && safeOverride.alt.trim()
+      ? safeOverride.alt.trim()
+      : baseEntry.alt || '',
+    caption: typeof safeOverride.caption === 'string' && safeOverride.caption.trim()
+      ? safeOverride.caption.trim()
+      : baseEntry.caption || ''
   };
 
   ARRAY_FIELDS.forEach((field) => {

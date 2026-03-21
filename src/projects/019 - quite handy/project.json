@@ -1,119 +1,104 @@
 {
   "title": "Quite Handy",
   "codePrefix": "QHD",
-  "description": "A conceptual photography series built around hands, cropped gestures, and manual presence. By staying close to fingers, palms, and touch, the images turn small movements into studies of tension, care, labor, and the strange intelligence of the body at work.",
+  "description": "A conceptual street photography series built around hands, gestures, exchanges, and reaching bodies in public space. Open palms, handshakes, gifts, warnings, and playful motions turn passing scenes into studies of touch, attention, care, and distance.",
   "tags": [
     "hands",
     "gesture",
-    "body fragment",
     "touch",
-    "conceptual photography"
+    "exchange",
+    "street photography"
   ],
   "images": [
     {
       "src": "01.jpg",
       "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a dense field"
+      "alt": "White-gloved hand extended toward a blurred woman against a dark wall"
     },
     {
       "src": "02.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones with a warm brown-gray cast, with strong contrast, defined edges, and a dense field"
+      "alt": "Police officer in a yellow POLICJA vest gesturing with a white glove toward a blurred woman"
     },
     {
       "src": "03.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in near-black tones, with strong contrast, defined edges, and a layered field"
+      "alt": "Woman dropping a coin into another woman's open hand on a city street"
     },
     {
       "src": "04.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones, with stark contrast, hard edges, and a compressed dense field"
+      "alt": "Close-up of a hand passing a folded banknote while another hand holds a wallet"
     },
     {
       "src": "05.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with strong contrast, defined edges, and a dense field"
+      "alt": "Overhead view of two people shaking hands across sunlit pavement"
     },
     {
       "src": "06.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones with a green-gray cast, with strong contrast, defined edges, and a layered field"
+      "alt": "Two hands reaching toward a bouquet of orange-tipped tulips"
     },
     {
       "src": "07.jpg",
       "caption": "",
-      "alt": "Balanced close study of a cropped hand gesture in charcoal tones, with strong contrast, defined edges, and a layered field"
+      "alt": "Adult and child mirroring each other with outstretched arms on cobblestones"
     },
     {
       "src": "08.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a dense field"
+      "alt": "Adult pulling a running child by the hand across wet tram tracks"
     },
     {
       "src": "09.jpg",
       "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in light gray tones, with restrained contrast, mixed edges, and a layered field"
+      "alt": "Couple walking away hand in hand on a sloped concrete path"
     },
     {
       "src": "10.jpg",
       "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in pale gray tones, with stark contrast, hard edges, and a dense field"
+      "alt": "Woman raising both hands among dark tree branches"
     },
     {
       "src": "11.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with stark contrast, hard edges, and a broad dense field"
+      "alt": "Young woman in a knit hat touching her shoulder while looking aside"
     },
     {
       "src": "12.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in near-black tones, with strong contrast, defined edges, and a reduced field"
+      "alt": "Woman in headphones shading her eyes from low winter sun"
     },
     {
       "src": "13.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones, with stark contrast, hard edges, and a layered field"
+      "alt": "Man in a blue suit covering his forehead with one hand on a tree-lined street"
     },
     {
       "src": "14.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with restrained contrast, mixed edges, and a focused field"
+      "alt": "Two older men seated inside a tram, one shading his eyes with his hand"
     },
     {
       "src": "15.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with stark contrast, hard edges, and a dense field"
+      "alt": "Parking officer positioning a wheel clamp beside a silver car while the driver speaks on a phone"
     },
     {
       "src": "16.jpg",
       "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a layered field"
+      "alt": "Boy lifting a handful of hay while two children play on a straw-covered hill"
     },
     {
       "src": "17.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with stark contrast, hard edges, and a grain-heavy dense field"
+      "alt": "Juggler watching two blue balls rise above his open hand"
     },
     {
       "src": "18.jpg",
       "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones, with stark contrast, hard edges, and a shadow-heavy dense field"
-    },
-    {
-      "src": "19.jpg",
-      "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in charcoal tones, with restrained contrast, mixed edges, and a layered field"
-    },
-    {
-      "src": "20.jpg",
-      "caption": "",
-      "alt": "Vertical close study of a cropped hand gesture in dark gray tones with a warm brown-gray cast, with strong contrast, defined edges, and a layered field"
-    },
-    {
-      "src": "21.jpg",
-      "caption": "",
-      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones with a warm brown-gray cast, with restrained contrast, mixed edges, and a dense field"
+      "alt": "Hand spinning a white frisbee above a blurred face"
     }
   ]
 }

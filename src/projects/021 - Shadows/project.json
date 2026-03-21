@@ -1,0 +1,64 @@
+{
+  "title": "Shadows",
+  "codePrefix": "SHD",
+  "description": "A conceptual street photography series built around shadows cast by cyclists, pedestrians, and passing bodies. Pavement, water, and walls become stages where silhouettes overtake the people who made them.",
+  "tags": [
+    "shadows",
+    "silhouette",
+    "street photography",
+    "light and shadow",
+    "urban rhythm"
+  ],
+  "images": [
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Bicycle wheels and a shadow resembling a dog overlapping on sunlit pavement"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Shadow of a cyclist passing beside a bright green bicycle seat"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Two bicycle shadows stretched across sunlit pavement"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Long bicycle shadow crossing pavement beside a pedestrian's legs"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Shadow of a cyclist riding across pale paving stones"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Three elongated pedestrian shadows crossing a zebra crossing"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Two human silhouettes facing each other against shimmering water"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Long human shadow falling across rippled pavement"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Cluster of pedestrian shadows scattered across bright pavement"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Two evening shadows walking along an orange-lit wall"
+    }
+  ]
+}

@@ -331,7 +331,7 @@ const PROJECT_SEO_OVERRIDES = new Map([
     about: ['cosmic suggestion', 'street fragments', 'small scale wonder'],
     keywords: ['conceptual photography', 'cosmic imagery', 'urban fragments', 'poetic observation']
   }],
-  ['017 - Wings', {
+  ['017 - wings1', {
     titleDescriptor: 'Flight in Urban Space',
     metaDescription: 'A street photography series built around birds, wings, and the human desire to rise above the ground. City air, movement, and freedom guide the sequence.',
     lead: 'Birds and winged forms keep pulling the gallery upward toward escape.',
@@ -346,11 +346,32 @@ const PROJECT_SEO_OVERRIDES = new Map([
     keywords: ['monochrome photography', 'black and white gallery', 'minimal conceptual photography', 'tonal study']
   }],
   ['019 - quite handy', {
-    titleDescriptor: 'Gesture and Hand Studies',
-    metaDescription: 'A conceptual photography series built around hands, gestures, and manual presence. Cropped fragments of touch, labor, and attention turn the body into a field of tension, care, and sign.',
-    lead: 'Hands, fingers, and cropped gestures carry the emotional charge of the series without needing the full body.',
-    about: ['hands and gesture', 'manual presence', 'touch and tension'],
-    keywords: ['hands photography', 'gesture study', 'conceptual close-up', 'body fragment']
+    titleDescriptor: 'Public Gesture Studies',
+    metaDescription: 'A conceptual street photography series built around hands, gestures, exchanges, and reaching bodies in public space. Small acts of touch, warning, care, and play become the real subject of the frame.',
+    lead: 'Hands, exchanges, and bodily gestures keep turning ordinary public scenes into charged moments of touch, care, and distance.',
+    about: ['hands and gesture', 'public exchange', 'touch and distance'],
+    keywords: ['hands photography', 'gesture study', 'street gestures', 'public touch']
+  }],
+  ['020 - abstractisimo', {
+    titleDescriptor: 'Abstract Surface Studies',
+    metaDescription: 'A conceptual photography series built around abstraction discovered in ordinary structures, surfaces, and materials. Bridges, puddles, benches, walls, barrels, and fruit are pushed toward rhythm, repetition, and near-nonrepresentational form.',
+    lead: 'Ordinary structures and surfaces dissolve into rhythm, reflection, repetition, and material abstraction.',
+    about: ['urban abstraction', 'surface pattern', 'material studies'],
+    keywords: ['abstract photography', 'surface studies', 'urban abstraction', 'pattern photography']
+  }],
+  ['021 - Shadows', {
+    titleDescriptor: 'Shadow Street Studies',
+    metaDescription: 'A conceptual street photography series built around shadows cast by cyclists, pedestrians, and passing bodies. Pavement, water, and walls become stages where silhouettes overtake the people who made them.',
+    lead: 'The gallery lets shadows do the acting, turning ordinary streets into graphic studies of movement, trace, and silhouette.',
+    about: ['shadows in public space', 'urban silhouettes', 'light and shadow'],
+    keywords: ['shadow photography', 'street silhouettes', 'light and shadow', 'urban shadows']
+  }],
+  ['022 - dont stay', {
+    titleDescriptor: 'Passing Figure Studies',
+    metaDescription: 'A street photography series built around pedestrians, departures, crossings, and fleeting figures in public space. Parks, bridges, sidewalks, and night streets become stages for movement, distance, and brief contact.',
+    lead: 'Walkers, drifters, commuters, and solitary silhouettes keep moving through the frame until transit itself becomes the subject.',
+    about: ['pedestrians in motion', 'urban departures', 'passing figures'],
+    keywords: ['street photography movement', 'pedestrians walking', 'urban departures', 'passing figures']
   }]
 ]);
 
