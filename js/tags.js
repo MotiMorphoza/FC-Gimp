@@ -13,6 +13,7 @@
     window: ["window", "windows", "pane", "panes", "windowpane", "windowpanes"],
     bird: ["bird", "birds", "pigeon", "pigeons", "crow", "crows", "gull", "gulls", "duck", "ducks", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "seagull", "seagulls"],
     protest: ["protest", "protester", "protesters", "demonstration", "march", "activism", "resistance"],
+    jesus: ["jesus", "christ", "christian", "christianity", "holy", "sacred", "faith", "church", "churches", "cross", "crosses", "crucifix", "nun", "nuns", "priest", "priests", "monk", "monks", "religious", "devotion"],
     absurd: ["absurd", "absurdity", "surreal", "irony", "ironic", "humor", "humour", "wit"],
     symbol: ["symbol", "symbols", "symbolic", "metaphor", "allegory", "sign"],
     dark: ["dark", "black", "shadow", "shadowy", "gloom"],
