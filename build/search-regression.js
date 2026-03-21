@@ -105,6 +105,34 @@ function hasPhoneScreen(runtime, result) {
   return hasObjectMatch(runtime, result, 'phone') && (Boolean(result.image.visual.screen_visible) || screenCue);
 }
 
+function hasSmileCue(result) {
+  const surface = [
+    String(result.image.alt || ''),
+    ...(result.image.primary || []),
+    ...(result.image.secondary || []),
+    ...(result.image.mood || []),
+    ...(result.image.reading || []),
+    ...(result.image.relations || [])
+  ].join(' ').toLowerCase();
+
+  return /\b(smile|smiles|smiling|grin|grinning|smiley)\b/.test(surface);
+}
+
+function hasGlassesCue(runtime, result) {
+  return hasObjectMatch(runtime, result, 'glasses');
+}
+
+function hasRunCue(result) {
+  const surface = [
+    String(result.image.alt || ''),
+    ...(result.image.motion || []),
+    ...(result.image.reading || []),
+    ...(result.image.relations || [])
+  ].join(' ').toLowerCase();
+
+  return /\b(run|runs|running|runner|runners|jog|jogging|sprint|sprinting|dash|dashing)\b/.test(surface);
+}
+
 function isPublicProtest(result) {
   const environment = result.image.visual.environment_type || [];
   const setting = result.image.visual.setting_type || [];
@@ -248,6 +276,21 @@ function runRegression(rootDir) {
       query: 'car',
       minCount: 3,
       validate: (results) => results.slice(0, 3).every((result) => hasObjectMatch(runtime, result, 'car'))
+    },
+    {
+      query: 'smile',
+      minCount: 3,
+      validate: (results) => results.slice(0, 5).every(hasSmileCue)
+    },
+    {
+      query: 'glasses',
+      minCount: 4,
+      validate: (results) => results.slice(0, 5).every((result) => hasGlassesCue(runtime, result))
+    },
+    {
+      query: 'running',
+      minCount: 3,
+      validate: (results) => results.slice(0, 5).every(hasRunCue)
     },
     {
       query: 'indoor window',

@@ -251,10 +251,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flower"
+      "flower",
+      "bridge"
     ],
     "object_roles": {
-      "flower": "primary"
+      "flower": "primary",
+      "bridge": "secondary"
     },
     "environment": [
       "transit"
@@ -304,14 +306,17 @@
     ],
     "motion": [
       "walking",
-      "transit movement"
+      "transit movement",
+      "carrying"
     ],
     "tone": [
       "tenderness",
       "surprise"
     ],
     "relations": [
-      "A single oversized flower interrupts the anonymity of a bridge crossing."
+      "A single oversized flower interrupts the anonymity of a bridge crossing.",
+      "above",
+      "across"
     ],
     "tension": [
       "softness versus infrastructure",
@@ -1598,7 +1603,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "crucifix",
@@ -1623,7 +1629,8 @@
       "timeless symbol versus technological turnover"
     ],
     "reading": [
-      "The crucifix survives, but only as another stranded component inside a heap of modern leftovers."
+      "The crucifix survives, but only as another stranded component inside a heap of modern leftovers.",
+      "religious ritual in public space"
     ],
     "density": "dense",
     "intensity": {
@@ -1671,11 +1678,13 @@
     "noise": [],
     "objects": [
       "cross",
-      "sign"
+      "sign",
+      "procession"
     ],
     "object_roles": {
       "cross": "primary",
-      "sign": "secondary"
+      "sign": "secondary",
+      "procession": "primary"
     },
     "environment": [
       "public square",
@@ -1713,7 +1722,9 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith",
+      "public messaging"
     ],
     "symbols": [
       "cross",
@@ -1724,21 +1735,27 @@
       "metal"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "carrying"
     ],
     "tone": [
       "devotion",
       "friction"
     ],
     "relations": [
-      "The religious procession passes directly through the secular language of prohibition."
+      "The religious procession passes directly through the secular language of prohibition.",
+      "above",
+      "seen from above",
+      "passing by"
     ],
     "tension": [
       "faith versus regulation",
       "ritual versus traffic code"
     ],
     "reading": [
-      "From above, devotion and urban signage collide in a single charged civic diagram."
+      "From above, devotion and urban signage collide in a single charged civic diagram.",
+      "religious ritual in public space",
+      "message placed in public view"
     ],
     "density": "dense",
     "intensity": {
@@ -1910,11 +1927,15 @@
     "noise": [],
     "objects": [
       "cross",
-      "sign"
+      "sign",
+      "billboard",
+      "church"
     ],
     "object_roles": {
       "cross": "primary",
-      "sign": "primary"
+      "sign": "primary",
+      "billboard": "primary",
+      "church": "secondary"
     },
     "environment": [
       "architecture"
@@ -1949,7 +1970,9 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith",
+      "public messaging"
     ],
     "symbols": [
       "cross",
@@ -1967,13 +1990,16 @@
       "distance"
     ],
     "relations": [
-      "The athlete and the cross share the skyline as rival promises of aspiration."
+      "The athlete and the cross share the skyline as rival promises of aspiration.",
+      "beside"
     ],
     "tension": [
       "spiritual salvation versus consumer aspiration"
     ],
     "reading": [
-      "Advertising and faith stand shoulder to shoulder, each asking to be believed."
+      "Advertising and faith stand shoulder to shoulder, each asking to be believed.",
+      "religious ritual in public space",
+      "message placed in public view"
     ],
     "density": "focused",
     "intensity": {
@@ -2018,10 +2044,14 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross"
+      "cross",
+      "building",
+      "church"
     ],
     "object_roles": {
-      "cross": "secondary"
+      "cross": "secondary",
+      "building": "primary",
+      "church": "secondary"
     },
     "environment": [
       "architecture",
@@ -2060,7 +2090,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "feet",
@@ -2079,13 +2110,15 @@
       "playfulness"
     ],
     "relations": [
-      "The body casually brackets a sacred tower, turning reverence into a personal game of scale."
+      "The body casually brackets a sacred tower, turning reverence into a personal game of scale.",
+      "framed by"
     ],
     "tension": [
       "sacred distance versus bodily immediacy"
     ],
     "reading": [
-      "The church remains in the distance, but the body insists on entering the devotional frame."
+      "The church remains in the distance, but the body insists on entering the devotional frame.",
+      "religious ritual in public space"
     ],
     "density": "focused",
     "intensity": {
@@ -3638,7 +3671,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "broken pane",
@@ -3648,7 +3682,8 @@
       "glass"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "hanging"
     ],
     "tone": [
       "weariness",
@@ -3661,7 +3696,8 @@
       "shelter versus ruin"
     ],
     "reading": [
-      "The window still stands, but everything in it speaks of a slow withdrawal of attention."
+      "The window still stands, but everything in it speaks of a slow withdrawal of attention.",
+      "urban repetition"
     ],
     "density": "focused",
     "intensity": {
@@ -3744,7 +3780,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "torn curtain",
@@ -3768,7 +3805,8 @@
       "domestic interior versus public exposure"
     ],
     "reading": [
-      "The elegance of the diamond pattern survives, but only as a frame for rupture."
+      "The elegance of the diamond pattern survives, but only as a frame for rupture.",
+      "urban repetition"
     ],
     "density": "focused",
     "intensity": {
@@ -3813,10 +3851,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture",
@@ -3835,7 +3875,8 @@
       "reflection study"
     ],
     "composition": [
-      "reflection"
+      "reflection",
+      "reflection study"
     ],
     "lighting": [
       "daylight"
@@ -3865,7 +3906,8 @@
       "hard surface"
     ],
     "motion": [
-      "visual shimmer"
+      "visual shimmer",
+      "reflected view"
     ],
     "tone": [
       "instability",
@@ -3924,11 +3966,13 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "billboard"
     ],
     "object_roles": {
       "window": "primary",
-      "sign": "primary"
+      "sign": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "architecture"
@@ -3965,7 +4009,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "public messaging"
     ],
     "symbols": [
       "face",
@@ -3983,14 +4028,16 @@
       "distance"
     ],
     "relations": [
-      "The giant face appears to haunt the residential towers that frame it."
+      "The giant face appears to haunt the residential towers that frame it.",
+      "between forms"
     ],
     "tension": [
       "human face versus impersonal housing",
       "advertised intimacy versus urban anonymity"
     ],
     "reading": [
-      "Between the apartment blocks, the billboard face becomes a mute witness to collective urban life."
+      "Between the apartment blocks, the billboard face becomes a mute witness to collective urban life.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -4035,11 +4082,13 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross"
+      "cross",
+      "balcony"
     ],
     "object_roles": {
       "window": "primary",
-      "cross": "primary"
+      "cross": "primary",
+      "balcony": "primary"
     },
     "environment": [
       "architecture"
@@ -4075,7 +4124,9 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition",
+      "faith"
     ],
     "symbols": [
       "cross",
@@ -4093,13 +4144,16 @@
       "displacement"
     ],
     "relations": [
-      "The crucifix reads as an older moral vocabulary pinned against repetitive housing units."
+      "The crucifix reads as an older moral vocabulary pinned against repetitive housing units.",
+      "against background"
     ],
     "tension": [
       "sacred symbol versus secular routine"
     ],
     "reading": [
-      "The cross remains visible, but only as a dark interruption inside the endless rhythm of balconies."
+      "The cross remains visible, but only as a dark interruption inside the endless rhythm of balconies.",
+      "urban repetition",
+      "religious ritual in public space"
     ],
     "density": "focused",
     "intensity": {
@@ -4144,10 +4198,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "dog"
+      "dog",
+      "bridge"
     ],
     "object_roles": {
-      "dog": "primary"
+      "dog": "primary",
+      "bridge": "secondary"
     },
     "environment": [
       "transit"
@@ -4188,7 +4244,8 @@
     ],
     "themes": [
       "companionship",
-      "animal agency"
+      "animal agency",
+      "transit"
     ],
     "symbols": [
       "stick",
@@ -4200,20 +4257,23 @@
       "metal"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "carrying"
     ],
     "tone": [
       "companionship",
       "curiosity"
     ],
     "relations": [
-      "The dog carries its own playful purpose while staying tethered to the human route."
+      "The dog carries its own playful purpose while staying tethered to the human route.",
+      "across"
     ],
     "tension": [
       "domestic bond versus animal autonomy"
     ],
     "reading": [
-      "The curving bridge turns an ordinary dog walk into a small narrative of partnership and direction."
+      "The curving bridge turns an ordinary dog walk into a small narrative of partnership and direction.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -4382,11 +4442,13 @@
     "noise": [],
     "objects": [
       "dog",
-      "tree"
+      "tree",
+      "balcony"
     ],
     "object_roles": {
       "dog": "primary",
-      "tree": "secondary"
+      "tree": "secondary",
+      "balcony": "primary"
     },
     "environment": [
       "architecture"
@@ -4444,7 +4506,8 @@
       "tenderness"
     ],
     "relations": [
-      "The dog occupies the balcony like a thoughtful sentinel with nowhere urgent to go."
+      "The dog occupies the balcony like a thoughtful sentinel with nowhere urgent to go.",
+      "beneath"
     ],
     "tension": [
       "inside comfort versus outside world"
@@ -4539,7 +4602,8 @@
     ],
     "themes": [
       "companionship",
-      "animal agency"
+      "animal agency",
+      "transit"
     ],
     "symbols": [
       "stick",
@@ -4550,20 +4614,23 @@
       "water surface"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "running"
     ],
     "tone": [
       "joy",
       "energy"
     ],
     "relations": [
-      "The dog and the water seem equally animated by the same burst of play."
+      "The dog and the water seem equally animated by the same burst of play.",
+      "through"
     ],
     "tension": [
       "control versus abandon"
     ],
     "reading": [
-      "The photograph catches a perfect instant when play becomes almost sculptural in water."
+      "The photograph catches a perfect instant when play becomes almost sculptural in water.",
+      "movement through public space"
     ],
     "density": "focused",
     "intensity": {
@@ -4608,10 +4675,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bike"
+      "bike",
+      "bicycle"
     ],
     "object_roles": {
-      "bike": "primary"
+      "bike": "primary",
+      "bicycle": "primary"
     },
     "environment": [
       "street",
@@ -4630,7 +4699,8 @@
       "street photography"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -4649,7 +4719,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "shared bicycle",
@@ -4660,7 +4731,8 @@
     ],
     "motion": [
       "transit movement",
-      "blurred motion"
+      "blurred motion",
+      "riding"
     ],
     "tone": [
       "freedom",
@@ -4674,7 +4746,8 @@
       "closeness versus speed"
     ],
     "reading": [
-      "The blur preserves just enough detail to make the ride feel both reckless and tender."
+      "The blur preserves just enough detail to make the ride feel both reckless and tender.",
+      "movement through public space"
     ],
     "density": "focused",
     "intensity": {
@@ -4872,7 +4945,8 @@
       "tracking"
     ],
     "composition": [
-      "motion blur"
+      "motion blur",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -4891,7 +4965,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "tram body",
@@ -4909,13 +4984,15 @@
       "compression"
     ],
     "relations": [
-      "The tram stops reading as a vehicle and starts reading as a streak of civic time."
+      "The tram stops reading as a vehicle and starts reading as a streak of civic time.",
+      "across"
     ],
     "tension": [
       "transport utility versus abstraction"
     ],
     "reading": [
-      "The photograph compresses public transit into pure momentum."
+      "The photograph compresses public transit into pure momentum.",
+      "movement through public space"
     ],
     "density": "focused",
     "intensity": {
@@ -4983,7 +5060,8 @@
     "composition": [
       "overhead view",
       "bird's-eye view",
-      "motion blur"
+      "motion blur",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -5023,7 +5101,8 @@
       "rush"
     ],
     "relations": [
-      "The bright figure slips between rigid bollards like a warning come to life."
+      "The bright figure slips between rigid bollards like a warning come to life.",
+      "between forms"
     ],
     "tension": [
       "fluid body versus fixed obstacles"
@@ -5118,7 +5197,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "phone",
@@ -5129,7 +5209,9 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "carrying",
+      "crossing"
     ],
     "tone": [
       "detachment",
@@ -5143,7 +5225,8 @@
       "movement versus inwardness"
     ],
     "reading": [
-      "Even in mid-crossing, the figure seems more connected to the screen than to the street."
+      "Even in mid-crossing, the figure seems more connected to the screen than to the street.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -5235,7 +5318,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "umbrella",
@@ -5254,14 +5338,16 @@
       "style"
     ],
     "relations": [
-      "The rider balances mobility and protection in a single improvised posture."
+      "The rider balances mobility and protection in a single improvised posture.",
+      "beneath"
     ],
     "tension": [
       "speed versus shelter",
       "control versus weather"
     ],
     "reading": [
-      "The umbrella does not stop the ride; it becomes part of its choreography."
+      "The umbrella does not stop the ride; it becomes part of its choreography.",
+      "weathered movement"
     ],
     "density": "focused",
     "intensity": {
@@ -5949,7 +6035,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "umbrella halo",
@@ -5960,7 +6047,8 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "hanging"
     ],
     "tone": [
       "wonder",
@@ -5974,7 +6062,8 @@
       "playfulness versus threat"
     ],
     "reading": [
-      "Mounted on the wall, the umbrella becomes a strange urban relic, half halo and half trap."
+      "Mounted on the wall, the umbrella becomes a strange urban relic, half halo and half trap.",
+      "weathered movement"
     ],
     "density": "focused",
     "intensity": {
@@ -6312,7 +6401,9 @@
       "domestic calm"
     ],
     "relations": [
-      "Ordinary kitchen labor becomes abstract once the slices are lifted into air."
+      "Ordinary kitchen labor becomes abstract once the slices are lifted into air.",
+      "against background",
+      "along"
     ],
     "tension": [
       "domestic task versus formal elegance"
@@ -6886,7 +6977,8 @@
       "fabric"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "smoking"
     ],
     "tone": [
       "stoicism",
@@ -6899,7 +6991,8 @@
       "warm style versus bodily wear"
     ],
     "reading": [
-      "The smoker feels less like a candid subject than like someone carrying a practiced public character."
+      "The smoker feels less like a candid subject than like someone carrying a practiced public character.",
+      "smoking pause"
     ],
     "density": "focused",
     "intensity": {
@@ -9534,7 +9627,8 @@
       "woven fibers"
     ],
     "motion": [
-      "suspension"
+      "suspension",
+      "hanging"
     ],
     "tone": [
       "wonder",
@@ -11273,11 +11367,13 @@
     "noise": [],
     "objects": [
       "bench",
-      "sign"
+      "sign",
+      "billboard"
     ],
     "object_roles": {
       "bench": "primary",
-      "sign": "primary"
+      "sign": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "park",
@@ -11315,7 +11411,9 @@
     ],
     "themes": [
       "fragility",
-      "ordinary grace"
+      "ordinary grace",
+      "pause",
+      "public messaging"
     ],
     "symbols": [
       "funeral sign",
@@ -11333,13 +11431,16 @@
       "unease"
     ],
     "relations": [
-      "The billboard and the slumped body lock into a bleak accidental dialogue."
+      "The billboard and the slumped body lock into a bleak accidental dialogue.",
+      "beneath"
     ],
     "tension": [
       "advertised death versus lived exhaustion"
     ],
     "reading": [
-      "The frame is funny only because it comes so close to being cruelly true."
+      "The frame is funny only because it comes so close to being cruelly true.",
+      "pause in public space",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -11848,10 +11949,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "excavator claw"
+      "excavator claw",
+      "building"
     ],
     "object_roles": {
-      "excavator claw": "primary"
+      "excavator claw": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -13000,11 +13103,13 @@
     "noise": [],
     "objects": [
       "cross",
-      "bird"
+      "bird",
+      "church"
     ],
     "object_roles": {
       "cross": "primary",
-      "bird": "primary"
+      "bird": "primary",
+      "church": "secondary"
     },
     "environment": [
       "architecture",
@@ -13045,7 +13150,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "cross arm",
@@ -13056,20 +13162,23 @@
       "feathers"
     ],
     "motion": [
-      "flight"
+      "flight",
+      "perched"
     ],
     "tone": [
       "stillness",
       "reverence"
     ],
     "relations": [
-      "The bird sits on the cross with a confidence that gently human belief cannot control."
+      "The bird sits on the cross with a confidence that gently human belief cannot control.",
+      "above"
     ],
     "tension": [
       "sacred symbol versus animal ease"
     ],
     "reading": [
-      "A tiny black bird reduces the monumentality of the cross without diminishing its charge."
+      "A tiny black bird reduces the monumentality of the cross without diminishing its charge.",
+      "religious ritual in public space"
     ],
     "density": "focused",
     "intensity": {
@@ -13113,10 +13222,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "priest"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "sign": "secondary",
+      "priest": "primary"
     },
     "environment": [
       "city",
@@ -13158,7 +13269,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "cassock",
@@ -13169,20 +13281,23 @@
       "metal"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "standing"
     ],
     "tone": [
       "distance",
       "solemnity"
     ],
     "relations": [
-      "The priest stands beneath clustered traffic signs like an older form of guidance overshadowed by newer systems."
+      "The priest stands beneath clustered traffic signs like an older form of guidance overshadowed by newer systems.",
+      "beneath"
     ],
     "tension": [
       "spiritual direction versus civic instruction"
     ],
     "reading": [
-      "The image quietly asks which sign system still carries meaning in public space."
+      "The image quietly asks which sign system still carries meaning in public space.",
+      "religious ritual in public space"
     ],
     "density": "focused",
     "intensity": {
@@ -13346,10 +13461,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "shadow"
+      "shadow",
+      "church"
     ],
     "object_roles": {
-      "shadow": "primary"
+      "shadow": "primary",
+      "church": "secondary"
     },
     "environment": [
       "architecture",
@@ -13390,7 +13507,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "sun halo",
@@ -13409,13 +13527,15 @@
       "distance"
     ],
     "relations": [
-      "The church is reduced to a dark cutout held inside the afterglow of the setting sun."
+      "The church is reduced to a dark cutout held inside the afterglow of the setting sun.",
+      "framed by"
     ],
     "tension": [
       "earthly skyline versus spiritual aspiration"
     ],
     "reading": [
-      "The image turns dusk into a devotional stage where the building survives only as silhouette and longing."
+      "The image turns dusk into a devotional stage where the building survives only as silhouette and longing.",
+      "religious ritual in public space"
     ],
     "density": "sparse",
     "intensity": {
@@ -13513,14 +13633,17 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "carrying"
     ],
     "tone": [
       "ceremony",
       "warmth"
     ],
     "relations": [
-      "The choir reads as a dense field of red concentration rather than as separate people."
+      "The choir reads as a dense field of red concentration rather than as separate people.",
+      "above",
+      "seen from above"
     ],
     "tension": [
       "individual voices versus collective order"
@@ -15046,10 +15169,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -15088,7 +15213,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "empty openings",
@@ -15112,7 +15238,8 @@
       "vertical shelter versus ruin"
     ],
     "reading": [
-      "The upper story remains visibly there, but only as a memory of habitation."
+      "The upper story remains visibly there, but only as a memory of habitation.",
+      "urban repetition"
     ],
     "density": "focused",
     "intensity": {
@@ -15157,10 +15284,12 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "fence"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "fence": "secondary"
     },
     "environment": [
       "architecture"
@@ -15200,7 +15329,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "fence spikes",
@@ -15218,14 +15348,16 @@
       "distance"
     ],
     "relations": [
-      "The iron spikes make ordinary apartment windows feel hostile and inaccessible."
+      "The iron spikes make ordinary apartment windows feel hostile and inaccessible.",
+      "through"
     ],
     "tension": [
       "home versus fortress",
       "seeing versus being kept out"
     ],
     "reading": [
-      "The view suggests that even domestic life can be framed by suspicion and exclusion."
+      "The view suggests that even domestic life can be framed by suspicion and exclusion.",
+      "urban repetition"
     ],
     "density": "focused",
     "intensity": {
@@ -15269,11 +15401,17 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "wall"
+      "wall",
+      "facade",
+      "building",
+      "billboard"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "facade": "primary",
+      "building": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "architecture"
@@ -15309,7 +15447,9 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition",
+      "public messaging"
     ],
     "symbols": [
       "painted figure",
@@ -15327,13 +15467,16 @@
       "urban spectacle"
     ],
     "relations": [
-      "The mural turns the entire building into a host for a body too large to inhabit it."
+      "The mural turns the entire building into a host for a body too large to inhabit it.",
+      "across"
     ],
     "tension": [
       "human image versus architecture"
     ],
     "reading": [
-      "The painted figure seems less like decoration than like a trapped presence stretched across the wall."
+      "The painted figure seems less like decoration than like a trapped presence stretched across the wall.",
+      "urban repetition",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -15675,7 +15818,9 @@
       "playfulness"
     ],
     "relations": [
-      "The bollards accidentally frame the pair like a small portrait stage in the street."
+      "The bollards accidentally frame the pair like a small portrait stage in the street.",
+      "between forms",
+      "framed by"
     ],
     "tension": [
       "public space versus intimate duo"
@@ -15732,11 +15877,13 @@
     "noise": [],
     "objects": [
       "dog",
-      "water"
+      "water",
+      "ball"
     ],
     "object_roles": {
       "dog": "primary",
-      "water": "primary"
+      "water": "primary",
+      "ball": "secondary"
     },
     "environment": [
       "water edge"
@@ -15786,7 +15933,8 @@
       "water surface"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "leaping"
     ],
     "tone": [
       "joy",
@@ -15963,11 +16111,13 @@
     "noise": [],
     "objects": [
       "bike",
-      "car"
+      "car",
+      "bicycle"
     ],
     "object_roles": {
       "bike": "primary",
-      "car": "primary"
+      "car": "primary",
+      "bicycle": "primary"
     },
     "environment": [
       "city",
@@ -15987,7 +16137,8 @@
       "motion-blur street photography"
     ],
     "composition": [
-      "motion blur"
+      "motion blur",
+      "dynamic blur"
     ],
     "lighting": [
       "directional light"
@@ -16008,7 +16159,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "cyclist silhouette",
@@ -16019,20 +16171,23 @@
       "metal"
     ],
     "motion": [
-      "transit movement"
+      "transit movement",
+      "riding"
     ],
     "tone": [
       "distance",
       "speed"
     ],
     "relations": [
-      "The cyclist is almost swallowed by surrounding blur, surviving mainly as a moving outline."
+      "The cyclist is almost swallowed by surrounding blur, surviving mainly as a moving outline.",
+      "passing by"
     ],
     "tension": [
       "human scale versus traffic flow"
     ],
     "reading": [
-      "The image turns everyday mobility into a small act of persistence inside urban velocity."
+      "The image turns everyday mobility into a small act of persistence inside urban velocity.",
+      "movement through public space"
     ],
     "density": "focused",
     "intensity": {
@@ -16249,7 +16404,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "tram stripe",
@@ -16261,20 +16417,24 @@
     ],
     "motion": [
       "walking",
-      "transit movement"
+      "transit movement",
+      "crossing",
+      "rushing"
     ],
     "tone": [
       "urgency",
       "compression"
     ],
     "relations": [
-      "The tram and the pedestrians seem to compete for the same strip of civic time."
+      "The tram and the pedestrians seem to compete for the same strip of civic time.",
+      "passing by"
     ],
     "tension": [
       "mass transit versus vulnerable crossing"
     ],
     "reading": [
-      "The crossing is not peaceful here; it feels negotiated under speed and scale."
+      "The crossing is not peaceful here; it feels negotiated under speed and scale.",
+      "movement through public space"
     ],
     "density": "dense",
     "intensity": {
@@ -16387,7 +16547,8 @@
       "weathered calm"
     ],
     "relations": [
-      "The umbrellas create a small private room around the conversation despite the rain."
+      "The umbrellas create a small private room around the conversation despite the rain.",
+      "beneath"
     ],
     "tension": [
       "public exposure versus shared intimacy"
@@ -16466,7 +16627,8 @@
       "weather choreography"
     ],
     "composition": [
-      "motion blur"
+      "motion blur",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -16485,7 +16647,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "umbrella blur",
@@ -16510,7 +16673,8 @@
       "human presence versus atmospheric force"
     ],
     "reading": [
-      "The image is less about people than about how rain edits them out of the street."
+      "The image is less about people than about how rain edits them out of the street.",
+      "weathered movement"
     ],
     "density": "dense",
     "intensity": {
@@ -16598,7 +16762,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "red coat",
@@ -16609,7 +16774,8 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "carrying"
     ],
     "tone": [
       "resilience",
@@ -16622,7 +16788,8 @@
       "weather versus self-expression"
     ],
     "reading": [
-      "The figure walks through rain as though carrying her own weather system of color."
+      "The figure walks through rain as though carrying her own weather system of color.",
+      "weathered movement"
     ],
     "density": "focused",
     "intensity": {
@@ -16832,7 +16999,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "rainbow canopy",
@@ -16851,14 +17019,16 @@
       "defiance"
     ],
     "relations": [
-      "The umbrella reads like a refusal to let the city remain emotionally monochrome."
+      "The umbrella reads like a refusal to let the city remain emotionally monochrome.",
+      "against background"
     ],
     "tension": [
       "visibility versus bleakness",
       "joy versus weather"
     ],
     "reading": [
-      "Color survives here as a decision, not an accident, and that makes it political."
+      "Color survives here as a decision, not an accident, and that makes it political.",
+      "weathered movement"
     ],
     "density": "focused",
     "intensity": {
@@ -17078,7 +17248,8 @@
       "surprise"
     ],
     "relations": [
-      "The strawberries appear improbably tender inside a harsh enclosure of spikes."
+      "The strawberries appear improbably tender inside a harsh enclosure of spikes.",
+      "among"
     ],
     "tension": [
       "soft sweetness versus sharp defense"
@@ -17184,14 +17355,16 @@
       "smoke"
     ],
     "motion": [
-      "rising smoke"
+      "rising smoke",
+      "steaming"
     ],
     "tone": [
       "warmth",
       "resourcefulness"
     ],
     "relations": [
-      "The kettle and the fire make domestic comfort feel provisional and hand-built."
+      "The kettle and the fire make domestic comfort feel provisional and hand-built.",
+      "over"
     ],
     "tension": [
       "care versus rough conditions"
@@ -18683,7 +18856,8 @@
       "urban"
     ],
     "composition": [
-      "reflection"
+      "reflection",
+      "reflection study"
     ],
     "lighting": [
       "daylight"
@@ -18713,7 +18887,8 @@
       "water surface"
     ],
     "motion": [
-      "visual shimmer"
+      "visual shimmer",
+      "reflected view"
     ],
     "tone": [
       "quietness",
@@ -21741,11 +21916,13 @@
     "noise": [],
     "objects": [
       "rainbow",
-      "tree"
+      "tree",
+      "balloon arch"
     ],
     "object_roles": {
       "rainbow": "primary",
-      "tree": "primary"
+      "tree": "primary",
+      "balloon arch": "primary"
     },
     "environment": [
       "city",
@@ -21801,7 +21978,8 @@
       "joy"
     ],
     "relations": [
-      "The arch behaves like a temporary portal dropped into ordinary traffic."
+      "The arch behaves like a temporary portal dropped into ordinary traffic.",
+      "framed by"
     ],
     "tension": [
       "routine street versus celebratory threshold"
@@ -22718,7 +22896,8 @@
       "animal attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "detail study"
     ],
     "lighting": [
       "low light"
@@ -22756,7 +22935,8 @@
       "alertness"
     ],
     "relations": [
-      "The duck's profile feels almost aristocratic because the dark background removes every distraction."
+      "The duck's profile feels almost aristocratic because the dark background removes every distraction.",
+      "against background"
     ],
     "tension": [
       "wild animal versus formal portraiture"
@@ -22859,14 +23039,16 @@
       "feathers"
     ],
     "motion": [
-      "flight"
+      "flight",
+      "gliding"
     ],
     "tone": [
       "grace",
       "distance"
     ],
     "relations": [
-      "The heron looks less like a burst of flight than like a controlled act of suspension."
+      "The heron looks less like a burst of flight than like a controlled act of suspension.",
+      "against background"
     ],
     "tension": [
       "weight versus glide",
@@ -23634,10 +23816,12 @@
     ],
     "noise": [],
     "objects": [
-      "tower"
+      "tower",
+      "building"
     ],
     "object_roles": {
-      "tower": "primary"
+      "tower": "primary",
+      "building": "primary"
     },
     "environment": [
       "city",
@@ -23691,7 +23875,8 @@
       "melancholy"
     ],
     "relations": [
-      "The ordinary presence of tower starts reading as a small emblem of urban absurdity."
+      "The ordinary presence of tower starts reading as a small emblem of urban absurdity.",
+      "above"
     ],
     "tension": [],
     "reading": [
@@ -24168,7 +24353,8 @@
       "uncanny"
     ],
     "relations": [
-      "The glove and mask lie apart like a body and its failed defenses after the crisis has already moved on."
+      "The glove and mask lie apart like a body and its failed defenses after the crisis has already moved on.",
+      "above"
     ],
     "tension": [
       "protection versus abandonment"
@@ -24229,10 +24415,13 @@
     "noise": [],
     "objects": [
       "snow",
-      "solar panel"
+      "solar panel",
+      "icicles"
     ],
     "object_roles": {
-      "snow": "primary"
+      "snow": "primary",
+      "solar panel": "primary",
+      "icicles": "secondary"
     },
     "environment": [
       "winter"
@@ -24279,14 +24468,16 @@
       "ice"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "hanging"
     ],
     "tone": [
       "coldness",
       "stillness"
     ],
     "relations": [
-      "The ordinary presence of blue snow starts reading as a small emblem of urban absurdity."
+      "The ordinary presence of blue snow starts reading as a small emblem of urban absurdity.",
+      "against background"
     ],
     "tension": [
       "warmth versus cold"
@@ -24350,7 +24541,8 @@
       "shadow"
     ],
     "object_roles": {
-      "shadow": "primary"
+      "shadow": "primary",
+      "chimney": "primary"
     },
     "environment": [
       "outdoor",
@@ -24518,7 +24710,8 @@
       "vapor"
     ],
     "motion": [
-      "flow"
+      "flow",
+      "billowing"
     ],
     "tone": [
       "curiosity",
@@ -24584,11 +24777,17 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "balcony",
+      "facade",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "balcony": "primary",
+      "facade": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -24605,7 +24804,8 @@
       "window"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -24625,7 +24825,8 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -24650,7 +24851,8 @@
       "openness versus closure"
     ],
     "reading": [
-      "The image turns blue window into a study of neglect and withheld interior life."
+      "The image turns blue window into a study of neglect and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -24704,10 +24906,12 @@
     ],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "door"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "sign": "secondary",
+      "door": "secondary"
     },
     "environment": [
       "outdoor",
@@ -24745,7 +24949,8 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "public messaging"
     ],
     "symbols": [
       "sign"
@@ -24761,11 +24966,13 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of sign starts reading as a small emblem of urban absurdity."
+      "The ordinary presence of sign starts reading as a small emblem of urban absurdity.",
+      "beneath"
     ],
     "tension": [],
     "reading": [
-      "The image turns sign into a study of curiosity and urban absurdity."
+      "The image turns sign into a study of curiosity and urban absurdity.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -24995,7 +25202,8 @@
     ],
     "themes": [
       "urban absurdity",
-      "everyday symbolism"
+      "everyday symbolism",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -25020,7 +25228,8 @@
       "openness versus closure"
     ],
     "reading": [
-      "The image turns window into a study of distance and withheld interior life."
+      "The image turns window into a study of distance and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -25376,7 +25585,8 @@
       "fabric"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "carrying"
     ],
     "tone": [
       "curiosity",
@@ -25486,7 +25696,8 @@
     ],
     "themes": [
       "urban theater",
-      "momentary alignment"
+      "momentary alignment",
+      "transit"
     ],
     "symbols": [
       "stroller"
@@ -25502,11 +25713,14 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of pink stroller starts reading as a small emblem of urban theater."
+      "The ordinary presence of pink stroller starts reading as a small emblem of urban theater.",
+      "above",
+      "seen from above"
     ],
     "tension": [],
     "reading": [
-      "The image turns pink stroller into a study of curiosity and urban theater."
+      "The image turns pink stroller into a study of curiosity and urban theater.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -25698,7 +25912,9 @@
       "street"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "motorcycle": "primary",
+      "truck": "primary"
     },
     "environment": [
       "outdoor",
@@ -25738,7 +25954,8 @@
     ],
     "themes": [
       "urban theater",
-      "momentary alignment"
+      "momentary alignment",
+      "transit"
     ],
     "symbols": [
       "motorcycle turn",
@@ -25756,13 +25973,15 @@
       "focus"
     ],
     "relations": [
-      "The rider, truck, and turn compress the street into a scene of negotiated speed."
+      "The rider, truck, and turn compress the street into a scene of negotiated speed.",
+      "beside"
     ],
     "tension": [
       "freedom of movement versus urban constraint"
     ],
     "reading": [
-      "The image condenses motion into a narrow urban decision made in black, white, and momentum."
+      "The image condenses motion into a narrow urban decision made in black, white, and momentum.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -25824,11 +26043,13 @@
       "woman",
       "electric scooter",
       "bench",
-      "street"
+      "street",
+      "scooter"
     ],
     "object_roles": {
       "window": "primary",
-      "bench": "secondary"
+      "bench": "secondary",
+      "scooter": "primary"
     },
     "environment": [
       "park"
@@ -25866,7 +26087,9 @@
     ],
     "themes": [
       "urban theater",
-      "momentary alignment"
+      "momentary alignment",
+      "pause",
+      "transit"
     ],
     "symbols": [
       "red dress",
@@ -25877,20 +26100,26 @@
       "fabric"
     ],
     "motion": [
-      "transit movement"
+      "transit movement",
+      "riding"
     ],
     "tone": [
       "swiftness",
       "lightness"
     ],
     "relations": [
-      "The bench anchors the frame while the rider slices through it in one swift red accent."
+      "The bench anchors the frame while the rider slices through it in one swift red accent.",
+      "above",
+      "seen from above",
+      "passing by"
     ],
     "tension": [
       "still street furniture versus moving body"
     ],
     "reading": [
-      "The image turns a quick scooter ride into a precise overhead note of color and flow."
+      "The image turns a quick scooter ride into a precise overhead note of color and flow.",
+      "pause in public space",
+      "movement through public space"
     ],
     "density": "sparse",
     "intensity": {
@@ -25949,10 +26178,12 @@
     ],
     "noise": [],
     "objects": [
-      "cross"
+      "cross",
+      "building"
     ],
     "object_roles": {
-      "cross": "primary"
+      "cross": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture",
@@ -25993,7 +26224,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [],
     "texture": [
@@ -26001,7 +26233,8 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "standing"
     ],
     "tone": [
       "curiosity",
@@ -26012,7 +26245,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns crucifix into a study of curiosity and faith and modernity."
+      "The image turns crucifix into a study of curiosity and faith and modernity.",
+      "religious ritual in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -26067,10 +26301,13 @@
     "noise": [],
     "objects": [
       "billboard",
-      "sign"
+      "sign",
+      "truck"
     ],
     "object_roles": {
-      "sign": "primary"
+      "sign": "primary",
+      "billboard": "primary",
+      "truck": "primary"
     },
     "environment": [
       "city",
@@ -26109,7 +26346,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "public messaging"
     ],
     "symbols": [
       "billboard"
@@ -26129,7 +26367,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns red billboard into a study of curiosity and faith and modernity."
+      "The image turns red billboard into a study of curiosity and faith and modernity.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -26443,11 +26682,15 @@
     "noise": [],
     "objects": [
       "car",
-      "priest"
+      "priest",
+      "procession",
+      "monstrance"
     ],
     "object_roles": {
       "car": "primary",
-      "priest": "primary"
+      "priest": "primary",
+      "procession": "primary",
+      "monstrance": "primary"
     },
     "environment": [
       "public square",
@@ -26486,7 +26729,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [],
     "texture": [
@@ -26494,7 +26738,8 @@
       "hard surface"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "carrying"
     ],
     "tone": [
       "curiosity",
@@ -26505,7 +26750,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns gold priests into a study of curiosity and faith and modernity."
+      "The image turns gold priests into a study of curiosity and faith and modernity.",
+      "religious ritual in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -26566,10 +26812,14 @@
     "objects": [
       "church steeple",
       "cross",
-      "metal bars"
+      "metal bars",
+      "fence",
+      "church"
     ],
     "object_roles": {
-      "cross": "primary"
+      "cross": "primary",
+      "fence": "secondary",
+      "church": "secondary"
     },
     "environment": [
       "outdoor"
@@ -26586,7 +26836,8 @@
       "civic spirituality"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -26605,7 +26856,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "cross",
@@ -26624,13 +26876,15 @@
       "constraint"
     ],
     "relations": [
-      "The cross appears only through the blur of metal bars, as if spiritual sight has to pass through obstruction."
+      "The cross appears only through the blur of metal bars, as if spiritual sight has to pass through obstruction.",
+      "between forms"
     ],
     "tension": [
       "aspiration versus blockage"
     ],
     "reading": [
-      "The image frames faith as something seen through barriers rather than in open clarity."
+      "The image frames faith as something seen through barriers rather than in open clarity.",
+      "religious ritual in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -26685,11 +26939,13 @@
     "noise": [],
     "objects": [
       "bird",
-      "cross"
+      "cross",
+      "church"
     ],
     "object_roles": {
       "cross": "primary",
-      "bird": "primary"
+      "bird": "primary",
+      "church": "secondary"
     },
     "environment": [
       "outdoor",
@@ -26727,7 +26983,8 @@
     ],
     "themes": [
       "faith and modernity",
-      "ritual in public"
+      "ritual in public",
+      "faith"
     ],
     "symbols": [
       "bird",
@@ -26738,7 +26995,8 @@
       "feathers"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "perched"
     ],
     "tone": [
       "stillness",
@@ -26751,7 +27009,8 @@
       "sacred sign versus animal ease"
     ],
     "reading": [
-      "Living instinct briefly occupies a symbol meant to stand above life."
+      "Living instinct briefly occupies a symbol meant to stand above life.",
+      "religious ritual in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -29494,7 +29753,8 @@
       "window"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -29513,7 +29773,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -29540,7 +29801,8 @@
       "openness versus closure"
     ],
     "reading": [
-      "The image turns window into a study of coldness and withheld interior life."
+      "The image turns window into a study of coldness and withheld interior life.",
+      "urban repetition"
     ],
     "density": "dense",
     "intensity": {
@@ -29594,10 +29856,14 @@
     ],
     "noise": [],
     "objects": [
-      "cross"
+      "cross",
+      "balcony",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "balcony": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -29614,7 +29880,8 @@
       "urban object"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -29632,7 +29899,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "cross"
@@ -29648,11 +29916,13 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of red cross starts reading as a small emblem of observation."
+      "The ordinary presence of red cross starts reading as a small emblem of observation.",
+      "across"
     ],
     "tension": [],
     "reading": [
-      "The image turns red cross into a study of curiosity and observation."
+      "The image turns red cross into a study of curiosity and observation.",
+      "urban repetition"
     ],
     "density": "balanced",
     "intensity": {
@@ -29706,11 +29976,17 @@
     ],
     "noise": [],
     "objects": [
-      "wall"
+      "wall",
+      "facade",
+      "building",
+      "glass"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "facade": "primary",
+      "building": "primary",
+      "glass": "secondary"
     },
     "environment": [
       "architecture"
@@ -29745,7 +30021,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [],
     "texture": [
@@ -29764,7 +30041,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns glass into a study of curiosity and observation."
+      "The image turns glass into a study of curiosity and observation.",
+      "urban repetition"
     ],
     "density": "balanced",
     "intensity": {
@@ -29819,10 +30097,12 @@
     "noise": [],
     "objects": [
       "window",
-      "cross"
+      "cross",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -29840,7 +30120,8 @@
       "window"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -29858,7 +30139,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -29876,14 +30158,16 @@
       "containment"
     ],
     "relations": [
-      "The opening lets window suggest interior life while still withholding access to it."
+      "The opening lets window suggest interior life while still withholding access to it.",
+      "across"
     ],
     "tension": [
       "inside versus outside",
       "openness versus closure"
     ],
     "reading": [
-      "The image turns window into a study of distance and withheld interior life."
+      "The image turns window into a study of distance and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -29935,11 +30219,15 @@
     ],
     "noise": [],
     "objects": [
-      "wall"
+      "wall",
+      "balcony",
+      "facade"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "balcony": "primary",
+      "facade": "primary"
     },
     "environment": [
       "architecture"
@@ -29956,7 +30244,8 @@
       "urban object"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "night light"
@@ -29974,7 +30263,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [],
     "texture": [
@@ -29992,7 +30282,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns slanted into a study of curiosity and observation."
+      "The image turns slanted into a study of curiosity and observation.",
+      "urban repetition"
     ],
     "density": "balanced",
     "intensity": {
@@ -30047,11 +30338,13 @@
     "noise": [],
     "objects": [
       "window",
-      "wall"
+      "wall",
+      "facade"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "facade": "primary"
     },
     "environment": [
       "architecture"
@@ -30068,7 +30361,8 @@
       "window"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -30086,7 +30380,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -30111,7 +30406,8 @@
       "openness versus closure"
     ],
     "reading": [
-      "The image turns red window into a study of distance and withheld interior life."
+      "The image turns red window into a study of distance and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -30165,10 +30461,12 @@
     ],
     "noise": [],
     "objects": [
-      "tower"
+      "tower",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture",
@@ -30282,12 +30580,16 @@
     "noise": [],
     "objects": [
       "sign",
-      "wall"
+      "wall",
+      "facade",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
       "wall": "secondary",
-      "sign": "primary"
+      "sign": "primary",
+      "facade": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -30323,7 +30625,9 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition",
+      "public messaging"
     ],
     "symbols": [
       "sign"
@@ -30340,11 +30644,14 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of blue sign starts reading as a small emblem of observation."
+      "The ordinary presence of blue sign starts reading as a small emblem of observation.",
+      "in front of"
     ],
     "tension": [],
     "reading": [
-      "The image turns blue sign into a study of curiosity and observation."
+      "The image turns blue sign into a study of curiosity and observation.",
+      "urban repetition",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -30398,11 +30705,15 @@
     ],
     "noise": [],
     "objects": [
-      "wall"
+      "wall",
+      "balcony",
+      "billboard"
     ],
     "object_roles": {
       "window": "primary",
-      "wall": "primary"
+      "wall": "primary",
+      "balcony": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "architecture"
@@ -30420,7 +30731,8 @@
       "urban object"
     ],
     "composition": [
-      "repetition"
+      "repetition",
+      "pattern repetition"
     ],
     "lighting": [
       "daylight"
@@ -30439,7 +30751,9 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition",
+      "public messaging"
     ],
     "symbols": [],
     "texture": [
@@ -30453,13 +30767,16 @@
       "unease"
     ],
     "relations": [
-      "The ordinary presence of crumbling starts reading as a small emblem of observation."
+      "The ordinary presence of crumbling starts reading as a small emblem of observation.",
+      "beside"
     ],
     "tension": [
       "care versus decay"
     ],
     "reading": [
-      "The image turns crumbling into a study of neglect and observation."
+      "The image turns crumbling into a study of neglect and observation.",
+      "urban repetition",
+      "message placed in public view"
     ],
     "density": "dense",
     "intensity": {
@@ -30513,10 +30830,12 @@
     ],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "building": "primary"
     },
     "environment": [
       "city",
@@ -30554,7 +30873,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -30572,14 +30892,17 @@
       "containment"
     ],
     "relations": [
-      "The opening lets red window suggest interior life while still withholding access to it."
+      "The opening lets red window suggest interior life while still withholding access to it.",
+      "above",
+      "seen from above"
     ],
     "tension": [
       "inside versus outside",
       "openness versus closure"
     ],
     "reading": [
-      "The image turns red window into a study of distance and withheld interior life."
+      "The image turns red window into a study of distance and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -30634,11 +30957,14 @@
     "noise": [],
     "objects": [
       "billboard",
-      "sign"
+      "sign",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "sign": "primary"
+      "sign": "primary",
+      "building": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "city",
@@ -30676,7 +31002,9 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "pause",
+      "public messaging"
     ],
     "symbols": [
       "billboard"
@@ -30686,18 +31014,22 @@
       "metal"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "sitting"
     ],
     "tone": [
       "curiosity",
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of billboard starts reading as a small emblem of observation."
+      "The ordinary presence of billboard starts reading as a small emblem of observation.",
+      "above"
     ],
     "tension": [],
     "reading": [
-      "The image turns billboard into a study of curiosity and observation."
+      "The image turns billboard into a study of curiosity and observation.",
+      "pause in public space",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -30756,11 +31088,14 @@
     "objects": [
       "billboard",
       "tower",
-      "sign"
+      "sign",
+      "building"
     ],
     "object_roles": {
       "window": "primary",
-      "sign": "primary"
+      "sign": "primary",
+      "building": "primary",
+      "billboard": "primary"
     },
     "environment": [
       "architecture"
@@ -30795,7 +31130,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "public messaging"
     ],
     "symbols": [
       "billboard"
@@ -30812,11 +31148,13 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of billboard starts reading as a small emblem of observation."
+      "The ordinary presence of billboard starts reading as a small emblem of observation.",
+      "between forms"
     ],
     "tension": [],
     "reading": [
-      "The image turns billboard into a study of curiosity and observation."
+      "The image turns billboard into a study of curiosity and observation.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -30914,7 +31252,8 @@
     ],
     "themes": [
       "observation",
-      "containment"
+      "containment",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -30933,14 +31272,16 @@
       "containment"
     ],
     "relations": [
-      "The opening lets red window suggest interior life while still withholding access to it."
+      "The opening lets red window suggest interior life while still withholding access to it.",
+      "framed by"
     ],
     "tension": [
       "inside versus outside",
       "openness versus closure"
     ],
     "reading": [
-      "The image turns red window into a study of distance and withheld interior life."
+      "The image turns red window into a study of distance and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -31037,7 +31378,8 @@
     ],
     "themes": [
       "companionship",
-      "animal agency"
+      "animal agency",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -31055,14 +31397,16 @@
       "warmth"
     ],
     "relations": [
-      "The opening lets window suggest interior life while still withholding access to it."
+      "The opening lets window suggest interior life while still withholding access to it.",
+      "beside"
     ],
     "tension": [
       "inside versus outside",
       "openness versus closure"
     ],
     "reading": [
-      "The image turns window into a study of curiosity and withheld interior life."
+      "The image turns window into a study of curiosity and withheld interior life.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -31161,7 +31505,8 @@
     ],
     "themes": [
       "companionship",
-      "animal agency"
+      "animal agency",
+      "transit"
     ],
     "symbols": [
       "dog",
@@ -31179,13 +31524,15 @@
       "warmth"
     ],
     "relations": [
-      "The animal presence gives dog a sense of instinctive agency inside the urban frame."
+      "The animal presence gives dog a sense of instinctive agency inside the urban frame.",
+      "along"
     ],
     "tension": [
       "animal instinct versus urban order"
     ],
     "reading": [
-      "The image turns dog into a study of instinct, warmth, and informal urban life."
+      "The image turns dog into a study of instinct, warmth, and informal urban life.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -31675,7 +32022,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "bicycles",
@@ -31693,13 +32041,15 @@
       "coordination"
     ],
     "relations": [
-      "The stopped bicycles and the tram behind them make stillness feel temporary and charged."
+      "The stopped bicycles and the tram behind them make stillness feel temporary and charged.",
+      "behind"
     ],
     "tension": [
       "pause versus transit flow"
     ],
     "reading": [
-      "The image finds motion in the moment just before movement resumes."
+      "The image finds motion in the moment just before movement resumes.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -31910,7 +32260,8 @@
       "urban transit"
     ],
     "composition": [
-      "motion blur"
+      "motion blur",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -31929,7 +32280,8 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit"
     ],
     "symbols": [
       "hood",
@@ -31941,7 +32293,8 @@
     ],
     "motion": [
       "walking",
-      "blurred motion"
+      "blurred motion",
+      "crossing"
     ],
     "tone": [
       "vulnerability",
@@ -31954,7 +32307,8 @@
       "small body versus open roadway"
     ],
     "reading": [
-      "The image frames movement as a vulnerable negotiation with urban scale."
+      "The image frames movement as a vulnerable negotiation with urban scale.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -32170,7 +32524,8 @@
     ],
     "composition": [
       "motion blur",
-      "group across frame"
+      "group across frame",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -32296,7 +32651,8 @@
       "urban transit"
     ],
     "composition": [
-      "group across frame"
+      "group across frame",
+      "dynamic blur"
     ],
     "lighting": [
       "daylight"
@@ -32315,7 +32671,9 @@
     ],
     "themes": [
       "speed",
-      "urban transit"
+      "urban transit",
+      "transit",
+      "public messaging"
     ],
     "symbols": [
       "sign",
@@ -32327,20 +32685,24 @@
     ],
     "motion": [
       "walking",
-      "blurred motion"
+      "blurred motion",
+      "crossing"
     ],
     "tone": [
       "alertness",
       "velocity"
     ],
     "relations": [
-      "The static sign and the moving red-haired streak split the frame between instruction and impulse."
+      "The static sign and the moving red-haired streak split the frame between instruction and impulse.",
+      "beside"
     ],
     "tension": [
       "rule versus bodily movement"
     ],
     "reading": [
-      "Traffic language collides here with a fleeting red-haired human accent."
+      "Traffic language collides here with a fleeting red-haired human accent.",
+      "movement through public space",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -32695,7 +33057,9 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "transit",
+      "weather"
     ],
     "symbols": [
       "pink canopy",
@@ -32713,13 +33077,17 @@
       "gentleness"
     ],
     "relations": [
-      "The pink canopy isolates one figure even as she passes close to another body."
+      "The pink canopy isolates one figure even as she passes close to another body.",
+      "passing by",
+      "under"
     ],
     "tension": [
       "encounter versus enclosure"
     ],
     "reading": [
-      "Closeness happens physically here, but emotional weather remains private beneath the pink canopy."
+      "Closeness happens physically here, but emotional weather remains private beneath the pink canopy.",
+      "movement through public space",
+      "weathered movement"
     ],
     "density": "balanced",
     "intensity": {
@@ -33197,7 +33565,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "transit"
     ],
     "symbols": [
       "three umbrellas",
@@ -33208,7 +33577,8 @@
       "fabric"
     ],
     "motion": [
-      "walking"
+      "walking",
+      "crossing"
     ],
     "tone": [
       "coordination",
@@ -33221,7 +33591,8 @@
       "shared route versus private shelter"
     ],
     "reading": [
-      "The image makes collective movement feel patterned without ever losing anonymity."
+      "The image makes collective movement feel patterned without ever losing anonymity.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -33706,7 +34077,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "umbrella",
@@ -33718,7 +34090,8 @@
       "fabric"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "carrying"
     ],
     "tone": [
       "theater",
@@ -33731,7 +34104,8 @@
       "shelter versus display"
     ],
     "reading": [
-      "The image makes weather feel theatrical without losing the solitude at its center."
+      "The image makes weather feel theatrical without losing the solitude at its center.",
+      "weathered movement"
     ],
     "density": "balanced",
     "intensity": {
@@ -33832,7 +34206,8 @@
     ],
     "themes": [
       "shelter",
-      "anonymity"
+      "anonymity",
+      "weather"
     ],
     "symbols": [
       "upside-down canopy",
@@ -33843,7 +34218,8 @@
       "fabric"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "carrying"
     ],
     "tone": [
       "absurdity",
@@ -33856,7 +34232,8 @@
       "function versus decoration"
     ],
     "reading": [
-      "The image finds humor where a protective object slips out of its role and into display."
+      "The image finds humor where a protective object slips out of its role and into display.",
+      "weathered movement"
     ],
     "density": "balanced",
     "intensity": {
@@ -34221,14 +34598,16 @@
     ],
     "motion": [
       "stillness",
-      "suspension"
+      "suspension",
+      "hanging"
     ],
     "tone": [
       "curiosity",
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of red lantern starts reading as a small emblem of transformation."
+      "The ordinary presence of red lantern starts reading as a small emblem of transformation.",
+      "beside"
     ],
     "tension": [],
     "reading": [
@@ -34696,7 +35075,8 @@
       "observational metaphor"
     ],
     "composition": [
-      "close crop"
+      "close crop",
+      "detail study"
     ],
     "lighting": [
       "daylight",
@@ -35084,7 +35464,8 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of green bin starts reading as a small emblem of transformation."
+      "The ordinary presence of green bin starts reading as a small emblem of transformation.",
+      "over"
     ],
     "tension": [],
     "reading": [
@@ -35188,14 +35569,16 @@
       "plastic"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "hanging"
     ],
     "tone": [
       "curiosity",
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of green two starts reading as a small emblem of transformation."
+      "The ordinary presence of green two starts reading as a small emblem of transformation.",
+      "against background"
     ],
     "tension": [],
     "reading": [
@@ -35296,7 +35679,8 @@
     ],
     "themes": [
       "transformation",
-      "found symbolism"
+      "found symbolism",
+      "pause"
     ],
     "symbols": [
       "chair"
@@ -35313,11 +35697,13 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of white chair starts reading as a small emblem of transformation."
+      "The ordinary presence of white chair starts reading as a small emblem of transformation.",
+      "beside"
     ],
     "tension": [],
     "reading": [
-      "The image turns white chair into a study of curiosity and transformation."
+      "The image turns white chair into a study of curiosity and transformation.",
+      "pause in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -37124,10 +37510,12 @@
     "objects": [
       "man",
       "cigarette",
-      "building edge"
+      "building edge",
+      "building"
     ],
     "object_roles": {
-      "cigarette": "primary"
+      "cigarette": "primary",
+      "building": "primary"
     },
     "environment": [
       "architecture"
@@ -37174,7 +37562,8 @@
       "hard surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "smoking"
     ],
     "tone": [
       "detachment",
@@ -37187,7 +37576,8 @@
       "private habit versus public exposure"
     ],
     "reading": [
-      "The image catches the smoker at the edge of architecture, neither inside nor fully in the street."
+      "The image catches the smoker at the edge of architecture, neither inside nor fully in the street.",
+      "smoking pause"
     ],
     "density": "balanced",
     "intensity": {
@@ -38760,12 +39150,14 @@
     "noise": [],
     "objects": [
       "window",
-      "cross"
+      "cross",
+      "glass"
     ],
     "object_roles": {
       "window": "primary",
       "mirror": "primary",
-      "water": "primary"
+      "water": "primary",
+      "glass": "secondary"
     },
     "environment": [
       "architecture"
@@ -38783,7 +39175,8 @@
       "reflection"
     ],
     "composition": [
-      "reflection"
+      "reflection",
+      "reflection study"
     ],
     "lighting": [
       "low light",
@@ -38803,7 +39196,8 @@
     ],
     "themes": [
       "double vision",
-      "perception"
+      "perception",
+      "repetition"
     ],
     "symbols": [
       "window",
@@ -38814,20 +39208,23 @@
       "glass"
     ],
     "motion": [
-      "visual shimmer"
+      "visual shimmer",
+      "reflected view"
     ],
     "tone": [
       "contemplation",
       "instability"
     ],
     "relations": [
-      "The reflected view pulls window reflection away from certainty and turns the scene toward double vision."
+      "The reflected view pulls window reflection away from certainty and turns the scene toward double vision.",
+      "across"
     ],
     "tension": [
       "surface versus reality"
     ],
     "reading": [
-      "The image turns window reflection into a study of contemplation, perception, and unstable surface."
+      "The image turns window reflection into a study of contemplation, perception, and unstable surface.",
+      "urban repetition"
     ],
     "density": "sparse",
     "intensity": {
@@ -44371,7 +44768,8 @@
       "restraint"
     ],
     "relations": [
-      "Even dried out, the seed head keeps enough architecture to remember the flower it once was."
+      "Even dried out, the seed head keeps enough architecture to remember the flower it once was.",
+      "against background"
     ],
     "tension": [
       "decay versus structure"
@@ -45955,10 +46353,12 @@
     ],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "balloon arch"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "sign": "secondary",
+      "balloon arch": "primary"
     },
     "environment": [
       "outdoor",
@@ -45995,7 +46395,8 @@
     ],
     "themes": [
       "visibility",
-      "collective joy"
+      "collective joy",
+      "public messaging"
     ],
     "symbols": [
       "sign",
@@ -46013,14 +46414,18 @@
       "defiance"
     ],
     "relations": [
-      "Bodies, signs, and uniforms make sign read as a visible argument inside public space."
+      "Bodies, signs, and uniforms make sign read as a visible argument inside public space.",
+      "beside",
+      "above",
+      "seen from above"
     ],
     "tension": [
       "individual versus authority",
       "street life versus state control"
     ],
     "reading": [
-      "The image condenses public conflict into sign, where visibility becomes sharply visible."
+      "The image condenses public conflict into sign, where visibility becomes sharply visible.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -46113,7 +46518,8 @@
     ],
     "themes": [
       "visibility",
-      "collective joy"
+      "collective joy",
+      "public messaging"
     ],
     "symbols": [
       "sign",
@@ -46131,14 +46537,16 @@
       "defiance"
     ],
     "relations": [
-      "Bodies, signs, and uniforms make sign read as a visible argument inside public space."
+      "Bodies, signs, and uniforms make sign read as a visible argument inside public space.",
+      "beside"
     ],
     "tension": [
       "individual versus authority",
       "street life versus state control"
     ],
     "reading": [
-      "The image condenses public conflict into sign, where visibility becomes sharply visible."
+      "The image condenses public conflict into sign, where visibility becomes sharply visible.",
+      "message placed in public view"
     ],
     "density": "balanced",
     "intensity": {
@@ -46524,7 +46932,8 @@
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of blue two starts reading as a small emblem of fragility."
+      "The ordinary presence of blue two starts reading as a small emblem of fragility.",
+      "behind"
     ],
     "tension": [],
     "reading": [
@@ -48062,7 +48471,8 @@
     ],
     "themes": [
       "fragility",
-      "ordinary grace"
+      "ordinary grace",
+      "pause"
     ],
     "symbols": [],
     "texture": [
@@ -48071,7 +48481,8 @@
     ],
     "motion": [
       "stillness",
-      "riding"
+      "riding",
+      "sitting"
     ],
     "tone": [
       "curiosity",
@@ -48082,7 +48493,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns women into a study of curiosity and fragility."
+      "The image turns women into a study of curiosity and fragility.",
+      "pause in public space"
     ],
     "density": "balanced",
     "intensity": {
@@ -48439,7 +48851,8 @@
     ],
     "themes": [
       "fragility",
-      "ordinary grace"
+      "ordinary grace",
+      "pause"
     ],
     "symbols": [
       "bench"
@@ -48448,7 +48861,8 @@
       "organic surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "sitting"
     ],
     "tone": [
       "curiosity",
@@ -48459,7 +48873,8 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns green bench into a study of curiosity and fragility."
+      "The image turns green bench into a study of curiosity and fragility.",
+      "pause in public space"
     ],
     "density": "sparse",
     "intensity": {
@@ -48516,10 +48931,12 @@
     ],
     "noise": [],
     "objects": [
-      "water"
+      "water",
+      "ball"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "ball": "secondary"
     },
     "environment": [
       "water edge"
@@ -48562,7 +48979,8 @@
       "water surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "kicking"
     ],
     "tone": [
       "curiosity",
@@ -48673,7 +49091,8 @@
     ],
     "themes": [
       "fragility",
-      "ordinary grace"
+      "ordinary grace",
+      "transit"
     ],
     "symbols": [
       "cross"
@@ -48682,18 +49101,21 @@
       "water surface"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "running"
     ],
     "tone": [
       "curiosity",
       "restraint"
     ],
     "relations": [
-      "The ordinary presence of cross starts reading as a small emblem of fragility."
+      "The ordinary presence of cross starts reading as a small emblem of fragility.",
+      "across"
     ],
     "tension": [],
     "reading": [
-      "The image turns cross into a study of curiosity and fragility."
+      "The image turns cross into a study of curiosity and fragility.",
+      "movement through public space"
     ],
     "density": "balanced",
     "intensity": {

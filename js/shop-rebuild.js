@@ -78,6 +78,10 @@
 
   function money(v) { return String((cfg().currency || "EUR").toUpperCase()) + " " + Number(v || 0).toFixed(2); }
 
+  function isValidSizeId(sizeId) {
+    return SIZE_ORDER.indexOf(String(sizeId || "").toUpperCase()) !== -1;
+  }
+
   function parseJSON(raw, fallback) { try { return JSON.parse(raw); } catch (_e) { return fallback; } }
 
   function getUiStorage() {
@@ -111,8 +115,8 @@
       var key = String(code || "").trim().toUpperCase();
       if (!key) return;
       var item = src.select[code] || {};
-      var size = String(item.size || "A3").toUpperCase();
-      if (SIZE_ORDER.indexOf(size) === -1) size = "A3";
+      var size = String(item.size || "").toUpperCase();
+      if (size && SIZE_ORDER.indexOf(size) === -1) size = "";
       out.select[key] = { size: size, thumb: String(item.thumb || "") };
     });
 
@@ -258,7 +262,7 @@ function isAddressValid(ui) {
     var mapped = app.codeMap.get(c);
     var thumb = String((options && options.thumbnailUrl) || (store.select[c] && store.select[c].thumb) || (mapped && mapped.thumb) || placeholder());
     if (!store.select[c]) {
-      store.select[c] = { size: "A3", thumb: thumb };
+      store.select[c] = { size: "", thumb: thumb };
     } else {
       store.select[c].thumb = thumb || store.select[c].thumb;
     }
@@ -363,6 +367,11 @@ function isAddressValid(ui) {
   };
 }
 
+  function syncRequiredPromptState(node, isPending) {
+    if (!node || !node.classList) return;
+    node.classList.toggle("is-placeholder", !!isPending);
+  }
+
   function resetUiForm() {
     if (!app.refs) return;
     syncCountryControls("", "reset");
@@ -409,9 +418,9 @@ function isAddressValid(ui) {
 
   var countryWrap = h("div", { className: "shop-field shop-country-field" });
   countryWrap.appendChild(h("label", { className: "shop-label shipping-country-label", for: "shop-country-v2", text: "ADD SHIPPING COUNTRY" }));
-  var countryInput = h("input", { id: "shop-country-v2", className: "shop-input shop-country-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "Start typing country name" });
+  var countryInput = h("input", { id: "shop-country-v2", className: "shop-input shop-country-input", list: "shop-country-list-v2", autocomplete: "country-name", placeholder: "SELECT COUNTRY" });
   var countrySelect = h("select", { id: "shop-country-mobile-v2", className: "shop-input shop-country-select", "aria-label": "Select shipping country" });
-  countrySelect.appendChild(h("option", { value: "", text: "Select country" }));
+  countrySelect.appendChild(h("option", { value: "", text: "SELECT COUNTRY" }));
   var dl = h("datalist", { id: "shop-country-list-v2" });
   COUNTRIES.forEach(function (c) {
     dl.appendChild(h("option", { value: c.name }));
@@ -547,15 +556,28 @@ function isAddressValid(ui) {
       var tdThumb = h("td", { "data-label": "THUMB" }); tdThumb.appendChild(img); tdThumb.appendChild(prev);
 
       var tdCode = h("td", { "data-label": "CODE" }); tdCode.appendChild(h("span", { className: "shop-cart-code", text: code }));
-      var tdSize = h("td", { "data-label": "SIZE" }); var sel = h("select", { className: "shop-select-size" });
+      var tdSize = h("td", { "data-label": "SIZE" }); var sel = h("select", { className: "shop-select-size", "aria-label": "Select print size" });
+      sel.appendChild(h("option", { value: "", text: "SELECT SIZE" }));
       avail.forEach(function (sid) { sel.appendChild(h("option", { value: sid, text: sid + " - " + (SIZE_DESC[sid] || "") })); });
       if (!avail.length) sel.disabled = true;
-      else sel.value = avail.indexOf(item.size) !== -1 ? item.size : avail[0];
+      else sel.value = (isValidSizeId(item.size) && avail.indexOf(item.size) !== -1) ? item.size : "";
+      syncRequiredPromptState(sel, !sel.disabled && !sel.value);
       tdSize.appendChild(sel);
 
       var tdAdd = h("td", { "data-label": "ADD" });
       var addBtn = h("button", { type: "button", className: "shop-add-btn", text: avail.length ? "ADD" : "All sizes already in cart" });
-      if (!avail.length) addBtn.disabled = true;
+      function refreshSelectActions() {
+        var hasSize = isValidSizeId(sel.value);
+        syncRequiredPromptState(sel, !sel.disabled && !hasSize);
+        if (!avail.length) {
+          addBtn.disabled = true;
+          addBtn.textContent = "All sizes already in cart";
+          return;
+        }
+        addBtn.disabled = !hasSize;
+        addBtn.textContent = hasSize ? "ADD" : "SELECT SIZE";
+      }
+      refreshSelectActions();
       tdAdd.appendChild(addBtn);
       var tdX = h("td", { "data-label": "REMOVE" });
       var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "REMOVE" }); tdX.appendChild(rm);
@@ -568,7 +590,13 @@ function isAddressValid(ui) {
         saveStore(now); addBtn.textContent = "OK"; setTimeout(render, 650);
       });
       rm.addEventListener("click", function () { var now = loadStore(); delete now.select[code]; saveStore(now); render(); });
-      sel.addEventListener("change", function () { var now = loadStore(); if (!now.select[code]) return; now.select[code].size = String(sel.value || "A3").toUpperCase(); saveStore(now); });
+      sel.addEventListener("change", function () {
+        var now = loadStore();
+        if (!now.select[code]) return;
+        now.select[code].size = isValidSizeId(sel.value) ? String(sel.value || "").toUpperCase() : "";
+        refreshSelectActions();
+        saveStore(now);
+      });
 
       tr.appendChild(tdThumb); tr.appendChild(tdCode); tr.appendChild(tdSize); tr.appendChild(tdAdd); tr.appendChild(tdX);
       tbody.appendChild(tr);
@@ -601,10 +629,13 @@ function isAddressValid(ui) {
         var row = h("div", { className: "shop-cart-size-row" });
         row.appendChild(h("span", { className: "shop-cart-size", text: sid }));
         var q = h("div", { className: "shop-qty-controls" });
+        q.appendChild(h("span", { className: "shop-required-select-label shop-qty-select-label", text: "SELECT AMOUNT" }));
+        var qRow = h("div", { className: "shop-qty-control-row" });
         var minus = h("button", { type: "button", className: "shop-qty-btn", text: "-" });
         var qv = h("span", { className: "shop-qty-display", text: String(qty) });
         var plus = h("button", { type: "button", className: "shop-qty-btn", text: "+" });
-        q.appendChild(minus); q.appendChild(qv); q.appendChild(plus);
+        qRow.appendChild(minus); qRow.appendChild(qv); qRow.appendChild(plus);
+        q.appendChild(qRow);
         row.appendChild(q);
         row.appendChild(h("span", { className: "shop-line-price", text: money(qty * priceFor(sid)) }));
         var rm = h("button", { type: "button", className: "shop-cart-remove-btn cart-remove", text: "REMOVE" });
@@ -903,6 +934,8 @@ function isAddressValid(ui) {
     var countryInvalid = rowsFromCart(store).length > 0 && findCountryByName(ui.country) === null;
     app.refs.countryInput.setAttribute("aria-invalid", countryInvalid ? "true" : "false");
     if (app.refs.countrySelect) app.refs.countrySelect.setAttribute("aria-invalid", countryInvalid ? "true" : "false");
+    syncRequiredPromptState(app.refs.countryInput, findCountryByName(ui.country) === null);
+    syncRequiredPromptState(app.refs.countrySelect, findCountryByName(ui.country) === null);
     app.refs.emailInput.setAttribute("aria-invalid", (app.touched.email && !isValidEmail(ui.email)) ? "true" : "false");
     app.refs.emailMsg.textContent = (app.touched.email && !isValidEmail(ui.email) && ui.email) ? "Please enter a valid email address" : "";
     app.refs.nameInput.setAttribute("aria-invalid", (app.touched.name && ui.name.trim().length <= 1) ? "true" : "false");

@@ -17,6 +17,11 @@
     protest: ["protest", "protester", "protesters", "demonstration", "march", "activism", "resistance"],
     jesus: ["jesus", "christ", "christ figure", "christ statue", "holy card", "sacred heart", "crucifix"],
     religion: ["religion", "religious", "faith", "devotion", "ritual", "sacred", "holy", "church", "churches", "cross", "crosses", "crucifix", "nun", "nuns", "priest", "priests", "monk", "monks", "christian", "christianity", "procession"],
+    smile: ["smile", "smiles", "smiling", "grin", "grins", "grinning", "smiley"],
+    glasses: ["glasses", "glesses", "glesses", "eyeglasses", "spectacles", "sunglasses", "broken glasses"],
+    sit: ["sit", "sits", "sitting", "sat", "seated", "perched", "reclining"],
+    stand: ["stand", "stands", "standing", "stood", "upright"],
+    run: ["run", "runs", "running", "runner", "runners", "ran", "jog", "jogging", "sprint", "sprinting", "dash", "dashing"],
     absurd: ["absurd", "absurdity", "surreal", "irony", "ironic", "humor", "humour", "wit"],
     symbol: ["symbol", "symbols", "symbolic", "metaphor", "allegory", "sign"],
     dark: ["dark", "black", "shadow", "shadowy", "gloom"],
@@ -32,6 +37,7 @@
     crowd: { queryClass: "people", variants: ["crowd", "crowds", "group", "groups", "people", "pedestrians", "protesters", "marchers", "choir", "procession", "gathering"], precisionProfile: "strict" },
     people: { queryClass: "people", variants: ["people", "person", "persons", "human", "humans", "figure", "figures", "pedestrian", "pedestrians"], precisionProfile: "generic", generic: true },
     alone: { queryClass: "people", variants: ["alone", "solitary", "single person"], precisionProfile: "strict" },
+    smile: { queryClass: "expression", variants: ["smile", "smiles", "smiling", "grin", "grins", "grinning", "smiley"], precisionProfile: "strict" },
     blue: { queryClass: "color", variants: ["blue", "azure", "cobalt", "cyan"], precisionProfile: "balanced" },
     red: { queryClass: "color", variants: ["red", "scarlet", "crimson"], precisionProfile: "balanced" },
     yellow: { queryClass: "color", variants: ["yellow", "gold", "golden"], precisionProfile: "balanced" },
@@ -53,6 +59,7 @@
     church: { queryClass: "object", variants: ["church", "churches", "church tower", "church facade"], precisionProfile: "strict" },
     nun: { queryClass: "object", variants: ["nun", "nuns", "habit"], precisionProfile: "strict" },
     priest: { queryClass: "object", variants: ["priest", "priests", "cleric", "clergy"], precisionProfile: "strict" },
+    glasses: { queryClass: "object", variants: ["glasses", "glesses", "glesses", "eyeglasses", "spectacles", "sunglasses", "broken glasses"], precisionProfile: "strict" },
     window: { queryClass: "object", variants: ["window", "windows", "pane", "panes", "windowpane", "windowpanes", "shop window", "storefront window"], precisionProfile: "strict" },
     umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas", "parasol", "parasols"], precisionProfile: "strict" },
     wall: { queryClass: "object", variants: ["wall", "walls", "facade", "facades"], precisionProfile: "generic", generic: true },
@@ -67,6 +74,9 @@
     "wide shot": { queryClass: "shot", variants: ["wide shot", "wide view", "wide scene", "wide frame"], precisionProfile: "strict" },
     detail: { queryClass: "shot", variants: ["detail", "detail study"], precisionProfile: "strict" },
     portrait: { queryClass: "shot", variants: ["portrait", "face portrait"], precisionProfile: "strict" },
+    sit: { queryClass: "action", variants: ["sit", "sits", "sitting", "sat", "seated", "perched", "reclining"], precisionProfile: "balanced" },
+    stand: { queryClass: "action", variants: ["stand", "stands", "standing", "stood", "upright"], precisionProfile: "balanced" },
+    run: { queryClass: "action", variants: ["run", "runs", "running", "runner", "runners", "ran", "jog", "jogging", "sprint", "sprinting", "dash", "dashing"], precisionProfile: "strict" },
     "street dog": { queryClass: "phrase", variants: ["street dog", "dog on the street"], precisionProfile: "strict", components: ["street", "dog"] },
     "old man": { queryClass: "phrase", variants: ["old man", "older man", "elderly man"], precisionProfile: "strict", components: ["man", "older"] },
     "phone screen": { queryClass: "phrase", variants: ["phone screen", "smartphone screen", "mobile phone screen"], precisionProfile: "strict", components: ["phone", "screen"] },
@@ -103,7 +113,7 @@
   function normalizeTerm(value) {
     return String(value || "")
       .toLowerCase()
-      .replace(/[’']/g, "")
+      .replace(/[â€™']/g, "")
       .replace(/[^a-z0-9\u0590-\u05ff_ -]+/g, " ")
       .replace(/\s+/g, " ")
       .trim();
@@ -126,6 +136,7 @@
   function stemTerm(value) {
     const token = normalizeTerm(String(value || "").replace(/_/g, " ")).replace(/\s+/g, " ");
     if (!token) return "";
+    if (["glasses", "glesses", "glesses", "eyeglasses", "spectacles", "sunglasses"].includes(token)) return token;
     if (token.endsWith("ies") && token.length > 4) return `${token.slice(0, -3)}y`;
     if (token.endsWith("ss") && token.length > 3) return token;
     if (token.endsWith("es") && token.length > 4) return token.slice(0, -2);

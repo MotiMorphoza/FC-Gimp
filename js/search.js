@@ -597,6 +597,56 @@ function hasPhoneScreenCue(indexedImage) {
   return textHasAnyHint(`${alt} ${reading}`, PHONE_SCREEN_VISUAL_HINTS);
 }
 
+function hasExpressionCue(indexedImage, termGroup) {
+  const directSurface = [
+    ...normalizeArray(indexedImage?.image?.primary),
+    ...normalizeArray(indexedImage?.image?.secondary),
+    String(indexedImage?.image?.alt || "")
+  ];
+  const semanticSurface = [
+    ...directSurface,
+    ...normalizeArray(indexedImage?.image?.mood),
+    ...normalizeArray(indexedImage?.image?.themes),
+    ...normalizeArray(indexedImage?.image?.reading),
+    ...normalizeArray(indexedImage?.image?.relations)
+  ];
+
+  if (includesVariant(directSurface, termGroup.variants, termGroup.canonical)) {
+    return { matched: true, score: 18 };
+  }
+
+  if (includesVariant(semanticSurface, termGroup.variants, termGroup.canonical)) {
+    return { matched: true, score: 10 };
+  }
+
+  return { matched: false, score: 0 };
+}
+
+function hasActionCue(indexedImage, termGroup) {
+  const directSurface = [
+    ...normalizeArray(indexedImage?.image?.motion),
+    ...normalizeArray(indexedImage?.image?.primary),
+    String(indexedImage?.image?.alt || "")
+  ];
+  const semanticSurface = [
+    ...directSurface,
+    ...normalizeArray(indexedImage?.image?.secondary),
+    ...normalizeArray(indexedImage?.image?.composition),
+    ...normalizeArray(indexedImage?.image?.reading),
+    ...normalizeArray(indexedImage?.image?.relations)
+  ];
+
+  if (includesVariant(directSurface, termGroup.variants, termGroup.canonical)) {
+    return { matched: true, score: 16 };
+  }
+
+  if (includesVariant(semanticSurface, termGroup.variants, termGroup.canonical)) {
+    return { matched: true, score: 9 };
+  }
+
+  return { matched: false, score: 0 };
+}
+
 function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
   const visual = indexedImage.image.visual || {};
   const canonical = termGroup.canonical;
@@ -677,6 +727,10 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
     if (canonical === "color") {
       return visual.color_mode !== "bw" ? { matched: true, score: 12 } : { matched: false, score: 0 };
     }
+  }
+
+  if (queryClass === "expression") {
+    return hasExpressionCue(indexedImage, termGroup);
   }
 
   if (queryClass === "environment") {
@@ -816,6 +870,10 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
     return shotType === normalizedShot
       ? { matched: true, score: 15 }
       : { matched: false, score: 0 };
+  }
+
+  if (queryClass === "action") {
+    return hasActionCue(indexedImage, termGroup);
   }
 
   return { matched: false, score: 0 };
