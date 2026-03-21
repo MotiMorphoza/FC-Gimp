@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morphoza Template</title>
+  <title>Moti Morphoza</title>
 </head>
-<body>
+<body class="page-shell" data-page="morphoza">
+  <div class="shell-layout">
+    <div data-sidebar></div>
+
+    <main class="content-pane more-pane" aria-label="Moti Morphoza video gallery">
+      <section class="morphoza-view-shell" aria-label="Moti Morphoza video gallery" data-morphoza-view>
+        <div class="morphoza-host" data-morphoza-mount></div>
+      </section>
+    </main>
+  </div>
+
   <template data-morphoza-template>
     <div class="morphoza-view" data-morphoza-module>
       <div class="morphoza-header">
@@ -104,5 +114,8 @@
       </div>
     </div>
   </template>
+
+  <script src="js/morphoza.js"></script>
+  <script type="module" src="js/layout.js"></script>
 </body>
 </html>

@@ -7,6 +7,17 @@ const VALID_LAYOUT_CODES = new Set(['01', '01C', '02', '02C', '02T', '02TC', '03
 const LANGUAGES = ['en', 'he', 'es'];
 const HEADER_KEYS = new Set(['LAYOUT', 'TITLE', 'IMAGE', 'HIDDEN', 'BODY']);
 
+function createEntrySlug(language, fileName) {
+  const stem = path.parse(String(fileName || '')).name
+    .normalize('NFKD')
+    .toLowerCase()
+    .replace(/[^a-z0-9\u0590-\u05ff]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  return `${String(language || '').trim().toLowerCase()}-${stem || 'entry'}`;
+}
+
 function normalizeLayoutCode(raw) {
   const value = String(raw || '').trim();
   if (!value) return '';
@@ -143,6 +154,7 @@ function generateHumanWritesContent({ sourceRoot, outputPath, logger }) {
 
       generated.push({
         lang,
+        slug: createEntrySlug(lang, fileName),
         layout: parsed.layout,
         title: parsed.title,
         image: parsed.image,

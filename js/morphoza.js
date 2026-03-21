@@ -1,6 +1,10 @@
 (function () {
-  const PAGE_ID = "more";
+  const PAGE_ID_MORE = "more";
+  const PAGE_ID_STANDALONE = "morphoza";
+  const SUPPORTED_PAGE_IDS = new Set([PAGE_ID_MORE, PAGE_ID_STANDALONE]);
   const TEMPLATE_URL = "morphoza.html";
+  const TEMPLATE_SELECTOR = "template[data-morphoza-template]";
+  const VIDEO_PARAM_KEY = "video";
   const MOBILE_QUERY = "(max-width: 900px)";
   const RAILS = [
     { key: "cooperation", title: "ME &.." },
@@ -41,6 +45,35 @@
   function versionQuery() {
     const version = window.__BUILD_VERSION__ || "";
     return version ? `?v=${encodeURIComponent(version)}` : "";
+  }
+
+  function getCurrentPageId() {
+    return document.body?.dataset?.page || "";
+  }
+
+  function isSupportedPage() {
+    return SUPPORTED_PAGE_IDS.has(getCurrentPageId());
+  }
+
+  function isMorePage() {
+    return getCurrentPageId() === PAGE_ID_MORE;
+  }
+
+  function isStandalonePage() {
+    return getCurrentPageId() === PAGE_ID_STANDALONE;
+  }
+
+  function readRequestedVideoId() {
+    try {
+      const url = new URL(window.location.href);
+      const queryValue = String(url.searchParams.get(VIDEO_PARAM_KEY) || "").trim();
+      if (queryValue) return queryValue;
+
+      const hashParams = new URLSearchParams(String(url.hash || "").replace(/^#/, ""));
+      return String(hashParams.get(VIDEO_PARAM_KEY) || "").trim();
+    } catch {
+      return "";
+    }
   }
 
   function getGeneratedDataUrl() {
@@ -167,19 +200,24 @@
 
   async function fetchTemplateMarkup() {
     if (!state.templatePromise) {
-      state.templatePromise = fetch(TEMPLATE_URL, { credentials: "same-origin" })
-        .then((response) => {
-          if (!response.ok) throw new Error(`Morphoza template HTTP ${response.status}`);
-          return response.text();
-        })
-        .then((html) => {
-          const parsed = new DOMParser().parseFromString(html, "text/html");
-          const template = parsed.querySelector("template[data-morphoza-template]");
-          if (!template) {
-            throw new Error("Morphoza template missing");
-          }
-          return template.innerHTML;
-        });
+      const inlineTemplate = document.querySelector(TEMPLATE_SELECTOR);
+      if (inlineTemplate) {
+        state.templatePromise = Promise.resolve(inlineTemplate.innerHTML);
+      } else {
+        state.templatePromise = fetch(TEMPLATE_URL, { credentials: "same-origin" })
+          .then((response) => {
+            if (!response.ok) throw new Error(`Morphoza template HTTP ${response.status}`);
+            return response.text();
+          })
+          .then((html) => {
+            const parsed = new DOMParser().parseFromString(html, "text/html");
+            const template = parsed.querySelector(TEMPLATE_SELECTOR);
+            if (!template) {
+              throw new Error("Morphoza template missing");
+            }
+            return template.innerHTML;
+          });
+      }
     }
 
     return state.templatePromise;
@@ -605,11 +643,11 @@
 
   function startWallRotation() {
     stopWallRotation();
-    if (!state.allVideos.length) return;
+    if (!state.allVideos.length || !isMorePage()) return;
 
     initWall();
     state.wallTimer = window.setInterval(() => {
-      if (document.body.dataset.page !== PAGE_ID) return;
+      if (!isMorePage()) return;
       if (!state.pane || !state.pane.isConnected) return;
       rotateWall();
     }, 2000);
@@ -692,7 +730,7 @@
   }
 
   function handleKeydown(event) {
-    if (document.body.dataset.page !== PAGE_ID) return;
+    if (!isSupportedPage()) return;
     if (!state.shell || state.shell.hidden || !state.root || !state.root.isConnected) return;
     if (isTypingTarget(event.target)) return;
 
@@ -720,7 +758,7 @@
   }
 
   function handleResize() {
-    if (document.body.dataset.page !== PAGE_ID || !state.root || !state.root.isConnected) return;
+    if (!isSupportedPage() || !state.root || !state.root.isConnected) return;
     if (!state.shell || state.shell.hidden) return;
 
     const wasPlayerVisible = Boolean(state.refs.playerView && !state.refs.playerView.hidden);
@@ -802,9 +840,9 @@
   }
 
   async function init(pane) {
-    if (document.body.dataset.page !== PAGE_ID) return;
+    if (!isSupportedPage()) return;
 
-    const nextPane = pane || state.pane || document.querySelector(".more-pane");
+    const nextPane = pane || state.pane || document.querySelector(".more-pane") || document.querySelector(".content-pane");
     if (!nextPane) return;
 
     state.pane = nextPane;
@@ -855,17 +893,20 @@
     }
 
     let targetRailKey = null;
+    let targetIndex = null;
     const location = findVideoLocation(options.startVideoId);
     if (location) {
       state.rails[location.railKey].activeIndex = location.index;
       state.activeRailKey = location.railKey;
       targetRailKey = location.railKey;
+      targetIndex = location.index;
     } else {
       const defaultRailKey = getFirstAvailableRailKey();
       if (Number.isInteger(options.startIndex) && options.startIndex >= 0 && options.startIndex < getRailVideos(defaultRailKey).length) {
         state.rails[defaultRailKey].activeIndex = normalizeIndex(options.startIndex, getRailVideos(defaultRailKey).length);
         state.activeRailKey = defaultRailKey;
         targetRailKey = defaultRailKey;
+        targetIndex = state.rails[defaultRailKey].activeIndex;
       }
     }
 
@@ -874,6 +915,16 @@
     renderItems();
     updateAllCarousels();
     resetGalleryScroll();
+
+    if (options.openPlayer === true && targetRailKey && Number.isInteger(targetIndex)) {
+      if (isMobileMorphoza()) {
+        showInlineMobilePlayer(targetRailKey, targetIndex, { scrollIntoView: true });
+      } else {
+        showPlayer(targetRailKey, targetIndex);
+      }
+      return;
+    }
+
     if (targetRailKey && targetRailKey !== DEFAULT_ACTIVE_RAIL) {
       requestAnimationFrame(() => {
         scrollRailIntoView(targetRailKey);
@@ -908,6 +959,17 @@
       startWallRotation();
     }
   }
+
+  window.initMorphozaPage = async function initMorphozaPage() {
+    if (!isStandalonePage()) return;
+
+    const requestedVideoId = readRequestedVideoId();
+    await show({
+      resetToStart: !requestedVideoId,
+      startVideoId: requestedVideoId || undefined,
+      openPlayer: Boolean(requestedVideoId)
+    });
+  };
 
   window.MorphozaModule = {
     init,

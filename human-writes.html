@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Human Writes Template</title>
+  <title>Human Writes</title>
 </head>
-<body>
+<body class="page-shell" data-page="human-writes">
+  <div class="shell-layout">
+    <div data-sidebar></div>
+
+    <main class="content-pane more-pane" aria-label="Human Writes notebook">
+      <section class="human-writes-view" aria-label="Human Writes notebook" data-human-writes-view>
+        <div class="human-writes-host" data-human-writes-mount></div>
+      </section>
+    </main>
+  </div>
+
   <template data-hw-template>
     <section class="hw-module" data-hw-module aria-label="Human Writes notebook">
       <div class="hw-stage" data-hw-stage>
@@ -46,5 +56,8 @@
       <div class="hw-measure" data-hw-measure aria-hidden="true"></div>
     </section>
   </template>
+
+  <script src="js/human-writes.js"></script>
+  <script type="module" src="js/layout.js"></script>
 </body>
 </html>

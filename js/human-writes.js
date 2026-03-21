@@ -1,9 +1,13 @@
 (function () {
-  const PAGE_ID = "more";
+  const PAGE_ID_MORE = "more";
+  const PAGE_ID_STANDALONE = "human-writes";
+  const SUPPORTED_PAGE_IDS = new Set([PAGE_ID_MORE, PAGE_ID_STANDALONE]);
   const MOBILE_QUERY = "(max-width: 980px)";
   const TEMPLATE_URL = "human-writes.html";
+  const TEMPLATE_SELECTOR = "template[data-hw-template]";
   const COVER_IMAGE = "data/hw/pics/human-writes-notebook.png";
   const GENERATED_CONTENT_URL = () => `data/hw/generated/human-writes.generated.json${versionQuery()}`;
+  const ENTRY_PARAM_KEY = "entry";
   const SWIPE_HINT_STORAGE_KEY = "hwSwipeHintSeen";
   const PAGE_INDEX_STORAGE_KEY = "hwCurrentPageIndex";
   const ORPHAN_PUNCTUATION_REGEX = /[.,!?:;\u2014\-\u2026]$/u;
@@ -55,6 +59,31 @@
   function versionQuery() {
     const version = window.__BUILD_VERSION__ || "";
     return version ? `?v=${encodeURIComponent(version)}` : "";
+  }
+
+  function getCurrentPageId() {
+    return document.body?.dataset?.page || "";
+  }
+
+  function isSupportedPage() {
+    return SUPPORTED_PAGE_IDS.has(getCurrentPageId());
+  }
+
+  function isStandalonePage() {
+    return getCurrentPageId() === PAGE_ID_STANDALONE;
+  }
+
+  function readRequestedEntryKey() {
+    try {
+      const url = new URL(window.location.href);
+      const queryValue = String(url.searchParams.get(ENTRY_PARAM_KEY) || "").trim();
+      if (queryValue) return queryValue;
+
+      const hashParams = new URLSearchParams(String(url.hash || "").replace(/^#/, ""));
+      return String(hashParams.get(ENTRY_PARAM_KEY) || "").trim();
+    } catch {
+      return "";
+    }
   }
 
   function escapeHtml(value) {
@@ -110,9 +139,12 @@
       const title = typeof item.title === "string" ? item.title : "";
       const body = typeof item.body === "string" ? item.body.replace(/\r\n/g, "\n") : "";
       const imageName = typeof item.image === "string" ? item.image.trim() : "";
+      const providedSlug = typeof item.slug === "string" ? item.slug.trim() : "";
+      const entryKey = providedSlug || `${language}-${slugKey(title || `entry-${orders[language]}`)}-${orders[language]}`;
 
       normalized.push({
-        id: `${language}-${slugKey(title || `entry-${orders[language]}`)}-${orders[language]}`,
+        id: entryKey,
+        slug: entryKey,
         title,
         language,
         order: orders[language],
@@ -126,12 +158,17 @@
   }
 
   async function fetchTemplateMarkup() {
+    const inlineTemplate = document.querySelector(TEMPLATE_SELECTOR);
+    if (inlineTemplate) {
+      return inlineTemplate.innerHTML;
+    }
+
     const response = await fetch(TEMPLATE_URL, { credentials: "same-origin" });
     if (!response.ok) throw new Error(`Template HTTP ${response.status}`);
 
     const html = await response.text();
     const parsed = new DOMParser().parseFromString(html, "text/html");
-    const template = parsed.querySelector("template[data-hw-template]");
+    const template = parsed.querySelector(TEMPLATE_SELECTOR);
     if (!template) throw new Error("Human Writes template missing");
     return template.innerHTML;
   }
@@ -1198,12 +1235,26 @@
     playFlipSound();
   }
 
+  function getPageIndexForEntryKey(entryKey) {
+    if (!entryKey) return -1;
+    const normalizedKey = String(entryKey).trim();
+    if (!normalizedKey) return -1;
+    return state.pageIndexByEntry.get(normalizedKey) ?? -1;
+  }
+
+  function goToEntry(entryKey) {
+    const targetIndex = getPageIndexForEntryKey(entryKey);
+    if (targetIndex < 0) return false;
+    goToPage(targetIndex);
+    return true;
+  }
+
   function getContentsPageIndex() {
     const tocIndex = state.pages.findIndex((page) => page && page.key === "toc-ltr");
     return tocIndex >= 0 ? tocIndex : 0;
   }
 
-  function repaginate(preserveKey) {
+  function repaginate(preserveKey, requestedEntryKey) {
     syncResponsiveState();
     syncMeasureBox();
 
@@ -1211,7 +1262,19 @@
     state.pages = built.pages;
     state.pageIndexByEntry = built.pageIndexByEntry;
 
-    if (preserveKey) {
+    const requestedIndex = getPageIndexForEntryKey(requestedEntryKey);
+    if (requestedEntryKey) {
+      if (requestedIndex >= 0) {
+        if (state.isMobile) {
+          state.currentPage = requestedIndex;
+        } else {
+          state.currentSpread = Math.floor(requestedIndex / 2);
+        }
+      } else {
+        state.currentSpread = 0;
+        state.currentPage = 0;
+      }
+    } else if (preserveKey) {
       const nextIndex = state.pages.findIndex((page) => page.key === preserveKey || page.entryId === preserveKey);
       if (nextIndex >= 0) {
         if (state.isMobile) {
@@ -1240,7 +1303,7 @@
   }
 
   function onResize() {
-    if (!state.root || !state.root.isConnected || document.body.dataset.page !== PAGE_ID) return;
+    if (!state.root || !state.root.isConnected || !isSupportedPage()) return;
 
     const preserveKey = getCurrentPreserveKey();
     window.clearTimeout(state.resizeTimer);
@@ -1275,7 +1338,7 @@
   }
 
   function handleKeydown(event) {
-    if (document.body.dataset.page !== PAGE_ID || !state.root || !state.root.isConnected) return;
+    if (!isSupportedPage() || !state.root || !state.root.isConnected) return;
     if (isTypingTarget(event.target)) return;
 
     if (event.key === "ArrowLeft") {
@@ -1362,14 +1425,15 @@
     });
   }
 
-  async function mountHumanWrites(mount) {
+  async function mountHumanWrites(mount, options = {}) {
+    const requestedEntryKey = typeof options.entryKey === "string" ? options.entryKey.trim() : "";
     const token = ++state.buildToken;
     const [templateMarkup, entries] = await Promise.all([
       fetchTemplateMarkup(),
       fetchGeneratedEntries()
     ]);
 
-    if (token !== state.buildToken || document.body.dataset.page !== PAGE_ID || !mount.isConnected) {
+    if (token !== state.buildToken || !isSupportedPage() || !mount.isConnected) {
       return;
     }
 
@@ -1389,7 +1453,7 @@
     bindEvents();
 
     await afterLayout();
-    repaginate();
+    repaginate(undefined, requestedEntryKey);
   }
 
   function resetToOpeningPage() {
@@ -1401,8 +1465,11 @@
 
   async function initializeHumanWrites(options = {}) {
     const resetToStart = options.resetToStart === true;
+    const requestedEntryKey = typeof options.entryKey === "string"
+      ? options.entryKey.trim()
+      : (isStandalonePage() ? readRequestedEntryKey() : "");
 
-    if (document.body.dataset.page !== PAGE_ID) {
+    if (!isSupportedPage()) {
       resetMountState();
       return;
     }
@@ -1422,7 +1489,11 @@
       bindEvents();
       syncResponsiveState();
       syncMeasureBox();
-      if (resetToStart) {
+      if (requestedEntryKey) {
+        if (!goToEntry(requestedEntryKey)) {
+          resetToOpeningPage();
+        }
+      } else if (resetToStart) {
         resetToOpeningPage();
       } else {
         render();
@@ -1432,7 +1503,11 @@
 
     if (state.initPromise) {
       return state.initPromise.then(() => {
-        if (resetToStart && state.root && state.root.isConnected) {
+        if (requestedEntryKey && state.root && state.root.isConnected) {
+          if (!goToEntry(requestedEntryKey)) {
+            resetToOpeningPage();
+          }
+        } else if (resetToStart && state.root && state.root.isConnected) {
           resetToOpeningPage();
         }
       });
@@ -1442,8 +1517,12 @@
       try {
         resetMountState();
         state.mount = mount;
-        await mountHumanWrites(mount);
-        if (resetToStart && state.root && state.root.isConnected) {
+        await mountHumanWrites(mount, { entryKey: requestedEntryKey });
+        if (requestedEntryKey && state.root && state.root.isConnected) {
+          if (!goToEntry(requestedEntryKey)) {
+            resetToOpeningPage();
+          }
+        } else if (resetToStart && state.root && state.root.isConnected) {
           resetToOpeningPage();
         }
       } catch (error) {
@@ -1457,6 +1536,15 @@
   }
 
   window.initHumanWrites = initializeHumanWrites;
+  window.initHumanWritesPage = function initHumanWritesPage() {
+    if (!isStandalonePage()) return;
+
+    const requestedEntryKey = readRequestedEntryKey();
+    void initializeHumanWrites({
+      resetToStart: !requestedEntryKey,
+      entryKey: requestedEntryKey || ""
+    });
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {

@@ -8,6 +8,20 @@ const sharp = require('sharp');
 const { SITE_ORIGIN } = require('./site-config');
 
 const IMAGE_DIMENSION_CACHE = new Map();
+const STATIC_PAGE_META = {
+  'morphoza.html': {
+    title: 'Moti Morphoza | Performance Videos',
+    description: 'Performance videos, collaborations, and visual experiments by Moti Morphoza.',
+    ogImage: 'images/media/og-cover.jpg',
+    structuredType: 'CollectionPage'
+  },
+  'human-writes.html': {
+    title: 'Human Writes | Poems and Texts by Moti',
+    description: 'Poems, fragments, and visual writing by Moti presented as the Human Writes notebook.',
+    ogImage: 'images/more/human-writes.png',
+    structuredType: 'CollectionPage'
+  }
+};
 
 function escapeAttribute(value) {
   return String(value ?? '')
@@ -45,14 +59,16 @@ class HeadOrchestrator {
       ? titleMatch[0].replace(/<\/?title>/gi, '').trim()
       : 'MotoSynteza';
     const projectMeta = this.getProjectMeta();
+    const staticPageMeta = this.getStaticPageMeta();
     const effectiveTitle = projectMeta?.title
       ? `${projectMeta.title} – ${projectMeta?.seo?.titleDescriptor || 'Conceptual Street Photography Series'}`
-      : cleanTitle;
+      : (staticPageMeta?.title || cleanTitle);
     tags.push(`<title>${escapeAttribute(effectiveTitle)}</title>`);
 
     const description =
       (projectMeta?.seo?.metaDescription && String(projectMeta.seo.metaDescription).trim()) ||
       (projectMeta?.description && String(projectMeta.description).trim()) ||
+      (staticPageMeta?.description && String(staticPageMeta.description).trim()) ||
       this.extractMeta(innerContent, 'description') ||
       'MotoSynteza - conceptual photography and visual storytelling.';
     tags.push(`<meta name="description" content="${escapeAttribute(description)}">`);
@@ -189,17 +205,21 @@ class HeadOrchestrator {
   }
 
   getMoreCss(html = '') {
+    if (this.isMorphoza() || this.isHumanWrites()) {
+      return this.renameMap.get('css/more.css') || null;
+    }
+
     if (!this.isMore() || (/\bdata-human-writes-mount\b/i.test(html) && !/\bdata-more-home\b/i.test(html))) return null;
     return this.renameMap.get('css/more.css') || null;
   }
 
   getMorphozaCss() {
-    if (!this.isMore()) return null;
+    if (!(this.isMore() || this.isMorphoza())) return null;
     return this.renameMap.get('css/morphoza.css') || null;
   }
 
   getHumanWritesCss() {
-    if (!this.isMore()) return null;
+    if (!(this.isMore() || this.isHumanWrites())) return null;
     return this.renameMap.get('css/human-writes.css') || null;
   }
 
@@ -240,7 +260,17 @@ class HeadOrchestrator {
     return null;
   }
 
+  getStaticPageMeta() {
+    return STATIC_PAGE_META[this.getFileName()] || null;
+  }
+
   getOgImage(projectMeta) {
+    const staticPageMeta = this.getStaticPageMeta();
+    if (staticPageMeta?.ogImage) {
+      const resolved = this.renameMap.get(staticPageMeta.ogImage) || staticPageMeta.ogImage;
+      return this.buildAbsoluteUrl(resolved);
+    }
+
     if (projectMeta?.slug && Array.isArray(projectMeta.images) && projectMeta.images.length) {
       const firstImage = projectMeta.images[0];
       const firstSrc = typeof firstImage === 'string' ? firstImage : firstImage.src;
@@ -305,6 +335,22 @@ class HeadOrchestrator {
   }
 
   async getJsonLd(projectMeta) {
+    const staticPageMeta = this.getStaticPageMeta();
+    if (staticPageMeta) {
+      const canonical = this.buildCanonical();
+      return {
+        '@context': 'https://schema.org',
+        '@type': staticPageMeta.structuredType || 'CollectionPage',
+        name: staticPageMeta.title,
+        description: staticPageMeta.description,
+        url: canonical || undefined,
+        creator: {
+          '@type': 'Person',
+          name: 'Moti Morphoza'
+        }
+      };
+    }
+
     if (this.isProject() && projectMeta?.slug) {
       const canonical = this.buildCanonical();
       const imageObjects = await this.buildProjectImageObjects(projectMeta);
@@ -446,6 +492,8 @@ class HeadOrchestrator {
   isSearch()   { return this.getFileName() === 'search.html'; }
   isSearchDebug() { return this.getFileName() === 'search-debug.html'; }
   isMore()     { return this.getFileName() === 'more.html'; }
+  isMorphoza() { return this.getFileName() === 'morphoza.html'; }
+  isHumanWrites() { return this.getFileName() === 'human-writes.html'; }
   isGenericProject() { return this.getFileName() === 'project.html'; }
   isProject()  {
     const fileName = this.getFileName();

@@ -1607,6 +1607,18 @@ function runShopInit() {
   }
 }
 
+function runMorphozaInit() {
+  if (typeof window.initMorphozaPage === "function") {
+    window.initMorphozaPage();
+  }
+}
+
+function runHumanWritesStandaloneInit() {
+  if (typeof window.initHumanWritesPage === "function") {
+    window.initHumanWritesPage();
+  }
+}
+
 function runMoreInit() {
   if (typeof window.initMorePage === "function") {
     window.initMorePage();
@@ -1814,6 +1826,8 @@ async function initPage() {
   await initProjectPage();
   runSlideshowInit();
   runShopInit();
+  runMorphozaInit();
+  runHumanWritesStandaloneInit();
   runMoreInit();
   initFullscreenLightboxSync();
   initPjaxNavigation();
