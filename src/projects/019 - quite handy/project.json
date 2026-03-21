@@ -1,0 +1,119 @@
+{
+  "title": "Quite Handy",
+  "codePrefix": "QHD",
+  "description": "A conceptual photography series built around hands, cropped gestures, and manual presence. By staying close to fingers, palms, and touch, the images turn small movements into studies of tension, care, labor, and the strange intelligence of the body at work.",
+  "tags": [
+    "hands",
+    "gesture",
+    "body fragment",
+    "touch",
+    "conceptual photography"
+  ],
+  "images": [
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a dense field"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones with a warm brown-gray cast, with strong contrast, defined edges, and a dense field"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in near-black tones, with strong contrast, defined edges, and a layered field"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones, with stark contrast, hard edges, and a compressed dense field"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with strong contrast, defined edges, and a dense field"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones with a green-gray cast, with strong contrast, defined edges, and a layered field"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Balanced close study of a cropped hand gesture in charcoal tones, with strong contrast, defined edges, and a layered field"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a dense field"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in light gray tones, with restrained contrast, mixed edges, and a layered field"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in pale gray tones, with stark contrast, hard edges, and a dense field"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with stark contrast, hard edges, and a broad dense field"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in near-black tones, with strong contrast, defined edges, and a reduced field"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in charcoal tones, with stark contrast, hard edges, and a layered field"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with restrained contrast, mixed edges, and a focused field"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in light gray tones, with stark contrast, hard edges, and a dense field"
+    },
+    {
+      "src": "16.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in gray tones, with strong contrast, defined edges, and a layered field"
+    },
+    {
+      "src": "17.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in gray tones, with stark contrast, hard edges, and a grain-heavy dense field"
+    },
+    {
+      "src": "18.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones, with stark contrast, hard edges, and a shadow-heavy dense field"
+    },
+    {
+      "src": "19.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in charcoal tones, with restrained contrast, mixed edges, and a layered field"
+    },
+    {
+      "src": "20.jpg",
+      "caption": "",
+      "alt": "Vertical close study of a cropped hand gesture in dark gray tones with a warm brown-gray cast, with strong contrast, defined edges, and a layered field"
+    },
+    {
+      "src": "21.jpg",
+      "caption": "",
+      "alt": "Horizontal close study of a cropped hand gesture in dark gray tones with a warm brown-gray cast, with restrained contrast, mixed edges, and a dense field"
+    }
+  ]
+}

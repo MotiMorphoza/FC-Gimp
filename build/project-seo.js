@@ -344,6 +344,13 @@ const PROJECT_SEO_OVERRIDES = new Map([
     lead: 'By stripping the frame toward one tonal family, the gallery makes form, contrast, and atmosphere do the emotional work.',
     about: ['monochrome reduction', 'tonal restraint', 'minimal visual tension'],
     keywords: ['monochrome photography', 'black and white gallery', 'minimal conceptual photography', 'tonal study']
+  }],
+  ['019 - quite handy', {
+    titleDescriptor: 'Gesture and Hand Studies',
+    metaDescription: 'A conceptual photography series built around hands, gestures, and manual presence. Cropped fragments of touch, labor, and attention turn the body into a field of tension, care, and sign.',
+    lead: 'Hands, fingers, and cropped gestures carry the emotional charge of the series without needing the full body.',
+    about: ['hands and gesture', 'manual presence', 'touch and tension'],
+    keywords: ['hands photography', 'gesture study', 'conceptual close-up', 'body fragment']
   }]
 ]);
 

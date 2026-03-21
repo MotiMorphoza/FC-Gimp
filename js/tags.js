@@ -33,7 +33,8 @@
     calm: ["calm", "quiet", "quietness", "stillness", "peace", "meditative", "soft", "gentleness", "clarity", "patience", "contemplation", "suspension"],
     color: ["color", "colour", "colored", "colourful", "vivid", "multicolor", "multicolour"],
     monochrome: ["monochrome", "black and white", "black-and-white", "grayscale", "greyscale"],
-    "one color": ["one color", "one-color", "single color", "single-color", "one tone", "one-tone", "single tone", "single-tone"]
+    "one color": ["one color", "one-color", "single color", "single-color", "one tone", "one-tone", "single tone", "single-tone"],
+    "quite handy": ["quite handy", "quite-handy"]
   };
 
   const HARD_VISUAL_MAP = {
@@ -93,7 +94,8 @@
     "phone screen": { queryClass: "phrase", variants: ["phone screen", "smartphone screen", "mobile phone screen"], precisionProfile: "strict", components: ["phone", "screen"] },
     "window reflection": { queryClass: "phrase", variants: ["window reflection", "reflected window", "window reflections"], precisionProfile: "strict", components: ["window", "reflection"] },
     "public protest": { queryClass: "phrase", variants: ["public protest", "street protest"], precisionProfile: "balanced", components: ["public", "protest"] },
-    "one color": { queryClass: "phrase", variants: ["one color", "one-color", "single color", "single-color", "one tone", "one-tone", "single tone", "single-tone"], precisionProfile: "strict", components: ["monochrome", "minimalism"] }
+    "one color": { queryClass: "phrase", variants: ["one color", "one-color", "single color", "single-color", "one tone", "one-tone", "single tone", "single-tone"], precisionProfile: "strict", components: ["monochrome", "minimalism"] },
+    "quite handy": { queryClass: "phrase", variants: ["quite handy", "quite-handy"], precisionProfile: "strict", components: ["hand", "gesture"] }
   };
 
   const PHRASE_VARIANTS = [
@@ -106,6 +108,7 @@
     ["window reflection", ["window reflection", "reflected window", "window reflections"]],
     ["public protest", ["public protest", "street protest"]],
     ["one color", ["one color", "one-color", "single color", "single-color", "one tone", "one-tone", "single tone", "single-tone"]],
+    ["quite handy", ["quite handy", "quite-handy"]],
     ["no people", ["no people"]],
     ["no color", ["no color", "no colour"]],
     ["no cars", ["no cars", "no car"]],

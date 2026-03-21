@@ -867,6 +867,13 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
         ? { matched: true, score: 22 }
         : { matched: false, score: 0 };
     }
+
+    if (canonical === "quite handy") {
+      const projectTitle = String(indexedImage.image.projectTitle || "").toLowerCase();
+      return projectTitle.includes("quite handy")
+        ? { matched: true, score: 22 }
+        : { matched: false, score: 0 };
+    }
   }
 
   if (queryClass === "shot") {

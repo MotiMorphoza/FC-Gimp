@@ -51332,17 +51332,19 @@
     "projectSlug": "018 - one color",
     "src": "01.jpg",
     "primary": [
-      "vertical monochrome study",
-      "gray tonal register",
+      "vertical monochrome field",
+      "dark gray tonal register",
       "soft edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "reduced field",
+      "focused field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -51354,18 +51356,19 @@
       "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
-      "reduced field",
-      "soft edges"
+      "focused field",
+      "soft edges",
+      "reduced field"
     ],
     "lighting": [
       "soft light",
@@ -51403,20 +51406,20 @@
       "restrained"
     ],
     "relations": [
-      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+      "A dark gray register, soft edges, and a focused field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+      "The vertical frame holds to dark gray values, so soft pressure and focused detail do the work that color would usually do."
     ],
-    "density": "sparse",
+    "density": "focused",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.78,
+      "ambiguity": 0.86,
+      "contrast": 0.42
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51431,60 +51434,76 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-02",
     "projectSlug": "018 - one color",
     "src": "02.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "charcoal tonal register",
+      "horizontal monochrome field",
+      "dark gray tonal register",
       "defined edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "focused field",
+      "layered field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "shadow"
+      "tone"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "shadow": "secondary"
+      "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
-      "focused field",
-      "defined edges"
+      "layered field",
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "soft light",
+      "directional light"
     ],
     "colors": [
-      "black",
-      "gray"
+      "gray",
+      "black"
     ],
     "mood": [
-      "tension",
+      "quiet",
       "restraint",
-      "silence"
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -51494,35 +51513,35 @@
       "tonal contrast"
     ],
     "symbols": [
-      "dark register",
+      "single register",
       "tonal field"
     ],
     "texture": [
-      "paper-like surface",
+      "soft surface",
       "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "compressed",
-      "severe"
+      "watchful",
+      "restrained"
     ],
     "relations": [
-      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, defined edges, and a layered field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to dark gray values, so strong pressure and layered detail do the work that color would usually do."
     ],
-    "density": "focused",
+    "density": "balanced",
     "intensity": {
       "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.68
+      "ambiguity": 0.86,
+      "contrast": 0.54
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51538,24 +51557,39 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-03",
     "projectSlug": "018 - one color",
     "src": "03.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "near-black tonal register",
-      "soft edges"
+      "horizontal monochrome field",
+      "charcoal tonal register",
+      "defined edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "focused field",
+      "layered field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -51567,30 +51601,32 @@
       "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
-      "focused field",
-      "soft edges"
+      "layered field",
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
       "low light",
-      "high contrast"
+      "directional light"
     ],
     "colors": [
-      "black"
+      "black",
+      "gray"
     ],
     "mood": [
-      "tension",
+      "silence",
       "restraint",
-      "ambiguity"
+      "watchfulness"
     ],
     "themes": [
       "monochrome",
@@ -51601,11 +51637,11 @@
     ],
     "symbols": [
       "dark register",
-      "single register"
+      "tonal field"
     ],
     "texture": [
       "soft surface",
-      "smooth tonal transitions"
+      "dry grain"
     ],
     "motion": [
       "stillness"
@@ -51615,20 +51651,20 @@
       "restrained"
     ],
     "relations": [
-      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A charcoal register, defined edges, and a layered field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to charcoal values, so strong pressure and layered detail do the work that color would usually do."
     ],
-    "density": "focused",
+    "density": "balanced",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.54
+      "restraint": 0.87,
+      "ambiguity": 0.86,
+      "contrast": 0.56
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51644,16 +51680,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-04",
     "projectSlug": "018 - one color",
     "src": "04.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "charcoal tonal register",
-      "soft edges"
+      "horizontal monochrome field",
+      "dark gray tonal register",
+      "defined edges"
     ],
     "secondary": [
       "one color",
@@ -51661,7 +51710,9 @@
       "dense field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -51673,31 +51724,32 @@
       "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
       "dense field",
-      "soft edges"
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "directional light",
+      "strong contrast"
     ],
     "colors": [
-      "black",
-      "gray"
+      "gray",
+      "black"
     ],
     "mood": [
-      "tension",
+      "quiet",
       "restraint",
-      "silence"
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -51711,31 +51763,31 @@
       "tonal field"
     ],
     "texture": [
-      "soft surface",
-      "smooth tonal transitions"
+      "paper-like surface",
+      "layered grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "compressed",
-      "severe"
+      "watchful",
+      "restrained"
     ],
     "relations": [
-      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, defined edges, and a dense shadowed field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to dark gray values, so strong pressure, stacked shadows, and dense detail do the work that color would usually do."
     ],
     "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.54
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.61
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51751,16 +51803,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-05",
     "projectSlug": "018 - one color",
     "src": "05.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "charcoal tonal register",
-      "hard edges"
+      "horizontal monochrome field",
+      "dark gray tonal register",
+      "defined edges"
     ],
     "secondary": [
       "one color",
@@ -51768,43 +51833,46 @@
       "dense field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "shadow"
+      "tone"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "shadow": "secondary"
+      "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
       "dense field",
-      "hard edges"
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "directional light",
+      "strong contrast"
     ],
     "colors": [
-      "black",
-      "gray"
+      "gray",
+      "black"
     ],
     "mood": [
-      "tension",
+      "quiet",
       "restraint",
-      "silence"
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -51814,35 +51882,35 @@
       "tonal contrast"
     ],
     "symbols": [
-      "dark register",
+      "single register",
       "tonal field"
     ],
     "texture": [
-      "hard surface",
-      "tonal grain"
+      "soft surface",
+      "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "compressed",
-      "severe"
+      "watchful",
+      "restrained"
     ],
     "relations": [
-      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, defined edges, and a stretched dense field keep the image hovering between surface and form inside a wide monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The widened frame holds to dark gray values, so strong pressure and a stretched dense spread turn tone into the whole event."
     ],
     "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.82
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.63
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51858,24 +51926,39 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-06",
     "projectSlug": "018 - one color",
     "src": "06.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "near-black tonal register",
+      "horizontal monochrome field",
+      "dark gray tonal register",
       "defined edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "focused field",
+      "dense field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -51887,30 +51970,32 @@
       "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
-      "focused field",
-      "defined edges"
+      "dense field",
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "soft light",
+      "directional light"
     ],
     "colors": [
+      "gray",
       "black"
     ],
     "mood": [
-      "tension",
+      "silence",
       "restraint",
-      "ambiguity"
+      "watchfulness"
     ],
     "themes": [
       "monochrome",
@@ -51921,34 +52006,34 @@
     ],
     "symbols": [
       "dark register",
-      "single register"
+      "tonal field"
     ],
     "texture": [
-      "paper-like surface",
+      "soft surface",
       "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "severe",
+      "watchful",
       "restrained"
     ],
     "relations": [
-      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, defined edges, and a compact layered field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to dark gray values, so strong pressure and compact layered detail keep the image compressed and watchful."
     ],
-    "density": "focused",
+    "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.68
+      "restraint": 0.89,
+      "ambiguity": 0.86,
+      "contrast": 0.61
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -51964,16 +52049,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-07",
     "projectSlug": "018 - one color",
     "src": "07.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "charcoal tonal register",
-      "soft edges"
+      "horizontal monochrome field",
+      "gray tonal register",
+      "defined edges"
     ],
     "secondary": [
       "one color",
@@ -51981,43 +52079,46 @@
       "dense field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "shadow"
+      "tone"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "shadow": "secondary"
+      "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
       "dense field",
-      "soft edges"
+      "defined edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "soft light",
+      "bright contrast"
     ],
     "colors": [
-      "black",
-      "gray"
+      "gray",
+      "black"
     ],
     "mood": [
-      "tension",
+      "quiet",
       "restraint",
-      "silence"
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -52027,35 +52128,35 @@
       "tonal contrast"
     ],
     "symbols": [
-      "dark register",
+      "single register",
       "tonal field"
     ],
     "texture": [
-      "soft surface",
-      "smooth tonal transitions"
+      "paper-like surface",
+      "layered grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "compressed",
-      "severe"
+      "quiet",
+      "watchful"
     ],
     "relations": [
-      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A gray register, defined edges, and a dense field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to gray values, so strong pressure and dense detail do the work that color would usually do."
     ],
     "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
-      "contrast": 0.54
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.69
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52071,16 +52172,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-08",
     "projectSlug": "018 - one color",
     "src": "08.jpg",
     "primary": [
-      "vertical monochrome study",
+      "vertical monochrome field",
       "gray tonal register",
-      "soft edges"
+      "mixed edges"
     ],
     "secondary": [
       "one color",
@@ -52088,7 +52202,9 @@
       "focused field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -52100,18 +52216,19 @@
       "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
       "focused field",
-      "soft edges"
+      "mixed edges",
+      "reduced field"
     ],
     "lighting": [
       "soft light",
@@ -52139,30 +52256,30 @@
     ],
     "texture": [
       "soft surface",
-      "smooth tonal transitions"
+      "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "watchful",
-      "restrained"
+      "quiet",
+      "watchful"
     ],
     "relations": [
-      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+      "A gray register, mixed edges, and a focused field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+      "The vertical frame holds to gray values, so restrained pressure and focused detail do the work that color would usually do."
     ],
     "density": "focused",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.85,
+      "ambiguity": 0.86,
+      "contrast": 0.51
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52178,16 +52295,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-09",
     "projectSlug": "018 - one color",
     "src": "09.jpg",
     "primary": [
-      "vertical monochrome study",
-      "gray tonal register",
-      "soft edges"
+      "vertical monochrome field",
+      "dark gray tonal register",
+      "mixed edges"
     ],
     "secondary": [
       "one color",
@@ -52195,30 +52325,33 @@
       "focused field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "tone"
+      "shadow"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "tone": "secondary"
+      "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
       "focused field",
-      "soft edges"
+      "mixed edges",
+      "reduced field"
     ],
     "lighting": [
       "soft light",
@@ -52229,9 +52362,9 @@
       "black"
     ],
     "mood": [
-      "quiet",
+      "silence",
       "restraint",
-      "ambiguity"
+      "watchfulness"
     ],
     "themes": [
       "monochrome",
@@ -52241,7 +52374,7 @@
       "tonal contrast"
     ],
     "symbols": [
-      "single register",
+      "dark register",
       "tonal field"
     ],
     "texture": [
@@ -52256,20 +52389,20 @@
       "restrained"
     ],
     "relations": [
-      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+      "A dark gray register, mixed edges, and a focused field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+      "The vertical frame holds to dark gray values, so restrained pressure and focused detail do the work that color would usually do."
     ],
     "density": "focused",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.79,
+      "ambiguity": 0.86,
+      "contrast": 0.42
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52285,60 +52418,76 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-10",
     "projectSlug": "018 - one color",
     "src": "10.jpg",
     "primary": [
-      "panoramic monochrome study",
-      "pale gray tonal register",
+      "panoramic monochrome field",
+      "gray tonal register",
       "defined edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "focused field",
+      "layered field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "highlight"
+      "tone"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "highlight": "secondary"
+      "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "panoramic frame",
-      "focused field",
-      "defined edges"
+      "layered field",
+      "defined edges",
+      "panoramic spread"
     ],
     "lighting": [
       "soft light",
-      "high key light"
+      "bright contrast"
     ],
     "colors": [
-      "white",
-      "gray"
+      "gray",
+      "black"
     ],
     "mood": [
-      "airiness",
       "quiet",
-      "restraint"
+      "restraint",
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -52348,35 +52497,35 @@
       "tonal contrast"
     ],
     "symbols": [
-      "light register",
-      "single register"
+      "single register",
+      "tonal field"
     ],
     "texture": [
-      "paper-like surface",
+      "soft surface",
       "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "open",
-      "delicate"
+      "quiet",
+      "watchful"
     ],
     "relations": [
-      "A pale register keeps surface and form in suspension inside a panoramic monochrome frame."
+      "A gray register, defined edges, and a layered field keep the image hovering between surface and form inside a panoramic monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+      "The panoramic frame holds to gray values, so strong pressure and layered detail do the work that color would usually do."
     ],
-    "density": "focused",
+    "density": "balanced",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.68
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.66
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52392,60 +52541,78 @@
       "originality": 7,
       "emotion": 6
     },
-    "subject_scale": "wide"
+    "subject_scale": "wide",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "wide"
   },
   {
     "id": "img-019-018-one-color-11",
     "projectSlug": "018 - one color",
     "src": "11.jpg",
     "primary": [
-      "vertical monochrome study",
-      "pale gray tonal register",
-      "soft edges"
+      "vertical monochrome field",
+      "light gray tonal register",
+      "hard edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
       "dense field",
-      "minimal visual field"
+      "minimal visual field",
+      "warm brown-gray"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "highlight"
+      "tone"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "highlight": "secondary"
+      "tone": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
       "dense field",
-      "soft edges"
+      "hard edges",
+      "reduced field"
     ],
     "lighting": [
       "soft light",
-      "high key light"
+      "bright contrast"
     ],
     "colors": [
       "white",
-      "gray"
+      "gray",
+      "brown"
     ],
     "mood": [
-      "airiness",
       "quiet",
-      "restraint"
+      "restraint",
+      "ambiguity"
     ],
     "themes": [
       "monochrome",
@@ -52455,35 +52622,36 @@
       "tonal contrast"
     ],
     "symbols": [
-      "light register",
-      "single register"
+      "single register",
+      "tonal field",
+      "warm cast"
     ],
     "texture": [
-      "soft surface",
-      "smooth tonal transitions"
+      "hard surface",
+      "tonal grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "open",
-      "delicate"
+      "quiet",
+      "open"
     ],
     "relations": [
-      "A pale register keeps surface and form in suspension inside a vertical monochrome frame."
+      "A light gray register, hard edges, and a dense field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+      "The vertical frame holds to light gray values with a warm brown-gray cast, so stark pressure and dense detail do the work that color would usually do."
     ],
     "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.76
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52499,15 +52667,29 @@
       "originality": 7,
       "emotion": 6
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray",
+      "brown"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-12",
     "projectSlug": "018 - one color",
     "src": "12.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "gray tonal register",
+      "horizontal monochrome field",
+      "dark gray tonal register",
       "soft edges"
     ],
     "secondary": [
@@ -52516,24 +52698,26 @@
       "reduced field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "tone"
+      "shadow"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "tone": "secondary"
+      "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
@@ -52550,9 +52734,9 @@
       "black"
     ],
     "mood": [
-      "quiet",
+      "silence",
       "restraint",
-      "ambiguity"
+      "watchfulness"
     ],
     "themes": [
       "monochrome",
@@ -52562,7 +52746,7 @@
       "tonal contrast"
     ],
     "symbols": [
-      "single register",
+      "dark register",
       "tonal field"
     ],
     "texture": [
@@ -52577,20 +52761,20 @@
       "restrained"
     ],
     "relations": [
-      "A gray register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, soft edges, and a reduced field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+      "The horizontal frame holds to dark gray values, so soft pressure and reduced detail do the work that color would usually do."
     ],
     "density": "sparse",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.74,
+      "ambiguity": 0.86,
+      "contrast": 0.42
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52606,60 +52790,76 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-13",
     "projectSlug": "018 - one color",
     "src": "13.jpg",
     "primary": [
-      "vertical monochrome study",
-      "gray tonal register",
-      "soft edges"
+      "vertical monochrome field",
+      "charcoal tonal register",
+      "mixed edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "reduced field",
+      "focused field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
-      "tone"
+      "shadow"
     ],
     "object_roles": {
       "surface": "primary",
       "form": "primary",
-      "tone": "secondary"
+      "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
-      "reduced field",
-      "soft edges"
+      "focused field",
+      "mixed edges",
+      "reduced field"
     ],
     "lighting": [
-      "soft light",
+      "low light",
       "directional light"
     ],
     "colors": [
-      "gray",
-      "black"
+      "black",
+      "gray"
     ],
     "mood": [
-      "quiet",
+      "silence",
       "restraint",
-      "ambiguity"
+      "watchfulness"
     ],
     "themes": [
       "monochrome",
@@ -52669,35 +52869,35 @@
       "tonal contrast"
     ],
     "symbols": [
-      "single register",
+      "dark register",
       "tonal field"
     ],
     "texture": [
       "soft surface",
-      "smooth tonal transitions"
+      "dry grain"
     ],
     "motion": [
       "stillness"
     ],
     "tone": [
-      "watchful",
+      "severe",
       "restrained"
     ],
     "relations": [
-      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+      "A charcoal register, mixed edges, and a focused field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+      "The vertical frame holds to charcoal values, so restrained pressure and focused detail do the work that color would usually do."
     ],
-    "density": "sparse",
+    "density": "focused",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.54
+      "restraint": 0.79,
+      "ambiguity": 0.86,
+      "contrast": 0.42
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52713,16 +52913,29 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-14",
     "projectSlug": "018 - one color",
     "src": "14.jpg",
     "primary": [
-      "vertical monochrome study",
+      "vertical monochrome field",
       "pale gray tonal register",
-      "defined edges"
+      "hard edges"
     ],
     "secondary": [
       "one color",
@@ -52730,7 +52943,9 @@
       "dense field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -52742,22 +52957,23 @@
       "highlight": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "vertical frame",
       "dense field",
-      "defined edges"
+      "hard edges",
+      "reduced field"
     ],
     "lighting": [
-      "soft light",
-      "high key light"
+      "high key light",
+      "diffuse light"
     ],
     "colors": [
       "white",
@@ -52777,11 +52993,11 @@
     ],
     "symbols": [
       "light register",
-      "single register"
+      "tonal field"
     ],
     "texture": [
-      "paper-like surface",
-      "dry grain"
+      "hard surface",
+      "tonal grain"
     ],
     "motion": [
       "stillness"
@@ -52791,20 +53007,20 @@
       "delicate"
     ],
     "relations": [
-      "A pale register keeps surface and form in suspension inside a vertical monochrome frame."
+      "A pale gray register, hard edges, and a dense field keep the image hovering between surface and form inside a vertical monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+      "The vertical frame holds to pale gray values, so stark pressure and dense detail do the work that color would usually do."
     ],
     "density": "dense",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.7,
-      "contrast": 0.68
+      "restraint": 0.9,
+      "ambiguity": 0.86,
+      "contrast": 0.79
     },
     "pov": "frontal",
     "manipulation": "monochrome",
@@ -52820,24 +53036,39 @@
       "originality": 7,
       "emotion": 6
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
   },
   {
     "id": "img-019-018-one-color-15",
     "projectSlug": "018 - one color",
     "src": "15.jpg",
     "primary": [
-      "horizontal monochrome study",
-      "near-black tonal register",
+      "horizontal monochrome field",
+      "dark gray tonal register",
       "hard edges"
     ],
     "secondary": [
       "one color",
       "grayscale reduction",
-      "reduced field",
+      "layered field",
       "minimal visual field"
     ],
-    "noise": [],
+    "noise": [
+      "monochrome field"
+    ],
     "objects": [
       "surface",
       "form",
@@ -52849,24 +53080,26 @@
       "shadow": "secondary"
     },
     "environment": [
-      "ambiguous space",
-      "reduced field"
+      "abstract field",
+      "ambiguous space"
     ],
     "style": [
       "monochrome conceptual photography",
-      "minimal observation",
+      "near-abstract observation",
       "tonal study"
     ],
     "composition": [
       "horizontal frame",
-      "reduced field",
-      "hard edges"
+      "layered field",
+      "hard edges",
+      "reduced field"
     ],
     "lighting": [
-      "low light",
-      "high contrast"
+      "directional light",
+      "strong contrast"
     ],
     "colors": [
+      "gray",
       "black"
     ],
     "mood": [
@@ -52883,7 +53116,7 @@
     ],
     "symbols": [
       "dark register",
-      "single register"
+      "tonal field"
     ],
     "texture": [
       "hard surface",
@@ -52893,23 +53126,23 @@
       "stillness"
     ],
     "tone": [
-      "severe",
+      "watchful",
       "restrained"
     ],
     "relations": [
-      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+      "A dark gray register, hard edges, and a layered field keep the image hovering between surface and form inside a horizontal monochrome field."
     ],
     "tension": [
       "simplicity versus ambiguity",
       "one tonal register versus visual complexity"
     ],
     "reading": [
-      "Color disappears so that pressure, compression, and tonal friction become the event."
+      "The horizontal frame holds to dark gray values, so stark pressure and layered detail do the work that color would usually do."
     ],
-    "density": "sparse",
+    "density": "balanced",
     "intensity": {
-      "restraint": 0.86,
-      "ambiguity": 0.8,
+      "restraint": 0.9,
+      "ambiguity": 0.86,
       "contrast": 0.82
     },
     "pov": "frontal",
@@ -52925,6 +53158,2825 @@
       "originality": 7,
       "emotion": 7
     },
-    "subject_scale": "medium"
+    "subject_scale": "detail",
+    "environment_type": [
+      "abstract",
+      "ambiguous"
+    ],
+    "setting_type": [
+      "abstract field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw",
+    "shot_type": "detail"
+  },
+  {
+    "id": "img-020-019-quite-handy-01",
+    "projectSlug": "019 - quite handy",
+    "src": "01.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "dense field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "layered grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "watchful"
+    ],
+    "relations": [
+      "A gray hand fragment sits inside a dense field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where gray values, strong pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.66,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-02"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-02",
+    "projectSlug": "019 - quite handy",
+    "src": "02.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "charcoal tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence",
+      "warm brown-gray"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace",
+      "warm cast"
+    ],
+    "texture": [
+      "soft surface",
+      "layered grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A charcoal hand fragment sits inside a dense field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where charcoal values and a warm brown-gray cast, strong pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.73,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-01",
+      "img-020-019-quite-handy-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "color_mode": "color"
+  },
+  {
+    "id": "img-020-019-quite-handy-03",
+    "projectSlug": "019 - quite handy",
+    "src": "03.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "near-black tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "layered field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "directional light"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "watchfulness",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "compressed"
+    ],
+    "relations": [
+      "A near-black hand fragment sits inside a layered field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where near-black values, strong pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.67,
+      "intimacy": 0.79,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-02",
+      "img-020-019-quite-handy-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-04",
+    "projectSlug": "019 - quite handy",
+    "src": "04.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "dark gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A dark gray hand fragment sits inside a compressed dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a compressed field of attention, where dark gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.84,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-03",
+      "img-020-019-quite-handy-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-05",
+    "projectSlug": "019 - quite handy",
+    "src": "05.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "light gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "diffuse light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "open"
+    ],
+    "relations": [
+      "A light gray hand fragment sits inside a dense field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where light gray values, strong pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-04",
+      "img-020-019-quite-handy-06"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-06",
+    "projectSlug": "019 - quite handy",
+    "src": "06.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "charcoal tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence",
+      "green-gray"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "layered field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "directional light"
+    ],
+    "colors": [
+      "black",
+      "gray",
+      "green"
+    ],
+    "mood": [
+      "watchfulness",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A charcoal hand fragment sits inside a layered field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where charcoal values and a green-gray cast, strong pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.68,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-05",
+      "img-020-019-quite-handy-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray",
+      "green"
+    ],
+    "color_mode": "color"
+  },
+  {
+    "id": "img-020-019-quite-handy-07",
+    "projectSlug": "019 - quite handy",
+    "src": "07.jpg",
+    "primary": [
+      "balanced hand fragment",
+      "charcoal tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "balanced frame",
+      "layered field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A charcoal hand fragment sits inside a layered field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The balanced crop turns the hand into a field of attention, where charcoal values, strong pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.74,
+      "intimacy": 0.82,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-06",
+      "img-020-019-quite-handy-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-08",
+    "projectSlug": "019 - quite handy",
+    "src": "08.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "layered grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "watchful"
+    ],
+    "relations": [
+      "A gray hand fragment sits inside a dense field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where gray values, strong pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.68,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-07",
+      "img-020-019-quite-handy-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-09",
+    "projectSlug": "019 - quite handy",
+    "src": "09.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "light gray tonal register",
+      "mixed edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "layered field",
+      "mixed edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "diffuse light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "airiness",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "touch trace",
+      "light register"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "open"
+    ],
+    "relations": [
+      "A light gray hand fragment sits inside a layered field, so mixed edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where light gray values, restrained pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-08",
+      "img-020-019-quite-handy-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-10",
+    "projectSlug": "019 - quite handy",
+    "src": "10.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "pale gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "high key light",
+      "diffuse light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "airiness",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "touch trace",
+      "light register"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "open",
+      "delicate"
+    ],
+    "relations": [
+      "A pale gray hand fragment sits inside a dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where pale gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.87,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-09",
+      "img-020-019-quite-handy-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-11",
+    "projectSlug": "019 - quite handy",
+    "src": "11.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "watchful"
+    ],
+    "relations": [
+      "A gray hand fragment sits inside a broad dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a broader field of attention, where gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.74,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-10",
+      "img-020-019-quite-handy-12"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-12",
+    "projectSlug": "019 - quite handy",
+    "src": "12.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "near-black tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "reduced field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "reduced field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "compressed tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "compressed"
+    ],
+    "relations": [
+      "A near-black hand fragment sits inside a reduced field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where near-black values, strong pressure, and reduced detail carry the gesture."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "tension": 0.76,
+      "intimacy": 0.77,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-11",
+      "img-020-019-quite-handy-13"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-13",
+    "projectSlug": "019 - quite handy",
+    "src": "13.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "charcoal tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "layered field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A charcoal hand fragment sits inside a layered field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where charcoal values, stark pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.88,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-12",
+      "img-020-019-quite-handy-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-14",
+    "projectSlug": "019 - quite handy",
+    "src": "14.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "light gray tonal register",
+      "mixed edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "focused field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "focused field",
+      "mixed edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "diffuse light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "open"
+    ],
+    "relations": [
+      "A light gray hand fragment sits inside a focused field, so mixed edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where light gray values, restrained pressure, and focused detail carry the gesture."
+    ],
+    "density": "focused",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-13",
+      "img-020-019-quite-handy-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-15",
+    "projectSlug": "019 - quite handy",
+    "src": "15.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "light gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "bright contrast"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "open"
+    ],
+    "relations": [
+      "A light gray hand fragment sits inside a dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where light gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.8,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-14",
+      "img-020-019-quite-handy-16"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-16",
+    "projectSlug": "019 - quite handy",
+    "src": "16.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "layered field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "diffuse light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "watchful"
+    ],
+    "relations": [
+      "A gray hand fragment sits inside a layered field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where gray values, strong pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-15",
+      "img-020-019-quite-handy-17"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-17",
+    "projectSlug": "019 - quite handy",
+    "src": "17.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "quiet",
+      "watchful"
+    ],
+    "relations": [
+      "A gray hand fragment sits inside a grain-heavy dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a grain-heavy field of attention, where gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.79,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-16",
+      "img-020-019-quite-handy-18"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-18",
+    "projectSlug": "019 - quite handy",
+    "src": "18.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "dark gray tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges",
+      "close crop"
+    ],
+    "lighting": [
+      "directional light",
+      "strong contrast"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "skin texture",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A dark gray hand fragment sits inside a shadow-heavy dense field, so hard edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a shadow-heavy field of attention, where dark gray values, stark pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.84,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-17",
+      "img-020-019-quite-handy-19"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-19",
+    "projectSlug": "019 - quite handy",
+    "src": "19.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "charcoal tonal register",
+      "mixed edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "shadow"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "layered field",
+      "mixed edges",
+      "close crop"
+    ],
+    "lighting": [
+      "low light",
+      "directional light"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "watchfulness",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual silhouette",
+      "gesture trace"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A charcoal hand fragment sits inside a layered field, so mixed edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where charcoal values, restrained pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-18",
+      "img-020-019-quite-handy-20"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
+    "color_mode": "bw"
+  },
+  {
+    "id": "img-020-019-quite-handy-20",
+    "projectSlug": "019 - quite handy",
+    "src": "20.jpg",
+    "primary": [
+      "vertical hand fragment",
+      "dark gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "layered field",
+      "manual presence",
+      "warm brown-gray"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "vertical frame",
+      "layered field",
+      "defined edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace",
+      "warm cast"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A dark gray hand fragment sits inside a layered field, so defined edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The vertical crop turns the hand into a field of attention, where dark gray values and a warm brown-gray cast, strong pressure, and layered detail carry the gesture."
+    ],
+    "density": "balanced",
+    "intensity": {
+      "tension": 0.67,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-19",
+      "img-020-019-quite-handy-21"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "color_mode": "color"
+  },
+  {
+    "id": "img-020-019-quite-handy-21",
+    "projectSlug": "019 - quite handy",
+    "src": "21.jpg",
+    "primary": [
+      "horizontal hand fragment",
+      "dark gray tonal register",
+      "mixed edges"
+    ],
+    "secondary": [
+      "quite handy",
+      "body fragment",
+      "dense field",
+      "manual presence",
+      "warm brown-gray"
+    ],
+    "noise": [
+      "hand study"
+    ],
+    "objects": [
+      "hand",
+      "gesture",
+      "touch"
+    ],
+    "object_roles": {
+      "hand": "primary",
+      "gesture": "primary",
+      "touch": "secondary"
+    },
+    "environment": [
+      "body fragment",
+      "close field"
+    ],
+    "style": [
+      "conceptual close-up",
+      "gesture study",
+      "body-fragment observation"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "mixed edges",
+      "close crop"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "mood": [
+      "quiet",
+      "attention",
+      "restraint"
+    ],
+    "themes": [
+      "hands",
+      "gesture",
+      "touch",
+      "body fragment",
+      "manual presence"
+    ],
+    "symbols": [
+      "manual fragment",
+      "gesture trace",
+      "warm cast"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness",
+      "held gesture"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A dark gray hand fragment sits inside a dense field, so mixed edges and cropped posture make the gesture read through pressure, hesitation, and absence."
+    ],
+    "tension": [
+      "touch versus distance",
+      "body fragment versus missing context"
+    ],
+    "reading": [
+      "The horizontal crop turns the hand into a field of attention, where dark gray values and a warm brown-gray cast, restrained pressure, and dense detail carry the gesture."
+    ],
+    "density": "dense",
+    "intensity": {
+      "tension": 0.58,
+      "intimacy": 0.84,
+      "ambiguity": 0.8
+    },
+    "pov": "frontal",
+    "manipulation": "straight",
+    "negative": [
+      "full body"
+    ],
+    "related": [
+      "img-020-019-quite-handy-20"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 8
+    },
+    "shot_type": "close_up",
+    "subject_scale": "close",
+    "has_people": false,
+    "people_count": 0,
+    "gender": [],
+    "age_group": [],
+    "age_stage": "",
+    "people_prominence": "none",
+    "people_focus": "",
+    "screen_visible": false,
+    "environment_type": [
+      "abstract",
+      "body"
+    ],
+    "setting_type": [
+      "body fragment",
+      "close field"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black",
+      "brown"
+    ],
+    "color_mode": "color"
   }
 ]

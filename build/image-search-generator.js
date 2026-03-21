@@ -26,6 +26,10 @@ const ARRAY_FIELDS = [
 
 const STRING_FIELDS = ['density', 'pov', 'manipulation', 'subject_scale'];
 const OBJECT_FIELDS = ['intensity', 'score', 'object_roles'];
+const EXTRA_ARRAY_FIELDS = ['dominant_colors', 'environment_type', 'setting_type', 'gender', 'age_group'];
+const EXTRA_STRING_FIELDS = ['color_mode', 'shot_type', 'people_focus', 'people_prominence'];
+const EXTRA_NUMBER_FIELDS = ['people_count'];
+const EXTRA_BOOLEAN_FIELDS = ['has_people'];
 
 const STOP_WORDS = new Set([
   'a', 'an', 'and', 'as', 'at', 'above', 'across', 'against', 'along', 'around',
@@ -693,7 +697,15 @@ function normalizeManualEntry(entry) {
     normalized[field] = uniqueStrings(normalized[field]);
   });
 
+  EXTRA_ARRAY_FIELDS.forEach((field) => {
+    normalized[field] = uniqueStrings(normalized[field]);
+  });
+
   STRING_FIELDS.forEach((field) => {
+    normalized[field] = typeof normalized[field] === 'string' ? normalized[field].trim() : '';
+  });
+
+  EXTRA_STRING_FIELDS.forEach((field) => {
     normalized[field] = typeof normalized[field] === 'string' ? normalized[field].trim() : '';
   });
 
@@ -701,6 +713,24 @@ function normalizeManualEntry(entry) {
     normalized[field] = normalized[field] && typeof normalized[field] === 'object' && !Array.isArray(normalized[field])
       ? { ...normalized[field] }
       : {};
+  });
+
+  EXTRA_NUMBER_FIELDS.forEach((field) => {
+    if (Object.prototype.hasOwnProperty.call(normalized, field)) {
+      normalized[field] = Number.isFinite(Number(normalized[field])) ? Number(normalized[field]) : 0;
+    } else {
+      normalized[field] = undefined;
+    }
+  });
+
+  EXTRA_BOOLEAN_FIELDS.forEach((field) => {
+    if (Object.prototype.hasOwnProperty.call(normalized, field)) {
+      normalized[field] = typeof normalized[field] === 'boolean'
+        ? normalized[field]
+        : Boolean(normalized[field]);
+    } else {
+      normalized[field] = undefined;
+    }
   });
 
   normalized.projectSlug = String(normalized.projectSlug || '').trim();
@@ -760,7 +790,18 @@ function mergeEntry(baseEntry, override = {}) {
     ]);
   });
 
+  EXTRA_ARRAY_FIELDS.forEach((field) => {
+    merged[field] = uniqueStrings([
+      ...(baseEntry[field] || []),
+      ...(safeOverride[field] || [])
+    ]);
+  });
+
   STRING_FIELDS.forEach((field) => {
+    merged[field] = safeOverride[field] || baseEntry[field] || '';
+  });
+
+  EXTRA_STRING_FIELDS.forEach((field) => {
     merged[field] = safeOverride[field] || baseEntry[field] || '';
   });
 
@@ -769,6 +810,20 @@ function mergeEntry(baseEntry, override = {}) {
       ...(baseEntry[field] || {}),
       ...(safeOverride[field] || {})
     };
+  });
+
+  EXTRA_NUMBER_FIELDS.forEach((field) => {
+    merged[field] = Number.isFinite(Number(safeOverride[field]))
+      ? Number(safeOverride[field])
+      : Number.isFinite(Number(baseEntry[field]))
+        ? Number(baseEntry[field])
+        : 0;
+  });
+
+  EXTRA_BOOLEAN_FIELDS.forEach((field) => {
+    merged[field] = typeof safeOverride[field] === 'boolean'
+      ? safeOverride[field]
+      : Boolean(baseEntry[field]);
   });
 
   merged.age_stage = safeOverride.age_stage || baseEntry.age_stage || '';
