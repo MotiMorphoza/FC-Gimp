@@ -599,13 +599,6 @@
   background: var(--bg);
 }
 
-body.landing-active .shell-layout {
-  visibility: hidden;
-}
-
-body.app-active .shell-layout {
-  visibility: visible;
-}
 
 /* ===================================================================
    MOBILE  (<= 700px)

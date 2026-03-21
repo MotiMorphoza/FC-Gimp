@@ -4937,16 +4937,28 @@
     "noise": [],
     "objects": [
       "hand",
-      "tree"
+      "tree",
+      "doorway"
     ],
     "object_roles": {
       "hand": "primary",
-      "tree": "primary"
+      "tree": "primary",
+      "doorway": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
+    "environment": [
+      "outdoor",
+      "architecture"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "doorway"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
     "composition": [
       "frame within frame"
     ],
@@ -4974,8 +4986,12 @@
       "palms",
       "sunset"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "cracked plaster"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "longing",
       "escape"
@@ -5018,7 +5034,8 @@
       "impact": 7,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Palm trees at sunset seen through a broken green doorway"
   },
   {
     "id": "img-008-06",
@@ -5031,14 +5048,36 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "person",
+      "stairwell"
+    ],
+    "object_roles": {
+      "person": "secondary",
+      "stairwell": "primary"
+    },
+    "environment": [
+      "interior",
+      "architecture"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "diagonal staging"
+    ],
+    "lighting": [
+      "daylight",
+      "artificial light",
+      "warm light"
+    ],
     "colors": [
       "red",
       "yellow"
@@ -5062,8 +5101,12 @@
       "stairwell",
       "descent"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "painted wall"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "mystery",
       "drama"
@@ -5108,7 +5151,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Red-cloaked figure on a yellow stairwell"
   },
   {
     "id": "img-008-08",
@@ -5121,16 +5165,44 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "objects": [
+      "eggplant",
+      "line"
+    ],
+    "object_roles": {
+      "eggplant": "primary",
+      "line": "primary"
+    },
+    "environment": [
+      "outdoor",
+      "domestic"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "suspended repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "purple",
+      "green",
+      "orange"
+    ],
+    "dominant_colors": [
+      "purple",
+      "green",
+      "orange"
+    ],
     "color_mode": "color",
     "mood": [
       "quiet humor",
@@ -5146,8 +5218,12 @@
       "line",
       "preparation ritual"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "smooth skin"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "quiet humor",
       "domestic calm"
@@ -5189,7 +5265,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Slices of eggplant clipped along a thin line against a warm background"
   },
   {
     "id": "img-008-17",
@@ -5204,20 +5281,34 @@
     "noise": [],
     "objects": [
       "wall",
-      "cage"
+      "cage",
+      "birdcage"
     ],
     "object_roles": {
       "wall": "primary",
-      "cage": "primary"
+      "cage": "primary",
+      "birdcage": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "wall"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white"
     ],
@@ -5240,9 +5331,12 @@
       "paired doors"
     ],
     "texture": [
-      "hard surface"
+      "hard surface",
+      "brick"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "absence",
       "possibility"
@@ -5285,7 +5379,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Two white birdcages standing open against a brick wall"
   },
   {
     "id": "img-008-29",
@@ -5298,16 +5393,49 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "objects": [
+      "underpass"
+    ],
+    "object_roles": {
+      "underpass": "primary"
+    },
+    "environment": [
+      "outdoor",
+      "street",
+      "urban",
+      "underpass"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "receding depth",
+      "pairing",
+      "vanishing point",
+      "backlit passage"
+    ],
+    "lighting": [
+      "daylight",
+      "backlit light"
+    ],
+    "colors": [
+      "blue",
+      "black",
+      "white"
+    ],
+    "dominant_colors": [
+      "blue",
+      "black",
+      "white"
+    ],
     "color_mode": "colorful",
     "mood": [
       "anticipation",
@@ -5323,7 +5451,9 @@
       "bright exit",
       "paired bodies"
     ],
-    "texture": [],
+    "texture": [
+      "concrete"
+    ],
     "motion": [
       "walking"
     ],
@@ -5371,7 +5501,8 @@
       "impact": 7,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Two figures walking toward bright light in an underpass"
   },
   {
     "id": "img-008-38",
@@ -5385,25 +5516,38 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "stairs"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "stairs": "secondary"
     },
     "environment": [
+      "interior",
       "architecture"
     ],
-    "environment_type": [],
-    "setting_type": [
-      "window"
+    "environment_type": [
+      "indoor"
     ],
-    "style": [],
-    "composition": [],
+    "setting_type": [
+      "interior"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "vanishing point"
+    ],
     "lighting": [
-      "low light"
+      "low light",
+      "window light",
+      "backlit light"
     ],
     "colors": [
-      "blue"
+      "blue",
+      "black"
     ],
     "dominant_colors": [
       "blue"
@@ -5426,7 +5570,9 @@
     "texture": [
       "glass"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "mystery",
       "hope"
@@ -5469,7 +5615,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Dark stairway leading up to a bright blue window"
   },
   {
     "id": "img-008-40",
@@ -5483,19 +5630,44 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "boat"
+      "boat",
+      "bridge"
     ],
     "object_roles": {
-      "boat": "primary"
+      "boat": "primary",
+      "bridge": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "environment": [
+      "outdoor",
+      "water edge",
+      "riverbank",
+      "urban"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "water edge"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "diagonal drift"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "blue"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue"
+    ],
     "color_mode": "color",
     "mood": [
       "abandonment",
@@ -5511,8 +5683,13 @@
       "tilted hull",
       "distant bridge"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "rusted metal",
+      "mud"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "abandonment",
       "melancholy"
@@ -5555,7 +5732,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Sunken boat tilted on a riverbank beneath distant bridges"
   },
   {
     "id": "img-009-01",
@@ -7261,15 +7439,25 @@
     "environment": [
       "park",
       "winter",
-      "architecture"
+      "architecture",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "urban"
+      "urban",
+      "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "directional light",
       "shadowed light",
@@ -7297,9 +7485,12 @@
       "shadow"
     ],
     "texture": [
-      "hard surface"
+      "hard surface",
+      "wood"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "quietness",
       "loneliness"
@@ -7342,7 +7533,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Bare tree and empty bench casting shadows on a white wall in winter"
   },
   {
     "id": "img-013-04",
@@ -7364,20 +7556,30 @@
       "tree": "primary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
     "composition": [
       "overhead view",
-      "bird's-eye view"
+      "bird's-eye view",
+      "pairing"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "yellow"
     ],
@@ -7399,8 +7601,12 @@
       "tree core",
       "paired benches"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "foliage"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "order",
       "seasonal calm"
@@ -7442,7 +7648,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Overhead view of a round bare tree ringed with yellow leaves between two benches"
   },
   {
     "id": "img-013-11",
@@ -7455,19 +7662,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "objects": [
+      "dandelion"
+    ],
+    "object_roles": {
+      "dandelion": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "close crop"
+    ],
     "lighting": [
       "backlit light",
-      "artificial light"
+      "artificial light",
+      "sunlit light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "gold",
+      "brown"
+    ],
+    "dominant_colors": [
+      "gold",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -7482,8 +7713,12 @@
       "seed head",
       "light halo"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "filaments"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "wonder",
       "delicacy"
@@ -7525,7 +7760,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Backlit dandelion seed heads glowing in warm sunlight"
   },
   {
     "id": "img-013-14",
@@ -7538,18 +7774,44 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
+    "objects": [
+      "person",
+      "shrub"
+    ],
+    "object_roles": {
+      "person": "secondary",
+      "shrub": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "field"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
     "lighting": [
       "low light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "green",
+      "beige"
+    ],
+    "dominant_colors": [
+      "green",
+      "beige"
+    ],
     "color_mode": "color",
     "mood": [
       "unease",
@@ -7564,8 +7826,12 @@
       "bent figure",
       "wind pressure"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "foliage"
+    ],
+    "motion": [
+      "wind movement"
+    ],
     "tone": [
       "unease",
       "solitude"
@@ -7610,7 +7876,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Wind-bent dark shrub shaped like a figure against pale grass"
   },
   {
     "id": "img-013-24",
@@ -7624,13 +7891,20 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "water"
+      "water",
+      "stone",
+      "bone"
     ],
     "object_roles": {
-      "water": "secondary"
+      "water": "secondary",
+      "stone": "primary",
+      "bone": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor",
+      "river"
     ],
     "environment_type": [
       "outdoor",
@@ -7639,11 +7913,26 @@
     "setting_type": [
       "water edge"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "balanced pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "brown",
+      "white"
+    ],
+    "dominant_colors": [
+      "gray",
+      "brown",
+      "white"
+    ],
     "color_mode": "color",
     "mood": [
       "contemplation",
@@ -7661,10 +7950,12 @@
     ],
     "texture": [
       "hard surface",
-      "water surface"
+      "water surface",
+      "stone"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "flowing water"
     ],
     "tone": [
       "contemplation",
@@ -7708,7 +7999,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Heart-shaped stone and balanced animal bone on rocks in flowing water"
   },
   {
     "id": "img-013-37",
@@ -7722,22 +8014,43 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "tree"
+      "tree",
+      "nest"
     ],
     "object_roles": {
-      "tree": "primary"
+      "tree": "primary",
+      "nest": "primary"
     },
-    "environment": [],
+    "environment": [
+      "nature",
+      "outdoor",
+      "tree"
+    ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "setting_type": [
+      "tree"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "brown"
+    ],
+    "dominant_colors": [
+      "green",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -7753,8 +8066,12 @@
       "suspension",
       "empty vessel"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "woven fibers"
+    ],
+    "motion": [
+      "suspension"
+    ],
     "tone": [
       "wonder",
       "care"
@@ -7796,7 +8113,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Woven hanging nest suspended from a thin branch"
   },
   {
     "id": "img-014-02",
@@ -8719,25 +9037,45 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "flower"
+      "flower",
+      "seller"
     ],
     "object_roles": {
-      "flower": "primary"
+      "flower": "primary",
+      "seller": "primary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "market"
+    ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "street",
+      "market"
+    ],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "centered portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "green"
     ],
     "dominant_colors": [
-      "yellow"
+      "yellow",
+      "green"
     ],
     "color_mode": "color",
     "mood": [
@@ -8754,8 +9092,13 @@
       "seller stool",
       "yellow abundance"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "petals",
+      "fabric"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "dignity",
       "fatigue"
@@ -8800,7 +9143,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Older flower seller in a yellow jacket sitting behind bunches of yellow tulips"
   },
   {
     "id": "img-016-03",
@@ -8814,21 +9158,53 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "person",
+      "bag",
+      "trolley"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "sign": "secondary",
+      "person": "secondary",
+      "bag": "primary",
+      "trolley": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [
-      "night light"
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "storefront"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "pairing",
+      "framed doorway"
+    ],
+    "lighting": [
+      "night light",
+      "artificial light",
+      "neon light"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
+    "dominant_colors": [
+      "green",
+      "yellow",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "weariness",
@@ -8845,9 +9221,12 @@
       "neon advice"
     ],
     "texture": [
-      "metal"
+      "metal",
+      "fabric"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "weariness",
       "reflection"
@@ -8894,7 +9273,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Woman sitting beside bags and a shopping trolley beneath a neon sign reading DOCENIAJ nie oceniaj"
   },
   {
     "id": "img-016-14",
@@ -8908,19 +9288,43 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "phone"
+      "phone",
+      "person",
+      "hood",
+      "wallet"
     ],
     "object_roles": {
-      "phone": "primary"
+      "phone": "primary",
+      "person": "secondary",
+      "hood": "primary",
+      "wallet": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "winter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "close portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "pink"
+      "pink",
+      "black"
     ],
     "dominant_colors": [
       "pink"
@@ -8940,8 +9344,12 @@
       "phone",
       "pink aura"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "fur"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "assertion",
       "focus"
@@ -8989,7 +9397,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Woman with a vivid pink fur hood holding a phone and wallet"
   },
   {
     "id": "img-016-18",
@@ -9004,24 +9413,47 @@
     "noise": [],
     "objects": [
       "window",
-      "dog"
+      "dog",
+      "wheelchair"
     ],
     "object_roles": {
       "window": "secondary",
-      "dog": "primary"
+      "dog": "primary",
+      "wheelchair": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "street",
+      "urban",
+      "outdoor",
+      "storefront"
     ],
-    "environment_type": [],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
     "setting_type": [
-      "window"
+      "window",
+      "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "side view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "dominant_colors": [
+      "black",
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "trust",
@@ -9038,9 +9470,14 @@
       "street window"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "fur"
     ],
-    "motion": [],
+    "motion": [
+      "stillness",
+      "walking",
+      "rolling"
+    ],
     "tone": [
       "trust",
       "focus"
@@ -9084,7 +9521,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Wheelchair user traveling with a guide dog past a camera-store window"
   },
   {
     "id": "img-016-25",
@@ -13666,23 +14104,36 @@
     "noise": [],
     "objects": [
       "bird",
-      "tree"
+      "tree",
+      "branch"
     ],
     "object_roles": {
       "bird": "primary",
-      "tree": "primary"
+      "tree": "primary",
+      "branch": "primary"
     },
     "environment": [
-      "park"
+      "park",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "upward gaze",
+      "minimal spacing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -13707,7 +14158,8 @@
       "open sky"
     ],
     "texture": [
-      "feathers"
+      "feathers",
+      "foliage"
     ],
     "motion": [
       "flight"
@@ -13751,7 +14203,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Three white birds flying above bare tree branches in black and white"
   },
   {
     "id": "img-008-07",
@@ -13763,14 +14216,35 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "strawberry",
+      "aloe plant"
+    ],
+    "object_roles": {
+      "strawberry": "secondary",
+      "aloe plant": "secondary"
+    },
+    "environment": [
+      "outdoor",
+      "garden"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "garden"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "close crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
@@ -13792,8 +14266,12 @@
       "thorny leaves",
       "protective nest"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "foliage"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "tension",
       "surprise"
@@ -13835,7 +14313,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Red strawberries tucked among the thorny leaves of an aloe plant"
   },
   {
     "id": "img-008-10",
@@ -13848,21 +14327,41 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
+    "objects": [
+      "kettle",
+      "fire"
+    ],
+    "object_roles": {
+      "kettle": "primary",
+      "fire": "primary"
+    },
+    "environment": [
+      "outdoor",
+      "domestic"
+    ],
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "outdoor fire"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "close crop"
+    ],
+    "lighting": [
+      "firelight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "orange"
     ],
     "dominant_colors": [
-      "black"
+      "black",
+      "orange"
     ],
     "color_mode": "color",
     "mood": [
@@ -13879,8 +14378,13 @@
       "open flame",
       "steam plume"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "metal",
+      "smoke"
+    ],
+    "motion": [
+      "rising smoke"
+    ],
     "tone": [
       "warmth",
       "resourcefulness"
@@ -13922,7 +14426,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Black kettle steaming over an outdoor fire"
   },
   {
     "id": "img-008-19",
@@ -13937,14 +14442,17 @@
     "noise": [],
     "objects": [
       "chair",
-      "water"
+      "water",
+      "dock"
     ],
     "object_roles": {
       "chair": "primary",
-      "water": "secondary"
+      "water": "secondary",
+      "dock": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -13953,11 +14461,26 @@
     "setting_type": [
       "water edge"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "blue",
+      "gray",
+      "brown"
+    ],
+    "dominant_colors": [
+      "blue",
+      "gray",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "melancholy",
@@ -13974,10 +14497,12 @@
       "calm surface"
     ],
     "texture": [
-      "water surface"
+      "water surface",
+      "wood"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "floating"
     ],
     "tone": [
       "melancholy",
@@ -14021,7 +14546,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Plastic chair on a broken wooden dock floating on calm water"
   },
   {
     "id": "img-008-23",
@@ -14035,13 +14561,18 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "snow"
+      "snow",
+      "lamp",
+      "lights"
     ],
     "object_roles": {
-      "snow": "primary"
+      "snow": "primary",
+      "lamp": "primary",
+      "lights": "primary"
     },
     "environment": [
-      "park"
+      "park",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -14050,9 +14581,17 @@
     "setting_type": [
       "park"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "isolated subject"
+    ],
+    "lighting": [
+      "night light",
+      "artificial light"
+    ],
     "colors": [
       "purple"
     ],
@@ -14074,8 +14613,12 @@
       "path glow",
       "single streetlamp"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "snow"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "melancholy",
       "wonder"
@@ -14117,7 +14660,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Purple string lights above a snowy park path and a lone streetlamp"
   },
   {
     "id": "img-008-27",
@@ -14132,28 +14676,46 @@
     "noise": [],
     "objects": [
       "tree",
-      "snow"
+      "snow",
+      "stairs",
+      "stone"
     ],
     "object_roles": {
       "tree": "primary",
-      "snow": "primary"
+      "snow": "primary",
+      "stairs": "secondary",
+      "stone": "primary"
     },
     "environment": [
-      "winter"
-    ],
-    "environment_type": [
+      "winter",
       "outdoor"
     ],
-    "setting_type": [],
-    "style": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
     "composition": [
-      "frame within frame"
+      "frame within frame",
+      "receding depth"
     ],
     "lighting": [
       "cold daylight"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "stillness",
@@ -14172,9 +14734,12 @@
     "texture": [
       "snow",
       "ice",
-      "hard surface"
+      "hard surface",
+      "stone"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "stillness",
       "resolve"
@@ -14216,7 +14781,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Snow-covered stone steps leading uphill through trees"
   },
   {
     "id": "img-008-31",
@@ -14238,7 +14804,9 @@
     "environment": [
       "city",
       "street",
-      "transit"
+      "transit",
+      "outdoor",
+      "urban"
     ],
     "environment_type": [
       "outdoor",
@@ -14248,9 +14816,18 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "pairing",
+      "overhead view"
+    ],
+    "lighting": [
+      "daylight",
+      "overcast light"
+    ],
     "colors": [
       "yellow"
     ],
@@ -14273,7 +14850,8 @@
       "crossing lines"
     ],
     "texture": [
-      "metal"
+      "metal",
+      "wet pavement"
     ],
     "motion": [
       "walking",
@@ -14320,7 +14898,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Two yellow trams crossing at a wet intersection"
   },
   {
     "id": "img-008-36",
@@ -14333,18 +14912,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [
-      "low light"
+    "objects": [
+      "chimney"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "object_roles": {
+      "chimney": "primary"
+    },
+    "environment": [
+      "outdoor",
+      "sky",
+      "urban"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "sky"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "minimal alignment"
+    ],
+    "lighting": [
+      "low light",
+      "sunset light",
+      "backlit light"
+    ],
+    "colors": [
+      "orange",
+      "black"
+    ],
+    "dominant_colors": [
+      "orange",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -14360,8 +14964,12 @@
       "airplane passage",
       "chimney shadow"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "smoke"
+    ],
+    "motion": [
+      "flight"
+    ],
     "tone": [
       "wonder",
       "distance"
@@ -14404,7 +15012,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Airplane passing a setting sun aligned above a dark chimney"
   },
   {
     "id": "img-008-001",
@@ -14417,16 +15026,43 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
+    "objects": [
+      "pickle",
+      "banana peel",
+      "jar"
+    ],
     "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "environment": [
+      "domestic",
+      "still life",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "domestic"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "frontal still life"
+    ],
+    "lighting": [
+      "daylight",
+      "soft indoor light"
+    ],
+    "colors": [
+      "green",
+      "yellow"
+    ],
+    "dominant_colors": [
+      "green",
+      "yellow"
+    ],
     "color_mode": "color",
     "mood": [
       "humor",
@@ -14443,9 +15079,12 @@
       "glass jar"
     ],
     "texture": [
+      "smooth skin",
       "glass"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "humor",
       "absurdity"
@@ -14487,7 +15126,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Pickle standing inside a peeled banana peel in front of a glass jar"
   },
   {
     "id": "img-009-03",
@@ -16322,22 +16962,49 @@
     "noise": [],
     "objects": [
       "bird",
-      "tree"
+      "tree",
+      "line",
+      "moon"
     ],
     "object_roles": {
       "bird": "secondary",
-      "tree": "primary"
+      "tree": "primary",
+      "line": "primary",
+      "moon": "primary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature",
+      "outdoor",
+      "sky",
+      "night"
     ],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park",
+      "sky"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "skyward layering"
+    ],
+    "lighting": [
+      "moonlight"
+    ],
+    "colors": [
+      "black",
+      "yellow"
+    ],
+    "dominant_colors": [
+      "black",
+      "yellow"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -16356,7 +17023,10 @@
     "texture": [
       "feathers"
     ],
-    "motion": [],
+    "motion": [
+      "stillness",
+      "flight"
+    ],
     "tone": [
       "wonder",
       "distance"
@@ -16398,7 +17068,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Full moon above a silhouetted tree line and a flock of birds"
   },
   {
     "id": "img-013-12",
@@ -16411,18 +17082,45 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [
-      "sunset light"
+    "objects": [
+      "reeds"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "object_roles": {
+      "reeds": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "field"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "upward flare"
+    ],
+    "lighting": [
+      "sunset light",
+      "sunlit light",
+      "sun flare",
+      "backlit light"
+    ],
+    "colors": [
+      "gold",
+      "green"
+    ],
+    "dominant_colors": [
+      "gold",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "warmth",
@@ -16438,8 +17136,12 @@
       "sunburst",
       "backlit field"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "feathery reeds"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "warmth",
       "wonder"
@@ -16481,7 +17183,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Sun flare above tall reed plumes in a field"
   },
   {
     "id": "img-013-16",
@@ -16495,22 +17198,38 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "tree"
+      "tree",
+      "branch",
+      "roots"
     ],
     "object_roles": {
-      "tree": "primary"
+      "tree": "primary",
+      "branch": "primary",
+      "roots": "primary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "setting_type": [
+      "park",
+      "forest floor"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "abstract tangle"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -16534,8 +17253,14 @@
       "grasping lines",
       "dark tangle"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "foliage",
+      "roots",
+      "bark"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "unease",
       "complexity"
@@ -16575,7 +17300,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Twisted tree roots and branches in black and white"
   },
   {
     "id": "img-013-19",
@@ -16590,14 +17316,18 @@
     "noise": [],
     "objects": [
       "tree",
-      "water"
+      "water",
+      "ripples"
     ],
     "object_roles": {
       "tree": "primary",
-      "water": "secondary"
+      "water": "secondary",
+      "ripples": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -16606,11 +17336,24 @@
     "setting_type": [
       "water edge"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "close crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "green"
+    ],
+    "dominant_colors": [
+      "gray",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "calm",
@@ -16630,7 +17373,9 @@
       "water surface"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "floating",
+      "rippling water"
     ],
     "tone": [
       "calm",
@@ -16673,7 +17418,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Rain ripples spreading around a fir branch floating in shallow water"
   },
   {
     "id": "img-013-25",
@@ -16686,16 +17432,40 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "objects": [
+      "stone"
+    ],
+    "object_roles": {
+      "stone": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "detail study"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "close crop",
+      "detail study"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "dominant_colors": [
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "playfulness",
@@ -16712,9 +17482,13 @@
       "primitive mask"
     ],
     "texture": [
-      "hard surface"
+      "hard surface",
+      "stone",
+      "stone surface"
     ],
-    "motion": [],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "playfulness",
       "mystery"
@@ -16756,7 +17530,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Flat stone etched with a simple face and spiral lines"
   },
   {
     "id": "img-013-28",
@@ -16769,18 +17544,40 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [
-      "repetition"
+    "objects": [
+      "haystack"
     ],
-    "lighting": [],
+    "object_roles": {
+      "haystack": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "field",
+      "rural"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "repetition",
+      "wide landscape"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "green"
+      "green",
+      "brown",
+      "blue"
     ],
     "dominant_colors": [
       "green"
@@ -16800,8 +17597,12 @@
       "mountain line",
       "field grid"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "hay"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "distance",
       "calm"
@@ -16843,7 +17644,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Rows of upright haystacks in a green field with mountains in the distance"
   },
   {
     "id": "img-013-35",
@@ -16856,16 +17658,44 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "objects": [
+      "stone",
+      "flower"
+    ],
+    "object_roles": {
+      "stone": "secondary",
+      "flower": "secondary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "rocky nature"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "rocky ground"
+    ],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "close crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "beige",
+      "green"
+    ],
+    "dominant_colors": [
+      "beige",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "fragility",
@@ -16881,8 +17711,13 @@
       "rocky ground",
       "dried form"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "stone",
+      "dry spines"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "fragility",
       "endurance"
@@ -16925,7 +17760,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Pale thistle skeleton standing among rocks and greenery"
   },
   {
     "id": "img-014-04",
@@ -17744,21 +18580,45 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bird"
+      "bird",
+      "person",
+      "pavement"
     ],
     "object_roles": {
-      "bird": "primary"
+      "bird": "primary",
+      "person": "primary",
+      "pavement": "primary"
     },
-    "environment": [],
-    "environment_type": [
-      "urban"
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
     ],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "street-side candid"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "brown",
+      "gray"
+    ],
+    "dominant_colors": [
+      "brown",
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "quietness",
@@ -17776,9 +18636,13 @@
     ],
     "texture": [
       "hard surface",
-      "feathers"
+      "feathers",
+      "wet pavement"
     ],
-    "motion": [],
+    "motion": [
+      "stillness",
+      "scattering"
+    ],
     "tone": [
       "quietness",
       "care"
@@ -17823,7 +18687,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Bundled person feeding pigeons on wet pavement"
   },
   {
     "id": "img-016-08",
@@ -17837,13 +18702,19 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "bench"
+      "bench",
+      "person"
     ],
     "object_roles": {
-      "bench": "primary"
+      "bench": "primary",
+      "person": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "street",
+      "urban",
+      "outdoor",
+      "autumn"
     ],
     "environment_type": [
       "outdoor",
@@ -17851,15 +18722,28 @@
       "nature"
     ],
     "setting_type": [
-      "park"
+      "park",
+      "street"
     ],
-    "style": [],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "rear view"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "brown"
+    ],
+    "dominant_colors": [
+      "green",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "solitude",
@@ -17875,8 +18759,14 @@
       "fallen leaves",
       "turned back"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "wood",
+      "foliage",
+      "fallen leaves"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "solitude",
       "reflection"
@@ -17923,7 +18813,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Man sitting alone on a park bench seen from behind in autumn leaves"
   },
   {
     "id": "img-016-12",
@@ -17937,14 +18828,21 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "sign"
+      "sign",
+      "person",
+      "hood"
     ],
     "object_roles": {
-      "sign": "secondary"
+      "sign": "secondary",
+      "person": "primary",
+      "hood": "primary"
     },
     "environment": [
       "city",
-      "street"
+      "street",
+      "urban",
+      "outdoor",
+      "winter"
     ],
     "environment_type": [
       "outdoor",
@@ -17954,11 +18852,19 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "rear view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "gray"
     ],
     "dominant_colors": [
       "yellow"
@@ -17979,7 +18885,8 @@
       "forward body"
     ],
     "texture": [
-      "metal"
+      "metal",
+      "fur"
     ],
     "motion": [
       "walking"
@@ -18028,7 +18935,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Person in a fur-trimmed hood walking toward a yellow street sign"
   },
   {
     "id": "img-016-23",
@@ -18040,11 +18948,19 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "person",
+      "balloons"
+    ],
+    "object_roles": {
+      "person": "primary",
+      "balloons": "primary"
+    },
     "environment": [
       "city",
-      "street"
+      "street",
+      "urban",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -18054,11 +18970,26 @@
     "setting_type": [
       "street"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "observational street photography",
+      "humanist lyricism"
+    ],
+    "composition": [
+      "graphic contrast"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "gold",
+      "purple"
+    ],
+    "dominant_colors": [
+      "red",
+      "gold",
+      "purple"
+    ],
     "color_mode": "bw",
     "mood": [
       "lightness",
@@ -18074,7 +19005,10 @@
       "gray street",
       "walking figure"
     ],
-    "texture": [],
+    "texture": [
+      "rubber",
+      "pavement"
+    ],
     "motion": [
       "walking"
     ],
@@ -18123,7 +19057,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Person with balloons walking along a grayscale street"
   },
   {
     "id": "img-016-28",
@@ -18709,14 +19644,34 @@
     ],
     "secondary": [],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
-    "style": [],
-    "composition": [],
-    "lighting": [],
+    "objects": [
+      "door",
+      "graffiti"
+    ],
+    "object_roles": {
+      "door": "primary",
+      "graffiti": "primary"
+    },
+    "environment": [
+      "outdoor",
+      "architecture"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
+    "style": [
+      "poetic found-object photography",
+      "observational metaphor"
+    ],
+    "composition": [
+      "frontal staging"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "red"
@@ -18740,8 +19695,12 @@
       "painted tags",
       "arched brick"
     ],
-    "texture": [],
-    "motion": [],
+    "texture": [
+      "brick"
+    ],
+    "motion": [
+      "stillness"
+    ],
     "tone": [
       "mystery",
       "defiance"
@@ -18784,7 +19743,8 @@
       "impact": 7,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Graffiti-covered black door set in a red brick archway"
   },
   {
     "id": "img-011-23",
@@ -18892,13 +19852,20 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "water"
+      "water",
+      "stone",
+      "bone"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "stone": "primary",
+      "bone": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor",
+      "river"
     ],
     "environment_type": [
       "outdoor",
@@ -18907,11 +19874,26 @@
     "setting_type": [
       "water edge"
     ],
-    "style": [],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "style": [
+      "poetic nature study",
+      "observational lyricism"
+    ],
+    "composition": [
+      "balanced object"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "gray",
+      "brown"
+    ],
+    "dominant_colors": [
+      "white",
+      "gray",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "contemplation",
@@ -18929,10 +19911,12 @@
     ],
     "texture": [
       "hard surface",
-      "water surface"
+      "water surface",
+      "stone"
     ],
     "motion": [
-      "water movement"
+      "water movement",
+      "flowing water"
     ],
     "tone": [
       "contemplation",
@@ -18976,7 +19960,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Animal bone balanced on a small stone in flowing water"
   },
   {
     "id": "img-000-04",
@@ -28022,16 +29007,22 @@
     ],
     "noise": [],
     "objects": [
-      "window"
+      "window",
+      "door",
+      "building"
     ],
     "object_roles": {
-      "window": "primary"
+      "window": "primary",
+      "door": "primary",
+      "building": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "outdoor"
     ],
     "environment_type": [
-      "urban"
+      "urban",
+      "outdoor"
     ],
     "setting_type": [
       "window"
@@ -28039,14 +29030,21 @@
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "window"
+      "window",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "frontal elevation"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
-    "dominant_colors": [],
+    "dominant_colors": [
+      "red"
+    ],
     "color_mode": "color",
     "mood": [
       "neglect",
@@ -28110,7 +29108,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 8
-    }
+    },
+    "alt": "Weathered rural building with leaning doors and broken windows"
   },
   {
     "id": "img-008-04",
@@ -28136,23 +29135,44 @@
       "chimneys",
       "birds",
       "sky",
-      "bird"
+      "bird",
+      "chimney"
     ],
     "object_roles": {
-      "bird": "primary"
+      "bird": "primary",
+      "chimneys": "primary",
+      "birds": "primary",
+      "sky": "secondary",
+      "chimney": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "rooftop"
+    ],
     "style": [
       "poetic found-object photography",
       "observational metaphor",
       "quiet tension"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "vertical repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "beige"
+    ],
+    "dominant_colors": [
+      "gray",
+      "beige"
+    ],
     "color_mode": "color",
     "mood": [
       "watchfulness",
@@ -28216,7 +29236,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Three metal chimneys with birds flying in the background"
   },
   {
     "id": "img-008-05",
@@ -28242,19 +29263,30 @@
       "lantern",
       "lamp"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "lantern": "primary",
+      "lamp": "secondary"
+    },
+    "environment": [
+      "outdoor",
+      "garden"
+    ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "garden"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
+    "composition": [
+      "pairing"
+    ],
     "lighting": [
       "artificial light"
     ],
@@ -28278,9 +29310,12 @@
     "symbols": [
       "lantern"
     ],
-    "texture": [],
+    "texture": [
+      "paper"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "suspension"
     ],
     "tone": [
       "curiosity",
@@ -28321,7 +29356,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Red paper lantern hanging beside a black garden lamp"
   },
   {
     "id": "img-008-09",
@@ -28349,29 +29385,40 @@
       "tree"
     ],
     "object_roles": {
-      "tree": "primary"
+      "tree": "primary",
+      "branch": "primary",
+      "skyline": "secondary"
     },
     "environment": [
       "city",
-      "street"
+      "street",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "urban",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "poetic found-object photography",
       "observational metaphor",
       "quiet tension"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "shallow focus"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
-    "dominant_colors": [],
+    "dominant_colors": [
+      "red"
+    ],
     "color_mode": "color",
     "mood": [
       "tenacity",
@@ -28387,9 +29434,12 @@
       "city blur",
       "bent form"
     ],
-    "texture": [],
+    "texture": [
+      "bark"
+    ],
     "motion": [
-      "blurred motion"
+      "blurred motion",
+      "wind movement"
     ],
     "tone": [
       "tenacity",
@@ -28432,7 +29482,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Bent branch in sharp focus against a blurred city skyline"
   },
   {
     "id": "img-008-11",
@@ -28455,25 +29506,38 @@
     "objects": [
       "plastic crate",
       "open fire",
-      "embers"
+      "embers",
+      "fire"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "plastic crate": "secondary",
+      "open fire": "secondary",
+      "embers": "secondary",
+      "fire": "primary"
+    },
+    "environment": [
+      "outdoor"
+    ],
     "environment_type": [
       "outdoor"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "outdoor fire"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "monochrome"
+      "monochrome",
+      "observational metaphor"
     ],
     "composition": [
       "off-balance",
       "suspended object"
     ],
     "lighting": [
-      "low contrast"
+      "low contrast",
+      "firelight",
+      "smoky light"
     ],
     "colors": [
       "black",
@@ -28505,7 +29569,8 @@
       "smoke"
     ],
     "motion": [
-      "rising smoke"
+      "rising smoke",
+      "suspension"
     ],
     "tone": [
       "surreal",
@@ -28547,7 +29612,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Plastic shopping crate hanging above a smoky outdoor fire in black and white"
   },
   {
     "id": "img-008-12",
@@ -28576,22 +29642,42 @@
       "cigarette"
     ],
     "object_roles": {
-      "cigarette": "primary"
+      "cigarette": "primary",
+      "smoke": "primary",
+      "ash": "primary",
+      "embers": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "outdoor fire"
+    ],
     "style": [
       "poetic found-object photography",
       "observational metaphor",
       "quiet tension"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [
-      "red"
+    "composition": [
+      "close crop"
     ],
-    "dominant_colors": [],
+    "lighting": [
+      "firelight"
+    ],
+    "colors": [
+      "red",
+      "black",
+      "gray",
+      "orange"
+    ],
+    "dominant_colors": [
+      "red",
+      "black",
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "afterglow",
@@ -28611,7 +29697,8 @@
       "vapor"
     ],
     "motion": [
-      "flow"
+      "flow",
+      "rising smoke"
     ],
     "tone": [
       "afterglow",
@@ -28654,7 +29741,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Wisps of smoke rising above ash and charred embers"
   },
   {
     "id": "img-008-13",
@@ -28677,25 +29765,45 @@
     ],
     "noise": [],
     "objects": [
-      "hand"
+      "hand",
+      "skin"
     ],
     "object_roles": {
-      "hand": "primary"
+      "hand": "primary",
+      "skin": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "domestic",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "domestic"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
     "composition": [
       "close crop"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight",
+      "soft indoor light"
+    ],
+    "colors": [
+      "beige",
+      "pink"
+    ],
+    "dominant_colors": [
+      "beige",
+      "pink"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -28706,7 +29814,9 @@
       "found symbolism"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "skin"
+    ],
     "motion": [
       "stillness"
     ],
@@ -28727,7 +29837,7 @@
     },
     "pov": "close-up",
     "manipulation": "straight",
-    "shot_type": "",
+    "shot_type": "close_up",
     "subject_scale": "medium",
     "people_focus": "",
     "people_prominence": "none",
@@ -28749,7 +29859,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Close-up of a hand resting on bare skin"
   },
   {
     "id": "img-008-15",
@@ -28772,19 +29883,37 @@
     ],
     "noise": [],
     "objects": [
-      "suitcase"
+      "suitcase",
+      "person"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "suitcase": "primary",
+      "person": "secondary"
+    },
+    "environment": [
+      "outdoor",
+      "street",
+      "transit"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing",
+      "cropped lower-body view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -28805,9 +29934,14 @@
     "symbols": [
       "suitcase"
     ],
-    "texture": [],
+    "texture": [
+      "pavement",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "walking",
+      "rolling"
     ],
     "tone": [
       "curiosity",
@@ -28846,7 +29980,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Two travelers pulling rolling suitcases in black and white"
   },
   {
     "id": "img-008-16",
@@ -28868,18 +30003,35 @@
       "daily life"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "shoes"
+    ],
+    "object_roles": {
+      "shoes": "primary"
+    },
+    "environment": [
+      "domestic",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "domestic"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "detail study"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black"
     ],
@@ -28896,7 +30048,9 @@
       "found symbolism"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "leather"
+    ],
     "motion": [
       "stillness"
     ],
@@ -28939,7 +30093,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Pair of worn black shoes on a gritty, stained floor"
   },
   {
     "id": "img-008-18",
@@ -28962,19 +30117,36 @@
     ],
     "noise": [],
     "objects": [
-      "bin"
+      "bin",
+      "bag",
+      "trash bin"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "bin": "primary",
+      "bag": "primary",
+      "trash bin": "secondary"
+    },
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "frontal staging"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "gray",
       "green"
@@ -28995,7 +30167,9 @@
     "symbols": [
       "bin"
     ],
-    "texture": [],
+    "texture": [
+      "plastic"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29038,7 +30212,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Green plastic bag stretched over a gray trash bin"
   },
   {
     "id": "img-008-20",
@@ -29060,18 +30235,33 @@
       "daily life"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "chair"
+    ],
+    "object_roles": {
+      "chair": "secondary"
+    },
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "green"
     ],
@@ -29088,7 +30278,9 @@
       "found symbolism"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "plastic"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29131,7 +30323,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Two pale green perforated seats mounted against a dry hedge"
   },
   {
     "id": "img-008-21",
@@ -29154,21 +30347,36 @@
     ],
     "noise": [],
     "objects": [
-      "chair"
+      "chair",
+      "stone"
     ],
     "object_roles": {
-      "chair": "primary"
+      "chair": "primary",
+      "stone": "secondary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor",
+      "water edge"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "water edge"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white"
     ],
@@ -29187,7 +30395,10 @@
     "symbols": [
       "chair"
     ],
-    "texture": [],
+    "texture": [
+      "plastic",
+      "stone"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29230,7 +30441,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "White plastic chair beside large shoreline boulders"
   },
   {
     "id": "img-008-22",
@@ -29257,27 +30469,43 @@
       "lamp"
     ],
     "object_roles": {
-      "bench": "primary"
+      "bench": "primary",
+      "lamp": "primary"
     },
     "environment": [
-      "park"
-    ],
-    "environment_type": [
+      "park",
       "outdoor",
       "urban"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor",
+      "surreal urban still life"
     ],
-    "composition": [],
+    "composition": [
+      "frontal incongruity"
+    ],
     "lighting": [
       "artificial light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "white",
+      "black"
+    ],
+    "dominant_colors": [
+      "white",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -29290,7 +30518,9 @@
     "symbols": [
       "bench"
     ],
-    "texture": [],
+    "texture": [
+      "fabric shade"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29333,7 +30563,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Oversized floor lamp standing outdoors among benches"
   },
   {
     "id": "img-008-24",
@@ -29356,24 +30587,42 @@
     ],
     "noise": [],
     "objects": [
-      "padlock"
+      "padlock",
+      "chain"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "padlock": "primary",
+      "chain": "primary"
+    },
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "detail study"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "close crop",
+      "detail study"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "blue"
+      "blue",
+      "brown"
     ],
     "dominant_colors": [
-      "blue"
+      "blue",
+      "brown"
     ],
     "color_mode": "color",
     "mood": [
@@ -29387,7 +30636,9 @@
     "symbols": [
       "padlock"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29430,7 +30681,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Blue padlock fastened to a rusted chain"
   },
   {
     "id": "img-008-25",
@@ -29455,21 +30707,44 @@
     "objects": [
       "clock"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "clock": "primary"
+    },
+    "environment": [
+      "domestic",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "domestic"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
     "composition": [
+      "detail study",
       "close crop"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight",
+      "warm indoor light"
+    ],
+    "colors": [
+      "cream",
+      "black",
+      "gold"
+    ],
+    "dominant_colors": [
+      "cream",
+      "black",
+      "gold"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -29482,7 +30757,10 @@
     "symbols": [
       "clock"
     ],
-    "texture": [],
+    "texture": [
+      "metal",
+      "glass"
+    ],
     "motion": [
       "stillness"
     ],
@@ -29503,7 +30781,7 @@
     },
     "pov": "close-up",
     "manipulation": "straight",
-    "shot_type": "",
+    "shot_type": "close_up",
     "subject_scale": "medium",
     "people_focus": "",
     "people_prominence": "none",
@@ -29525,7 +30803,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Close-up of a vintage alarm clock"
   },
   {
     "id": "img-008-26",
@@ -29553,10 +30832,13 @@
       "water"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "water droplets": "primary",
+      "railing": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -29570,14 +30852,24 @@
       "observational metaphor",
       "quiet tension"
     ],
-    "composition": [],
+    "composition": [
+      "close crop"
+    ],
     "lighting": [
       "artificial light",
       "night light",
-      "daylight"
+      "daylight",
+      "sunlit light",
+      "backlit light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "gold",
+      "brown"
+    ],
+    "dominant_colors": [
+      "gold",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -29642,7 +30934,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Water droplets glowing on a sunlit metal railing"
   },
   {
     "id": "img-008-28",
@@ -29669,22 +30962,37 @@
       "stairs"
     ],
     "object_roles": {
-      "stairs": "primary"
+      "stairs": "primary",
+      "lamp": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "interior",
+      "architecture"
+    ],
+    "environment_type": [
+      "indoor"
+    ],
+    "setting_type": [
+      "interior"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
+    "composition": [
+      "tunnel depth"
+    ],
     "lighting": [
       "artificial light",
-      "night light"
+      "night light",
+      "warm light"
     ],
-    "colors": [],
+    "colors": [
+      "amber",
+      "black"
+    ],
     "dominant_colors": [],
     "color_mode": "color",
     "mood": [
@@ -29698,9 +31006,12 @@
     "symbols": [
       "lamp"
     ],
-    "texture": [],
+    "texture": [
+      "stone"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "suspension"
     ],
     "tone": [
       "curiosity",
@@ -29741,7 +31052,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Arched stair corridor lit by hanging lamps"
   },
   {
     "id": "img-008-30",
@@ -29769,22 +31081,37 @@
       "lamp"
     ],
     "object_roles": {
-      "flag": "primary"
+      "flag": "primary",
+      "tree": "primary",
+      "lamp": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "rooftop"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "protest"
+      "protest",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "red"
     ],
-    "dominant_colors": [],
+    "dominant_colors": [
+      "red"
+    ],
     "color_mode": "color",
     "mood": [
       "tension",
@@ -29800,7 +31127,9 @@
       "public sign",
       "collective body"
     ],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "blurred motion"
     ],
@@ -29846,7 +31175,8 @@
       "impact": 9,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Polish flag beside blurred streetlamps and a rooftop edge"
   },
   {
     "id": "img-008-33",
@@ -29869,21 +31199,41 @@
     ],
     "noise": [],
     "objects": [
-      "crane"
+      "crane",
+      "lights",
+      "traffic light",
+      "construction crane"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [
+    "object_roles": {
+      "crane": "primary",
+      "lights": "primary",
+      "traffic light": "primary",
+      "construction crane": "secondary"
+    },
+    "environment": [
+      "outdoor",
+      "street",
       "urban"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "vertical repetition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "red"
@@ -29908,7 +31258,8 @@
       "metal"
     ],
     "motion": [
-      "stillness"
+      "stillness",
+      "suspension"
     ],
     "tone": [
       "curiosity",
@@ -29949,7 +31300,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Traffic lights hanging in front of a red-and-white construction crane"
   },
   {
     "id": "img-008-34",
@@ -29975,28 +31327,48 @@
       "streetlamp",
       "trees",
       "snow",
-      "tree"
+      "tree",
+      "lamp"
     ],
     "object_roles": {
       "tree": "primary",
-      "snow": "primary"
+      "snow": "primary",
+      "streetlamp": "primary",
+      "trees": "secondary",
+      "lamp": "primary"
     },
     "environment": [
+      "park",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
       "park"
     ],
-    "environment_type": [],
-    "setting_type": [],
     "style": [
       "poetic found-object photography",
       "observational metaphor",
       "quiet tension"
     ],
-    "composition": [],
-    "lighting": [
-      "cold light"
+    "composition": [
+      "vertical framing"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "cold light",
+      "night light",
+      "artificial light"
+    ],
+    "colors": [
+      "brown",
+      "white"
+    ],
+    "dominant_colors": [
+      "brown",
+      "white"
+    ],
     "color_mode": "color",
     "mood": [
       "isolation",
@@ -30060,7 +31432,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Old streetlamp among tree trunks in snowy woods"
   },
   {
     "id": "img-008-35",
@@ -30084,23 +31457,36 @@
     "noise": [],
     "objects": [
       "goal",
-      "wall"
+      "wall",
+      "football goal"
     ],
     "object_roles": {
-      "wall": "secondary"
+      "wall": "secondary",
+      "goal": "primary",
+      "football goal": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor"
+    ],
+    "setting_type": [
+      "playground"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "frontal staging"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "orange",
@@ -30108,7 +31494,8 @@
     ],
     "dominant_colors": [
       "black",
-      "orange"
+      "orange",
+      "red"
     ],
     "color_mode": "color",
     "mood": [
@@ -30123,7 +31510,9 @@
       "goal"
     ],
     "texture": [
-      "hard surface"
+      "hard surface",
+      "brick",
+      "metal"
     ],
     "motion": [
       "stillness"
@@ -30167,7 +31556,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Orange football goal standing in front of a weathered brick wall and black gate"
   },
   {
     "id": "img-008-37",
@@ -30198,26 +31588,38 @@
       "snow": "primary"
     },
     "environment": [
-      "winter"
-    ],
-    "environment_type": [
+      "winter",
       "outdoor"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "poetic found-object photography",
       "conceptual stillness",
-      "urban object"
+      "urban object",
+      "observational metaphor"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "pairing"
     ],
     "lighting": [
       "cold daylight",
       "cold light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "brown",
+      "white"
+    ],
+    "dominant_colors": [
+      "brown",
+      "white"
+    ],
     "color_mode": "color",
     "mood": [
       "coldness",
@@ -30233,7 +31635,8 @@
     ],
     "texture": [
       "snow",
-      "ice"
+      "ice",
+      "wood"
     ],
     "motion": [
       "stillness"
@@ -30279,7 +31682,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Two empty wooden chairs standing in the snow"
   },
   {
     "id": "img-009-02",
@@ -34649,21 +36053,29 @@
     "objects": [
       "bench",
       "snow",
-      "fallen leaves"
+      "fallen leaves",
+      "chair"
     ],
     "object_roles": {
       "bench": "primary",
-      "snow": "primary"
+      "snow": "primary",
+      "fallen leaves": "secondary",
+      "chair": "secondary"
     },
     "environment": [
       "park",
-      "winter"
+      "winter",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "urban"
+      "urban",
+      "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
@@ -34677,9 +36089,13 @@
       "cold light"
     ],
     "colors": [
+      "red",
+      "white",
+      "brown"
+    ],
+    "dominant_colors": [
       "red"
     ],
-    "dominant_colors": [],
     "color_mode": "color",
     "mood": [
       "quietness",
@@ -34697,7 +36113,9 @@
     ],
     "texture": [
       "snow",
-      "ice"
+      "ice",
+      "wood",
+      "foliage"
     ],
     "motion": [
       "stillness"
@@ -34744,7 +36162,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Snow-covered bench with a few leaves on the seat"
   },
   {
     "id": "img-013-03",
@@ -34771,16 +36190,23 @@
       "fallen leaves"
     ],
     "object_roles": {
-      "bench": "primary"
+      "bench": "primary",
+      "fallen leaves": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature",
+      "outdoor",
+      "autumn"
     ],
     "environment_type": [
       "outdoor",
-      "urban"
+      "urban",
+      "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
@@ -34789,9 +36215,13 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "orange",
+      "brown"
     ],
     "dominant_colors": [
       "black"
@@ -34811,7 +36241,11 @@
       "leaf carpet",
       "seasonal pause"
     ],
-    "texture": [],
+    "texture": [
+      "wood",
+      "foliage",
+      "fallen leaves"
+    ],
     "motion": [
       "stillness"
     ],
@@ -34856,7 +36290,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Black bench surrounded by fallen autumn leaves"
   },
   {
     "id": "img-013-05",
@@ -34880,23 +36315,45 @@
     "noise": [],
     "objects": [
       "seed head",
-      "stem"
+      "stem",
+      "dandelion"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "seed head": "primary",
+      "stem": "secondary",
+      "dandelion": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "white",
+      "green"
+    ],
+    "dominant_colors": [
+      "white",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "delicacy",
@@ -34937,7 +36394,7 @@
     },
     "pov": "close-up",
     "manipulation": "straight",
-    "shot_type": "",
+    "shot_type": "close_up",
     "subject_scale": "medium",
     "people_focus": "",
     "people_prominence": "none",
@@ -34959,7 +36416,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Close-up of a dandelion seed head"
   },
   {
     "id": "img-013-07",
@@ -34983,21 +36441,42 @@
     "objects": [
       "moon"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "moon": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "sky",
+      "night"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "moonlight"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "wonder",
@@ -35013,7 +36492,9 @@
       "cycle",
       "remote witness"
     ],
-    "texture": [],
+    "texture": [
+      "cratered surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35036,7 +36517,7 @@
     },
     "pov": "close-up",
     "manipulation": "straight",
-    "shot_type": "",
+    "shot_type": "close_up",
     "subject_scale": "medium",
     "people_focus": "",
     "people_prominence": "none",
@@ -35058,7 +36539,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Close-up of the full moon"
   },
   {
     "id": "img-013-08",
@@ -35083,12 +36565,22 @@
     "objects": [
       "moon"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [
-      "outdoor"
+    "object_roles": {
+      "moon": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "sky",
+      "night"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
@@ -35098,10 +36590,17 @@
       "isolated subject"
     ],
     "lighting": [
-      "low light"
+      "low light",
+      "moonlight"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "restraint",
@@ -35117,7 +36616,9 @@
       "partial revelation",
       "cycle"
     ],
-    "texture": [],
+    "texture": [
+      "cratered surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35162,7 +36663,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Half moon against a dark sky"
   },
   {
     "id": "img-013-09",
@@ -35185,14 +36687,26 @@
     ],
     "noise": [],
     "objects": [
-      "crescent moon"
+      "crescent moon",
+      "moon"
     ],
-    "object_roles": {},
-    "environment": [],
+    "object_roles": {
+      "crescent moon": "primary",
+      "moon": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "sky",
+      "night"
+    ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
@@ -35201,12 +36715,16 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
+    "lighting": [
+      "moonlight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "white"
     ],
     "dominant_colors": [
-      "black"
+      "black",
+      "white"
     ],
     "color_mode": "color",
     "mood": [
@@ -35223,7 +36741,9 @@
       "sliver of time",
       "waning presence"
     ],
-    "texture": [],
+    "texture": [
+      "cratered surface"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35268,7 +36788,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Thin crescent moon against black sky"
   },
   {
     "id": "img-013-10",
@@ -35295,26 +36816,45 @@
       "contrail",
       "sky"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "moon": "primary",
+      "contrail": "primary",
+      "sky": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "sky",
+      "daytime"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "sky"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "open sky"
+      "open sky",
+      "pairing",
+      "minimal spacing"
     ],
     "lighting": [
-      "daylight"
+      "daylight",
+      "moonlight"
     ],
     "colors": [
-      "white"
+      "white",
+      "blue"
     ],
     "dominant_colors": [
-      "white"
+      "white",
+      "blue"
     ],
     "color_mode": "color",
     "mood": [
@@ -35331,7 +36871,9 @@
       "airplane trace",
       "coexistence of scales"
     ],
-    "texture": [],
+    "texture": [
+      "sky haze"
+    ],
     "motion": [
       "passing trace"
     ],
@@ -35376,7 +36918,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 9
-    }
+    },
+    "alt": "Daytime moon beside a white airplane contrail"
   },
   {
     "id": "img-013-13",
@@ -35404,27 +36947,39 @@
       "tree"
     ],
     "object_roles": {
-      "tree": "primary"
+      "tree": "primary",
+      "tree stump": "secondary",
+      "new leaves": "secondary"
     },
     "environment": [
-      "park"
+      "park",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "park",
+      "forest edge"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "red",
+      "green",
+      "brown"
     ],
     "dominant_colors": [
       "red"
@@ -35444,7 +36999,10 @@
       "new leaves",
       "survival"
     ],
-    "texture": [],
+    "texture": [
+      "foliage",
+      "bark"
+    ],
     "motion": [
       "stillness"
     ],
@@ -35489,7 +37047,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Tiny red leaves sprouting from a cut tree stump"
   },
   {
     "id": "img-013-15",
@@ -35514,36 +37073,48 @@
     "objects": [
       "branches",
       "snow",
-      "tree"
+      "tree",
+      "branch"
     ],
     "object_roles": {
       "tree": "primary",
-      "snow": "primary"
+      "snow": "primary",
+      "branches": "primary",
+      "branch": "primary"
     },
     "environment": [
-      "winter"
+      "winter",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "winter woods"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "all-over field"
+      "all-over field",
+      "all-over pattern"
     ],
     "lighting": [
       "cold daylight",
       "cold light"
     ],
     "colors": [
+      "red",
+      "white",
+      "gray"
+    ],
+    "dominant_colors": [
       "red"
     ],
-    "dominant_colors": [],
     "color_mode": "color",
     "mood": [
       "stillness",
@@ -35562,7 +37133,9 @@
     "texture": [
       "snow",
       "ice",
-      "branch texture"
+      "branch texture",
+      "foliage",
+      "branches"
     ],
     "motion": [
       "stillness"
@@ -35608,7 +37181,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Snow-covered branches filling the frame"
   },
   {
     "id": "img-013-17",
@@ -35635,10 +37209,14 @@
       "leaf"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "leaf": "secondary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor",
+      "pond"
     ],
     "environment_type": [
       "outdoor",
@@ -35650,12 +37228,16 @@
     "style": [
       "poetic nature study",
       "minimal observation",
-      "reflection"
+      "reflection",
+      "observational lyricism"
     ],
     "composition": [
-      "reflection"
+      "reflection",
+      "reflection study"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
       "white"
@@ -35679,7 +37261,8 @@
       "double image"
     ],
     "texture": [
-      "water surface"
+      "water surface",
+      "foliage"
     ],
     "motion": [
       "visual shimmer",
@@ -35725,7 +37308,8 @@
       "impact": 8,
       "originality": 9,
       "emotion": 7
-    }
+    },
+    "alt": "Leaves and grasses reflected on still pond water in black and white"
   },
   {
     "id": "img-013-18",
@@ -35752,26 +37336,41 @@
       "wall"
     ],
     "object_roles": {
-      "wall": "primary"
+      "wall": "primary",
+      "vine": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "nature",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "wall"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "surface study"
+      "surface study",
+      "vertical spread"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
+      "red",
+      "green",
+      "brown"
+    ],
+    "dominant_colors": [
       "red"
     ],
-    "dominant_colors": [],
     "color_mode": "color",
     "mood": [
       "patience",
@@ -35790,7 +37389,9 @@
     "texture": [
       "hard surface",
       "wall texture",
-      "leaf texture"
+      "leaf texture",
+      "foliage",
+      "wall surface"
     ],
     "motion": [
       "stillness"
@@ -35836,7 +37437,8 @@
       "impact": 7,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Climbing vines spreading across a textured wall"
   },
   {
     "id": "img-013-20",
@@ -35863,10 +37465,13 @@
       "ripples"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "ripples": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -35881,11 +37486,20 @@
       "quiet attention"
     ],
     "composition": [
-      "all-over field"
+      "all-over field",
+      "minimal pattern"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "blue"
+    ],
+    "dominant_colors": [
+      "gray",
+      "blue"
+    ],
     "color_mode": "color",
     "mood": [
       "meditation",
@@ -35906,7 +37520,8 @@
     ],
     "motion": [
       "water movement",
-      "rippling"
+      "rippling",
+      "rippling water"
     ],
     "tone": [
       "meditation",
@@ -35949,7 +37564,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Concentric rain ripples covering pale water"
   },
   {
     "id": "img-013-21",
@@ -35976,10 +37592,13 @@
       "water"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "leaf": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -35996,10 +37615,13 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "gray",
-      "gold"
+      "gold",
+      "yellow"
     ],
     "dominant_colors": [
       "gray"
@@ -36020,11 +37642,13 @@
       "letting go"
     ],
     "texture": [
-      "water surface"
+      "water surface",
+      "foliage"
     ],
     "motion": [
       "water movement",
-      "drifting"
+      "drifting",
+      "floating"
     ],
     "tone": [
       "drift",
@@ -36067,7 +37691,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Curled golden leaf floating on gray water"
   },
   {
     "id": "img-013-22",
@@ -36091,23 +37716,47 @@
     "noise": [],
     "objects": [
       "heart-shaped stone",
-      "rock"
+      "rock",
+      "stone"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "heart-shaped stone": "primary",
+      "rock": "primary",
+      "stone": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "water edge",
+      "riverbank"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "water edge"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "balanced object"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "brown"
+    ],
+    "dominant_colors": [
+      "gray",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "tenderness",
@@ -36125,7 +37774,9 @@
     ],
     "texture": [
       "hard surface",
-      "water surface"
+      "water surface",
+      "stone",
+      "smooth stone"
     ],
     "motion": [
       "stillness"
@@ -36171,7 +37822,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Balanced heart-shaped stone on a riverside rock"
   },
   {
     "id": "img-013-26",
@@ -36195,23 +37847,46 @@
     "noise": [],
     "objects": [
       "stacked stones",
-      "grass"
+      "grass",
+      "stone"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "stacked stones": "secondary",
+      "grass": "primary",
+      "stone": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "field"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "field"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "vertical stack"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "brown",
+      "green"
+    ],
+    "dominant_colors": [
+      "brown",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "patience",
@@ -36228,7 +37903,8 @@
       "precarious order"
     ],
     "texture": [
-      "hard surface"
+      "hard surface",
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -36274,7 +37950,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Small cairn of rounded stones in the grass"
   },
   {
     "id": "img-013-27",
@@ -36298,12 +37975,26 @@
     "noise": [],
     "objects": [
       "shell",
-      "rock"
+      "rock",
+      "stone"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "shell": "primary",
+      "rock": "primary",
+      "stone": "secondary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "shore"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "shore"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
@@ -36316,7 +38007,8 @@
       "low light"
     ],
     "colors": [
-      "white"
+      "white",
+      "black"
     ],
     "dominant_colors": [
       "white"
@@ -36338,7 +38030,8 @@
     ],
     "texture": [
       "shell surface",
-      "porous rock"
+      "porous rock",
+      "stone"
     ],
     "motion": [
       "stillness"
@@ -36384,7 +38077,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "White seashell resting on a dark porous rock"
   },
   {
     "id": "img-013-29",
@@ -36412,25 +38106,37 @@
       "flower"
     ],
     "object_roles": {
-      "flower": "primary"
+      "flower": "primary",
+      "dry leaf": "secondary",
+      "flowers": "primary"
     },
-    "environment": [],
+    "environment": [
+      "nature",
+      "outdoor",
+      "garden"
+    ],
     "environment_type": [
       "outdoor",
       "nature"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "garden"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "purple"
+      "purple",
+      "yellow"
     ],
     "dominant_colors": [
       "purple"
@@ -36450,7 +38156,10 @@
       "flowers",
       "overlapping seasons"
     ],
-    "texture": [],
+    "texture": [
+      "petals",
+      "foliage"
+    ],
     "motion": [
       "stillness"
     ],
@@ -36495,7 +38204,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Dry maple leaf resting on purple flowers"
   },
   {
     "id": "img-013-30",
@@ -36524,10 +38234,13 @@
     ],
     "object_roles": {
       "flower": "primary",
-      "water": "primary"
+      "water": "primary",
+      "flowers": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -36544,9 +38257,12 @@
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "yellow"
+      "yellow",
+      "green"
     ],
     "dominant_colors": [
       "yellow"
@@ -36567,11 +38283,13 @@
       "upward movement"
     ],
     "texture": [
-      "water surface"
+      "water surface",
+      "petals"
     ],
     "motion": [
       "water movement",
-      "stillness"
+      "stillness",
+      "rising smoke"
     ],
     "tone": [
       "lightness",
@@ -36614,7 +38332,8 @@
       "impact": 8,
       "originality": 8,
       "emotion": 8
-    }
+    },
+    "alt": "Yellow flowers rising from shallow water"
   },
   {
     "id": "img-013-31",
@@ -36637,23 +38356,42 @@
     ],
     "noise": [],
     "objects": [
-      "wildflowers"
+      "wildflowers",
+      "flower"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "wildflowers": "primary",
+      "flower": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "field",
+      "garden"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "garden"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop",
+      "shallow focus"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "purple"
+      "purple",
+      "green"
     ],
     "dominant_colors": [
       "purple"
@@ -36673,7 +38411,9 @@
       "soft focus",
       "brief season"
     ],
-    "texture": [],
+    "texture": [
+      "petals"
+    ],
     "motion": [
       "stillness"
     ],
@@ -36718,7 +38458,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Cluster of small purple wildflowers in soft focus"
   },
   {
     "id": "img-013-32",
@@ -36743,25 +38484,49 @@
     "objects": [
       "wildflowers",
       "glass jar",
-      "flower"
+      "flower",
+      "bouquet"
     ],
     "object_roles": {
-      "flower": "primary"
+      "flower": "primary",
+      "wildflowers": "primary",
+      "glass jar": "primary",
+      "bouquet": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "domestic",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "domestic"
+    ],
+    "setting_type": [
+      "domestic"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
-      "quiet attention"
+      "quiet attention",
+      "poetic still life"
     ],
     "composition": [
       "isolated subject"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight",
+      "soft indoor light"
+    ],
+    "colors": [
+      "yellow",
+      "purple",
+      "green"
+    ],
+    "dominant_colors": [
+      "yellow",
+      "purple",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "care",
@@ -36778,7 +38543,8 @@
       "temporary keeping"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "petals"
     ],
     "motion": [
       "stillness"
@@ -36824,7 +38590,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Mixed bouquet of wildflowers in a glass jar"
   },
   {
     "id": "img-013-33",
@@ -36847,21 +38614,37 @@
     ],
     "noise": [],
     "objects": [
-      "daffodils"
+      "daffodils",
+      "flower"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "daffodils": "primary",
+      "flower": "secondary"
+    },
+    "environment": [
+      "nature",
+      "outdoor",
+      "garden"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "garden"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "white",
       "yellow"
@@ -36885,7 +38668,9 @@
       "bloom",
       "return"
     ],
-    "texture": [],
+    "texture": [
+      "petals"
+    ],
     "motion": [
       "stillness"
     ],
@@ -36930,7 +38715,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "White daffodils with yellow centers"
   },
   {
     "id": "img-013-34",
@@ -36955,21 +38741,40 @@
     "objects": [
       "seed head"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "seed head": "primary"
+    },
+    "environment": [
+      "nature",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "detail study"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "close crop"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "beige",
+      "brown"
+    ],
+    "dominant_colors": [
+      "beige",
+      "brown"
+    ],
     "color_mode": "color",
     "mood": [
       "fragility",
@@ -36985,7 +38790,10 @@
       "afterlife",
       "survival of form"
     ],
-    "texture": [],
+    "texture": [
+      "filaments",
+      "spikes"
+    ],
     "motion": [
       "stillness"
     ],
@@ -37030,7 +38838,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Spiky dried seed head against a soft background"
   },
   {
     "id": "img-013-36",
@@ -37058,10 +38867,15 @@
       "water"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "stem": "primary",
+      "stone": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "nature",
+      "outdoor",
+      "stream"
     ],
     "environment_type": [
       "outdoor",
@@ -37076,11 +38890,16 @@
       "quiet attention"
     ],
     "composition": [
-      "isolated subject"
+      "isolated subject",
+      "pairing",
+      "underwater detail"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "green"
+      "green",
+      "gray"
     ],
     "dominant_colors": [
       "green"
@@ -37102,7 +38921,8 @@
     ],
     "texture": [
       "hard surface",
-      "water surface"
+      "water surface",
+      "stone"
     ],
     "motion": [
       "water movement",
@@ -37149,7 +38969,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 8
-    }
+    },
+    "alt": "Green stem beside a smooth stone beneath clear water"
   },
   {
     "id": "img-013-38",
@@ -37175,28 +38996,45 @@
       "vine",
       "metal bars",
       "concrete wall",
-      "wall"
+      "wall",
+      "bars"
     ],
     "object_roles": {
-      "wall": "secondary"
+      "wall": "secondary",
+      "vine": "primary",
+      "metal bars": "primary",
+      "concrete wall": "secondary",
+      "bars": "primary"
     },
     "environment": [
-      "architecture"
+      "architecture",
+      "nature",
+      "outdoor"
     ],
-    "environment_type": [],
-    "setting_type": [],
+    "environment_type": [
+      "outdoor",
+      "nature"
+    ],
+    "setting_type": [
+      "wall"
+    ],
     "style": [
       "poetic nature study",
       "observational lyricism",
       "quiet attention"
     ],
     "composition": [
-      "surface study"
+      "surface study",
+      "pairing",
+      "vertical contrast"
     ],
-    "lighting": [],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "black",
-      "green"
+      "green",
+      "gray"
     ],
     "dominant_colors": [
       "black",
@@ -37219,7 +39057,10 @@
     ],
     "texture": [
       "metal",
-      "hard surface"
+      "hard surface",
+      "foliage",
+      "vine",
+      "concrete"
     ],
     "motion": [
       "stillness"
@@ -37265,7 +39106,8 @@
       "impact": 9,
       "originality": 8,
       "emotion": 7
-    }
+    },
+    "alt": "Bright green vine growing beside black metal bars and a concrete wall"
   },
   {
     "id": "img-014-01",
@@ -38619,30 +40461,54 @@
     "objects": [
       "woman",
       "water",
-      "stone blocks"
+      "stone blocks",
+      "person",
+      "stone"
     ],
     "object_roles": {
-      "water": "primary"
+      "water": "primary",
+      "woman": "primary",
+      "stone blocks": "primary",
+      "person": "secondary",
+      "stone": "primary"
     },
     "environment": [
-      "water edge"
+      "water edge",
+      "street",
+      "urban",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
     "setting_type": [
-      "water edge"
+      "water edge",
+      "street"
     ],
     "style": [
       "observational street photography",
       "humanist lyricism",
-      "ordinary grace"
+      "ordinary grace",
+      "motion-blur street portrait"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "diagonal crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "red",
+      "green",
+      "gray"
+    ],
+    "dominant_colors": [
+      "red",
+      "green",
+      "gray"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -38660,11 +40526,14 @@
     ],
     "texture": [
       "hard surface",
-      "water surface"
+      "water surface",
+      "stone"
     ],
     "motion": [
       "water movement",
-      "flow"
+      "flow",
+      "leaning",
+      "touching water"
     ],
     "tone": [
       "curiosity",
@@ -38684,7 +40553,7 @@
       "curiosity": 0.77
     },
     "pov": "frontal",
-    "manipulation": "straight",
+    "manipulation": "motion blur",
     "shot_type": "",
     "subject_scale": "medium",
     "people_focus": "woman",
@@ -38712,7 +40581,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Young woman crouching on stone blocks and touching the water"
   },
   {
     "id": "img-016-05",
@@ -38734,23 +40604,49 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "worker",
+      "bag",
+      "truck"
+    ],
+    "object_roles": {
+      "worker": "primary",
+      "bag": "secondary",
+      "truck": "secondary"
+    },
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "action crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "black"
+      "black",
+      "yellow",
+      "blue"
     ],
     "dominant_colors": [
-      "black"
+      "black",
+      "yellow",
+      "blue"
     ],
     "color_mode": "color",
     "mood": [
@@ -38762,9 +40658,13 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "plastic",
+      "metal"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "throwing"
     ],
     "tone": [
       "curiosity",
@@ -38808,7 +40708,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Worker in a reflective vest tossing a black trash bag into a sanitation truck"
   },
   {
     "id": "img-016-06",
@@ -38830,18 +40731,37 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "worker"
+    ],
+    "object_roles": {
+      "worker": "primary"
+    },
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing",
+      "rear view"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "blue",
       "yellow"
@@ -38860,7 +40780,9 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
       "stillness"
     ],
@@ -38906,7 +40828,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two sanitation workers seen from behind in blue and yellow uniforms"
   },
   {
     "id": "img-016-07",
@@ -38928,12 +40851,18 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
+    "objects": [
+      "cricket bat"
+    ],
+    "object_roles": {
+      "cricket bat": "secondary"
+    },
     "environment": [
       "city",
       "street",
-      "park"
+      "park",
+      "urban",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -38941,17 +40870,29 @@
       "nature"
     ],
     "setting_type": [
-      "park"
+      "park",
+      "street"
     ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "pairing"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "blue"
+    ],
+    "dominant_colors": [
+      "green",
+      "blue"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -38962,9 +40903,12 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "grass"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "play"
     ],
     "tone": [
       "curiosity",
@@ -39007,7 +40951,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two men playing cricket in a city park"
   },
   {
     "id": "img-016-09",
@@ -39030,25 +40975,47 @@
     ],
     "noise": [],
     "objects": [
-      "coat"
+      "coat",
+      "person",
+      "railing",
+      "bridge"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "coat": "primary",
+      "person": "secondary",
+      "railing": "secondary",
+      "bridge": "secondary"
+    },
     "environment": [
-      "transit"
+      "transit",
+      "street",
+      "urban",
+      "outdoor",
+      "bridge"
     ],
     "environment_type": [
-      "outdoor"
+      "outdoor",
+      "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street",
+      "bridge"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "side profile"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "brown"
+      "brown",
+      "gray"
     ],
     "dominant_colors": [
       "brown"
@@ -39065,7 +41032,9 @@
     "symbols": [
       "coat"
     ],
-    "texture": [],
+    "texture": [
+      "metal"
+    ],
     "motion": [
       "stillness"
     ],
@@ -39113,7 +41082,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Woman in a brown coat leaning on a bridge railing"
   },
   {
     "id": "img-016-10",
@@ -39135,20 +41105,48 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "person",
+      "bag"
+    ],
+    "object_roles": {
+      "person": "secondary",
+      "bag": "primary"
+    },
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "passing juxtaposition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "brown",
+      "black",
+      "green"
+    ],
+    "dominant_colors": [
+      "brown",
+      "black",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -39159,9 +41157,12 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "walking"
     ],
     "tone": [
       "curiosity",
@@ -39207,7 +41208,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Seated woman checking her bag while another woman walks past"
   },
   {
     "id": "img-016-11",
@@ -39230,23 +41232,47 @@
     ],
     "noise": [],
     "objects": [
-      "glasses"
+      "glasses",
+      "person",
+      "hat"
     ],
     "object_roles": {
-      "glasses": "primary"
+      "glasses": "primary",
+      "person": "secondary",
+      "hat": "primary"
     },
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "close portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "gray",
+      "green"
+    ],
+    "dominant_colors": [
+      "gray",
+      "green"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -39260,7 +41286,8 @@
       "glasses"
     ],
     "texture": [
-      "glass"
+      "glass",
+      "knitwear"
     ],
     "motion": [
       "stillness"
@@ -39309,7 +41336,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Smiling woman in glasses wearing a hat with pom-poms"
   },
   {
     "id": "img-016-13",
@@ -39331,23 +41359,49 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "person",
+      "hood"
+    ],
+    "object_roles": {
+      "person": "secondary",
+      "hood": "secondary"
+    },
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "winter"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
     "composition": [
       "frame within frame",
-      "close crop"
+      "close crop",
+      "close portrait"
     ],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "beige",
+      "black"
+    ],
+    "dominant_colors": [
+      "beige",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -39358,7 +41412,9 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "fur"
+    ],
     "motion": [
       "stillness"
     ],
@@ -39379,7 +41435,7 @@
     },
     "pov": "close-up",
     "manipulation": "straight",
-    "shot_type": "",
+    "shot_type": "close_up",
     "subject_scale": "medium",
     "people_focus": "woman",
     "people_prominence": "primary",
@@ -39406,7 +41462,8 @@
       "impact": 7,
       "originality": 9,
       "emotion": 9
-    }
+    },
+    "alt": "Close-up of a woman framed by a fur-lined hood"
   },
   {
     "id": "img-016-15",
@@ -39428,25 +41485,49 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [
-      "winter"
+    "objects": [
+      "person"
     ],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "person": "secondary"
+    },
+    "environment": [
+      "winter",
+      "street",
+      "urban",
+      "outdoor"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban",
+      "nature"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
+    "composition": [
+      "group across frame"
+    ],
     "lighting": [
       "cold daylight",
       "cold light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "black",
+      "pink",
+      "beige"
+    ],
+    "dominant_colors": [
+      "black",
+      "pink",
+      "beige"
+    ],
     "color_mode": "color",
     "mood": [
       "coldness",
@@ -39458,7 +41539,9 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "winter fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -39506,7 +41589,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Three pedestrians in winter hats and scarves walking together"
   },
   {
     "id": "img-016-16",
@@ -39530,18 +41614,26 @@
     "noise": [],
     "objects": [
       "pedestrians",
-      "street"
+      "street",
+      "person"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "pedestrians": "primary",
+      "street": "primary",
+      "person": "secondary"
+    },
     "environment": [
       "city",
       "street",
-      "winter"
+      "winter",
+      "urban",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
       "street",
-      "urban"
+      "urban",
+      "nature"
     ],
     "setting_type": [
       "street"
@@ -39551,15 +41643,24 @@
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
+    "composition": [
+      "group across frame"
+    ],
     "lighting": [
       "cold daylight",
       "night light",
       "daylight",
-      "cold light"
+      "cold light",
+      "sunlit light"
     ],
-    "colors": [],
-    "dominant_colors": [],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "dominant_colors": [
+      "gray",
+      "black"
+    ],
     "color_mode": "color",
     "mood": [
       "warmth",
@@ -39575,7 +41676,9 @@
       "sunlight",
       "group movement"
     ],
-    "texture": [],
+    "texture": [
+      "winter fabric"
+    ],
     "motion": [
       "walking"
     ],
@@ -39623,7 +41726,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Four pedestrians walking along a sunlit street in winter coats"
   },
   {
     "id": "img-016-17",
@@ -39647,12 +41751,19 @@
     "noise": [],
     "objects": [
       "workers",
-      "street"
+      "street",
+      "worker"
     ],
-    "object_roles": {},
+    "object_roles": {
+      "workers": "primary",
+      "street": "primary",
+      "worker": "primary"
+    },
     "environment": [
       "city",
-      "street"
+      "street",
+      "urban",
+      "outdoor"
     ],
     "environment_type": [
       "outdoor",
@@ -39667,10 +41778,22 @@
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "clustered figures"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow",
+      "orange"
+    ],
+    "dominant_colors": [
+      "green",
+      "yellow",
+      "orange"
+    ],
     "color_mode": "color",
     "mood": [
       "companionship",
@@ -39686,9 +41809,12 @@
       "conversation",
       "workwear"
     ],
-    "texture": [],
+    "texture": [
+      "winter fabric"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "pause"
     ],
     "tone": [
       "companionship",
@@ -39734,7 +41860,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Three municipal workers chatting on a city street"
   },
   {
     "id": "img-016-19",
@@ -39759,25 +41886,44 @@
     "objects": [
       "traffic light",
       "crossing sign",
-      "sign"
+      "sign",
+      "person"
     ],
     "object_roles": {
-      "sign": "primary"
+      "sign": "primary",
+      "traffic light": "primary",
+      "crossing sign": "primary",
+      "person": "secondary"
     },
-    "environment": [],
-    "environment_type": [
-      "urban"
+    "environment": [
+      "street",
+      "urban",
+      "outdoor"
     ],
-    "setting_type": [],
+    "environment_type": [
+      "urban",
+      "outdoor"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "pairing",
+      "graphic juxtaposition"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
-      "red"
+      "red",
+      "blue",
+      "yellow",
+      "white"
     ],
     "dominant_colors": [
       "red"
@@ -39847,7 +41993,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 7
-    }
+    },
+    "alt": "Pedestrian crossing sign beside a red traffic light"
   },
   {
     "id": "img-016-20",
@@ -39874,20 +42021,39 @@
       "green beanie",
       "crowd"
     ],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "object_roles": {
+      "person": "primary",
+      "green beanie": "primary",
+      "crowd": "primary"
+    },
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "crowd"
+    ],
+    "environment_type": [
+      "outdoor",
+      "urban"
+    ],
+    "setting_type": [
+      "street"
+    ],
     "style": [
       "observational street photography",
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
-    "lighting": [],
+    "composition": [
+      "tight crop"
+    ],
+    "lighting": [
+      "daylight"
+    ],
     "colors": [
       "green",
-      "red"
+      "red",
+      "gray"
     ],
     "dominant_colors": [
       "green"
@@ -39907,7 +42073,9 @@
       "green beanie",
       "crowd field"
     ],
-    "texture": [],
+    "texture": [
+      "knitwear"
+    ],
     "motion": [
       "stillness"
     ],
@@ -39955,7 +42123,8 @@
       "impact": 8,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Short-haired person in a green beanie looking sideways in a crowd"
   },
   {
     "id": "img-016-21",
@@ -39980,26 +42149,50 @@
     "objects": [
       "women",
       "flower wreaths",
-      "flower"
+      "flower",
+      "flower wreath"
     ],
     "object_roles": {
-      "flower": "primary"
+      "flower": "primary",
+      "women": "primary",
+      "flower wreaths": "primary",
+      "flower wreath": "primary"
     },
-    "environment": [],
+    "environment": [
+      "street",
+      "urban",
+      "outdoor",
+      "festival"
+    ],
     "environment_type": [
       "outdoor",
-      "nature"
+      "nature",
+      "urban"
     ],
-    "setting_type": [],
+    "setting_type": [
+      "street",
+      "festival"
+    ],
     "style": [
       "observational street photography",
       "humanist lyricism",
       "ordinary grace"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "pairing",
+      "two-shot portrait"
+    ],
+    "lighting": [
+      "daylight"
+    ],
+    "colors": [
+      "green",
+      "yellow"
+    ],
+    "dominant_colors": [
+      "green",
+      "yellow"
+    ],
     "color_mode": "color",
     "mood": [
       "joy",
@@ -40015,7 +42208,10 @@
       "smiles",
       "shared celebration"
     ],
-    "texture": [],
+    "texture": [
+      "petals",
+      "flowers"
+    ],
     "motion": [
       "stillness"
     ],
@@ -40065,7 +42261,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Two women wearing flower wreaths smiling outdoors"
   },
   {
     "id": "img-016-22",
@@ -40087,20 +42284,44 @@
       "people"
     ],
     "noise": [],
-    "objects": [],
-    "object_roles": {},
-    "environment": [],
-    "environment_type": [],
-    "setting_type": [],
+    "objects": [
+      "newspaper"
+    ],
+    "object_roles": {
+      "newspaper": "secondary"
+    },
+    "environment": [
+      "public transport",
+      "interior"
+    ],
+    "environment_type": [
+      "indoor",
+      "urban"
+    ],
+    "setting_type": [
+      "public transport"
+    ],
     "style": [
       "observational street photography",
       "social lyricism",
-      "urban object"
+      "urban object",
+      "humanist lyricism"
     ],
-    "composition": [],
-    "lighting": [],
-    "colors": [],
-    "dominant_colors": [],
+    "composition": [
+      "candid interior"
+    ],
+    "lighting": [
+      "daylight",
+      "interior daylight"
+    ],
+    "colors": [
+      "blue",
+      "yellow"
+    ],
+    "dominant_colors": [
+      "blue",
+      "yellow"
+    ],
     "color_mode": "color",
     "mood": [
       "curiosity",
@@ -40111,9 +42332,13 @@
       "ordinary grace"
     ],
     "symbols": [],
-    "texture": [],
+    "texture": [
+      "paper",
+      "fabric"
+    ],
     "motion": [
-      "stillness"
+      "stillness",
+      "riding"
     ],
     "tone": [
       "curiosity",
@@ -40159,7 +42384,8 @@
       "impact": 7,
       "originality": 7,
       "emotion": 9
-    }
+    },
+    "alt": "Women seated on public transport, one reading a newspaper"
   },
   {
     "id": "img-016-24",
