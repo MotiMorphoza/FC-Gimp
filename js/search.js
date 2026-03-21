@@ -100,6 +100,11 @@ const ISOLATION_COMPOSITION_VARIANTS = ["isolated subject", "frame within frame"
 const GENERIC_STANDALONE_TERMS = new Set(["people", "street", "urban", "outdoor", "wall"]);
 const DIRECT_STREET_VISUAL_HINTS = ["street", "crosswalk", "sidewalk", "intersection", "curb", "bollard", "bollards", "shop window", "storefront window", "pedestrian bridge", "tram tracks", "tram stop"];
 const PHONE_SCREEN_VISUAL_HINTS = ["screen", "display", "phone screen", "smartphone screen", "mobile phone screen", "checking", "looking at", "focused on", "concentrating on", "texting", "scrolling", "photographing"];
+const ROAD_SURFACE_HINTS = ["road", "roadway", "roadside", "busy road", "wet road", "lane", "lanes", "bike lane", "traffic lane", "crosswalk", "intersection", "tram tracks", "street junction"];
+const ROAD_STRUCTURAL_HINTS = ["street", "bridge", "path", "crosswalk", "intersection"];
+const CROSSING_PATH_HINTS = ["street", "road", "roadway", "crosswalk", "intersection", "tram tracks", "bridge", "path", "square", "pavement", "curb"];
+const CROSSING_VERB_PATTERN = /\b(crossing|cross the street|cross the road|walking across|running across|stepping off|step off)\b/i;
+const CROSSING_SOFT_PATTERN = /\bacross\b/i;
 
 const SEARCH_STATE = {
   loadPromise: null,
@@ -565,8 +570,43 @@ function hasWindowLightOnlyCue(indexedImage) {
   return !explicitWindowCue;
 }
 
+function getExplicitObjectRole(indexedImage, termGroup) {
+  const { normalizeTerm } = getTagHelpers();
+  const objectRoles = {
+    ...(indexedImage?.image?.object_roles || {}),
+    ...(indexedImage?.image?.visual?.object_roles || {})
+  };
+  const variantKeys = [...new Set(
+    [termGroup.canonical, ...(termGroup.variants || [])]
+      .map((value) => normalizeTerm(value))
+      .filter(Boolean)
+  )];
+
+  for (const key of variantKeys) {
+    const role = String(objectRoles[key] || "").trim().toLowerCase();
+    if (role === "primary" || role === "secondary" || role === "incidental") {
+      return role;
+    }
+  }
+
+  return "";
+}
+
 function getObjectProminence(indexedImage, termGroup) {
-  const explicitRole = indexedImage?.image?.visual?.object_roles?.[termGroup.canonical] || indexedImage?.image?.object_roles?.[termGroup.canonical];
+  const leadAlt = String(indexedImage.image.alt || "").split(/\s+/).slice(0, 10).join(" ");
+  const allAlt = String(indexedImage.image.alt || "");
+  const variants = [...termGroup.variants, termGroup.canonical].filter(Boolean);
+  const primaryMatch = includesVariant(indexedImage.image.primary, termGroup.variants, termGroup.canonical);
+  const objectMatch = includesVariant(indexedImage.image.objects, termGroup.variants, termGroup.canonical);
+  const secondaryMatch = includesVariant(indexedImage.image.secondary, termGroup.variants, termGroup.canonical);
+  const symbolMatch = includesVariant(indexedImage.image.symbols, termGroup.variants, termGroup.canonical);
+  const readingMatch = includesVariant(indexedImage.image.reading, termGroup.variants, termGroup.canonical);
+  const leadAltMatch = getTagHelpers().valueHasAnyVariant(leadAlt, variants);
+  const altMatch = getTagHelpers().valueHasAnyVariant(allAlt, variants);
+  const explicitRole = (primaryMatch || objectMatch || secondaryMatch || symbolMatch || readingMatch || altMatch)
+    ? getExplicitObjectRole(indexedImage, termGroup)
+    : "";
+
   if (explicitRole === "primary") return "primary";
   if (explicitRole === "secondary") return "secondary";
   if (explicitRole === "incidental") return "background";
@@ -575,25 +615,22 @@ function getObjectProminence(indexedImage, termGroup) {
     return "none";
   }
 
-  const leadAlt = String(indexedImage.image.alt || "").split(/\s+/).slice(0, 10).join(" ");
-  const allAlt = String(indexedImage.image.alt || "");
-  const variants = [...termGroup.variants, termGroup.canonical].filter(Boolean);
-  const primaryMatch = includesVariant(indexedImage.image.primary, termGroup.variants, termGroup.canonical);
-  const objectMatch = includesVariant(indexedImage.image.objects, termGroup.variants, termGroup.canonical);
-  const secondaryMatch = includesVariant(indexedImage.image.secondary, termGroup.variants, termGroup.canonical);
-  const leadAltMatch = getTagHelpers().valueHasAnyVariant(leadAlt, variants);
-  const altMatch = getTagHelpers().valueHasAnyVariant(allAlt, variants);
-
-  if (leadAltMatch && (primaryMatch || objectMatch)) {
+  if (primaryMatch) {
     return "primary";
   }
-  if (altMatch && (primaryMatch || objectMatch)) {
+  if (leadAltMatch && (objectMatch || symbolMatch || secondaryMatch)) {
+    return "primary";
+  }
+  if (objectMatch) {
     return "secondary";
   }
-  if (leadAltMatch) {
+  if (leadAltMatch || altMatch) {
     return "secondary";
   }
-  if (secondaryMatch && altMatch) {
+  if (symbolMatch && (secondaryMatch || readingMatch)) {
+    return "secondary";
+  }
+  if (secondaryMatch || symbolMatch || readingMatch) {
     return "background";
   }
   return "none";
@@ -631,6 +668,63 @@ function hasPhoneScreenCue(indexedImage) {
   const visual = indexedImage?.image?.visual || {};
   if (Boolean(visual.screen_visible)) return true;
   return textHasAnyHint(`${alt} ${reading}`, PHONE_SCREEN_VISUAL_HINTS);
+}
+
+function hasRoadCue(indexedImage) {
+  const visual = indexedImage?.image?.visual || {};
+  const directSurface = [
+    String(indexedImage?.image?.alt || ""),
+    ...normalizeArray(indexedImage?.image?.primary),
+    ...normalizeArray(indexedImage?.image?.secondary),
+    ...normalizeArray(indexedImage?.image?.symbols),
+    ...normalizeArray(indexedImage?.image?.environment)
+  ].join(" ");
+  const structuralSurface = [
+    directSurface,
+    ...normalizeArray(visual.environment_type),
+    ...normalizeArray(visual.setting_type)
+  ].join(" ");
+
+  const strongCue = textHasAnyHint(directSurface, ROAD_SURFACE_HINTS);
+  const structuralCue = textHasAnyHint(structuralSurface, ROAD_STRUCTURAL_HINTS);
+
+  if (strongCue && structuralCue) {
+    return { matched: true, score: 16 };
+  }
+  if (strongCue) {
+    return { matched: true, score: 12 };
+  }
+  return { matched: false, score: 0 };
+}
+
+function hasCrossingCue(indexedImage) {
+  const visual = indexedImage?.image?.visual || {};
+  const textSurface = [
+    String(indexedImage?.image?.alt || ""),
+    ...normalizeArray(indexedImage?.image?.primary),
+    ...normalizeArray(indexedImage?.image?.secondary),
+    ...normalizeArray(indexedImage?.image?.symbols),
+    ...normalizeArray(indexedImage?.image?.motion),
+    ...normalizeArray(indexedImage?.image?.reading),
+    ...normalizeArray(indexedImage?.image?.relations)
+  ].join(" ");
+  const structuralSurface = [
+    ...normalizeArray(visual.setting_type),
+    ...normalizeArray(visual.environment_type)
+  ].join(" ");
+
+  const strongActionCue = CROSSING_VERB_PATTERN.test(textSurface);
+  const softAcrossCue = CROSSING_SOFT_PATTERN.test(textSurface);
+  const textualPathCue = textHasAnyHint(textSurface, CROSSING_PATH_HINTS);
+  const structuralPathCue = textHasAnyHint(structuralSurface, ["street", "bridge", "path", "crosswalk", "intersection", "public square"]);
+
+  if (strongActionCue && (textualPathCue || (visual.has_people && structuralPathCue))) {
+    return { matched: true, score: 18 };
+  }
+  if (softAcrossCue && textualPathCue) {
+    return { matched: true, score: 11 };
+  }
+  return { matched: false, score: 0 };
 }
 
 function hasExpressionCue(indexedImage, termGroup) {
@@ -772,6 +866,10 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
   if (queryClass === "environment") {
     const environmentType = visual.environment_type || [];
     const settingType = visual.setting_type || [];
+    if (canonical === "road") {
+      return hasRoadCue(indexedImage);
+    }
+
     if (canonical === "urban") {
       const matched = environmentType.includes("urban") || environmentType.includes("street");
       if (!matched) return { matched: false, score: 0 };
@@ -831,6 +929,10 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
       return dogProminence !== "none" && streetMatch
         ? { matched: true, score: dogProminence === "primary" ? 18 : 12 }
         : { matched: false, score: 0 };
+    }
+
+    if (canonical === "to cross") {
+      return hasCrossingCue(indexedImage);
     }
 
     if (canonical === "old man") {
@@ -1328,7 +1430,7 @@ function buildHardDebugDetails(indexedImage, termGroup, parsedQuery, hardResult)
       setting_type: visual.setting_type || [],
       shot_type: visual.shot_type || "",
       screen_visible: Boolean(visual.screen_visible),
-      object_role: visual.object_roles?.[termGroup.canonical] || indexedImage.image.object_roles?.[termGroup.canonical] || ""
+      object_role: getExplicitObjectRole(indexedImage, termGroup)
     }
   };
 }

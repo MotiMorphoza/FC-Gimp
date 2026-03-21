@@ -12,7 +12,7 @@
     minimalism: ["minimalism", "minimal", "sparse", "empty", "reduced", "clean", "restraint"],
     window: ["window", "windows", "pane", "panes", "windowpane", "windowpanes"],
     wheel: ["wheel", "wheels", "spare wheel", "bicycle", "bicycles", "bike", "bikes", "wheelchair", "stroller", "pram", "shopping trolley", "trolley", "cart", "scooter", "motorcycle"],
-    sky: ["sky", "skies", "open sky", "blue sky", "night sky", "dusky sky", "skyline", "horizon", "moon", "crescent moon", "full moon", "half moon", "sun", "sunset", "sunrise", "cloud", "clouds", "contrail", "rainbow"],
+    sky: ["sky", "skies", "open sky", "blue sky", "night sky", "dusky sky", "skyline", "horizon", "moon", "crescent moon", "full moon", "half moon", "sun", "sunset", "sunrise", "cloud", "clouds", "contrail"],
     bird: ["bird", "birds", "pigeon", "pigeons", "crow", "crows", "gull", "gulls", "duck", "ducks", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "seagull", "seagulls"],
     protest: ["protest", "protester", "protesters", "demonstration", "march", "activism", "resistance"],
     jesus: ["jesus", "christ", "christ figure", "christ statue", "holy card", "sacred heart", "crucifix"],
@@ -29,7 +29,7 @@
     talk: ["talk", "talks", "talking", "speak", "speaks", "speaking", "conversation", "chatting"],
     absurd: ["absurd", "absurdity", "surreal", "irony", "ironic", "humor", "humour", "wit"],
     symbol: ["symbol", "symbols", "symbolic", "metaphor", "allegory", "sign"],
-    dark: ["dark", "black", "shadow", "shadowy", "gloom"],
+    dark: ["dark", "shadow", "shadowy", "gloom"],
     calm: ["calm", "quiet", "quietness", "stillness", "peace", "meditative", "soft", "gentleness", "clarity", "patience", "contemplation", "suspension"],
     color: ["color", "colour", "colored", "colourful", "vivid", "multicolor", "multicolour"],
     monochrome: ["monochrome", "black and white", "black-and-white", "grayscale", "greyscale"],
@@ -48,6 +48,15 @@
     blue: { queryClass: "color", variants: ["blue", "azure", "cobalt", "cyan"], precisionProfile: "balanced" },
     red: { queryClass: "color", variants: ["red", "scarlet", "crimson"], precisionProfile: "balanced" },
     yellow: { queryClass: "color", variants: ["yellow", "gold", "golden"], precisionProfile: "balanced" },
+    green: { queryClass: "color", variants: ["green", "emerald", "olive", "lime"], precisionProfile: "balanced" },
+    orange: { queryClass: "color", variants: ["orange", "amber", "tangerine"], precisionProfile: "balanced" },
+    pink: { queryClass: "color", variants: ["pink", "magenta", "rose"], precisionProfile: "balanced" },
+    purple: { queryClass: "color", variants: ["purple", "violet", "lavender"], precisionProfile: "balanced" },
+    white: { queryClass: "color", variants: ["white", "ivory", "cream"], precisionProfile: "balanced" },
+    black: { queryClass: "color", variants: ["black", "charcoal"], precisionProfile: "balanced" },
+    gray: { queryClass: "color", variants: ["gray", "grey", "slate"], precisionProfile: "balanced" },
+    brown: { queryClass: "color", variants: ["brown", "tan", "rust"], precisionProfile: "balanced" },
+    beige: { queryClass: "color", variants: ["beige", "sand", "khaki"], precisionProfile: "balanced" },
     color: { queryClass: "color_mode", variants: ["color", "colour", "blue", "red", "yellow", "green", "orange", "purple", "pink"], precisionProfile: "balanced" },
     "black and white": { queryClass: "color_mode", variants: ["black and white", "black-and-white", "bw"], precisionProfile: "strict" },
     monochrome: { queryClass: "color_mode", variants: ["monochrome", "grayscale", "greyscale"], precisionProfile: "strict" },
@@ -55,12 +64,14 @@
     indoor: { queryClass: "environment", variants: ["indoor", "indoors", "inside", "interior", "room", "kitchen", "studio"], precisionProfile: "balanced" },
     outdoor: { queryClass: "environment", variants: ["outdoor", "outdoors", "outside", "open air"], precisionProfile: "generic", generic: true },
     street: { queryClass: "environment", variants: ["street", "sidewalk", "crosswalk", "intersection"], precisionProfile: "generic", generic: true },
+    road: { queryClass: "environment", variants: ["road", "roads", "roadway", "roadside", "busy road", "wet road", "lane", "lanes", "bike lane", "traffic lane"], precisionProfile: "balanced" },
     urban: { queryClass: "environment", variants: ["urban", "city", "public space", "public square"], precisionProfile: "generic", generic: true },
     nature: { queryClass: "environment", variants: ["nature", "natural", "park", "garden", "field", "river", "pond", "water edge", "tree", "trees", "branch", "branches", "flower", "flowers", "grass"], precisionProfile: "balanced" },
     domestic: { queryClass: "environment", variants: ["domestic", "home", "house", "apartment", "kitchen", "room"], precisionProfile: "balanced" },
     dog: { queryClass: "object", variants: ["dog", "dogs", "puppy", "puppies", "canine"], precisionProfile: "strict" },
     animal: { queryClass: "object", variants: ["animal", "animals", "dog", "dogs", "cat", "cats", "bird", "birds", "duck", "gull", "stork", "heron", "pigeon"], precisionProfile: "balanced" },
     bird: { queryClass: "object", variants: ["bird", "birds", "pigeon", "pigeons", "duck", "ducks", "gull", "gulls", "seagull", "seagulls", "stork", "storks", "heron", "herons", "sparrow", "sparrows", "crow", "crows"], precisionProfile: "strict" },
+    rainbow: { queryClass: "object", variants: ["rainbow", "rainbows", "double rainbow", "rainbow flag", "rainbow umbrella", "rainbow fan", "rainbow arch", "rainbow prism", "rainbow installation", "rainbow balloon arch", "rainbow costume"], precisionProfile: "strict" },
     cross: { queryClass: "object", variants: ["cross", "crosses", "crucifix"], precisionProfile: "strict" },
     crucifix: { queryClass: "object", variants: ["crucifix", "crucifixes", "christ figure", "christ statue", "holy card"], precisionProfile: "strict" },
     church: { queryClass: "object", variants: ["church", "churches", "church tower", "church facade"], precisionProfile: "strict" },
@@ -71,8 +82,10 @@
     umbrella: { queryClass: "object", variants: ["umbrella", "umbrellas", "parasol", "parasols"], precisionProfile: "strict" },
     wall: { queryClass: "object", variants: ["wall", "walls", "facade", "facades"], precisionProfile: "generic", generic: true },
     car: { queryClass: "object", variants: ["car", "cars", "vehicle", "vehicles", "taxi", "taxis"], precisionProfile: "strict" },
+    bus: { queryClass: "object", variants: ["bus", "buses", "coach", "bus stop", "bus stop sign"], precisionProfile: "strict" },
     bike: { queryClass: "object", variants: ["bike", "bikes", "bicycle", "bicycles", "cyclist", "cyclists", "rider", "riders"], precisionProfile: "strict" },
     bicycle: { queryClass: "object", variants: ["bicycle", "bicycles", "bike", "bikes", "cyclist", "cyclists", "rider", "riders"], precisionProfile: "strict" },
+    stick: { queryClass: "object", variants: ["stick", "sticks", "cane", "canes", "walking stick", "walking sticks", "walking staff", "staff", "walking pole", "walking poles"], precisionProfile: "strict" },
     tree: { queryClass: "object", variants: ["tree", "trees", "branch", "branches", "trunk", "trunks"], precisionProfile: "strict" },
     phone: { queryClass: "object", variants: ["phone", "phones", "smartphone", "smartphones", "cellphone", "cellphones", "mobile phone", "mobile phones"], precisionProfile: "strict" },
     cigarette: { queryClass: "object", variants: ["cigarette", "cigarettes", "smoke", "smoking", "smoker", "smokers"], precisionProfile: "strict" },
@@ -90,6 +103,7 @@
     look: { queryClass: "action", variants: ["look", "looks", "looking", "glancing", "gazing", "staring", "watching", "checking"], precisionProfile: "balanced" },
     talk: { queryClass: "action", variants: ["talk", "talks", "talking", "speak", "speaks", "speaking", "conversation", "chatting"], precisionProfile: "balanced" },
     "street dog": { queryClass: "phrase", variants: ["street dog", "dog on the street"], precisionProfile: "strict", components: ["street", "dog"] },
+    "to cross": { queryClass: "phrase", variants: ["to cross", "cross the street", "cross the road", "walking across", "running across"], precisionProfile: "strict", components: ["walk", "road"] },
     "old man": { queryClass: "phrase", variants: ["old man", "older man", "elderly man"], precisionProfile: "strict", components: ["man", "older"] },
     "phone screen": { queryClass: "phrase", variants: ["phone screen", "smartphone screen", "mobile phone screen"], precisionProfile: "strict", components: ["phone", "screen"] },
     "window reflection": { queryClass: "phrase", variants: ["window reflection", "reflected window", "window reflections"], precisionProfile: "strict", components: ["window", "reflection"] },
@@ -103,6 +117,7 @@
     ["close up", ["close up", "close-up"]],
     ["wide shot", ["wide shot", "wide view", "wide scene", "wide frame"]],
     ["street dog", ["street dog", "dog on the street"]],
+    ["to cross", ["to cross", "cross the street", "cross the road", "walking across", "running across"]],
     ["old man", ["old man", "older man", "elderly man"]],
     ["phone screen", ["phone screen", "smartphone screen", "mobile phone screen"]],
     ["window reflection", ["window reflection", "reflected window", "window reflections"]],
@@ -195,6 +210,12 @@
 
     if (HARD_VISUAL_MAP[normalized]) {
       return normalized;
+    }
+
+    for (const [canonical, definition] of Object.entries(HARD_VISUAL_MAP)) {
+      if ((definition.variants || []).some((variant) => stemTerm(variant) === normalized)) {
+        return canonical;
+      }
     }
 
     for (const [canonical, variants] of Object.entries(TAG_MAP)) {

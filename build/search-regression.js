@@ -44,6 +44,17 @@ function hasColorMatch(result, color) {
   return (result.image.visual.dominant_colors || []).includes(color);
 }
 
+function isLiteralCross(result) {
+  const surface = [
+    String(result.image.alt || ''),
+    ...(result.image.primary || []),
+    ...(result.image.objects || []),
+    ...(result.image.symbols || [])
+  ].join(' ').toLowerCase();
+
+  return /\b(cross|crucifix)\b/.test(surface);
+}
+
 function isCrowd(result) {
   return Boolean(result.image.visual.has_people) && Number(result.image.visual.people_count) >= 4;
 }
@@ -114,6 +125,66 @@ function hasPhoneScreen(runtime, result) {
     `${String(result.image.alt || '')} ${Array.isArray(result.image.reading) ? result.image.reading.join(' ') : ''}`
   );
   return hasObjectMatch(runtime, result, 'phone') && (Boolean(result.image.visual.screen_visible) || screenCue);
+}
+
+function hasRainbowCue(runtime, result) {
+  return hasObjectMatch(runtime, result, 'rainbow');
+}
+
+function hasBusCue(result) {
+  const surface = [
+    String(result.image.alt || ''),
+    ...(result.image.primary || []),
+    ...(result.image.secondary || []),
+    ...(result.image.symbols || [])
+  ].join(' ').toLowerCase();
+
+  return /\bbus\b|\bbus stop\b|\bbus stop sign\b/.test(surface);
+}
+
+function hasStickCue(runtime, result) {
+  return hasObjectMatch(runtime, result, 'stick');
+}
+
+function hasRoadCue(result) {
+  const surface = [
+    String(result.image.alt || ''),
+    ...(result.image.primary || []),
+    ...(result.image.secondary || []),
+    ...(result.image.symbols || []),
+    ...(result.image.environment || [])
+  ].join(' ').toLowerCase();
+
+  return /\b(road|roadway|roadside|crosswalk|intersection|bike lane|lane|tram tracks?)\b/.test(surface);
+}
+
+function hasCrossingCue(result) {
+  const textSurface = [
+    String(result.image.alt || ''),
+    ...(result.image.primary || []),
+    ...(result.image.secondary || []),
+    ...(result.image.symbols || []),
+    ...(result.image.motion || []),
+    ...(result.image.reading || []),
+    ...(result.image.relations || [])
+  ].join(' ').toLowerCase();
+  const structuralSurface = [
+    ...((result.image.visual.environment_type || [])),
+    ...((result.image.visual.setting_type || []))
+  ].join(' ').toLowerCase();
+
+  const strongActionCue = /\b(crossing|cross the street|cross the road|walking across|running across|stepping off|step off)\b/.test(textSurface);
+  const softAcrossCue = /\bacross\b/.test(textSurface);
+  const textualPathCue = /\b(street|road|roadway|crosswalk|intersection|tram tracks?|bridge|path|square|pavement|curb)\b/.test(textSurface);
+  const structuralPathCue = /\b(street|bridge|path|crosswalk|intersection|public square)\b/.test(structuralSurface);
+
+  if (strongActionCue && (textualPathCue || (Boolean(result.image.visual.has_people) && structuralPathCue))) {
+    return true;
+  }
+  if (softAcrossCue && textualPathCue) {
+    return true;
+  }
+  return false;
 }
 
 function hasSmileCue(result) {
@@ -199,6 +270,11 @@ function runRegression(rootDir) {
       validate: (results) => results.slice(0, 5).every((result) => hasWindowReflection(runtime, result))
     },
     {
+      query: 'cross',
+      minCount: 5,
+      validate: (results) => results.slice(0, 5).every(isLiteralCross)
+    },
+    {
       query: 'woman',
       minCount: 10,
       validate: (results) => results.slice(0, 5).every(isWoman)
@@ -244,6 +320,21 @@ function runRegression(rootDir) {
       validate: (results) => results.slice(0, 5).every((result) => hasColorMatch(result, 'blue'))
     },
     {
+      query: 'white',
+      minCount: 10,
+      validate: (results) => results.slice(0, 5).every((result) => result.image.visual.color_mode !== 'bw' && hasColorMatch(result, 'white'))
+    },
+    {
+      query: 'black',
+      minCount: 10,
+      validate: (results) => results.slice(0, 5).every((result) => result.image.visual.color_mode !== 'bw' && hasColorMatch(result, 'black'))
+    },
+    {
+      query: 'rainbow',
+      minCount: 8,
+      validate: (results) => results.slice(0, 5).every((result) => hasRainbowCue(runtime, result))
+    },
+    {
       query: 'nature',
       minCount: 20,
       validate: (results) => results.slice(0, 5).every(isNature)
@@ -264,6 +355,16 @@ function runRegression(rootDir) {
       validate: (results) => results.slice(0, 5).every((result) => isChild(result) && isStreetEnvironment(result))
     },
     {
+      query: 'to cross',
+      minCount: 10,
+      validate: (results) => results.slice(0, 5).every(hasCrossingCue)
+    },
+    {
+      query: 'road',
+      minCount: 10,
+      validate: (results) => results.slice(0, 5).every(hasRoadCue)
+    },
+    {
       query: 'no people blue',
       minCount: 5,
       validate: (results) => results.slice(0, 5).every((result) => isNoPeople(result) && hasColorMatch(result, 'blue'))
@@ -282,6 +383,16 @@ function runRegression(rootDir) {
       query: 'phone screen',
       minCount: 2,
       validate: (results) => results.slice(0, 5).every((result) => hasPhoneScreen(runtime, result))
+    },
+    {
+      query: 'stick',
+      minCount: 6,
+      validate: (results) => results.slice(0, 5).every((result) => hasStickCue(runtime, result))
+    },
+    {
+      query: 'bus',
+      minCount: 1,
+      validate: (results) => results.slice(0, 3).every(hasBusCue)
     },
     {
       query: 'car',

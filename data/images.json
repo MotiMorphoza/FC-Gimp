@@ -3150,12 +3150,14 @@
     "noise": [],
     "objects": [
       "sign",
-      "tram"
+      "tram",
+      "cane"
     ],
     "object_roles": {
       "window": "primary",
       "sign": "secondary",
-      "tram": "primary"
+      "tram": "primary",
+      "cane": "secondary"
     },
     "environment": [
       "transit"
@@ -3651,7 +3653,6 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross",
       "woman"
     ],
     "object_roles": {
@@ -3774,7 +3775,6 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross",
       "nun",
       "mask"
     ],
@@ -3946,7 +3946,11 @@
       "urban theater",
       "momentary alignment"
     ],
-    "symbols": [],
+    "symbols": [
+      "joined hands",
+      "pink dresses",
+      "floral headbands"
+    ],
     "texture": [
       "fabric"
     ],
@@ -5430,7 +5434,11 @@
       "ritual in public",
       "faith"
     ],
-    "symbols": [],
+    "symbols": [
+      "crucifix",
+      "apartment grid",
+      "faith before housing"
+    ],
     "texture": [
       "metal",
       "hard surface"
@@ -6660,7 +6668,11 @@
       "ritual in public",
       "faith"
     ],
-    "symbols": [],
+    "symbols": [
+      "monstrance",
+      "white robes",
+      "processional gold"
+    ],
     "texture": [
       "metal",
       "hard surface"
@@ -11145,7 +11157,7 @@
       "civic tension"
     ],
     "symbols": [
-      "cross",
+      "crosswalk",
       "public sign",
       "authority"
     ],
@@ -11278,7 +11290,7 @@
       "civic tension"
     ],
     "symbols": [
-      "cross",
+      "crosswalk",
       "public sign",
       "authority"
     ],
@@ -11936,7 +11948,7 @@
       "civic tension"
     ],
     "symbols": [
-      "cross",
+      "crosswalk",
       "public sign",
       "authority"
     ],
@@ -12727,7 +12739,7 @@
     "projectSlug": "004 - windows_eyes_of_the_modern_soul",
     "src": "05.jpg",
     "primary": [
-      "red cross",
+      "red balcony grid",
       "curiosity",
       "observation"
     ],
@@ -12743,7 +12755,6 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
       "balcony",
       "building"
     ],
@@ -12790,7 +12801,9 @@
       "repetition"
     ],
     "symbols": [
-      "cross"
+      "red railings",
+      "balcony grid",
+      "repetition"
     ],
     "texture": [
       "metal"
@@ -12911,7 +12924,11 @@
       "containment",
       "repetition"
     ],
-    "symbols": [],
+    "symbols": [
+      "glass grid",
+      "diagonal braces",
+      "sealed facade"
+    ],
     "texture": [
       "glass",
       "metal"
@@ -12984,7 +13001,6 @@
     "noise": [],
     "objects": [
       "window",
-      "cross",
       "building"
     ],
     "object_roles": {
@@ -13153,7 +13169,11 @@
       "containment",
       "repetition"
     ],
-    "symbols": [],
+    "symbols": [
+      "recessed balconies",
+      "satellite dishes",
+      "slanted facade"
+    ],
     "texture": [
       "hard surface"
     ],
@@ -14469,7 +14489,11 @@
       "repetition",
       "public messaging"
     ],
-    "symbols": [],
+    "symbols": [
+      "crumbling mural",
+      "balcony rows",
+      "eroded message"
+    ],
     "texture": [
       "hard surface"
     ],
@@ -15629,11 +15653,13 @@
     "noise": [],
     "objects": [
       "dog",
-      "bridge"
+      "bridge",
+      "stick"
     ],
     "object_roles": {
       "dog": "primary",
-      "bridge": "secondary"
+      "bridge": "secondary",
+      "stick": "secondary"
     },
     "environment": [
       "transit"
@@ -16230,11 +16256,13 @@
     "noise": [],
     "objects": [
       "dog",
-      "water"
+      "water",
+      "stick"
     ],
     "object_roles": {
       "dog": "primary",
-      "water": "primary"
+      "water": "primary",
+      "stick": "secondary"
     },
     "environment": [
       "water edge"
@@ -20769,13 +20797,15 @@
       "umbrella",
       "sign",
       "tram",
-      "shadow"
+      "shadow",
+      "bus stop sign"
     ],
     "object_roles": {
       "umbrella": "primary",
       "sign": "secondary",
       "tram": "primary",
-      "shadow": "primary"
+      "shadow": "primary",
+      "bus stop sign": "secondary"
     },
     "environment": [
       "transit"
@@ -20820,7 +20850,7 @@
     "symbols": [
       "umbrella",
       "tram stripe",
-      "stop sign"
+      "bus stop sign"
     ],
     "texture": [
       "metal"
@@ -23790,7 +23820,11 @@
       "transformation",
       "found symbolism"
     ],
-    "symbols": [],
+    "symbols": [
+      "resting hand",
+      "bare skin",
+      "touch fragment"
+    ],
     "texture": [
       "skin"
     ],
@@ -24024,7 +24058,11 @@
       "transformation",
       "found symbolism"
     ],
-    "symbols": [],
+    "symbols": [
+      "worn shoes",
+      "stained floor",
+      "paired remains"
+    ],
     "texture": [
       "leather"
     ],
@@ -24498,7 +24536,11 @@
       "transformation",
       "found symbolism"
     ],
-    "symbols": [],
+    "symbols": [
+      "empty seats",
+      "dry hedge",
+      "paired waiting"
+    ],
     "texture": [
       "plastic"
     ],
@@ -29964,7 +30006,7 @@
     "projectSlug": "010 - reflection",
     "src": "05.jpg",
     "primary": [
-      "cross reflection",
+      "bench reflection",
       "double vision",
       "surface instability"
     ],
@@ -29980,7 +30022,6 @@
     ],
     "noise": [],
     "objects": [
-      "cross",
       "bench",
       "mirror",
       "water"
@@ -30026,7 +30067,7 @@
       "perception"
     ],
     "symbols": [
-      "cross",
+      "bench reflection",
       "mirror surface",
       "double image"
     ],
@@ -31141,7 +31182,6 @@
     "noise": [],
     "objects": [
       "window",
-      "cross",
       "glass"
     ],
     "object_roles": {
@@ -33990,7 +34030,7 @@
       "older",
       "man",
       "preparing",
-      "cross",
+      "threshold",
       "while",
       "woman",
       "life",
@@ -36124,7 +36164,7 @@
     "projectSlug": "012 - smart times",
     "src": "12.jpg",
     "primary": [
-      "cross",
+      "screen divide",
       "screen attention",
       "mediated life"
     ],
@@ -36193,7 +36233,7 @@
       "split attention"
     ],
     "symbols": [
-      "cross",
+      "table divide",
       "screen",
       "split attention"
     ],
@@ -36217,7 +36257,7 @@
       "presence versus distraction"
     ],
     "reading": [
-      "The image turns cross into a study of absorption and split attention in contemporary public life."
+      "The image turns social distance into a study of absorption and split attention in contemporary public life."
     ],
     "density": "balanced",
     "intensity": {
@@ -36325,7 +36365,7 @@
     ],
     "symbols": [
       "small camera",
-      "cross-legged pose",
+      "folded legs",
       "interior frame"
     ],
     "texture": [
@@ -44061,11 +44101,9 @@
     "secondary": [],
     "noise": [],
     "objects": [
-      "cross",
       "rainbow"
     ],
     "object_roles": {
-      "cross": "primary",
       "rainbow": "primary"
     },
     "environment": [
@@ -45595,7 +45633,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "trash bag",
+      "sanitation truck",
+      "reflective vest"
+    ],
     "texture": [
       "plastic",
       "metal"
@@ -45717,7 +45759,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "paired workers",
+      "blue-yellow uniforms",
+      "back view"
+    ],
     "texture": [
       "fabric"
     ],
@@ -45841,7 +45887,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "cricket bat",
+      "park play",
+      "paired motion"
+    ],
     "texture": [
       "grass"
     ],
@@ -46221,7 +46271,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "bag check",
+      "passing figure",
+      "split attention"
+    ],
     "texture": [
       "fabric"
     ],
@@ -46598,7 +46652,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "fur hood",
+      "framed face",
+      "winter frame"
+    ],
     "texture": [
       "fur"
     ],
@@ -46849,7 +46907,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "winter hats",
+      "walking trio",
+      "shared cold"
+    ],
     "texture": [
       "winter fabric"
     ],
@@ -47634,7 +47696,11 @@
       "ordinary grace",
       "pause"
     ],
-    "symbols": [],
+    "symbols": [
+      "newspaper",
+      "transit seats",
+      "public pause"
+    ],
     "texture": [
       "paper",
       "fabric"
@@ -48505,7 +48571,11 @@
       "fragility",
       "ordinary grace"
     ],
-    "symbols": [],
+    "symbols": [
+      "volleyball",
+      "bare torso",
+      "river beach"
+    ],
     "texture": [
       "water surface"
     ],
@@ -48565,7 +48635,7 @@
     "projectSlug": "016 - star dust",
     "src": "30.jpg",
     "primary": [
-      "cross",
+      "running trio",
       "curiosity",
       "fragility"
     ],
@@ -48580,12 +48650,8 @@
       "people"
     ],
     "noise": [],
-    "objects": [
-      "cross"
-    ],
-    "object_roles": {
-      "cross": "primary"
-    },
+    "objects": [],
+    "object_roles": {},
     "environment": [
       "water edge",
       "nature",
@@ -48626,7 +48692,9 @@
       "transit"
     ],
     "symbols": [
-      "cross"
+      "running trio",
+      "riverside sand",
+      "child sprint"
     ],
     "texture": [
       "water surface"
@@ -48645,7 +48713,7 @@
     ],
     "tension": [],
     "reading": [
-      "The image turns cross into a study of curiosity and fragility.",
+      "The image turns running children into a study of curiosity and fragility.",
       "movement through public space"
     ],
     "density": "balanced",
@@ -58120,6 +58188,12 @@
     "density": "focused",
     "intensity": {
       "ritual": 0.83
+    },
+    "objects": [
+      "stick"
+    ],
+    "object_roles": {
+      "stick": "secondary"
     }
   },
   {
