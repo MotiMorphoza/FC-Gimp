@@ -840,6 +840,66 @@ function mergeEntry(baseEntry, override = {}) {
   return merged;
 }
 
+function deriveFallbackShotType(entry = {}) {
+  const subjectScale = String(entry.subject_scale || '').trim().toLowerCase();
+  const alt = String(entry.alt || '').toLowerCase();
+  const composition = Array.isArray(entry.composition) ? entry.composition.map((value) => String(value || '').toLowerCase()) : [];
+  const hasPeople = Boolean(entry.has_people);
+
+  if (String(entry.shot_type || '').trim()) return String(entry.shot_type || '').trim();
+  if (composition.includes('close crop') || includesAny(alt, CLOSE_UP_HINTS)) return 'close_up';
+  if (includesAny(alt, DETAIL_HINTS)) return 'detail';
+  if (composition.includes("bird's-eye view") || composition.includes('overhead view') || includesAny(alt, WIDE_HINTS)) return 'wide';
+  if (includesAny(alt, ['portrait', 'face']) && hasPeople) return 'portrait';
+  if (subjectScale === 'detail') return 'detail';
+  if (subjectScale === 'close') return hasPeople ? 'portrait' : 'close_up';
+  if (subjectScale === 'wide') return 'wide';
+  if (subjectScale === 'medium') return hasPeople ? 'portrait' : 'medium';
+  return hasPeople ? 'portrait' : 'medium';
+}
+
+function finalizeEntry(entry = {}) {
+  const finalized = { ...entry };
+  const settingType = uniqueStrings(finalized.setting_type || []);
+  const environmentType = uniqueStrings(finalized.environment_type || []);
+  const combinedText = [
+    finalized.alt || '',
+    ...(finalized.primary || []),
+    ...(finalized.secondary || []),
+    ...(finalized.objects || []),
+    ...(finalized.environment || [])
+  ].join(' ');
+  const inferredPeopleCount = deriveApproxPeopleCount(
+    combinedText,
+    Boolean(finalized.has_people),
+    finalized.gender || [],
+    finalized.age_group || []
+  );
+
+  if (settingType.includes('street')) {
+    environmentType.push('street', 'urban', 'outdoor');
+  }
+  if (settingType.includes('public square')) {
+    environmentType.push('urban', 'outdoor');
+  }
+  if (settingType.includes('domestic') || settingType.includes('interior')) {
+    environmentType.push('indoor');
+  }
+
+  finalized.setting_type = uniqueStrings(settingType);
+  finalized.environment_type = uniqueStrings(environmentType);
+  finalized.dominant_colors = uniqueStrings([
+    ...(finalized.dominant_colors || []),
+    ...(finalized.colors || [])
+  ]).slice(0, 3);
+  finalized.people_count = Number.isFinite(Number(finalized.people_count))
+    ? Math.max(Number(finalized.people_count), inferredPeopleCount)
+    : inferredPeopleCount;
+  finalized.shot_type = deriveFallbackShotType(finalized);
+
+  return finalized;
+}
+
 function generateBaseImageSearchDataset(projects) {
   const dataset = [];
 
@@ -856,14 +916,14 @@ function generateBaseImageSearchDataset(projects) {
 function generateImageSearchDataset(projects, rootDir, logger, options = {}) {
   const baseDataset = generateBaseImageSearchDataset(projects);
   if (options.baseOnly) {
-    return baseDataset;
+    return baseDataset.map((entry) => finalizeEntry(entry));
   }
 
   const overrides = loadManualMetadata(rootDir, logger);
   return baseDataset.map((baseEntry) => {
     const overrideKey = `${baseEntry.projectSlug}::${normalizeStem(baseEntry.src)}`;
     const override = overrides.get(overrideKey) || null;
-    return mergeEntry(baseEntry, override);
+    return finalizeEntry(mergeEntry(baseEntry, override));
   });
 }
 

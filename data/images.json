@@ -53647,7 +53647,19 @@
     "density": "focused",
     "intensity": {
       "authority": 0.82
-    }
+    },
+    "secondary": [
+      "dark wall",
+      "blurred woman",
+      "stopped encounter"
+    ],
+    "noise": [
+      "green coat",
+      "background blur"
+    ],
+    "reading": [
+      "The clean white glove turns a passing street moment into something closer to a command."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-02",
@@ -53704,7 +53716,19 @@
     "density": "balanced",
     "intensity": {
       "authority": 0.84
-    }
+    },
+    "secondary": [
+      "yellow police vest",
+      "blurred woman",
+      "street stop"
+    ],
+    "noise": [
+      "uniform lettering",
+      "dark wall"
+    ],
+    "reading": [
+      "The public authority of the vest and glove overwhelms the human exchange it interrupts."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-03",
@@ -53762,7 +53786,19 @@
     "density": "focused",
     "intensity": {
       "tenderness": 0.86
-    }
+    },
+    "secondary": [
+      "coin drop",
+      "black coats",
+      "sidewalk exchange"
+    ],
+    "noise": [
+      "coat folds",
+      "city pavement"
+    ],
+    "reading": [
+      "A tiny coin becomes the whole emotional center of the frame, turning charity into touch."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-04",
@@ -53821,7 +53857,19 @@
     "density": "focused",
     "intensity": {
       "restraint": 0.78
-    }
+    },
+    "secondary": [
+      "cash handoff",
+      "wallet edge",
+      "tight crop"
+    ],
+    "noise": [
+      "dark sleeves",
+      "background blur"
+    ],
+    "reading": [
+      "The cropped exchange makes money feel intimate, secretive, and slightly mechanical at once."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-05",
@@ -53879,7 +53927,19 @@
     "density": "focused",
     "intensity": {
       "trust": 0.74
-    }
+    },
+    "secondary": [
+      "meeting hands",
+      "sunlit pavement",
+      "crossing shadows"
+    ],
+    "noise": [
+      "pavement texture",
+      "shoe edges"
+    ],
+    "reading": [
+      "Seen from above, the handshake reads less as greeting than as a crisp sign stamped onto the street."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-06",
@@ -53938,7 +53998,19 @@
     "density": "focused",
     "intensity": {
       "tenderness": 0.83
-    }
+    },
+    "secondary": [
+      "tulip bouquet",
+      "near touch",
+      "gift exchange"
+    ],
+    "noise": [
+      "flower wrapping",
+      "soft background"
+    ],
+    "reading": [
+      "The flowers hold the two gestures apart for a second, making the almost-contact more charged."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-07",
@@ -53996,7 +54068,19 @@
     "density": "balanced",
     "intensity": {
       "playfulness": 0.82
-    }
+    },
+    "secondary": [
+      "cobblestone square",
+      "mirrored pose",
+      "shared movement"
+    ],
+    "noise": [
+      "stone pattern",
+      "open square"
+    ],
+    "reading": [
+      "The mirrored arms turn an ordinary square into a brief lesson in imitation and play."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-08",
@@ -54054,7 +54138,19 @@
     "density": "balanced",
     "intensity": {
       "urgency": 0.85
-    }
+    },
+    "secondary": [
+      "wet tram tracks",
+      "held hands",
+      "hurried crossing"
+    ],
+    "noise": [
+      "street reflections",
+      "rails"
+    ],
+    "reading": [
+      "Speed comes from the grip itself, with the adult hand pulling the whole scene forward."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-09",
@@ -54111,7 +54207,19 @@
     "density": "sparse",
     "intensity": {
       "companionship": 0.8
-    }
+    },
+    "secondary": [
+      "sloped path",
+      "back view",
+      "paired movement"
+    ],
+    "noise": [
+      "concrete surface",
+      "empty space"
+    ],
+    "reading": [
+      "Because the couple is walking away, their linked hands carry nearly all of the feeling."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-10",
@@ -54168,7 +54276,19 @@
     "density": "focused",
     "intensity": {
       "mystery": 0.76
-    }
+    },
+    "secondary": [
+      "branch lattice",
+      "raised palms",
+      "wooded backdrop"
+    ],
+    "noise": [
+      "tree canopy",
+      "dark foliage"
+    ],
+    "reading": [
+      "The lifted arms echo the surrounding branches, making the gesture feel half-private and half-ritual."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-11",
@@ -54226,7 +54346,19 @@
     "density": "balanced",
     "intensity": {
       "watchfulness": 0.78
-    }
+    },
+    "secondary": [
+      "knit hat",
+      "turned profile",
+      "street portrait"
+    ],
+    "noise": [
+      "soft facade",
+      "background blur"
+    ],
+    "reading": [
+      "A small touch at the shoulder makes the sideways glance feel composed rather than accidental."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-12",
@@ -54284,7 +54416,19 @@
     "density": "focused",
     "intensity": {
       "alertness": 0.8
-    }
+    },
+    "secondary": [
+      "headphones",
+      "low winter sun",
+      "visor-like arm"
+    ],
+    "noise": [
+      "bright background",
+      "coat details"
+    ],
+    "reading": [
+      "Her forearm works like a visor, turning the portrait into a quick act of self-protection."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-13",
@@ -54342,7 +54486,19 @@
     "density": "balanced",
     "intensity": {
       "strain": 0.84
-    }
+    },
+    "secondary": [
+      "blue suit",
+      "tree-lined street",
+      "hand shield"
+    ],
+    "noise": [
+      "greenery",
+      "background street"
+    ],
+    "reading": [
+      "The formal suit stays intact, but the hand across the forehead lets strain leak through."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-14",
@@ -54400,7 +54556,19 @@
     "density": "balanced",
     "intensity": {
       "weariness": 0.81
-    }
+    },
+    "secondary": [
+      "tram seats",
+      "window glare",
+      "paired passengers"
+    ],
+    "noise": [
+      "interior fixtures",
+      "yellow panels"
+    ],
+    "reading": [
+      "Inside the tram, the shielding hand makes public transport feel momentarily private and exhausted."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-15",
@@ -54458,7 +54626,19 @@
     "density": "balanced",
     "intensity": {
       "tension": 0.83
-    }
+    },
+    "secondary": [
+      "silver car",
+      "phone call",
+      "street enforcement"
+    ],
+    "noise": [
+      "car body",
+      "roadside clutter"
+    ],
+    "reading": [
+      "Hands, clamp, and phone split the scene into a small conflict between bureaucracy and mobility."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-16",
@@ -54516,7 +54696,19 @@
     "density": "balanced",
     "intensity": {
       "playfulness": 0.84
-    }
+    },
+    "secondary": [
+      "straw-covered hill",
+      "two children",
+      "raised handful"
+    ],
+    "noise": [
+      "loose straw",
+      "summer slope"
+    ],
+    "reading": [
+      "The lifted hay turns children's play into a loose performance of action and scatter."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-17",
@@ -54574,7 +54766,19 @@
     "density": "focused",
     "intensity": {
       "focus": 0.86
-    }
+    },
+    "secondary": [
+      "two blue balls",
+      "upward gaze",
+      "park performance"
+    ],
+    "noise": [
+      "blurred greenery",
+      "skin tones"
+    ],
+    "reading": [
+      "The open hand and rising balls create a temporary system of balance held together by attention."
+    ]
   },
   {
     "id": "img-020-019-quite-handy-18",
@@ -54633,7 +54837,19 @@
     "density": "focused",
     "intensity": {
       "anticipation": 0.81
-    }
+    },
+    "secondary": [
+      "white disc",
+      "extended fingers",
+      "blurred face"
+    ],
+    "noise": [
+      "background greenery",
+      "motion blur"
+    ],
+    "reading": [
+      "The hovering frisbee makes the throw feel lighter and more suspended than the body beneath it."
+    ]
   },
   {
     "id": "img-021-020-abstractisimo-09",
@@ -54690,7 +54906,19 @@
     "density": "dense",
     "intensity": {
       "intensity": 0.86
-    }
+    },
+    "secondary": [
+      "macro abstraction",
+      "fruit texture",
+      "seed grid"
+    ],
+    "noise": [
+      "food detail",
+      "glossy surface"
+    ],
+    "reading": [
+      "At this scale the strawberries stop behaving like fruit and start reading as a red field punctured by seeds."
+    ]
   },
   {
     "id": "img-021-020-quite-fency-01",
@@ -56077,7 +56305,19 @@
     "density": "focused",
     "intensity": {
       "surprise": 0.8
-    }
+    },
+    "secondary": [
+      "sunlit pavement",
+      "wheel circles",
+      "accidental animal"
+    ],
+    "noise": [
+      "surface grain",
+      "cropped frame"
+    ],
+    "reading": [
+      "The overlap of wheels and shadow invents a dog-like figure that exists only for a passing instant."
+    ]
   },
   {
     "id": "img-022-021-shadows-02",
@@ -56135,7 +56375,19 @@
     "density": "focused",
     "intensity": {
       "speed": 0.77
-    }
+    },
+    "secondary": [
+      "green saddle",
+      "passing wheel",
+      "pavement strip"
+    ],
+    "noise": [
+      "surface texture",
+      "frame edge"
+    ],
+    "reading": [
+      "A single green accent holds the real bicycle in place while the shadow does most of the moving."
+    ]
   },
   {
     "id": "img-022-021-shadows-03",
@@ -56191,7 +56443,19 @@
     "density": "balanced",
     "intensity": {
       "rhythm": 0.8
-    }
+    },
+    "secondary": [
+      "sunlit pavement",
+      "paired riders",
+      "stretched wheels"
+    ],
+    "noise": [
+      "surface texture",
+      "cropped edges"
+    ],
+    "reading": [
+      "The riders become a rhythm of circles and elongated bodies before they read as people on bikes."
+    ]
   },
   {
     "id": "img-022-021-shadows-04",
@@ -56247,7 +56511,19 @@
     "density": "focused",
     "intensity": {
       "tension": 0.79
-    }
+    },
+    "secondary": [
+      "pedestrian legs",
+      "crossing paths",
+      "shadow rider"
+    ],
+    "noise": [
+      "pavement seams",
+      "cropped body"
+    ],
+    "reading": [
+      "The scene feels tense because the bicycle is mostly trace while the pedestrian remains stubbornly solid."
+    ]
   },
   {
     "id": "img-022-021-shadows-05",
@@ -56301,7 +56577,19 @@
     "density": "sparse",
     "intensity": {
       "flow": 0.74
-    }
+    },
+    "secondary": [
+      "pale paving stones",
+      "single rider",
+      "gliding silhouette"
+    ],
+    "noise": [
+      "stone grid",
+      "open ground"
+    ],
+    "reading": [
+      "Against the pale ground, the cyclist survives as a clean moving mark more than a visible body."
+    ]
   },
   {
     "id": "img-022-021-shadows-06",
@@ -56357,7 +56645,19 @@
     "density": "balanced",
     "intensity": {
       "rhythm": 0.82
-    }
+    },
+    "secondary": [
+      "zebra stripes",
+      "three figures",
+      "parallel movement"
+    ],
+    "noise": [
+      "road markings",
+      "crosswalk texture"
+    ],
+    "reading": [
+      "The crosswalk and the shadows mirror each other, turning public movement into a graphic pattern."
+    ]
   },
   {
     "id": "img-022-021-shadows-07",
@@ -56413,7 +56713,19 @@
     "density": "focused",
     "intensity": {
       "intimacy": 0.76
-    }
+    },
+    "secondary": [
+      "shimmering water",
+      "paired silhouettes",
+      "bright surface"
+    ],
+    "noise": [
+      "water sparkle",
+      "soft edge"
+    ],
+    "reading": [
+      "The bright water flattens the figures into two dark presences, so the encounter feels both intimate and anonymous."
+    ]
   },
   {
     "id": "img-022-021-shadows-08",
@@ -56468,7 +56780,19 @@
     "density": "sparse",
     "intensity": {
       "solitude": 0.78
-    }
+    },
+    "secondary": [
+      "rippled pavement",
+      "solitary trace",
+      "stretched figure"
+    ],
+    "noise": [
+      "surface grain",
+      "cropped body"
+    ],
+    "reading": [
+      "The absent body matters less than the elongated trace it leaves on the ground."
+    ]
   },
   {
     "id": "img-022-021-shadows-09",
@@ -56523,7 +56847,19 @@
     "density": "dense",
     "intensity": {
       "energy": 0.8
-    }
+    },
+    "secondary": [
+      "bright pavement",
+      "scattered silhouettes",
+      "anonymous crowd"
+    ],
+    "noise": [
+      "surface glare",
+      "cropped feet"
+    ],
+    "reading": [
+      "The crowd first registers as a scatter of dark marks, with individuality arriving only later."
+    ]
   },
   {
     "id": "img-022-021-shadows-10",
@@ -56579,7 +56915,19 @@
     "density": "balanced",
     "intensity": {
       "warmth": 0.78
-    }
+    },
+    "secondary": [
+      "orange wall",
+      "paired walkers",
+      "evening light"
+    ],
+    "noise": [
+      "wall texture",
+      "street edge"
+    ],
+    "reading": [
+      "Warm color and dark silhouettes pull against each other, making companionship feel distant and cinematic."
+    ]
   },
   {
     "id": "img-023-022-dont-stay-01",

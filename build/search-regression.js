@@ -98,6 +98,17 @@ function isStreetDog(runtime, result) {
   return hasObjectMatch(runtime, result, 'dog') && directStreetCue;
 }
 
+function isStreetEnvironment(result) {
+  const environment = result.image.visual.environment_type || [];
+  const setting = result.image.visual.setting_type || [];
+  return environment.includes('street') || setting.includes('street');
+}
+
+function isIndoorWindow(runtime, result) {
+  const environment = result.image.visual.environment_type || [];
+  return environment.includes('indoor') && hasObjectMatch(runtime, result, 'window');
+}
+
 function hasPhoneScreen(runtime, result) {
   const screenCue = /\b(screen|display|checking|looking at|focused on|concentrating on|texting|scrolling|photographing)\b/i.test(
     `${String(result.image.alt || '')} ${Array.isArray(result.image.reading) ? result.image.reading.join(' ') : ''}`
@@ -250,7 +261,7 @@ function runRegression(rootDir) {
     {
       query: 'child street',
       minCount: 2,
-      validate: (results) => results.slice(0, 5).every((result) => isChild(result) && (result.image.visual.environment_type || []).includes('street'))
+      validate: (results) => results.slice(0, 5).every((result) => isChild(result) && isStreetEnvironment(result))
     },
     {
       query: 'no people blue',
@@ -294,8 +305,8 @@ function runRegression(rootDir) {
     },
     {
       query: 'indoor window',
-      exactCount: 0,
-      validate: (results) => results.length === 0
+      minCount: 1,
+      validate: (results) => results.slice(0, 3).every((result) => isIndoorWindow(runtime, result))
     },
     {
       query: 'dog close up',

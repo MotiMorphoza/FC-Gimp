@@ -258,9 +258,13 @@ function deriveVisualProfile(image) {
     }
   }
 
-  const peopleCount = Number.isFinite(image.people_count)
+  const derivedPeopleCount = deriveApproxPeopleCount(combinedText, hasPeople, gender, ageGroup);
+  const explicitPeopleCount = Number.isFinite(image.people_count)
     ? Number(image.people_count)
-    : deriveApproxPeopleCount(combinedText, hasPeople, gender, ageGroup);
+    : null;
+  const peopleCount = explicitPeopleCount != null
+    ? Math.max(explicitPeopleCount, derivedPeopleCount)
+    : derivedPeopleCount;
 
   let peopleProminence = String(image.people_prominence || "").trim().toLowerCase();
   if (!peopleProminence) {
@@ -329,6 +333,16 @@ function deriveVisualProfile(image) {
     if (textHasAnyHint(combinedText, ["window", "windows", "pane", "panes"])) settingType.push("window");
     if (textHasAnyHint(combinedText, ["river", "pond", "water", "puddle"])) settingType.push("water edge");
     if (textHasAnyHint(combinedText, ["kitchen", "room", "bedroom", "table"])) settingType.push("domestic");
+  }
+
+  if (settingType.includes("street")) {
+    environmentType.push("street", "urban", "outdoor");
+  }
+  if (settingType.includes("public square")) {
+    environmentType.push("urban", "outdoor");
+  }
+  if (settingType.includes("domestic") || settingType.includes("interior")) {
+    environmentType.push("indoor");
   }
 
   let shotType = String(image.shot_type || "").trim().toLowerCase();
@@ -533,11 +547,33 @@ function matchValue(value, stemmedValue, variants, canonical) {
   return valueHasAnyVariant(value, [...variants, canonical].filter(Boolean));
 }
 
+function hasWindowLightOnlyCue(indexedImage) {
+  const alt = String(indexedImage?.image?.alt || "").toLowerCase();
+  if (!/\bwindow light\b/.test(alt)) return false;
+
+  const visual = indexedImage?.image?.visual || {};
+  const explicitRole = visual.object_roles?.window || indexedImage?.image?.object_roles?.window;
+  const settingType = normalizeArray(visual.setting_type || indexedImage?.image?.setting_type);
+  const windowVariants = ["window", "windows", "pane", "panes", "windowpane"];
+  const explicitWindowCue = explicitRole === "primary"
+    || explicitRole === "secondary"
+    || explicitRole === "incidental"
+    || settingType.includes("window")
+    || includesVariant(indexedImage?.image?.primary, windowVariants, "window")
+    || includesVariant(indexedImage?.image?.objects, windowVariants, "window");
+
+  return !explicitWindowCue;
+}
+
 function getObjectProminence(indexedImage, termGroup) {
   const explicitRole = indexedImage?.image?.visual?.object_roles?.[termGroup.canonical] || indexedImage?.image?.object_roles?.[termGroup.canonical];
   if (explicitRole === "primary") return "primary";
   if (explicitRole === "secondary") return "secondary";
   if (explicitRole === "incidental") return "background";
+
+  if (termGroup.canonical === "window" && hasWindowLightOnlyCue(indexedImage)) {
+    return "none";
+  }
 
   const leadAlt = String(indexedImage.image.alt || "").split(/\s+/).slice(0, 10).join(" ");
   const allAlt = String(indexedImage.image.alt || "");
@@ -799,8 +835,12 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
 
     if (canonical === "old man") {
       const ageStage = String(visual.age_stage || indexedImage.image.age_stage || "").toLowerCase();
-      const dominantOlderMan = (visual.people_focus === "man") || Number(visual.people_count) === 1;
-      return (visual.gender || []).includes("man") && visual.people_prominence === "primary" && ageStage === "older" && dominantOlderMan
+      const genders = visual.gender || [];
+      const focusedOlderMan = visual.people_focus === "man";
+      const singleOlderMan = Number(visual.people_count) === 1
+        && !genders.includes("woman")
+        && (!visual.people_focus || visual.people_focus === "person" || visual.people_focus === "man");
+      return genders.includes("man") && visual.people_prominence === "primary" && ageStage === "older" && (focusedOlderMan || singleOlderMan)
         ? { matched: true, score: 18 }
         : { matched: false, score: 0 };
     }
