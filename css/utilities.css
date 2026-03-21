@@ -129,6 +129,22 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+.landing-noscript {
+  max-width: 32rem;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.landing-noscript p {
+  margin: 0 0 1rem;
+}
+
+.landing-noscript p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 700px) {
   .floating-cart-indicator {
     display: none;

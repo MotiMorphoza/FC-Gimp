@@ -897,7 +897,6 @@ function isAddressValid(ui) {
     if (!app.refs) return;
     var store = loadStore();
     var ui = uiState();
-    saveUi(ui);
     renderSelect(store);
     renderCart(store);
     renderTotals(store, ui);
@@ -918,26 +917,31 @@ function isAddressValid(ui) {
   }
 
   function bindEvents() {
+    function persistUiAndRender() {
+      saveUi(uiState());
+      render();
+    }
+
     app.refs.countryInput.addEventListener("input", function () {
       syncCountryControls(app.refs.countryInput.value, "input");
       clearRequestFeedback();
-      render();
+      persistUiAndRender();
     });
     app.refs.countryInput.addEventListener("change", function () {
       syncCountryControls(app.refs.countryInput.value, "input");
       clearRequestFeedback();
-      render();
+      persistUiAndRender();
     });
     if (app.refs.countrySelect) {
       app.refs.countrySelect.addEventListener("change", function () {
         syncCountryControls(app.refs.countrySelect.value, "select");
         clearRequestFeedback();
-        render();
+        persistUiAndRender();
       });
     }
-    app.refs.emailInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
-    app.refs.emailInput.addEventListener("blur", function () { clearRequestFeedback(); render(); });
-    app.refs.notesInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+    app.refs.emailInput.addEventListener("input", function () { clearRequestFeedback(); persistUiAndRender(); });
+    app.refs.emailInput.addEventListener("blur", function () { clearRequestFeedback(); persistUiAndRender(); });
+    app.refs.notesInput.addEventListener("input", function () { clearRequestFeedback(); persistUiAndRender(); });
     app.refs.clearBtn.addEventListener("click", function () { if (!window.confirm("Are you sure you want to clear the cart?")) return; var now = loadStore(); now.cart = {}; saveStore(now); clearRequestFeedback(); render(); });
     app.refs.requestBtn.addEventListener("click", submitOrderRequest);
     if (window.__SHOP_STORE_LISTENER_V2__) window.removeEventListener("moto:shop-store-updated", window.__SHOP_STORE_LISTENER_V2__);
@@ -968,11 +972,11 @@ function isAddressValid(ui) {
       app.refs.streetInput.value = ui.street;
       app.refs.cityInput.value = ui.city;
       app.refs.postalInput.value = ui.postal;
-      app.refs.nameInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
-      app.refs.phoneInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
-      app.refs.streetInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
-      app.refs.cityInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
-      app.refs.postalInput.addEventListener("input", function () { clearRequestFeedback(); render(); });
+      app.refs.nameInput.addEventListener("input", function () { clearRequestFeedback(); saveUi(uiState()); render(); });
+      app.refs.phoneInput.addEventListener("input", function () { clearRequestFeedback(); saveUi(uiState()); render(); });
+      app.refs.streetInput.addEventListener("input", function () { clearRequestFeedback(); saveUi(uiState()); render(); });
+      app.refs.cityInput.addEventListener("input", function () { clearRequestFeedback(); saveUi(uiState()); render(); });
+      app.refs.postalInput.addEventListener("input", function () { clearRequestFeedback(); saveUi(uiState()); render(); });
       // Mark fields as touched on first blur so validation shows only after interaction
       ["email", "name", "phone", "street", "city", "postal"].forEach(function(field) {
         var input = app.refs[field + "Input"];

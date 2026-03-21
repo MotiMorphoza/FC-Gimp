@@ -359,40 +359,6 @@ const IMAGE_SEO_TEXT_OVERRIDES = new Map([
   ['016 - star dust/11', { name: 'Woman in Glasses' }]
 ]);
 
-const RELATED_PHRASE_LABELS = new Map([
-  ['alienation', 'Urban detachment scenes'],
-  ['authority', 'Public authority scenes'],
-  ['beauty', 'Everyday beauty studies'],
-  ['connection', 'Brief human connections'],
-  ['daily life', 'Everyday street scenes'],
-  ['everyday symbolism', 'Symbolic everyday moments'],
-  ['freedom', 'Small freedom studies'],
-  ['humor', 'Wry street moments'],
-  ['identity', 'Shifting identity scenes'],
-  ['loneliness', 'Urban solitude scenes'],
-  ['modern life', 'Modern life observations'],
-  ['movement', 'Restless city movement'],
-  ['nature', 'Nature against the city'],
-  ['observation', 'Watchful city scenes'],
-  ['ordinary life', 'Ordinary public life'],
-  ['pattern', 'Pattern-driven studies'],
-  ['poetic', 'Poetic city moments'],
-  ['politics', 'Political street scenes'],
-  ['public space', 'Charged public spaces'],
-  ['rain', 'Rain-soaked street scenes'],
-  ['reflection', 'Reflective city scenes'],
-  ['reflections', 'Reflective city scenes'],
-  ['society', 'Social order scenes'],
-  ['solitude', 'Public solitude scenes'],
-  ['surreal', 'Offbeat street moments'],
-  ['surveillance', 'Watchful urban scenes'],
-  ['technology', 'Daily technology scenes'],
-  ['time', 'Passing time studies'],
-  ['urban absurdity', 'Absurd urban moments'],
-  ['urban nature', 'Urban nature scenes'],
-  ['vulnerability', 'Fragile public moments']
-]);
-
 function uniqueStrings(items = []) {
   return [...new Set(
     items
@@ -742,34 +708,6 @@ function appendIntentQualifier(baseSentence, qualifier) {
   return ensureSentence(combined);
 }
 
-function buildRelatedPhrase(sharedMotif = '', sharedConcept = '') {
-  const conceptKey = normalizeTerm(sharedConcept);
-  if (conceptKey && RELATED_PHRASE_LABELS.has(conceptKey)) {
-    return RELATED_PHRASE_LABELS.get(conceptKey);
-  }
-
-  if (sharedMotif) {
-    const motifLabel = humanizeMotif(sharedMotif);
-    if (/birds?/i.test(motifLabel)) return 'Birds in the city';
-    if (/cross/i.test(motifLabel)) return 'Religious symbols';
-    if (/windows?/i.test(motifLabel)) return 'Window studies';
-    if (/umbrellas?/i.test(motifLabel)) return 'Umbrella street scenes';
-    if (/dogs?/i.test(motifLabel)) return 'Urban dog portraits';
-    if (/masks?/i.test(motifLabel)) return 'Masked public scenes';
-    if (/statues?/i.test(motifLabel)) return 'Statue encounters';
-    if (/signs?/i.test(motifLabel)) return 'Public sign scenes';
-    if (/snow/i.test(motifLabel)) return 'Snowbound scenes';
-    if (/reflections?/i.test(motifLabel)) return 'Reflection studies';
-    return `${motifLabel} studies`;
-  }
-
-  return 'Related visual thread';
-}
-
-function buildRelatedAnchorText(title = '', sharedMotif = '', sharedConcept = '') {
-  return `${buildRelatedPhrase(sharedMotif, sharedConcept)} - ${title}`;
-}
-
 function buildGalleryTitleDescriptor(project, aggregates = {}) {
   const override = getProjectSeoOverride(project);
   if (override?.titleDescriptor) {
@@ -998,81 +936,14 @@ function buildGalleryAbout(project, aggregates) {
   return filterKeywordTerms([...visual, ...conceptual]).slice(0, 4);
 }
 
-function buildRelatedContext(sharedMotif = '', sharedConcept = '') {
-  const conceptKey = normalizeTerm(sharedConcept);
-  if (conceptKey && RELATED_PHRASE_LABELS.has(conceptKey)) {
-    return cleanSentence(`Another gallery drawn toward ${RELATED_PHRASE_LABELS.get(conceptKey).toLowerCase()}`);
-  }
-
-  if (sharedMotif) {
-    return cleanSentence(`Another gallery built around ${humanizeMotif(sharedMotif).toLowerCase()}`);
-  }
-
-  return cleanSentence('A nearby gallery with a related visual rhythm');
-}
-
-function buildSharedMotif(sourceAggregates, targetAggregates) {
-  const sourceTerms = new Set(
-    sortedEntries(sourceAggregates.motifs)
-      .map(([term]) => term)
-      .filter((term) => !isWeakMotifTerm(term))
-  );
-
-  const targetTerm = sortedEntries(targetAggregates.motifs)
-    .map(([term]) => term)
-    .find((term) => !isWeakMotifTerm(term) && sourceTerms.has(term));
-
-  return targetTerm ? humanizeMotif(targetTerm).toLowerCase() : '';
-}
-
-function buildSharedConcept(sourceAggregates, targetAggregates) {
-  const sourceTerms = new Set(sortedEntries(sourceAggregates.concepts).map(([term]) => term));
-  const targetTerm = sortedEntries(targetAggregates.concepts)
-    .map(([term]) => term)
-    .find((term) => sourceTerms.has(term));
-
-  const rewritten = rewriteConcept(targetTerm);
-  if (!rewritten) return '';
-
-  return rewritten
-    .replace(/^holding\s+/i, '')
-    .replace(/^finding\s+/i, '')
-    .replace(/^letting\s+/i, '')
-    .replace(/^keeping\s+/i, '')
-    .trim();
-}
-
-function getSharedAggregateScore(sourceAggregates, targetAggregates) {
-  const sourceConcepts = new Set(sortedEntries(sourceAggregates.concepts).map(([term]) => term));
-  const sourceMotifs = new Set(
-    sortedEntries(sourceAggregates.motifs)
-      .map(([term]) => term)
-      .filter((term) => !isWeakMotifTerm(term))
-  );
-
-  let score = 0;
-
-  sortedEntries(targetAggregates.concepts).forEach(([term]) => {
-    if (sourceConcepts.has(term)) score += 2;
-  });
-
-  sortedEntries(targetAggregates.motifs).forEach(([term]) => {
-    if (!isWeakMotifTerm(term) && sourceMotifs.has(term)) score += 1;
-  });
-
-  return score;
-}
-
 function buildCanonicalGalleryUrl(slug) {
   return `project-${slug}.html`;
 }
 
 function buildProjectSeoMap(projects = [], dataset = []) {
   const entriesByProject = new Map();
-  const entriesById = new Map();
 
   dataset.forEach((entry) => {
-    entriesById.set(entry.id, entry);
     if (!entriesByProject.has(entry.projectSlug)) {
       entriesByProject.set(entry.projectSlug, []);
     }
@@ -1085,8 +956,6 @@ function buildProjectSeoMap(projects = [], dataset = []) {
   });
 
   const seoMap = new Map();
-  const canonicalSlugs = new Set(projects.map((project) => project.slug));
-  const projectLookup = new Map(projects.map((project) => [project.slug, project]));
 
   projects.forEach((project) => {
     const entries = entriesByProject.get(project.slug) || [];
@@ -1103,59 +972,12 @@ function buildProjectSeoMap(projects = [], dataset = []) {
         });
       });
 
-    const relationWeights = new Map();
-    entries.forEach((entry) => {
-      (entry.related || []).forEach((relatedId) => {
-        const relatedEntry = entriesById.get(relatedId);
-        if (!relatedEntry) return;
-        if (!canonicalSlugs.has(relatedEntry.projectSlug)) return;
-        if (relatedEntry.projectSlug === project.slug) return;
-        relationWeights.set(
-          relatedEntry.projectSlug,
-          (relationWeights.get(relatedEntry.projectSlug) || 0) + 1
-        );
-      });
-    });
-
-    if (!relationWeights.size) {
-      projects.forEach((targetProject) => {
-        if (targetProject.slug === project.slug) return;
-        const targetAggregates = aggregatesByProject.get(targetProject.slug) || collectProjectAggregates([]);
-        const similarityScore = getSharedAggregateScore(aggregates, targetAggregates);
-        if (similarityScore >= 2) {
-          relationWeights.set(targetProject.slug, similarityScore);
-        }
-      });
-    }
-
-    const relatedLinks = sortedEntries(relationWeights)
-      .map(([targetSlug, weight]) => {
-        const targetProject = projectLookup.get(targetSlug);
-        if (!targetProject) return null;
-
-        const targetAggregates = aggregatesByProject.get(targetSlug) || collectProjectAggregates([]);
-        const sharedMotif = buildSharedMotif(aggregates, targetAggregates);
-        const sharedConcept = buildSharedConcept(aggregates, targetAggregates);
-
-        return {
-          slug: targetSlug,
-          title: targetProject.title,
-          href: buildCanonicalGalleryUrl(targetSlug),
-          anchorText: buildRelatedAnchorText(targetProject.title, sharedMotif, sharedConcept),
-          context: buildRelatedContext(sharedMotif, sharedConcept),
-          weight
-        };
-      })
-      .filter(Boolean)
-      .slice(0, 3);
-
     seoMap.set(project.slug, {
       lead: buildProjectLead(project, aggregates),
       titleDescriptor: buildGalleryTitleDescriptor(project, aggregates),
       metaDescription: buildGalleryMetaDescription(project, aggregates),
       keywords: buildGalleryKeywords(project, aggregates),
       about: buildGalleryAbout(project, aggregates),
-      relatedLinks,
       imageSeoByStem
     });
   });
@@ -1172,8 +994,7 @@ function applyProjectSeoData(projects = [], seoMap = new Map()) {
       titleDescriptor: seo.titleDescriptor,
       metaDescription: seo.metaDescription,
       keywords: [...seo.keywords],
-      about: [...seo.about],
-      relatedLinks: seo.relatedLinks.map((link) => ({ ...link }))
+      about: [...seo.about]
     };
 
     project.images = (project.images || []).map((image, index) => {
@@ -1228,29 +1049,6 @@ function renderCaptionHtml(image) {
   return `<figcaption class="project-caption">${paragraphs}</figcaption>`;
 }
 
-function renderRelatedLinksHtml(project) {
-  const relatedLinks = project?.seo?.relatedLinks || [];
-  if (!relatedLinks.length) {
-    return '<nav class="project-related-links" aria-label="Related galleries"></nav>';
-  }
-
-  const items = relatedLinks
-    .map((link) => `
-      <a class="project-related-link" href="${escapeAttribute(link.href)}">
-        <span class="project-related-title">${escapeHtml(link.anchorText || link.title)}</span>
-        <span class="project-related-copy">${escapeHtml(link.context)}</span>
-      </a>
-    `.trim())
-    .join('');
-
-  return `
-    <nav class="project-related-links" aria-label="Related galleries">
-      <p class="project-related-label">Related Galleries</p>
-      ${items}
-    </nav>
-  `.trim();
-}
-
 function renderProjectSeedMarkup(project) {
   const total = (project.images || []).length;
 
@@ -1280,13 +1078,70 @@ function renderProjectSeedMarkup(project) {
   }).join('');
 
   const galleryHtml = `<div class="project-gallery" data-seeded-gallery="true">${galleryItems}</div>`;
-  const relatedHtml = renderRelatedLinksHtml(project);
 
-  return { contextHtml, galleryHtml, relatedHtml };
+  return { contextHtml, galleryHtml };
+}
+
+function renderProjectsIndexSeedMarkup(projects) {
+  const items = Array.isArray(projects) ? projects : [];
+  const totalProjects = items.length;
+
+  return items.map((project, index) => {
+    const slug = String(project.slug || '').trim();
+    const title = String(project.title || '').trim();
+
+    if (!slug || !title) return '';
+
+    const sectionClass =
+      `project-item ${index % 2 === 0 ? 'bg-1' : 'bg-2'}${index % 2 === 1 ? ' reverse' : ''}`;
+    const href = buildCanonicalGalleryUrl(slug);
+    const counter = `${String(index + 1).padStart(2, '0')} / ${String(totalProjects).padStart(2, '0')}`;
+    const coverAlt = String(project.images?.[0]?.alt || project.images?.[0]?.caption || project.title || '').trim();
+    const imageSrc = project.images?.[0]?.src
+      ? `projects/${slug}/${project.images[0].src}`
+      : '';
+    const imageHtml = imageSrc
+      ? `<img class="project-media" src="${escapeAttribute(imageSrc)}" alt="${escapeAttribute(coverAlt || title)}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"${index === 0 ? ' fetchpriority="high"' : ''}>`
+      : '<div class="project-media placeholder" aria-hidden="true"></div>';
+    const description = String(project.description || '').trim();
+
+    const textHtml = `
+      <a href="${escapeAttribute(href)}" class="project-text">
+        <h2>${escapeHtml(title)}</h2>
+        <p>
+          ${description ? `${escapeHtml(description)} ` : ''}<span class="enter">ENTER &rarr;</span>
+        </p>
+      </a>
+    `.trim();
+
+    const mediaHtml = `
+      <a href="${escapeAttribute(href)}" class="project-link">
+        ${imageHtml}
+      </a>
+    `.trim();
+
+    const gridHtml = index % 2 === 0
+      ? `${mediaHtml}\n${textHtml}`
+      : `${textHtml}\n${mediaHtml}`;
+
+    const separatorHtml = index < totalProjects - 1
+      ? '\n<div class="separator"></div>'
+      : '';
+
+    return `
+      <section class="${sectionClass}">
+        <div class="project-counter">${escapeHtml(counter)}</div>
+        <div class="project-grid">
+          ${gridHtml}
+        </div>
+      </section>${separatorHtml}
+    `.trim();
+  }).filter(Boolean).join('\n');
 }
 
 module.exports = {
   applyProjectSeoData,
   buildProjectSeoMap,
-  renderProjectSeedMarkup
+  renderProjectSeedMarkup,
+  renderProjectsIndexSeedMarkup
 };

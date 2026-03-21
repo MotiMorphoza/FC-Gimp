@@ -582,19 +582,6 @@ function appendProjectIntentQualifier(baseSentence, qualifier) {
   return ensureProjectSentence(combined);
 }
 
-function buildProjectRelatedAnchorText(title = "", sharedMotif = "", sharedConcept = "") {
-  const conceptLabel = getProjectConceptLabel(sharedConcept);
-  if (conceptLabel) {
-    return `${conceptLabel.replace(/\b\w/g, (char) => char.toUpperCase())} series – ${title}`;
-  }
-
-  if (sharedMotif) {
-    return `${humanizeProjectMotif(sharedMotif)} series – ${title}`;
-  }
-
-  return `Related gallery – ${title}`;
-}
-
 function buildProjectAltFallback(projectTitle, semanticMeta = {}, index = 0) {
   const primary = getLiteralProjectPrimary(semanticMeta)[0] || "";
   const objects = uniqueProjectStrings(semanticMeta.objects || []).filter((term) => !PROJECT_GENERIC_VISUAL_TERMS.has(normalizeProjectTerm(term)));
@@ -651,11 +638,9 @@ async function loadImageSearchDataset() {
 function buildProjectSemanticState(projectData, dataset = []) {
   const bySrc = new Map();
   const entries = [];
-  const byId = new Map();
 
   dataset.forEach((entry) => {
     if (!entry || typeof entry !== "object") return;
-    if (entry.id) byId.set(entry.id, entry);
     if (entry.projectSlug !== projectData.slug) return;
     bySrc.set(normalizeProjectStem(entry.src), entry);
     entries.push(entry);
@@ -711,64 +696,8 @@ function buildProjectSemanticState(projectData, dataset = []) {
     else lead = ensureProjectSentence(`The gallery keeps its attention on small signs of ${topConceptLabel}`);
   }
 
-  const galleryLookup = new Map((window.__PROJECTS__ || []).map((project) => [project.slug, project]));
-  const relatedWeights = new Map();
-
-  entries.forEach((entry) => {
-    (entry.related || []).forEach((relatedId) => {
-      const relatedEntry = byId.get(relatedId) || dataset.find((item) => item?.id === relatedId);
-      if (!relatedEntry || relatedEntry.projectSlug === projectData.slug) return;
-      if (!galleryLookup.has(relatedEntry.projectSlug)) return;
-      relatedWeights.set(
-        relatedEntry.projectSlug,
-        (relatedWeights.get(relatedEntry.projectSlug) || 0) + 1
-      );
-    });
-  });
-
-  const relatedLinks = [...relatedWeights.entries()]
-    .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
-    .slice(0, 3)
-    .map(([slug]) => {
-      const targetProject = galleryLookup.get(slug);
-      const targetEntries = dataset.filter((item) => item?.projectSlug === slug);
-      const sharedMotifSet = new Set(
-        entries.flatMap((entry) => uniqueProjectStrings([...(entry.objects || []), ...getLiteralProjectPrimary(entry)]))
-          .map(normalizeProjectTerm)
-          .filter((term) => term && !isWeakProjectMotif(term))
-      );
-      const sharedMotif = targetEntries
-        .flatMap((entry) => uniqueProjectStrings([...(entry.objects || []), ...getLiteralProjectPrimary(entry)]))
-        .find((term) => !isWeakProjectMotif(term) && sharedMotifSet.has(normalizeProjectTerm(term)));
-      const sharedConceptSet = new Set(
-        entries.flatMap((entry) => [...(entry.tension || []), ...(entry.themes || [])]).map(normalizeProjectTerm)
-      );
-      const sharedConceptRaw = targetEntries
-        .flatMap((entry) => [...(entry.tension || []), ...(entry.themes || [])])
-        .find((term) => sharedConceptSet.has(normalizeProjectTerm(term)));
-      const sharedConcept = String(sharedConceptRaw || "").trim();
-
-      let context = "A nearby gallery with a related visual tension.";
-      if (sharedMotif && sharedConcept) {
-        context = ensureProjectSentence(`Another gallery where ${humanizeProjectMotif(sharedMotif).toLowerCase()} carry a similar ${getProjectConceptLabel(sharedConcept)} charge`);
-      } else if (sharedMotif) {
-        context = ensureProjectSentence(`Another gallery shaped by ${humanizeProjectMotif(sharedMotif).toLowerCase()}`);
-      } else if (sharedConcept) {
-        context = ensureProjectSentence(`Another gallery drawn toward ${getProjectConceptLabel(sharedConcept)}`);
-      }
-
-      return {
-        slug,
-        title: targetProject?.title || slug,
-        href: `project-${encodeURIComponent(slug)}.html`,
-        anchorText: buildProjectRelatedAnchorText(targetProject?.title || slug, sharedMotif, sharedConcept),
-        context
-      };
-    });
-
   return {
     lead,
-    relatedLinks,
     imageMetaBySrc
   };
 }
@@ -838,13 +767,17 @@ function createProjectFigure(projectData, imgData, index, semanticMeta = null) {
   const caption = document.createElement("figcaption");
   caption.className = "project-caption";
   const captionText = String(imgData.caption || "").trim();
-  renderProjectCaption(caption, captionText);
+  if (captionText) {
+    renderProjectCaption(caption, captionText);
+  }
 
   imageWrap.appendChild(codeTag);
   imageWrap.appendChild(img);
 
   figure.appendChild(imageWrap);
-  figure.appendChild(caption);
+  if (captionText) {
+    figure.appendChild(caption);
+  }
 
   return figure;
 }
@@ -856,36 +789,6 @@ function renderProjectGallery(gallery, projectData, semanticState = null) {
   projectData.images.forEach((imgData, index) => {
     const semanticMeta = semanticState?.imageMetaBySrc?.get(normalizeProjectStem(imgData.src)) || null;
     gallery.appendChild(createProjectFigure(projectData, imgData, index, semanticMeta));
-  });
-}
-
-function renderProjectRelatedLinks(relatedEl, relatedLinks = []) {
-  if (!relatedEl) return;
-  relatedEl.innerHTML = "";
-
-  if (!relatedLinks.length) return;
-
-  const label = document.createElement("p");
-  label.className = "project-related-label";
-  label.textContent = "Related Galleries";
-  relatedEl.appendChild(label);
-
-  relatedLinks.forEach((linkData) => {
-    const link = document.createElement("a");
-    link.className = "project-related-link";
-    link.href = linkData.href;
-
-    const title = document.createElement("span");
-    title.className = "project-related-title";
-    title.textContent = linkData.anchorText || linkData.title;
-
-    const copy = document.createElement("span");
-    copy.className = "project-related-copy";
-    copy.textContent = linkData.context;
-
-    link.appendChild(title);
-    link.appendChild(copy);
-    relatedEl.appendChild(link);
   });
 }
 
@@ -1391,7 +1294,6 @@ async function initProjectPage() {
   const contentEl = document.querySelector(".project-content");
   const contextEl = document.querySelector(".project-context");
   const gallery = document.querySelector(".project-gallery");
-  const relatedEl = document.querySelector(".project-related-links");
   if (!gallery || !contentEl) return;
 
   const projectSlug = getSlugFromURL();
@@ -1402,7 +1304,7 @@ async function initProjectPage() {
     try {
       await ensureProjectsManifestLoaded();
     } catch (_e) {
-      // Manifest is optional for rendering. Only next/related navigation degrades.
+      // Manifest is optional for rendering. Only secondary enhancements degrade.
     }
   }
 
@@ -1429,7 +1331,6 @@ async function initProjectPage() {
 
       renderProjectContext(contextEl, data);
       renderProjectGallery(gallery, data, semanticState);
-      renderProjectRelatedLinks(relatedEl, semanticState.relatedLinks);
     } catch (err) {
       console.error(err);
       gallery.innerHTML = "";

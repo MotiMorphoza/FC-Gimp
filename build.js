@@ -17,7 +17,12 @@ const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
 const { writeImageSearchDataset } = require('./build/image-search-generator');
-const { applyProjectSeoData, buildProjectSeoMap, renderProjectSeedMarkup } = require('./build/project-seo');
+const {
+  applyProjectSeoData,
+  buildProjectSeoMap,
+  renderProjectSeedMarkup,
+  renderProjectsIndexSeedMarkup
+} = require('./build/project-seo');
 const { SITE_HOSTNAME, SITE_ORIGIN } = require('./build/site-config');
 
 class SuperBuild {
@@ -101,6 +106,7 @@ class SuperBuild {
       const projectSeoMap = buildProjectSeoMap(projects, imageSearchDataset);
       applyProjectSeoData(projects, projectSeoMap);
       this.generateStaticProjectPages(projects, buildDir);
+      this.seedProjectsIndexPage(projects, buildDir);
 
       // ─────────────────────────────────────────────────────────────────────
       // Generate manifests
@@ -115,7 +121,11 @@ class SuperBuild {
       applyProjectSeoData(manifestData.projects || [], projectSeoMap);
 
       const manifestPath = path.join(buildDir, 'js', 'image-manifest.js');
-      this.manifestGenerator.generate(manifestData, manifestPath);
+      const runtimeManifestData = {
+        landing: manifestData.landing || {},
+        main: Array.isArray(manifestData.main) ? manifestData.main : []
+      };
+      this.manifestGenerator.generate(runtimeManifestData, manifestPath);
       const manifestContent = fs.readFileSync(manifestPath, 'utf8');
       const versionInputs = this.collectVersionInputs(buildDir);
 
@@ -350,15 +360,25 @@ class SuperBuild {
         seededMarkup.galleryHtml
       );
 
-      pageHtml = pageHtml.replace(
-        /<nav class="project-related-links" aria-label="Related galleries"><\/nav>/i,
-        seededMarkup.relatedHtml
-      );
-
       fs.writeFileSync(outputPath, pageHtml, 'utf8');
     });
 
     this.logger.info(`Generated ${projects.length} static project pages`);
+  }
+
+  seedProjectsIndexPage(projects, tempDir) {
+    const projectsPath = path.join(tempDir, 'projects.html');
+    if (!fs.existsSync(projectsPath)) return;
+
+    const html = fs.readFileSync(projectsPath, 'utf8');
+    const seededMarkup = renderProjectsIndexSeedMarkup(projects);
+    const nextHtml = html.replace(
+      /<div id="projects-list" class="projects-list"><\/div>/i,
+      `<div id="projects-list" class="projects-list" data-seeded-projects="true">${seededMarkup}</div>`
+    );
+
+    fs.writeFileSync(projectsPath, nextHtml, 'utf8');
+    this.logger.info('[pages] Seeded projects.html with static project links');
   }
 
   generateImageSearchDataset(projects, tempDir) {
@@ -525,4 +545,3 @@ if (require.main === module) {
 }
 
 module.exports = SuperBuild;
-

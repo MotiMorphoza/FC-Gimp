@@ -2,6 +2,14 @@ function initProjectsPage() {
   const listEl = document.getElementById("projects-list");
   if (!listEl || listEl.dataset.initialized === "true") return;
 
+  const seededCovers = [...listEl.querySelectorAll(".project-media")];
+  if (seededCovers.length) {
+    listEl.dataset.initialized = "true";
+    enableProjectsForwardPreload(seededCovers);
+    enableDecodeFade(seededCovers);
+    return;
+  }
+
   const manifest = window.__PROJECTS__;
 
   if (!Array.isArray(manifest) || manifest.length === 0) {

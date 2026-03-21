@@ -1,5 +1,0 @@
-LAYOUT: 05s
-TITLE: 
-IMAGE: holy.jpg
-HIDDEN:
-BODY:

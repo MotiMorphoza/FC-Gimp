@@ -1,7 +1,0 @@
-LAYOUT: 05
-TITLE: 
-IMAGE: innocence.jpg
-HIDDEN:
-BODY:
-
-

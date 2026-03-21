@@ -22,6 +22,7 @@ const SEARCH_ARRAY_FIELDS = [
 ];
 
 const SEARCH_STRING_FIELDS = ["density", "pov", "manipulation", "subject_scale", "alt", "caption", "projectTitle", "projectDescription"];
+const MAX_RENDERED_RESULTS = 120;
 const FIELD_WEIGHTS = {
   primary: 5,
   secondary: 3,
@@ -1459,11 +1460,16 @@ function renderResults(resultsEl, results, query) {
   enableDecodeFade([...resultsEl.querySelectorAll(".search-result-media")]);
 }
 
-function updateResultsSummary(summaryEl, resultState, totalCount) {
+function updateResultsSummary(summaryEl, resultState, totalCount, renderedCount = resultState.results.length) {
   const query = resultState.parsedQuery.raw.trim();
 
   if (!query) {
-    summaryEl.textContent = `Search across ${totalCount} indexed images by object, mood, color, symbol, or absence.`;
+    if (typeof totalCount === "number") {
+      summaryEl.textContent = `Search across ${totalCount} indexed images by object, mood, color, symbol, or absence.`;
+      return;
+    }
+
+    summaryEl.textContent = "Search by object, mood, color, symbol, or absence to load matching images.";
     return;
   }
 
@@ -1474,12 +1480,27 @@ function updateResultsSummary(summaryEl, resultState, totalCount) {
 
   const label = resultState.results.length === 1 ? "image" : "images";
   if (resultState.mode === "or") {
+    if (renderedCount < resultState.results.length) {
+      summaryEl.textContent = `Showing first ${renderedCount} of ${resultState.results.length} ${label} loosely matching "${query}" through partial semantic overlap. Refine the query to narrow further.`;
+      return;
+    }
+
     summaryEl.textContent = `${resultState.results.length} ${label} loosely matched "${query}" through partial semantic overlap.`;
     return;
   }
 
   if (resultState.mode === "negative") {
+    if (renderedCount < resultState.results.length) {
+      summaryEl.textContent = `Showing first ${renderedCount} of ${resultState.results.length} ${label} matching the absence filter "${query}". Refine the query to narrow further.`;
+      return;
+    }
+
     summaryEl.textContent = `${resultState.results.length} ${label} matched the absence filter "${query}".`;
+    return;
+  }
+
+  if (renderedCount < resultState.results.length) {
+    summaryEl.textContent = `Showing first ${renderedCount} of ${resultState.results.length} ${label} matching "${query}" across the visual index. Refine the query to narrow further.`;
     return;
   }
 
@@ -1491,12 +1512,14 @@ async function renderSearch(query) {
   const resultsEl = document.getElementById("search-results");
   if (!summaryEl || !resultsEl) return;
 
-  const indexedImages = await loadSearchIndex();
+  const normalizedQuery = String(query || "").trim();
+  const indexedImages = normalizedQuery ? await loadSearchIndex() : [];
   const resultState = searchImages(indexedImages, query);
+  const renderedResults = resultState.results.slice(0, MAX_RENDERED_RESULTS);
 
   SEARCH_STATE.currentQuery = query;
-  renderResults(resultsEl, resultState.results, query);
-  updateResultsSummary(summaryEl, resultState, indexedImages.length);
+  renderResults(resultsEl, renderedResults, query);
+  updateResultsSummary(summaryEl, resultState, normalizedQuery ? indexedImages.length : null, renderedResults.length);
   writeSearchStateToUrl({ query });
 
   if (typeof window.setSidebarSearchValue === "function") {
