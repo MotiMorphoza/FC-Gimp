@@ -51326,5 +51326,1605 @@
       "emotion": 9
     },
     "alt": "Person feeding pigeons in the snow"
+  },
+  {
+    "id": "img-019-018-one-color-01",
+    "projectSlug": "018 - one color",
+    "src": "01.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "reduced field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "tone"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "tone": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "reduced field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "single register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-02"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-02",
+    "projectSlug": "018 - one color",
+    "src": "02.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "charcoal tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "focused field",
+      "defined edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "silence"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "tonal field"
+    ],
+    "texture": [
+      "paper-like surface",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "compressed",
+      "severe"
+    ],
+    "relations": [
+      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.68
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-01",
+      "img-019-018-one-color-03"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-03",
+    "projectSlug": "018 - one color",
+    "src": "03.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "near-black tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "focused field",
+      "soft edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "single register"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-02",
+      "img-019-018-one-color-04"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-04",
+    "projectSlug": "018 - one color",
+    "src": "04.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "charcoal tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "dense field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "soft edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "silence"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "compressed",
+      "severe"
+    ],
+    "relations": [
+      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "dense",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-03",
+      "img-019-018-one-color-05"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-05",
+    "projectSlug": "018 - one color",
+    "src": "05.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "charcoal tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "dense field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "hard edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "silence"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "tonal field"
+    ],
+    "texture": [
+      "hard surface",
+      "tonal grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "compressed",
+      "severe"
+    ],
+    "relations": [
+      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "dense",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-04",
+      "img-019-018-one-color-06"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-06",
+    "projectSlug": "018 - one color",
+    "src": "06.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "near-black tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "focused field",
+      "defined edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "single register"
+    ],
+    "texture": [
+      "paper-like surface",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.68
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-05",
+      "img-019-018-one-color-07"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-07",
+    "projectSlug": "018 - one color",
+    "src": "07.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "charcoal tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "dense field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "dense field",
+      "soft edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black",
+      "gray"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "silence"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "compressed",
+      "severe"
+    ],
+    "relations": [
+      "A charcoal register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "dense",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-06",
+      "img-019-018-one-color-08"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-08",
+    "projectSlug": "018 - one color",
+    "src": "08.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "tone"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "tone": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "focused field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "single register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-07",
+      "img-019-018-one-color-09"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-09",
+    "projectSlug": "018 - one color",
+    "src": "09.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "tone"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "tone": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "focused field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "single register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-08",
+      "img-019-018-one-color-10"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-10",
+    "projectSlug": "018 - one color",
+    "src": "10.jpg",
+    "primary": [
+      "panoramic monochrome study",
+      "pale gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "focused field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "highlight"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "highlight": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "panoramic frame",
+      "focused field",
+      "defined edges"
+    ],
+    "lighting": [
+      "soft light",
+      "high key light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "airiness",
+      "quiet",
+      "restraint"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "light register",
+      "single register"
+    ],
+    "texture": [
+      "paper-like surface",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "open",
+      "delicate"
+    ],
+    "relations": [
+      "A pale register keeps surface and form in suspension inside a panoramic monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+    ],
+    "density": "focused",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.68
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-09",
+      "img-019-018-one-color-11"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 6
+    },
+    "subject_scale": "wide"
+  },
+  {
+    "id": "img-019-018-one-color-11",
+    "projectSlug": "018 - one color",
+    "src": "11.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "pale gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "dense field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "highlight"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "highlight": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "dense field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "high key light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "airiness",
+      "quiet",
+      "restraint"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "light register",
+      "single register"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "open",
+      "delicate"
+    ],
+    "relations": [
+      "A pale register keeps surface and form in suspension inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+    ],
+    "density": "dense",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-10",
+      "img-019-018-one-color-12"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 6
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-12",
+    "projectSlug": "018 - one color",
+    "src": "12.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "reduced field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "tone"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "tone": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "reduced field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "single register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A gray register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-11",
+      "img-019-018-one-color-13"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-13",
+    "projectSlug": "018 - one color",
+    "src": "13.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "gray tonal register",
+      "soft edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "reduced field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "tone"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "tone": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "reduced field",
+      "soft edges"
+    ],
+    "lighting": [
+      "soft light",
+      "directional light"
+    ],
+    "colors": [
+      "gray",
+      "black"
+    ],
+    "mood": [
+      "quiet",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "single register",
+      "tonal field"
+    ],
+    "texture": [
+      "soft surface",
+      "smooth tonal transitions"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "watchful",
+      "restrained"
+    ],
+    "relations": [
+      "A gray register holds surface, form, and contrast together inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "The image reduces itself to value, edge, and atmosphere, asking the eye to stay longer with tone alone."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.54
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-12",
+      "img-019-018-one-color-14"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-14",
+    "projectSlug": "018 - one color",
+    "src": "14.jpg",
+    "primary": [
+      "vertical monochrome study",
+      "pale gray tonal register",
+      "defined edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "dense field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "highlight"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "highlight": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "vertical frame",
+      "dense field",
+      "defined edges"
+    ],
+    "lighting": [
+      "soft light",
+      "high key light"
+    ],
+    "colors": [
+      "white",
+      "gray"
+    ],
+    "mood": [
+      "airiness",
+      "quiet",
+      "restraint"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "light register",
+      "single register"
+    ],
+    "texture": [
+      "paper-like surface",
+      "dry grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "open",
+      "delicate"
+    ],
+    "relations": [
+      "A pale register keeps surface and form in suspension inside a vertical monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "With color withheld, slight changes in value and atmosphere carry the image instead of narrative."
+    ],
+    "density": "dense",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.7,
+      "contrast": 0.68
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-13",
+      "img-019-018-one-color-15"
+    ],
+    "score": {
+      "impact": 7,
+      "originality": 7,
+      "emotion": 6
+    },
+    "subject_scale": "medium"
+  },
+  {
+    "id": "img-019-018-one-color-15",
+    "projectSlug": "018 - one color",
+    "src": "15.jpg",
+    "primary": [
+      "horizontal monochrome study",
+      "near-black tonal register",
+      "hard edges"
+    ],
+    "secondary": [
+      "one color",
+      "grayscale reduction",
+      "reduced field",
+      "minimal visual field"
+    ],
+    "noise": [],
+    "objects": [
+      "surface",
+      "form",
+      "shadow"
+    ],
+    "object_roles": {
+      "surface": "primary",
+      "form": "primary",
+      "shadow": "secondary"
+    },
+    "environment": [
+      "ambiguous space",
+      "reduced field"
+    ],
+    "style": [
+      "monochrome conceptual photography",
+      "minimal observation",
+      "tonal study"
+    ],
+    "composition": [
+      "horizontal frame",
+      "reduced field",
+      "hard edges"
+    ],
+    "lighting": [
+      "low light",
+      "high contrast"
+    ],
+    "colors": [
+      "black"
+    ],
+    "mood": [
+      "tension",
+      "restraint",
+      "ambiguity"
+    ],
+    "themes": [
+      "monochrome",
+      "one color",
+      "reduction",
+      "perception",
+      "tonal contrast"
+    ],
+    "symbols": [
+      "dark register",
+      "single register"
+    ],
+    "texture": [
+      "hard surface",
+      "tonal grain"
+    ],
+    "motion": [
+      "stillness"
+    ],
+    "tone": [
+      "severe",
+      "restrained"
+    ],
+    "relations": [
+      "A near-black register holds surface, form, and contrast together inside a horizontal monochrome frame."
+    ],
+    "tension": [
+      "simplicity versus ambiguity",
+      "one tonal register versus visual complexity"
+    ],
+    "reading": [
+      "Color disappears so that pressure, compression, and tonal friction become the event."
+    ],
+    "density": "sparse",
+    "intensity": {
+      "restraint": 0.86,
+      "ambiguity": 0.8,
+      "contrast": 0.82
+    },
+    "pov": "frontal",
+    "manipulation": "monochrome",
+    "negative": [
+      "color"
+    ],
+    "related": [
+      "img-019-018-one-color-14"
+    ],
+    "score": {
+      "impact": 8,
+      "originality": 7,
+      "emotion": 7
+    },
+    "subject_scale": "medium"
   }
 ]

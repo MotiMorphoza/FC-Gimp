@@ -1,0 +1,89 @@
+{
+  "title": "One Color",
+  "codePrefix": "OCL",
+  "description": "A monochrome conceptual photography series built from scenes reduced to a single tonal family. By stripping color down to grayscale and near-monochrome value, the images shift attention toward contrast, texture, rhythm, and the emotional pressure of form.",
+  "tags": [
+    "monochrome",
+    "grayscale",
+    "minimalism",
+    "tonal contrast",
+    "conceptual photography"
+  ],
+  "images": [
+    {
+      "src": "01.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in medium gray tones with layered texture and contrast"
+    },
+    {
+      "src": "02.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in dark gray tones with dense tonal contrast"
+    },
+    {
+      "src": "03.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in deep charcoal tones with compressed contrast"
+    },
+    {
+      "src": "04.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in dark gray tones with soft edges and diffuse texture"
+    },
+    {
+      "src": "05.jpg",
+      "caption": "",
+      "alt": "Wide monochrome scene in dark gray tones with sharp lines and strong contrast"
+    },
+    {
+      "src": "06.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in charcoal tones with layered shadows"
+    },
+    {
+      "src": "07.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in dark gray tones with dense detail and tonal friction"
+    },
+    {
+      "src": "08.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in medium gray tones with balanced light and shadow"
+    },
+    {
+      "src": "09.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in steel gray tones with quiet contrast"
+    },
+    {
+      "src": "10.jpg",
+      "caption": "",
+      "alt": "Wide monochrome scene in pale gray tones with bright highlights and horizontal spread"
+    },
+    {
+      "src": "11.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in light gray tones with airy contrast and soft detail"
+    },
+    {
+      "src": "12.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in medium gray tones with restrained texture"
+    },
+    {
+      "src": "13.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in steel gray tones with crisp tonal edges"
+    },
+    {
+      "src": "14.jpg",
+      "caption": "",
+      "alt": "Vertical monochrome scene in pale gray tones with luminous highlights"
+    },
+    {
+      "src": "15.jpg",
+      "caption": "",
+      "alt": "Horizontal monochrome scene in near-black tones with stark high-contrast accents"
+    }
+  ]
+}

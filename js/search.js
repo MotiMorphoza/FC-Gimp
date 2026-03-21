@@ -859,6 +859,14 @@ function matchHardVisualTerm(indexedImage, termGroup, parsedQuery = null) {
       }
       return { matched: false, score: 0 };
     }
+
+    if (canonical === "one color") {
+      const projectTitle = String(indexedImage.image.projectTitle || "").toLowerCase();
+      const exactGallery = projectTitle.includes("one color");
+      return exactGallery
+        ? { matched: true, score: 22 }
+        : { matched: false, score: 0 };
+    }
   }
 
   if (queryClass === "shot") {

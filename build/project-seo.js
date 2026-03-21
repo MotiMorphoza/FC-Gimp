@@ -337,6 +337,13 @@ const PROJECT_SEO_OVERRIDES = new Map([
     lead: 'Birds and winged forms keep pulling the gallery upward toward escape.',
     about: ['birds and flight', 'urban freedom', 'motion'],
     keywords: ['birds', 'flight', 'street photography', 'freedom']
+  }],
+  ['018 - one color', {
+    titleDescriptor: 'Monochrome Tone Studies',
+    metaDescription: 'A conceptual photography series built around monochrome reduction, tonal restraint, and the pressure of a single visual register. Form, shadow, and atmosphere carry the image when color falls away.',
+    lead: 'By stripping the frame toward one tonal family, the gallery makes form, contrast, and atmosphere do the emotional work.',
+    about: ['monochrome reduction', 'tonal restraint', 'minimal visual tension'],
+    keywords: ['monochrome photography', 'black and white gallery', 'minimal conceptual photography', 'tonal study']
   }]
 ]);
 
