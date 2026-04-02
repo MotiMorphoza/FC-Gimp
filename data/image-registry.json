@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-02T16:04:54.205Z",
+  "generatedAt": "2026-04-02T17:48:20.602Z",
   "schemaVersion": 2,
   "summary": {
-    "imageCount": 540,
-    "placementCount": 549,
-    "variantCount": 549,
+    "imageCount": 541,
+    "placementCount": 550,
+    "variantCount": 550,
     "sourceAssetCount": 527,
     "resolved": 491,
     "held": 5,
-    "unresolved": 44
+    "unresolved": 45
   },
   "sourceAssets": [
     {
@@ -37139,6 +37139,49 @@
           "extension": ".jpg",
           "proposedFilename": "06__DSC_8904.jpg",
           "cameraCode": "DSC_8904"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000541",
+      "identityKey": "site:src/projects/015 - brain blow/12.jpg",
+      "registryStatus": "unresolved",
+      "sourceMatchStatus": "unmatched",
+      "source": null,
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": "PHONERAINBOW"
+      },
+      "placements": [
+        {
+          "projectSlug": "015 - brain blow",
+          "projectTitle": "Brain Blow",
+          "siteRelativePath": "src/projects/015 - brain blow/12.jpg",
+          "currentFilename": "12.jpg",
+          "orderIndex": 11,
+          "alt": "",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "015 - brain blow",
+          "src": "12.jpg"
+        }
+      ],
+      "sourceAssetId": null,
+      "variants": [
+        {
+          "variantId": "imgvar-000550",
+          "kind": "site-master",
+          "filePath": "src/projects/015 - brain blow/12.jpg",
+          "filename": "12.jpg",
+          "stem": "12",
+          "extension": ".jpg",
+          "proposedFilename": "12.jpg",
+          "cameraCode": ""
         }
       ]
     }

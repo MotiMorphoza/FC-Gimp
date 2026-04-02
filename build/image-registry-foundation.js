@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const Scanner = require('./scanner');
 
 const DEFAULT_REPORT = '.build-temp/registry-reconcile-full.json';
 const DEFAULT_HOLDS = '.build-temp/manual-remaining-overrides.json';
@@ -54,22 +55,17 @@ function padNumber(value, width = 6) {
 }
 
 function loadProjects(rootDir) {
-  const projectsRoot = path.join(rootDir, 'src', 'projects');
-  const entries = fs.readdirSync(projectsRoot, { withFileTypes: true });
+  const scanner = new Scanner({
+    info() {},
+    warn() {},
+    error() {}
+  });
 
-  return entries
-    .filter((entry) => entry.isDirectory())
-    .sort((left, right) => left.name.localeCompare(right.name))
-    .map((entry) => {
-      const projectSlug = entry.name;
-      const projectJsonPath = path.join(projectsRoot, projectSlug, 'project.json');
-      const data = readJson(projectJsonPath, {});
-      return {
-        slug: projectSlug,
-        title: String(data.title || projectSlug).trim(),
-        images: Array.isArray(data.images) ? data.images : []
-      };
-    });
+  return scanner.scanProjectsFromRoot(rootDir).map((project) => ({
+    slug: project.slug,
+    title: String(project.title || project.slug).trim(),
+    images: Array.isArray(project.images) ? project.images : []
+  }));
 }
 
 function loadPlacements(projects) {
@@ -401,8 +397,8 @@ function buildRegistry(rootDir, report, holds, existingRegistry) {
   };
 }
 
-function main() {
-  const args = parseArgs(process.argv.slice(2));
+function runFoundation(argv = process.argv.slice(2)) {
+  const args = parseArgs(argv);
   const rootDir = process.cwd();
   const reportPath = path.resolve(rootDir, args.report);
   const holdsPath = path.resolve(rootDir, args.holds);
@@ -416,6 +412,15 @@ function main() {
   writeJson(registryPath, registry);
   console.log(`[registry:foundation] wrote ${normalizePath(path.relative(rootDir, registryPath))}`);
   console.log(`[registry:foundation] images=${registry.summary.imageCount} placements=${registry.summary.placementCount} resolved=${registry.summary.resolved} held=${registry.summary.held} unresolved=${registry.summary.unresolved}`);
+  return registry;
 }
 
-main();
+if (require.main === module) {
+  runFoundation();
+}
+
+module.exports = {
+  parseArgs,
+  buildRegistry,
+  runFoundation
+};

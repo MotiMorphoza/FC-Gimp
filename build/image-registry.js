@@ -109,8 +109,57 @@ function buildRegistryImageFields(entry, registry) {
   };
 }
 
+function buildRuntimeRegistrySnapshot(registry) {
+  if (!registry?.payload) {
+    return {
+      generatedAt: new Date().toISOString(),
+      source: '',
+      summary: {
+        imageCount: 0,
+        sourceAssetCount: 0,
+        placementCount: 0
+      },
+      images: []
+    };
+  }
+
+  const payload = registry.payload;
+  const images = Array.isArray(payload.images) ? payload.images : [];
+  const sourceAssets = Array.isArray(payload.sourceAssets) ? payload.sourceAssets : [];
+
+  return {
+    generatedAt: new Date().toISOString(),
+    source: path.relative(process.cwd(), registry.filePath).replace(/\\/g, '/'),
+    summary: {
+      imageCount: images.length,
+      sourceAssetCount: sourceAssets.length,
+      placementCount: images.reduce((sum, entry) => sum + ((entry.placements || []).length), 0)
+    },
+    images: images.map((entry) => ({
+      imageId: String(entry?.imageId || '').trim(),
+      registryStatus: String(entry?.registryStatus || '').trim(),
+      identityKey: String(entry?.identityKey || '').trim(),
+      sourceMatchStatus: String(entry?.sourceMatchStatus || '').trim(),
+      sourceAssetId: String(entry?.sourceAssetId || '').trim(),
+      cameraCode: String(entry?.source?.cameraCode || '').trim(),
+      sourcePath: String(entry?.source?.sourcePath || '').trim(),
+      placements: (entry?.placements || []).map((placement) => {
+        const siteRelativePath = normalizePath(placement?.siteRelativePath || '');
+        const variant = (entry?.variants || []).find((item) => normalizePath(item?.filePath || '') === siteRelativePath);
+        return {
+          projectSlug: String(placement?.projectSlug || '').trim(),
+          currentFilename: String(placement?.currentFilename || '').trim(),
+          siteRelativePath,
+          variantId: String(variant?.variantId || '').trim()
+        };
+      })
+    }))
+  };
+}
+
 module.exports = {
   loadImageRegistry,
   findRegistryEntry,
-  buildRegistryImageFields
+  buildRegistryImageFields,
+  buildRuntimeRegistrySnapshot
 };
