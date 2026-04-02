@@ -35,10 +35,6 @@ async function removeFileIfPossible(filePath, logger) {
     }
   }
 
-  if (logger) {
-    logger.warn(`[webp] Could not remove original file after conversion: ${filePath} (${lastError?.code || lastError?.message || 'unknown error'})`);
-  }
-
   return false;
 }
 
@@ -73,14 +69,15 @@ function collectConvertibleJobs(projectDir) {
     .filter((job) => !fs.existsSync(job.destFile));
 }
 
-async function runConversionJobs(jobs, logger, mode = 'copy') {
+async function runConversionJobs(jobs, logger, mode = 'copy', failedRemovals = []) {
   let completed = 0;
 
   await mapConcurrent(jobs, CONVERT_CONCURRENCY, async (job) => {
     await convertImage(job.srcFile, job.destFile);
 
     if (mode === 'in-place') {
-      await removeFileIfPossible(job.srcFile, logger);
+      const removed = await removeFileIfPossible(job.srcFile, logger);
+      if (!removed) failedRemovals.push(job.srcFile);
     }
 
     completed += 1;
@@ -90,6 +87,28 @@ async function runConversionJobs(jobs, logger, mode = 'copy') {
   });
 
   return jobs.length;
+}
+
+async function retryFailedRemovals(filePaths, logger) {
+  const uniquePaths = [...new Set((filePaths || []).filter(Boolean))];
+  const stillLocked = [];
+
+  for (const filePath of uniquePaths) {
+    const removed = await removeFileIfPossible(filePath, logger);
+    if (!removed && fs.existsSync(filePath)) {
+      stillLocked.push(filePath);
+    }
+  }
+
+  if (logger) {
+    if (stillLocked.length) {
+      logger.warn(`[webp] ${stillLocked.length} original image files remained locked in dist after retry; WebP outputs were generated and will be preferred.`);
+    } else if (uniquePaths.length) {
+      logger.info(`[webp] Deferred cleanup removed ${uniquePaths.length} original image files after conversion locks cleared`);
+    }
+  }
+
+  return stillLocked;
 }
 
 async function convertProjectImages(tempDir, logger) {
@@ -197,6 +216,7 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 async function convertInPlace(projectsDir, logger) {
 
   let converted = 0;
+  const failedRemovals = [];
 
   const projects = fs.readdirSync(projectsDir, { withFileTypes: true });
 
@@ -206,7 +226,7 @@ async function convertInPlace(projectsDir, logger) {
 
     const projectDir = path.join(projectsDir, entry.name);
     const conversionJobs = collectConvertibleJobs(projectDir);
-    converted += await runConversionJobs(conversionJobs, logger, 'in-place');
+    converted += await runConversionJobs(conversionJobs, logger, 'in-place', failedRemovals);
 
     const jsonPath = path.join(projectDir, 'project.json');
 
@@ -216,6 +236,7 @@ async function convertInPlace(projectsDir, logger) {
 
   }
 
+  await retryFailedRemovals(failedRemovals, logger);
   logger.info(`[webp] Converted ${converted} images to WebP`);
 
 }
