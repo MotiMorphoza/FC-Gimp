@@ -15,6 +15,11 @@
 const fs   = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const {
+  loadImageRegistry,
+  findRegistryEntry,
+  buildRegistryImageFields
+} = require('./image-registry');
 
 // ─── Validation helpers ─────────────────────────────────────────────────────
 
@@ -81,7 +86,7 @@ function generateImageCode(prefix, total, index) {
  *
  * @returns {{ outputPath: string, manifest: object }}
  */
-function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename = false }) {
+function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename = false, registryRootDir = process.cwd(), logger = null }) {
   if (!fs.existsSync(projectsDir)) {
     throw new Error(`[shop-index-generator] projectsDir does not exist: "${projectsDir}"`);
   }
@@ -98,6 +103,7 @@ function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename 
   const seenPrefixes = new Map(); // prefix → slug
   const seenCodes    = new Set(); // full image codes across ALL projects
   const projects     = [];
+  const registry = loadImageRegistry(registryRootDir, logger);
 
   for (const slug of slugs) {
     const projectDir  = path.join(projectsDir, slug);
@@ -137,6 +143,8 @@ function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename 
     const total = images.length;
     const imageEntries = images.map((img, index) => {
       const code = generateImageCode(codePrefix, total, index);
+      const registryEntry = findRegistryEntry(registry, slug, img.src);
+      const registryFields = buildRegistryImageFields(registryEntry, registry);
 
       if (seenCodes.has(code)) {
         // Should never happen as prefixes are unique, but guard anyway
@@ -152,7 +160,12 @@ function generateShopIndex({ projectsDir, outputDir, buildVersion, hashFilename 
         src: img.src,
         caption: img.caption || '',
         alt: img.alt || img.caption || '',
-        thumbnailUrl: `projects/${slug}/${img.src}`
+        thumbnailUrl: `projects/${slug}/${img.src}`,
+        registryImageId: registryFields.registryImageId,
+        registryStatus: registryFields.registryStatus,
+        registrySourceAssetId: registryFields.registrySourceAssetId,
+        cameraCode: registryFields.cameraCode,
+        sourcePath: registryFields.sourcePath
       };
     });
 

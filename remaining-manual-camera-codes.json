@@ -1,0 +1,90 @@
+[
+  {
+    "reviewId": "R-002",
+    "reviewNumber": "002",
+    "projectSlug": "000 - unusuall_usual",
+    "currentSitePath": "src/projects/000 - unusuall_usual/26.jpg",
+    "currentSiteFilename": "26.jpg",
+    "manualCameraCode": "DSC_3773"
+  },
+  {
+    "reviewId": "R-008",
+    "reviewNumber": "008",
+    "projectSlug": "003 - demon_stration",
+    "currentSitePath": "src/projects/003 - demon_stration/24.jpg",
+    "currentSiteFilename": "24.jpg",
+    "manualCameraCode": "DSC_0382"
+  },
+  {
+    "reviewId": "R-010",
+    "reviewNumber": "010",
+    "projectSlug": "004 - windows_eyes_of_the_modern_soul",
+    "currentSitePath": "src/projects/004 - windows_eyes_of_the_modern_soul/03.jpg",
+    "currentSiteFilename": "03.jpg",
+    "manualCameraCode": "DSC_01931"
+  },
+  {
+    "reviewId": "R-017",
+    "reviewNumber": "017",
+    "projectSlug": "008 - arty",
+    "currentSitePath": "src/projects/008 - arty/001.jpg",
+    "currentSiteFilename": "001.jpg",
+    "manualCameraCode": "DSC_9544"
+  },
+  {
+    "reviewId": "R-018",
+    "reviewNumber": "018",
+    "projectSlug": "009 - KING NO SMO",
+    "currentSitePath": "src/projects/009 - KING NO SMO/05.jpg",
+    "currentSiteFilename": "05.jpg",
+    "manualCameraCode": "DSC_2925"
+  },
+  {
+    "reviewId": "R-019",
+    "reviewNumber": "019",
+    "projectSlug": "009 - KING NO SMO",
+    "currentSitePath": "src/projects/009 - KING NO SMO/06.jpg",
+    "currentSiteFilename": "06.jpg",
+    "manualCameraCode": "DSC_2934"
+  },
+  {
+    "reviewId": "R-038",
+    "reviewNumber": "038",
+    "projectSlug": "015 - brain blow",
+    "currentSitePath": "src/projects/015 - brain blow/12.jpg",
+    "currentSiteFilename": "12.jpg",
+    "manualCameraCode": "PHONERAINBOW"
+  },
+  {
+    "reviewId": "R-045",
+    "reviewNumber": "045",
+    "projectSlug": "019 - quite handy",
+    "currentSitePath": "src/projects/019 - quite handy/14.jpg",
+    "currentSiteFilename": "14.jpg",
+    "manualCameraCode": "DSC_2968"
+  },
+  {
+    "reviewId": "R-047",
+    "reviewNumber": "047",
+    "projectSlug": "020 - quite fency",
+    "currentSitePath": "src/projects/020 - quite fency/08.jpg",
+    "currentSiteFilename": "08.jpg",
+    "manualCameraCode": "DSC_3565"
+  },
+  {
+    "reviewId": "R-048",
+    "reviewNumber": "048",
+    "projectSlug": "020 - quite fency",
+    "currentSitePath": "src/projects/020 - quite fency/18.jpg",
+    "currentSiteFilename": "18.jpg",
+    "manualCameraCode": "DSC_0784"
+  },
+  {
+    "reviewId": "R-049",
+    "reviewNumber": "049",
+    "projectSlug": "021 - Shadows",
+    "currentSitePath": "src/projects/021 - Shadows/07.jpg",
+    "currentSiteFilename": "07.jpg",
+    "manualCameraCode": "DSC_0459"
+  }
+]

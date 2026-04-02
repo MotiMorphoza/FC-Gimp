@@ -62,11 +62,30 @@ class AtomicDeployer {
   // --------------------------------------------------
   // Initialize fresh build output directory
   // --------------------------------------------------
-  initBuildDir(rootDir) {
+  async initBuildDir(rootDir) {
     const buildPath = this.getBuildPath(rootDir);
 
     if (fs.existsSync(buildPath)) {
-      fs.rmSync(buildPath, { recursive: true, force: true });
+      try {
+        await this.removePathIfExists(buildPath, `Removing existing ${this.buildDir}`);
+      } catch (error) {
+        if (!this.isRetryable(error)) throw error;
+
+        const stalePath = path.join(
+          rootDir,
+          `${this.buildDir}-stale-${Date.now()}`
+        );
+
+        this.logger.warn(
+          `${this.buildDir} could not be removed cleanly (${error.code || error.message}); moving it aside to ${path.basename(stalePath)}`
+        );
+
+        await this.renamePathIfExists(
+          buildPath,
+          stalePath,
+          `Renaming locked ${this.buildDir}`
+        );
+      }
     }
 
     fs.mkdirSync(buildPath, { recursive: true });

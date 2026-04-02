@@ -71,7 +71,7 @@ class SuperBuild {
 
       this.validateSource();
 
-      const buildDir = this.deployer.initBuildDir(this.rootDir);
+      const buildDir = await this.deployer.initBuildDir(this.rootDir);
       this.deployer.copyToBuild(this.rootDir, buildDir);
 
       await this.buildMorphozaVideos(buildDir);
@@ -323,7 +323,9 @@ class SuperBuild {
       projectsDir,
       outputDir,
       buildVersion: BUILD_VERSION,
-      hashFilename: false
+      hashFilename: false,
+      registryRootDir: this.rootDir,
+      logger: this.logger
     });
 
     this.logger.info(

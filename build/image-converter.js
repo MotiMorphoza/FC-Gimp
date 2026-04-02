@@ -6,6 +6,39 @@ const sharp = require('sharp');
 
 const CONVERT_EXT = new Set(['.jpg', '.jpeg', '.png']);
 const PROJECT_IMAGE_EXT = new Set(['.webp', '.jpg', '.jpeg', '.png']);
+const RETRYABLE_DELETE_CODES = new Set(['EPERM', 'EBUSY', 'ENOTEMPTY']);
+const DELETE_RETRY_DELAYS_MS = [150, 300, 600, 1200];
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function removeFileIfPossible(filePath, logger) {
+  if (!fs.existsSync(filePath)) return true;
+
+  let lastError = null;
+
+  for (let attempt = 0; attempt <= DELETE_RETRY_DELAYS_MS.length; attempt += 1) {
+    try {
+      fs.unlinkSync(filePath);
+      return true;
+    } catch (error) {
+      lastError = error;
+
+      if (!RETRYABLE_DELETE_CODES.has(error.code) || attempt === DELETE_RETRY_DELAYS_MS.length) {
+        break;
+      }
+
+      await sleep(DELETE_RETRY_DELAYS_MS[attempt]);
+    }
+  }
+
+  if (logger) {
+    logger.warn(`[webp] Could not remove original file after conversion: ${filePath} (${lastError?.code || lastError?.message || 'unknown error'})`);
+  }
+
+  return false;
+}
 
 async function convertProjectImages(tempDir, logger) {
 
@@ -128,7 +161,7 @@ async function convertInPlace(projectsDir, logger) {
 
       await convertImage(srcFile, destFile);
 
-      fs.unlinkSync(srcFile);
+      await removeFileIfPossible(srcFile, logger);
 
       converted++;
 
