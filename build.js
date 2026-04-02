@@ -17,6 +17,12 @@ const { convertProjectImages }   = require('./build/image-converter');
 const { generateMorphozaVideos } = require('./build/morphoza-videos-generator');
 const { generateHumanWritesContent } = require('./build/human-writes-generator');
 const { writeImageSearchDataset } = require('./build/image-search-generator');
+const { writeRuntimeRegistry } = require('./build/image-registry-runtime-generator');
+const {
+  loadImageRegistry,
+  findRegistryEntry,
+  buildRegistryImageFields
+} = require('./build/image-registry');
 const {
   applyProjectSeoData,
   buildProjectSeoMap,
@@ -71,7 +77,7 @@ class SuperBuild {
 
       this.validateSource();
 
-      const buildDir = this.deployer.initBuildDir(this.rootDir);
+      const buildDir = await this.deployer.initBuildDir(this.rootDir);
       this.deployer.copyToBuild(this.rootDir, buildDir);
 
       await this.buildMorphozaVideos(buildDir);
@@ -102,6 +108,7 @@ class SuperBuild {
       this.logger.info(`Validated ${projects.length} projects`);
       this.logImageMetadataCoverage(projects);
       const imageSearchDataset = this.generateImageSearchDataset(projects, buildDir);
+      this.writeRuntimeRegistry(buildDir);
       this.pruneBuildSearchFallback(buildDir);
       const projectSeoMap = buildProjectSeoMap(projects, imageSearchDataset);
       applyProjectSeoData(projects, projectSeoMap);
@@ -323,7 +330,9 @@ class SuperBuild {
       projectsDir,
       outputDir,
       buildVersion: BUILD_VERSION,
-      hashFilename: false
+      hashFilename: false,
+      registryRootDir: this.rootDir,
+      logger: this.logger
     });
 
     this.logger.info(
@@ -384,6 +393,14 @@ class SuperBuild {
   generateImageSearchDataset(projects, tempDir) {
     return writeImageSearchDataset({
       projects,
+      rootDir: this.rootDir,
+      tempDir,
+      logger: this.logger
+    });
+  }
+
+  writeRuntimeRegistry(tempDir) {
+    return writeRuntimeRegistry({
       rootDir: this.rootDir,
       tempDir,
       logger: this.logger
@@ -492,6 +509,7 @@ class SuperBuild {
 
   generateProjectsManifest(projects, tempDir) {
     const outputPath = path.join(tempDir, 'js', 'projects-manifest.js');
+    const registry = loadImageRegistry(this.rootDir, this.logger);
 
     const payload = projects.map(p => ({
       slug:        p.slug,
@@ -500,7 +518,23 @@ class SuperBuild {
       tags:        Array.isArray(p.tags) ? p.tags : [],
       cover:       p.images[0]?.src || '',
       coverAlt:    p.images[0]?.alt || p.images[0]?.caption || p.title,
-      imageCount:  p.images.length
+      imageCount:  p.images.length,
+      coverRegistryImageId: buildRegistryImageFields(findRegistryEntry(registry, p.slug, p.images[0]?.src || ''), registry).registryImageId,
+      coverCameraCode: buildRegistryImageFields(findRegistryEntry(registry, p.slug, p.images[0]?.src || ''), registry).cameraCode,
+      images:      p.images.map((image) => {
+        const registryFields = buildRegistryImageFields(findRegistryEntry(registry, p.slug, image?.src || ''), registry);
+        return {
+          src: image?.src || '',
+          alt: image?.alt || '',
+          caption: image?.caption || '',
+          registryImageId: registryFields.registryImageId,
+          registryStatus: registryFields.registryStatus,
+          registrySourceAssetId: registryFields.registrySourceAssetId,
+          cameraCode: registryFields.cameraCode,
+          sourcePath: registryFields.sourcePath,
+          variantId: registryFields.variantId
+        };
+      })
     }));
 
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });

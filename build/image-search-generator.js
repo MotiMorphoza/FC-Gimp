@@ -1,5 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const {
+  loadImageRegistry,
+  findRegistryEntry,
+  buildRegistryImageFields
+} = require('./image-registry');
 
 const ARRAY_FIELDS = [
   'primary',
@@ -684,6 +689,14 @@ function deriveBaseEntry(project, image, projectIndex, imageIndex) {
   };
 }
 
+function applyRegistryFields(baseEntry, registry) {
+  const registryEntry = findRegistryEntry(registry, baseEntry.projectSlug, baseEntry.src);
+  return {
+    ...baseEntry,
+    ...buildRegistryImageFields(registryEntry, registry)
+  };
+}
+
 function normalizeManualEntry(entry) {
   const normalized = {};
 
@@ -900,13 +913,14 @@ function finalizeEntry(entry = {}) {
   return finalized;
 }
 
-function generateBaseImageSearchDataset(projects) {
+function generateBaseImageSearchDataset(projects, rootDir = process.cwd(), logger = null) {
+  const registry = loadImageRegistry(rootDir, logger);
   const dataset = [];
 
   projects.forEach((project, projectIndex) => {
     (project.images || []).forEach((image, imageIndex) => {
       const baseEntry = deriveBaseEntry(project, image, projectIndex, imageIndex);
-      dataset.push(baseEntry);
+      dataset.push(applyRegistryFields(baseEntry, registry));
     });
   });
 
@@ -914,7 +928,7 @@ function generateBaseImageSearchDataset(projects) {
 }
 
 function generateImageSearchDataset(projects, rootDir, logger, options = {}) {
-  const baseDataset = generateBaseImageSearchDataset(projects);
+  const baseDataset = generateBaseImageSearchDataset(projects, rootDir, logger);
   if (options.baseOnly) {
     return baseDataset.map((entry) => finalizeEntry(entry));
   }

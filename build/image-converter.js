@@ -6,6 +6,110 @@ const sharp = require('sharp');
 
 const CONVERT_EXT = new Set(['.jpg', '.jpeg', '.png']);
 const PROJECT_IMAGE_EXT = new Set(['.webp', '.jpg', '.jpeg', '.png']);
+const RETRYABLE_DELETE_CODES = new Set(['EPERM', 'EBUSY', 'ENOTEMPTY']);
+const DELETE_RETRY_DELAYS_MS = [150, 300, 600, 1200];
+const CONVERT_CONCURRENCY = 4;
+const PROGRESS_EVERY = 25;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function removeFileIfPossible(filePath, logger) {
+  if (!fs.existsSync(filePath)) return true;
+
+  let lastError = null;
+
+  for (let attempt = 0; attempt <= DELETE_RETRY_DELAYS_MS.length; attempt += 1) {
+    try {
+      fs.unlinkSync(filePath);
+      return true;
+    } catch (error) {
+      lastError = error;
+
+      if (!RETRYABLE_DELETE_CODES.has(error.code) || attempt === DELETE_RETRY_DELAYS_MS.length) {
+        break;
+      }
+
+      await sleep(DELETE_RETRY_DELAYS_MS[attempt]);
+    }
+  }
+
+  return false;
+}
+
+async function mapConcurrent(items, limit, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+
+  async function runWorker() {
+    while (cursor < items.length) {
+      const current = cursor;
+      cursor += 1;
+      results[current] = await worker(items[current], current);
+    }
+  }
+
+  const workers = new Array(Math.max(1, limit)).fill(null).map(() => runWorker());
+  await Promise.all(workers);
+  return results;
+}
+
+function collectConvertibleJobs(projectDir) {
+  const files = fs.readdirSync(projectDir);
+
+  return files
+    .filter((file) => CONVERT_EXT.has(path.extname(file).toLowerCase()))
+    .map((file) => {
+      const srcFile = path.join(projectDir, file);
+      const webpName = toWebpName(file);
+      const destFile = path.join(projectDir, webpName);
+      return { file, srcFile, webpName, destFile };
+    })
+    .filter((job) => !fs.existsSync(job.destFile));
+}
+
+async function runConversionJobs(jobs, logger, mode = 'copy', failedRemovals = []) {
+  let completed = 0;
+
+  await mapConcurrent(jobs, CONVERT_CONCURRENCY, async (job) => {
+    await convertImage(job.srcFile, job.destFile);
+
+    if (mode === 'in-place') {
+      const removed = await removeFileIfPossible(job.srcFile, logger);
+      if (!removed) failedRemovals.push(job.srcFile);
+    }
+
+    completed += 1;
+    if (logger && (completed % PROGRESS_EVERY === 0 || completed === jobs.length)) {
+      logger.info(`[webp] Converted ${completed}/${jobs.length} images`);
+    }
+  });
+
+  return jobs.length;
+}
+
+async function retryFailedRemovals(filePaths, logger) {
+  const uniquePaths = [...new Set((filePaths || []).filter(Boolean))];
+  const stillLocked = [];
+
+  for (const filePath of uniquePaths) {
+    const removed = await removeFileIfPossible(filePath, logger);
+    if (!removed && fs.existsSync(filePath)) {
+      stillLocked.push(filePath);
+    }
+  }
+
+  if (logger) {
+    if (stillLocked.length) {
+      logger.warn(`[webp] ${stillLocked.length} original image files remained locked in dist after retry; WebP outputs were generated and will be preferred.`);
+    } else if (uniquePaths.length) {
+      logger.info(`[webp] Deferred cleanup removed ${uniquePaths.length} original image files after conversion locks cleared`);
+    }
+  }
+
+  return stillLocked;
+}
 
 async function convertProjectImages(tempDir, logger) {
 
@@ -57,8 +161,9 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 
     fs.mkdirSync(projectDest, { recursive: true });
 
-    const files = fs.readdirSync(projectSrc);
     const srcJsonPath = path.join(projectSrc, 'project.json');
+
+    const files = fs.readdirSync(projectSrc);
 
     for (const file of files) {
 
@@ -85,6 +190,13 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 
     }
 
+    const conversionJobs = collectConvertibleJobs(projectSrc).map((job) => ({
+      ...job,
+      destFile: path.join(projectDest, job.webpName)
+    }));
+
+    converted += await runConversionJobs(conversionJobs, logger, 'copy');
+
     if (fs.existsSync(srcJsonPath)) {
       rewriteProjectJson(
         srcJsonPath,
@@ -104,6 +216,7 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 async function convertInPlace(projectsDir, logger) {
 
   let converted = 0;
+  const failedRemovals = [];
 
   const projects = fs.readdirSync(projectsDir, { withFileTypes: true });
 
@@ -112,27 +225,8 @@ async function convertInPlace(projectsDir, logger) {
     if (!entry.isDirectory()) continue;
 
     const projectDir = path.join(projectsDir, entry.name);
-    const files = fs.readdirSync(projectDir);
-
-    for (const file of files) {
-
-      const ext = path.extname(file).toLowerCase();
-
-      if (!CONVERT_EXT.has(ext)) continue;
-
-      const srcFile = path.join(projectDir, file);
-      const webpName = toWebpName(file);
-      const destFile = path.join(projectDir, webpName);
-
-      if (fs.existsSync(destFile)) continue;
-
-      await convertImage(srcFile, destFile);
-
-      fs.unlinkSync(srcFile);
-
-      converted++;
-
-    }
+    const conversionJobs = collectConvertibleJobs(projectDir);
+    converted += await runConversionJobs(conversionJobs, logger, 'in-place', failedRemovals);
 
     const jsonPath = path.join(projectDir, 'project.json');
 
@@ -142,6 +236,7 @@ async function convertInPlace(projectsDir, logger) {
 
   }
 
+  await retryFailedRemovals(failedRemovals, logger);
   logger.info(`[webp] Converted ${converted} images to WebP`);
 
 }
@@ -158,9 +253,29 @@ async function convertImage(src, dest) {
 }
 
 function listProjectImagesSorted(projectDir) {
-  return fs.readdirSync(projectDir)
+  const preferredByStem = new Map();
+
+  fs.readdirSync(projectDir)
     .filter((name) => PROJECT_IMAGE_EXT.has(path.extname(name).toLowerCase()))
-    .sort((a, b) => a.localeCompare(b));
+    .sort((a, b) => a.localeCompare(b))
+    .forEach((name) => {
+      const stem = path.parse(name).name.toLowerCase();
+      const current = preferredByStem.get(stem);
+
+      if (!current) {
+        preferredByStem.set(stem, name);
+        return;
+      }
+
+      const currentExt = path.extname(current).toLowerCase();
+      const nextExt = path.extname(name).toLowerCase();
+
+      if (currentExt !== '.webp' && nextExt === '.webp') {
+        preferredByStem.set(stem, name);
+      }
+    });
+
+  return [...preferredByStem.values()].sort((a, b) => a.localeCompare(b));
 }
 
 function normalizeImageMetadataEntry(entry) {

@@ -5,6 +5,12 @@
     "build": "node build.js",
     "deploy": "node deploy.js",
     "build:deploy": "npm run build && npm run deploy",
+    "registry:audit": "node build/image-registry-audit.js",
+    "registry:foundation": "node build/image-registry-foundation.js",
+    "registry:maintain": "node build/image-registry-maintenance.js",
+    "registry:reconcile": "node build/image-registry-reconcile.js",
+    "registry:apply": "node build/image-registry-apply.js",
+    "registry:review": "node build/image-registry-review.js",
     "search:regression": "node build/search-regression.js",
     "search:golden": "node build/search-golden.js"
   },

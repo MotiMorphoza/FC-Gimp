@@ -231,11 +231,30 @@ class Scanner {
       return [];
     }
 
-    return files
+    const preferredByStem = new Map();
+
+    files
       .filter(entry => entry.isFile())
       .map(entry => entry.name)
       .filter(name => allowed.has(path.extname(name).toLowerCase()))
-      .sort((a, b) => a.localeCompare(b));
+      .sort((a, b) => a.localeCompare(b))
+      .forEach((name) => {
+        const stem = path.parse(name).name.toLowerCase();
+        const existing = preferredByStem.get(stem);
+
+        if (!existing) {
+          preferredByStem.set(stem, name);
+          return;
+        }
+
+        const existingExt = path.extname(existing).toLowerCase();
+        const nextExt = path.extname(name).toLowerCase();
+        if (existingExt !== '.webp' && nextExt === '.webp') {
+          preferredByStem.set(stem, name);
+        }
+      });
+
+    return [...preferredByStem.values()].sort((a, b) => a.localeCompare(b));
   }
 
   getImageMetadataMaps(metadataImages) {
