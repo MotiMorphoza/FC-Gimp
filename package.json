@@ -12,6 +12,7 @@
     "registry:apply": "node build/image-registry-apply.js",
     "registry:review": "node build/image-registry-review.js",
     "registry:source-review": "node build/image-registry-source-review.js",
+    "registry:raw-review": "node build/image-registry-raw-review.js",
     "search:regression": "node build/search-regression.js",
     "search:golden": "node build/search-golden.js"
   },
