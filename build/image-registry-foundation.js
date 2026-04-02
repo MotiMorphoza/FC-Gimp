@@ -5,7 +5,7 @@ const path = require('path');
 const Scanner = require('./scanner');
 
 const DEFAULT_REPORT = '.build-temp/registry-reconcile-full.json';
-const DEFAULT_HOLDS = '.build-temp/manual-remaining-overrides.json';
+const DEFAULT_HOLDS = 'data/manual-problematic-overrides.json';
 const DEFAULT_REGISTRY = 'data/image-registry.json';
 
 function parseArgs(argv = []) {

@@ -7,7 +7,7 @@ const sharp = require('sharp');
 
 const DEFAULT_REPORT = '.build-temp/registry-reconcile-full.json';
 const DEFAULT_OUTDIR = '.build-temp/registry-review';
-const DEFAULT_MANUAL_HOLDS = '.build-temp/manual-remaining-overrides.json';
+const DEFAULT_MANUAL_HOLDS = 'data/manual-problematic-overrides.json';
 const THUMB_WIDTH = 320;
 const THUMB_HEIGHT = 240;
 const AMBIGUOUS_CANDIDATE_LABELS = ['A', 'B', 'C', 'D', 'E', 'F'];

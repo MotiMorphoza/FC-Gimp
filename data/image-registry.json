@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-04-02T18:07:05.363Z",
+  "generatedAt": "2026-04-02T23:22:22.898Z",
   "schemaVersion": 2,
   "summary": {
     "imageCount": 541,
     "placementCount": 550,
     "variantCount": 550,
     "sourceAssetCount": 527,
-    "resolved": 491,
-    "held": 5,
+    "resolved": 484,
+    "held": 12,
     "unresolved": 45
   },
   "sourceAssets": [
@@ -8500,8 +8500,8 @@
     },
     {
       "imageId": "imgreg-000002",
-      "identityKey": "source:mOTTO sYNTEZA/119 urban daymare.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/000 - unusuall_usual/02__DSC_2785.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/119 urban daymare.jpg",
@@ -8515,8 +8515,8 @@
         "histogramDiff": 0.101563
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": "DSC_2785"
       },
@@ -14316,8 +14316,8 @@
     },
     {
       "imageId": "imgreg-000111",
-      "identityKey": "source:mOTTO sYNTEZA/urban DSC_1027broken window 0117.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/004 - windows_eyes_of_the_modern_soul/13__DSC_1027.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/urban DSC_1027broken window 0117.jpg",
@@ -14331,8 +14331,8 @@
         "histogramDiff": 0.078125
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": ""
       },
@@ -15654,8 +15654,8 @@
     },
     {
       "imageId": "imgreg-000136",
-      "identityKey": "source:mOTTO sYNTEZA/169 people 0DSC_5631.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/006 - smashed/02__DSC_5631.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/169 people 0DSC_5631.jpg",
@@ -15669,8 +15669,8 @@
         "histogramDiff": 0.125
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": ""
       },
@@ -20195,8 +20195,8 @@
     },
     {
       "imageId": "imgreg-000221",
-      "identityKey": "source:mOTTO sYNTEZA/142 people 2 smoke or not 2 smoke.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/009 - KING NO SMO/05.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "ambiguous",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/142 people 2 smoke or not 2 smoke.jpg",
@@ -20210,8 +20210,8 @@
         "histogramDiff": 0.125
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": "DSC_2925"
       },
@@ -20248,8 +20248,8 @@
     },
     {
       "imageId": "imgreg-000222",
-      "identityKey": "source:mOTTO sYNTEZA/142 people cold smoke.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/009 - KING NO SMO/06.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "ambiguous",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/142 people cold smoke.jpg",
@@ -20263,8 +20263,8 @@
         "histogramDiff": 0.296875
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": "DSC_2934"
       },
@@ -26866,8 +26866,8 @@
     },
     {
       "imageId": "imgreg-000347",
-      "identityKey": "source:general/still poppets 277.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/014 - stat you/16__DSC_3304.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "general/still poppets 277.jpg",
@@ -26881,8 +26881,8 @@
         "histogramDiff": 0.171875
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": "DSC_3304"
       },
@@ -31725,8 +31725,8 @@
     },
     {
       "imageId": "imgreg-000439",
-      "identityKey": "source:mOTTO sYNTEZA/102 people tram 001.jpg",
-      "registryStatus": "resolved",
+      "identityKey": "site:src/projects/019 - quite handy/14__DSC_2968.jpg",
+      "registryStatus": "held",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/102 people tram 001.jpg",
@@ -31740,8 +31740,8 @@
         "histogramDiff": 0.28125
       },
       "manualReview": {
-        "held": false,
-        "holdReason": "",
+        "held": true,
+        "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
         "manualCameraCode": "DSC_2968"
       },

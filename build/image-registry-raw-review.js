@@ -7,7 +7,7 @@ const { execFileSync } = require('child_process');
 
 const DEFAULT_REGISTRY = 'data/image-registry.json';
 const DEFAULT_RECONCILE = '.build-temp/registry-reconcile-full.json';
-const DEFAULT_HOLDS = '.build-temp/manual-remaining-overrides.json';
+const DEFAULT_HOLDS = 'data/manual-problematic-overrides.json';
 const DEFAULT_OUTDIR = '.build-temp/registry-raw-review';
 const DEFAULT_RAWDIR = 'D:\\RAW';
 const EXIFTOOL_PATH = 'C:\\Tools\\ExifTool\\exiftool.exe';
@@ -19,7 +19,8 @@ function parseArgs(argv = []) {
     reconcile: DEFAULT_RECONCILE,
     holds: DEFAULT_HOLDS,
     outdir: DEFAULT_OUTDIR,
-    rawdir: DEFAULT_RAWDIR
+    rawdir: DEFAULT_RAWDIR,
+    scope: 'rename-targets'
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -46,6 +47,11 @@ function parseArgs(argv = []) {
     }
     if (token === '--rawdir') {
       args.rawdir = argv[index + 1] ? String(argv[index + 1]) : args.rawdir;
+      index += 1;
+      continue;
+    }
+    if (token === '--scope') {
+      args.scope = argv[index + 1] ? String(argv[index + 1]) : args.scope;
       index += 1;
     }
   }
@@ -278,6 +284,47 @@ function buildApprovedEntries(registry, holdSet, archiveDir) {
     .sort((left, right) => left.sourcePath.localeCompare(right.sourcePath));
 }
 
+function buildAllEntries(registry, holdSet, archiveDir) {
+  const sourceAssetById = new Map();
+  (registry?.sourceAssets || []).forEach((asset) => {
+    const sourceAssetId = String(asset?.sourceAssetId || '').trim();
+    if (sourceAssetId) sourceAssetById.set(sourceAssetId, asset);
+  });
+
+  return (registry?.images || [])
+    .map((image) => {
+      const placements = Array.isArray(image?.placements) ? image.placements : [];
+      const placement = placements[0] || null;
+      if (!placement) return null;
+      const sourceAsset = sourceAssetById.get(String(image?.sourceAssetId || '').trim()) || null;
+      const sourcePath = normalizePath(sourceAsset?.sourcePath || image?.source?.sourcePath || '');
+      const sourceName = String(sourceAsset?.sourceName || image?.source?.sourceName || path.basename(sourcePath)).trim();
+      const cameraCode = sanitizeCameraCode(sourceAsset?.cameraCode || image?.source?.cameraCode || '');
+      const siteRelativePath = normalizePath(placement?.siteRelativePath || '');
+      return {
+        imageId: String(image?.imageId || '').trim(),
+        sourceAssetId: String(sourceAsset?.sourceAssetId || image?.sourceAssetId || '').trim(),
+        registryStatus: String(image?.registryStatus || '').trim(),
+        held: holdSet.has(siteRelativePath),
+        cameraCode,
+        projectSlug: String(placement?.projectSlug || '').trim(),
+        siteRelativePath,
+        siteFilename: String(placement?.currentFilename || '').trim(),
+        sourcePath,
+        sourceName,
+        absoluteSourcePath: archiveDir && sourcePath ? path.join(archiveDir, sourcePath) : '',
+        absoluteSitePath: path.resolve(process.cwd(), siteRelativePath),
+        jpegDate: '',
+        jpegCreateDate: '',
+        jpegDateTimeOriginal: '',
+        placementCount: placements.length,
+        linkedSitePaths: placements.map((item) => normalizePath(item?.siteRelativePath || '')).filter(Boolean)
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => left.siteRelativePath.localeCompare(right.siteRelativePath));
+}
+
 function renderRawCandidate(candidate, label) {
   const thumb = candidate.previewPath && fs.existsSync(candidate.previewPath)
     ? `<img src="${escapeHtml(fileUrlFromPath(candidate.previewPath))}" alt="${escapeHtml(candidate.rawPath)}" loading="lazy">`
@@ -312,8 +359,9 @@ function renderEntry(entry, index) {
       <div class="card-top">
         <div class="review-number">${reviewNumber}</div>
         <div class="meta-inline">
-          <span class="pill">${escapeHtml(entry.cameraCode)}</span>
+          <span class="pill">${escapeHtml(entry.cameraCode || 'NO CODE')}</span>
           <span class="mono small">${escapeHtml(entry.projectSlug)}</span>
+          <span class="mono small">${escapeHtml(entry.registryStatus || '')}</span>
         </div>
       </div>
       <div class="card-path mono">${escapeHtml(entry.siteRelativePath)}</div>
@@ -325,13 +373,14 @@ function renderEntry(entry, index) {
         <section class="panel">
           <div class="panel-title">JPEG source</div>
           <div class="single-thumb">${jpegThumb}</div>
-          <div class="mono small">${escapeHtml(entry.sourcePath)}</div>
+          <div class="mono small">${escapeHtml(entry.sourcePath || 'n/a')}</div>
           <div class="small">JPEG EXIF date: ${escapeHtml(entry.jpegDate || '') || 'n/a'}</div>
         </section>
         <section class="panel">
           <div class="panel-title">Site</div>
           <div class="single-thumb">${siteThumb}</div>
           <div class="mono small">${escapeHtml(entry.siteRelativePath)}</div>
+          <div class="small">Placements: ${escapeHtml(String(entry.placementCount || 1))}</div>
         </section>
       </div>
     </article>
@@ -534,7 +583,9 @@ function main() {
   const outDir = path.resolve(rootDir, args.outdir);
   const previewDir = path.join(outDir, 'raw-previews');
 
-  const entries = buildApprovedEntries(registry, holdSet, archiveDir);
+  const entries = args.scope === 'all'
+    ? buildAllEntries(registry, holdSet, archiveDir)
+    : buildApprovedEntries(registry, holdSet, archiveDir);
   const rawFiles = listRawFiles(rawDir);
   const rawIndex = buildRawIndex(rawFiles);
 
@@ -601,13 +652,16 @@ function main() {
     total: enrichedEntries.length,
     withRaw: enrichedEntries.filter((entry) => entry.rawCandidates.length > 0).length,
     withoutRaw: enrichedEntries.filter((entry) => entry.rawCandidates.length === 0).length,
-    multiRaw: enrichedEntries.filter((entry) => entry.rawCandidates.length > 1).length
+    multiRaw: enrichedEntries.filter((entry) => entry.rawCandidates.length > 1).length,
+    withCameraCode: enrichedEntries.filter((entry) => entry.cameraCode).length,
+    withoutCameraCode: enrichedEntries.filter((entry) => !entry.cameraCode).length
   };
 
   writeJson(path.join(outDir, 'raw-verification-review.json'), {
     generatedAt: new Date().toISOString(),
     rawDir,
     archiveDir,
+    scope: args.scope,
     summary,
     entries: enrichedEntries
   });
