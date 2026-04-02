@@ -8,6 +8,8 @@ const CONVERT_EXT = new Set(['.jpg', '.jpeg', '.png']);
 const PROJECT_IMAGE_EXT = new Set(['.webp', '.jpg', '.jpeg', '.png']);
 const RETRYABLE_DELETE_CODES = new Set(['EPERM', 'EBUSY', 'ENOTEMPTY']);
 const DELETE_RETRY_DELAYS_MS = [150, 300, 600, 1200];
+const CONVERT_CONCURRENCY = 4;
+const PROGRESS_EVERY = 25;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -38,6 +40,56 @@ async function removeFileIfPossible(filePath, logger) {
   }
 
   return false;
+}
+
+async function mapConcurrent(items, limit, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+
+  async function runWorker() {
+    while (cursor < items.length) {
+      const current = cursor;
+      cursor += 1;
+      results[current] = await worker(items[current], current);
+    }
+  }
+
+  const workers = new Array(Math.max(1, limit)).fill(null).map(() => runWorker());
+  await Promise.all(workers);
+  return results;
+}
+
+function collectConvertibleJobs(projectDir) {
+  const files = fs.readdirSync(projectDir);
+
+  return files
+    .filter((file) => CONVERT_EXT.has(path.extname(file).toLowerCase()))
+    .map((file) => {
+      const srcFile = path.join(projectDir, file);
+      const webpName = toWebpName(file);
+      const destFile = path.join(projectDir, webpName);
+      return { file, srcFile, webpName, destFile };
+    })
+    .filter((job) => !fs.existsSync(job.destFile));
+}
+
+async function runConversionJobs(jobs, logger, mode = 'copy') {
+  let completed = 0;
+
+  await mapConcurrent(jobs, CONVERT_CONCURRENCY, async (job) => {
+    await convertImage(job.srcFile, job.destFile);
+
+    if (mode === 'in-place') {
+      await removeFileIfPossible(job.srcFile, logger);
+    }
+
+    completed += 1;
+    if (logger && (completed % PROGRESS_EVERY === 0 || completed === jobs.length)) {
+      logger.info(`[webp] Converted ${completed}/${jobs.length} images`);
+    }
+  });
+
+  return jobs.length;
 }
 
 async function convertProjectImages(tempDir, logger) {
@@ -90,8 +142,9 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
 
     fs.mkdirSync(projectDest, { recursive: true });
 
-    const files = fs.readdirSync(projectSrc);
     const srcJsonPath = path.join(projectSrc, 'project.json');
+
+    const files = fs.readdirSync(projectSrc);
 
     for (const file of files) {
 
@@ -117,6 +170,13 @@ async function convertSrcToRoot(srcDir, destDir, logger) {
       fs.copyFileSync(srcFile, path.join(projectDest, file));
 
     }
+
+    const conversionJobs = collectConvertibleJobs(projectSrc).map((job) => ({
+      ...job,
+      destFile: path.join(projectDest, job.webpName)
+    }));
+
+    converted += await runConversionJobs(conversionJobs, logger, 'copy');
 
     if (fs.existsSync(srcJsonPath)) {
       rewriteProjectJson(
@@ -145,27 +205,8 @@ async function convertInPlace(projectsDir, logger) {
     if (!entry.isDirectory()) continue;
 
     const projectDir = path.join(projectsDir, entry.name);
-    const files = fs.readdirSync(projectDir);
-
-    for (const file of files) {
-
-      const ext = path.extname(file).toLowerCase();
-
-      if (!CONVERT_EXT.has(ext)) continue;
-
-      const srcFile = path.join(projectDir, file);
-      const webpName = toWebpName(file);
-      const destFile = path.join(projectDir, webpName);
-
-      if (fs.existsSync(destFile)) continue;
-
-      await convertImage(srcFile, destFile);
-
-      await removeFileIfPossible(srcFile, logger);
-
-      converted++;
-
-    }
+    const conversionJobs = collectConvertibleJobs(projectDir);
+    converted += await runConversionJobs(conversionJobs, logger, 'in-place');
 
     const jsonPath = path.join(projectDir, 'project.json');
 
@@ -191,9 +232,29 @@ async function convertImage(src, dest) {
 }
 
 function listProjectImagesSorted(projectDir) {
-  return fs.readdirSync(projectDir)
+  const preferredByStem = new Map();
+
+  fs.readdirSync(projectDir)
     .filter((name) => PROJECT_IMAGE_EXT.has(path.extname(name).toLowerCase()))
-    .sort((a, b) => a.localeCompare(b));
+    .sort((a, b) => a.localeCompare(b))
+    .forEach((name) => {
+      const stem = path.parse(name).name.toLowerCase();
+      const current = preferredByStem.get(stem);
+
+      if (!current) {
+        preferredByStem.set(stem, name);
+        return;
+      }
+
+      const currentExt = path.extname(current).toLowerCase();
+      const nextExt = path.extname(name).toLowerCase();
+
+      if (currentExt !== '.webp' && nextExt === '.webp') {
+        preferredByStem.set(stem, name);
+      }
+    });
+
+  return [...preferredByStem.values()].sort((a, b) => a.localeCompare(b));
 }
 
 function normalizeImageMetadataEntry(entry) {
