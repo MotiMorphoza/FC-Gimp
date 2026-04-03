@@ -15,6 +15,7 @@
     "registry:raw-review": "node build/image-registry-raw-review.js",
     "registry:manual-source-apply": "node build/apply-manual-source-matches.js",
     "raw-folder:compare": "node build/raw-folder-compare.js",
+    "raw-review:render-selections": "node build/render-raw-review-selections.js",
     "search:regression": "node build/search-regression.js",
     "search:golden": "node build/search-golden.js"
   },
