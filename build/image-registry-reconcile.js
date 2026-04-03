@@ -21,6 +21,7 @@ function parseArgs(argv = []) {
   const args = {
     archive: null,
     manualCodes: null,
+    manualMatches: 'data/manual-source-matches.json',
     write: null,
     limitSite: 0,
     cache: '.build-temp/registry-fingerprint-cache.json'
@@ -43,6 +44,12 @@ function parseArgs(argv = []) {
 
     if (token === '--manual-codes') {
       args.manualCodes = argv[index + 1] ? String(argv[index + 1]) : null;
+      index += 1;
+      continue;
+    }
+
+    if (token === '--manual-matches') {
+      args.manualMatches = argv[index + 1] ? String(argv[index + 1]) : null;
       index += 1;
       continue;
     }
@@ -83,6 +90,12 @@ function normalizeSiteRelativePath(value = '') {
     .replace(/^\.\//, '');
 }
 
+function normalizePath(value = '') {
+  return String(value || '')
+    .trim()
+    .replace(/\\/g, '/');
+}
+
 function extractCameraCode(filename = '') {
   const parsed = path.parse(String(filename || ''));
   const base = String(parsed.name || '').toUpperCase();
@@ -120,6 +133,46 @@ function loadManualCodeOverrides(filePath) {
       currentSitePath: sitePath,
       currentSiteFilename: String(row?.currentSiteFilename || '').trim(),
       manualCameraCode
+    };
+
+    bySitePath.set(sitePath, entry);
+    entries.push(entry);
+  });
+
+  return {
+    filePath: resolvedPath,
+    bySitePath,
+    entries
+  };
+}
+
+function loadManualSourceMatches(filePath) {
+  if (!filePath) return { filePath: null, bySitePath: new Map(), entries: [] };
+
+  const resolvedPath = path.resolve(process.cwd(), filePath);
+  if (!fs.existsSync(resolvedPath)) {
+    return { filePath: resolvedPath, bySitePath: new Map(), entries: [] };
+  }
+
+  const payload = readJsonFile(resolvedPath);
+  const rows = Array.isArray(payload) ? payload : [];
+  const bySitePath = new Map();
+  const entries = [];
+
+  rows.forEach((row) => {
+    const sitePath = normalizeSiteRelativePath(row?.siteRelativePath || row?.currentSitePath || '');
+    const cameraCode = sanitizeCameraCode(row?.cameraCode || '');
+    const sourcePath = normalizePath(row?.sourcePath || '');
+    if (!sitePath || !cameraCode) return;
+
+    const entry = {
+      projectSlug: String(row?.projectSlug || '').trim(),
+      siteRelativePath: sitePath,
+      currentSiteFilename: String(row?.currentSiteFilename || '').trim(),
+      cameraCode,
+      sourcePath,
+      rawPath: normalizePath(row?.rawPath || ''),
+      note: String(row?.note || '').trim()
     };
 
     bySitePath.set(sitePath, entry);
@@ -445,6 +498,20 @@ function buildSourceCodeIndex(sourceEntries = []) {
   return index;
 }
 
+function buildSourcePathIndex(sourceEntries = []) {
+  const index = new Map();
+
+  sourceEntries
+    .filter((entry) => !entry.error)
+    .forEach((entry) => {
+      const relativePath = normalizePath(entry.relativePath || '');
+      if (!relativePath) return;
+      index.set(relativePath, entry);
+    });
+
+  return index;
+}
+
 function classifyMatch(best, secondBest) {
   if (!best) return 'unmatched';
   if (best.exactHashMatch) return 'exact';
@@ -617,26 +684,38 @@ function rankCandidates(siteEntry, candidatePool = [], minScore = 0.74) {
 
 function reconcileSiteEntry(siteEntry, sourceBuckets, archiveDir, options = {}) {
   const manualCameraCode = sanitizeCameraCode(options.manualCameraCode || '');
+  const manualMatch = options.manualMatch || null;
   const defaultCandidates = rankCandidates(siteEntry, getSourceCandidates(siteEntry, sourceBuckets), 0.74);
-  const manualSourcePool = manualCameraCode && options.sourceCodeIndex
-    ? (options.sourceCodeIndex.get(manualCameraCode) || [])
-    : [];
-  const manualCandidates = manualSourcePool.length
-    ? rankCandidates(siteEntry, manualSourcePool, 0.45)
-    : [];
+  const exactManualSource = manualMatch?.sourcePath && options.sourcePathIndex?.get(manualMatch.sourcePath)
+    ? options.sourcePathIndex.get(manualMatch.sourcePath)
+    : null;
+  const manualSourcePool = exactManualSource
+    ? [exactManualSource]
+    : (manualMatch?.cameraCode && options.sourceCodeIndex
+      ? (options.sourceCodeIndex.get(manualMatch.cameraCode) || [])
+      : (manualCameraCode && options.sourceCodeIndex
+        ? (options.sourceCodeIndex.get(manualCameraCode) || [])
+        : []));
+  const manualCandidates = exactManualSource
+    ? rankCandidates(siteEntry, [exactManualSource], 0)
+    : (manualSourcePool.length
+      ? rankCandidates(siteEntry, manualSourcePool, 0.45)
+      : []);
   const candidates = manualCandidates.length ? manualCandidates : defaultCandidates;
 
   const best = candidates[0] || null;
   const secondBest = candidates[1] || null;
   const status = manualCandidates.length ? 'manual' : classifyMatch(best, secondBest);
+  const effectiveCameraCode = manualMatch?.cameraCode || manualCameraCode || best?.cameraCode || '';
 
   const bestMatch = best
     ? {
         ...formatCandidate(best, archiveDir),
-        cameraCode: manualCameraCode || best.cameraCode,
-        proposedFilename: buildProposedFilename(siteEntry, manualCameraCode || best.cameraCode, best.path),
+        cameraCode: effectiveCameraCode,
+        proposedFilename: buildProposedFilename(siteEntry, effectiveCameraCode, best.path),
         manualOverride: manualCandidates.length,
-        manualCameraCode: manualCameraCode || ''
+        manualCameraCode: effectiveCameraCode || '',
+        manualRawPath: manualMatch?.rawPath || ''
       }
     : null;
 
@@ -682,12 +761,16 @@ async function main() {
   const sourceBuckets = createSourceBuckets(sourceEntries);
   const sourceCodeIndex = buildSourceCodeIndex(sourceEntries);
   const manualOverrides = loadManualCodeOverrides(args.manualCodes);
+  const manualMatches = loadManualSourceMatches(args.manualMatches);
+  const sourcePathIndex = buildSourcePathIndex(sourceEntries);
   saveCache(cachePath, cache);
 
   console.log('[registry:reconcile] Matching site images to source archive...');
   const matches = siteEntries.map((entry) => reconcileSiteEntry(entry, sourceBuckets, archiveDir, {
     sourceCodeIndex,
-    manualCameraCode: manualOverrides.bySitePath.get(normalizeSiteRelativePath(entry.siteRelativePath))?.manualCameraCode || ''
+    sourcePathIndex,
+    manualCameraCode: manualOverrides.bySitePath.get(normalizeSiteRelativePath(entry.siteRelativePath))?.manualCameraCode || '',
+    manualMatch: manualMatches.bySitePath.get(normalizeSiteRelativePath(entry.siteRelativePath)) || null
   }));
   const summary = summarizeMatches(matches);
 
@@ -713,6 +796,11 @@ async function main() {
       filePath: manualOverrides.filePath ? formatRelative(rootDir, manualOverrides.filePath) : '',
       count: manualOverrides.entries.length,
       applied: matches.filter((entry) => entry.status === 'manual').length
+    },
+    manualSourceMatches: {
+      filePath: manualMatches.filePath ? formatRelative(rootDir, manualMatches.filePath) : '',
+      count: manualMatches.entries.length,
+      applied: matches.filter((entry) => entry.bestMatch?.manualRawPath || entry.status === 'manual').length
     },
     matches
   };

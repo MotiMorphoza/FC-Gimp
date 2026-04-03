@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-02T23:22:22.898Z",
+  "generatedAt": "2026-04-03T01:35:12.488Z",
   "schemaVersion": 2,
   "summary": {
     "imageCount": 541,
     "placementCount": 550,
     "variantCount": 550,
-    "sourceAssetCount": 527,
-    "resolved": 484,
+    "sourceAssetCount": 523,
+    "resolved": 473,
     "held": 12,
-    "unresolved": 45
+    "unresolved": 56
   },
   "sourceAssets": [
     {
@@ -31,7 +31,7 @@
       "sourceAssetId": "srcast-000002",
       "sourcePath": "mOTTO sYNTEZA/119 urban daymare.jpg",
       "sourceName": "119 urban daymare.jpg",
-      "cameraCode": "DSC_2785",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 2,
@@ -41,22 +41,6 @@
       },
       "linkedImageIds": [
         "imgreg-000002"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000003",
-      "sourcePath": "general/urban DSC_8701 wisla 0269.jpg",
-      "sourceName": "urban DSC_8701 wisla 0269.jpg",
-      "cameraCode": "DSC_8701",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000109,
-        "histogramDiff": 0.046875
-      },
-      "linkedImageIds": [
-        "imgreg-000003"
       ]
     },
     {
@@ -287,7 +271,7 @@
       "sourceAssetId": "srcast-000018",
       "sourcePath": "mOTTO sYNTEZA/urban pingi de ping.jpg",
       "sourceName": "urban pingi de ping.jpg",
-      "cameraCode": "DSC_2434",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -399,7 +383,7 @@
       "sourceAssetId": "srcast-000025",
       "sourcePath": "mOTTO sYNTEZA/140 people sub away 001.jpg",
       "sourceName": "140 people sub away 001.jpg",
-      "cameraCode": "DSC_3773",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -1292,22 +1276,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000081",
-      "sourcePath": "generalnie 00/protest DSC_0382 israel 1158.JPG",
-      "sourceName": "protest DSC_0382 israel 1158.JPG",
-      "cameraCode": "DSC_0382",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 17,
-        "differenceHashDistance": 17,
-        "ratioDiff": 0.12192,
-        "histogramDiff": 0.28125
-      },
-      "linkedImageIds": [
-        "imgreg-000083"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000082",
       "sourcePath": "Demonstration/demonstration zamkowy DSC_5746 police 424.jpg",
       "sourceName": "demonstration zamkowy DSC_5746 police 424.jpg",
@@ -1564,22 +1532,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000098",
-      "sourcePath": "Abstract + Still/abstract DSC_01931.jpg",
-      "sourceName": "abstract DSC_01931.jpg",
-      "cameraCode": "DSC_01931",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 5,
-        "differenceHashDistance": 26,
-        "ratioDiff": 0,
-        "histogramDiff": 0.117188
-      },
-      "linkedImageIds": [
-        "imgreg-000101"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000099",
       "sourcePath": "General 3/abstract DSC_6845 windows building 0524.JPG",
       "sourceName": "abstract DSC_6845 windows building 0524.JPG",
@@ -1759,7 +1711,7 @@
       "sourceAssetId": "srcast-000110",
       "sourcePath": "mOTTO sYNTEZA/urban jail.jpg",
       "sourceName": "urban jail.jpg",
-      "cameraCode": "DSC_3565",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -1983,7 +1935,7 @@
       "sourceAssetId": "srcast-000124",
       "sourcePath": "mOTTO sYNTEZA/0004 - people man dog line.jpg",
       "sourceName": "0004 - people man dog line.jpg",
-      "cameraCode": "DSC_1378",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -2863,7 +2815,7 @@
       "sourceAssetId": "srcast-000179",
       "sourcePath": "arr Red Alarm.jpg",
       "sourceName": "arr Red Alarm.jpg",
-      "cameraCode": "DSC_4562",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -3007,7 +2959,7 @@
       "sourceAssetId": "srcast-000188",
       "sourcePath": "Urban/urban the kings shoes.jpg",
       "sourceName": "urban the kings shoes.jpg",
-      "cameraCode": "DSC_1377",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 3,
@@ -3103,7 +3055,7 @@
       "sourceAssetId": "srcast-000194",
       "sourcePath": "taki kaki/narnia lamp 00111.jpg",
       "sourceName": "narnia lamp 00111.jpg",
-      "cameraCode": "DSC_1379",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -3343,7 +3295,7 @@
       "sourceAssetId": "srcast-000209",
       "sourcePath": "mOTTO sYNTEZA/urban i love justyna.jpg",
       "sourceName": "urban i love justyna.jpg",
-      "cameraCode": "DSC_2647",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -3375,7 +3327,7 @@
       "sourceAssetId": "srcast-000211",
       "sourcePath": "mOTTO sYNTEZA/melafefon.jpg",
       "sourceName": "melafefon.jpg",
-      "cameraCode": "DSC_9544",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -3455,7 +3407,7 @@
       "sourceAssetId": "srcast-000216",
       "sourcePath": "mOTTO sYNTEZA/142 people 2 smoke or not 2 smoke.jpg",
       "sourceName": "142 people 2 smoke or not 2 smoke.jpg",
-      "cameraCode": "DSC_2925",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -3471,7 +3423,7 @@
       "sourceAssetId": "srcast-000217",
       "sourcePath": "mOTTO sYNTEZA/142 people cold smoke.jpg",
       "sourceName": "142 people cold smoke.jpg",
-      "cameraCode": "DSC_2934",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -3497,22 +3449,6 @@
       },
       "linkedImageIds": [
         "imgreg-000223"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000219",
-      "sourcePath": "People/people 226.jpg",
-      "sourceName": "people 226.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000191,
-        "histogramDiff": 0.171875
-      },
-      "linkedImageIds": [
-        "imgreg-000224"
       ]
     },
     {
@@ -3737,38 +3673,6 @@
       },
       "linkedImageIds": [
         "imgreg-000238"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000234",
-      "sourcePath": "mOTTO sYNTEZA/urban bench DSC_0051 (17) b.jpg",
-      "sourceName": "urban bench DSC_0051 (17) b.jpg",
-      "cameraCode": "DSC_0051",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 26,
-        "differenceHashDistance": 26,
-        "ratioDiff": 0.007444,
-        "histogramDiff": 0.460938
-      },
-      "linkedImageIds": [
-        "imgreg-000239"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000235",
-      "sourcePath": "mOTTO sYNTEZA/people 241.jpg",
-      "sourceName": "people 241.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 1,
-        "ratioDiff": 0,
-        "histogramDiff": 0.140625
-      },
-      "linkedImageIds": [
-        "imgreg-000240"
       ]
     },
     {
@@ -4169,22 +4073,6 @@
       },
       "linkedImageIds": [
         "imgreg-000265"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000261",
-      "sourcePath": "mOTTO sYNTEZA/people 232.jpg",
-      "sourceName": "people 232.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000255,
-        "histogramDiff": 0.179688
-      },
-      "linkedImageIds": [
-        "imgreg-000266"
       ]
     },
     {
@@ -4607,7 +4495,7 @@
       "sourceAssetId": "srcast-000288",
       "sourcePath": "mOTTO sYNTEZA/0 B&W B&W bench tree bw.jpg",
       "sourceName": "0 B&W B&W bench tree bw.jpg",
-      "cameraCode": "DSC_2109",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -5292,22 +5180,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000331",
-      "sourcePath": "People/people autumn park statue 210.jpg",
-      "sourceName": "people autumn park statue 210.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 2,
-        "ratioDiff": 0,
-        "histogramDiff": 0.132813
-      },
-      "linkedImageIds": [
-        "imgreg-000339"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000332",
       "sourcePath": "Print/Windows 20/LANDSCAPE/taki taki DSC_1456.jpg",
       "sourceName": "taki taki DSC_1456.jpg",
@@ -5423,7 +5295,7 @@
       "sourceAssetId": "srcast-000339",
       "sourcePath": "general/still poppets 277.jpg",
       "sourceName": "still poppets 277.jpg",
-      "cameraCode": "DSC_3304",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 2,
@@ -5471,7 +5343,7 @@
       "sourceAssetId": "srcast-000342",
       "sourcePath": "Abstract + Still/Have you been a good boy .jpg",
       "sourceName": "Have you been a good boy .jpg",
-      "cameraCode": "DSC_5059",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -5724,26 +5596,10 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000358",
-      "sourcePath": "mOTTO sYNTEZA/people 224 bench automn.jpg",
-      "sourceName": "people 224 bench automn.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 1,
-        "ratioDiff": 0,
-        "histogramDiff": 0.15625
-      },
-      "linkedImageIds": [
-        "imgreg-000368"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000359",
       "sourcePath": "People/people cold wait-E.jpg",
       "sourceName": "people cold wait-E.jpg",
-      "cameraCode": "DSC_3562",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -6748,38 +6604,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000422",
-      "sourcePath": "People/people 238.jpg",
-      "sourceName": "people 238.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 3,
-        "differenceHashDistance": 0,
-        "ratioDiff": 0.000228,
-        "histogramDiff": 0.054688
-      },
-      "linkedImageIds": [
-        "imgreg-000434"
-      ]
-    },
-    {
-      "sourceAssetId": "srcast-000423",
-      "sourcePath": "People/people autumn park 213.jpg",
-      "sourceName": "people autumn park 213.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 6,
-        "ratioDiff": 0.000318,
-        "histogramDiff": 0.257813
-      },
-      "linkedImageIds": [
-        "imgreg-000435"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000424",
       "sourcePath": "People/people DSC_0100Ab.jpg",
       "sourceName": "people DSC_0100Ab.jpg",
@@ -6831,7 +6655,7 @@
       "sourceAssetId": "srcast-000427",
       "sourcePath": "mOTTO sYNTEZA/102 people tram 001.jpg",
       "sourceName": "102 people tram 001.jpg",
-      "cameraCode": "DSC_2968",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -6959,7 +6783,7 @@
       "sourceAssetId": "srcast-000435",
       "sourcePath": "mOTTO sYNTEZA/teren prywatny 002.jpg",
       "sourceName": "teren prywatny 002.jpg",
-      "cameraCode": "DSC_1380",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -7164,22 +6988,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000448",
-      "sourcePath": "Abstract + Still/abstract DSC_0784b.jpg",
-      "sourceName": "abstract DSC_0784b.jpg",
-      "cameraCode": "DSC_0784",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 25,
-        "differenceHashDistance": 24,
-        "ratioDiff": 0.000635,
-        "histogramDiff": 0.117188
-      },
-      "linkedImageIds": [
-        "imgreg-000460"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000449",
       "sourcePath": "taki kaki/still DSC_0600A.jpg",
       "sourceName": "still DSC_0600A.jpg",
@@ -7295,7 +7103,7 @@
       "sourceAssetId": "srcast-000456",
       "sourcePath": "mOTTO sYNTEZA/shadows Document Name b.jpg",
       "sourceName": "shadows Document Name b.jpg",
-      "cameraCode": "DSC_0459",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -7996,22 +7804,6 @@
       ]
     },
     {
-      "sourceAssetId": "srcast-000500",
-      "sourcePath": "People/people 243.jpg",
-      "sourceName": "people 243.jpg",
-      "cameraCode": "",
-      "fingerprintBundle": {
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 0,
-        "ratioDiff": 0,
-        "histogramDiff": 0.09375
-      },
-      "linkedImageIds": [
-        "imgreg-000513"
-      ]
-    },
-    {
       "sourceAssetId": "srcast-000501",
       "sourcePath": "People/people DSC_0412.jpg",
       "sourceName": "people DSC_0412.jpg",
@@ -8159,7 +7951,7 @@
       "sourceAssetId": "srcast-000510",
       "sourcePath": "mOTTO sYNTEZA/people sonia side look.jpg",
       "sourceName": "people sonia side look.jpg",
-      "cameraCode": "DSC_4534",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 1,
@@ -8175,7 +7967,7 @@
       "sourceAssetId": "srcast-000511",
       "sourcePath": "ilu/versions/zosia color.jpg",
       "sourceName": "zosia color.jpg",
-      "cameraCode": "DSC_4469",
+      "cameraCode": "",
       "fingerprintBundle": {
         "exactHashMatch": false,
         "averageHashDistance": 0,
@@ -8442,6 +8234,150 @@
       "linkedImageIds": [
         "imgreg-000540"
       ]
+    },
+    {
+      "sourceAssetId": "srcast-000528",
+      "sourcePath": "general/urban DSC_8701 wisla 0269.jpg",
+      "sourceName": "urban DSC_8701 wisla 0269.jpg",
+      "cameraCode": "DSC_8701",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000109,
+        "histogramDiff": 0.046875
+      },
+      "linkedImageIds": [
+        "imgreg-000542"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000529",
+      "sourcePath": "People/people 226 DSC_8752.jpg",
+      "sourceName": "people 226 DSC_8752.jpg",
+      "cameraCode": "DSC_8752",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000191,
+        "histogramDiff": 0.171875
+      },
+      "linkedImageIds": [
+        "imgreg-000543"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000530",
+      "sourcePath": "mOTTO sYNTEZA/people 241 DSC_8560.jpg",
+      "sourceName": "people 241 DSC_8560.jpg",
+      "cameraCode": "DSC_8560",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 1,
+        "ratioDiff": 0,
+        "histogramDiff": 0.140625
+      },
+      "linkedImageIds": [
+        "imgreg-000544"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000531",
+      "sourcePath": "mOTTO sYNTEZA/people 232 DSC_8719.jpg",
+      "sourceName": "people 232 DSC_8719.jpg",
+      "cameraCode": "DSC_8719",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000255,
+        "histogramDiff": 0.179688
+      },
+      "linkedImageIds": [
+        "imgreg-000545"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000532",
+      "sourcePath": "People/people autumn park statue 210 DSC_8813.jpg",
+      "sourceName": "people autumn park statue 210 DSC_8813.jpg",
+      "cameraCode": "DSC_8813",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 2,
+        "ratioDiff": 0,
+        "histogramDiff": 0.132813
+      },
+      "linkedImageIds": [
+        "imgreg-000547"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000533",
+      "sourcePath": "mOTTO sYNTEZA/people 224 bench automn DSC_8761.jpg",
+      "sourceName": "people 224 bench automn DSC_8761.jpg",
+      "cameraCode": "DSC_8761",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 1,
+        "ratioDiff": 0,
+        "histogramDiff": 0.15625
+      },
+      "linkedImageIds": [
+        "imgreg-000548"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000534",
+      "sourcePath": "People/people 238 DSC_8558.jpg",
+      "sourceName": "people 238 DSC_8558.jpg",
+      "cameraCode": "DSC_8558",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 3,
+        "differenceHashDistance": 0,
+        "ratioDiff": 0.000228,
+        "histogramDiff": 0.054688
+      },
+      "linkedImageIds": [
+        "imgreg-000549"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000535",
+      "sourcePath": "People/people autumn park 213 DSC_8798.jpg",
+      "sourceName": "people autumn park 213 DSC_8798.jpg",
+      "cameraCode": "DSC_8798",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 6,
+        "ratioDiff": 0.000318,
+        "histogramDiff": 0.257813
+      },
+      "linkedImageIds": [
+        "imgreg-000550"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000536",
+      "sourcePath": "People/people 243 DSC_8622.jpg",
+      "sourceName": "people 243 DSC_8622.jpg",
+      "cameraCode": "DSC_8622",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 0,
+        "ratioDiff": 0,
+        "histogramDiff": 0.09375
+      },
+      "linkedImageIds": [
+        "imgreg-000551"
+      ]
     }
   ],
   "images": [
@@ -8506,8 +8442,8 @@
       "source": {
         "sourcePath": "mOTTO sYNTEZA/119 urban daymare.jpg",
         "sourceName": "119 urban daymare.jpg",
-        "cameraCode": "DSC_2785",
-        "proposedFilename": "02__DSC_2785.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 2,
         "differenceHashDistance": 4,
@@ -8518,7 +8454,7 @@
         "held": true,
         "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_2785"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -8547,60 +8483,7 @@
           "stem": "02__DSC_2785",
           "extension": ".jpg",
           "proposedFilename": "02__DSC_2785.jpg",
-          "cameraCode": "DSC_2785"
-        }
-      ]
-    },
-    {
-      "imageId": "imgreg-000003",
-      "identityKey": "source:general/urban DSC_8701 wisla 0269.jpg",
-      "registryStatus": "resolved",
-      "sourceMatchStatus": "ambiguous",
-      "source": {
-        "sourcePath": "general/urban DSC_8701 wisla 0269.jpg",
-        "sourceName": "urban DSC_8701 wisla 0269.jpg",
-        "cameraCode": "DSC_8701",
-        "proposedFilename": "03__DSC_8701.jpg",
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000109,
-        "histogramDiff": 0.046875
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "000 - unusuall_usual",
-          "projectTitle": "usual uNuSuAll",
-          "siteRelativePath": "src/projects/000 - unusuall_usual/03.jpg",
-          "currentFilename": "03.jpg",
-          "orderIndex": 2,
-          "alt": "Paddleboarder on a river seen past a fallen blue swimming sign",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "000 - unusuall_usual",
-          "src": "03.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000003",
-      "variants": [
-        {
-          "variantId": "imgvar-000003",
-          "kind": "site-master",
-          "filePath": "src/projects/000 - unusuall_usual/03.jpg",
-          "filename": "03.jpg",
-          "stem": "03",
-          "extension": ".jpg",
-          "proposedFilename": "03__DSC_8701.jpg",
-          "cameraCode": "DSC_8701"
+          "cameraCode": ""
         }
       ]
     },
@@ -9349,13 +9232,13 @@
     {
       "imageId": "imgreg-000018",
       "identityKey": "source:mOTTO sYNTEZA/urban pingi de ping.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/urban pingi de ping.jpg",
         "sourceName": "urban pingi de ping.jpg",
-        "cameraCode": "DSC_2434",
-        "proposedFilename": "18__DSC_2434.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 0,
@@ -9366,7 +9249,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_2434"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -9395,7 +9278,7 @@
           "stem": "18__DSC_2434",
           "extension": ".jpg",
           "proposedFilename": "18__DSC_2434.jpg",
-          "cameraCode": "DSC_2434"
+          "cameraCode": ""
         }
       ]
     },
@@ -9720,13 +9603,13 @@
     {
       "imageId": "imgreg-000025",
       "identityKey": "source:mOTTO sYNTEZA/140 people sub away 001.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/140 people sub away 001.jpg",
         "sourceName": "140 people sub away 001.jpg",
-        "cameraCode": "DSC_3773",
-        "proposedFilename": "26__DSC_3773.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 2,
@@ -9737,7 +9620,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_3773"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -9766,7 +9649,7 @@
           "stem": "26__DSC_3773",
           "extension": ".jpg",
           "proposedFilename": "26__DSC_3773.jpg",
-          "cameraCode": "DSC_3773"
+          "cameraCode": ""
         }
       ]
     },
@@ -12842,25 +12725,15 @@
     },
     {
       "imageId": "imgreg-000083",
-      "identityKey": "source:generalnie 00/protest DSC_0382 israel 1158.JPG",
-      "registryStatus": "resolved",
-      "sourceMatchStatus": "manual",
-      "source": {
-        "sourcePath": "generalnie 00/protest DSC_0382 israel 1158.JPG",
-        "sourceName": "protest DSC_0382 israel 1158.JPG",
-        "cameraCode": "DSC_0382",
-        "proposedFilename": "24__DSC_0382.jpg",
-        "exactHashMatch": false,
-        "averageHashDistance": 17,
-        "differenceHashDistance": 17,
-        "ratioDiff": 0.12192,
-        "histogramDiff": 0.28125
-      },
+      "identityKey": "site:src/projects/003 - demon_stration/24__DSC_0382.jpg",
+      "registryStatus": "unresolved",
+      "sourceMatchStatus": "unmatched",
+      "source": null,
       "manualReview": {
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_0382"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -12879,7 +12752,7 @@
           "src": "24__DSC_0382.jpg"
         }
       ],
-      "sourceAssetId": "srcast-000081",
+      "sourceAssetId": null,
       "variants": [
         {
           "variantId": "imgvar-000083",
@@ -12889,7 +12762,7 @@
           "stem": "24__DSC_0382",
           "extension": ".jpg",
           "proposedFilename": "24__DSC_0382.jpg",
-          "cameraCode": "DSC_0382"
+          "cameraCode": ""
         }
       ]
     },
@@ -13786,25 +13659,15 @@
     },
     {
       "imageId": "imgreg-000101",
-      "identityKey": "source:Abstract + Still/abstract DSC_01931.jpg",
-      "registryStatus": "resolved",
-      "sourceMatchStatus": "manual",
-      "source": {
-        "sourcePath": "Abstract + Still/abstract DSC_01931.jpg",
-        "sourceName": "abstract DSC_01931.jpg",
-        "cameraCode": "DSC_01931",
-        "proposedFilename": "03__DSC_01931.jpg",
-        "exactHashMatch": false,
-        "averageHashDistance": 5,
-        "differenceHashDistance": 26,
-        "ratioDiff": 0,
-        "histogramDiff": 0.117188
-      },
+      "identityKey": "site:src/projects/004 - windows_eyes_of_the_modern_soul/03__DSC_01931.jpg",
+      "registryStatus": "unresolved",
+      "sourceMatchStatus": "unmatched",
+      "source": null,
       "manualReview": {
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_01931"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -13823,7 +13686,7 @@
           "src": "03__DSC_01931.jpg"
         }
       ],
-      "sourceAssetId": "srcast-000098",
+      "sourceAssetId": null,
       "variants": [
         {
           "variantId": "imgvar-000101",
@@ -13833,7 +13696,7 @@
           "stem": "03__DSC_01931",
           "extension": ".jpg",
           "proposedFilename": "03__DSC_01931.jpg",
-          "cameraCode": "DSC_01931"
+          "cameraCode": ""
         }
       ]
     },
@@ -14423,13 +14286,13 @@
     {
       "imageId": "imgreg-000113",
       "identityKey": "source:mOTTO sYNTEZA/urban jail.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/urban jail.jpg",
         "sourceName": "urban jail.jpg",
-        "cameraCode": "DSC_3565",
-        "proposedFilename": "08__DSC_3565.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 4,
@@ -14440,7 +14303,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_3565"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -14482,7 +14345,7 @@
           "stem": "15__DSC_3565",
           "extension": ".jpg",
           "proposedFilename": "15__DSC_3565.jpg",
-          "cameraCode": "DSC_3565"
+          "cameraCode": ""
         },
         {
           "variantId": "imgvar-000457",
@@ -14492,7 +14355,7 @@
           "stem": "08__DSC_3565",
           "extension": ".jpg",
           "proposedFilename": "08__DSC_3565.jpg",
-          "cameraCode": "DSC_3565"
+          "cameraCode": ""
         }
       ]
     },
@@ -15188,13 +15051,13 @@
     {
       "imageId": "imgreg-000127",
       "identityKey": "source:mOTTO sYNTEZA/0004 - people man dog line.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "strong",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/0004 - people man dog line.jpg",
         "sourceName": "0004 - people man dog line.jpg",
-        "cameraCode": "DSC_1378",
-        "proposedFilename": "02__DSC_1378.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 0,
@@ -15205,7 +15068,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_1378"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -15234,7 +15097,7 @@
           "stem": "02__DSC_1378",
           "extension": ".jpg",
           "proposedFilename": "02__DSC_1378.jpg",
-          "cameraCode": "DSC_1378"
+          "cameraCode": ""
         }
       ]
     },
@@ -18192,13 +18055,13 @@
     {
       "imageId": "imgreg-000183",
       "identityKey": "source:arr Red Alarm.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "ambiguous",
       "source": {
         "sourcePath": "arr Red Alarm.jpg",
         "sourceName": "arr Red Alarm.jpg",
-        "cameraCode": "DSC_4562",
-        "proposedFilename": "06__DSC_4562.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 5,
@@ -18209,7 +18072,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_4562"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -18237,8 +18100,8 @@
           "filename": "06.jpg",
           "stem": "06",
           "extension": ".jpg",
-          "proposedFilename": "06__DSC_4562.jpg",
-          "cameraCode": "DSC_4562"
+          "proposedFilename": "06.jpg",
+          "cameraCode": ""
         }
       ]
     },
@@ -18669,13 +18532,13 @@
     {
       "imageId": "imgreg-000192",
       "identityKey": "source:Urban/urban the kings shoes.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "Urban/urban the kings shoes.jpg",
         "sourceName": "urban the kings shoes.jpg",
-        "cameraCode": "DSC_1377",
-        "proposedFilename": "16__DSC_1377.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 3,
         "differenceHashDistance": 1,
@@ -18686,7 +18549,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_1377"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -18715,7 +18578,7 @@
           "stem": "16__DSC_1377",
           "extension": ".jpg",
           "proposedFilename": "16__DSC_1377.jpg",
-          "cameraCode": "DSC_1377"
+          "cameraCode": ""
         }
       ]
     },
@@ -19030,13 +18893,13 @@
     {
       "imageId": "imgreg-000199",
       "identityKey": "source:taki kaki/narnia lamp 00111.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "ambiguous",
       "source": {
         "sourcePath": "taki kaki/narnia lamp 00111.jpg",
         "sourceName": "narnia lamp 00111.jpg",
-        "cameraCode": "DSC_1379",
-        "proposedFilename": "23__DSC_1379.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 0,
@@ -19047,7 +18910,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_1379"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -19075,8 +18938,8 @@
           "filename": "23.jpg",
           "stem": "23",
           "extension": ".jpg",
-          "proposedFilename": "23__DSC_1379.jpg",
-          "cameraCode": "DSC_1379"
+          "proposedFilename": "23.jpg",
+          "cameraCode": ""
         }
       ]
     },
@@ -19825,13 +19688,13 @@
     {
       "imageId": "imgreg-000214",
       "identityKey": "source:mOTTO sYNTEZA/urban i love justyna.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/urban i love justyna.jpg",
         "sourceName": "urban i love justyna.jpg",
-        "cameraCode": "DSC_2647",
-        "proposedFilename": "39__DSC_2647.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 2,
@@ -19842,7 +19705,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_2647"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -19871,7 +19734,7 @@
           "stem": "39__DSC_2647",
           "extension": ".jpg",
           "proposedFilename": "39__DSC_2647.jpg",
-          "cameraCode": "DSC_2647"
+          "cameraCode": ""
         }
       ]
     },
@@ -19931,13 +19794,13 @@
     {
       "imageId": "imgreg-000216",
       "identityKey": "source:mOTTO sYNTEZA/melafefon.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/melafefon.jpg",
         "sourceName": "melafefon.jpg",
-        "cameraCode": "DSC_9544",
-        "proposedFilename": "001__DSC_9544.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 0,
@@ -19948,7 +19811,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_9544"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -19977,7 +19840,7 @@
           "stem": "001__DSC_9544",
           "extension": ".jpg",
           "proposedFilename": "001__DSC_9544.jpg",
-          "cameraCode": "DSC_9544"
+          "cameraCode": ""
         }
       ]
     },
@@ -20201,8 +20064,8 @@
       "source": {
         "sourcePath": "mOTTO sYNTEZA/142 people 2 smoke or not 2 smoke.jpg",
         "sourceName": "142 people 2 smoke or not 2 smoke.jpg",
-        "cameraCode": "DSC_2925",
-        "proposedFilename": "05__DSC_2925.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 0,
@@ -20213,7 +20076,7 @@
         "held": true,
         "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_2925"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -20241,8 +20104,8 @@
           "filename": "05.jpg",
           "stem": "05",
           "extension": ".jpg",
-          "proposedFilename": "05__DSC_2925.jpg",
-          "cameraCode": "DSC_2925"
+          "proposedFilename": "05.jpg",
+          "cameraCode": ""
         }
       ]
     },
@@ -20254,8 +20117,8 @@
       "source": {
         "sourcePath": "mOTTO sYNTEZA/142 people cold smoke.jpg",
         "sourceName": "142 people cold smoke.jpg",
-        "cameraCode": "DSC_2934",
-        "proposedFilename": "06__DSC_2934.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 0,
@@ -20266,7 +20129,7 @@
         "held": true,
         "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_2934"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -20294,8 +20157,8 @@
           "filename": "06.jpg",
           "stem": "06",
           "extension": ".jpg",
-          "proposedFilename": "06__DSC_2934.jpg",
-          "cameraCode": "DSC_2934"
+          "proposedFilename": "06.jpg",
+          "cameraCode": ""
         }
       ]
     },
@@ -20349,59 +20212,6 @@
           "extension": ".jpg",
           "proposedFilename": "07__DSC_0495.jpg",
           "cameraCode": "DSC_0495"
-        }
-      ]
-    },
-    {
-      "imageId": "imgreg-000224",
-      "identityKey": "source:People/people 226.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "People/people 226.jpg",
-        "sourceName": "people 226.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000191,
-        "histogramDiff": 0.171875
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "009 - KING NO SMO",
-          "projectTitle": "king No Smo",
-          "siteRelativePath": "src/projects/009 - KING NO SMO/08.jpg",
-          "currentFilename": "08.jpg",
-          "orderIndex": 7,
-          "alt": "Bald man smoking on a bench while looking down at his phone",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "009 - KING NO SMO",
-          "src": "08.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000219",
-      "variants": [
-        {
-          "variantId": "imgvar-000225",
-          "kind": "site-master",
-          "filePath": "src/projects/009 - KING NO SMO/08.jpg",
-          "filename": "08.jpg",
-          "stem": "08",
-          "extension": ".jpg",
-          "proposedFilename": "08.jpg",
-          "cameraCode": ""
         }
       ]
     },
@@ -21151,23 +20961,13 @@
       "imageId": "imgreg-000239",
       "identityKey": "site:src/projects/010 - reflection/05.jpg",
       "registryStatus": "held",
-      "sourceMatchStatus": "manual",
-      "source": {
-        "sourcePath": "mOTTO sYNTEZA/urban bench DSC_0051 (17) b.jpg",
-        "sourceName": "urban bench DSC_0051 (17) b.jpg",
-        "cameraCode": "DSC_0051",
-        "proposedFilename": "05__DSC_0051.jpg",
-        "exactHashMatch": false,
-        "averageHashDistance": 26,
-        "differenceHashDistance": 26,
-        "ratioDiff": 0.007444,
-        "histogramDiff": 0.460938
-      },
+      "sourceMatchStatus": "unmatched",
+      "source": null,
       "manualReview": {
         "held": true,
         "holdReason": "Camera code is right, but the current source match is wrong. Keep this entry in remaining until the correct source is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_0051"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -21186,7 +20986,7 @@
           "src": "05.jpg"
         }
       ],
-      "sourceAssetId": "srcast-000234",
+      "sourceAssetId": null,
       "variants": [
         {
           "variantId": "imgvar-000240",
@@ -21195,60 +20995,7 @@
           "filename": "05.jpg",
           "stem": "05",
           "extension": ".jpg",
-          "proposedFilename": "05__DSC_0051.jpg",
-          "cameraCode": "DSC_0051"
-        }
-      ]
-    },
-    {
-      "imageId": "imgreg-000240",
-      "identityKey": "source:mOTTO sYNTEZA/people 241.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "mOTTO sYNTEZA/people 241.jpg",
-        "sourceName": "people 241.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 1,
-        "ratioDiff": 0,
-        "histogramDiff": 0.140625
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "010 - reflection",
-          "projectTitle": "Reflections",
-          "siteRelativePath": "src/projects/010 - reflection/06.jpg",
-          "currentFilename": "06.jpg",
-          "orderIndex": 4,
-          "alt": "Fisherman and his reflection stretching across still water",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "010 - reflection",
-          "src": "06.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000235",
-      "variants": [
-        {
-          "variantId": "imgvar-000241",
-          "kind": "site-master",
-          "filePath": "src/projects/010 - reflection/06.jpg",
-          "filename": "06.jpg",
-          "stem": "06",
-          "extension": ".jpg",
-          "proposedFilename": "06.jpg",
+          "proposedFilename": "05.jpg",
           "cameraCode": ""
         }
       ]
@@ -22575,59 +22322,6 @@
           "extension": ".jpg",
           "proposedFilename": "11__DSC_7485.jpg",
           "cameraCode": "DSC_7485"
-        }
-      ]
-    },
-    {
-      "imageId": "imgreg-000266",
-      "identityKey": "source:mOTTO sYNTEZA/people 232.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "mOTTO sYNTEZA/people 232.jpg",
-        "sourceName": "people 232.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 3,
-        "ratioDiff": 0.000255,
-        "histogramDiff": 0.179688
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "011 - golden age",
-          "projectTitle": "Golden age",
-          "siteRelativePath": "src/projects/011 - golden age/12.jpg",
-          "currentFilename": "12.jpg",
-          "orderIndex": 11,
-          "alt": "Older man sitting alone on a bench hidden among bushes",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "011 - golden age",
-          "src": "12.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000261",
-      "variants": [
-        {
-          "variantId": "imgvar-000267",
-          "kind": "site-master",
-          "filePath": "src/projects/011 - golden age/12.jpg",
-          "filename": "12.jpg",
-          "stem": "12",
-          "extension": ".jpg",
-          "proposedFilename": "12.jpg",
-          "cameraCode": ""
         }
       ]
     },
@@ -24055,13 +23749,13 @@
     {
       "imageId": "imgreg-000294",
       "identityKey": "source:mOTTO sYNTEZA/0 B&W B&W bench tree bw.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/0 B&W B&W bench tree bw.jpg",
         "sourceName": "0 B&W B&W bench tree bw.jpg",
-        "cameraCode": "DSC_2109",
-        "proposedFilename": "01__DSC_2109.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 1,
@@ -24072,7 +23766,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_2109"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -24101,7 +23795,7 @@
           "stem": "01__DSC_2109",
           "extension": ".jpg",
           "proposedFilename": "01__DSC_2109.jpg",
-          "cameraCode": "DSC_2109"
+          "cameraCode": ""
         }
       ]
     },
@@ -25633,49 +25327,6 @@
       ]
     },
     {
-      "imageId": "imgreg-000324",
-      "identityKey": "site:src/projects/013 - natural taste/31.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "unmatched",
-      "source": null,
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "013 - natural taste",
-          "projectTitle": "Natural Taste",
-          "siteRelativePath": "src/projects/013 - natural taste/31.jpg",
-          "currentFilename": "31.jpg",
-          "orderIndex": 30,
-          "alt": "Cluster of small purple wildflowers in soft focus",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "013 - natural taste",
-          "src": "31.jpg"
-        }
-      ],
-      "sourceAssetId": null,
-      "variants": [
-        {
-          "variantId": "imgvar-000325",
-          "kind": "site-master",
-          "filePath": "src/projects/013 - natural taste/31.jpg",
-          "filename": "31.jpg",
-          "stem": "31",
-          "extension": ".jpg",
-          "proposedFilename": "31.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
       "imageId": "imgreg-000325",
       "identityKey": "source:animal/nature DSC_8346 FLOWERS 195.jpg",
       "registryStatus": "resolved",
@@ -26441,59 +26092,6 @@
       ]
     },
     {
-      "imageId": "imgreg-000339",
-      "identityKey": "source:People/people autumn park statue 210.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "People/people autumn park statue 210.jpg",
-        "sourceName": "people autumn park statue 210.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 2,
-        "ratioDiff": 0,
-        "histogramDiff": 0.132813
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "014 - stat you",
-          "projectTitle": "Stat You",
-          "siteRelativePath": "src/projects/014 - stat you/08.jpg",
-          "currentFilename": "08.jpg",
-          "orderIndex": 7,
-          "alt": "Reclining sculpture beside a bench and a bicycle",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "014 - stat you",
-          "src": "08.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000331",
-      "variants": [
-        {
-          "variantId": "imgvar-000340",
-          "kind": "site-master",
-          "filePath": "src/projects/014 - stat you/08.jpg",
-          "filename": "08.jpg",
-          "stem": "08",
-          "extension": ".jpg",
-          "proposedFilename": "08.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
       "imageId": "imgreg-000340",
       "identityKey": "source:Print/Windows 20/LANDSCAPE/taki taki DSC_1456.jpg",
       "registryStatus": "resolved",
@@ -26872,8 +26470,8 @@
       "source": {
         "sourcePath": "general/still poppets 277.jpg",
         "sourceName": "still poppets 277.jpg",
-        "cameraCode": "DSC_3304",
-        "proposedFilename": "16__DSC_3304.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 2,
         "differenceHashDistance": 2,
@@ -26884,7 +26482,7 @@
         "held": true,
         "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_3304"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -26913,7 +26511,7 @@
           "stem": "16__DSC_3304",
           "extension": ".jpg",
           "proposedFilename": "16__DSC_3304.jpg",
-          "cameraCode": "DSC_3304"
+          "cameraCode": ""
         }
       ]
     },
@@ -27026,13 +26624,13 @@
     {
       "imageId": "imgreg-000350",
       "identityKey": "source:Abstract + Still/Have you been a good boy .jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "Abstract + Still/Have you been a good boy .jpg",
         "sourceName": "Have you been a good boy .jpg",
-        "cameraCode": "DSC_5059",
-        "proposedFilename": "19__DSC_5059.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 3,
@@ -27043,7 +26641,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_5059"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -27072,7 +26670,7 @@
           "stem": "19__DSC_5059",
           "extension": ".jpg",
           "proposedFilename": "19__DSC_5059.jpg",
-          "cameraCode": "DSC_5059"
+          "cameraCode": ""
         }
       ]
     },
@@ -27958,68 +27556,15 @@
       ]
     },
     {
-      "imageId": "imgreg-000368",
-      "identityKey": "source:mOTTO sYNTEZA/people 224 bench automn.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "mOTTO sYNTEZA/people 224 bench automn.jpg",
-        "sourceName": "people 224 bench automn.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 1,
-        "ratioDiff": 0,
-        "histogramDiff": 0.15625
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "016 - star dust",
-          "projectTitle": "Star Dust",
-          "siteRelativePath": "src/projects/016 - star dust/08.jpg",
-          "currentFilename": "08.jpg",
-          "orderIndex": 7,
-          "alt": "Man sitting alone on a park bench seen from behind in autumn leaves",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "016 - star dust",
-          "src": "08.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000358",
-      "variants": [
-        {
-          "variantId": "imgvar-000371",
-          "kind": "site-master",
-          "filePath": "src/projects/016 - star dust/08.jpg",
-          "filename": "08.jpg",
-          "stem": "08",
-          "extension": ".jpg",
-          "proposedFilename": "08.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
       "imageId": "imgreg-000369",
       "identityKey": "source:People/people cold wait-E.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "strong",
       "source": {
         "sourcePath": "People/people cold wait-E.jpg",
         "sourceName": "people cold wait-E.jpg",
-        "cameraCode": "DSC_3562",
-        "proposedFilename": "09__DSC_3562.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 0,
@@ -28030,7 +27575,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_3562"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -28059,7 +27604,7 @@
           "stem": "09__DSC_3562",
           "extension": ".jpg",
           "proposedFilename": "09__DSC_3562.jpg",
-          "cameraCode": "DSC_3562"
+          "cameraCode": ""
         }
       ]
     },
@@ -31459,112 +31004,6 @@
       ]
     },
     {
-      "imageId": "imgreg-000434",
-      "identityKey": "source:People/people 238.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "probable",
-      "source": {
-        "sourcePath": "People/people 238.jpg",
-        "sourceName": "people 238.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 3,
-        "differenceHashDistance": 0,
-        "ratioDiff": 0.000228,
-        "histogramDiff": 0.054688
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "019 - quite handy",
-          "projectTitle": "Quite Handy",
-          "siteRelativePath": "src/projects/019 - quite handy/09.jpg",
-          "currentFilename": "09.jpg",
-          "orderIndex": 8,
-          "alt": "Couple walking away hand in hand on a sloped concrete path",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "019 - quite handy",
-          "src": "09.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000422",
-      "variants": [
-        {
-          "variantId": "imgvar-000439",
-          "kind": "site-master",
-          "filePath": "src/projects/019 - quite handy/09.jpg",
-          "filename": "09.jpg",
-          "stem": "09",
-          "extension": ".jpg",
-          "proposedFilename": "09.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
-      "imageId": "imgreg-000435",
-      "identityKey": "source:People/people autumn park 213.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "ambiguous",
-      "source": {
-        "sourcePath": "People/people autumn park 213.jpg",
-        "sourceName": "people autumn park 213.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 1,
-        "differenceHashDistance": 6,
-        "ratioDiff": 0.000318,
-        "histogramDiff": 0.257813
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "019 - quite handy",
-          "projectTitle": "Quite Handy",
-          "siteRelativePath": "src/projects/019 - quite handy/10.jpg",
-          "currentFilename": "10.jpg",
-          "orderIndex": 9,
-          "alt": "Woman raising both hands among dark tree branches",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "019 - quite handy",
-          "src": "10.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000423",
-      "variants": [
-        {
-          "variantId": "imgvar-000440",
-          "kind": "site-master",
-          "filePath": "src/projects/019 - quite handy/10.jpg",
-          "filename": "10.jpg",
-          "stem": "10",
-          "extension": ".jpg",
-          "proposedFilename": "10.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
       "imageId": "imgreg-000436",
       "identityKey": "source:People/people DSC_0100Ab.jpg",
       "registryStatus": "resolved",
@@ -31731,8 +31170,8 @@
       "source": {
         "sourcePath": "mOTTO sYNTEZA/102 people tram 001.jpg",
         "sourceName": "102 people tram 001.jpg",
-        "cameraCode": "DSC_2968",
-        "proposedFilename": "14__DSC_2968.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 2,
@@ -31743,7 +31182,7 @@
         "held": true,
         "holdReason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found.",
         "holdNote": "",
-        "manualCameraCode": "DSC_2968"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -31772,7 +31211,7 @@
           "stem": "14__DSC_2968",
           "extension": ".jpg",
           "proposedFilename": "14__DSC_2968.jpg",
-          "cameraCode": "DSC_2968"
+          "cameraCode": ""
         }
       ]
     },
@@ -32150,13 +31589,13 @@
     {
       "imageId": "imgreg-000447",
       "identityKey": "source:mOTTO sYNTEZA/teren prywatny 002.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/teren prywatny 002.jpg",
         "sourceName": "teren prywatny 002.jpg",
-        "cameraCode": "DSC_1380",
-        "proposedFilename": "03__DSC_1380.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 1,
@@ -32167,7 +31606,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_1380"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -32196,7 +31635,7 @@
           "stem": "03__DSC_1380",
           "extension": ".jpg",
           "proposedFilename": "03__DSC_1380.jpg",
-          "cameraCode": "DSC_1380"
+          "cameraCode": ""
         }
       ]
     },
@@ -32838,25 +32277,15 @@
     },
     {
       "imageId": "imgreg-000460",
-      "identityKey": "source:Abstract + Still/abstract DSC_0784b.jpg",
-      "registryStatus": "resolved",
-      "sourceMatchStatus": "manual",
-      "source": {
-        "sourcePath": "Abstract + Still/abstract DSC_0784b.jpg",
-        "sourceName": "abstract DSC_0784b.jpg",
-        "cameraCode": "DSC_0784",
-        "proposedFilename": "18__DSC_0784.jpg",
-        "exactHashMatch": false,
-        "averageHashDistance": 25,
-        "differenceHashDistance": 24,
-        "ratioDiff": 0.000635,
-        "histogramDiff": 0.117188
-      },
+      "identityKey": "site:src/projects/020 - quite fency/18__DSC_0784.jpg",
+      "registryStatus": "unresolved",
+      "sourceMatchStatus": "unmatched",
+      "source": null,
       "manualReview": {
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_0784"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -32875,7 +32304,7 @@
           "src": "18__DSC_0784.jpg"
         }
       ],
-      "sourceAssetId": "srcast-000448",
+      "sourceAssetId": null,
       "variants": [
         {
           "variantId": "imgvar-000467",
@@ -32885,7 +32314,7 @@
           "stem": "18__DSC_0784",
           "extension": ".jpg",
           "proposedFilename": "18__DSC_0784.jpg",
-          "cameraCode": "DSC_0784"
+          "cameraCode": ""
         }
       ]
     },
@@ -33263,13 +32692,13 @@
     {
       "imageId": "imgreg-000468",
       "identityKey": "source:mOTTO sYNTEZA/shadows Document Name b.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/shadows Document Name b.jpg",
         "sourceName": "shadows Document Name b.jpg",
-        "cameraCode": "DSC_0459",
-        "proposedFilename": "07__DSC_0459.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 2,
@@ -33280,7 +32709,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_0459"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -33309,7 +32738,7 @@
           "stem": "07__DSC_0459",
           "extension": ".jpg",
           "proposedFilename": "07__DSC_0459.jpg",
-          "cameraCode": "DSC_0459"
+          "cameraCode": ""
         }
       ]
     },
@@ -35659,59 +35088,6 @@
       ]
     },
     {
-      "imageId": "imgreg-000513",
-      "identityKey": "source:People/people 243.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "strong",
-      "source": {
-        "sourcePath": "People/people 243.jpg",
-        "sourceName": "people 243.jpg",
-        "cameraCode": "",
-        "proposedFilename": "",
-        "exactHashMatch": false,
-        "averageHashDistance": 0,
-        "differenceHashDistance": 0,
-        "ratioDiff": 0,
-        "histogramDiff": 0.09375
-      },
-      "manualReview": {
-        "held": false,
-        "holdReason": "",
-        "holdNote": "",
-        "manualCameraCode": ""
-      },
-      "placements": [
-        {
-          "projectSlug": "024 - dust bw",
-          "projectTitle": "Dust B&W",
-          "siteRelativePath": "src/projects/024 - dust bw/04.jpg",
-          "currentFilename": "04.jpg",
-          "orderIndex": 3,
-          "alt": "Person fishing on a sandy bank with a bent rod against an empty horizon",
-          "caption": ""
-        }
-      ],
-      "metadataRefs": [
-        {
-          "projectSlug": "024 - dust bw",
-          "src": "04.jpg"
-        }
-      ],
-      "sourceAssetId": "srcast-000500",
-      "variants": [
-        {
-          "variantId": "imgvar-000522",
-          "kind": "site-master",
-          "filePath": "src/projects/024 - dust bw/04.jpg",
-          "filename": "04.jpg",
-          "stem": "04",
-          "extension": ".jpg",
-          "proposedFilename": "04.jpg",
-          "cameraCode": ""
-        }
-      ]
-    },
-    {
       "imageId": "imgreg-000514",
       "identityKey": "source:People/people DSC_0412.jpg",
       "registryStatus": "resolved",
@@ -36191,13 +35567,13 @@
     {
       "imageId": "imgreg-000523",
       "identityKey": "source:mOTTO sYNTEZA/people sonia side look.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "probable",
       "source": {
         "sourcePath": "mOTTO sYNTEZA/people sonia side look.jpg",
         "sourceName": "people sonia side look.jpg",
-        "cameraCode": "DSC_4534",
-        "proposedFilename": "14__DSC_4534.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 1,
         "differenceHashDistance": 4,
@@ -36208,7 +35584,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_4534"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -36237,20 +35613,20 @@
           "stem": "14__DSC_4534",
           "extension": ".jpg",
           "proposedFilename": "14__DSC_4534.jpg",
-          "cameraCode": "DSC_4534"
+          "cameraCode": ""
         }
       ]
     },
     {
       "imageId": "imgreg-000524",
       "identityKey": "source:ilu/versions/zosia color.jpg",
-      "registryStatus": "resolved",
+      "registryStatus": "unresolved",
       "sourceMatchStatus": "ambiguous",
       "source": {
         "sourcePath": "ilu/versions/zosia color.jpg",
         "sourceName": "zosia color.jpg",
-        "cameraCode": "DSC_4469",
-        "proposedFilename": "15__DSC_4469.jpg",
+        "cameraCode": "",
+        "proposedFilename": "",
         "exactHashMatch": false,
         "averageHashDistance": 0,
         "differenceHashDistance": 0,
@@ -36261,7 +35637,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "DSC_4469"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -36289,8 +35665,8 @@
           "filename": "15.jpg",
           "stem": "15",
           "extension": ".jpg",
-          "proposedFilename": "15__DSC_4469.jpg",
-          "cameraCode": "DSC_4469"
+          "proposedFilename": "15.jpg",
+          "cameraCode": ""
         }
       ]
     },
@@ -37152,7 +36528,7 @@
         "held": false,
         "holdReason": "",
         "holdNote": "",
-        "manualCameraCode": "PHONERAINBOW"
+        "manualCameraCode": ""
       },
       "placements": [
         {
@@ -37182,6 +36558,526 @@
           "extension": ".jpg",
           "proposedFilename": "12.jpg",
           "cameraCode": ""
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000542",
+      "identityKey": "source:general/urban DSC_8701 wisla 0269.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "general/urban DSC_8701 wisla 0269.jpg",
+        "sourceName": "urban DSC_8701 wisla 0269.jpg",
+        "cameraCode": "DSC_8701",
+        "proposedFilename": "03__DSC_8701.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000109,
+        "histogramDiff": 0.046875
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "000 - unusuall_usual",
+          "projectTitle": "usual uNuSuAll",
+          "siteRelativePath": "src/projects/000 - unusuall_usual/03__DSC_8701.jpg",
+          "currentFilename": "03__DSC_8701.jpg",
+          "orderIndex": 2,
+          "alt": "Paddleboarder on a river seen past a fallen blue swimming sign",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "000 - unusuall_usual",
+          "src": "03__DSC_8701.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000528",
+      "variants": [
+        {
+          "variantId": "imgvar-000551",
+          "kind": "site-master",
+          "filePath": "src/projects/000 - unusuall_usual/03__DSC_8701.jpg",
+          "filename": "03__DSC_8701.jpg",
+          "stem": "03__DSC_8701",
+          "extension": ".jpg",
+          "proposedFilename": "03__DSC_8701.jpg",
+          "cameraCode": "DSC_8701"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000543",
+      "identityKey": "source:People/people 226 DSC_8752.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "People/people 226 DSC_8752.jpg",
+        "sourceName": "people 226 DSC_8752.jpg",
+        "cameraCode": "DSC_8752",
+        "proposedFilename": "08__DSC_8752.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000191,
+        "histogramDiff": 0.171875
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "009 - KING NO SMO",
+          "projectTitle": "king No Smo",
+          "siteRelativePath": "src/projects/009 - KING NO SMO/08__DSC_8752.jpg",
+          "currentFilename": "08__DSC_8752.jpg",
+          "orderIndex": 7,
+          "alt": "Bald man smoking on a bench while looking down at his phone",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "009 - KING NO SMO",
+          "src": "08__DSC_8752.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000529",
+      "variants": [
+        {
+          "variantId": "imgvar-000552",
+          "kind": "site-master",
+          "filePath": "src/projects/009 - KING NO SMO/08__DSC_8752.jpg",
+          "filename": "08__DSC_8752.jpg",
+          "stem": "08__DSC_8752",
+          "extension": ".jpg",
+          "proposedFilename": "08__DSC_8752.jpg",
+          "cameraCode": "DSC_8752"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000544",
+      "identityKey": "source:mOTTO sYNTEZA/people 241 DSC_8560.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "mOTTO sYNTEZA/people 241 DSC_8560.jpg",
+        "sourceName": "people 241 DSC_8560.jpg",
+        "cameraCode": "DSC_8560",
+        "proposedFilename": "06__DSC_8560.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 1,
+        "ratioDiff": 0,
+        "histogramDiff": 0.140625
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "010 - reflection",
+          "projectTitle": "Reflections",
+          "siteRelativePath": "src/projects/010 - reflection/06__DSC_8560.jpg",
+          "currentFilename": "06__DSC_8560.jpg",
+          "orderIndex": 4,
+          "alt": "Fisherman and his reflection stretching across still water",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "010 - reflection",
+          "src": "06__DSC_8560.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000530",
+      "variants": [
+        {
+          "variantId": "imgvar-000553",
+          "kind": "site-master",
+          "filePath": "src/projects/010 - reflection/06__DSC_8560.jpg",
+          "filename": "06__DSC_8560.jpg",
+          "stem": "06__DSC_8560",
+          "extension": ".jpg",
+          "proposedFilename": "06__DSC_8560.jpg",
+          "cameraCode": "DSC_8560"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000545",
+      "identityKey": "source:mOTTO sYNTEZA/people 232 DSC_8719.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "mOTTO sYNTEZA/people 232 DSC_8719.jpg",
+        "sourceName": "people 232 DSC_8719.jpg",
+        "cameraCode": "DSC_8719",
+        "proposedFilename": "12__DSC_8719.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 3,
+        "ratioDiff": 0.000255,
+        "histogramDiff": 0.179688
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "011 - golden age",
+          "projectTitle": "Golden age",
+          "siteRelativePath": "src/projects/011 - golden age/12__DSC_8719.jpg",
+          "currentFilename": "12__DSC_8719.jpg",
+          "orderIndex": 11,
+          "alt": "Older man sitting alone on a bench hidden among bushes",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "011 - golden age",
+          "src": "12__DSC_8719.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000531",
+      "variants": [
+        {
+          "variantId": "imgvar-000554",
+          "kind": "site-master",
+          "filePath": "src/projects/011 - golden age/12__DSC_8719.jpg",
+          "filename": "12__DSC_8719.jpg",
+          "stem": "12__DSC_8719",
+          "extension": ".jpg",
+          "proposedFilename": "12__DSC_8719.jpg",
+          "cameraCode": "DSC_8719"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000546",
+      "identityKey": "site:src/projects/013 - natural taste/31__DSC_8786.jpg",
+      "registryStatus": "unresolved",
+      "sourceMatchStatus": "unmatched",
+      "source": null,
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "013 - natural taste",
+          "projectTitle": "Natural Taste",
+          "siteRelativePath": "src/projects/013 - natural taste/31__DSC_8786.jpg",
+          "currentFilename": "31__DSC_8786.jpg",
+          "orderIndex": 30,
+          "alt": "Cluster of small purple wildflowers in soft focus",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "013 - natural taste",
+          "src": "31__DSC_8786.jpg"
+        }
+      ],
+      "sourceAssetId": null,
+      "variants": [
+        {
+          "variantId": "imgvar-000555",
+          "kind": "site-master",
+          "filePath": "src/projects/013 - natural taste/31__DSC_8786.jpg",
+          "filename": "31__DSC_8786.jpg",
+          "stem": "31__DSC_8786",
+          "extension": ".jpg",
+          "proposedFilename": "31__DSC_8786.jpg",
+          "cameraCode": ""
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000547",
+      "identityKey": "source:People/people autumn park statue 210 DSC_8813.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "People/people autumn park statue 210 DSC_8813.jpg",
+        "sourceName": "people autumn park statue 210 DSC_8813.jpg",
+        "cameraCode": "DSC_8813",
+        "proposedFilename": "08__DSC_8813.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 2,
+        "ratioDiff": 0,
+        "histogramDiff": 0.132813
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "014 - stat you",
+          "projectTitle": "Stat You",
+          "siteRelativePath": "src/projects/014 - stat you/08__DSC_8813.jpg",
+          "currentFilename": "08__DSC_8813.jpg",
+          "orderIndex": 7,
+          "alt": "Reclining sculpture beside a bench and a bicycle",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "014 - stat you",
+          "src": "08__DSC_8813.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000532",
+      "variants": [
+        {
+          "variantId": "imgvar-000556",
+          "kind": "site-master",
+          "filePath": "src/projects/014 - stat you/08__DSC_8813.jpg",
+          "filename": "08__DSC_8813.jpg",
+          "stem": "08__DSC_8813",
+          "extension": ".jpg",
+          "proposedFilename": "08__DSC_8813.jpg",
+          "cameraCode": "DSC_8813"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000548",
+      "identityKey": "source:mOTTO sYNTEZA/people 224 bench automn DSC_8761.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "mOTTO sYNTEZA/people 224 bench automn DSC_8761.jpg",
+        "sourceName": "people 224 bench automn DSC_8761.jpg",
+        "cameraCode": "DSC_8761",
+        "proposedFilename": "08__DSC_8761.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 1,
+        "ratioDiff": 0,
+        "histogramDiff": 0.15625
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "016 - star dust",
+          "projectTitle": "Star Dust",
+          "siteRelativePath": "src/projects/016 - star dust/08__DSC_8761.jpg",
+          "currentFilename": "08__DSC_8761.jpg",
+          "orderIndex": 7,
+          "alt": "Man sitting alone on a park bench seen from behind in autumn leaves",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "016 - star dust",
+          "src": "08__DSC_8761.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000533",
+      "variants": [
+        {
+          "variantId": "imgvar-000557",
+          "kind": "site-master",
+          "filePath": "src/projects/016 - star dust/08__DSC_8761.jpg",
+          "filename": "08__DSC_8761.jpg",
+          "stem": "08__DSC_8761",
+          "extension": ".jpg",
+          "proposedFilename": "08__DSC_8761.jpg",
+          "cameraCode": "DSC_8761"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000549",
+      "identityKey": "source:People/people 238 DSC_8558.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "People/people 238 DSC_8558.jpg",
+        "sourceName": "people 238 DSC_8558.jpg",
+        "cameraCode": "DSC_8558",
+        "proposedFilename": "09__DSC_8558.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 3,
+        "differenceHashDistance": 0,
+        "ratioDiff": 0.000228,
+        "histogramDiff": 0.054688
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "019 - quite handy",
+          "projectTitle": "Quite Handy",
+          "siteRelativePath": "src/projects/019 - quite handy/09__DSC_8558.jpg",
+          "currentFilename": "09__DSC_8558.jpg",
+          "orderIndex": 8,
+          "alt": "Couple walking away hand in hand on a sloped concrete path",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "019 - quite handy",
+          "src": "09__DSC_8558.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000534",
+      "variants": [
+        {
+          "variantId": "imgvar-000558",
+          "kind": "site-master",
+          "filePath": "src/projects/019 - quite handy/09__DSC_8558.jpg",
+          "filename": "09__DSC_8558.jpg",
+          "stem": "09__DSC_8558",
+          "extension": ".jpg",
+          "proposedFilename": "09__DSC_8558.jpg",
+          "cameraCode": "DSC_8558"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000550",
+      "identityKey": "source:People/people autumn park 213 DSC_8798.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "People/people autumn park 213 DSC_8798.jpg",
+        "sourceName": "people autumn park 213 DSC_8798.jpg",
+        "cameraCode": "DSC_8798",
+        "proposedFilename": "10__DSC_8798.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 1,
+        "differenceHashDistance": 6,
+        "ratioDiff": 0.000318,
+        "histogramDiff": 0.257813
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "019 - quite handy",
+          "projectTitle": "Quite Handy",
+          "siteRelativePath": "src/projects/019 - quite handy/10__DSC_8798.jpg",
+          "currentFilename": "10__DSC_8798.jpg",
+          "orderIndex": 9,
+          "alt": "Woman raising both hands among dark tree branches",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "019 - quite handy",
+          "src": "10__DSC_8798.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000535",
+      "variants": [
+        {
+          "variantId": "imgvar-000559",
+          "kind": "site-master",
+          "filePath": "src/projects/019 - quite handy/10__DSC_8798.jpg",
+          "filename": "10__DSC_8798.jpg",
+          "stem": "10__DSC_8798",
+          "extension": ".jpg",
+          "proposedFilename": "10__DSC_8798.jpg",
+          "cameraCode": "DSC_8798"
+        }
+      ]
+    },
+    {
+      "imageId": "imgreg-000551",
+      "identityKey": "source:People/people 243 DSC_8622.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "People/people 243 DSC_8622.jpg",
+        "sourceName": "people 243 DSC_8622.jpg",
+        "cameraCode": "DSC_8622",
+        "proposedFilename": "04__DSC_8622.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 0,
+        "differenceHashDistance": 0,
+        "ratioDiff": 0,
+        "histogramDiff": 0.09375
+      },
+      "manualReview": {
+        "held": false,
+        "holdReason": "",
+        "holdNote": "",
+        "manualCameraCode": ""
+      },
+      "placements": [
+        {
+          "projectSlug": "024 - dust bw",
+          "projectTitle": "Dust B&W",
+          "siteRelativePath": "src/projects/024 - dust bw/04__DSC_8622.jpg",
+          "currentFilename": "04__DSC_8622.jpg",
+          "orderIndex": 3,
+          "alt": "Person fishing on a sandy bank with a bent rod against an empty horizon",
+          "caption": ""
+        }
+      ],
+      "metadataRefs": [
+        {
+          "projectSlug": "024 - dust bw",
+          "src": "04__DSC_8622.jpg"
+        }
+      ],
+      "sourceAssetId": "srcast-000536",
+      "variants": [
+        {
+          "variantId": "imgvar-000560",
+          "kind": "site-master",
+          "filePath": "src/projects/024 - dust bw/04__DSC_8622.jpg",
+          "filename": "04__DSC_8622.jpg",
+          "stem": "04__DSC_8622",
+          "extension": ".jpg",
+          "proposedFilename": "04__DSC_8622.jpg",
+          "cameraCode": "DSC_8622"
         }
       ]
     }

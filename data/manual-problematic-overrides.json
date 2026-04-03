@@ -1,50 +1,50 @@
 [
-    {
-        "currentSitePath":  "src/projects/000 - unusuall_usual/20.jpg",
-        "reason":  "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
-    },
-    {
-        "currentSitePath":  "src/projects/013 - natural taste/16.jpg",
-        "reason":  "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
-    },
-    {
-        "currentSitePath":  "src/projects/008 - arty/15.jpg",
-        "reason":  "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
-    },
-    {
-        "currentSitePath":  "src/projects/010 - reflection/03.jpg",
-        "reason":  "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
-    },
-    {
-        "currentSitePath":  "src/projects/010 - reflection/05.jpg",
-        "reason":  "Camera code is right, but the current source match is wrong. Keep this entry in remaining until the correct source is found."
-    },
-    {
-        "currentSitePath":  "src/projects/014 - stat you/16__DSC_3304.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/019 - quite handy/14__DSC_2968.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/000 - unusuall_usual/02__DSC_2785.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/009 - KING NO SMO/05.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/009 - KING NO SMO/06.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/006 - smashed/02__DSC_5631.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    },
-    {
-        "currentSitePath":  "src/projects/004 - windows_eyes_of_the_modern_soul/13__DSC_1027.jpg",
-        "reason":  "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
-    }
+  {
+    "currentSitePath": "src/projects/000 - unusuall_usual/20.jpg",
+    "reason": "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
+  },
+  {
+    "currentSitePath": "src/projects/013 - natural taste/16.jpg",
+    "reason": "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
+  },
+  {
+    "currentSitePath": "src/projects/008 - arty/15.jpg",
+    "reason": "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
+  },
+  {
+    "currentSitePath": "src/projects/010 - reflection/03.jpg",
+    "reason": "Matching picture but wrong camera code due to wrong source name. Return to remaining until correct source is found."
+  },
+  {
+    "currentSitePath": "src/projects/010 - reflection/05.jpg",
+    "reason": "Camera code is right, but the current source match is wrong. Keep this entry in remaining until the correct source is found."
+  },
+  {
+    "currentSitePath": "src/projects/014 - stat you/16__DSC_3304.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/019 - quite handy/14__DSC_2968.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/000 - unusuall_usual/02__DSC_2785.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/009 - KING NO SMO/05.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/009 - KING NO SMO/06.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/006 - smashed/02__DSC_5631.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  },
+  {
+    "currentSitePath": "src/projects/004 - windows_eyes_of_the_modern_soul/13__DSC_1027.jpg",
+    "reason": "RAW review marked no match. Keep in problematic list until correct RAW/source linkage is found."
+  }
 ]
