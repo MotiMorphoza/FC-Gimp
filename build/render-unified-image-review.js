@@ -2,17 +2,22 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 
 const DEFAULT_REPORT = '.build-temp/registry-raw-review-all/raw-verification-review.json';
 const DEFAULT_SELECTIONS = 'data/raw-review-all-selections.json';
 const DEFAULT_REGISTRY = 'data/image-registry.json';
+const DEFAULT_MANUAL_MATCHES = 'data/manual-source-matches.json';
 const DEFAULT_HTML = '.build-temp/registry-raw-review-all/unified-image-review.html';
+const EXIFTOOL_PATH = 'C:\\Tools\\ExifTool\\exiftool.exe';
 
 function parseArgs(argv = []) {
   const args = {
     report: DEFAULT_REPORT,
     selections: DEFAULT_SELECTIONS,
     registry: DEFAULT_REGISTRY,
+    manualMatches: DEFAULT_MANUAL_MATCHES,
     html: DEFAULT_HTML
   };
 
@@ -30,6 +35,11 @@ function parseArgs(argv = []) {
     }
     if (token === '--registry') {
       args.registry = argv[index + 1] ? String(argv[index + 1]) : args.registry;
+      index += 1;
+      continue;
+    }
+    if (token === '--manual-matches') {
+      args.manualMatches = argv[index + 1] ? String(argv[index + 1]) : args.manualMatches;
       index += 1;
       continue;
     }
@@ -65,6 +75,50 @@ function normalizePath(value = '') {
   return String(value || '').replace(/\\/g, '/').trim();
 }
 
+function exiftoolJson(filePath) {
+  const output = execFileSync(EXIFTOOL_PATH, ['-j', '-FileType', '-CreateDate', '-DateTimeOriginal', '-PreviewImage', '-JpgFromRaw', '-ThumbnailImage', filePath], {
+    encoding: 'utf8',
+    windowsHide: true,
+    stdio: ['ignore', 'pipe', 'pipe']
+  });
+  const payload = JSON.parse(output);
+  return Array.isArray(payload) ? (payload[0] || {}) : {};
+}
+
+function selectPreviewTag(metadata = {}) {
+  if (metadata.PreviewImage) return 'PreviewImage';
+  if (metadata.JpgFromRaw) return 'JpgFromRaw';
+  if (metadata.ThumbnailImage) return 'ThumbnailImage';
+  return '';
+}
+
+function extractPreview(rawPath, outDir) {
+  if (!rawPath || !fs.existsSync(rawPath)) return '';
+
+  let metadata = {};
+  try {
+    metadata = exiftoolJson(rawPath);
+  } catch (error) {
+    metadata = {};
+  }
+
+  const previewTag = selectPreviewTag(metadata);
+  if (!previewTag) return '';
+
+  const hash = crypto.createHash('sha1').update(rawPath).digest('hex').slice(0, 12);
+  const outputPath = path.join(outDir, `${hash}.jpg`);
+  if (!fs.existsSync(outputPath)) {
+    const buffer = execFileSync(EXIFTOOL_PATH, ['-b', `-${previewTag}`, rawPath], {
+      encoding: 'buffer',
+      windowsHide: true,
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, buffer);
+  }
+  return outputPath;
+}
+
 function containsCameraCode(value = '', cameraCode = '') {
   if (!value || !cameraCode) return false;
   return String(value).toUpperCase().includes(String(cameraCode).toUpperCase());
@@ -79,6 +133,30 @@ function deriveSlotKey(siteRelativePath = '', projectSlug = '') {
   const stem = path.parse(filename).name;
   const slot = stem.split('__')[0] || stem;
   return `${String(projectSlug || '').trim()}::${slot}`;
+}
+
+function buildManualMatchLookup(manualMatches = [], archiveDir = '', previewDir = '') {
+  const lookup = new Map();
+  for (const row of Array.isArray(manualMatches) ? manualMatches : []) {
+    const siteRelativePath = normalizePath(row?.siteRelativePath || row?.currentSitePath || '');
+    if (!siteRelativePath) continue;
+    const rawPath = String(row?.rawPath || '').replace(/\//g, '\\').trim();
+    let previewPath = '';
+    try {
+      previewPath = rawPath ? extractPreview(rawPath, previewDir) : '';
+    } catch (error) {
+      previewPath = '';
+    }
+    lookup.set(siteRelativePath, {
+      cameraCode: String(row?.cameraCode || '').trim(),
+      sourcePath: normalizePath(row?.sourcePath || ''),
+      absoluteSourcePath: row?.sourcePath && archiveDir ? path.join(archiveDir, normalizePath(row.sourcePath)) : '',
+      rawPath,
+      previewPath,
+      note: String(row?.note || '').trim()
+    });
+  }
+  return lookup;
 }
 
 function buildRegistryLookup(registry, archiveDir) {
@@ -164,6 +242,41 @@ function mergeReportWithRegistry(entry, registryEntry) {
   };
 }
 
+function mergeEntryWithManualMatch(entry, manualMatch) {
+  if (!manualMatch) return entry;
+  const merged = {
+    ...entry,
+    cameraCode: manualMatch.cameraCode || entry.cameraCode,
+    sourcePath: manualMatch.sourcePath || entry.sourcePath,
+    absoluteSourcePath: manualMatch.absoluteSourcePath || entry.absoluteSourcePath
+  };
+
+  const rawRelativePath = manualMatch.rawPath
+    ? normalizePath(path.relative('D:\\RAW', manualMatch.rawPath))
+    : '';
+  const alreadyPresent = (Array.isArray(merged.rawCandidates) ? merged.rawCandidates : [])
+    .find((candidate) => normalizePath(candidate.rawPath || '') === normalizePath(manualMatch.rawPath || ''));
+
+  if (!alreadyPresent && manualMatch.rawPath) {
+    merged.rawCandidates = [
+      {
+        rawPath: manualMatch.rawPath,
+        rawRelativePath,
+        fileType: path.extname(manualMatch.rawPath).replace(/^\./, '').toUpperCase(),
+        rawDate: '',
+        score: 999,
+        previewPath: manualMatch.previewPath || ''
+      },
+      ...(Array.isArray(merged.rawCandidates) ? merged.rawCandidates : [])
+    ];
+  } else if (alreadyPresent && manualMatch.previewPath && !alreadyPresent.previewPath) {
+    alreadyPresent.previewPath = manualMatch.previewPath;
+  }
+
+  merged.manualMatch = manualMatch;
+  return merged;
+}
+
 function renderPathLink(label, filePath) {
   if (!filePath) return `<span class="path-missing">${escapeHtml(label)}: missing</span>`;
   const href = fileUrlFromPath(filePath);
@@ -179,6 +292,7 @@ function renderThumb(imagePath, altText, missingLabel) {
 
 function determineRawState(entry, selection) {
   const rawCandidates = Array.isArray(entry.rawCandidates) ? entry.rawCandidates : [];
+  if (entry.manualMatch?.rawPath) return 'approved';
   if (selection && String(selection.choice || '').toUpperCase() === 'N') {
     return 'no-raw';
   }
@@ -192,6 +306,9 @@ function determineRawState(entry, selection) {
 
 function resolveSelectedRaw(entry, selection) {
   const rawCandidates = Array.isArray(entry.rawCandidates) ? entry.rawCandidates : [];
+  if (entry.manualMatch?.rawPath) {
+    return rawCandidates.find((candidate) => normalizePath(candidate.rawPath || '') === normalizePath(entry.manualMatch.rawPath || '')) || rawCandidates[0] || null;
+  }
   if (selection && String(selection.choice || '').toUpperCase() === 'N') return null;
   if (selection && /^[A-Z]$/i.test(String(selection.choice || ''))) {
     const choice = String(selection.choice || '').toUpperCase();
@@ -209,6 +326,7 @@ function buildEntryModel(entry, index, selectionMap) {
   const jpegPath = entry.absoluteSourcePath || '';
   const rawState = determineRawState(entry, selection);
   const selectedRaw = resolveSelectedRaw(entry, selection);
+  const manualMatch = entry.manualMatch || null;
   const cameraCode = String(entry.cameraCode || '').trim();
   const siteHasCode = containsCameraCode(entry.siteFilename || entry.siteRelativePath || '', cameraCode);
   const jpegHasCode = containsCameraCode(entry.sourceName || entry.sourcePath || '', cameraCode);
@@ -217,7 +335,9 @@ function buildEntryModel(entry, index, selectionMap) {
   const missingJpeg = !(jpegPath && fs.existsSync(jpegPath));
 
   let rawDecisionLabel = 'Pending';
-  if (rawState === 'approved') {
+  if (manualMatch?.rawPath) {
+    rawDecisionLabel = 'Manual RAW confirmed';
+  } else if (rawState === 'approved') {
     rawDecisionLabel = selection ? `Approved ${String(selection.choice || 'A').toUpperCase()}` : (selectedRaw ? 'Single RAW candidate' : 'Approved');
   } else if (rawState === 'needs-choice') {
     rawDecisionLabel = 'Needs RAW choice';
@@ -358,10 +478,13 @@ function main() {
   const report = readJson(path.resolve(process.cwd(), args.report), { entries: [], summary: {} });
   const selections = readJson(path.resolve(process.cwd(), args.selections), []);
   const registry = readJson(path.resolve(process.cwd(), args.registry), { images: [], sourceAssets: [] });
+  const manualMatches = readJson(path.resolve(process.cwd(), args.manualMatches), []);
   const selectionMap = new Map(
     (Array.isArray(selections) ? selections : []).map((entry) => [String(entry.reviewNumber || ''), entry])
   );
   const registryLookup = buildRegistryLookup(registry, report.archiveDir ? String(report.archiveDir) : '');
+  const previewDir = path.resolve(process.cwd(), '.build-temp/registry-raw-review-all/raw-previews');
+  const manualMatchLookup = buildManualMatchLookup(manualMatches, report.archiveDir ? String(report.archiveDir) : '', previewDir);
   const models = (Array.isArray(report.entries) ? report.entries : [])
     .map((entry) => {
       const imageId = String(entry.imageId || '').trim();
@@ -369,6 +492,7 @@ function main() {
       const registryEntry = registryLookup.byImageId.get(imageId) || registryLookup.bySlotKey.get(slotKey) || null;
       return mergeReportWithRegistry(entry, registryEntry);
     })
+    .map((entry) => mergeEntryWithManualMatch(entry, manualMatchLookup.get(normalizePath(entry.siteRelativePath))))
     .map((entry, index) => buildEntryModel(entry, index, selectionMap));
   const summary = buildSummary(models);
 
