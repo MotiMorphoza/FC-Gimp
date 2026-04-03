@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-03T01:35:12.488Z",
+  "generatedAt": "2026-04-03T02:32:33.608Z",
   "schemaVersion": 2,
   "summary": {
     "imageCount": 541,
     "placementCount": 550,
     "variantCount": 550,
-    "sourceAssetCount": 523,
-    "resolved": 473,
+    "sourceAssetCount": 524,
+    "resolved": 474,
     "held": 12,
-    "unresolved": 56
+    "unresolved": 55
   },
   "sourceAssets": [
     {
@@ -8377,6 +8377,22 @@
       },
       "linkedImageIds": [
         "imgreg-000551"
+      ]
+    },
+    {
+      "sourceAssetId": "srcast-000537",
+      "sourcePath": "Abstract + Still/abstract DSC_8786 stone.jpg",
+      "sourceName": "abstract DSC_8786 stone.jpg",
+      "cameraCode": "DSC_8786",
+      "fingerprintBundle": {
+        "exactHashMatch": false,
+        "averageHashDistance": 27,
+        "differenceHashDistance": 36,
+        "ratioDiff": 0.55546,
+        "histogramDiff": 0.960938
+      },
+      "linkedImageIds": [
+        "imgreg-000546"
       ]
     }
   ],
@@ -36775,10 +36791,20 @@
     },
     {
       "imageId": "imgreg-000546",
-      "identityKey": "site:src/projects/013 - natural taste/31__DSC_8786.jpg",
-      "registryStatus": "unresolved",
-      "sourceMatchStatus": "unmatched",
-      "source": null,
+      "identityKey": "source:Abstract + Still/abstract DSC_8786 stone.jpg",
+      "registryStatus": "resolved",
+      "sourceMatchStatus": "manual",
+      "source": {
+        "sourcePath": "Abstract + Still/abstract DSC_8786 stone.jpg",
+        "sourceName": "abstract DSC_8786 stone.jpg",
+        "cameraCode": "DSC_8786",
+        "proposedFilename": "31__DSC_8786.jpg",
+        "exactHashMatch": false,
+        "averageHashDistance": 27,
+        "differenceHashDistance": 36,
+        "ratioDiff": 0.55546,
+        "histogramDiff": 0.960938
+      },
       "manualReview": {
         "held": false,
         "holdReason": "",
@@ -36802,7 +36828,7 @@
           "src": "31__DSC_8786.jpg"
         }
       ],
-      "sourceAssetId": null,
+      "sourceAssetId": "srcast-000537",
       "variants": [
         {
           "variantId": "imgvar-000555",
@@ -36812,7 +36838,7 @@
           "stem": "31__DSC_8786",
           "extension": ".jpg",
           "proposedFilename": "31__DSC_8786.jpg",
-          "cameraCode": ""
+          "cameraCode": "DSC_8786"
         }
       ]
     },

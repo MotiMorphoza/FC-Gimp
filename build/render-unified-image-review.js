@@ -5,12 +5,14 @@ const path = require('path');
 
 const DEFAULT_REPORT = '.build-temp/registry-raw-review-all/raw-verification-review.json';
 const DEFAULT_SELECTIONS = 'data/raw-review-all-selections.json';
+const DEFAULT_REGISTRY = 'data/image-registry.json';
 const DEFAULT_HTML = '.build-temp/registry-raw-review-all/unified-image-review.html';
 
 function parseArgs(argv = []) {
   const args = {
     report: DEFAULT_REPORT,
     selections: DEFAULT_SELECTIONS,
+    registry: DEFAULT_REGISTRY,
     html: DEFAULT_HTML
   };
 
@@ -23,6 +25,11 @@ function parseArgs(argv = []) {
     }
     if (token === '--selections') {
       args.selections = argv[index + 1] ? String(argv[index + 1]) : args.selections;
+      index += 1;
+      continue;
+    }
+    if (token === '--registry') {
+      args.registry = argv[index + 1] ? String(argv[index + 1]) : args.registry;
       index += 1;
       continue;
     }
@@ -65,6 +72,96 @@ function containsCameraCode(value = '', cameraCode = '') {
 
 function padNumber(value, width = 3) {
   return String(value).padStart(width, '0');
+}
+
+function deriveSlotKey(siteRelativePath = '', projectSlug = '') {
+  const filename = path.basename(String(siteRelativePath || '').trim());
+  const stem = path.parse(filename).name;
+  const slot = stem.split('__')[0] || stem;
+  return `${String(projectSlug || '').trim()}::${slot}`;
+}
+
+function buildRegistryLookup(registry, archiveDir) {
+  const byImageId = new Map();
+  const bySlotKey = new Map();
+  const sourceAssetMap = new Map(
+    (Array.isArray(registry?.sourceAssets) ? registry.sourceAssets : [])
+      .map((asset) => [String(asset?.sourceAssetId || '').trim(), asset])
+  );
+
+  for (const image of Array.isArray(registry?.images) ? registry.images : []) {
+    const imageId = String(image?.imageId || '').trim();
+    if (!imageId) continue;
+    const placement = (Array.isArray(image?.placements) ? image.placements : [])[0] || null;
+    const variant = (Array.isArray(image?.variants) ? image.variants : [])[0] || null;
+    const sourceAssetId = String(image?.sourceAssetId || '').trim();
+    const sourceAsset = sourceAssetMap.get(sourceAssetId) || null;
+    const sourcePath = normalizePath(
+      sourceAsset?.sourcePath ||
+      image?.source?.sourcePath ||
+      ''
+    );
+    const siteRelativePath = normalizePath(
+      placement?.siteRelativePath ||
+      variant?.filePath ||
+      ''
+    );
+    const registryEntry = {
+      registryStatus: String(image?.registryStatus || '').trim(),
+      cameraCode: String(
+        sourceAsset?.cameraCode ||
+        image?.source?.cameraCode ||
+        variant?.cameraCode ||
+        ''
+      ).trim(),
+      projectSlug: String(placement?.projectSlug || '').trim(),
+      siteRelativePath,
+      siteFilename: String(
+        placement?.currentFilename ||
+        variant?.filename ||
+        path.basename(siteRelativePath)
+      ).trim(),
+      absoluteSitePath: siteRelativePath ? path.resolve(process.cwd(), siteRelativePath) : '',
+      sourcePath,
+      sourceName: String(
+        sourceAsset?.sourceName ||
+        image?.source?.sourceName ||
+        path.basename(sourcePath)
+      ).trim(),
+      absoluteSourcePath: sourcePath && archiveDir ? path.join(archiveDir, sourcePath) : '',
+      jpegDate: String(
+        image?.source?.dateTimeOriginal ||
+        image?.source?.createDate ||
+        ''
+      ).trim(),
+      placementCount: Array.isArray(image?.placements) ? image.placements.length : 0
+    };
+    byImageId.set(imageId, registryEntry);
+    const slotKey = deriveSlotKey(registryEntry.siteRelativePath, registryEntry.projectSlug);
+    if (slotKey && !bySlotKey.has(slotKey)) {
+      bySlotKey.set(slotKey, registryEntry);
+    }
+  }
+
+  return { byImageId, bySlotKey };
+}
+
+function mergeReportWithRegistry(entry, registryEntry) {
+  if (!registryEntry) return entry;
+  return {
+    ...entry,
+    registryStatus: registryEntry.registryStatus || entry.registryStatus,
+    cameraCode: registryEntry.cameraCode || entry.cameraCode,
+    projectSlug: registryEntry.projectSlug || entry.projectSlug,
+    siteRelativePath: registryEntry.siteRelativePath || entry.siteRelativePath,
+    siteFilename: registryEntry.siteFilename || entry.siteFilename,
+    absoluteSitePath: registryEntry.absoluteSitePath || entry.absoluteSitePath,
+    sourcePath: registryEntry.sourcePath || entry.sourcePath,
+    sourceName: registryEntry.sourceName || entry.sourceName,
+    absoluteSourcePath: registryEntry.absoluteSourcePath || entry.absoluteSourcePath,
+    jpegDate: registryEntry.jpegDate || entry.jpegDate,
+    placementCount: registryEntry.placementCount || entry.placementCount
+  };
 }
 
 function renderPathLink(label, filePath) {
@@ -260,10 +357,18 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const report = readJson(path.resolve(process.cwd(), args.report), { entries: [], summary: {} });
   const selections = readJson(path.resolve(process.cwd(), args.selections), []);
+  const registry = readJson(path.resolve(process.cwd(), args.registry), { images: [], sourceAssets: [] });
   const selectionMap = new Map(
     (Array.isArray(selections) ? selections : []).map((entry) => [String(entry.reviewNumber || ''), entry])
   );
+  const registryLookup = buildRegistryLookup(registry, report.archiveDir ? String(report.archiveDir) : '');
   const models = (Array.isArray(report.entries) ? report.entries : [])
+    .map((entry) => {
+      const imageId = String(entry.imageId || '').trim();
+      const slotKey = deriveSlotKey(entry.siteRelativePath, entry.projectSlug);
+      const registryEntry = registryLookup.byImageId.get(imageId) || registryLookup.bySlotKey.get(slotKey) || null;
+      return mergeReportWithRegistry(entry, registryEntry);
+    })
     .map((entry, index) => buildEntryModel(entry, index, selectionMap));
   const summary = buildSummary(models);
 
